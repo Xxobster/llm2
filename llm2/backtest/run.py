@@ -79,6 +79,7 @@ def run_strategy_backtest(
     instrument: Any = None,
     funding_ts_ms: np.ndarray | None = None,
     funding_rate: np.ndarray | None = None,
+    starting_equity: float | None = None,
 ) -> Any:
     """Run tradesim research backtest. Returns BacktestBundle.
 
@@ -108,6 +109,12 @@ def run_strategy_backtest(
     ):
         if value is not None:
             extra[key] = value
+    # tradesim.run_backtest takes an explicit starting_equity that overrides sim;
+    # default is 10_000, so pass through if the caller set a sim wallet.
+    if starting_equity is not None:
+        extra["starting_equity"] = float(starting_equity)
+    elif sim is not None and getattr(sim, "starting_equity", None) is not None:
+        extra["starting_equity"] = float(sim.starting_equity)
 
     return run_backtest(
         strategy_id=strategy_id,

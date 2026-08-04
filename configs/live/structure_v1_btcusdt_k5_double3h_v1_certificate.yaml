@@ -1,0 +1,18 @@
+strategy_id: structure_v1_lgbm_BTCUSDT_1h_fwd_return_k5_double3h_v1
+version_id: btc_k5_double3h_v1
+status: AUTHORIZED
+authorized_by_user: true
+vps_host: 94.156.189.76
+account_ref: Xxobster10
+intended_vps_host: 94.156.189.76
+intended_account_ref: Xxobster10
+pack_path: artifacts/live_packs/structure_v1_btcusdt_k5_double3h_v1
+pack_hash: 8e885c5ea17a92bfb7c876a916774de9d6b37ba6b5b74c98edf88ccd8185855a
+expires_utc: '2026-08-18T00:00:00Z'
+created_utc: '2026-08-04T14:40:00Z'
+execution_mode: multitrade
+notes: >-
+  User authorized 2026-08-04 to deploy Track2 k5_double3h for BTCUSDT
+  on Xxobster10 / 94.156.189.76 (shared with BTC+SOL k5 units). MIN_EXCHANGE.
+  RESEARCH_TRANSFER_MICRO — not full V2.1 hedge settle. Distinct from Xxobster7
+  single-book. Expires 2026-08-18 unless renewed.

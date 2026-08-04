@@ -1,0 +1,71 @@
+# Track 3 pre-register: only open if Tracks 1–2 insufficient for promotion.
+# Bounded model-family improvement. EXCLUDES sealed clarity×hold×TP grid
+# (structure_v1_eth_singlebook_clarity_hold_tp_001 OOS-viewed).
+#
+# Do not run the hunt in this generation until ACTIVE is accepted and
+# tradesim-conformance + leakage are GREEN. Hard end < FORWARD_LOCKBOX_START.
+
+generation_id: structure_v1_target_align_calibration_001
+created_utc: "2026-08-04T13:00:00Z"
+status: PREREG_ONLY_PENDING_TRACK12
+fold_geometry: v2
+source_plan: clean_model_improvement_ec53bd32
+blocked_until: >
+  Complete OUTER_SETTLE clarity hold12 and BTC/SOL cluster/double transfer.
+  Activate this hunt only if those do not yield pack-eligible improves.
+
+hypothesis: >
+  Aligning BTCUSDT to direction (±0.10 gate) and/or fitting probability
+  calibration (isotonic, train-window only) with a break-even π* gate
+  improves fold-V2 stitched PF vs each symbol's official settle baseline
+  under structure_v1 features and LightGBM, without reusing the sealed
+  clarity×hold×TP execution grid (hold/tp remains live baseline 6 / 1%).
+
+economic_rationale: >
+  Live packs mix targets (BTC fwd_return cost hurdle vs ETH/SOL direction).
+  Misaligned decision thresholds and uncalibrated tree scores can discard
+  or over-trade. Testing target alignment and calibration is a model/policy
+  change distinct from the already-selected execution geometry on ETH.
+
+frozen_execution_baseline:
+  clarity: none
+  horizon_bars: 6
+  tp_pct: 0.01
+  sl_pct: 0.02
+  max_positions: 1
+  note: DO NOT expand hold/tp/clarity in this generation
+
+candidate_space:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  targets:
+    BTCUSDT: [fwd_return, direction]  # align test
+    ETHUSDT: [direction]              # calibration only on live target
+    SOLUSDT: [direction]
+  model: [lgbm_regressor]
+  calibration: [none, isotonic_train_slice]
+  decision_gate: [raw_edge, breakeven_pi_star]
+  excluded: sealed_clarity_hold_tp_grid
+
+selection:
+  method: inner_on_outer_fold0_train
+  n_inner_folds: 3
+  objective: mean_inner_profit_factor
+  freeze_one_arm_per_symbol: true
+  forbidden:
+    - rank_on_outer_oos_or_lockbox
+    - expand_hold_tp_clarity_space
+
+evaluation:
+  outer: fold_geometry_v2_stitched_oos
+  hard_end_exclusive: "2026-05-01"
+  lockbox: DO_NOT_OPEN_FOR_SELECTION
+  engine: botsgeneral_tradesim
+  leakage: botsgeneral_leakage_prefix_invariance_required_before_train
+
+success_criteria:
+  - selected arm beats official settle PF on symbol with V2.1 gates PASS
+  - leakage audit PASS
+  - tradesim conformance GREEN in same env
+
+failure_is_success: true
+live_deploy: FORBIDDEN_without_outer_settle_certificate_and_user_auth

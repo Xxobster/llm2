@@ -1,0 +1,415 @@
+{
+  "generation_id": "live_fleet_concordance_001",
+  "stamped_utc": "20260804T120421Z",
+  "evidence_class": "OUTER_OOS_DIAGNOSTIC",
+  "lockbox": "not_used",
+  "window_start_inclusive": "2022-01-01 00:00:00+00:00",
+  "window_end_exclusive": "2026-05-01 00:00:00+00:00",
+  "note": "Gated live sides (decide_once parity). Path fires use simplified max-hold occupancy (not full TP/SL) for concurrence only. Quote promotion from settle still.",
+  "bots": [
+    {
+      "bot_id": "btc_fwd_single_v1",
+      "service": "llm2-structure-micro",
+      "account": "Xxobster7",
+      "pack": "artifacts/live_packs/structure_v1_lgbm",
+      "symbol": "BTCUSDT",
+      "timeframe": "1h",
+      "target": "fwd_return",
+      "family": "return",
+      "min_edge": 0.0016,
+      "strategy_id": "structure_v1_lgbm_BTCUSDT_1h",
+      "execution_mode": null,
+      "multitrade": null,
+      "n_bars": 37815,
+      "n_fire": 16567,
+      "fire_rate": 0.43810657146634935,
+      "long_rate": 0.24387147957159858,
+      "short_rate": 0.19423509189475077
+    },
+    {
+      "bot_id": "eth_direction_single_v1",
+      "service": "llm2-structure-eth",
+      "account": "Xxobster7",
+      "pack": "artifacts/live_packs/structure_v1_ethusdt_direction",
+      "symbol": "ETHUSDT",
+      "timeframe": "1h",
+      "target": "direction",
+      "family": "directional",
+      "min_edge": 0.1,
+      "strategy_id": "structure_v1_lgbm_ETHUSDT_1h_direction",
+      "execution_mode": null,
+      "multitrade": null,
+      "n_bars": 37857,
+      "n_fire": 27361,
+      "fire_rate": 0.7227461235702777,
+      "long_rate": 0.3857674934622395,
+      "short_rate": 0.33697863010803814
+    },
+    {
+      "bot_id": "sol_direction_single_v1",
+      "service": "llm2-structure-sol",
+      "account": "Xxobster7",
+      "pack": "artifacts/live_packs/structure_v1_solusdt_direction",
+      "symbol": "SOLUSDT",
+      "timeframe": "1h",
+      "target": "direction",
+      "family": "directional",
+      "min_edge": 0.1,
+      "strategy_id": "structure_v1_lgbm_SOLUSDT_1h_direction",
+      "execution_mode": null,
+      "multitrade": null,
+      "n_bars": 37336,
+      "n_fire": 27091,
+      "fire_rate": 0.7255999571459182,
+      "long_rate": 0.35051960574244695,
+      "short_rate": 0.3750803514034712
+    },
+    {
+      "bot_id": "eth_multitrade_v1_1",
+      "service": "llm2-structure-eth-multitrade-v1_1",
+      "account": "Xxobster8",
+      "pack": "artifacts/live_packs/structure_v1_ethusdt_multitrade_v1_1",
+      "symbol": "ETHUSDT",
+      "timeframe": "1h",
+      "target": "direction",
+      "family": "directional",
+      "min_edge": 0.1,
+      "strategy_id": "structure_v1_lgbm_ETHUSDT_1h_direction_multitrade_v1_1",
+      "execution_mode": "multitrade",
+      "multitrade": {
+        "max_positions_per_side": 7,
+        "clarity": "mean_strength",
+        "clarity_scope": "addon",
+        "fib_ext": 1.618,
+        "hold_addon": 12,
+        "base_tp": 0.01,
+        "base_sl": 0.02,
+        "base_hold": 6,
+        "mean_lookback": 168,
+        "version_id": "eth_multitrade_v1_1",
+        "size_double_within_bars": 0,
+        "size_double_mult": 2.0,
+        "uniform_books": false,
+        "bar_ms": 3600000
+      },
+      "n_bars": 37857,
+      "n_fire": 27361,
+      "fire_rate": 0.7227461235702777,
+      "long_rate": 0.3857674934622395,
+      "short_rate": 0.33697863010803814
+    }
+  ],
+  "xxobster7_signal_histogram": {
+    "n_bars": 37122,
+    "n_bots": 3,
+    "pct_bars_zero_fires": 0.056489413285922094,
+    "pct_bars_exactly_one": 0.2569635256721082,
+    "pct_bars_two_or_more": 0.6865470610419697,
+    "pct_bars_all_three_xxobster7": 0.25669414363450244,
+    "mean_concurrent_bots": 1.88675179139055,
+    "max_concurrent_bots": 3,
+    "count_histogram": {
+      "0": 2097,
+      "1": 9539,
+      "2": 15957,
+      "3": 9529
+    }
+  },
+  "xxobster7_concurrent_count_histogram": {
+    "0": 2097,
+    "1": 9539,
+    "2": 15957,
+    "3": 9529
+  },
+  "pairwise_signal_intent": [
+    {
+      "a": "btc_fwd_single_v1",
+      "b": "eth_direction_single_v1",
+      "n_bars": 37729,
+      "rate_a": 0.4383365580852925,
+      "rate_b": 0.7226271568289645,
+      "rate_both_fire": 0.3336425561239365,
+      "rate_expected_independent": 0.3167539007033692,
+      "lift_vs_independent": 1.0533179082658972,
+      "n_both": 12588,
+      "n_same_direction": 10149,
+      "n_opposite_direction": 2439,
+      "p_same_dir_given_both": 0.8062440419447092,
+      "phi_corr": 0.0760263326205242
+    },
+    {
+      "a": "btc_fwd_single_v1",
+      "b": "sol_direction_single_v1",
+      "n_bars": 37207,
+      "rate_a": 0.4379821001424463,
+      "rate_b": 0.7258042841400811,
+      "rate_both_fire": 0.32934662832262745,
+      "rate_expected_independent": 0.31788928466005756,
+      "lift_vs_independent": 1.0360419309975235,
+      "n_both": 12254,
+      "n_same_direction": 9174,
+      "n_opposite_direction": 3080,
+      "p_same_dir_given_both": 0.748653500897666,
+      "phi_corr": 0.051765520963317886
+    },
+    {
+      "a": "btc_fwd_single_v1",
+      "b": "eth_multitrade_v1_1",
+      "n_bars": 37729,
+      "rate_a": 0.4383365580852925,
+      "rate_b": 0.7226271568289645,
+      "rate_both_fire": 0.3336425561239365,
+      "rate_expected_independent": 0.3167539007033692,
+      "lift_vs_independent": 1.0533179082658972,
+      "n_both": 12588,
+      "n_same_direction": 10149,
+      "n_opposite_direction": 2439,
+      "p_same_dir_given_both": 0.8062440419447092,
+      "phi_corr": 0.0760263326205242
+    },
+    {
+      "a": "eth_direction_single_v1",
+      "b": "sol_direction_single_v1",
+      "n_bars": 37250,
+      "rate_a": 0.7226845637583893,
+      "rate_b": 0.7257718120805369,
+      "rate_both_fire": 0.5369395973154363,
+      "rate_expected_independent": 0.5245040854015585,
+      "lift_vs_independent": 1.0237090849432702,
+      "n_both": 20001,
+      "n_same_direction": 15109,
+      "n_opposite_direction": 4892,
+      "p_same_dir_given_both": 0.7554122293885306,
+      "phi_corr": 0.06226531092477657
+    },
+    {
+      "a": "eth_direction_single_v1",
+      "b": "eth_multitrade_v1_1",
+      "n_bars": 37857,
+      "rate_a": 0.7227461235702777,
+      "rate_b": 0.7227461235702777,
+      "rate_both_fire": 0.7227461235702777,
+      "rate_expected_independent": 0.5223619591358631,
+      "lift_vs_independent": 1.383611710098315,
+      "n_both": 27361,
+      "n_same_direction": 27361,
+      "n_opposite_direction": 0,
+      "p_same_dir_given_both": 1.0,
+      "phi_corr": 1.0
+    },
+    {
+      "a": "sol_direction_single_v1",
+      "b": "eth_multitrade_v1_1",
+      "n_bars": 37250,
+      "rate_a": 0.7257718120805369,
+      "rate_b": 0.7226845637583893,
+      "rate_both_fire": 0.5369395973154363,
+      "rate_expected_independent": 0.5245040854015585,
+      "lift_vs_independent": 1.0237090849432702,
+      "n_both": 20001,
+      "n_same_direction": 15109,
+      "n_opposite_direction": 4892,
+      "p_same_dir_given_both": 0.7554122293885306,
+      "phi_corr": 0.06226531092477658
+    }
+  ],
+  "pairwise_path_entry": [
+    {
+      "a": "btc_fwd_single_v1",
+      "b": "eth_direction_single_v1",
+      "n_bars": 37729,
+      "rate_a": 0.11436825783879774,
+      "rate_b": 0.1527207188104641,
+      "rate_both_fire": 0.021415886983487502,
+      "rate_expected_independent": 0.017466402546241686,
+      "lift_vs_independent": 1.2261189404509425,
+      "n_both": 808,
+      "n_same_direction": 808,
+      "n_opposite_direction": 0,
+      "p_same_dir_given_both": 1.0,
+      "phi_corr": 0.0344983873458846
+    },
+    {
+      "a": "btc_fwd_single_v1",
+      "b": "sol_direction_single_v1",
+      "n_bars": 37207,
+      "rate_a": 0.11387642110355578,
+      "rate_b": 0.15368075899696293,
+      "rate_both_fire": 0.01932432069234284,
+      "rate_expected_independent": 0.01750061482705222,
+      "lift_vs_independent": 1.1042081025902906,
+      "n_both": 719,
+      "n_same_direction": 719,
+      "n_opposite_direction": 0,
+      "p_same_dir_given_both": 1.0,
+      "phi_corr": 0.01591893054379285
+    },
+    {
+      "a": "btc_fwd_single_v1",
+      "b": "eth_multitrade_v1_1",
+      "n_bars": 37729,
+      "rate_a": 0.11436825783879774,
+      "rate_b": 0.4071403959818707,
+      "rate_both_fire": 0.053460203026849375,
+      "rate_expected_independent": 0.0465639377842448,
+      "lift_vs_independent": 1.1481031366925751,
+      "n_both": 2017,
+      "n_same_direction": 2017,
+      "n_opposite_direction": 0,
+      "p_same_dir_given_both": 1.0,
+      "phi_corr": 0.044104874437860944
+    },
+    {
+      "a": "eth_direction_single_v1",
+      "b": "sol_direction_single_v1",
+      "n_bars": 37250,
+      "rate_a": 0.15242953020134228,
+      "rate_b": 0.15379865771812082,
+      "rate_both_fire": 0.029261744966442953,
+      "rate_expected_independent": 0.0234434571415702,
+      "lift_vs_independent": 1.248183865960439,
+      "n_both": 1090,
+      "n_same_direction": 1090,
+      "n_opposite_direction": 0,
+      "p_same_dir_given_both": 1.0,
+      "phi_corr": 0.04487036578664489
+    },
+    {
+      "a": "eth_direction_single_v1",
+      "b": "eth_multitrade_v1_1",
+      "n_bars": 37857,
+      "rate_a": 0.15267982143328843,
+      "rate_b": 0.40713738542409594,
+      "rate_both_fire": 0.09113241936762026,
+      "rate_expected_independent": 0.0621616633053669,
+      "lift_vs_independent": 1.4660550333078377,
+      "n_both": 3450,
+      "n_same_direction": 3450,
+      "n_opposite_direction": 0,
+      "p_same_dir_given_both": 1.0,
+      "phi_corr": 0.1639448236656247
+    },
+    {
+      "a": "sol_direction_single_v1",
+      "b": "eth_multitrade_v1_1",
+      "n_bars": 37250,
+      "rate_a": 0.15379865771812082,
+      "rate_b": 0.4070604026845638,
+      "rate_both_fire": 0.06571812080536912,
+      "rate_expected_independent": 0.06260534354308366,
+      "lift_vs_independent": 1.0497206322355426,
+      "n_both": 2448,
+      "n_same_direction": 2448,
+      "n_opposite_direction": 0,
+      "p_same_dir_given_both": 1.0,
+      "phi_corr": 0.017563063111026667
+    }
+  ],
+  "eth_single_vs_multitrade": {
+    "n_bars": 37857,
+    "signal_sides_identical_rate": 1.0,
+    "signal_both_fire_rate": 0.7227461235702777,
+    "signal_disagreement_rate": 0.0,
+    "path_both_enter_rate": 0.09113241936762026,
+    "path_single_only_rate": 0.06154740206566817,
+    "path_multitrade_only_rate": 0.3160049660564757,
+    "path_neither_rate": 0.5313152125102358,
+    "note": "Same structure_v1 direction targets \u2192 raw sides nearly identical. Path differs: single-book busy skips vs multitrade stacking/clarity."
+  },
+  "sample_multi_bot_bars": [
+    {
+      "ts_utc": "2022-01-01 03:00:00+00:00",
+      "btc_fwd_single_v1": 1,
+      "eth_direction_single_v1": 1,
+      "sol_direction_single_v1": 1
+    },
+    {
+      "ts_utc": "2022-01-01 04:00:00+00:00",
+      "btc_fwd_single_v1": 0,
+      "eth_direction_single_v1": 1,
+      "sol_direction_single_v1": 1
+    },
+    {
+      "ts_utc": "2022-01-01 06:00:00+00:00",
+      "btc_fwd_single_v1": 1,
+      "eth_direction_single_v1": 1,
+      "sol_direction_single_v1": 0
+    },
+    {
+      "ts_utc": "2022-01-01 07:00:00+00:00",
+      "btc_fwd_single_v1": 0,
+      "eth_direction_single_v1": 1,
+      "sol_direction_single_v1": -1
+    },
+    {
+      "ts_utc": "2022-01-01 10:00:00+00:00",
+      "btc_fwd_single_v1": 0,
+      "eth_direction_single_v1": 1,
+      "sol_direction_single_v1": 1
+    },
+    {
+      "ts_utc": "2022-01-01 11:00:00+00:00",
+      "btc_fwd_single_v1": 0,
+      "eth_direction_single_v1": 1,
+      "sol_direction_single_v1": 1
+    },
+    {
+      "ts_utc": "2022-01-01 12:00:00+00:00",
+      "btc_fwd_single_v1": 1,
+      "eth_direction_single_v1": 1,
+      "sol_direction_single_v1": 1
+    },
+    {
+      "ts_utc": "2022-01-01 13:00:00+00:00",
+      "btc_fwd_single_v1": 1,
+      "eth_direction_single_v1": 1,
+      "sol_direction_single_v1": 1
+    },
+    {
+      "ts_utc": "2022-01-01 14:00:00+00:00",
+      "btc_fwd_single_v1": 1,
+      "eth_direction_single_v1": 1,
+      "sol_direction_single_v1": 1
+    },
+    {
+      "ts_utc": "2022-01-01 15:00:00+00:00",
+      "btc_fwd_single_v1": 0,
+      "eth_direction_single_v1": 1,
+      "sol_direction_single_v1": 1
+    },
+    {
+      "ts_utc": "2022-01-01 16:00:00+00:00",
+      "btc_fwd_single_v1": 0,
+      "eth_direction_single_v1": 1,
+      "sol_direction_single_v1": 1
+    },
+    {
+      "ts_utc": "2022-01-01 17:00:00+00:00",
+      "btc_fwd_single_v1": -1,
+      "eth_direction_single_v1": -1,
+      "sol_direction_single_v1": 1
+    },
+    {
+      "ts_utc": "2022-01-01 18:00:00+00:00",
+      "btc_fwd_single_v1": -1,
+      "eth_direction_single_v1": -1,
+      "sol_direction_single_v1": 1
+    },
+    {
+      "ts_utc": "2022-01-01 19:00:00+00:00",
+      "btc_fwd_single_v1": 1,
+      "eth_direction_single_v1": -1,
+      "sol_direction_single_v1": 1
+    },
+    {
+      "ts_utc": "2022-01-01 20:00:00+00:00",
+      "btc_fwd_single_v1": 1,
+      "eth_direction_single_v1": -1,
+      "sol_direction_single_v1": 0
+    }
+  ],
+  "verdict_text": [
+    "Xxobster7: on 68.65% of outer-OOS bars \u22652 bots share a gated signal; all three together on 25.669%.",
+    "ETH single vs multitrade: signal sides identical 100.00% of bars; path both-enter 9.11%, multitrade-only 31.60%."
+  ]
+}

@@ -19,6 +19,10 @@ TARGETS = (
         "ETHUSDT",
         Path("/opt/llm2-structure-eth-multitrade-v1_1/pack/indicators_live_slice.sqlite"),
     ),
+    (
+        "ETHUSDT",
+        Path("/opt/llm2-structure-eth-multitrade-v1_2/pack/indicators_live_slice.sqlite"),
+    ),
 )
 
 

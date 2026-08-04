@@ -1,0 +1,55 @@
+# Preregistered BEFORE outer-OOS inspection.
+# Rule: if next signal ≤ 3 hours after last same-side entry → entry qty = 2× min-exchange;
+# otherwise qty = 1× min-exchange. Concurrent books K ∈ {3..9} per side (max 18 total).
+# ETHUSDT 1h direction only. Fold geometry V2 walk-forward — no future peeking, no lockbox.
+# Frozen base: mean_strength | hold12 | tp1% | sl2%.
+
+generation_id: structure_v1_eth_cluster_size_double_k3_9_001
+created_utc: "2026-08-04T07:25:00Z"
+status: FROZEN_OOS_VIEWED
+frozen_utc: "2026-08-04T07:26:31Z"
+frozen_reason: >
+  Outer-OOS viewed. Double-within-3h beat flat 1x at all K=3..9. Do not re-search
+  without a new generation_id.
+fold_geometry: v2
+
+hypothesis: >
+  Doubling min-exchange size on signals that arrive within 3h of the previous
+  same-side entry, while allowing K=3..9 concurrent books, improves stitched
+  outer-OOS Profit Factor and/or net PnL versus the same K with flat 1× size,
+  on ETHUSDT 1h direction with the frozen clarity/hold/TP arm.
+
+frozen_base_arm:
+  clarity: mean_strength
+  horizon_bars: 12
+  tp_pct: 0.01
+  sl_pct: 0.02
+  do_not_retune: true
+
+candidate_space:
+  symbol: ETHUSDT
+  target: direction
+  max_positions_per_side: [3, 4, 5, 6, 7, 8, 9]
+  size_policy:
+    - name: flat_1x
+      description: always min-exchange qty
+    - name: double_within_3h
+      description: qty=2×min if ts-last_entry_same_side <= 3h else 1×min
+  cluster_skip_gate: none  # late add-ons allowed under K; only SIZE changes
+
+evaluation:
+  method: fold_geometry_v2_stitched_outer_oos
+  train_predict: per_outer_fold_lgbm  # no peeking; lockbox excluded
+  lockbox: DO_NOT_USE
+  period: all_outer_folds_through_FORWARD_LOCKBOX_START
+  engine: botsgeneral_tradesim
+  sizing: Signal.qty override from min_exchange(price) * mult
+
+success_criteria:
+  - report full K=3..9 ladder for flat_1x and double_within_3h
+  - identify whether double_within_3h beats flat_1x at same K on PF and/or PnL
+  - no_liquidation
+  - stacked margin / min-exchange caveat
+
+failure_is_success: true
+live_deploy: FORBIDDEN_without_live_certificate_and_explicit_user_auth

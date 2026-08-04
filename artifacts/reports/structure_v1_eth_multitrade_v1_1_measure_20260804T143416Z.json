@@ -1,0 +1,197 @@
+{
+  "generation_id": "structure_v1_eth_multitrade_v1_1_measure",
+  "created_utc": "20260804T143416Z",
+  "evidence_class": "MEASURE_LIVE_GEOMETRY",
+  "live_unit": "llm2-structure-eth-multitrade-v1_1",
+  "live_account": "Xxobster8",
+  "pack": "artifacts\\live_packs\\structure_v1_ethusdt_multitrade_v1_1",
+  "geometry": {
+    "k": 7,
+    "clarity": "mean_strength",
+    "clarity_scope": "addon",
+    "fib_ext": 1.618,
+    "base_hold": 6,
+    "hold_addon": 12,
+    "base_tp": 0.01,
+    "base_sl": 0.02
+  },
+  "hard_end_exclusive": "2026-05-01",
+  "lockbox_used": false,
+  "fold_geometry": "v2",
+  "outer_fold_ranges": [
+    [
+      "2022-01-01",
+      "2022-10-01"
+    ],
+    [
+      "2022-10-01",
+      "2023-07-01"
+    ],
+    [
+      "2023-07-01",
+      "2024-04-01"
+    ],
+    [
+      "2024-04-01",
+      "2025-01-01"
+    ],
+    [
+      "2025-01-01",
+      "2025-10-01"
+    ],
+    [
+      "2025-10-01",
+      "2026-05-01"
+    ]
+  ],
+  "conformance": {
+    "status": "ok",
+    "returncode": 0,
+    "passed": true,
+    "stamp": {
+      "engine_name": "tradesim",
+      "engine_version": "1.0.0",
+      "engine_commit": "UNKNOWN_DIRTY",
+      "fixture_pack_hash": "9a037b290c8ab1f4d84706809ae83f548062fe946b811cf2ab2dee7868c371a2",
+      "registry_digest": "f9e9c06aa56214c8f24323159a93a46ba1c3d64469c305663f2dd62b2b0863e2",
+      "contract": "perp_bracket_portfolio",
+      "checked_at_ms": 1785854016155,
+      "passed": true,
+      "required_count": 62,
+      "satisfied_count": 62,
+      "unsatisfied": [],
+      "checker_version": "1",
+      "detail": {
+        "checker_version": "1",
+        "unknown_identifiers_in_tests": [],
+        "n_fixtures": 50
+      }
+    }
+  },
+  "folds": [
+    {
+      "fold_index": 0,
+      "n_trades": 2668,
+      "net_pnl": 498.6221460449942,
+      "profit_factor": 3.4065003039484343,
+      "win_rate": 0.7496251874062968,
+      "n_signals": 2678,
+      "signal_stats": {
+        "n_emitted": 2678,
+        "n_skipped_clarity": 1982,
+        "n_skipped_cap": 170,
+        "n_primary": 643,
+        "n_addon": 2035
+      },
+      "entry_bar_exits": 423,
+      "n_liquidations": 0,
+      "total_fees": 65.629353955
+    },
+    {
+      "fold_index": 1,
+      "n_trades": 2578,
+      "net_pnl": 199.85728317004214,
+      "profit_factor": 2.679078285648688,
+      "win_rate": 0.6733902249806051,
+      "n_signals": 2590,
+      "signal_stats": {
+        "n_emitted": 2590,
+        "n_skipped_clarity": 1835,
+        "n_skipped_cap": 107,
+        "n_primary": 676,
+        "n_addon": 1914
+      },
+      "entry_bar_exits": 189,
+      "n_liquidations": 0,
+      "total_fees": 44.80191683
+    },
+    {
+      "fold_index": 2,
+      "n_trades": 2598,
+      "net_pnl": 331.8909391900197,
+      "profit_factor": 3.3663176793668947,
+      "win_rate": 0.6832178598922248,
+      "n_signals": 2627,
+      "signal_stats": {
+        "n_emitted": 2627,
+        "n_skipped_clarity": 1813,
+        "n_skipped_cap": 165,
+        "n_primary": 700,
+        "n_addon": 1927
+      },
+      "entry_bar_exits": 133,
+      "n_liquidations": 0,
+      "total_fees": 63.39326081000001
+    },
+    {
+      "fold_index": 3,
+      "n_trades": 2713,
+      "net_pnl": 607.9094750250133,
+      "profit_factor": 3.7135641763633656,
+      "win_rate": 0.7386656837449318,
+      "n_signals": 2728,
+      "signal_stats": {
+        "n_emitted": 2728,
+        "n_skipped_clarity": 1899,
+        "n_skipped_cap": 127,
+        "n_primary": 703,
+        "n_addon": 2025
+      },
+      "entry_bar_exits": 254,
+      "n_liquidations": 0,
+      "total_fees": 92.40602497500001
+    },
+    {
+      "fold_index": 4,
+      "n_trades": 2709,
+      "net_pnl": 652.2458267900729,
+      "profit_factor": 3.9696740296159487,
+      "win_rate": 0.7622739018087855,
+      "n_signals": 2722,
+      "signal_stats": {
+        "n_emitted": 2722,
+        "n_skipped_clarity": 1901,
+        "n_skipped_cap": 130,
+        "n_primary": 691,
+        "n_addon": 2031
+      },
+      "entry_bar_exits": 281,
+      "n_liquidations": 0,
+      "total_fees": 87.38237321000001
+    },
+    {
+      "fold_index": 5,
+      "n_trades": 1986,
+      "net_pnl": 448.5024657049744,
+      "profit_factor": 4.018482471009194,
+      "win_rate": 0.7583081570996979,
+      "n_signals": 1994,
+      "signal_stats": {
+        "n_emitted": 1994,
+        "n_skipped_clarity": 1407,
+        "n_skipped_cap": 74,
+        "n_primary": 517,
+        "n_addon": 1477
+      },
+      "entry_bar_exits": 212,
+      "n_liquidations": 0,
+      "total_fees": 61.631634295000005
+    }
+  ],
+  "stitched": {
+    "n_trades": 15252,
+    "net_pnl": 2739.0281359250002,
+    "profit_factor": 3.5870898679597025,
+    "bootstrap_pos_exp": 1.0,
+    "frac_folds_pf_gt_1": 1.0,
+    "n_liquidations": 0,
+    "total_fees": 415.2445640750001,
+    "entry_bar_exits": 1492
+  },
+  "leverage": 18.0,
+  "elapsed_sec": 45.0,
+  "max_readiness": "RESEARCH_ONLY",
+  "note": "Measurement of live Xxobster8 pack geometry on clean outer folds.",
+  "min_size_equity_caveat": "Wallet equity / maximum drawdown under research_sizing MIN_EXCHANGE (minimum exchange size) on a large wallet is not tradable-edge evidence. Smooth curves are expected at dust size; do not treat them as deployable sizing.",
+  "equity_is_tradable_edge": false
+}

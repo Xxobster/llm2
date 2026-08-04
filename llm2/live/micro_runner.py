@@ -381,20 +381,27 @@ def _reconcile_books_to_exchange(
     symbol: str,
     qty_unit: float,
 ) -> dict[str, Any]:
-    """Drop oldest local books when exchange size is smaller (TP/SL filled)."""
+    """Drop oldest local books when exchange size is smaller (TP/SL filled).
+
+    Compares summed local book ``qty`` to exchange size so 1×/2× mixes reconcile
+    correctly (counting books as equal min-qty units would mis-count size-doubled
+    entries).
+    """
     sizes = _position_sizes(account=account, symbol=symbol)
     dropped = 0
+    tol = max(float(qty_unit) * 0.25, 1e-12)
     for side_name, side_sign in (("Buy", 1), ("Sell", -1)):
         exch = float(sizes.get(side_name, 0.0))
-        unit = max(float(qty_unit), 1e-12)
-        n_exch = int(round(exch / unit)) if exch > 0 else 0
         rows = con.execute(
-            "SELECT book_id FROM open_books WHERE status='open' AND side=? "
+            "SELECT book_id, qty FROM open_books WHERE status='open' AND side=? "
             "ORDER BY entry_bar_ms ASC, book_id ASC",
             (side_sign,),
         ).fetchall()
-        while len(rows) > n_exch:
-            _mark_book_closed(con, str(rows[0][0]))
+        local_sum = sum(float(q) for _, q in rows)
+        while rows and local_sum > exch + tol:
+            bid, bqty = rows[0]
+            _mark_book_closed(con, str(bid))
+            local_sum -= float(bqty)
             rows = rows[1:]
             dropped += 1
     return {"dropped": dropped, "sizes": sizes}
@@ -790,8 +797,8 @@ def run_loop(
     con = _state_conn(state_path)
     exec_label = (
         f"multitrade/{mt_cfg.get('version_id')} K={mt_cfg['max_positions_per_side']} "
-        f"clarity={mt_cfg['clarity']} fib_ext={mt_cfg['fib_ext']} "
-        f"hold_addon={mt_cfg['hold_addon']}"
+        f"clarity={mt_cfg['clarity']} clarity_scope={mt_cfg.get('clarity_scope', 'addon')} "
+        f"fib_ext={mt_cfg['fib_ext']} hold_addon={mt_cfg['hold_addon']}"
         if mt_cfg
         else "single_book"
     )
@@ -962,15 +969,21 @@ def run_loop(
             book_idx = 1
             allow_entry = True
 
+            order_qty = float(qty)
             if mt_cfg is not None:
                 strength_hist = _load_strength_hist(con)
                 n_open = _count_open_books(con, side=side_i)
+                last_key = "last_entry_ts_long" if side_i > 0 else "last_entry_ts_short"
+                last_raw = _get_state(con, last_key)
+                last_entry_ts = int(last_raw) if last_raw not in (None, "") else None
                 gate = decide_entry_gate(
                     side=side_i,
                     pred_mean=float(decision.get("pred_mean") or 0.0),
                     n_open_same_side=n_open,
                     strength_hist=strength_hist,
                     cfg=mt_cfg,
+                    bar_ts_ms=bar_ms,
+                    last_entry_ts_ms=last_entry_ts,
                 )
                 detail["multitrade_gate"] = {
                     k: gate[k]
@@ -981,6 +994,7 @@ def run_loop(
                         "tp_pct",
                         "max_hold_bars",
                         "is_addon",
+                        "size_mult",
                     )
                     if k in gate
                 }
@@ -998,6 +1012,10 @@ def run_loop(
                     tp_use = float(gate["tp_pct"])
                     sl_use = float(gate["sl_pct"])
                     hold_use = int(gate["max_hold_bars"])
+                    size_mult = float(gate.get("size_mult") or 1.0)
+                    order_qty = float(qty) * size_mult
+                    detail["size_mult"] = size_mult
+                    detail["order_qty"] = order_qty
             else:
                 # Single-book: one bot, at most one open book on this symbol.
                 open_books = _open_position_sides(account=account, symbol=symbol)
@@ -1010,7 +1028,7 @@ def run_loop(
                 try:
                     mark_now = fetch_mark_last(symbol)
                     lev_now = resolve_pack_leverage(
-                        strategy, tiers_doc, mark_price=mark_now, qty=qty
+                        strategy, tiers_doc, mark_price=mark_now, qty=order_qty
                     )
                     leverage = float(lev_now["leverage"])
                     detail["leverage"] = leverage
@@ -1019,11 +1037,12 @@ def run_loop(
                     detail["sl_pct"] = sl_use
                     detail["book_idx"] = book_idx
                     detail["max_hold_bars"] = hold_use
+                    detail["order_qty"] = float(order_qty)
                     order_result = place_min_order(
                         account=account,
                         symbol=symbol,
                         side=side_i,
-                        qty=qty,
+                        qty=order_qty,
                         tp_pct=tp_use,
                         sl_pct=sl_use,
                         leverage=leverage,
@@ -1040,6 +1059,7 @@ def run_loop(
                         f"retMsg={detail.get('order_retMsg')} "
                         f"stops={detail.get('stops_retCode')} "
                         f"book={book_idx} tp={tp_use} hold={hold_use} "
+                        f"qty={order_qty} size_mult={detail.get('size_mult', 1)} "
                         f"leverage={leverage}",
                         flush=True,
                     )
@@ -1061,12 +1081,16 @@ def run_loop(
                             side=side_i,
                             entry_bar_ms=bar_ms,
                             max_hold_bars=hold_use,
-                            qty=qty,
+                            qty=float(order_qty),
                             tp_pct=tp_use,
                             sl_pct=sl_use,
                             book_idx=book_idx,
                             order_id=oid,
                         )
+                        last_key = (
+                            "last_entry_ts_long" if side_i > 0 else "last_entry_ts_short"
+                        )
+                        _set_state(con, last_key, str(bar_ms))
                 except Exception as exc:  # noqa: BLE001
                     detail["order_error"] = f"{type(exc).__name__}: {exc}"
                     print(f"ORDER_FAIL {detail['order_error']}", flush=True)

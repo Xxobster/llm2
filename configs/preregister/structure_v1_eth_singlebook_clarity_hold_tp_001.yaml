@@ -1,0 +1,101 @@
+# Preregistered BEFORE any outer-OOS / lockbox inspection of this experiment.
+# Gen-1: transfer multitrade lessons (mean_strength, hold, TP geometry) to SINGLE-BOOK
+# ETHUSDT 1h direction. Stop Loss fixed at 2% (leverage 18× unchanged).
+# Do NOT retune on FORWARD_LOCKBOX (May-2026→); lockbox remains contaminated (D-035).
+
+generation_id: structure_v1_eth_singlebook_clarity_hold_tp_001
+created_utc: "2026-08-04T06:45:00Z"
+status: FROZEN_OOS_VIEWED
+frozen_utc: "2026-08-04T06:48:51Z"
+# Hash of this file at hunt start (before status annotation). Authoritative for the run.
+preregister_sha256_at_run: eedcafe3fdd0b0ff545c4f252f0deae3cf93cbed5e3b06299fe3aa354bb5eafa
+frozen_reason: >
+  Outer-OOS results viewed (selected mean_strength|hold12|tp1%). Do not re-search
+  this candidate space; gen-2 Stop Loss grid requires a new preregister.
+fold_geometry: v2
+source_plan: one_vs_multi_book_d4531651
+
+hypothesis: >
+  Applying multitrade-derived primary-entry mean_strength clarity and/or longer
+  max-hold (12) and/or higher fixed Take Profit (1.5% or 2.618%) improves
+  stitched outer-OOS Profit Factor of ETHUSDT 1h structure_v1 direction versus
+  the frozen single-book baseline (clarity=none, hold=6, tp=1%, sl=2%), without
+  concurrent stacking (max one book).
+
+economic_rationale: >
+  Multitrade grids showed concurrency and addon hold moved results more than
+  Fibonacci fantasy targets. On single-book, the transferable pieces are (1)
+  skipping weak |pred| entries via rolling median strength and (2) allowing
+  more time for the 1%/2% bracket (or a modestly extended TP) to resolve.
+  Changing Stop Loss is deferred to a later generation because it changes
+  leverage and liquidation geometry (D-001).
+
+frozen_model_family:
+  symbol: ETHUSDT
+  timeframe: 1h
+  target: direction
+  feature_space: structure_v1
+  model: lgbm_regressor
+  n_estimators: 80
+  learning_rate: 0.05
+  min_edge: 0.10
+  note: >
+    Model family matches structure_v1 ETH direction settle / audit walk-forward.
+    Execution parameters below are the ONLY search dimensions in this generation.
+
+candidate_space:
+  execution_mode: single_book
+  max_positions_per_side: 1
+  sl_pct: [0.02]   # FIXED gen-1 — do not expand after viewing OOS
+  clarity: [none, mean_strength]
+  horizon_bars: [6, 12]
+  tp_pct: [0.01, 0.015, 0.02618]
+  mean_strength_lookback: 168
+  clarity_semantics: >
+    mean_strength gates PRIMARY entries (unlike multitrade add-on-only).
+    Emit only when |pred.mean| >= median of prior lookback signal strengths
+    among direction-gated candidates. Append strength whether taken or skipped.
+  tp_02618_note: >
+    0.02618 is the absolute target equal to corrected fib extension
+    base_tp*(1+1.618); it is NOT a live Fibonacci engine on single-book.
+
+control_arm:
+  clarity: none
+  horizon_bars: 6
+  tp_pct: 0.01
+  sl_pct: 0.02
+
+selection:
+  method: inner_on_outer_fold0_train
+  n_inner_folds: 3
+  objective: mean_inner_profit_factor
+  tie_breakers:
+    - higher_mean_inner_n_trades
+    - lower_tp_pct
+    - shorter_horizon
+    - clarity_none_preferred
+  freeze_one_arm: true
+  forbidden: select_or_rank_on_outer_oos_or_lockbox
+
+evaluation:
+  outer: fold_geometry_v2_stitched_oos
+  lockbox: DO_NOT_OPEN_FOR_SELECTION
+  engine: botsgeneral_tradesim
+  costs: research_costs_baseline (all-taker + 0.05% entry slip + funding)
+  sizing: min_exchange
+  leverage: leverage_from_stop(0.02)  # 18×
+
+success_criteria:
+  - selected_arm_stitched_pf > control_stitched_pf
+  - selected_arm_stitched_pf >= 1.20
+  - bootstrap_pos_exp >= 0.90 when n_trades >= 50
+  - no liquidation
+  - report min-size equity caveat
+
+failure_is_success: true
+live_deploy: FORBIDDEN_without_live_certificate_and_explicit_user_auth
+vps_deploy: FORBIDDEN_without_live_certificate_and_explicit_user_auth
+
+gen2_deferred:
+  - sl_pct in [0.015, 0.02, 0.025] only if gen-1 shows clear hold/TP/clarity effect
+  - recompute leverage_from_stop per SL arm

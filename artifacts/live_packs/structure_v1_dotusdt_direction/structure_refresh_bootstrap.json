@@ -1,0 +1,53 @@
+{
+  "symbol": "DOTUSDT",
+  "db": "D:\\projects\\LLM2\\artifacts\\live_packs\\structure_v1_dotusdt_direction\\indicators_live_slice.sqlite",
+  "signal_source": "binance",
+  "series": [
+    {
+      "timeframe": "1h",
+      "source": "binance",
+      "n_bars": 799,
+      "last_ts_ms": 1785837600000,
+      "last_utc": "2026-08-04T10:00:00+00:00",
+      "counts": {
+        "swings": 190,
+        "structure_events": 190,
+        "legs": 142,
+        "levels": 190,
+        "bar_features": 799,
+        "series": 1
+      }
+    },
+    {
+      "timeframe": "4h",
+      "source": "binance",
+      "n_bars": 799,
+      "last_ts_ms": 1785816000000,
+      "last_utc": "2026-08-04T04:00:00+00:00",
+      "counts": {
+        "swings": 210,
+        "structure_events": 210,
+        "legs": 160,
+        "levels": 210,
+        "bar_features": 799,
+        "series": 1
+      }
+    },
+    {
+      "timeframe": "1w",
+      "source": "binance",
+      "n_bars": 311,
+      "last_ts_ms": 1785110400000,
+      "last_utc": "2026-07-27T00:00:00+00:00",
+      "counts": {
+        "swings": 83,
+        "structure_events": 83,
+        "legs": 61,
+        "levels": 83,
+        "bar_features": 311,
+        "series": 1
+      }
+    }
+  ],
+  "refreshed_utc": "2026-08-04T11:50:13.209200+00:00"
+}

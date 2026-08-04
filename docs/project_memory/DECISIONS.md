@@ -5,6 +5,126 @@ results, so a reversal needs an explicit, dated entry rather than a code change.
 
 ---
 
+## D-040 — User authorized live swap: eth_multitrade_v1_2 (clarity_scope=all)
+
+**Date:** 2026-08-04 · **Status:** ACTIVE · **Evidence:**
+`artifacts/live_packs/structure_v1_ethusdt_multitrade_v1_2`,
+`configs/live/structure_v1_ethusdt_multitrade_v1_2_certificate.yaml`,
+`structure_v1_eth_multitrade_primary_clarity_all_001_latest.json`
+
+**Rules:**
+1. User explicitly authorized replacing Xxobster8 live multitrade with the
+   `clarity_scope=all` candidate (2026-08-04 chat).
+2. Active unit: `llm2-structure-eth-multitrade-v1_2` on `94.156.189.76` /
+   Xxobster8. Prior `llm2-structure-eth-multitrade-v1_1` stopped, pack retained.
+3. Geometry unchanged except clarity scope: K=7, fib 1.618, hold 6/12, TP/SL 1%/2%,
+   mean_strength, MIN_EXCHANGE, leverage 18×.
+4. Rollback: re-enable `llm2-structure-eth-multitrade-v1_1` (see VERSIONS.md).
+5. Does not authorize other pack swaps (clarity hold12 single-book, K changes, etc.).
+
+---
+
+## D-039 — Nested improve path: primary clarity transfer; shorter-hold contaminated
+
+**Date:** 2026-08-04 · **Status:** ACTIVE · **Evidence:**
+`configs/preregister/structure_v1_eth_multitrade_primary_clarity_all_001.yaml`,
+`configs/preregister/structure_v1_eth_multitrade_shorter_hold_001.yaml`,
+`scripts/settle_eth_multitrade_nested_arm.py`,
+`artifacts/reports/structure_v1_eth_multitrade_primary_clarity_all_001_latest.json`,
+`artifacts/reports/structure_v1_eth_multitrade_shorter_hold_001_latest.json`,
+`artifacts/reports/structure_v1_failure_modes_btc_eth_sol_001_latest.json`
+
+**Rules:**
+1. Same-side entry bursts (≥3 within 6 hours) going **all-loss** are uncommon
+   (~5% of such clusters on ETH multitrade; ≪1% on live single-book). Do not
+   design filters as if “everyone wrong together” were the dominant mode.
+2. **Primary conviction arm** (`clarity_scope=all` on eth_multitrade_v1_1) is a
+   frozen transfer from single-book clarity settle. Outer compare: candidate
+   stitched Profit Factor ≈4.26 vs live control ≈3.59; book1 wrong@1h 38% vs 42%.
+   Evidence class `OUTER_TRANSFER_COMPARE`. **Not a live pack swap** without new
+   pack hash, certificate, and explicit user auth.
+3. **Shorter-hold arm** (base 4 / addon 8) is `OUTER_COMPARE_CONTAMINATED`
+   (hypothesis from failure_modes peek). Marginal PF lift (~3.63 vs 3.59) — do
+   **not** promote from this window; clean retest only after
+   `POST_MULTITRADE_FREEZE_START` if still desired.
+4. Do not combine (2) and (3) in one generation. Do not cut K from “too many
+   signals feel wrong.” Keep multitrade measure Profit Factor separate from
+   single-book settle when judging readiness.
+5. Wrong-way @ 1 hour remains a noise / explanation metric, not a promotion gate.
+
+---
+
+## D-038 — Forward lockbox sealed against silent Finplot / peeks
+
+**Date:** 2026-08-04 · **Status:** ACTIVE · **Evidence:**
+`llm2/evidence/lockbox_guard.py`, `tests/test_lockbox_guard.py`
+
+**Rules:**
+1. Any evaluation that uses bars on/after `FORWARD_LOCKBOX_START` (2026-05-01) must
+   call `require_lockbox_access` and pass `--i-accept-lockbox-contamination`
+   (or `LLM2_I_ACCEPT_LOCKBOX_CONTAMINATION=1` for explicit batch tools).
+2. **Finplot / interactive charts** need a second opt-in:
+   `--i-accept-finplot-lockbox` (or `LLM2_I_ACCEPT_FINPLOT_LOCKBOX=1`) **and**
+   contamination accept. Default is report-only with `TRADESIM_NO_PLOT=1`.
+3. Authorized peeks always append `artifacts/evidence/peek_log.jsonl`.
+4. Wired scripts include `plot_structure_lockbox.py`, concurrent Finplot scripts,
+   multitrade lockbox hunts. Outer-fold settle (end ≤ lockbox start) is not gated.
+5. Does not re-seal already-peeked calendars; it prevents **new silent** peeks.
+
+---
+
+## D-037 — Expansion sealed lockbox one-shot (direction packs)
+
+**Date:** 2026-08-04 · **Status:** ACTIVE · **Evidence:**
+`configs/preregister/structure_v1_expansion_lockbox_final_001.yaml`,
+`scripts/run_expansion_lockbox_once.py`,
+`artifacts/reports/structure_v1_expansion_settle_20260803T181235Z.json`
+
+**Rules:**
+1. Train / freeze expansion **direction** live packs only on bars strictly before
+   `FORWARD_LOCKBOX_START` (2026-05-01); model fit before last outer fold start
+   (2025-10-01). Lockbox never used for train or multitrade retune.
+2. Candidate space for the *pristine* one-shot is settle-PASS pairs that were never
+   Finplot/lockbox-opened for charts: BNB, XRP, DOGE, AVAX, DOT, TRX, XLM (direction).
+   ETH/SOL/LINK/VET/ADA/BTC already peeeed — excluded from “pristine” claims.
+3. Open is **one frozen single-book arm** only (Take Profit 1%, Stop Loss 2%, hold 6,
+   max one book). Multi-arm search (`--grid`, K, fib, switch, clarity hunts) is
+   refuse-closed (`refuse_expansion_lockbox_multi_arm`).
+4. After open, evidence class for that calendar is
+   `LOCKBOX_OPENED_CONTAMINATED` — append peeks. **Quotable promotion** remains
+   outer-fold settle pooled Profit Factor only
+   (`refuse_promotion_from_expansion_lockbox_pf`).
+5. Does **not** authorize live deploy, VPS pack install, or ETH multitrade knob changes
+   (still D-036 / certificate + user auth).
+
+---
+
+## D-036 — Multitrade lockbox peeks are diagnostic; clean claims after 2026-08-05
+
+**Date:** 2026-08-04 · **Status:** ACTIVE · **Evidence:**
+`artifacts/evidence/peek_log.jsonl`,
+`configs/preregister/structure_v1_eth_multitrade_v1_1_post_freeze_001.yaml`,
+`llm2/evidence/peek_log.py`, `llm2/research_policy.py`
+
+Extends D-035 for concurrent / multitrade knobs (switch book, addon TP, K, clarity
+grids on the forward lockbox).
+
+**Rules:**
+1. Calendar **2026-05-01 → 2026-08-04** multitrade/lockbox multi-arm work is
+   `LOCKBOX_OPENED_CONTAMINATED_DIAGNOSTIC_ONLY` — not parameter promotion.
+2. Quotable historical edge remains **outer-fold settle** (and fold-V2 proxy reports
+   already stamped as RESEARCH_ONLY where applicable).
+3. **Copying** SQLite / reports does **not** re-seal a peeked window
+   (`refuse_copy_as_pristine_holdout`).
+4. Every peek must be append-logged via `append_peek` / `scripts/log_research_peek.py`.
+5. Locked micro-live arm remains `eth_multitrade_v1_1` (K=7, mean_strength, switch=3,
+   TP 2.618%, hold 12). Next **real** multitrade parameter claim: prereg first, then
+   evaluate only with `window_start >= 2026-08-05` (`POST_MULTITRADE_FREEZE_START`) or
+   on outer folds without lockbox ranking. Live micro is a separate evidence class and
+   does not re-seal the lockbox.
+
+---
+
 ## D-035 — ETH/SOL structure_v1 direction lockbox opened (contaminated)
 
 **Date:** 2026-08-04 · **Status:** ACTIVE · **Evidence:**

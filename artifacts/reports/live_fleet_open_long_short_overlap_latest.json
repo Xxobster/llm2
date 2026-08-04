@@ -1,0 +1,271 @@
+{
+  "window": [
+    "2022-01-01 00:00:00+00:00",
+    "2026-05-01 00:00:00+00:00"
+  ],
+  "caveat": "Occupancy uses simplified max-hold (6h single-book; multitrade hold from gate). Not full Take Profit / Stop Loss exit path. Outer OOS only.",
+  "per_bot": {
+    "btc_fwd_single_v1": {
+      "symbol": "BTCUSDT",
+      "account": "Xxobster7",
+      "pct_time_long_open": 0.3830226100753669,
+      "pct_time_short_open": 0.3028692317863282,
+      "pct_time_both_sides_open": 0.0,
+      "mean_open_longs": 0.3830226100753669,
+      "mean_open_shorts": 0.3028692317863282,
+      "max_open_longs": 1,
+      "max_open_shorts": 1
+    },
+    "eth_direction_single_v1": {
+      "symbol": "ETHUSDT",
+      "account": "Xxobster7",
+      "pct_time_long_open": 0.48773014237789575,
+      "pct_time_short_open": 0.4282431254457564,
+      "pct_time_both_sides_open": 0.0,
+      "mean_open_longs": 0.48773014237789575,
+      "mean_open_shorts": 0.4282431254457564,
+      "max_open_longs": 1,
+      "max_open_shorts": 1
+    },
+    "sol_direction_single_v1": {
+      "symbol": "SOLUSDT",
+      "account": "Xxobster7",
+      "pct_time_long_open": 0.4427094493250482,
+      "pct_time_short_open": 0.479537175916006,
+      "pct_time_both_sides_open": 0.0,
+      "mean_open_longs": 0.4427094493250482,
+      "mean_open_shorts": 0.479537175916006,
+      "max_open_longs": 1,
+      "max_open_shorts": 1
+    },
+    "eth_multitrade_v1_1": {
+      "symbol": "ETHUSDT",
+      "account": "Xxobster8",
+      "pct_time_long_open": 0.7497952822463481,
+      "pct_time_short_open": 0.7052328499352828,
+      "pct_time_both_sides_open": 0.46968856486250893,
+      "mean_open_longs": 2.017434028052936,
+      "mean_open_shorts": 1.806138891090155,
+      "max_open_longs": 7,
+      "max_open_shorts": 7
+    }
+  },
+  "xxobster7_fleet_open": {
+    "n_bars": 37122,
+    "pct_time_any_long_open": 0.7444103227196811,
+    "pct_time_any_short_open": 0.7166639728462906,
+    "pct_time_long_and_short_both_open": 0.46401055977587413,
+    "n_bars_long_and_short_both_open": 17225,
+    "mean_open_longs_when_both": 1.358955007256894,
+    "mean_open_shorts_when_both": 1.329288824383164,
+    "mean_total_books_when_both": 2.688243831640058,
+    "mean_open_longs_all_bars": 1.3124292872151284,
+    "mean_open_shorts_all_bars": 1.2120575400032325,
+    "max_open_longs": 3,
+    "max_open_shorts": 3,
+    "top_long_short_count_pairs_when_both": [
+      {
+        "n_long": 2,
+        "n_short": 1,
+        "bars": 6183,
+        "pct_of_both": 0.35895500725689405
+      },
+      {
+        "n_long": 1,
+        "n_short": 2,
+        "bars": 5672,
+        "pct_of_both": 0.329288824383164
+      },
+      {
+        "n_long": 1,
+        "n_short": 1,
+        "bars": 5370,
+        "pct_of_both": 0.31175616835994197
+      }
+    ],
+    "long_hist_all": {
+      "0": 9488,
+      "1": 12047,
+      "2": 10088,
+      "3": 5499
+    },
+    "short_hist_all": {
+      "0": 10518,
+      "1": 12603,
+      "2": 9612,
+      "3": 4389
+    }
+  },
+  "full_live_fleet_incl_eth_multitrade": {
+    "n_bars": 37122,
+    "pct_time_long_and_short_both_open": 0.7002855449598621,
+    "n_bars_long_and_short_both_open": 25996,
+    "mean_open_longs_when_both": 3.284236036313279,
+    "mean_open_shorts_when_both": 3.112709647638098,
+    "mean_total_books_when_both": 6.396945683951377,
+    "mean_open_longs_all_bars": 3.3261138947255,
+    "mean_open_shorts_all_bars": 3.0206077258768387,
+    "max_open_longs": 10,
+    "max_open_shorts": 10,
+    "top_long_short_count_pairs_when_both": [
+      {
+        "n_long": 2,
+        "n_short": 3,
+        "bars": 1441,
+        "pct_of_both": 0.05543160486228651
+      },
+      {
+        "n_long": 3,
+        "n_short": 2,
+        "bars": 1425,
+        "pct_of_both": 0.05481612555777812
+      },
+      {
+        "n_long": 2,
+        "n_short": 2,
+        "bars": 1267,
+        "pct_of_both": 0.048738267425757806
+      },
+      {
+        "n_long": 3,
+        "n_short": 1,
+        "bars": 1103,
+        "pct_of_both": 0.042429604554546856
+      },
+      {
+        "n_long": 4,
+        "n_short": 1,
+        "bars": 1072,
+        "pct_of_both": 0.041237113402061855
+      },
+      {
+        "n_long": 3,
+        "n_short": 3,
+        "bars": 1041,
+        "pct_of_both": 0.04004462224957686
+      },
+      {
+        "n_long": 1,
+        "n_short": 3,
+        "bars": 1031,
+        "pct_of_both": 0.039659947684259116
+      },
+      {
+        "n_long": 4,
+        "n_short": 2,
+        "bars": 1017,
+        "pct_of_both": 0.03912140329281428
+      },
+      {
+        "n_long": 1,
+        "n_short": 4,
+        "bars": 1014,
+        "pct_of_both": 0.03900600092321896
+      },
+      {
+        "n_long": 5,
+        "n_short": 1,
+        "bars": 903,
+        "pct_of_both": 0.03473611324819203
+      },
+      {
+        "n_long": 2,
+        "n_short": 4,
+        "bars": 877,
+        "pct_of_both": 0.033735959378365904
+      },
+      {
+        "n_long": 1,
+        "n_short": 5,
+        "bars": 849,
+        "pct_of_both": 0.03265887059547623
+      },
+      {
+        "n_long": 6,
+        "n_short": 1,
+        "bars": 809,
+        "pct_of_both": 0.031120172334205262
+      },
+      {
+        "n_long": 5,
+        "n_short": 2,
+        "bars": 708,
+        "pct_of_both": 0.027234959224496078
+      },
+      {
+        "n_long": 2,
+        "n_short": 1,
+        "bars": 704,
+        "pct_of_both": 0.02708108939836898
+      },
+      {
+        "n_long": 1,
+        "n_short": 6,
+        "bars": 648,
+        "pct_of_both": 0.02492691183258963
+      },
+      {
+        "n_long": 4,
+        "n_short": 3,
+        "bars": 615,
+        "pct_of_both": 0.023657485767041082
+      },
+      {
+        "n_long": 2,
+        "n_short": 5,
+        "bars": 576,
+        "pct_of_both": 0.022157254962301892
+      },
+      {
+        "n_long": 1,
+        "n_short": 2,
+        "bars": 568,
+        "pct_of_both": 0.0218495153100477
+      },
+      {
+        "n_long": 3,
+        "n_short": 4,
+        "bars": 563,
+        "pct_of_both": 0.02165717802738883
+      },
+      {
+        "n_long": 7,
+        "n_short": 1,
+        "bars": 547,
+        "pct_of_both": 0.021041698722880444
+      },
+      {
+        "n_long": 1,
+        "n_short": 7,
+        "bars": 494,
+        "pct_of_both": 0.019002923526696414
+      },
+      {
+        "n_long": 8,
+        "n_short": 1,
+        "bars": 454,
+        "pct_of_both": 0.01746422526542545
+      },
+      {
+        "n_long": 6,
+        "n_short": 2,
+        "bars": 425,
+        "pct_of_both": 0.016348669026004
+      },
+      {
+        "n_long": 5,
+        "n_short": 3,
+        "bars": 382,
+        "pct_of_both": 0.014694568395137714
+      }
+    ]
+  },
+  "eth_multitrade_alone_both_sides": {
+    "bot_id": "eth_multitrade_v1_1",
+    "pct_time_long_and_short_both_open": 0.46968856486250893,
+    "n_bars_both": 17781,
+    "n_bars": 37857,
+    "mean_longs_when_both": 2.1121984140374557,
+    "mean_shorts_when_both": 2.072886789269445
+  }
+}

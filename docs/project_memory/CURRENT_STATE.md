@@ -7,6 +7,51 @@ Updated: 2026-08-04
 `LIVE_STOP / RESEARCH_ONLY` for scale. Micro-live: Xxobster7 single-book fleet
 (BTC/ETH/SOL) + Xxobster8 ETH **multitrade v1** (certificates expire 2026-08-17).
 
+### ETH multitrade failure modes + nested improves (2026-08-04) — D-039
+
+- Cluster plain English: same-side ≥3-within-6h **all-loss** clusters ≈**5.2%**
+  (ETH multitrade) and **≪1%** on BTC/ETH/SOL live single-book — **not** the
+  usual mode. Most bursts are mixed/profitable.
+- Cross-pack wrong@1h (live geometry): ETH mt book1 ≈**41.5%** ≈ BTC/ETH/SOL
+  single ≈40–42%. Book1 is not uniquely “more wrong” than other symbols; it is
+  weak *relative to deeper filtered books* inside multitrade.
+  Report: `structure_v1_failure_modes_btc_eth_sol_001_latest.json`.
+- **Nested settle A (transfer):** `clarity_scope=all` vs live addon control —
+  PF **4.26 vs 3.59**, book1 wrong@1h **38% vs 42%**, no liquidation.
+  `OUTER_TRANSFER_COMPARE`. **No live swap** without auth.
+  Report: `structure_v1_eth_multitrade_primary_clarity_all_001_latest.json`.
+- **Nested settle B (contaminated):** shorter hold 4/8 vs 6/12 — PF **3.63 vs
+  3.59** only. Not promotion-eligible from this window.
+  Report: `structure_v1_eth_multitrade_shorter_hold_001_latest.json`.
+- **Live swapped (user auth 2026-08-04):** Xxobster8 now runs **v1.2**
+  `clarity_scope=all` (D-040). v1.1 retained for rollback.
+
+### Clean-data improve (2026-08-04) — OUTER_SETTLE clarity hold12
+
+- **Track 1 complete:** frozen arm `mean_strength|hold12|tp1%|sl2%` full V2.1 outer
+  settle (hard end &lt; 2026-05-01, no lockbox). All three live-matching combos **PASS**
+  and beat control: BTCUSDT fwd_return PF≈**2.86** (ctrl≈2.03); ETHUSDT direction
+  PF≈**3.32** (ctrl≈1.99); SOLUSDT direction PF≈**2.66** (ctrl≈1.94).
+  Report: `artifacts/reports/structure_v1_clarity_hold12_outer_settle_001_latest.json`.
+  New packs (not live): `structure_v1_{btc,eth,sol}usdt_clarity_hold12_v1`.
+  **No VPS swap without certificate + explicit user auth.**
+- **Track 2 complete (RESEARCH_ONLY):** BTC/SOL transfer of k1_clarity + k5_double3h
+  both beat control; k5 PF≈3.89 (BTC) / 3.36 (SOL). Not a pack freeze.
+  Report: `structure_v1_btc_sol_cluster_double_transfer_001_latest.json`.
+- **Track 3 deferred:** prereg `structure_v1_target_align_calibration_001` remains
+  PREREG_ONLY — Tracks 1–2 already yield pack-eligible single-book improves.
+
+### BTC/SOL K5 double on Xxobster10 (user-authorized 2026-08-04)
+
+- **Not** previously live; deployed as isolated units on **Xxobster10** (shared
+  account, different symbols). Track2 RESEARCH_TRANSFER_MICRO (not full V2.1
+  hedge settle). MIN_EXCHANGE.
+  - `llm2-structure-btc-k5-double3h-v1` — BTCUSDT K5 double3h
+  - `llm2-structure-sol-k5-double3h-v1` — SOLUSDT K5 double3h
+- Xxobster7 single-book BTC/ETH/SOL left running (separate accounts).
+- Multitrade K7 measure (clean outer folds): report
+  `structure_v1_eth_multitrade_v1_1_measure_latest.json` (MEASURE_LIVE_GEOMETRY).
+
 ## ABC family (2026-08-03) — D-030 / D-031
 
 **Continuation (“A≈C” / equal-leg / 0.618 / 1.618 continues):** CLOSED on BTCUSDT 1h/4h
@@ -39,10 +84,53 @@ survive all three controls; nonlinear cross-asset direction not promoted.
   - `llm2-structure-sol` SOLUSDT 1h direction
   Each: MIN_EXCHANGE, SL-derived **18×**, hedge mode, max one book per symbol.
 - **ETH multitrade on Xxobster8 (user-authorized 2026-08-04):** distinct from
-  single-book ETH. **Active:** `eth_multitrade_v1_1` — mean_strength, fib_ext=1.618
-  (book3+ TP 2.618%), hold_addon=12, **K=7**/side. Service
-  `llm2-structure-eth-multitrade-v1_1`. Prior `eth_multitrade_v1` (K=6) pack+unit
-  retained stopped for rollback. Map: `artifacts/live_packs/VERSIONS.md`. MICRO only.
+  single-book ETH. **Active:** `eth_multitrade_v1_2` — mean_strength,
+  **clarity_scope=all**, fib_ext=1.618 (book3+ TP 2.618%), hold_addon=12,
+  **K=7**/side. Service `llm2-structure-eth-multitrade-v1_2`. Replaces v1.1
+  (addon-only clarity); v1.1 + v1 packs retained stopped for rollback.
+  Evidence: `structure_v1_eth_multitrade_primary_clarity_all_001`. Map:
+  `artifacts/live_packs/VERSIONS.md`. MICRO only.
+- **D-036 peek discipline (2026-08-04):** May-2026→2026-08-04 multitrade lockbox grids
+  are **diagnostic only**. Quotable historical edge = outer-fold settle. Peek log:
+  `artifacts/evidence/peek_log.jsonl` (seed via `python scripts/log_research_peek.py seed`).
+  Clean multitrade *parameter* claims only with prereg +
+  `POST_MULTITRADE_FREEZE_START=2026-08-05` (or outer folds). Copying DBs does not reset
+  contamination. Locked arm stay: `eth_multitrade_v1_1`.
+  Prereg: `structure_v1_eth_multitrade_v1_1_post_freeze_001.yaml`.
+- **ETH multitrade K=1..36 outer-OOS sweep (2026-08-04):** frozen arm
+  `mean_strength|fib1.618|hold12` (live v1.1 knobs), window [2022-01-01, 2026-05-01)
+  — lockbox not used. Symmetric K/side (both long and short allowed).
+  **Saturation at K≈14** (cap skips → 0); **K=15..36 identical** to K=14. Peak occupancy
+  only **12/side** under mean_strength. Best diagnostic PnL/PF at K=14 (PF≈5.31);
+  within ~2% best PnL already at **K=10**. Live freeze stays **K=7** until nested
+  promotion protocol. MIN_EXCHANGE dust. Report
+  `structure_v1_eth_multitrade_k_sweep_001_latest.json`.
+  + `artifacts/reports/live_fleet_concordance_latest.json`. Window
+  [2022-01-01, 2026-05-01) only — lockbox not used. Signal intent (gated sides):
+  Xxobster7 ≥2 bots fire on **~69%** of bars; all three on **~26%**. ETH single vs
+  multitrade raw sides **identical**; path: multitrade enters more (stack/clarity).
+  Pairwise lifts above independence (clustered hours). Not a promotion gate.
+  Gate: `llm2/evidence/lockbox_guard.py` — requires
+  `--i-accept-lockbox-contamination`; Finplot also needs
+  `--i-accept-finplot-lockbox`. Charts default off (`TRADESIM_NO_PLOT`).
+  Scripts: `plot_structure_lockbox`, concurrent finplot plots, fib/switch hunts.
+  Prefer outer-fold settle. Peek log still authoritative for contamination status.
+- **D-037 expansion sealed lockbox (2026-08-04):** prereg
+  `structure_v1_expansion_lockbox_final_001`. Freezes + one-shot single-book done for
+  BNB/XRP/DOGE/AVAX/DOT/TRX/XLM (train cut before lockbox; fit before 2025-10-01).
+  Multi-arm refuse-closed. After open: **LOCKBOX_OPENED_CONTAMINATED** (diagnostic).
+  Quotable promotion = settle outer-OOS PF only. Report
+  `structure_v1_expansion_lockbox_final_001_latest.json`. No live deploy.
+  Diagnostic lockbox PF (MIN_EXCHANGE dust) vs settle PF:
+  BNB 1.95/1.57, XRP 1.87/1.71, DOGE 2.36/1.61, AVAX 2.60/1.80, DOT 2.71/1.84,
+  TRX 1.65/1.54, XLM 2.52/1.69 — **XLM entry-bar exits ≈47%** (noise caveat).
+  Packs under `artifacts/live_packs/structure_v1_{sym}_direction`.
+- **Switch×TP ablation 001 (2026-08-04):** prereg
+  `structure_v1_eth_switch_tp_ablation_001`. Contaminated lockbox. Uniform +1%
+  control loses badly (PF≈3.07 vs live≈3.96). Wider TP schedule helps; Fibonacci
+  label not required. Only gate-pass vs live: same arm with **K=8** (PF≈4.01,
+  bal↑). **Not promoted** per D-036 — keep v1.1.
+  Report `structure_v1_eth_switch_tp_ablation_001_latest.json`.
 - Live leverage is SL-derived with security margin (D-001): `floor(1/(sl+0.5%+0.2%))*0.5`
   → **18×** for SL 2% (ceiling 37). Runner calls Bybit `set-leverage` + hedge mode on LIVE
   start and before every entry; pack leverage mismatch fails closed.
@@ -70,6 +158,38 @@ survive all three controls; nonlinear cross-asset direction not promoted.
   folds, bootstrap pos-exp 100%). Official single-book settle remains PF≈**1.77**.
   Lockbox still contaminated (+0.22 PF optimism). Report
   `structure_v1_eth_concurrent_reproducibility.json`. Concurrency not live-authorized.
+- **ETH single-book clarity×hold×TP gen-1 (2026-08-04):** preregister
+  `structure_v1_eth_singlebook_clarity_hold_tp_001` (SL fixed 2%). Inner-selected
+  `mean_strength|hold12|tp1%` on fold-0 train; stitched outer OOS PF≈**3.32** vs
+  control `none|hold6|tp1%` PF≈**1.99** (ΔPF≈+1.34; 5072 vs 8657 trades; bootstrap
+  pos-exp 100%; no liquidation). Winning arm kept Take Profit at 1% — clarity + hold
+  transferred from multitrade; Fibonacci 2.618% TP not selected. Conformance GREEN.
+  Evidence class: execution-grid fold-V2 stitch, **RESEARCH_ONLY** — does **not** replace
+  official settle PF≈1.77 and does **not** authorize live pack edits. Lockbox not used.
+  Report `structure_v1_eth_singlebook_clarity_hold_tp_001_latest.json` + `_REPORT.md`.
+  Do not re-search this space after OOS view.
+- **Frozen-arm BTC/SOL transfer (2026-08-04):** same arm `mean_strength|hold12|tp1%`
+  (no re-rank) vs control on fold V2. Stitched PF: BTC direction **2.94** (ctl 1.90),
+  BTC fwd_return **2.86** (ctl 2.03), SOL direction **2.66** (ctl 1.94), SOL fwd_return
+  **1.90** (ctl 1.51). Live-matching targets both beat control. Still **RESEARCH_ONLY**;
+  not a V2.1 full-gate settle; no Xxobster7 pack swap without explicit auth. Report
+  `structure_v1_frozen_arm_btc_sol_transfer_001_latest.json` + `_REPORT.md`.
+- **ETH cluster concurrency 2nd/3rd book (2026-08-04):** on frozen
+  `mean_strength|hold12|tp1%`, fold V2 stitch. K=1 PF≈**3.21**; K=2 open **3.32**;
+  K=3 open **3.53** (best PnL); K=3 cluster≤3h **3.61** (best PF, Δ+0.41 vs K=1);
+  K=3 cluster≤6h **3.58**. Yes — a 2nd/3rd book helps; short cluster gate lifts PF
+  further while taking fewer add-ons than always-open K=3. RESEARCH_ONLY; stacked
+  min-exchange margin not scale evidence. Report
+  `structure_v1_eth_cluster_concurrency_001_latest.json` + `_REPORT.md`.
+- **ETH concurrency ladder K=1..9 / max 18 total (2026-08-04):** same frozen arm.
+  Open ladder PF rises K1 **3.21** → K9 **4.16** (PnL 358→**1809**); diminishing
+  after ~K4–5 (K8→K9 only +0.04 PF). K9 cluster≤3h PF **4.24** (fewer trades).
+  RESEARCH_ONLY. Report `structure_v1_eth_cluster_concurrency_k9_001_latest.json`.
+- **ETH size-double ≤3h + K=3..9 (2026-08-04):** fold V2 only (no lockbox/peek).
+  If signal ≤3h after last same-side entry → **2×** min-qty else 1×. Double beats
+  flat 1× at **all** K on PF and PnL (7/7); best double K9 PF≈**4.43** PnL≈**3133**
+  vs flat K9 PF≈4.16 PnL≈1809. RESEARCH_ONLY. Report
+  `structure_v1_eth_cluster_size_double_k3_9_001_latest.json` + `_REPORT.md`.
 - **Touch TF:** 1h decisions now resolve same-bar order on **1m** (was 5m). Cause of prior
   “317 incomplete touch coverage” warning: 5m warehouse for expansion symbols stalled at
   ~2026-07-16 while 1h/1m continued. `load_ohlcv` also picks the densest of `last`/

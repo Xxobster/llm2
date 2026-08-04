@@ -1,0 +1,92 @@
+# Preregistered BEFORE running the ablation. Contaminated lockbox diagnostic only.
+# Do NOT promote live v1.2 from this window alone (D-035). Live stays eth_multitrade_v1_1.
+
+generation_id: structure_v1_eth_switch_tp_ablation_001
+created_utc: "2026-08-04T06:47:00Z"
+status: FROZEN
+evidence_class: LOCKBOX_OPENED_CONTAMINATED
+fold_geometry: lockbox_may2026_forward
+live_frozen_until_result: eth_multitrade_v1_1
+
+hypothesis: >
+  On ETHUSDT 1h structure_v1 direction multitrade, the gain attributed to
+  "Fibonacci" is better explained as a plain wider take-profit (TP) schedule
+  on later concurrent books. Ablating (1) which book index first receives the
+  wider TP and (2) the absolute TP offset — without Fibonacci labels — will
+  show whether a different switch point or offset beats the live reference
+  (switch at book 3, TP=2.618%, hold=12, K=7, mean_strength) under a peak
+  concurrency cap.
+
+economic_rationale: >
+  Later books already sit in a crowded same-side stack; a slightly wider
+  target can raise payoff if clarity filters weak add-ons. Fibonacci ratios
+  are not a market claim here — only a TP-offset schedule. The control keeps
+  every book at +1% TP so concurrency/clarity effects are isolated.
+
+frozen_model_family:
+  symbol: ETHUSDT
+  timeframe: 1h
+  target: direction
+  feature_space: structure_v1
+  pack: artifacts/live_packs/structure_v1_ethusdt_direction
+  sl_pct: 0.02
+  base_tp_pct: 0.01
+  base_hold_bars: 6
+  leverage: leverage_from_stop(0.02)  # 18×
+  sizing: MIN_EXCHANGE
+  engine: botsgeneral_tradesim
+  costs: research_costs_baseline
+
+candidate_space:
+  clarity: [none, mean_strength]
+  # First 1-based book index that uses addon_tp / hold_addon. null = never (control).
+  switch_book: [2, 3, 4, 5, null]
+  # Absolute TP return offsets for books with index >= switch_book (not fib ratios).
+  addon_tp_pct: [0.015, 0.02, 0.02618]
+  hold_addon: [12, 18]
+  K_per_side: [6, 7, 8]
+  mean_strength_lookback: 168
+  clarity_semantics: >
+    mean_strength gates ADD-ONS only (same as multitrade live): require
+    |pred| >= median of prior lookback signal |means|.
+
+control_arms:
+  description: >
+    All books keep base_tp=1% and base_hold=6. Only clarity and K vary.
+    Encoded as switch_book=null (addon fields ignored).
+  clarity: [none, mean_strength]
+  K_per_side: [6, 7, 8]
+
+live_reference_arm:
+  clarity: mean_strength
+  switch_book: 3
+  addon_tp_pct: 0.02618
+  hold_addon: 12
+  K_per_side: 7
+  note: eth_multitrade_v1_1 currently live on Xxobster8
+
+selection_ranking:
+  universe_filters:
+    n_trades_min: 200
+    peak_concurrent_all_max: 12
+  score: >
+    balance = 0.40*rank_pct(profit_factor) + 0.30*rank_pct(net_pnl)
+    + 0.30*rank_pct(net_pnl / max(|max_drawdown|, 1e-9))
+  tie_breakers:
+    - higher_profit_factor
+    - lower_peak_concurrent_all
+    - closer_to_live_reference
+  forbidden:
+    - select_on_outer_oos_stitched_as_if_pristine
+    - retune_after_viewing_lockbox_then_claim_promotion
+
+live_v1_2_gate:
+  require_all:
+    - balance_score_strictly_above_live_reference
+    - profit_factor_ge_live_reference
+    - peak_concurrent_all_le_12
+    - clarity_mean_strength  # do not drop clarity for a lockbox PnL chase
+  otherwise: KEEP_LIVE_eth_multitrade_v1_1
+  note: >
+    Even if gate passes, evidence_class remains contaminated lockbox —
+    v1.2 would be a micro parameter revision only, not SHADOW_READY promotion.

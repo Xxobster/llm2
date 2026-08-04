@@ -713,7 +713,25 @@ def main(argv: list[str] | None = None) -> int:
         default="",
         help="report path; default timestamped under artifacts/reports",
     )
+    from llm2.evidence.lockbox_guard import add_lockbox_guard_args, require_lockbox_access
+    from llm2.research_policy import PolicyError
+
+    add_lockbox_guard_args(ap)
     args = ap.parse_args(argv)
+
+    try:
+        require_lockbox_access(
+            experiment_id="structure_v1_eth_concurrent_fib_clarity_v2_ext",
+            window_start=str(args.start),
+            purpose="multi_arm_lockbox_grid",
+            symbols=[SYMBOL],
+            accepted_contamination=bool(args.i_accept_lockbox_contamination),
+            open_finplot=False,
+            notes="scripts/hunt_eth_concurrent_fib_clarity.py",
+        )
+    except PolicyError as exc:
+        print(f"REFUSED: {exc}", flush=True)
+        return 2
 
     stamp = run_conformance_check(quiet=True)
     if not stamp.get("passed"):
@@ -973,6 +991,27 @@ def main(argv: list[str] | None = None) -> int:
     )
     print(f"wrote {out_path}", flush=True)
     print(f"wrote {alias}", flush=True)
+    try:
+        from llm2.evidence.peek_log import append_peek
+        from llm2.research_policy import classify_evidence_for_window
+
+        pe_cls = classify_evidence_for_window(
+            window_start=str(args.start),
+            window_end=str(ctx.end_ts),
+            experiment_family="concurrent_grid",
+        )
+        append_peek(
+            experiment_id=f"structure_v1_eth_concurrent_fib_clarity_{GRID_VERSION}",
+            window_start=str(args.start),
+            window_end=str(ctx.end_ts),
+            purpose="multi_arm_lockbox_grid",
+            arms=f"{len(arms)} arms fib_ext grid",
+            n_arms=int(len(arms)),
+            evidence_class=pe_cls,
+            notes=str(out_path.name),
+        )
+    except Exception as exc:  # noqa: BLE001
+        print(f"PEEK_LOG_WARN {type(exc).__name__}: {exc}", flush=True)
     print(
         f"beat_both={len(beat_both)} best_pnl={by_pnl[0]['label'] if by_pnl else None} "
         f"best_pf={by_pf[0]['label'] if by_pf else None}",

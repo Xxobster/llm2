@@ -1,0 +1,62 @@
+{
+  "BTC single": {
+    "n_decisions": 21,
+    "sides": {
+      "-1": 8,
+      "0": 1,
+      "1": 12
+    },
+    "skip_or_ok": {
+      "entry_attempt_ok": 1,
+      "position_already_open": 19
+    },
+    "open_books_local": [],
+    "last_processed_bar_ts": "1785837600000",
+    "first_decided": "2026-08-03T15:59:58.358180+00:00",
+    "last_decided": "2026-08-04T11:00:14.016813+00:00"
+  },
+  "ETH single": {
+    "n_decisions": 19,
+    "sides": {
+      "1": 13,
+      "-1": 6
+    },
+    "skip_or_ok": {
+      "position_already_open": 19
+    },
+    "open_books_local": [],
+    "last_processed_bar_ts": "1785837600000",
+    "first_decided": "2026-08-03T17:59:57.787408+00:00",
+    "last_decided": "2026-08-04T11:00:07.262548+00:00"
+  },
+  "SOL single": {
+    "n_decisions": 19,
+    "sides": {
+      "-1": 7,
+      "1": 11,
+      "0": 1
+    },
+    "skip_or_ok": {
+      "position_already_open": 18,
+      "entry_attempt_ok": 1
+    },
+    "open_books_local": [],
+    "last_processed_bar_ts": "1785837600000",
+    "first_decided": "2026-08-03T17:59:57.989469+00:00",
+    "last_decided": "2026-08-04T11:00:07.841752+00:00"
+  },
+  "ETH multi v1.1": {
+    "n_decisions": 6,
+    "sides": {
+      "-1": 3,
+      "1": 3
+    },
+    "skip_or_ok": {
+      "entry_attempt_ok": 6
+    },
+    "open_books_local": [],
+    "last_processed_bar_ts": "1785837600000",
+    "first_decided": "2026-08-04T06:59:56.664729+00:00",
+    "last_decided": "2026-08-04T11:00:14.501844+00:00"
+  }
+}

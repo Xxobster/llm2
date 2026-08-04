@@ -1,0 +1,94 @@
+# OUTER SETTLE (no re-search) of the already-frozen single-book arm from
+# structure_v1_eth_singlebook_clarity_hold_tp_001:
+#   mean_strength | hold 12 | tp 1% | sl 2%
+#
+# Written before opening this settle run. Selection already happened on ETH gen-1;
+# this generation only evaluates one arm + control on live-matching targets under
+# fold geometry V2 with hard end < FORWARD_LOCKBOX_START (2026-05-01).
+# Do NOT open lockbox for ranking. Do NOT re-search clarity×hold×TP.
+
+generation_id: structure_v1_clarity_hold12_outer_settle_001
+created_utc: "2026-08-04T12:50:00Z"
+settled_utc: "20260804T125429Z"
+preregister_sha256_at_run: e64064ce2d0202032b6c8f70ed6184719dc8e8c6c5268191e756f109b3a9c3ed
+status: OOS_SETTLE_COMPLETE
+fold_geometry: v2
+parent_generation: structure_v1_eth_singlebook_clarity_hold_tp_001
+parent_preregister_sha256_at_run: eedcafe3fdd0b0ff545c4f252f0deae3cf93cbed5e3b06299fe3aa354bb5eafa
+source_plan: clean_model_improvement_ec53bd32
+
+hypothesis: >
+  The frozen arm mean_strength|hold12|tp1%|sl2% (selected once on ETH outer
+  folds, transferred without re-rank) passes frozen V2.1 full gates on
+  live-matching targets for BTCUSDT, ETHUSDT, and SOLUSDT when evaluated
+  only on pre-lockbox outer fold V2 stitches.
+
+economic_rationale: >
+  Longer hold allows the 1%/2% bracket to resolve; primary mean_strength
+  drops weak entries. Official live packs still use none|hold6|tp1%. This
+  settle tests whether the research arm is promotion-eligible under Gate B/C
+  before any pack swap authorization.
+
+frozen_arm:
+  clarity: mean_strength
+  horizon_bars: 12
+  tp_pct: 0.01
+  sl_pct: 0.02
+  clarity_semantics: primary_entry_mean_strength
+  mean_strength_lookback: 168
+
+control_arm:
+  clarity: none
+  horizon_bars: 6
+  tp_pct: 0.01
+  sl_pct: 0.02
+
+combos_live_matching:
+  - symbol: BTCUSDT
+    target: fwd_return
+    min_edge: cost_hurdle  # ROUND_TRIP_COST
+  - symbol: ETHUSDT
+    target: direction
+    min_edge: 0.10
+  - symbol: SOLUSDT
+    target: direction
+    min_edge: 0.10
+
+model_family:
+  feature_space: structure_v1
+  model: lgbm_regressor
+  n_estimators: 80
+  learning_rate: 0.05
+  timeframe: 1h
+  label_horizon: 6
+
+selection:
+  method: FROZEN — one arm only; no candidates ranked in this generation
+  forbidden:
+    - re_search_clarity_hold_tp_grid
+    - select_or_rank_on_outer_oos_or_lockbox
+    - open_forward_lockbox_for_promotion
+
+evaluation:
+  outer: fold_geometry_v2_stitched_oos
+  hard_end_exclusive: "2026-05-01"  # FORWARD_LOCKBOX_START
+  lockbox: DO_NOT_OPEN_FOR_SELECTION
+  gates: FROZEN_DEFAULT_GATES_V2_1
+  engine: botsgeneral_tradesim
+  costs_baseline: research_costs_baseline
+  costs_stress: research_costs_moderate_stress (2x entry slip)
+  sizing: min_exchange
+  leverage: leverage_from_stop(0.02)
+  n_trials_for_dsr: 12  # parent gen-1 candidate count (clarity×hold×tp)
+
+success_criteria:
+  - frozen arm overall V2.1 gate PASS on a symbol
+  - frozen_pf >= control_pf on that symbol
+  - frozen_pf >= 1.20
+  - no liquidation
+  - evidence_class OUTER_SETTLE
+
+failure_is_success: true
+live_deploy: FORBIDDEN_without_new_pack_hash_certificate_and_explicit_user_auth
+vps_deploy: FORBIDDEN_without_live_certificate_and_explicit_user_auth
+pack_freeze: only_if_PASS_then_new_directory_no_overwrite

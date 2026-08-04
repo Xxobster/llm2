@@ -1,0 +1,53 @@
+{
+  "symbol": "XLMUSDT",
+  "db": "D:\\projects\\LLM2\\artifacts\\live_packs\\structure_v1_xlmusdt_direction\\indicators_live_slice.sqlite",
+  "signal_source": "binance",
+  "series": [
+    {
+      "timeframe": "1h",
+      "source": "binance",
+      "n_bars": 799,
+      "last_ts_ms": 1785837600000,
+      "last_utc": "2026-08-04T10:00:00+00:00",
+      "counts": {
+        "swings": 232,
+        "structure_events": 232,
+        "legs": 189,
+        "levels": 232,
+        "bar_features": 799,
+        "series": 1
+      }
+    },
+    {
+      "timeframe": "4h",
+      "source": "binance",
+      "n_bars": 799,
+      "last_ts_ms": 1785816000000,
+      "last_utc": "2026-08-04T04:00:00+00:00",
+      "counts": {
+        "swings": 226,
+        "structure_events": 226,
+        "legs": 189,
+        "levels": 226,
+        "bar_features": 799,
+        "series": 1
+      }
+    },
+    {
+      "timeframe": "1w",
+      "source": "binance",
+      "n_bars": 341,
+      "last_ts_ms": 1785110400000,
+      "last_utc": "2026-07-27T00:00:00+00:00",
+      "counts": {
+        "swings": 104,
+        "structure_events": 104,
+        "legs": 81,
+        "levels": 104,
+        "bar_features": 341,
+        "series": 1
+      }
+    }
+  ],
+  "refreshed_utc": "2026-08-04T11:51:10.064212+00:00"
+}

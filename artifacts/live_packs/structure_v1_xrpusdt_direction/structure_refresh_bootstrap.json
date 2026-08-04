@@ -1,0 +1,53 @@
+{
+  "symbol": "XRPUSDT",
+  "db": "D:\\projects\\LLM2\\artifacts\\live_packs\\structure_v1_xrpusdt_direction\\indicators_live_slice.sqlite",
+  "signal_source": "binance",
+  "series": [
+    {
+      "timeframe": "1h",
+      "source": "binance",
+      "n_bars": 799,
+      "last_ts_ms": 1785837600000,
+      "last_utc": "2026-08-04T10:00:00+00:00",
+      "counts": {
+        "swings": 209,
+        "structure_events": 209,
+        "legs": 167,
+        "levels": 209,
+        "bar_features": 799,
+        "series": 1
+      }
+    },
+    {
+      "timeframe": "4h",
+      "source": "binance",
+      "n_bars": 799,
+      "last_ts_ms": 1785816000000,
+      "last_utc": "2026-08-04T04:00:00+00:00",
+      "counts": {
+        "swings": 212,
+        "structure_events": 212,
+        "legs": 163,
+        "levels": 212,
+        "bar_features": 799,
+        "series": 1
+      }
+    },
+    {
+      "timeframe": "1w",
+      "source": "binance",
+      "n_bars": 343,
+      "last_ts_ms": 1785110400000,
+      "last_utc": "2026-07-27T00:00:00+00:00",
+      "counts": {
+        "swings": 96,
+        "structure_events": 96,
+        "legs": 69,
+        "levels": 96,
+        "bar_features": 343,
+        "series": 1
+      }
+    }
+  ],
+  "refreshed_utc": "2026-08-04T11:48:45.868653+00:00"
+}

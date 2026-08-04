@@ -1,0 +1,57 @@
+# Preregistered BEFORE outer-OOS inspection.
+# Extends cluster_concurrency_001: allow up to 9 concurrent books PER SIDE
+# (= 18 total if both long and short are fully stacked under hedge mode).
+# Base arm still frozen: mean_strength | hold12 | tp1% | sl2%.
+# Do not retune clarity/TP/hold/SL. Lockbox unused. No live deploy.
+
+generation_id: structure_v1_eth_cluster_concurrency_k9_001
+created_utc: "2026-08-04T07:15:00Z"
+status: FROZEN_OOS_VIEWED
+frozen_utc: "2026-08-04T07:19:03Z"
+frozen_reason: >
+  Outer-OOS viewed for K=1..9 open ladder and K9 cluster gates. Do not re-search
+  without a new generation_id.
+fold_geometry: v2
+parent_generation: structure_v1_eth_cluster_concurrency_001
+
+hypothesis: >
+  On ETHUSDT 1h direction with frozen mean_strength|hold12|tp1%, raising the
+  per-side concurrency cap from 1 toward 9 (max 18 books across both sides)
+  continues to improve stitched outer-OOS Profit Factor and/or net PnL, with
+  optional 3h/6h cluster gates at K=9 to thin late add-ons.
+
+frozen_base_arm:
+  clarity: mean_strength
+  horizon_bars: 12
+  tp_pct: 0.01
+  sl_pct: 0.02
+  do_not_retune: true
+
+candidate_space:
+  max_positions_per_side: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  max_positions_total_if_both_sides_full: 18
+  cluster_bars:
+    - null   # open: always allow add-on under cap
+    - 3      # only on K=9 arm
+    - 6      # only on K=9 arm
+  arms:
+    - open ladder K=1..9 (cluster=null)
+    - k9_cluster3
+    - k9_cluster6
+
+selection: none_report_all_arms
+evaluation:
+  outer: fold_geometry_v2_stitched_oos
+  symbol: ETHUSDT
+  target: direction
+  lockbox: DO_NOT_USE_FOR_SELECTION
+  engine: botsgeneral_tradesim
+
+success_criteria:
+  - report full K ladder PF/PnL/n_trades
+  - identify diminishing returns if any before K=9
+  - no_liquidation
+  - stacked min-exchange margin caveat
+
+failure_is_success: true
+live_deploy: FORBIDDEN_without_live_certificate_and_explicit_user_auth

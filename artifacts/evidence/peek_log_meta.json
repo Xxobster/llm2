@@ -1,0 +1,20 @@
+{
+  "seeded_utc": "2026-08-04T11:03:20Z",
+  "post_multitrade_freeze_start": "2026-08-05",
+  "forward_lockbox_start": "2026-05-01",
+  "locked_arm": {
+    "version_id": "eth_multitrade_v1_1",
+    "strategy_id": "structure_v1_lgbm_ETHUSDT_1h_direction_multitrade_v1_1",
+    "clarity": "mean_strength",
+    "switch_book": 3,
+    "addon_tp_pct": 0.02618,
+    "hold_addon": 12,
+    "k_per_side": 7,
+    "sl_pct": 0.02,
+    "base_tp_pct": 0.01,
+    "base_hold": 6,
+    "evidence_class_for_promotion": "outer_fold_stitch_or_post_freeze_forward_only"
+  },
+  "prereg": "configs/preregister/structure_v1_eth_multitrade_v1_1_post_freeze_001.yaml",
+  "relative_log": "artifacts/evidence/peek_log.jsonl"
+}

@@ -1,0 +1,77 @@
+# Nested diagnostic settle: shorter max-hold vs live eth_multitrade_v1_1.
+# SEPARATE generation from primary_clarity_all — do not combine arms.
+# Motivated by failure_modes_001 (max_hold = largest loss bucket) → selection
+# on inspected outer data → evidence class OUTER_COMPARE_CONTAMINATED; not
+# promotion-eligible from this window alone.
+
+generation_id: structure_v1_eth_multitrade_shorter_hold_001
+created_utc: "2026-08-04T15:20:00Z"
+status: OOS_COMPARE_COMPLETE
+settled_utc: "20260804T152958Z"
+preregister_sha256_at_run: b4180767c667f14addf6c45bf47465d81544be886f291287a4ddd202cf99bf51
+decision_refs: [D-036, D-039]
+fold_geometry: v2
+parent_generations:
+  - structure_v1_eth_multitrade_failure_modes_001
+
+hypothesis: >
+  Cutting max-hold (base_hold 6→4, hold_addon 12→8) on otherwise locked
+  eth_multitrade_v1_1 geometry reduces underwater max-hold losses and raises
+  stitched outer profit factor versus live control holds — without changing
+  clarity, K, Fibonacci take-profit tiers, or stop-loss.
+
+economic_rationale: >
+  Failure-mode measure showed losers exit mostly on max_hold, then stop.
+  Shorter holds are a single frozen geometry change to test whether
+  unresolved books are dead weight. Contaminated for promotion because the
+  hypothesis was formed after viewing outer-fold loss exits.
+
+frozen_candidate:
+  pack_base: artifacts/live_packs/structure_v1_ethusdt_multitrade_v1_1
+  clarity: mean_strength
+  clarity_scope: addon   # live control clarity — do not mix with clarity_scope=all
+  k_per_side: 7
+  fib_ext: 1.618
+  hold_addon: 8
+  base_hold: 4
+  base_tp: 0.01
+  base_sl: 0.02
+
+control_arm:
+  clarity: mean_strength
+  clarity_scope: addon
+  k_per_side: 7
+  fib_ext: 1.618
+  hold_addon: 12
+  base_hold: 6
+  base_tp: 0.01
+  base_sl: 0.02
+
+selection:
+  method: FROZEN_ONE_ARM — contaminated motivation from failure_modes peek
+  forbidden:
+    - combine_with_primary_clarity_all_in_same_generation
+    - promote_from_this_window
+    - re_search_hold_grid
+    - select_on_lockbox
+
+evaluation:
+  symbol: ETHUSDT
+  target: direction
+  min_edge: 0.10
+  outer: fold_geometry_v2_stitched_oos
+  hard_end_exclusive: "2026-05-01"
+  lockbox: DO_NOT_OPEN
+  engine: botsgeneral_tradesim
+  costs: research_costs_baseline
+  sizing: MIN_EXCHANGE
+  leverage: leverage_from_stop(0.02)
+  evidence_class: OUTER_COMPARE_CONTAMINATED
+  promotion: FORBIDDEN_from_this_generation
+  clean_retest_after: "2026-08-05"  # POST_MULTITRADE_FREEZE_START if still desired
+
+success_criteria_diagnostic:
+  - report candidate vs control stitched PF / WR / exit-reason mix
+  - failure_is_success: true
+
+live_deploy: FORBIDDEN

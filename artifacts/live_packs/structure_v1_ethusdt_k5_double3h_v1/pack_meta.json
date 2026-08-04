@@ -1,0 +1,7 @@
+{
+  "version_id": "eth_k5_double3h_v1",
+  "parent": "structure_v1_ethusdt_direction",
+  "research_arm": "mean_strength|hold12|tp1pct|K=5|double3h",
+  "frozen_utc": "2026-08-04T11:20:00Z",
+  "account": "Xxobster6"
+}

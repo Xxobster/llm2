@@ -1,0 +1,2171 @@
+{
+  "generation_id": "structure_v1_eth_cluster_size_double_k3_9_001",
+  "created_utc": "20260804T072631Z",
+  "preregister_path": "configs/preregister/structure_v1_eth_cluster_size_double_k3_9_001.yaml",
+  "preregister_sha256": "346b53484b30a2f6ca752edd45c8b9c91192f380bd8b5586bbb357deaf791dab",
+  "evidence_class": "fold_V2_stitched_size_double_cluster_k3_9",
+  "lockbox_used": false,
+  "future_peek": false,
+  "data_end_exclusive": "2026-05-01",
+  "base_arm": "mean_strength|hold12|tp0.01000",
+  "conformance": {
+    "status": "ok",
+    "returncode": 0,
+    "passed": true,
+    "stamp": {
+      "engine_name": "tradesim",
+      "engine_version": "1.0.0",
+      "engine_commit": "UNKNOWN_DIRTY",
+      "fixture_pack_hash": "9a037b290c8ab1f4d84706809ae83f548062fe946b811cf2ab2dee7868c371a2",
+      "registry_digest": "f9e9c06aa56214c8f24323159a93a46ba1c3d64469c305663f2dd62b2b0863e2",
+      "contract": "perp_bracket_portfolio",
+      "checked_at_ms": 1785828416381,
+      "passed": true,
+      "required_count": 62,
+      "satisfied_count": 62,
+      "unsatisfied": [],
+      "checker_version": "1",
+      "detail": {
+        "checker_version": "1",
+        "unknown_identifiers_in_tests": [],
+        "n_fixtures": 50
+      }
+    }
+  },
+  "fold_geometry": "v2",
+  "outer_fold_ranges": [
+    [
+      "2022-01-01",
+      "2022-10-01"
+    ],
+    [
+      "2022-10-01",
+      "2023-07-01"
+    ],
+    [
+      "2023-07-01",
+      "2024-04-01"
+    ],
+    [
+      "2024-04-01",
+      "2025-01-01"
+    ],
+    [
+      "2025-01-01",
+      "2025-10-01"
+    ],
+    [
+      "2025-10-01",
+      "2026-05-01"
+    ]
+  ],
+  "symbol": "ETHUSDT",
+  "target": "direction",
+  "rule": "qty=2*min_exchange if signal within 3h of last same-side entry else 1x",
+  "arms": [
+    {
+      "name": "k3_flat_1x",
+      "k": 3,
+      "size_mode": "flat_1x",
+      "max_total_both_sides": 6,
+      "base_arm": "mean_strength|hold12|tp0.01000",
+      "folds": [
+        {
+          "fold_index": 0,
+          "n_signals": 1363,
+          "signal_stats": {
+            "n_emitted": 1363,
+            "n_primary": 366,
+            "n_addon": 997,
+            "n_skipped_cap": 1037
+          },
+          "metrics": {
+            "n_trades": 1359,
+            "net_pnl": 153.50053459497212,
+            "profit_factor": 3.0736694963876245,
+            "win_rate": 0.8513612950699043,
+            "total_fees": 33.393765405,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 1,
+          "n_signals": 1411,
+          "signal_stats": {
+            "n_emitted": 1411,
+            "n_primary": 384,
+            "n_addon": 1027,
+            "n_skipped_cap": 852
+          },
+          "metrics": {
+            "n_trades": 1383,
+            "net_pnl": 83.05080513001849,
+            "profit_factor": 2.528095948927996,
+            "win_rate": 0.7584960231381056,
+            "total_fees": 24.09179487,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 2,
+          "n_signals": 1355,
+          "signal_stats": {
+            "n_emitted": 1355,
+            "n_primary": 378,
+            "n_addon": 977,
+            "n_skipped_cap": 943
+          },
+          "metrics": {
+            "n_trades": 1313,
+            "net_pnl": 128.61179177505983,
+            "profit_factor": 3.162094652616448,
+            "win_rate": 0.7798933739527799,
+            "total_fees": 32.150508225,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 3,
+          "n_signals": 1436,
+          "signal_stats": {
+            "n_emitted": 1436,
+            "n_primary": 403,
+            "n_addon": 1033,
+            "n_skipped_cap": 935
+          },
+          "metrics": {
+            "n_trades": 1425,
+            "net_pnl": 240.8862350900199,
+            "profit_factor": 3.8384071705549188,
+            "win_rate": 0.856140350877193,
+            "total_fees": 48.51876491,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 4,
+          "n_signals": 1442,
+          "signal_stats": {
+            "n_emitted": 1442,
+            "n_primary": 412,
+            "n_addon": 1030,
+            "n_skipped_cap": 923
+          },
+          "metrics": {
+            "n_trades": 1432,
+            "net_pnl": 239.25237875004677,
+            "profit_factor": 4.136738931049773,
+            "win_rate": 0.8624301675977654,
+            "total_fees": 46.19982125000001,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 5,
+          "n_signals": 1046,
+          "signal_stats": {
+            "n_emitted": 1046,
+            "n_primary": 288,
+            "n_addon": 758,
+            "n_skipped_cap": 663
+          },
+          "metrics": {
+            "n_trades": 1038,
+            "net_pnl": 168.48405960999116,
+            "profit_factor": 4.249542814055535,
+            "win_rate": 0.8660886319845857,
+            "total_fees": 32.48394039,
+            "n_liquidations": 0
+          }
+        }
+      ],
+      "stitched": {
+        "n_trades": 7950,
+        "net_pnl": 1013.7858049499998,
+        "profit_factor": 3.529108348599598,
+        "bootstrap_pos_exp": 1.0,
+        "frac_folds_pf_gt_1": 1.0,
+        "frac_folds_pnl_gt_0": 1.0,
+        "n_liquidations": 0
+      }
+    },
+    {
+      "name": "k3_double3h",
+      "k": 3,
+      "size_mode": "double_within_3h",
+      "max_total_both_sides": 6,
+      "base_arm": "mean_strength|hold12|tp0.01000",
+      "folds": [
+        {
+          "fold_index": 0,
+          "n_signals": 1363,
+          "signal_stats": {
+            "n_emitted": 1363,
+            "n_primary": 366,
+            "n_addon": 997,
+            "n_skipped_cap": 1037,
+            "n_size_1x": 686,
+            "n_size_2x": 677
+          },
+          "metrics": {
+            "n_trades": 1359,
+            "net_pnl": 229.38249804499355,
+            "profit_factor": 3.0679079661595297,
+            "win_rate": 0.8513612950699043,
+            "total_fees": 49.969401955,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 1,
+          "n_signals": 1411,
+          "signal_stats": {
+            "n_emitted": 1411,
+            "n_primary": 384,
+            "n_addon": 1027,
+            "n_skipped_cap": 852,
+            "n_size_1x": 734,
+            "n_size_2x": 677
+          },
+          "metrics": {
+            "n_trades": 1383,
+            "net_pnl": 127.10672250000425,
+            "profit_factor": 2.6351029482546955,
+            "win_rate": 0.7584960231381056,
+            "total_fees": 35.646077500000004,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 2,
+          "n_signals": 1355,
+          "signal_stats": {
+            "n_emitted": 1355,
+            "n_primary": 378,
+            "n_addon": 977,
+            "n_skipped_cap": 943,
+            "n_size_1x": 710,
+            "n_size_2x": 645
+          },
+          "metrics": {
+            "n_trades": 1313,
+            "net_pnl": 196.67603442503605,
+            "profit_factor": 3.358355622443188,
+            "win_rate": 0.7798933739527799,
+            "total_fees": 47.300465575000004,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 3,
+          "n_signals": 1436,
+          "signal_stats": {
+            "n_emitted": 1436,
+            "n_primary": 403,
+            "n_addon": 1033,
+            "n_skipped_cap": 935,
+            "n_size_1x": 748,
+            "n_size_2x": 688
+          },
+          "metrics": {
+            "n_trades": 1425,
+            "net_pnl": 365.24533217495264,
+            "profit_factor": 4.005301102275505,
+            "win_rate": 0.856140350877193,
+            "total_fees": 71.785967825,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 4,
+          "n_signals": 1442,
+          "signal_stats": {
+            "n_emitted": 1442,
+            "n_primary": 412,
+            "n_addon": 1030,
+            "n_skipped_cap": 923,
+            "n_size_1x": 765,
+            "n_size_2x": 677
+          },
+          "metrics": {
+            "n_trades": 1432,
+            "net_pnl": 360.72894447504405,
+            "profit_factor": 4.430372255671527,
+            "win_rate": 0.8624301675977654,
+            "total_fees": 67.777355525,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 5,
+          "n_signals": 1046,
+          "signal_stats": {
+            "n_emitted": 1046,
+            "n_primary": 288,
+            "n_addon": 758,
+            "n_skipped_cap": 663,
+            "n_size_1x": 540,
+            "n_size_2x": 506
+          },
+          "metrics": {
+            "n_trades": 1038,
+            "net_pnl": 258.0118288950198,
+            "profit_factor": 4.527446089480104,
+            "win_rate": 0.8660886319845857,
+            "total_fees": 48.304471105000005,
+            "n_liquidations": 0
+          }
+        }
+      ],
+      "stitched": {
+        "n_trades": 7950,
+        "net_pnl": 1537.1513605149996,
+        "profit_factor": 3.6878364991596855,
+        "bootstrap_pos_exp": 1.0,
+        "frac_folds_pf_gt_1": 1.0,
+        "frac_folds_pnl_gt_0": 1.0,
+        "n_liquidations": 0
+      }
+    },
+    {
+      "name": "k4_flat_1x",
+      "k": 4,
+      "size_mode": "flat_1x",
+      "max_total_both_sides": 8,
+      "base_arm": "mean_strength|hold12|tp0.01000",
+      "folds": [
+        {
+          "fold_index": 0,
+          "n_signals": 1652,
+          "signal_stats": {
+            "n_emitted": 1652,
+            "n_primary": 343,
+            "n_addon": 1309,
+            "n_skipped_cap": 748
+          },
+          "metrics": {
+            "n_trades": 1648,
+            "net_pnl": 190.74198288499792,
+            "profit_factor": 3.2136684846451185,
+            "win_rate": 0.8537621359223301,
+            "total_fees": 40.409517115,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 1,
+          "n_signals": 1682,
+          "signal_stats": {
+            "n_emitted": 1682,
+            "n_primary": 361,
+            "n_addon": 1321,
+            "n_skipped_cap": 581
+          },
+          "metrics": {
+            "n_trades": 1660,
+            "net_pnl": 105.18524768002317,
+            "profit_factor": 2.7092772113014454,
+            "win_rate": 0.7650602409638554,
+            "total_fees": 28.894152320000003,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 2,
+          "n_signals": 1628,
+          "signal_stats": {
+            "n_emitted": 1628,
+            "n_primary": 357,
+            "n_addon": 1271,
+            "n_skipped_cap": 670
+          },
+          "metrics": {
+            "n_trades": 1592,
+            "net_pnl": 163.6814830750609,
+            "profit_factor": 3.399987982852343,
+            "win_rate": 0.7933417085427136,
+            "total_fees": 38.955016925,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 3,
+          "n_signals": 1721,
+          "signal_stats": {
+            "n_emitted": 1721,
+            "n_primary": 378,
+            "n_addon": 1343,
+            "n_skipped_cap": 650
+          },
+          "metrics": {
+            "n_trades": 1713,
+            "net_pnl": 299.0952050750093,
+            "profit_factor": 4.110080014308651,
+            "win_rate": 0.8622300058377116,
+            "total_fees": 58.329294925000006,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 4,
+          "n_signals": 1731,
+          "signal_stats": {
+            "n_emitted": 1731,
+            "n_primary": 382,
+            "n_addon": 1349,
+            "n_skipped_cap": 634
+          },
+          "metrics": {
+            "n_trades": 1722,
+            "net_pnl": 296.2111441600737,
+            "profit_factor": 4.43098837889731,
+            "win_rate": 0.8699186991869918,
+            "total_fees": 55.57905584,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 5,
+          "n_signals": 1256,
+          "signal_stats": {
+            "n_emitted": 1256,
+            "n_primary": 264,
+            "n_addon": 992,
+            "n_skipped_cap": 453
+          },
+          "metrics": {
+            "n_trades": 1249,
+            "net_pnl": 208.65291171998615,
+            "profit_factor": 4.575644644023962,
+            "win_rate": 0.8751000800640513,
+            "total_fees": 38.992288280000004,
+            "n_liquidations": 0
+          }
+        }
+      ],
+      "stitched": {
+        "n_trades": 9584,
+        "net_pnl": 1263.567974595,
+        "profit_factor": 3.7663598333478143,
+        "bootstrap_pos_exp": 1.0,
+        "frac_folds_pf_gt_1": 1.0,
+        "frac_folds_pnl_gt_0": 1.0,
+        "n_liquidations": 0
+      }
+    },
+    {
+      "name": "k4_double3h",
+      "k": 4,
+      "size_mode": "double_within_3h",
+      "max_total_both_sides": 8,
+      "base_arm": "mean_strength|hold12|tp0.01000",
+      "folds": [
+        {
+          "fold_index": 0,
+          "n_signals": 1652,
+          "signal_stats": {
+            "n_emitted": 1652,
+            "n_primary": 343,
+            "n_addon": 1309,
+            "n_skipped_cap": 748,
+            "n_size_1x": 699,
+            "n_size_2x": 953
+          },
+          "metrics": {
+            "n_trades": 1648,
+            "net_pnl": 301.74245697497463,
+            "profit_factor": 3.2342455005860278,
+            "win_rate": 0.8537621359223301,
+            "total_fees": 63.692643025,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 1,
+          "n_signals": 1682,
+          "signal_stats": {
+            "n_emitted": 1682,
+            "n_primary": 361,
+            "n_addon": 1321,
+            "n_skipped_cap": 581,
+            "n_size_1x": 757,
+            "n_size_2x": 925
+          },
+          "metrics": {
+            "n_trades": 1660,
+            "net_pnl": 169.09081063000303,
+            "profit_factor": 2.8425956343578522,
+            "win_rate": 0.7650602409638554,
+            "total_fees": 44.85318937,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 2,
+          "n_signals": 1628,
+          "signal_stats": {
+            "n_emitted": 1628,
+            "n_primary": 357,
+            "n_addon": 1271,
+            "n_skipped_cap": 670,
+            "n_size_1x": 727,
+            "n_size_2x": 901
+          },
+          "metrics": {
+            "n_trades": 1592,
+            "net_pnl": 262.4844196650247,
+            "profit_factor": 3.592491199485408,
+            "win_rate": 0.7933417085427136,
+            "total_fees": 60.416680335,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 3,
+          "n_signals": 1721,
+          "signal_stats": {
+            "n_emitted": 1721,
+            "n_primary": 378,
+            "n_addon": 1343,
+            "n_skipped_cap": 650,
+            "n_size_1x": 767,
+            "n_size_2x": 954
+          },
+          "metrics": {
+            "n_trades": 1713,
+            "net_pnl": 478.4760679349547,
+            "profit_factor": 4.358811393738208,
+            "win_rate": 0.8622300058377116,
+            "total_fees": 90.70163206500001,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 4,
+          "n_signals": 1731,
+          "signal_stats": {
+            "n_emitted": 1731,
+            "n_primary": 382,
+            "n_addon": 1349,
+            "n_skipped_cap": 634,
+            "n_size_1x": 777,
+            "n_size_2x": 954
+          },
+          "metrics": {
+            "n_trades": 1722,
+            "net_pnl": 472.30516392506433,
+            "profit_factor": 4.779911072970862,
+            "win_rate": 0.8699186991869918,
+            "total_fees": 86.083336075,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 5,
+          "n_signals": 1256,
+          "signal_stats": {
+            "n_emitted": 1256,
+            "n_primary": 264,
+            "n_addon": 992,
+            "n_skipped_cap": 453,
+            "n_size_1x": 553,
+            "n_size_2x": 703
+          },
+          "metrics": {
+            "n_trades": 1249,
+            "net_pnl": 336.93288662503437,
+            "profit_factor": 4.977333456468248,
+            "win_rate": 0.8751000800640513,
+            "total_fees": 60.83321337500001,
+            "n_liquidations": 0
+          }
+        }
+      ],
+      "stitched": {
+        "n_trades": 9584,
+        "net_pnl": 2021.0318057549996,
+        "profit_factor": 3.9712853480130463,
+        "bootstrap_pos_exp": 1.0,
+        "frac_folds_pf_gt_1": 1.0,
+        "frac_folds_pnl_gt_0": 1.0,
+        "n_liquidations": 0
+      }
+    },
+    {
+      "name": "k5_flat_1x",
+      "k": 5,
+      "size_mode": "flat_1x",
+      "max_total_both_sides": 10,
+      "base_arm": "mean_strength|hold12|tp0.01000",
+      "folds": [
+        {
+          "fold_index": 0,
+          "n_signals": 1872,
+          "signal_stats": {
+            "n_emitted": 1872,
+            "n_primary": 325,
+            "n_addon": 1547,
+            "n_skipped_cap": 528
+          },
+          "metrics": {
+            "n_trades": 1868,
+            "net_pnl": 222.1951153549726,
+            "profit_factor": 3.3646524208166575,
+            "win_rate": 0.8597430406852249,
+            "total_fees": 45.842584645,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 1,
+          "n_signals": 1885,
+          "signal_stats": {
+            "n_emitted": 1885,
+            "n_primary": 351,
+            "n_addon": 1534,
+            "n_skipped_cap": 378
+          },
+          "metrics": {
+            "n_trades": 1867,
+            "net_pnl": 121.27651783002511,
+            "profit_factor": 2.8055360336477815,
+            "win_rate": 0.7686127477236208,
+            "total_fees": 32.48088217,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 2,
+          "n_signals": 1834,
+          "signal_stats": {
+            "n_emitted": 1834,
+            "n_primary": 345,
+            "n_addon": 1489,
+            "n_skipped_cap": 464
+          },
+          "metrics": {
+            "n_trades": 1804,
+            "net_pnl": 190.1167982700572,
+            "profit_factor": 3.5520176966174724,
+            "win_rate": 0.7971175166297118,
+            "total_fees": 44.10040173,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 3,
+          "n_signals": 1943,
+          "signal_stats": {
+            "n_emitted": 1943,
+            "n_primary": 370,
+            "n_addon": 1573,
+            "n_skipped_cap": 428
+          },
+          "metrics": {
+            "n_trades": 1937,
+            "net_pnl": 341.2746596650122,
+            "profit_factor": 4.172438746396665,
+            "win_rate": 0.8647392875580795,
+            "total_fees": 65.971240335,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 4,
+          "n_signals": 1944,
+          "signal_stats": {
+            "n_emitted": 1944,
+            "n_primary": 371,
+            "n_addon": 1573,
+            "n_skipped_cap": 421
+          },
+          "metrics": {
+            "n_trades": 1940,
+            "net_pnl": 339.6896508850532,
+            "profit_factor": 4.590457367170188,
+            "win_rate": 0.8747422680412371,
+            "total_fees": 62.667049115000005,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 5,
+          "n_signals": 1408,
+          "signal_stats": {
+            "n_emitted": 1408,
+            "n_primary": 258,
+            "n_addon": 1150,
+            "n_skipped_cap": 301
+          },
+          "metrics": {
+            "n_trades": 1402,
+            "net_pnl": 235.39058134497645,
+            "profit_factor": 4.655144046995352,
+            "win_rate": 0.8758915834522111,
+            "total_fees": 43.707318655,
+            "n_liquidations": 0
+          }
+        }
+      ],
+      "stitched": {
+        "n_trades": 10818,
+        "net_pnl": 1449.94332335,
+        "profit_factor": 3.887097701854782,
+        "bootstrap_pos_exp": 1.0,
+        "frac_folds_pf_gt_1": 1.0,
+        "frac_folds_pnl_gt_0": 1.0,
+        "n_liquidations": 0
+      }
+    },
+    {
+      "name": "k5_double3h",
+      "k": 5,
+      "size_mode": "double_within_3h",
+      "max_total_both_sides": 10,
+      "base_arm": "mean_strength|hold12|tp0.01000",
+      "folds": [
+        {
+          "fold_index": 0,
+          "n_signals": 1872,
+          "signal_stats": {
+            "n_emitted": 1872,
+            "n_primary": 325,
+            "n_addon": 1547,
+            "n_skipped_cap": 528,
+            "n_size_1x": 695,
+            "n_size_2x": 1177
+          },
+          "metrics": {
+            "n_trades": 1868,
+            "net_pnl": 364.5437324649829,
+            "profit_factor": 3.4125616450135694,
+            "win_rate": 0.8597430406852249,
+            "total_fees": 74.59716753500001,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 1,
+          "n_signals": 1885,
+          "signal_stats": {
+            "n_emitted": 1885,
+            "n_primary": 351,
+            "n_addon": 1534,
+            "n_skipped_cap": 378,
+            "n_size_1x": 755,
+            "n_size_2x": 1130
+          },
+          "metrics": {
+            "n_trades": 1867,
+            "net_pnl": 201.2991246249985,
+            "profit_factor": 2.9561512323505315,
+            "win_rate": 0.7686127477236208,
+            "total_fees": 51.973175375000004,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 2,
+          "n_signals": 1834,
+          "signal_stats": {
+            "n_emitted": 1834,
+            "n_primary": 345,
+            "n_addon": 1489,
+            "n_skipped_cap": 464,
+            "n_size_1x": 728,
+            "n_size_2x": 1106
+          },
+          "metrics": {
+            "n_trades": 1804,
+            "net_pnl": 316.7409321700143,
+            "profit_factor": 3.8030708055621623,
+            "win_rate": 0.7971175166297118,
+            "total_fees": 70.67326783,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 3,
+          "n_signals": 1943,
+          "signal_stats": {
+            "n_emitted": 1943,
+            "n_primary": 370,
+            "n_addon": 1573,
+            "n_skipped_cap": 428,
+            "n_size_1x": 773,
+            "n_size_2x": 1170
+          },
+          "metrics": {
+            "n_trades": 1937,
+            "net_pnl": 562.3704577649587,
+            "profit_factor": 4.43191202744184,
+            "win_rate": 0.8647392875580795,
+            "total_fees": 105.66224223500001,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 4,
+          "n_signals": 1944,
+          "signal_stats": {
+            "n_emitted": 1944,
+            "n_primary": 371,
+            "n_addon": 1573,
+            "n_skipped_cap": 421,
+            "n_size_1x": 774,
+            "n_size_2x": 1170
+          },
+          "metrics": {
+            "n_trades": 1940,
+            "net_pnl": 560.3668570050795,
+            "profit_factor": 4.971601376462953,
+            "win_rate": 0.8747422680412371,
+            "total_fees": 100.315242995,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 5,
+          "n_signals": 1408,
+          "signal_stats": {
+            "n_emitted": 1408,
+            "n_primary": 258,
+            "n_addon": 1150,
+            "n_skipped_cap": 301,
+            "n_size_1x": 556,
+            "n_size_2x": 852
+          },
+          "metrics": {
+            "n_trades": 1402,
+            "net_pnl": 388.65163623503395,
+            "profit_factor": 5.018740739277039,
+            "win_rate": 0.8758915834522111,
+            "total_fees": 70.04346376500001,
+            "n_liquidations": 0
+          }
+        }
+      ],
+      "stitched": {
+        "n_trades": 10818,
+        "net_pnl": 2393.9727402649996,
+        "profit_factor": 4.114418041595842,
+        "bootstrap_pos_exp": 1.0,
+        "frac_folds_pf_gt_1": 1.0,
+        "frac_folds_pnl_gt_0": 1.0,
+        "n_liquidations": 0
+      }
+    },
+    {
+      "name": "k6_flat_1x",
+      "k": 6,
+      "size_mode": "flat_1x",
+      "max_total_both_sides": 12,
+      "base_arm": "mean_strength|hold12|tp0.01000",
+      "folds": [
+        {
+          "fold_index": 0,
+          "n_signals": 2043,
+          "signal_stats": {
+            "n_emitted": 2043,
+            "n_primary": 319,
+            "n_addon": 1724,
+            "n_skipped_cap": 357
+          },
+          "metrics": {
+            "n_trades": 2040,
+            "net_pnl": 244.51024448495082,
+            "profit_factor": 3.4160920763518683,
+            "win_rate": 0.8602941176470589,
+            "total_fees": 50.102655515,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 1,
+          "n_signals": 2028,
+          "signal_stats": {
+            "n_emitted": 2028,
+            "n_primary": 348,
+            "n_addon": 1680,
+            "n_skipped_cap": 235
+          },
+          "metrics": {
+            "n_trades": 2014,
+            "net_pnl": 131.80998158502734,
+            "profit_factor": 2.8275618149940844,
+            "win_rate": 0.7701092353525323,
+            "total_fees": 35.032918415000005,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 2,
+          "n_signals": 1986,
+          "signal_stats": {
+            "n_emitted": 1986,
+            "n_primary": 340,
+            "n_addon": 1646,
+            "n_skipped_cap": 312
+          },
+          "metrics": {
+            "n_trades": 1965,
+            "net_pnl": 210.66177839005468,
+            "profit_factor": 3.65168456760262,
+            "win_rate": 0.8015267175572519,
+            "total_fees": 48.002421610000006,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 3,
+          "n_signals": 2094,
+          "signal_stats": {
+            "n_emitted": 2094,
+            "n_primary": 361,
+            "n_addon": 1733,
+            "n_skipped_cap": 277
+          },
+          "metrics": {
+            "n_trades": 2088,
+            "net_pnl": 374.7781656650204,
+            "profit_factor": 4.351109089884949,
+            "win_rate": 0.8687739463601533,
+            "total_fees": 71.151734335,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 4,
+          "n_signals": 2086,
+          "signal_stats": {
+            "n_emitted": 2086,
+            "n_primary": 366,
+            "n_addon": 1720,
+            "n_skipped_cap": 279
+          },
+          "metrics": {
+            "n_trades": 2082,
+            "net_pnl": 368.613490115049,
+            "profit_factor": 4.708764519599718,
+            "win_rate": 0.8784822286263209,
+            "total_fees": 67.209609885,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 5,
+          "n_signals": 1517,
+          "signal_stats": {
+            "n_emitted": 1517,
+            "n_primary": 256,
+            "n_addon": 1261,
+            "n_skipped_cap": 192
+          },
+          "metrics": {
+            "n_trades": 1511,
+            "net_pnl": 256.49093078997976,
+            "profit_factor": 4.834417508196143,
+            "win_rate": 0.8769027134348114,
+            "total_fees": 47.007269210000004,
+            "n_liquidations": 0
+          }
+        }
+      ],
+      "stitched": {
+        "n_trades": 11700,
+        "net_pnl": 1586.8645910299997,
+        "profit_factor": 3.9890801046948123,
+        "bootstrap_pos_exp": 1.0,
+        "frac_folds_pf_gt_1": 1.0,
+        "frac_folds_pnl_gt_0": 1.0,
+        "n_liquidations": 0
+      }
+    },
+    {
+      "name": "k6_double3h",
+      "k": 6,
+      "size_mode": "double_within_3h",
+      "max_total_both_sides": 12,
+      "base_arm": "mean_strength|hold12|tp0.01000",
+      "folds": [
+        {
+          "fold_index": 0,
+          "n_signals": 2043,
+          "signal_stats": {
+            "n_emitted": 2043,
+            "n_primary": 319,
+            "n_addon": 1724,
+            "n_skipped_cap": 357,
+            "n_size_1x": 690,
+            "n_size_2x": 1353
+          },
+          "metrics": {
+            "n_trades": 2040,
+            "net_pnl": 409.2310448499811,
+            "profit_factor": 3.46354327704157,
+            "win_rate": 0.8602941176470589,
+            "total_fees": 83.27735515,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 1,
+          "n_signals": 2028,
+          "signal_stats": {
+            "n_emitted": 2028,
+            "n_primary": 348,
+            "n_addon": 1680,
+            "n_skipped_cap": 235,
+            "n_size_1x": 750,
+            "n_size_2x": 1278
+          },
+          "metrics": {
+            "n_trades": 2014,
+            "net_pnl": 223.36394790499435,
+            "profit_factor": 2.9834397774881793,
+            "win_rate": 0.7701092353525323,
+            "total_fees": 57.118552095000005,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 2,
+          "n_signals": 1986,
+          "signal_stats": {
+            "n_emitted": 1986,
+            "n_primary": 340,
+            "n_addon": 1646,
+            "n_skipped_cap": 312,
+            "n_size_1x": 713,
+            "n_size_2x": 1273
+          },
+          "metrics": {
+            "n_trades": 1965,
+            "net_pnl": 359.8331882100156,
+            "profit_factor": 3.9185744499420196,
+            "win_rate": 0.8015267175572519,
+            "total_fees": 78.78841179000001,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 3,
+          "n_signals": 2094,
+          "signal_stats": {
+            "n_emitted": 2094,
+            "n_primary": 361,
+            "n_addon": 1733,
+            "n_skipped_cap": 277,
+            "n_size_1x": 767,
+            "n_size_2x": 1327
+          },
+          "metrics": {
+            "n_trades": 2088,
+            "net_pnl": 629.6629883899714,
+            "profit_factor": 4.641387549209732,
+            "win_rate": 0.8687739463601533,
+            "total_fees": 116.18581161000002,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 4,
+          "n_signals": 2086,
+          "signal_stats": {
+            "n_emitted": 2086,
+            "n_primary": 366,
+            "n_addon": 1720,
+            "n_skipped_cap": 279,
+            "n_size_1x": 772,
+            "n_size_2x": 1314
+          },
+          "metrics": {
+            "n_trades": 2082,
+            "net_pnl": 619.5971925250869,
+            "profit_factor": 5.1245996393178705,
+            "win_rate": 0.8784822286263209,
+            "total_fees": 109.50890747500002,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 5,
+          "n_signals": 1517,
+          "signal_stats": {
+            "n_emitted": 1517,
+            "n_primary": 256,
+            "n_addon": 1261,
+            "n_skipped_cap": 192,
+            "n_size_1x": 554,
+            "n_size_2x": 963
+          },
+          "metrics": {
+            "n_trades": 1511,
+            "net_pnl": 430.6492617800359,
+            "profit_factor": 5.20737089919703,
+            "win_rate": 0.8769027134348114,
+            "total_fees": 76.77513822,
+            "n_liquidations": 0
+          }
+        }
+      ],
+      "stitched": {
+        "n_trades": 11700,
+        "net_pnl": 2672.3376236599997,
+        "profit_factor": 4.22935531460633,
+        "bootstrap_pos_exp": 1.0,
+        "frac_folds_pf_gt_1": 1.0,
+        "frac_folds_pnl_gt_0": 1.0,
+        "n_liquidations": 0
+      }
+    },
+    {
+      "name": "k7_flat_1x",
+      "k": 7,
+      "size_mode": "flat_1x",
+      "max_total_both_sides": 14,
+      "base_arm": "mean_strength|hold12|tp0.01000",
+      "folds": [
+        {
+          "fold_index": 0,
+          "n_signals": 2176,
+          "signal_stats": {
+            "n_emitted": 2176,
+            "n_primary": 313,
+            "n_addon": 1863,
+            "n_skipped_cap": 224
+          },
+          "metrics": {
+            "n_trades": 2175,
+            "net_pnl": 266.72843944994383,
+            "profit_factor": 3.5708286673878624,
+            "win_rate": 0.8648275862068966,
+            "total_fees": 53.417760550000004,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 1,
+          "n_signals": 2121,
+          "signal_stats": {
+            "n_emitted": 2121,
+            "n_primary": 344,
+            "n_addon": 1777,
+            "n_skipped_cap": 142
+          },
+          "metrics": {
+            "n_trades": 2109,
+            "net_pnl": 139.00020806503017,
+            "profit_factor": 2.850436765613989,
+            "win_rate": 0.7714556661925083,
+            "total_fees": 36.690291935000005,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 2,
+          "n_signals": 2099,
+          "signal_stats": {
+            "n_emitted": 2099,
+            "n_primary": 334,
+            "n_addon": 1765,
+            "n_skipped_cap": 199
+          },
+          "metrics": {
+            "n_trades": 2083,
+            "net_pnl": 226.50755631003813,
+            "profit_factor": 3.7572793365778256,
+            "win_rate": 0.8041286605856938,
+            "total_fees": 50.84624369,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 3,
+          "n_signals": 2196,
+          "signal_stats": {
+            "n_emitted": 2196,
+            "n_primary": 356,
+            "n_addon": 1840,
+            "n_skipped_cap": 175
+          },
+          "metrics": {
+            "n_trades": 2193,
+            "net_pnl": 397.8569767300214,
+            "profit_factor": 4.465921257852063,
+            "win_rate": 0.8704970360237118,
+            "total_fees": 74.76422327,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 4,
+          "n_signals": 2191,
+          "signal_stats": {
+            "n_emitted": 2191,
+            "n_primary": 364,
+            "n_addon": 1827,
+            "n_skipped_cap": 174
+          },
+          "metrics": {
+            "n_trades": 2189,
+            "net_pnl": 389.7988119700585,
+            "profit_factor": 4.7540070748170375,
+            "win_rate": 0.8803106441297396,
+            "total_fees": 70.69458803,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 5,
+          "n_signals": 1598,
+          "signal_stats": {
+            "n_emitted": 1598,
+            "n_primary": 254,
+            "n_addon": 1344,
+            "n_skipped_cap": 111
+          },
+          "metrics": {
+            "n_trades": 1595,
+            "net_pnl": 270.22321495499455,
+            "profit_factor": 4.823010363445412,
+            "win_rate": 0.8771159874608151,
+            "total_fees": 49.52688504500001,
+            "n_liquidations": 0
+          }
+        }
+      ],
+      "stitched": {
+        "n_trades": 12344,
+        "net_pnl": 1690.1152074799998,
+        "profit_factor": 4.071103842137023,
+        "bootstrap_pos_exp": 1.0,
+        "frac_folds_pf_gt_1": 1.0,
+        "frac_folds_pnl_gt_0": 1.0,
+        "n_liquidations": 0
+      }
+    },
+    {
+      "name": "k7_double3h",
+      "k": 7,
+      "size_mode": "double_within_3h",
+      "max_total_both_sides": 14,
+      "base_arm": "mean_strength|hold12|tp0.01000",
+      "folds": [
+        {
+          "fold_index": 0,
+          "n_signals": 2176,
+          "signal_stats": {
+            "n_emitted": 2176,
+            "n_primary": 313,
+            "n_addon": 1863,
+            "n_skipped_cap": 224,
+            "n_size_1x": 681,
+            "n_size_2x": 1495
+          },
+          "metrics": {
+            "n_trades": 2175,
+            "net_pnl": 453.9953565899759,
+            "profit_factor": 3.6400434218779263,
+            "win_rate": 0.8648275862068966,
+            "total_fees": 90.10584341,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 1,
+          "n_signals": 2121,
+          "signal_stats": {
+            "n_emitted": 2121,
+            "n_primary": 344,
+            "n_addon": 1777,
+            "n_skipped_cap": 142,
+            "n_size_1x": 745,
+            "n_size_2x": 1376
+          },
+          "metrics": {
+            "n_trades": 2109,
+            "net_pnl": 237.92855742499523,
+            "profit_factor": 3.002267421710613,
+            "win_rate": 0.7714556661925083,
+            "total_fees": 60.46534257500001,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 2,
+          "n_signals": 2099,
+          "signal_stats": {
+            "n_emitted": 2099,
+            "n_primary": 334,
+            "n_addon": 1765,
+            "n_skipped_cap": 199,
+            "n_size_1x": 706,
+            "n_size_2x": 1393
+          },
+          "metrics": {
+            "n_trades": 2083,
+            "net_pnl": 392.7528033500257,
+            "profit_factor": 4.051702212511078,
+            "win_rate": 0.8041286605856938,
+            "total_fees": 84.60039665000001,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 3,
+          "n_signals": 2196,
+          "signal_stats": {
+            "n_emitted": 2196,
+            "n_primary": 356,
+            "n_addon": 1840,
+            "n_skipped_cap": 175,
+            "n_size_1x": 758,
+            "n_size_2x": 1438
+          },
+          "metrics": {
+            "n_trades": 2193,
+            "net_pnl": 678.355632599958,
+            "profit_factor": 4.793371990265045,
+            "win_rate": 0.8704970360237118,
+            "total_fees": 123.6909674,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 4,
+          "n_signals": 2191,
+          "signal_stats": {
+            "n_emitted": 2191,
+            "n_primary": 364,
+            "n_addon": 1827,
+            "n_skipped_cap": 174,
+            "n_size_1x": 765,
+            "n_size_2x": 1426
+          },
+          "metrics": {
+            "n_trades": 2189,
+            "net_pnl": 660.9162953050927,
+            "profit_factor": 5.115927979529925,
+            "win_rate": 0.8803106441297396,
+            "total_fees": 116.67680469500002,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 5,
+          "n_signals": 1598,
+          "signal_stats": {
+            "n_emitted": 1598,
+            "n_primary": 254,
+            "n_addon": 1344,
+            "n_skipped_cap": 111,
+            "n_size_1x": 548,
+            "n_size_2x": 1050
+          },
+          "metrics": {
+            "n_trades": 1595,
+            "net_pnl": 459.7831265850291,
+            "profit_factor": 5.190756951880172,
+            "win_rate": 0.8771159874608151,
+            "total_fees": 81.95457341500001,
+            "n_liquidations": 0
+          }
+        }
+      ],
+      "stitched": {
+        "n_trades": 12344,
+        "net_pnl": 2883.731771855,
+        "profit_factor": 4.319939600030001,
+        "bootstrap_pos_exp": 1.0,
+        "frac_folds_pf_gt_1": 1.0,
+        "frac_folds_pnl_gt_0": 1.0,
+        "n_liquidations": 0
+      }
+    },
+    {
+      "name": "k8_flat_1x",
+      "k": 8,
+      "size_mode": "flat_1x",
+      "max_total_both_sides": 16,
+      "base_arm": "mean_strength|hold12|tp0.01000",
+      "folds": [
+        {
+          "fold_index": 0,
+          "n_signals": 2272,
+          "signal_stats": {
+            "n_emitted": 2272,
+            "n_primary": 310,
+            "n_addon": 1962,
+            "n_skipped_cap": 128
+          },
+          "metrics": {
+            "n_trades": 2272,
+            "net_pnl": 280.2010103449411,
+            "profit_factor": 3.595225018424389,
+            "win_rate": 0.8653169014084507,
+            "total_fees": 55.897089655,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 1,
+          "n_signals": 2179,
+          "signal_stats": {
+            "n_emitted": 2179,
+            "n_primary": 340,
+            "n_addon": 1839,
+            "n_skipped_cap": 84
+          },
+          "metrics": {
+            "n_trades": 2171,
+            "net_pnl": 144.0729385400391,
+            "profit_factor": 2.8783604355040207,
+            "win_rate": 0.7724550898203593,
+            "total_fees": 37.738061460000004,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 2,
+          "n_signals": 2176,
+          "signal_stats": {
+            "n_emitted": 2176,
+            "n_primary": 334,
+            "n_addon": 1842,
+            "n_skipped_cap": 122
+          },
+          "metrics": {
+            "n_trades": 2161,
+            "net_pnl": 237.2592759050367,
+            "profit_factor": 3.8148092158121103,
+            "win_rate": 0.8056455344747802,
+            "total_fees": 52.718024095000004,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 3,
+          "n_signals": 2269,
+          "signal_stats": {
+            "n_emitted": 2269,
+            "n_primary": 354,
+            "n_addon": 1915,
+            "n_skipped_cap": 102
+          },
+          "metrics": {
+            "n_trades": 2266,
+            "net_pnl": 414.02572211001643,
+            "profit_factor": 4.542837998738302,
+            "win_rate": 0.8720211827007943,
+            "total_fees": 77.28267789,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 4,
+          "n_signals": 2265,
+          "signal_stats": {
+            "n_emitted": 2265,
+            "n_primary": 361,
+            "n_addon": 1904,
+            "n_skipped_cap": 100
+          },
+          "metrics": {
+            "n_trades": 2264,
+            "net_pnl": 405.3281709900475,
+            "profit_factor": 4.814616834570183,
+            "win_rate": 0.8825088339222615,
+            "total_fees": 73.06342901000001,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 5,
+          "n_signals": 1652,
+          "signal_stats": {
+            "n_emitted": 1652,
+            "n_primary": 253,
+            "n_addon": 1399,
+            "n_skipped_cap": 57
+          },
+          "metrics": {
+            "n_trades": 1649,
+            "net_pnl": 280.6131435649986,
+            "profit_factor": 4.884470543076137,
+            "win_rate": 0.8781079442086113,
+            "total_fees": 51.192356435,
+            "n_liquidations": 0
+          }
+        }
+      ],
+      "stitched": {
+        "n_trades": 12783,
+        "net_pnl": 1761.5002614549999,
+        "profit_factor": 4.1214671825533635,
+        "bootstrap_pos_exp": 1.0,
+        "frac_folds_pf_gt_1": 1.0,
+        "frac_folds_pnl_gt_0": 1.0,
+        "n_liquidations": 0
+      }
+    },
+    {
+      "name": "k8_double3h",
+      "k": 8,
+      "size_mode": "double_within_3h",
+      "max_total_both_sides": 16,
+      "base_arm": "mean_strength|hold12|tp0.01000",
+      "folds": [
+        {
+          "fold_index": 0,
+          "n_signals": 2272,
+          "signal_stats": {
+            "n_emitted": 2272,
+            "n_primary": 310,
+            "n_addon": 1962,
+            "n_skipped_cap": 128,
+            "n_size_1x": 671,
+            "n_size_2x": 1601
+          },
+          "metrics": {
+            "n_trades": 2272,
+            "net_pnl": 483.6870309249716,
+            "profit_factor": 3.689814943974664,
+            "win_rate": 0.8653169014084507,
+            "total_fees": 95.302469075,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 1,
+          "n_signals": 2179,
+          "signal_stats": {
+            "n_emitted": 2179,
+            "n_primary": 340,
+            "n_addon": 1839,
+            "n_skipped_cap": 84,
+            "n_size_1x": 738,
+            "n_size_2x": 1441
+          },
+          "metrics": {
+            "n_trades": 2171,
+            "net_pnl": 248.52563850499246,
+            "profit_factor": 3.0322153225752118,
+            "win_rate": 0.7724550898203593,
+            "total_fees": 62.668661495,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 2,
+          "n_signals": 2176,
+          "signal_stats": {
+            "n_emitted": 2176,
+            "n_primary": 334,
+            "n_addon": 1842,
+            "n_skipped_cap": 122,
+            "n_size_1x": 699,
+            "n_size_2x": 1477
+          },
+          "metrics": {
+            "n_trades": 2161,
+            "net_pnl": 415.25835129001644,
+            "profit_factor": 4.119539854938359,
+            "win_rate": 0.8056455344747802,
+            "total_fees": 88.50184871,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 3,
+          "n_signals": 2269,
+          "signal_stats": {
+            "n_emitted": 2269,
+            "n_primary": 354,
+            "n_addon": 1915,
+            "n_skipped_cap": 102,
+            "n_size_1x": 752,
+            "n_size_2x": 1517
+          },
+          "metrics": {
+            "n_trades": 2266,
+            "net_pnl": 711.9247885649747,
+            "profit_factor": 4.8902447188843015,
+            "win_rate": 0.8720211827007943,
+            "total_fees": 128.92171143500002,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 4,
+          "n_signals": 2265,
+          "signal_stats": {
+            "n_emitted": 2265,
+            "n_primary": 361,
+            "n_addon": 1904,
+            "n_skipped_cap": 100,
+            "n_size_1x": 757,
+            "n_size_2x": 1508
+          },
+          "metrics": {
+            "n_trades": 2264,
+            "net_pnl": 692.7253778050981,
+            "profit_factor": 5.174128519218749,
+            "win_rate": 0.8825088339222615,
+            "total_fees": 121.63552219500001,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 5,
+          "n_signals": 1652,
+          "signal_stats": {
+            "n_emitted": 1652,
+            "n_primary": 253,
+            "n_addon": 1399,
+            "n_skipped_cap": 57,
+            "n_size_1x": 545,
+            "n_size_2x": 1107
+          },
+          "metrics": {
+            "n_trades": 1649,
+            "net_pnl": 482.16598137503024,
+            "profit_factor": 5.28214513930051,
+            "win_rate": 0.8781079442086113,
+            "total_fees": 85.42291862500001,
+            "n_liquidations": 0
+          }
+        }
+      ],
+      "stitched": {
+        "n_trades": 12783,
+        "net_pnl": 3034.287168464999,
+        "profit_factor": 4.383503554854369,
+        "bootstrap_pos_exp": 1.0,
+        "frac_folds_pf_gt_1": 1.0,
+        "frac_folds_pnl_gt_0": 1.0,
+        "n_liquidations": 0
+      }
+    },
+    {
+      "name": "k9_flat_1x",
+      "k": 9,
+      "size_mode": "flat_1x",
+      "max_total_both_sides": 18,
+      "base_arm": "mean_strength|hold12|tp0.01000",
+      "folds": [
+        {
+          "fold_index": 0,
+          "n_signals": 2335,
+          "signal_stats": {
+            "n_emitted": 2335,
+            "n_primary": 310,
+            "n_addon": 2025,
+            "n_skipped_cap": 65
+          },
+          "metrics": {
+            "n_trades": 2335,
+            "net_pnl": 290.55016520495155,
+            "profit_factor": 3.6523030032539414,
+            "win_rate": 0.867237687366167,
+            "total_fees": 57.504934795000004,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 1,
+          "n_signals": 2217,
+          "signal_stats": {
+            "n_emitted": 2217,
+            "n_primary": 340,
+            "n_addon": 1877,
+            "n_skipped_cap": 46
+          },
+          "metrics": {
+            "n_trades": 2210,
+            "net_pnl": 147.75619983504112,
+            "profit_factor": 2.9006007950670236,
+            "win_rate": 0.7742081447963801,
+            "total_fees": 38.413100165,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 2,
+          "n_signals": 2227,
+          "signal_stats": {
+            "n_emitted": 2227,
+            "n_primary": 333,
+            "n_addon": 1894,
+            "n_skipped_cap": 71
+          },
+          "metrics": {
+            "n_trades": 2213,
+            "net_pnl": 244.44286828003715,
+            "profit_factor": 3.8611593149172814,
+            "win_rate": 0.8075011296882061,
+            "total_fees": 53.93153172,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 3,
+          "n_signals": 2318,
+          "signal_stats": {
+            "n_emitted": 2318,
+            "n_primary": 354,
+            "n_addon": 1964,
+            "n_skipped_cap": 53
+          },
+          "metrics": {
+            "n_trades": 2316,
+            "net_pnl": 424.9395458600102,
+            "profit_factor": 4.60064137810266,
+            "win_rate": 0.8734887737478411,
+            "total_fees": 78.99965414,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 4,
+          "n_signals": 2314,
+          "signal_stats": {
+            "n_emitted": 2314,
+            "n_primary": 360,
+            "n_addon": 1954,
+            "n_skipped_cap": 51
+          },
+          "metrics": {
+            "n_trades": 2314,
+            "net_pnl": 414.2125662150502,
+            "profit_factor": 4.828842562760711,
+            "win_rate": 0.8828867761452031,
+            "total_fees": 74.58813378500001,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 5,
+          "n_signals": 1684,
+          "signal_stats": {
+            "n_emitted": 1684,
+            "n_primary": 252,
+            "n_addon": 1432,
+            "n_skipped_cap": 25
+          },
+          "metrics": {
+            "n_trades": 1681,
+            "net_pnl": 286.7720002450005,
+            "profit_factor": 4.897837559205244,
+            "win_rate": 0.8780487804878049,
+            "total_fees": 52.234299755,
+            "n_liquidations": 0
+          }
+        }
+      ],
+      "stitched": {
+        "n_trades": 13069,
+        "net_pnl": 1808.6733456399998,
+        "profit_factor": 4.159281729412866,
+        "bootstrap_pos_exp": 1.0,
+        "frac_folds_pf_gt_1": 1.0,
+        "frac_folds_pnl_gt_0": 1.0,
+        "n_liquidations": 0
+      }
+    },
+    {
+      "name": "k9_double3h",
+      "k": 9,
+      "size_mode": "double_within_3h",
+      "max_total_both_sides": 18,
+      "base_arm": "mean_strength|hold12|tp0.01000",
+      "folds": [
+        {
+          "fold_index": 0,
+          "n_signals": 2335,
+          "signal_stats": {
+            "n_emitted": 2335,
+            "n_primary": 310,
+            "n_addon": 2025,
+            "n_skipped_cap": 65,
+            "n_size_1x": 667,
+            "n_size_2x": 1668
+          },
+          "metrics": {
+            "n_trades": 2335,
+            "net_pnl": 504.63774601496334,
+            "profit_factor": 3.7531078671563436,
+            "win_rate": 0.867237687366167,
+            "total_fees": 98.60595398500001,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 1,
+          "n_signals": 2217,
+          "signal_stats": {
+            "n_emitted": 2217,
+            "n_primary": 340,
+            "n_addon": 1877,
+            "n_skipped_cap": 46,
+            "n_size_1x": 733,
+            "n_size_2x": 1484
+          },
+          "metrics": {
+            "n_trades": 2210,
+            "net_pnl": 256.16947607999646,
+            "profit_factor": 3.054323955371851,
+            "win_rate": 0.7742081447963801,
+            "total_fees": 64.10972392000001,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 2,
+          "n_signals": 2227,
+          "signal_stats": {
+            "n_emitted": 2227,
+            "n_primary": 333,
+            "n_addon": 1894,
+            "n_skipped_cap": 71,
+            "n_size_1x": 690,
+            "n_size_2x": 1537
+          },
+          "metrics": {
+            "n_trades": 2213,
+            "net_pnl": 430.30836252002337,
+            "profit_factor": 4.176212982825412,
+            "win_rate": 0.8075011296882061,
+            "total_fees": 91.03963748000001,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 3,
+          "n_signals": 2318,
+          "signal_stats": {
+            "n_emitted": 2318,
+            "n_primary": 354,
+            "n_addon": 1964,
+            "n_skipped_cap": 53,
+            "n_size_1x": 749,
+            "n_size_2x": 1569
+          },
+          "metrics": {
+            "n_trades": 2316,
+            "net_pnl": 734.3735950749779,
+            "profit_factor": 4.962891124765371,
+            "win_rate": 0.8734887737478411,
+            "total_fees": 132.46610492500002,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 4,
+          "n_signals": 2314,
+          "signal_stats": {
+            "n_emitted": 2314,
+            "n_primary": 360,
+            "n_addon": 1954,
+            "n_skipped_cap": 51,
+            "n_size_1x": 747,
+            "n_size_2x": 1567
+          },
+          "metrics": {
+            "n_trades": 2314,
+            "net_pnl": 712.5516526750998,
+            "profit_factor": 5.186419479585673,
+            "win_rate": 0.8828867761452031,
+            "total_fees": 125.00984732500001,
+            "n_liquidations": 0
+          }
+        },
+        {
+          "fold_index": 5,
+          "n_signals": 1684,
+          "signal_stats": {
+            "n_emitted": 1684,
+            "n_primary": 252,
+            "n_addon": 1432,
+            "n_skipped_cap": 25,
+            "n_size_1x": 543,
+            "n_size_2x": 1141
+          },
+          "metrics": {
+            "n_trades": 1681,
+            "net_pnl": 494.79072462503245,
+            "profit_factor": 5.292679546915567,
+            "win_rate": 0.8780487804878049,
+            "total_fees": 87.544975375,
+            "n_liquidations": 0
+          }
+        }
+      ],
+      "stitched": {
+        "n_trades": 13069,
+        "net_pnl": 3132.831556989999,
+        "profit_factor": 4.426647562378625,
+        "bootstrap_pos_exp": 1.0,
+        "frac_folds_pf_gt_1": 1.0,
+        "frac_folds_pnl_gt_0": 1.0,
+        "n_liquidations": 0
+      }
+    }
+  ],
+  "summary": [
+    {
+      "name": "k3_flat_1x",
+      "k": 3,
+      "size_mode": "flat_1x",
+      "max_total_both_sides": 6,
+      "profit_factor": 3.529108348599598,
+      "net_pnl": 1013.7858049499998,
+      "n_trades": 7950,
+      "bootstrap_pos_exp": 1.0,
+      "n_liquidations": 0
+    },
+    {
+      "name": "k3_double3h",
+      "k": 3,
+      "size_mode": "double_within_3h",
+      "max_total_both_sides": 6,
+      "profit_factor": 3.6878364991596855,
+      "net_pnl": 1537.1513605149996,
+      "n_trades": 7950,
+      "bootstrap_pos_exp": 1.0,
+      "n_liquidations": 0
+    },
+    {
+      "name": "k4_flat_1x",
+      "k": 4,
+      "size_mode": "flat_1x",
+      "max_total_both_sides": 8,
+      "profit_factor": 3.7663598333478143,
+      "net_pnl": 1263.567974595,
+      "n_trades": 9584,
+      "bootstrap_pos_exp": 1.0,
+      "n_liquidations": 0
+    },
+    {
+      "name": "k4_double3h",
+      "k": 4,
+      "size_mode": "double_within_3h",
+      "max_total_both_sides": 8,
+      "profit_factor": 3.9712853480130463,
+      "net_pnl": 2021.0318057549996,
+      "n_trades": 9584,
+      "bootstrap_pos_exp": 1.0,
+      "n_liquidations": 0
+    },
+    {
+      "name": "k5_flat_1x",
+      "k": 5,
+      "size_mode": "flat_1x",
+      "max_total_both_sides": 10,
+      "profit_factor": 3.887097701854782,
+      "net_pnl": 1449.94332335,
+      "n_trades": 10818,
+      "bootstrap_pos_exp": 1.0,
+      "n_liquidations": 0
+    },
+    {
+      "name": "k5_double3h",
+      "k": 5,
+      "size_mode": "double_within_3h",
+      "max_total_both_sides": 10,
+      "profit_factor": 4.114418041595842,
+      "net_pnl": 2393.9727402649996,
+      "n_trades": 10818,
+      "bootstrap_pos_exp": 1.0,
+      "n_liquidations": 0
+    },
+    {
+      "name": "k6_flat_1x",
+      "k": 6,
+      "size_mode": "flat_1x",
+      "max_total_both_sides": 12,
+      "profit_factor": 3.9890801046948123,
+      "net_pnl": 1586.8645910299997,
+      "n_trades": 11700,
+      "bootstrap_pos_exp": 1.0,
+      "n_liquidations": 0
+    },
+    {
+      "name": "k6_double3h",
+      "k": 6,
+      "size_mode": "double_within_3h",
+      "max_total_both_sides": 12,
+      "profit_factor": 4.22935531460633,
+      "net_pnl": 2672.3376236599997,
+      "n_trades": 11700,
+      "bootstrap_pos_exp": 1.0,
+      "n_liquidations": 0
+    },
+    {
+      "name": "k7_flat_1x",
+      "k": 7,
+      "size_mode": "flat_1x",
+      "max_total_both_sides": 14,
+      "profit_factor": 4.071103842137023,
+      "net_pnl": 1690.1152074799998,
+      "n_trades": 12344,
+      "bootstrap_pos_exp": 1.0,
+      "n_liquidations": 0
+    },
+    {
+      "name": "k7_double3h",
+      "k": 7,
+      "size_mode": "double_within_3h",
+      "max_total_both_sides": 14,
+      "profit_factor": 4.319939600030001,
+      "net_pnl": 2883.731771855,
+      "n_trades": 12344,
+      "bootstrap_pos_exp": 1.0,
+      "n_liquidations": 0
+    },
+    {
+      "name": "k8_flat_1x",
+      "k": 8,
+      "size_mode": "flat_1x",
+      "max_total_both_sides": 16,
+      "profit_factor": 4.1214671825533635,
+      "net_pnl": 1761.5002614549999,
+      "n_trades": 12783,
+      "bootstrap_pos_exp": 1.0,
+      "n_liquidations": 0
+    },
+    {
+      "name": "k8_double3h",
+      "k": 8,
+      "size_mode": "double_within_3h",
+      "max_total_both_sides": 16,
+      "profit_factor": 4.383503554854369,
+      "net_pnl": 3034.287168464999,
+      "n_trades": 12783,
+      "bootstrap_pos_exp": 1.0,
+      "n_liquidations": 0
+    },
+    {
+      "name": "k9_flat_1x",
+      "k": 9,
+      "size_mode": "flat_1x",
+      "max_total_both_sides": 18,
+      "profit_factor": 4.159281729412866,
+      "net_pnl": 1808.6733456399998,
+      "n_trades": 13069,
+      "bootstrap_pos_exp": 1.0,
+      "n_liquidations": 0
+    },
+    {
+      "name": "k9_double3h",
+      "k": 9,
+      "size_mode": "double_within_3h",
+      "max_total_both_sides": 18,
+      "profit_factor": 4.426647562378625,
+      "net_pnl": 3132.831556989999,
+      "n_trades": 13069,
+      "bootstrap_pos_exp": 1.0,
+      "n_liquidations": 0
+    }
+  ],
+  "comparisons_by_k": [
+    {
+      "k": 3,
+      "flat_1x_pf": 3.529108348599598,
+      "double3h_pf": 3.6878364991596855,
+      "delta_pf": 0.1587281505600875,
+      "flat_1x_pnl": 1013.7858049499998,
+      "double3h_pnl": 1537.1513605149996,
+      "delta_pnl": 523.3655555649998,
+      "double_beats_flat_pf": true,
+      "double_beats_flat_pnl": true
+    },
+    {
+      "k": 4,
+      "flat_1x_pf": 3.7663598333478143,
+      "double3h_pf": 3.9712853480130463,
+      "delta_pf": 0.204925514665232,
+      "flat_1x_pnl": 1263.567974595,
+      "double3h_pnl": 2021.0318057549996,
+      "delta_pnl": 757.4638311599997,
+      "double_beats_flat_pf": true,
+      "double_beats_flat_pnl": true
+    },
+    {
+      "k": 5,
+      "flat_1x_pf": 3.887097701854782,
+      "double3h_pf": 4.114418041595842,
+      "delta_pf": 0.22732033974105992,
+      "flat_1x_pnl": 1449.94332335,
+      "double3h_pnl": 2393.9727402649996,
+      "delta_pnl": 944.0294169149997,
+      "double_beats_flat_pf": true,
+      "double_beats_flat_pnl": true
+    },
+    {
+      "k": 6,
+      "flat_1x_pf": 3.9890801046948123,
+      "double3h_pf": 4.22935531460633,
+      "delta_pf": 0.24027520991151796,
+      "flat_1x_pnl": 1586.8645910299997,
+      "double3h_pnl": 2672.3376236599997,
+      "delta_pnl": 1085.47303263,
+      "double_beats_flat_pf": true,
+      "double_beats_flat_pnl": true
+    },
+    {
+      "k": 7,
+      "flat_1x_pf": 4.071103842137023,
+      "double3h_pf": 4.319939600030001,
+      "delta_pf": 0.2488357578929783,
+      "flat_1x_pnl": 1690.1152074799998,
+      "double3h_pnl": 2883.731771855,
+      "delta_pnl": 1193.616564375,
+      "double_beats_flat_pf": true,
+      "double_beats_flat_pnl": true
+    },
+    {
+      "k": 8,
+      "flat_1x_pf": 4.1214671825533635,
+      "double3h_pf": 4.383503554854369,
+      "delta_pf": 0.2620363723010053,
+      "flat_1x_pnl": 1761.5002614549999,
+      "double3h_pnl": 3034.287168464999,
+      "delta_pnl": 1272.7869070099991,
+      "double_beats_flat_pf": true,
+      "double_beats_flat_pnl": true
+    },
+    {
+      "k": 9,
+      "flat_1x_pf": 4.159281729412866,
+      "double3h_pf": 4.426647562378625,
+      "delta_pf": 0.26736583296575844,
+      "flat_1x_pnl": 1808.6733456399998,
+      "double3h_pnl": 3132.831556989999,
+      "delta_pnl": 1324.1582113499994,
+      "double_beats_flat_pf": true,
+      "double_beats_flat_pnl": true
+    }
+  ],
+  "verdict": {
+    "best_double3h_pf_arm": {
+      "name": "k9_double3h",
+      "k": 9,
+      "size_mode": "double_within_3h",
+      "max_total_both_sides": 18,
+      "profit_factor": 4.426647562378625,
+      "net_pnl": 3132.831556989999,
+      "n_trades": 13069,
+      "bootstrap_pos_exp": 1.0,
+      "n_liquidations": 0
+    },
+    "double_pf_wins_vs_flat": 7,
+    "double_pnl_wins_vs_flat": 7,
+    "n_k_tested": 7,
+    "max_readiness": "RESEARCH_ONLY",
+    "caveat": "min-exchange / 2x stacked books; not scale or liquidation evidence",
+    "no_live_deploy": true
+  },
+  "elapsed_sec": 269.0,
+  "tradesim_file": "C:\\projects\\botsgeneral\\packages\\tradesim\\src\\tradesim\\__init__.py"
+}

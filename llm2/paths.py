@@ -10,6 +10,10 @@ MARKET_DB = Path(r"D:\projectsdata\candles\market_ohlcv.sqlite")
 RESEARCH_DB = ARTIFACTS / "sqlite" / "research.sqlite"
 LEAKAGE_REGISTRY = ARTIFACTS / "sqlite" / "leakage_registry.json"
 FORWARD_LOCKBOX_START = "2026-05-01"
+# After D-036 peeks on May→2026-08-04 multitrade lockbox diagnostics: only bars
+# on/after this UTC date may host *new* multitrade parameter claims as unsealed forward.
+# Copying OHLCV elsewhere does not reset contamination of the prior window.
+POST_MULTITRADE_FREEZE_START = "2026-08-05"
 
 BINANCE_PERPS = [
     "BTCUSDT",

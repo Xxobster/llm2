@@ -1,0 +1,185 @@
+{
+  "generation_id": "structure_v1_btc_sol_cluster_double_transfer_001",
+  "created_utc": "20260804T125652Z",
+  "evidence_class": "frozen_geometry_symbol_transfer_fold_V2",
+  "max_readiness": "RESEARCH_ONLY",
+  "lockbox_used": false,
+  "hard_end_exclusive": "2026-05-01",
+  "preregister_sha256": "0bbc5d90eff8002dab1a9e9c5b0638d36e3c8957d11802231a1a85fd37c3b8b8",
+  "fold_geometry": "v2",
+  "outer_fold_ranges": [
+    [
+      "2022-01-01",
+      "2022-10-01"
+    ],
+    [
+      "2022-10-01",
+      "2023-07-01"
+    ],
+    [
+      "2023-07-01",
+      "2024-04-01"
+    ],
+    [
+      "2024-04-01",
+      "2025-01-01"
+    ],
+    [
+      "2025-01-01",
+      "2025-10-01"
+    ],
+    [
+      "2025-10-01",
+      "2026-05-01"
+    ]
+  ],
+  "conformance": {
+    "status": "ok",
+    "returncode": 0,
+    "passed": true,
+    "stamp": {
+      "engine_name": "tradesim",
+      "engine_version": "1.0.0",
+      "engine_commit": "UNKNOWN_DIRTY",
+      "fixture_pack_hash": "9a037b290c8ab1f4d84706809ae83f548062fe946b811cf2ab2dee7868c371a2",
+      "registry_digest": "f9e9c06aa56214c8f24323159a93a46ba1c3d64469c305663f2dd62b2b0863e2",
+      "contract": "perp_bracket_portfolio",
+      "checked_at_ms": 1785848115135,
+      "passed": true,
+      "required_count": 62,
+      "satisfied_count": 62,
+      "unsatisfied": [],
+      "checker_version": "1",
+      "detail": {
+        "checker_version": "1",
+        "unknown_identifiers_in_tests": [],
+        "n_fixtures": 50
+      }
+    }
+  },
+  "combos": [
+    {
+      "symbol": "BTCUSDT",
+      "target": "fwd_return",
+      "leverage": 18.0,
+      "n_folds": 6,
+      "arms": {
+        "control_live": {
+          "arm_id": "control_live",
+          "k": 1,
+          "arm_key": "none|hold6|tp0.01000",
+          "double_bars": 0,
+          "stitched": {
+            "n_trades": 5923,
+            "net_pnl": 851.687915065,
+            "profit_factor": 2.0296247944893024,
+            "bootstrap_pos_exp": 1.0,
+            "frac_folds_pf_gt_1": 1.0,
+            "n_liquidations": 0
+          }
+        },
+        "k1_clarity": {
+          "arm_id": "k1_clarity",
+          "k": 1,
+          "arm_key": "mean_strength|hold12|tp0.01000",
+          "double_bars": 0,
+          "stitched": {
+            "n_trades": 3144,
+            "net_pnl": 763.9484430599998,
+            "profit_factor": 2.8628769041736915,
+            "bootstrap_pos_exp": 1.0,
+            "frac_folds_pf_gt_1": 1.0,
+            "n_liquidations": 0
+          }
+        },
+        "k5_double3h": {
+          "arm_id": "k5_double3h",
+          "k": 5,
+          "arm_key": "mean_strength|hold12|tp0.01000",
+          "double_bars": 3,
+          "stitched": {
+            "n_trades": 6452,
+            "net_pnl": 3078.00209179,
+            "profit_factor": 3.89184661184746,
+            "bootstrap_pos_exp": 1.0,
+            "frac_folds_pf_gt_1": 1.0,
+            "n_liquidations": 0
+          }
+        }
+      },
+      "beats_control": {
+        "k1_clarity": true,
+        "k5_double3h": true
+      }
+    },
+    {
+      "symbol": "SOLUSDT",
+      "target": "direction",
+      "leverage": 18.0,
+      "n_folds": 6,
+      "arms": {
+        "control_live": {
+          "arm_id": "control_live",
+          "k": 1,
+          "arm_key": "none|hold6|tp0.01000",
+          "double_bars": 0,
+          "stitched": {
+            "n_trades": 11408,
+            "net_pnl": 424.96772565000003,
+            "profit_factor": 1.9406712049467907,
+            "bootstrap_pos_exp": 1.0,
+            "frac_folds_pf_gt_1": 1.0,
+            "n_liquidations": 0
+          }
+        },
+        "k1_clarity": {
+          "arm_id": "k1_clarity",
+          "k": 1,
+          "arm_key": "mean_strength|hold12|tp0.01000",
+          "double_bars": 0,
+          "stitched": {
+            "n_trades": 6501,
+            "net_pnl": 350.9285665000001,
+            "profit_factor": 2.6619221420587738,
+            "bootstrap_pos_exp": 1.0,
+            "frac_folds_pf_gt_1": 1.0,
+            "n_liquidations": 0
+          }
+        },
+        "k5_double3h": {
+          "arm_id": "k5_double3h",
+          "k": 5,
+          "arm_key": "mean_strength|hold12|tp0.01000",
+          "double_bars": 3,
+          "stitched": {
+            "n_trades": 10143,
+            "net_pnl": 1036.47673845,
+            "profit_factor": 3.3565576730795943,
+            "bootstrap_pos_exp": 1.0,
+            "frac_folds_pf_gt_1": 1.0,
+            "n_liquidations": 0
+          }
+        }
+      },
+      "beats_control": {
+        "k1_clarity": true,
+        "k5_double3h": true
+      }
+    }
+  ],
+  "verdict": {
+    "k5_double3h_beats_on_n_symbols": 2,
+    "n_symbols": 2,
+    "principal_blocker": null,
+    "settle_candidates": [
+      "BTCUSDT:fwd_return",
+      "SOLUSDT:direction"
+    ],
+    "note": "RESEARCH_ONLY. Winners need separate OUTER_SETTLE before pack freeze.",
+    "no_live_deploy": true
+  },
+  "elapsed_sec": 101.5,
+  "tradesim_file": "C:\\projects\\botsgeneral\\packages\\tradesim\\src\\tradesim\\__init__.py",
+  "min_size_equity_caveat": "Wallet equity / maximum drawdown under research_sizing MIN_EXCHANGE (minimum exchange size) on a large wallet is not tradable-edge evidence. Smooth curves are expected at dust size; do not treat them as deployable sizing.",
+  "equity_is_tradable_edge": false
+}

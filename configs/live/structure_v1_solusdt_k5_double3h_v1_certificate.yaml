@@ -1,0 +1,18 @@
+strategy_id: structure_v1_lgbm_SOLUSDT_1h_direction_k5_double3h_v1
+version_id: sol_k5_double3h_v1
+status: AUTHORIZED
+authorized_by_user: true
+vps_host: 94.156.189.76
+account_ref: Xxobster10
+intended_vps_host: 94.156.189.76
+intended_account_ref: Xxobster10
+pack_path: artifacts/live_packs/structure_v1_solusdt_k5_double3h_v1
+pack_hash: b75261b8697854a58c165641c2de38f7b9b51e08f729b5bfdfb6defe56adca24
+expires_utc: '2026-08-18T00:00:00Z'
+created_utc: '2026-08-04T14:40:00Z'
+execution_mode: multitrade
+notes: >-
+  User authorized 2026-08-04 to deploy Track2 k5_double3h for SOLUSDT
+  on Xxobster10 / 94.156.189.76 (shared with BTC+SOL k5 units). MIN_EXCHANGE.
+  RESEARCH_TRANSFER_MICRO — not full V2.1 hedge settle. Distinct from Xxobster7
+  single-book. Expires 2026-08-18 unless renewed.

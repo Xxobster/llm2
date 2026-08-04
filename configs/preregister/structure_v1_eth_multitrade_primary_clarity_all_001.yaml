@@ -1,0 +1,85 @@
+# Nested transfer settle: apply primary mean_strength (clarity_scope=all) to
+# live eth_multitrade_v1_1 geometry. ONE candidate vs live control.
+# Written before this settle run. No lockbox. No multi-arm grid.
+
+generation_id: structure_v1_eth_multitrade_primary_clarity_all_001
+created_utc: "2026-08-04T15:20:00Z"
+status: OOS_COMPARE_COMPLETE
+settled_utc: "20260804T152751Z"
+preregister_sha256_at_run: 2a79e73c2e207ae54147c964ad370de836c24a720ca80c47db126ab78c2073b8
+decision_refs: [D-036, D-039]
+fold_geometry: v2
+parent_generations:
+  - structure_v1_clarity_hold12_outer_settle_001  # primary mean_strength works single-book
+  - structure_v1_eth_multitrade_failure_modes_001  # diagnostic support only (not selection)
+
+hypothesis: >
+  Transferring primary-entry mean_strength (clarity_scope=all) onto the locked
+  eth_multitrade_v1_1 arm (K=7, fib_ext=1.618, hold_addon=12, base_hold=6,
+  tp/sl 1%/2%) raises stitched outer-fold profit factor and cuts book-1
+  wrong-way rate versus the live control (clarity_scope=addon) without
+  changing K, Fibonacci tiers, or stops.
+
+economic_rationale: >
+  Failure-mode measure showed book-1 is the weak link (wrong@1h≈47%, PF≈2.0)
+  while add-ons already pass mean_strength. Single-book OUTER_SETTLE already
+  passed mean_strength on primary. This generation freezes that transfer —
+  one arm — rather than re-searching gates on outer out-of-sample.
+
+frozen_candidate:
+  pack_base: artifacts/live_packs/structure_v1_ethusdt_multitrade_v1_1
+  clarity: mean_strength
+  clarity_scope: all
+  k_per_side: 7
+  fib_ext: 1.618
+  hold_addon: 12
+  base_hold: 6
+  base_tp: 0.01
+  base_sl: 0.02
+  mean_lookback: 168
+
+control_arm:
+  # Exact live v1.1
+  clarity: mean_strength
+  clarity_scope: addon
+  k_per_side: 7
+  fib_ext: 1.618
+  hold_addon: 12
+  base_hold: 6
+  base_tp: 0.01
+  base_sl: 0.02
+
+selection:
+  method: FROZEN_TRANSFER — one candidate; no ranking among alternatives
+  forbidden:
+    - re_search_K_fib_hold_tp_grid
+    - select_on_lockbox
+    - combine_with_shorter_hold_in_same_generation
+    - promote_without_beating_control_on_stitched_outer
+
+evaluation:
+  symbol: ETHUSDT
+  target: direction
+  min_edge: 0.10
+  outer: fold_geometry_v2_stitched_oos
+  hard_end_exclusive: "2026-05-01"
+  lockbox: DO_NOT_OPEN
+  engine: botsgeneral_tradesim
+  costs: research_costs_baseline
+  sizing: MIN_EXCHANGE
+  leverage: leverage_from_stop(0.02)
+  evidence_class_if_beats_control: OUTER_TRANSFER_COMPARE
+  promotion: FORBIDDEN_without_new_pack_hash_certificate_and_explicit_user_auth
+  note: >
+    Failure_modes_001 inspected the same outer window diagnostically.
+    Candidate identity is anchored in prior single-book settle (transfer),
+    not chosen from a multi-arm outer search. Still not a live deploy.
+
+success_criteria:
+  - candidate_stitched_pf > control_stitched_pf
+  - candidate_stitched_pf >= 1.20
+  - no liquidation
+  - book1_wrong_way_1h_candidate <= book1_wrong_way_1h_control  # soft diagnostic
+
+failure_is_success: true
+live_deploy: FORBIDDEN_without_certificate_and_explicit_user_auth

@@ -49,8 +49,16 @@ from llm2.gates.evidence import (  # noqa: E402
 from llm2.hunt.targets import DIRECTION_BAND, proxy_side, target_family  # noqa: E402
 from llm2.models.base import Prediction  # noqa: E402
 from llm2.paths import ARTIFACTS, FORWARD_LOCKBOX_START, ROUND_TRIP_COST, TF_MS, touch_timeframe  # noqa: E402
+from llm2.evidence.lockbox_guard import (  # noqa: E402
+    add_lockbox_guard_args,
+    require_lockbox_access,
+    seal_finplot_unless_authorized,
+)
+from llm2.research_policy import PolicyError  # noqa: E402
 from llm2.signals.translate import predictions_to_signals  # noqa: E402
 from llm2.validation.folds import index_to_ms  # noqa: E402
+
+os.environ.setdefault("TRADESIM_NO_PLOT", "1")
 
 SYMBOL = "ETHUSDT"
 SPACE = "structure_v1"
@@ -298,16 +306,38 @@ def _run_arm(ctx: dict, *, max_per_side: int, store: bool, label: str):
 
 
 def main(argv: list[str] | None = None) -> int:
-    ap = argparse.ArgumentParser()
+    ap = argparse.ArgumentParser(
+        description="ETH concurrent lockbox report (sealed; dual accept for Finplot)."
+    )
     ap.add_argument("--start", default=FORWARD_LOCKBOX_START)
     ap.add_argument("--max-per-side", type=int, default=3)
     ap.add_argument("--store", action="store_true", default=True)
-    ap.add_argument("--no-show", action="store_true")
+    ap.add_argument("--show", action="store_true", help="Finplot (needs dual accept).")
+    ap.add_argument("--no-show", action="store_true", help="Deprecated: Finplot off by default.")
     ap.add_argument("--trade-cap", type=int, default=120)
+    add_lockbox_guard_args(ap)
     args = ap.parse_args(argv)
 
-    if os.environ.get("TRADESIM_NO_PLOT") and not args.no_show:
-        os.environ.pop("TRADESIM_NO_PLOT", None)
+    open_finplot = bool(args.show) and not bool(args.no_show)
+    try:
+        require_lockbox_access(
+            experiment_id="structure_v1_eth_concurrent_lockbox_plot",
+            window_start=str(args.start),
+            purpose="finplot_lockbox_open" if open_finplot else "lockbox_report_only",
+            symbols=[SYMBOL],
+            accepted_contamination=bool(args.i_accept_lockbox_contamination),
+            open_finplot=open_finplot,
+            accepted_finplot=bool(args.i_accept_finplot_lockbox),
+            notes="scripts/plot_structure_eth_concurrent.py",
+        )
+    except PolicyError as exc:
+        print(f"REFUSED: {exc}", flush=True)
+        return 2
+
+    show = seal_finplot_unless_authorized(
+        open_finplot=open_finplot,
+        accepted_finplot=bool(args.i_accept_finplot_lockbox),
+    )
 
     stamp = run_conformance_check(quiet=True)
     if not stamp.get("passed"):
@@ -342,6 +372,7 @@ def main(argv: list[str] | None = None) -> int:
         "lockbox_start": args.start,
         "data_end": str(ctx["end_ts"]),
         "evidence_class": "LOCKBOX_OPENED_CONTAMINATED",
+        "finplot": show,
         "note": (
             "Contaminated May→now lockbox. Concurrent arm uses Bybit-style hedge mode with "
             f"max_positions_per_side={args.max_per_side}; each trade keeps its own TP/SL. "
@@ -361,7 +392,7 @@ def main(argv: list[str] | None = None) -> int:
     print(f"\nwrote {OUT}", flush=True)
     print(json.dumps({"delta": delta}, indent=2), flush=True)
 
-    if not args.no_show:
+    if show:
         start_ts = ctx["start_ts"]
         bars = ohlcv_to_bar_series(
             ctx["window"].loc[ctx["window"].index >= start_ts],

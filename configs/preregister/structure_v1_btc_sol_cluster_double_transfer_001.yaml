@@ -1,0 +1,72 @@
+# Transfer-only (no re-rank) of ETH-frozen concurrency geometries to BTCUSDT + SOLUSDT.
+# Candidate K/double rules selected on ETH outer folds only; applied once here.
+# Hard end < FORWARD_LOCKBOX_START. Lockbox not opened for ranking.
+
+generation_id: structure_v1_btc_sol_cluster_double_transfer_001
+created_utc: "2026-08-04T12:55:00Z"
+status: ACTIVE
+fold_geometry: v2
+source_plan: clean_model_improvement_ec53bd32
+parent_research:
+  - structure_v1_eth_cluster_size_double_k3_9_001  # ETH only; double beats flat
+  - structure_v1_eth_singlebook_clarity_hold_tp_001  # clarity arm for k1 baseline
+
+hypothesis: >
+  Frozen ETH cluster geometries mean_strength|hold12|tp1% with
+  (A) K=1 single-book clarity control and (B) K=5 size-double-within-3h
+  transfer to BTCUSDT and SOLUSDT on fold V2 without re-searching K.
+
+economic_rationale: >
+  ETH research showed concurrency and size-double improve stitched PF vs flat
+  single book. Transfer evaluates whether the same geometry generalises; no
+  K ladder on BTC/SOL so outer OOS cannot select a larger K after viewing.
+
+frozen_arms:
+  - id: k1_clarity
+    max_positions_per_side: 1
+    clarity: mean_strength
+    horizon_bars: 12
+    tp_pct: 0.01
+    sl_pct: 0.02
+    size_double_within_bars: 0
+  - id: k5_double3h
+    max_positions_per_side: 5
+    clarity: mean_strength
+    horizon_bars: 12
+    tp_pct: 0.01
+    sl_pct: 0.02
+    size_double_within_bars: 3
+    size_double_mult: 2.0
+    uniform_books: true
+
+control_live_geometry:
+  max_positions_per_side: 1
+  clarity: none
+  horizon_bars: 6
+  tp_pct: 0.01
+  sl_pct: 0.02
+
+combos:
+  - symbol: BTCUSDT
+    target: fwd_return
+  - symbol: SOLUSDT
+    target: direction
+
+selection: FROZEN_transfer_no_rerank
+evaluation:
+  outer: fold_geometry_v2_stitched_oos
+  hard_end_exclusive: "2026-05-01"
+  lockbox: DO_NOT_OPEN_FOR_SELECTION
+  engine: botsgeneral_tradesim
+  sim: research_sim_hedge for k>1; research_sim for k=1
+  costs: research_costs_baseline
+  sizing: min_exchange
+
+success_criteria:
+  - k5_double3h stitched_pf > control and >= 1.20 on a symbol
+  - bootstrap_pos_exp >= 0.90 when n>=50
+  - no liquidation
+  - evidence_class RESEARCH_ONLY unless later full settle
+
+failure_is_success: true
+live_deploy: FORBIDDEN_without_separate_outer_settle_certificate_and_user_auth

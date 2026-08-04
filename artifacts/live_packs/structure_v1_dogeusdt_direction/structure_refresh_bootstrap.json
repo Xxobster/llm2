@@ -1,0 +1,53 @@
+{
+  "symbol": "DOGEUSDT",
+  "db": "D:\\projects\\LLM2\\artifacts\\live_packs\\structure_v1_dogeusdt_direction\\indicators_live_slice.sqlite",
+  "signal_source": "binance",
+  "series": [
+    {
+      "timeframe": "1h",
+      "source": "binance",
+      "n_bars": 799,
+      "last_ts_ms": 1785837600000,
+      "last_utc": "2026-08-04T10:00:00+00:00",
+      "counts": {
+        "swings": 226,
+        "structure_events": 226,
+        "legs": 184,
+        "levels": 226,
+        "bar_features": 799,
+        "series": 1
+      }
+    },
+    {
+      "timeframe": "4h",
+      "source": "binance",
+      "n_bars": 799,
+      "last_ts_ms": 1785816000000,
+      "last_utc": "2026-08-04T04:00:00+00:00",
+      "counts": {
+        "swings": 235,
+        "structure_events": 235,
+        "legs": 172,
+        "levels": 235,
+        "bar_features": 799,
+        "series": 1
+      }
+    },
+    {
+      "timeframe": "1w",
+      "source": "binance",
+      "n_bars": 317,
+      "last_ts_ms": 1785110400000,
+      "last_utc": "2026-07-27T00:00:00+00:00",
+      "counts": {
+        "swings": 86,
+        "structure_events": 86,
+        "legs": 65,
+        "levels": 86,
+        "bar_features": 317,
+        "series": 1
+      }
+    }
+  ],
+  "refreshed_utc": "2026-08-04T11:49:22.308527+00:00"
+}

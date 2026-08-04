@@ -1,7 +1,11 @@
-"""Finplot frozen structure_v1 packs on the forward lockbox window (2026-05 → latest).
+"""Report (optional Finplot) frozen structure_v1 packs on the forward lockbox.
 
-Uses the live pack model.joblib (train cut matches deploy). Opens one Finplot per symbol.
-Marking: viewing this window contaminates the pristine lockbox for future first-look claims.
+Uses the live pack model.joblib (train cut matches deploy).
+
+**Sealed by default (D-038):** evaluating bars on/after FORWARD_LOCKBOX_START
+requires ``--i-accept-lockbox-contamination``. Interactive Finplot additionally
+requires ``--i-accept-finplot-lockbox`` and ``--show``. Every authorized open
+appends the peek log. Prefer outer-fold settle for quotable evidence.
 """
 
 from __future__ import annotations
@@ -12,7 +16,8 @@ import os
 import sys
 from pathlib import Path
 
-os.environ.pop("TRADESIM_NO_PLOT", None)
+# Default sealed: no interactive Finplot until dual accept.
+os.environ.setdefault("TRADESIM_NO_PLOT", "1")
 
 _leak = Path(r"C:\projects\botsgeneral\packages\leakage\src")
 if _leak.is_dir() and str(_leak) not in sys.path:
@@ -42,7 +47,13 @@ from llm2.features.registry import build_space  # noqa: E402
 from llm2.gates.evidence import leverage_from_stop, research_costs_baseline  # noqa: E402
 from llm2.hunt.targets import DIRECTION_BAND, proxy_side, target_family  # noqa: E402
 from llm2.models.base import Prediction  # noqa: E402
+from llm2.evidence.lockbox_guard import (  # noqa: E402
+    add_lockbox_guard_args,
+    require_lockbox_access,
+    seal_finplot_unless_authorized,
+)
 from llm2.paths import ARTIFACTS, FORWARD_LOCKBOX_START, ROUND_TRIP_COST, touch_timeframe  # noqa: E402
+from llm2.research_policy import PolicyError  # noqa: E402
 from llm2.signals.translate import predictions_to_signals  # noqa: E402
 from llm2.validation.folds import index_to_ms  # noqa: E402
 
@@ -277,21 +288,57 @@ def _run_one(
 
 
 def main(argv: list[str] | None = None) -> int:
-    ap = argparse.ArgumentParser()
+    ap = argparse.ArgumentParser(
+        description=(
+            "Forward lockbox report for frozen packs. Sealed unless "
+            "--i-accept-lockbox-contamination; Finplot needs --show + --i-accept-finplot-lockbox."
+        )
+    )
     ap.add_argument("--symbols", default="ETHUSDT,SOLUSDT")
     ap.add_argument("--start", default=FORWARD_LOCKBOX_START)
     ap.add_argument("--trade-cap", type=int, default=DEFAULT_TRADE_CAP)
     ap.add_argument("--store", action="store_true", default=True)
-    ap.add_argument("--no-show", action="store_true")
+    ap.add_argument(
+        "--show",
+        action="store_true",
+        help="Open Finplot (requires dual contamination accepts).",
+    )
+    ap.add_argument(
+        "--no-show",
+        action="store_true",
+        help="Deprecated alias: Finplot is off by default.",
+    )
+    add_lockbox_guard_args(ap)
     args = ap.parse_args(argv)
 
+    syms = [s.strip().upper() for s in args.symbols.split(",") if s.strip()]
+    open_finplot = bool(args.show) and not bool(args.no_show)
+    try:
+        require_lockbox_access(
+            experiment_id="structure_v1_lockbox_plot",
+            window_start=str(args.start),
+            purpose="finplot_lockbox_open" if open_finplot else "lockbox_report_only",
+            symbols=syms,
+            accepted_contamination=bool(args.i_accept_lockbox_contamination),
+            open_finplot=open_finplot,
+            accepted_finplot=bool(args.i_accept_finplot_lockbox),
+            notes="scripts/plot_structure_lockbox.py",
+        )
+    except PolicyError as exc:
+        print(f"REFUSED: {exc}", flush=True)
+        return 2
+
+    show = seal_finplot_unless_authorized(
+        open_finplot=open_finplot,
+        accepted_finplot=bool(args.i_accept_finplot_lockbox),
+    )
     stamp = run_conformance_check(quiet=True)
     if not stamp.get("passed"):
         print("tradesim conformance not green; refusing lockbox plot")
         return 1
 
     rows = []
-    for sym in [s.strip().upper() for s in args.symbols.split(",") if s.strip()]:
+    for sym in syms:
         pack = PACKS.get(sym)
         if pack is None or not (pack / "model.joblib").is_file():
             raise SystemExit(f"missing frozen pack for {sym}: {pack}")
@@ -302,21 +349,22 @@ def main(argv: list[str] | None = None) -> int:
                 start=args.start,
                 trade_cap=int(args.trade_cap),
                 store=bool(args.store),
-                show=not bool(args.no_show),
+                show=show,
             )
         )
 
-    syms = [s.strip().upper() for s in args.symbols.split(",") if s.strip()]
     tag = "_".join(s.lower().replace("usdt", "") for s in syms[:4]) or "lockbox"
     out = ARTIFACTS / "reports" / f"structure_v1_lockbox_{tag}.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     payload = {
         "lockbox_start": args.start,
         "evidence_class": "LOCKBOX_OPENED_CONTAMINATED",
+        "finplot": show,
         "note": (
-            "User-requested Finplot of forward lockbox for "
+            "Authorized lockbox access for "
             + ", ".join(syms)
-            + ". Window is contaminated for first-look claims; quote settle outer-OOS for promotion."
+            + ("; Finplot ON" if show else "; report-only").strip()
+            + ". Contaminated for first-look claims; quote settle outer-OOS for promotion."
         ),
         "results": rows,
     }

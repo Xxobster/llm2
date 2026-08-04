@@ -1,0 +1,21 @@
+strategy_id: structure_v1_lgbm_ETHUSDT_1h_direction_multitrade_v1_2
+version_id: eth_multitrade_v1_2
+status: AUTHORIZED
+authorized_by_user: true
+vps_host: 94.156.189.76
+account_ref: Xxobster8
+intended_vps_host: 94.156.189.76
+intended_account_ref: Xxobster8
+pack_path: artifacts/live_packs/structure_v1_ethusdt_multitrade_v1_2
+pack_hash: bfc5351077fadbdd6e68bbb92fa2cf7af98b8393b72a3b49fbcce055c0d2df3e
+expires_utc: '2026-08-17T00:00:00Z'
+created_utc: '2026-08-04T16:00:00Z'
+execution_mode: multitrade
+replaces: eth_multitrade_v1_1
+notes: >-
+  User explicitly authorized 2026-08-04 to REPLACE eth_multitrade_v1_1 (addon
+  clarity) on Xxobster8 / 94.156.189.76 with eth_multitrade_v1_2:
+  mean_strength|clarity_scope=all|fib_ext=1.618|hold=12|K=7. MIN_EXCHANGE only.
+  Evidence: structure_v1_eth_multitrade_primary_clarity_all_001
+  (OUTER_TRANSFER_COMPARE). Prior v1.1 pack retained for rollback.
+  Expires 2026-08-17 unless renewed.

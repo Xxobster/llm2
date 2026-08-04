@@ -1,0 +1,63 @@
+# Preregistered BEFORE opening any post-freeze multitrade parameter evaluation.
+# Locked live arm: eth_multitrade_v1_1 on Xxobster8. Do not retune on peeked lockbox.
+
+generation_id: structure_v1_eth_multitrade_v1_1_post_freeze_001
+created_utc: "2026-08-04T11:00:00Z"
+status: FROZEN
+decision_refs: [D-035, D-036]
+
+policy:
+  peak_log: artifacts/evidence/peek_log.jsonl
+  copy_db_does_not_reset_contamination: true
+  quotable_historical_edge: outer_fold_settle_only
+  may_2026_through_2026_08_04_multitrade: DIAGNOSTIC_ONLY
+  unsealed_param_claim_from: "2026-08-05"  # POST_MULTITRADE_FREEZE_START UTC
+
+locked_arm:
+  version_id: eth_multitrade_v1_1
+  account_ref: Xxobster8
+  vps_host: 94.156.189.76
+  pack: artifacts/live_packs/structure_v1_ethusdt_multitrade_v1_1
+  clarity: mean_strength
+  switch_book: 3
+  addon_tp_pct: 0.02618   # plain offset; not a Fibonacci market claim
+  hold_addon: 12
+  k_per_side: 7
+  base_tp_pct: 0.01
+  base_hold: 6
+  sl_pct: 0.02
+  leverage: 18
+  sizing: MIN_EXCHANGE
+  signal_source: binance
+  execution_venue: bybit
+  no_retune_from: lockbox_grids_on_2026_05_01_to_2026_08_04
+
+forbidden_until_post_freeze_evaluation:
+  - promote_K_8_from_switch_tp_ablation_lockbox
+  - retune_switch_book_or_addon_tp_on_peeked_window
+  - claim_pristine_via_copied_sqlite
+  - quote_lockbox_PF_as_settle_promotion
+
+quotable_historical_references:
+  eth_direction_single_book_outer_oos_pf: ~
+  # Prefer latest: structure_v1_eth_sol_settle_* ETH direction pooled PF ≈ 1.768
+  settle_report_glob: artifacts/reports/structure_v1_eth_sol_settle_*.json
+  hedge3_stitched_outer_proxy: artifacts/reports/structure_v1_eth_concurrent_reproducibility.json
+
+post_freeze_evaluation:
+  window_start_inclusive: "2026-08-05"
+  purpose: >
+    One locked-arm forward check (or micro-live reconciliation) for eth_multitrade_v1_1.
+    No multi-arm search on this window. If a change is desired, freesh a NEW generation
+    prereg before opening any multi-candidate comparison on post-freeze bars.
+  minimum_calendar_days: 14
+  minimum_trades: 30
+  no_parameter_search: true
+  ranking: none_locked_arm_only
+  pass_style: DIAGNOSTIC_OR_MICRO_CONTINUE
+  fail_does_not: reopen_lockbox_for_retune
+
+live_micro:
+  continues: true
+  is_separate_evidence_class: true
+  does_not_reseal_lockbox: true

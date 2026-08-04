@@ -1,0 +1,64 @@
+# Preregistered BEFORE outer-OOS inspection of this experiment.
+# Question: when several signals arrive close together, does allowing a 2nd/3rd
+# concurrent min-size book improve stitched outer PF vs single-book K=1?
+# Base execution frozen from ETH gen-1: mean_strength | hold12 | tp1% | sl2%.
+# No Fibonacci tiers. No lockbox selection. No live deploy.
+
+generation_id: structure_v1_eth_cluster_concurrency_001
+created_utc: "2026-08-04T07:05:00Z"
+status: FROZEN_OOS_VIEWED
+frozen_utc: "2026-08-04T07:06:11Z"
+frozen_reason: >
+  Outer-OOS viewed. Best PF arm k3_cluster3. Do not re-search this space without a
+  new generation_id.
+fold_geometry: v2
+
+hypothesis: >
+  On ETHUSDT 1h direction with the frozen mean_strength|hold12|tp1% signal filter,
+  allowing up to 2 or 3 concurrent same-side min-size books when signals cluster
+  raises stitched outer-OOS Profit Factor and/or net PnL versus K=1, without
+  requiring Fibonacci-extended Take Profit on add-ons.
+
+frozen_base_arm:
+  clarity: mean_strength
+  horizon_bars: 12
+  tp_pct: 0.01
+  sl_pct: 0.02
+  selected_on: structure_v1_eth_singlebook_clarity_hold_tp_001
+  do_not_retune: true
+
+candidate_space:
+  max_positions_per_side: [1, 2, 3]
+  cluster_bars:
+    - null   # always allow add-on while under cap (simple concurrency)
+    - 3      # add-on only if within 3 hours of previous same-side entry
+    - 6      # add-on only if within 6 hours of previous same-side entry
+  note: >
+    cluster_bars only applies when n_open >= 1. K=1 ignores cluster.
+    Arms with K=1 and cluster!=null are aliases of K=1 (not duplicated).
+  lifecycle_approx_for_signal_gate: max_hold_only
+  simulator: research_sim_hedge for K>1 else research_sim
+
+arms_enumerated:
+  - {k: 1, cluster_bars: null, name: k1_baseline}
+  - {k: 2, cluster_bars: null, name: k2_open}
+  - {k: 3, cluster_bars: null, name: k3_open}
+  - {k: 3, cluster_bars: 3, name: k3_cluster3}
+  - {k: 3, cluster_bars: 6, name: k3_cluster6}
+
+selection: none_report_all_arms
+evaluation:
+  outer: fold_geometry_v2_stitched_oos
+  symbols: [ETHUSDT]
+  target: direction
+  lockbox: DO_NOT_USE_FOR_SELECTION
+  engine: botsgeneral_tradesim
+
+success_criteria:
+  - some_k_gt_1_arm_stitched_pf > k1_baseline_stitched_pf
+  - that_arm_stitched_pf >= 1.20
+  - no_liquidation
+  - report stacked-margin caveat (min-exchange concurrency is not scale evidence)
+
+failure_is_success: true
+live_deploy: FORBIDDEN_without_live_certificate_and_explicit_user_auth

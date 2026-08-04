@@ -1,0 +1,42 @@
+# Preregistered BEFORE outer-OOS inspection.
+# Rule: book 2+ only if signal ≤ 3 hours after last same-side entry.
+# Cap K ∈ {1..9} per side. Flat 1× min-exchange size (no size-double).
+# ETHUSDT 1h direction, fold V2, lockbox excluded. Frozen base arm.
+
+generation_id: structure_v1_eth_cluster3_only_k1_9_001
+created_utc: "2026-08-04T10:00:00Z"
+status: FROZEN
+fold_geometry: v2
+
+hypothesis: >
+  Restricting add-on books to signals within 3h of the previous same-side entry,
+  for every concurrency cap K=1..9, improves or preserves stitched outer-OOS
+  Profit Factor versus always-open add-ons at the same K, on frozen
+  mean_strength|hold12|tp1%.
+
+frozen_base_arm:
+  clarity: mean_strength
+  horizon_bars: 12
+  tp_pct: 0.01
+  sl_pct: 0.02
+  do_not_retune: true
+
+candidate_space:
+  max_positions_per_side: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  cluster_bars: [3]   # hard skip gate for add-ons
+  size: flat_1x_min_exchange
+
+evaluation:
+  method: fold_geometry_v2_stitched_outer_oos
+  symbol: ETHUSDT
+  target: direction
+  lockbox: DO_NOT_USE
+  engine: botsgeneral_tradesim
+
+success_criteria:
+  - report full K=1..9 ladder under cluster_bars=3
+  - compare to prior open ladder where available
+  - no_liquidation
+
+failure_is_success: true
+live_deploy: FORBIDDEN_without_live_certificate_and_explicit_user_auth

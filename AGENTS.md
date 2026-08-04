@@ -22,3 +22,18 @@ Refuse if `tradesim.__file__` / `leakage.__file__` lack `botsgeneral`.
 ## Default posture
 
 `LIVE_STOP / RESEARCH_ONLY`. Alert the user only for Tier ≥ 2 gate candidates. Keep hunting.
+
+## Lockbox / Finplot (D-038)
+
+- Outer-fold and settle scripts first. Do **not** peep `FORWARD_LOCKBOX_START`
+  (2026-05-01+) for charts or multi-arm ranking.
+- New lockbox tools must call `add_lockbox_guard_args` + `require_lockbox_access`
+  from `llm2.evidence.lockbox_guard`.
+- Finplot needs **both** `--i-accept-lockbox-contamination` and
+  `--i-accept-finplot-lockbox` (plus `--show`). Default is report-only.
+- Never set `LLM2_I_ACCEPT_LOCKBOX_CONTAMINATION` or `LLM2_I_ACCEPT_FINPLOT_LOCKBOX`
+  permanently in shell profiles, systemd unit files, or VPS env.
+- Contamination authority: `artifacts/evidence/peek_log.jsonl` — copying DB paths
+  does not reseal.
+- Fleet signal concurrence (outer OOS only):
+  `scripts/run_live_fleet_concordance.py`

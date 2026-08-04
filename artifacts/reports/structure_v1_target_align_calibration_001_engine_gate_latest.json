@@ -1,0 +1,92 @@
+{
+  "generation_id": "structure_v1_target_align_calibration_001",
+  "created_utc": "20260804T135715Z",
+  "evidence_class": "ENGINE_GATE_PRE_HUNT",
+  "track12": {
+    "settle": {
+      "n_pack_eligible": 3,
+      "n_pass_gates": 3,
+      "summary": [
+        {
+          "symbol": "BTCUSDT",
+          "target": "fwd_return",
+          "frozen_pf": 2.8628769041736915,
+          "control_pf": 2.0296247944893024,
+          "delta_pf": 0.833252109684389,
+          "frozen_n": 3144,
+          "overall": "PASS",
+          "beats_control": true,
+          "pack_eligible": true
+        },
+        {
+          "symbol": "ETHUSDT",
+          "target": "direction",
+          "frozen_pf": 3.3234363836557645,
+          "control_pf": 1.9875946925969716,
+          "delta_pf": 1.335841691058793,
+          "frozen_n": 5072,
+          "overall": "PASS",
+          "beats_control": true,
+          "pack_eligible": true
+        },
+        {
+          "symbol": "SOLUSDT",
+          "target": "direction",
+          "frozen_pf": 2.6619221420587738,
+          "control_pf": 1.9406712049467907,
+          "delta_pf": 0.7212509371119831,
+          "frozen_n": 6501,
+          "overall": "PASS",
+          "beats_control": true,
+          "pack_eligible": true
+        }
+      ]
+    },
+    "transfer": {
+      "k5_double3h_beats_on_n_symbols": 2,
+      "n_symbols": 2,
+      "principal_blocker": null,
+      "settle_candidates": [
+        "BTCUSDT:fwd_return",
+        "SOLUSDT:direction"
+      ],
+      "note": "RESEARCH_ONLY. Winners need separate OUTER_SETTLE before pack freeze.",
+      "no_live_deploy": true
+    },
+    "transfer_n_k5": 2
+  },
+  "track12_insufficient_for_promotion": false,
+  "tradesim_file": "C:\\projects\\botsgeneral\\packages\\tradesim\\src\\tradesim\\__init__.py",
+  "leakage_file": "C:\\projects\\botsgeneral\\packages\\leakage\\src\\leakage\\__init__.py",
+  "conformance": {
+    "status": "ok",
+    "returncode": 0,
+    "passed": true,
+    "stamp": {
+      "engine_name": "tradesim",
+      "engine_version": "1.0.0",
+      "engine_commit": "UNKNOWN_DIRTY",
+      "fixture_pack_hash": "9a037b290c8ab1f4d84706809ae83f548062fe946b811cf2ab2dee7868c371a2",
+      "registry_digest": "f9e9c06aa56214c8f24323159a93a46ba1c3d64469c305663f2dd62b2b0863e2",
+      "contract": "perp_bracket_portfolio",
+      "checked_at_ms": 1785851834888,
+      "passed": true,
+      "required_count": 62,
+      "satisfied_count": 62,
+      "unsatisfied": [],
+      "checker_version": "1",
+      "detail": {
+        "checker_version": "1",
+        "unknown_identifiers_in_tests": [],
+        "n_fixtures": 50
+      }
+    }
+  },
+  "leakage": {
+    "skipped": true
+  },
+  "activate_hunt": false,
+  "note": "Tracks 1\u20132 produced pack-eligible or transfer winners; Track-3 hunt stays PREREG_ONLY (do not open candidate space).",
+  "max_readiness": "RESEARCH_ONLY",
+  "no_live_deploy": true
+}

@@ -1,0 +1,7 @@
+{
+  "symbol": "DOTUSDT",
+  "mark_price": "0.8328",
+  "last_price": "0.8327",
+  "retrieved_utc": "2026-08-04T11:50:12.056814+00:00",
+  "source": "bybit_v5_tickers"
+}

@@ -1,0 +1,15 @@
+{
+  "strategy_id": "structure_v1_lgbm_XRPUSDT_1h_direction",
+  "status": "FROZEN_LIVE_PACK",
+  "readiness": "MICRO_LIVE_AUTHORIZED_PENDING_SERVICE",
+  "deployable": true,
+  "settlement_overall": null,
+  "settlement_tier": null,
+  "pooled_pf": null,
+  "fold_geometry": "v2",
+  "tiers_n": 35,
+  "account_ref_expected": "Xxobster7",
+  "vps_host_expected": "94.156.189.76",
+  "frozen_utc": "20260804T114845Z",
+  "min_size_equity_caveat": "Wallet equity / maximum drawdown under research_sizing MIN_EXCHANGE (minimum exchange size) on a large wallet is not tradable-edge evidence. Smooth curves are expected at dust size; do not treat them as deployable sizing."
+}

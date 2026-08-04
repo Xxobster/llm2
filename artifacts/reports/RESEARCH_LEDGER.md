@@ -18463,3 +18463,7 @@ Hunt complete: {"generation_id": "settle_struct3_12_XLMUSDT_1h_direction_2026080
 ## [ALERT] 2026-08-03 18:24:39 UTC (tier 2)
 
 STRUCTURE_EXPANSION_SETTLE done best_pass=True path=D:\projects\LLM2\artifacts\reports\structure_v1_expansion_settle_20260803T181235Z.json
+
+## [INFO] 2026-08-04 14:43:34 UTC (tier 0)
+
+STRUCTURE_LEAKAGE_RECHECK overall_ok=True pass=26/26 path=structure_v1_leakage_recheck_20260804T144240Z.json

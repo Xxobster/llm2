@@ -1,0 +1,1367 @@
+{
+  "generation_id": "structure_v1_frozen_arm_btc_sol_transfer_001",
+  "created_utc": "20260804T065445Z",
+  "evidence_class": "frozen_arm_symbol_transfer_fold_V2_stitch",
+  "lockbox_used": false,
+  "selection": "FROZEN_from_ETH_gen1_no_rerank",
+  "frozen_arm": "mean_strength|hold12|tp0.01000",
+  "control_arm": "none|hold6|tp0.01000",
+  "eth_preregister_sha256_at_run": "eedcafe3fdd0b0ff545c4f252f0deae3cf93cbed5e3b06299fe3aa354bb5eafa",
+  "conformance": {
+    "status": "ok",
+    "returncode": 0,
+    "passed": true,
+    "stamp": {
+      "engine_name": "tradesim",
+      "engine_version": "1.0.0",
+      "engine_commit": "UNKNOWN_DIRTY",
+      "fixture_pack_hash": "9a037b290c8ab1f4d84706809ae83f548062fe946b811cf2ab2dee7868c371a2",
+      "registry_digest": "f9e9c06aa56214c8f24323159a93a46ba1c3d64469c305663f2dd62b2b0863e2",
+      "contract": "perp_bracket_portfolio",
+      "checked_at_ms": 1785826497268,
+      "passed": true,
+      "required_count": 62,
+      "satisfied_count": 62,
+      "unsatisfied": [],
+      "checker_version": "1",
+      "detail": {
+        "checker_version": "1",
+        "unknown_identifiers_in_tests": [],
+        "n_fixtures": 50
+      }
+    }
+  },
+  "fold_geometry": "v2",
+  "outer_fold_ranges": [
+    [
+      "2022-01-01",
+      "2022-10-01"
+    ],
+    [
+      "2022-10-01",
+      "2023-07-01"
+    ],
+    [
+      "2023-07-01",
+      "2024-04-01"
+    ],
+    [
+      "2024-04-01",
+      "2025-01-01"
+    ],
+    [
+      "2025-01-01",
+      "2025-10-01"
+    ],
+    [
+      "2025-10-01",
+      "2026-05-01"
+    ]
+  ],
+  "eth_reference": {
+    "symbol": "ETHUSDT",
+    "target": "direction",
+    "source": "structure_v1_eth_singlebook_clarity_hold_tp_001_latest.json",
+    "frozen_arm": "mean_strength|hold12|tp0.01000",
+    "control_arm": "none|hold6|tp0.01000",
+    "frozen_stitched_pf": 3.3234363836557645,
+    "control_stitched_pf": 1.9875946925969716,
+    "delta_pf": 1.335841691058793,
+    "frozen_n_trades": 5072,
+    "control_n_trades": 8657,
+    "note": "ETH gen-1 selection source; not re-run here"
+  },
+  "combos": [
+    {
+      "symbol": "BTCUSDT",
+      "target": "direction",
+      "min_edge": 0.1,
+      "leverage": 18.0,
+      "frozen_arm": "mean_strength|hold12|tp0.01000",
+      "control_arm": "none|hold6|tp0.01000",
+      "frozen": {
+        "arm": "mean_strength|hold12|tp0.01000",
+        "folds": [
+          {
+            "fold_index": 0,
+            "oos_start": "2022-01-01 00:00:00+00:00",
+            "oos_end": "2022-09-30 23:00:00+00:00",
+            "n_signals": 2352,
+            "signal_stats": {
+              "n_candidates": 4656,
+              "n_emitted": 2352,
+              "n_skipped_clarity": 2304,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 849,
+              "net_pnl": 109.35913044999324,
+              "profit_factor": 2.472472251678671,
+              "win_rate": 0.8103651354534747,
+              "total_fees": 28.807669550000004,
+              "entry_bar_exits": 214,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 2.472472251678671
+          },
+          {
+            "fold_index": 1,
+            "oos_start": "2022-10-01 00:00:00+00:00",
+            "oos_end": "2023-06-30 23:00:00+00:00",
+            "n_signals": 2334,
+            "signal_stats": {
+              "n_candidates": 4620,
+              "n_emitted": 2334,
+              "n_skipped_clarity": 2286,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 661,
+              "net_pnl": 53.8701574900042,
+              "profit_factor": 2.4132656583121497,
+              "win_rate": 0.7337367624810892,
+              "total_fees": 16.76024251,
+              "entry_bar_exits": 114,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 2.4132656583121497
+          },
+          {
+            "fold_index": 2,
+            "oos_start": "2023-07-01 00:00:00+00:00",
+            "oos_end": "2024-03-31 23:00:00+00:00",
+            "n_signals": 2320,
+            "signal_stats": {
+              "n_candidates": 4632,
+              "n_emitted": 2320,
+              "n_skipped_clarity": 2312,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 632,
+              "net_pnl": 83.5964210400034,
+              "profit_factor": 2.219801578313718,
+              "win_rate": 0.7246835443037974,
+              "total_fees": 28.24937896,
+              "entry_bar_exits": 72,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 2.219801578313718
+          },
+          {
+            "fold_index": 3,
+            "oos_start": "2024-04-01 00:00:00+00:00",
+            "oos_end": "2024-12-31 23:00:00+00:00",
+            "n_signals": 2397,
+            "signal_stats": {
+              "n_candidates": 4761,
+              "n_emitted": 2397,
+              "n_skipped_clarity": 2364,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 719,
+              "net_pnl": 243.3802388100048,
+              "profit_factor": 3.411287391511519,
+              "win_rate": 0.8219749652294854,
+              "total_fees": 55.28356119000001,
+              "entry_bar_exits": 111,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 3.411287391511519
+          },
+          {
+            "fold_index": 4,
+            "oos_start": "2025-01-01 00:00:00+00:00",
+            "oos_end": "2025-09-30 23:00:00+00:00",
+            "n_signals": 2434,
+            "signal_stats": {
+              "n_candidates": 4854,
+              "n_emitted": 2434,
+              "n_skipped_clarity": 2420,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 652,
+              "net_pnl": 257.048963499994,
+              "profit_factor": 2.8485720782657418,
+              "win_rate": 0.7699386503067485,
+              "total_fees": 71.8962365,
+              "entry_bar_exits": 73,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 2.8485720782657418
+          },
+          {
+            "fold_index": 5,
+            "oos_start": "2025-10-01 00:00:00+00:00",
+            "oos_end": "2026-04-30 17:00:00+00:00",
+            "n_signals": 1859,
+            "signal_stats": {
+              "n_candidates": 3745,
+              "n_emitted": 1859,
+              "n_skipped_clarity": 1886,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 567,
+              "net_pnl": 239.52327765997507,
+              "profit_factor": 3.7660676171806626,
+              "win_rate": 0.8253968253968254,
+              "total_fees": 53.09252234,
+              "entry_bar_exits": 95,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 3.7660676171806626
+          }
+        ],
+        "stitched": {
+          "n_trades": 4080,
+          "net_pnl": 986.7781889499997,
+          "profit_factor": 2.9443934285088025,
+          "bootstrap_pos_exp": 1.0,
+          "frac_folds_pf_gt_1": 1.0,
+          "frac_folds_pnl_gt_0": 1.0,
+          "n_liquidations": 0
+        }
+      },
+      "control": {
+        "arm": "none|hold6|tp0.01000",
+        "folds": [
+          {
+            "fold_index": 0,
+            "oos_start": "2022-01-01 00:00:00+00:00",
+            "oos_end": "2022-09-30 23:00:00+00:00",
+            "n_signals": 4656,
+            "signal_stats": {
+              "n_candidates": 4656,
+              "n_emitted": 4656,
+              "n_skipped_clarity": 0,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 1514,
+              "net_pnl": 106.76497575499161,
+              "profit_factor": 1.6661723770811805,
+              "win_rate": 0.6988110964332893,
+              "total_fees": 51.847524245,
+              "entry_bar_exits": 376,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 1.6661723770811805
+          },
+          {
+            "fold_index": 1,
+            "oos_start": "2022-10-01 00:00:00+00:00",
+            "oos_end": "2023-06-30 23:00:00+00:00",
+            "n_signals": 4620,
+            "signal_stats": {
+              "n_candidates": 4620,
+              "n_emitted": 4620,
+              "n_skipped_clarity": 0,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 1160,
+              "net_pnl": 48.31504433000009,
+              "profit_factor": 1.7158625753617922,
+              "win_rate": 0.6293103448275862,
+              "total_fees": 29.350155670000003,
+              "entry_bar_exits": 154,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 1.7158625753617922
+          },
+          {
+            "fold_index": 2,
+            "oos_start": "2023-07-01 00:00:00+00:00",
+            "oos_end": "2024-03-31 23:00:00+00:00",
+            "n_signals": 4632,
+            "signal_stats": {
+              "n_candidates": 4632,
+              "n_emitted": 4632,
+              "n_skipped_clarity": 0,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 1147,
+              "net_pnl": 84.33581081001284,
+              "profit_factor": 1.7033020926535414,
+              "win_rate": 0.6172624237140366,
+              "total_fees": 51.06998919,
+              "entry_bar_exits": 133,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 1.7033020926535414
+          },
+          {
+            "fold_index": 3,
+            "oos_start": "2024-04-01 00:00:00+00:00",
+            "oos_end": "2024-12-31 23:00:00+00:00",
+            "n_signals": 4761,
+            "signal_stats": {
+              "n_candidates": 4761,
+              "n_emitted": 4761,
+              "n_skipped_clarity": 0,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 1256,
+              "net_pnl": 230.6865382050455,
+              "profit_factor": 2.070760864472573,
+              "win_rate": 0.6799363057324841,
+              "total_fees": 96.56876179500001,
+              "entry_bar_exits": 177,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 2.070760864472573
+          },
+          {
+            "fold_index": 4,
+            "oos_start": "2025-01-01 00:00:00+00:00",
+            "oos_end": "2025-09-30 23:00:00+00:00",
+            "n_signals": 4854,
+            "signal_stats": {
+              "n_candidates": 4854,
+              "n_emitted": 4854,
+              "n_skipped_clarity": 0,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 1136,
+              "net_pnl": 221.28688250503183,
+              "profit_factor": 1.895154875838745,
+              "win_rate": 0.6426056338028169,
+              "total_fees": 125.87241749500001,
+              "entry_bar_exits": 109,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 1.895154875838745
+          },
+          {
+            "fold_index": 5,
+            "oos_start": "2025-10-01 00:00:00+00:00",
+            "oos_end": "2026-04-30 17:00:00+00:00",
+            "n_signals": 3745,
+            "signal_stats": {
+              "n_candidates": 3745,
+              "n_emitted": 3745,
+              "n_skipped_clarity": 0,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 962,
+              "net_pnl": 213.54981871496966,
+              "profit_factor": 2.1187542564426516,
+              "win_rate": 0.6871101871101871,
+              "total_fees": 90.455881285,
+              "entry_bar_exits": 131,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 2.1187542564426516
+          }
+        ],
+        "stitched": {
+          "n_trades": 7175,
+          "net_pnl": 904.9390703200005,
+          "profit_factor": 1.90385350136549,
+          "bootstrap_pos_exp": 1.0,
+          "frac_folds_pf_gt_1": 1.0,
+          "frac_folds_pnl_gt_0": 1.0,
+          "n_liquidations": 0
+        }
+      },
+      "delta_pf": 1.0405399271433124,
+      "beats_control_and_pf_gate": true,
+      "n_folds": 6
+    },
+    {
+      "symbol": "BTCUSDT",
+      "target": "fwd_return",
+      "min_edge": 0.0016,
+      "leverage": 18.0,
+      "frozen_arm": "mean_strength|hold12|tp0.01000",
+      "control_arm": "none|hold6|tp0.01000",
+      "frozen": {
+        "arm": "mean_strength|hold12|tp0.01000",
+        "folds": [
+          {
+            "fold_index": 0,
+            "oos_start": "2022-01-01 00:00:00+00:00",
+            "oos_end": "2022-09-30 23:00:00+00:00",
+            "n_signals": 1887,
+            "signal_stats": {
+              "n_candidates": 3791,
+              "n_emitted": 1887,
+              "n_skipped_clarity": 1904,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 829,
+              "net_pnl": 89.5473573150357,
+              "profit_factor": 2.008423653027553,
+              "win_rate": 0.7973462002412546,
+              "total_fees": 28.248542685000004,
+              "entry_bar_exits": 294,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 2.008423653027553
+          },
+          {
+            "fold_index": 1,
+            "oos_start": "2022-10-01 00:00:00+00:00",
+            "oos_end": "2023-06-30 23:00:00+00:00",
+            "n_signals": 1518,
+            "signal_stats": {
+              "n_candidates": 3119,
+              "n_emitted": 1518,
+              "n_skipped_clarity": 1601,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 508,
+              "net_pnl": 46.46597337503408,
+              "profit_factor": 2.695232971779504,
+              "win_rate": 0.7480314960629921,
+              "total_fees": 12.720926625,
+              "entry_bar_exits": 125,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 2.695232971779504
+          },
+          {
+            "fold_index": 2,
+            "oos_start": "2023-07-01 00:00:00+00:00",
+            "oos_end": "2024-03-31 23:00:00+00:00",
+            "n_signals": 1426,
+            "signal_stats": {
+              "n_candidates": 2874,
+              "n_emitted": 1426,
+              "n_skipped_clarity": 1448,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 474,
+              "net_pnl": 82.03741035001622,
+              "profit_factor": 2.547125640904156,
+              "win_rate": 0.7721518987341772,
+              "total_fees": 22.185989650000003,
+              "entry_bar_exits": 96,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 2.547125640904156
+          },
+          {
+            "fold_index": 3,
+            "oos_start": "2024-04-01 00:00:00+00:00",
+            "oos_end": "2024-12-31 23:00:00+00:00",
+            "n_signals": 1442,
+            "signal_stats": {
+              "n_candidates": 2956,
+              "n_emitted": 1442,
+              "n_skipped_clarity": 1514,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 490,
+              "net_pnl": 181.82214121001562,
+              "profit_factor": 3.6814615341210963,
+              "win_rate": 0.8489795918367347,
+              "total_fees": 37.207058790000005,
+              "entry_bar_exits": 107,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 3.6814615341210963
+          },
+          {
+            "fold_index": 4,
+            "oos_start": "2025-01-01 00:00:00+00:00",
+            "oos_end": "2025-09-30 23:00:00+00:00",
+            "n_signals": 1250,
+            "signal_stats": {
+              "n_candidates": 2480,
+              "n_emitted": 1250,
+              "n_skipped_clarity": 1230,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 429,
+              "net_pnl": 192.1849870199876,
+              "profit_factor": 2.88846676300464,
+              "win_rate": 0.8088578088578089,
+              "total_fees": 46.71261298,
+              "entry_bar_exits": 74,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 2.88846676300464
+          },
+          {
+            "fold_index": 5,
+            "oos_start": "2025-10-01 00:00:00+00:00",
+            "oos_end": "2026-04-30 17:00:00+00:00",
+            "n_signals": 1270,
+            "signal_stats": {
+              "n_candidates": 2575,
+              "n_emitted": 1270,
+              "n_skipped_clarity": 1305,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 414,
+              "net_pnl": 171.89057378996768,
+              "profit_factor": 3.411449737448082,
+              "win_rate": 0.8260869565217391,
+              "total_fees": 38.67902621,
+              "entry_bar_exits": 78,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 3.411449737448082
+          }
+        ],
+        "stitched": {
+          "n_trades": 3144,
+          "net_pnl": 763.9484430599998,
+          "profit_factor": 2.8628769041736915,
+          "bootstrap_pos_exp": 1.0,
+          "frac_folds_pf_gt_1": 1.0,
+          "frac_folds_pnl_gt_0": 1.0,
+          "n_liquidations": 0
+        }
+      },
+      "control": {
+        "arm": "none|hold6|tp0.01000",
+        "folds": [
+          {
+            "fold_index": 0,
+            "oos_start": "2022-01-01 00:00:00+00:00",
+            "oos_end": "2022-09-30 23:00:00+00:00",
+            "n_signals": 3791,
+            "signal_stats": {
+              "n_candidates": 3791,
+              "n_emitted": 3791,
+              "n_skipped_clarity": 0,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 1414,
+              "net_pnl": 100.45250108997789,
+              "profit_factor": 1.6658303494001525,
+              "win_rate": 0.7093352192362093,
+              "total_fees": 47.830098910000004,
+              "entry_bar_exits": 410,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 1.6658303494001525
+          },
+          {
+            "fold_index": 1,
+            "oos_start": "2022-10-01 00:00:00+00:00",
+            "oos_end": "2023-06-30 23:00:00+00:00",
+            "n_signals": 3119,
+            "signal_stats": {
+              "n_candidates": 3119,
+              "n_emitted": 3119,
+              "n_skipped_clarity": 0,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 984,
+              "net_pnl": 42.04941065502862,
+              "profit_factor": 1.717080192940388,
+              "win_rate": 0.6280487804878049,
+              "total_fees": 24.806489345000003,
+              "entry_bar_exits": 162,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 1.717080192940388
+          },
+          {
+            "fold_index": 2,
+            "oos_start": "2023-07-01 00:00:00+00:00",
+            "oos_end": "2024-03-31 23:00:00+00:00",
+            "n_signals": 2874,
+            "signal_stats": {
+              "n_candidates": 2874,
+              "n_emitted": 2874,
+              "n_skipped_clarity": 0,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 928,
+              "net_pnl": 94.80118543501885,
+              "profit_factor": 1.907440854811129,
+              "win_rate": 0.6627155172413793,
+              "total_fees": 42.842914565,
+              "entry_bar_exits": 139,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 1.907440854811129
+          },
+          {
+            "fold_index": 3,
+            "oos_start": "2024-04-01 00:00:00+00:00",
+            "oos_end": "2024-12-31 23:00:00+00:00",
+            "n_signals": 2956,
+            "signal_stats": {
+              "n_candidates": 2956,
+              "n_emitted": 2956,
+              "n_skipped_clarity": 0,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 975,
+              "net_pnl": 209.831213820009,
+              "profit_factor": 2.2778697497094536,
+              "win_rate": 0.7076923076923077,
+              "total_fees": 74.71158618000001,
+              "entry_bar_exits": 155,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 2.2778697497094536
+          },
+          {
+            "fold_index": 4,
+            "oos_start": "2025-01-01 00:00:00+00:00",
+            "oos_end": "2025-09-30 23:00:00+00:00",
+            "n_signals": 2480,
+            "signal_stats": {
+              "n_candidates": 2480,
+              "n_emitted": 2480,
+              "n_skipped_clarity": 0,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 835,
+              "net_pnl": 207.66151602999525,
+              "profit_factor": 2.074316051226762,
+              "win_rate": 0.6898203592814371,
+              "total_fees": 91.24248397000001,
+              "entry_bar_exits": 123,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 2.074316051226762
+          },
+          {
+            "fold_index": 5,
+            "oos_start": "2025-10-01 00:00:00+00:00",
+            "oos_end": "2026-04-30 17:00:00+00:00",
+            "n_signals": 2575,
+            "signal_stats": {
+              "n_candidates": 2575,
+              "n_emitted": 2575,
+              "n_skipped_clarity": 0,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 787,
+              "net_pnl": 196.8920880350015,
+              "profit_factor": 2.2645305709558734,
+              "win_rate": 0.6975857687420585,
+              "total_fees": 73.892211965,
+              "entry_bar_exits": 118,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 2.2645305709558734
+          }
+        ],
+        "stitched": {
+          "n_trades": 5923,
+          "net_pnl": 851.687915065,
+          "profit_factor": 2.0296247944893024,
+          "bootstrap_pos_exp": 1.0,
+          "frac_folds_pf_gt_1": 1.0,
+          "frac_folds_pnl_gt_0": 1.0,
+          "n_liquidations": 0
+        }
+      },
+      "delta_pf": 0.833252109684389,
+      "beats_control_and_pf_gate": true,
+      "n_folds": 6
+    },
+    {
+      "symbol": "SOLUSDT",
+      "target": "direction",
+      "min_edge": 0.1,
+      "leverage": 18.0,
+      "frozen_arm": "mean_strength|hold12|tp0.01000",
+      "control_arm": "none|hold6|tp0.01000",
+      "frozen": {
+        "arm": "mean_strength|hold12|tp0.01000",
+        "folds": [
+          {
+            "fold_index": 0,
+            "oos_start": "2022-01-01 00:00:00+00:00",
+            "oos_end": "2022-09-30 23:00:00+00:00",
+            "n_signals": 2181,
+            "signal_stats": {
+              "n_candidates": 4389,
+              "n_emitted": 2181,
+              "n_skipped_clarity": 2208,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 1350,
+              "net_pnl": 38.76207950002208,
+              "profit_factor": 1.8508014711429561,
+              "win_rate": 0.8096296296296296,
+              "total_fees": 12.883920500000002,
+              "entry_bar_exits": 734,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 1.8508014711429561
+          },
+          {
+            "fold_index": 1,
+            "oos_start": "2022-10-01 00:00:00+00:00",
+            "oos_end": "2023-06-30 23:00:00+00:00",
+            "n_signals": 2183,
+            "signal_stats": {
+              "n_candidates": 4402,
+              "n_emitted": 2183,
+              "n_skipped_clarity": 2219,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 1104,
+              "net_pnl": 28.23024809999697,
+              "profit_factor": 2.30097239711998,
+              "win_rate": 0.8278985507246377,
+              "total_fees": 7.4857519,
+              "entry_bar_exits": 490,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 2.30097239711998
+          },
+          {
+            "fold_index": 2,
+            "oos_start": "2023-07-01 00:00:00+00:00",
+            "oos_end": "2024-03-31 23:00:00+00:00",
+            "n_signals": 2223,
+            "signal_stats": {
+              "n_candidates": 4478,
+              "n_emitted": 2223,
+              "n_skipped_clarity": 2255,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 1180,
+              "net_pnl": 50.98862109995025,
+              "profit_factor": 2.748051384672665,
+              "win_rate": 0.8576271186440678,
+              "total_fees": 11.545378900000001,
+              "entry_bar_exits": 583,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 2.748051384672665
+          },
+          {
+            "fold_index": 3,
+            "oos_start": "2024-04-01 00:00:00+00:00",
+            "oos_end": "2024-12-31 23:00:00+00:00",
+            "n_signals": 2209,
+            "signal_stats": {
+              "n_candidates": 4478,
+              "n_emitted": 2209,
+              "n_skipped_clarity": 2269,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 1044,
+              "net_pnl": 90.56327550001879,
+              "profit_factor": 3.110689565424901,
+              "win_rate": 0.8764367816091954,
+              "total_fees": 18.990724500000002,
+              "entry_bar_exits": 399,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 3.110689565424901
+          },
+          {
+            "fold_index": 4,
+            "oos_start": "2025-01-01 00:00:00+00:00",
+            "oos_end": "2025-09-30 23:00:00+00:00",
+            "n_signals": 2342,
+            "signal_stats": {
+              "n_candidates": 4639,
+              "n_emitted": 2342,
+              "n_skipped_clarity": 2297,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 1090,
+              "net_pnl": 97.30361725001603,
+              "profit_factor": 3.102139058696259,
+              "win_rate": 0.8715596330275229,
+              "total_fees": 20.587382750000003,
+              "entry_bar_exits": 401,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 3.102139058696259
+          },
+          {
+            "fold_index": 5,
+            "oos_start": "2025-10-01 00:00:00+00:00",
+            "oos_end": "2026-04-30 17:00:00+00:00",
+            "n_signals": 1713,
+            "signal_stats": {
+              "n_candidates": 3429,
+              "n_emitted": 1713,
+              "n_skipped_clarity": 1716,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 733,
+              "net_pnl": 45.08072504998745,
+              "profit_factor": 2.765399170588631,
+              "win_rate": 0.8540245566166439,
+              "total_fees": 10.456274950000001,
+              "entry_bar_exits": 229,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 2.765399170588631
+          }
+        ],
+        "stitched": {
+          "n_trades": 6501,
+          "net_pnl": 350.9285665000001,
+          "profit_factor": 2.6619221420587738,
+          "bootstrap_pos_exp": 1.0,
+          "frac_folds_pf_gt_1": 1.0,
+          "frac_folds_pnl_gt_0": 1.0,
+          "n_liquidations": 0
+        }
+      },
+      "control": {
+        "arm": "none|hold6|tp0.01000",
+        "folds": [
+          {
+            "fold_index": 0,
+            "oos_start": "2022-01-01 00:00:00+00:00",
+            "oos_end": "2022-09-30 23:00:00+00:00",
+            "n_signals": 4389,
+            "signal_stats": {
+              "n_candidates": 4389,
+              "n_emitted": 4389,
+              "n_skipped_clarity": 0,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 2400,
+              "net_pnl": 48.41029385005095,
+              "profit_factor": 1.5280624379461885,
+              "win_rate": 0.7616666666666667,
+              "total_fees": 22.864706150000004,
+              "entry_bar_exits": 1295,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 1.5280624379461885
+          },
+          {
+            "fold_index": 1,
+            "oos_start": "2022-10-01 00:00:00+00:00",
+            "oos_end": "2023-06-30 23:00:00+00:00",
+            "n_signals": 4402,
+            "signal_stats": {
+              "n_candidates": 4402,
+              "n_emitted": 4402,
+              "n_skipped_clarity": 0,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 1896,
+              "net_pnl": 30.936212300006446,
+              "profit_factor": 1.7003242026505654,
+              "win_rate": 0.7510548523206751,
+              "total_fees": 12.869787700000002,
+              "entry_bar_exits": 780,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 1.7003242026505654
+          },
+          {
+            "fold_index": 2,
+            "oos_start": "2023-07-01 00:00:00+00:00",
+            "oos_end": "2024-03-31 23:00:00+00:00",
+            "n_signals": 4478,
+            "signal_stats": {
+              "n_candidates": 4478,
+              "n_emitted": 4478,
+              "n_skipped_clarity": 0,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 2138,
+              "net_pnl": 61.19710259990279,
+              "profit_factor": 1.8780959017395036,
+              "win_rate": 0.7792329279700655,
+              "total_fees": 20.968897400000003,
+              "entry_bar_exits": 1005,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 1.8780959017395036
+          },
+          {
+            "fold_index": 3,
+            "oos_start": "2024-04-01 00:00:00+00:00",
+            "oos_end": "2024-12-31 23:00:00+00:00",
+            "n_signals": 4478,
+            "signal_stats": {
+              "n_candidates": 4478,
+              "n_emitted": 4478,
+              "n_skipped_clarity": 0,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 1855,
+              "net_pnl": 107.84978004999721,
+              "profit_factor": 2.053538174752769,
+              "win_rate": 0.7902964959568733,
+              "total_fees": 33.96321995,
+              "entry_bar_exits": 690,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 2.053538174752769
+          },
+          {
+            "fold_index": 4,
+            "oos_start": "2025-01-01 00:00:00+00:00",
+            "oos_end": "2025-09-30 23:00:00+00:00",
+            "n_signals": 4639,
+            "signal_stats": {
+              "n_candidates": 4639,
+              "n_emitted": 4639,
+              "n_skipped_clarity": 0,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 1864,
+              "net_pnl": 121.45902514993759,
+              "profit_factor": 2.2528362166198814,
+              "win_rate": 0.7939914163090128,
+              "total_fees": 35.357974850000005,
+              "entry_bar_exits": 659,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 2.2528362166198814
+          },
+          {
+            "fold_index": 5,
+            "oos_start": "2025-10-01 00:00:00+00:00",
+            "oos_end": "2026-04-30 17:00:00+00:00",
+            "n_signals": 3429,
+            "signal_stats": {
+              "n_candidates": 3429,
+              "n_emitted": 3429,
+              "n_skipped_clarity": 0,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 1255,
+              "net_pnl": 55.11531169995578,
+              "profit_factor": 2.1748671011717673,
+              "win_rate": 0.7609561752988048,
+              "total_fees": 17.482688300000003,
+              "entry_bar_exits": 368,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 2.1748671011717673
+          }
+        ],
+        "stitched": {
+          "n_trades": 11408,
+          "net_pnl": 424.96772565000003,
+          "profit_factor": 1.9406712049467907,
+          "bootstrap_pos_exp": 1.0,
+          "frac_folds_pf_gt_1": 1.0,
+          "frac_folds_pnl_gt_0": 1.0,
+          "n_liquidations": 0
+        }
+      },
+      "delta_pf": 0.7212509371119831,
+      "beats_control_and_pf_gate": true,
+      "n_folds": 6
+    },
+    {
+      "symbol": "SOLUSDT",
+      "target": "fwd_return",
+      "min_edge": 0.0016,
+      "leverage": 18.0,
+      "frozen_arm": "mean_strength|hold12|tp0.01000",
+      "control_arm": "none|hold6|tp0.01000",
+      "frozen": {
+        "arm": "mean_strength|hold12|tp0.01000",
+        "folds": [
+          {
+            "fold_index": 0,
+            "oos_start": "2022-01-01 00:00:00+00:00",
+            "oos_end": "2022-09-30 23:00:00+00:00",
+            "n_signals": 2588,
+            "signal_stats": {
+              "n_candidates": 5239,
+              "n_emitted": 2588,
+              "n_skipped_clarity": 2651,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 1550,
+              "net_pnl": 29.607967649986676,
+              "profit_factor": 1.4630256798759291,
+              "win_rate": 0.7690322580645161,
+              "total_fees": 14.939032350000002,
+              "entry_bar_exits": 887,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 1.4630256798759291
+          },
+          {
+            "fold_index": 1,
+            "oos_start": "2022-10-01 00:00:00+00:00",
+            "oos_end": "2023-06-30 23:00:00+00:00",
+            "n_signals": 2416,
+            "signal_stats": {
+              "n_candidates": 4850,
+              "n_emitted": 2416,
+              "n_skipped_clarity": 2434,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 1178,
+              "net_pnl": 23.48662035000598,
+              "profit_factor": 1.8452097676440777,
+              "win_rate": 0.7945670628183361,
+              "total_fees": 8.01237965,
+              "entry_bar_exits": 559,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 1.8452097676440777
+          },
+          {
+            "fold_index": 2,
+            "oos_start": "2023-07-01 00:00:00+00:00",
+            "oos_end": "2024-03-31 23:00:00+00:00",
+            "n_signals": 2326,
+            "signal_stats": {
+              "n_candidates": 4720,
+              "n_emitted": 2326,
+              "n_skipped_clarity": 2394,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 1268,
+              "net_pnl": 46.89473824996821,
+              "profit_factor": 2.2467556124640913,
+              "win_rate": 0.8288643533123028,
+              "total_fees": 12.590261750000002,
+              "entry_bar_exits": 668,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 2.2467556124640913
+          },
+          {
+            "fold_index": 3,
+            "oos_start": "2024-04-01 00:00:00+00:00",
+            "oos_end": "2024-12-31 23:00:00+00:00",
+            "n_signals": 2204,
+            "signal_stats": {
+              "n_candidates": 4460,
+              "n_emitted": 2204,
+              "n_skipped_clarity": 2256,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 1035,
+              "net_pnl": 57.06215414998405,
+              "profit_factor": 1.8698899191291918,
+              "win_rate": 0.8096618357487922,
+              "total_fees": 18.90484585,
+              "entry_bar_exits": 430,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 1.8698899191291918
+          },
+          {
+            "fold_index": 4,
+            "oos_start": "2025-01-01 00:00:00+00:00",
+            "oos_end": "2025-09-30 23:00:00+00:00",
+            "n_signals": 2284,
+            "signal_stats": {
+              "n_candidates": 4616,
+              "n_emitted": 2284,
+              "n_skipped_clarity": 2332,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 1092,
+              "net_pnl": 72.87956165000287,
+              "profit_factor": 2.119032268984318,
+              "win_rate": 0.8305860805860806,
+              "total_fees": 20.823438350000004,
+              "entry_bar_exits": 454,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 2.119032268984318
+          },
+          {
+            "fold_index": 5,
+            "oos_start": "2025-10-01 00:00:00+00:00",
+            "oos_end": "2026-04-30 17:00:00+00:00",
+            "n_signals": 1708,
+            "signal_stats": {
+              "n_candidates": 3353,
+              "n_emitted": 1708,
+              "n_skipped_clarity": 1645,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 707,
+              "net_pnl": 32.311911949987916,
+              "profit_factor": 1.9912665746986675,
+              "win_rate": 0.8104667609618105,
+              "total_fees": 10.14708805,
+              "entry_bar_exits": 244,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 1.9912665746986675
+          }
+        ],
+        "stitched": {
+          "n_trades": 6830,
+          "net_pnl": 262.242954,
+          "profit_factor": 1.8960462299211385,
+          "bootstrap_pos_exp": 1.0,
+          "frac_folds_pf_gt_1": 1.0,
+          "frac_folds_pnl_gt_0": 1.0,
+          "n_liquidations": 0
+        }
+      },
+      "control": {
+        "arm": "none|hold6|tp0.01000",
+        "folds": [
+          {
+            "fold_index": 0,
+            "oos_start": "2022-01-01 00:00:00+00:00",
+            "oos_end": "2022-09-30 23:00:00+00:00",
+            "n_signals": 5239,
+            "signal_stats": {
+              "n_candidates": 5239,
+              "n_emitted": 5239,
+              "n_skipped_clarity": 0,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 2679,
+              "net_pnl": 31.521216849972916,
+              "profit_factor": 1.2665343995390783,
+              "win_rate": 0.7304964539007093,
+              "total_fees": 25.493783150000002,
+              "entry_bar_exits": 1404,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 1.2665343995390783
+          },
+          {
+            "fold_index": 1,
+            "oos_start": "2022-10-01 00:00:00+00:00",
+            "oos_end": "2023-06-30 23:00:00+00:00",
+            "n_signals": 4850,
+            "signal_stats": {
+              "n_candidates": 4850,
+              "n_emitted": 4850,
+              "n_skipped_clarity": 0,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 2028,
+              "net_pnl": 16.70731435003654,
+              "profit_factor": 1.2851431262449873,
+              "win_rate": 0.7001972386587771,
+              "total_fees": 13.763685650000001,
+              "entry_bar_exits": 853,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 1.2851431262449873
+          },
+          {
+            "fold_index": 2,
+            "oos_start": "2023-07-01 00:00:00+00:00",
+            "oos_end": "2024-03-31 23:00:00+00:00",
+            "n_signals": 4720,
+            "signal_stats": {
+              "n_candidates": 4720,
+              "n_emitted": 4720,
+              "n_skipped_clarity": 0,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 2206,
+              "net_pnl": 49.78442859989809,
+              "profit_factor": 1.6119822553103054,
+              "win_rate": 0.7538531278331823,
+              "total_fees": 21.753571400000002,
+              "entry_bar_exits": 1052,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 1.6119822553103054
+          },
+          {
+            "fold_index": 3,
+            "oos_start": "2024-04-01 00:00:00+00:00",
+            "oos_end": "2024-12-31 23:00:00+00:00",
+            "n_signals": 4460,
+            "signal_stats": {
+              "n_candidates": 4460,
+              "n_emitted": 4460,
+              "n_skipped_clarity": 0,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 1825,
+              "net_pnl": 70.23988805001318,
+              "profit_factor": 1.57065947790026,
+              "win_rate": 0.7402739726027397,
+              "total_fees": 33.503111950000005,
+              "entry_bar_exits": 660,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 1.57065947790026
+          },
+          {
+            "fold_index": 4,
+            "oos_start": "2025-01-01 00:00:00+00:00",
+            "oos_end": "2025-09-30 23:00:00+00:00",
+            "n_signals": 4616,
+            "signal_stats": {
+              "n_candidates": 4616,
+              "n_emitted": 4616,
+              "n_skipped_clarity": 0,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 1818,
+              "net_pnl": 77.72678974998962,
+              "profit_factor": 1.6346614604836422,
+              "win_rate": 0.7442244224422442,
+              "total_fees": 34.83021025000001,
+              "entry_bar_exits": 629,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 1.6346614604836422
+          },
+          {
+            "fold_index": 5,
+            "oos_start": "2025-10-01 00:00:00+00:00",
+            "oos_end": "2026-04-30 17:00:00+00:00",
+            "n_signals": 3353,
+            "signal_stats": {
+              "n_candidates": 3353,
+              "n_emitted": 3353,
+              "n_skipped_clarity": 0,
+              "n_skipped_edge": 0
+            },
+            "metrics": {
+              "n_trades": 1215,
+              "net_pnl": 40.621968099958394,
+              "profit_factor": 1.743014997804811,
+              "win_rate": 0.7283950617283951,
+              "total_fees": 17.0940319,
+              "entry_bar_exits": 364,
+              "n_liquidations": 0
+            },
+            "pf_from_trades": 1.743014997804811
+          }
+        ],
+        "stitched": {
+          "n_trades": 11771,
+          "net_pnl": 286.60160570000005,
+          "profit_factor": 1.513225273139192,
+          "bootstrap_pos_exp": 1.0,
+          "frac_folds_pf_gt_1": 1.0,
+          "frac_folds_pnl_gt_0": 1.0,
+          "n_liquidations": 0
+        }
+      },
+      "delta_pf": 0.3828209567819465,
+      "beats_control_and_pf_gate": true,
+      "n_folds": 6
+    }
+  ],
+  "summary": [
+    {
+      "symbol": "ETHUSDT",
+      "target": "direction",
+      "frozen_pf": 3.3234363836557645,
+      "control_pf": 1.9875946925969716,
+      "delta_pf": 1.335841691058793,
+      "frozen_n": 5072,
+      "control_n": 8657,
+      "beats": true,
+      "source": "eth_gen1_ref"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "target": "direction",
+      "frozen_pf": 2.9443934285088025,
+      "control_pf": 1.90385350136549,
+      "delta_pf": 1.0405399271433124,
+      "frozen_n": 4080,
+      "control_n": 7175,
+      "beats": true,
+      "bootstrap_pos_exp": 1.0,
+      "frac_folds_pf_gt_1": 1.0,
+      "n_liquidations": 0,
+      "source": "transfer_eval"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "target": "fwd_return",
+      "frozen_pf": 2.8628769041736915,
+      "control_pf": 2.0296247944893024,
+      "delta_pf": 0.833252109684389,
+      "frozen_n": 3144,
+      "control_n": 5923,
+      "beats": true,
+      "bootstrap_pos_exp": 1.0,
+      "frac_folds_pf_gt_1": 1.0,
+      "n_liquidations": 0,
+      "source": "transfer_eval"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "target": "direction",
+      "frozen_pf": 2.6619221420587738,
+      "control_pf": 1.9406712049467907,
+      "delta_pf": 0.7212509371119831,
+      "frozen_n": 6501,
+      "control_n": 11408,
+      "beats": true,
+      "bootstrap_pos_exp": 1.0,
+      "frac_folds_pf_gt_1": 1.0,
+      "n_liquidations": 0,
+      "source": "transfer_eval"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "target": "fwd_return",
+      "frozen_pf": 1.8960462299211385,
+      "control_pf": 1.513225273139192,
+      "delta_pf": 0.3828209567819465,
+      "frozen_n": 6830,
+      "control_n": 11771,
+      "beats": true,
+      "bootstrap_pos_exp": 1.0,
+      "frac_folds_pf_gt_1": 1.0,
+      "n_liquidations": 0,
+      "source": "transfer_eval"
+    }
+  ],
+  "verdict": {
+    "max_readiness": "RESEARCH_ONLY",
+    "live_matching_beats": 2,
+    "live_matching_note": "BTC live pack target=fwd_return; SOL live pack target=direction. Count of those two that beat control with PF>=1.20 and no liq.",
+    "principal_blocker": null,
+    "caveat": "min-exchange equity / MDD is not scale evidence; not a V2.1 full-gate settle",
+    "no_live_deploy": true
+  },
+  "elapsed_sec": 146.8,
+  "tradesim_file": "C:\\projects\\botsgeneral\\packages\\tradesim\\src\\tradesim\\__init__.py"
+}

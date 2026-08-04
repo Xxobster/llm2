@@ -1,0 +1,89 @@
+# Preregistered BEFORE one-shot lockbox open for expansion pairs.
+# Outer-fold settle remains the quotable historical edge.
+# LINK/VET/ADA + ETH/SOL were already peeeed — excluded from "pristine" set.
+
+generation_id: structure_v1_expansion_lockbox_final_001
+created_utc: "2026-08-04T11:45:00Z"
+status: FROZEN
+decision_refs: [D-035, D-036, D-037]
+fold_geometry: v2
+settle_source: artifacts/reports/structure_v1_expansion_settle_20260803T181235Z.json
+
+hypothesis: >
+  Frozen structure_v1 LightGBM direction packs for expansion symbols that already
+  PASS fold-V2 settle retain a diagnostic forward edge on the sealed calendar
+  starting FORWARD_LOCKBOX_START (2026-05-01), under fixed single-book execution
+  (TP 1%, SL 2%, hold 6). This open is one-shot final validation only — no arm search.
+
+economic_rationale: >
+  Settle outer-OOS is promotion-facing. Lockbox once checks post-freeze path drift
+  under the same frozen weights. No multitrade or TP/SL search on this window.
+
+excluded_already_peeked:
+  - ETHUSDT   # D-035 direction + multitrade grids
+  - SOLUSDT   # D-035 direction
+  - LINKUSDT  # structure_v1_lockbox_link_vet_ada Finplot
+  - VETUSDT
+  - ADAUSDT
+
+pristine_candidates:  # settle PASS direction; never lockbox-opened for charts
+  - symbol: BNBUSDT
+    target: direction
+    settle_pooled_pf: 1.5668
+  - symbol: XRPUSDT
+    target: direction
+    settle_pooled_pf: 1.7107
+  - symbol: DOGEUSDT
+    target: direction
+    settle_pooled_pf: 1.6057
+  - symbol: AVAXUSDT
+    target: direction
+    settle_pooled_pf: 1.7994
+  - symbol: DOTUSDT
+    target: direction
+    settle_pooled_pf: 1.8396
+  - symbol: TRXUSDT
+    target: direction
+    settle_pooled_pf: 1.5385
+  - symbol: XLMUSDT
+    target: direction
+    settle_pooled_pf: 1.6909
+
+frozen_execution:
+  feature_space: structure_v1
+  model: lgbm_regressor
+  timeframe: 1h
+  tp_pct: 0.01
+  sl_pct: 0.02
+  max_hold_bars: 6
+  max_positions: 1
+  sizing: MIN_EXCHANGE
+  leverage: leverage_from_stop(0.02)
+  signal_source: binance
+  execution_venue: bybit
+
+train_rules:
+  pack_bars_strictly_before: "2026-05-01"  # FORWARD_LOCKBOX_START
+  model_fit_strictly_before: "2025-10-01"  # last outer fold start (V2)
+  lockbox: never_used_for_train_or_tuning
+
+open_rules:
+  mode: one_shot_report_only  # no Finplot required for the batch report
+  multi_arm_search: FORBIDDEN
+  after_open: append_peek_log
+  post_open_evidence_class: LOCKBOX_OPENED_CONTAMINATED  # this open peeks them
+  quotable_promotion: still_outer_fold_settle_only
+
+forbidden:
+  - rank_K_or_TP_or_clarity_on_this_window
+  - promote_from_lockbox_PF_alone
+  - retune_ETH_multitrade_from_this_program
+  - claim_copy_sqlite_reseals_this_open
+
+success_is:
+  - packs frozen with train cuts enforced
+  - one diagnostic JSON report per symbol
+  - peek log seeded for generation_id
+  - fail-closed if runner receives multi-arm grid flags
+
+live_deploy: FORBIDDEN_without_separate_certificate_and_user_auth

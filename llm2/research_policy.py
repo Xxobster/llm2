@@ -166,6 +166,28 @@ def refuse_research_chart_as_deploy_evidence(source: str = "finplot") -> None:
     )
 
 
+def refuse_silent_lockbox_peek(
+    *,
+    accepted_contamination: bool,
+    window_start: str,
+    open_finplot: bool = False,
+    accepted_finplot: bool = False,
+    experiment_id: str = "unspecified",
+) -> None:
+    """Delegate to the sealed lockbox gate (Finplot double opt-in)."""
+    from llm2.evidence.lockbox_guard import require_lockbox_access
+
+    require_lockbox_access(
+        experiment_id=experiment_id,
+        window_start=window_start,
+        purpose="policy_refuse_silent_lockbox_peek",
+        accepted_contamination=accepted_contamination,
+        open_finplot=open_finplot,
+        accepted_finplot=accepted_finplot,
+        notes="via refuse_silent_lockbox_peek",
+    )
+
+
 # --------------------------------------------------------------------------------------
 # Matched controls for event studies
 # --------------------------------------------------------------------------------------
@@ -484,6 +506,194 @@ def prefer_raw_return_when_disagreement(
         return "raw_only"
     _ = (wave_statistic, raw_return_statistic, name)
     return "neither"
+
+
+# --------------------------------------------------------------------------------------
+# Contaminated lockbox multitrade peeks (D-035 / D-036)
+# --------------------------------------------------------------------------------------
+
+
+def refuse_copy_as_pristine_holdout(
+    *,
+    claimed_pristine: bool,
+    same_calendar_window: bool = True,
+) -> None:
+    """Refuse 'we copied the DB so the holdout is clean again'."""
+    if claimed_pristine and same_calendar_window:
+        raise PolicyError(
+            "Copying candles / indicators / reports into a new path does not re-seal a "
+            "peeked holdout. Contamination is selection information used on that calendar "
+            "window, not path uniqueness. For a clean claim: preregister first, then use "
+            "only data after POST_MULTITRADE_FREEZE_START (or outer-fold settle never "
+            "ranked for that claim)."
+        )
+
+
+def refuse_lockbox_multitrade_knob_as_promotion(
+    *,
+    claim: str,
+    evidence_class: str | None,
+    window_start: str | None = None,
+    window_end: str | None = None,
+) -> None:
+    """Multitrade K / switch / TP grids on May→post-freeze peek are diagnostic only."""
+    from llm2.evidence.peek_log import (
+        POST_MULTITRADE_FREEZE_START,
+        window_overlaps_contaminated_lockbox,
+    )
+    from llm2.paths import FORWARD_LOCKBOX_START
+
+    ec = (evidence_class or "").upper()
+    if "CONTAMINAT" in ec or "LOCKBOX" in ec:
+        if window_start and window_end:
+            if not window_overlaps_contaminated_lockbox(window_start, window_end):
+                return
+        raise PolicyError(
+            f"claim {claim!r} cannot use evidence_class={evidence_class!r} for multitrade "
+            f"parameter promotion. Quotable historical edge remains outer-fold settle; "
+            f"lockbox multitrade knobs on [{FORWARD_LOCKBOX_START}, "
+            f"{POST_MULTITRADE_FREEZE_START}) are diagnostic only (D-036). "
+            f"Next real parameter claim: prereg + window starting "
+            f">={POST_MULTITRADE_FREEZE_START}, or live post-freeze reconciliation."
+        )
+
+
+def require_post_freeze_for_multitrade_param_claim(
+    *,
+    claim: str,
+    window_start: str,
+    prereg_path: str | None = None,
+) -> None:
+    """New multitrade parameter claims need post-freeze calendar (or use outer folds)."""
+    from llm2.evidence.peek_log import POST_MULTITRADE_FREEZE_START, is_post_freeze_window
+
+    if is_post_freeze_window(window_start):
+        if not prereg_path:
+            raise PolicyError(
+                f"claim {claim!r} is post-freeze but has no prereg_path. Register the "
+                "candidate space before opening the unsealed forward window."
+            )
+        return
+    raise PolicyError(
+        f"claim {claim!r} window_start={window_start!r} is before "
+        f"POST_MULTITRADE_FREEZE_START={POST_MULTITRADE_FREEZE_START}. "
+        "Do not promote multitrade K/TP/switch/clarity changes from the peeked "
+        "May-2026→2026-08-04 diagnostic window. Prereg + wait, or evaluate on outer folds "
+        "without lockbox ranking."
+    )
+
+
+def classify_evidence_for_window(
+    *,
+    window_start: str,
+    window_end: str,
+    experiment_family: str = "multitrade_knob",
+) -> str:
+    """Stamp reports with the standing evidence class for a calendar slice."""
+    from llm2.evidence.peek_log import (
+        POST_MULTITRADE_FREEZE_START,
+        is_post_freeze_window,
+        window_overlaps_contaminated_lockbox,
+    )
+
+    if experiment_family in {
+        "multitrade_knob",
+        "lockbox_grid",
+        "concurrent_grid",
+        "expansion_lockbox",
+    }:
+        if window_overlaps_contaminated_lockbox(window_start, window_end):
+            return "LOCKBOX_OPENED_CONTAMINATED_DIAGNOSTIC_ONLY"
+        if is_post_freeze_window(window_start):
+            return "POST_FREEZE_FORWARD_CANDIDATE"
+    _ = POST_MULTITRADE_FREEZE_START
+    return "UNSPECIFIED"
+
+
+# --------------------------------------------------------------------------------------
+# Expansion lockbox one-shot (D-037)
+# --------------------------------------------------------------------------------------
+
+EXPANSION_LOCKBOX_FINAL_GENERATION = "structure_v1_expansion_lockbox_final_001"
+
+# Symbols already peeeed for charts / multitrade before the sealed expansion open.
+EXPANSION_LOCKBOX_ALREADY_PEEKED: frozenset[str] = frozenset(
+    {
+        "ETHUSDT",
+        "SOLUSDT",
+        "LINKUSDT",
+        "VETUSDT",
+        "ADAUSDT",
+        "BTCUSDT",
+    }
+)
+
+
+def refuse_expansion_lockbox_multi_arm(
+    *,
+    n_arms: int | None = None,
+    argv: Sequence[str] | None = None,
+    generation_id: str = EXPANSION_LOCKBOX_FINAL_GENERATION,
+) -> None:
+    """Expansion sealed lockbox is one frozen arm only — no grids on the open (D-037)."""
+    if n_arms is not None and int(n_arms) > 1:
+        raise PolicyError(
+            f"generation {generation_id}: multi-arm lockbox search is forbidden "
+            f"(n_arms={n_arms}). One frozen single-book arm only (D-037)."
+        )
+    if argv is None:
+        return
+    joined = " ".join(str(a) for a in argv).lower()
+    for bad in (
+        "--grid",
+        "--k ",
+        "--k=",
+        "fib_ext",
+        "switch_book",
+        "--multi",
+        "--hunt",
+        "clarity=",
+        "--n-arms",
+        "--arms",
+    ):
+        if bad in joined:
+            raise PolicyError(
+                f"generation {generation_id}: search flag {bad!r} refused on sealed "
+                "expansion lockbox. One frozen single-book arm only (D-037)."
+            )
+
+
+def refuse_promotion_from_expansion_lockbox_pf(
+    *,
+    claim: str,
+    evidence_class: str | None,
+    quote_settle: bool = False,
+) -> None:
+    """Do not promote expansion packs from lockbox PF alone (D-037)."""
+    if quote_settle:
+        return
+    ec = (evidence_class or "").upper()
+    if "LOCKBOX" in ec or "CONTAMINAT" in ec:
+        raise PolicyError(
+            f"claim {claim!r} cannot promote from expansion lockbox "
+            f"evidence_class={evidence_class!r}. Quote outer-fold settle pooled "
+            "Profit Factor only; lockbox is diagnostic one-shot (D-037)."
+        )
+
+
+def refuse_already_peeked_on_expansion_pristine_set(
+    *,
+    symbol: str,
+    generation_id: str = EXPANSION_LOCKBOX_FINAL_GENERATION,
+    already_peeked: frozenset[str] = EXPANSION_LOCKBOX_ALREADY_PEEKED,
+) -> None:
+    """Refuse LINK/VET/ADA etc. in the 'pristine' expansion open set."""
+    sym = str(symbol).upper()
+    if sym in already_peeked:
+        raise PolicyError(
+            f"{sym} is already peeeed (charts / prior lockbox) and cannot enter "
+            f"the pristine candidate set for {generation_id} (D-037)."
+        )
 
 
 # --------------------------------------------------------------------------------------

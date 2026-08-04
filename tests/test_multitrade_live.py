@@ -53,18 +53,23 @@ def test_decide_entry_gate_cap_and_clarity():
     cfg = {
         "max_positions_per_side": 6,
         "clarity": "mean_strength",
+        "clarity_scope": "addon",
         "fib_ext": 1.618,
         "hold_addon": 12,
         "base_tp": 0.01,
         "base_sl": 0.02,
         "base_hold": 6,
         "mean_lookback": 168,
+        "size_double_within_bars": 0,
+        "uniform_books": False,
+        "bar_ms": 3_600_000,
     }
-    # first book always allowed
+    # first book always allowed (addon-only clarity)
     g0 = decide_entry_gate(
         side=1, pred_mean=0.5, n_open_same_side=0, strength_hist=[], cfg=cfg
     )
     assert g0["allow"] and g0["book_idx"] == 1 and g0["tp_pct"] == 0.01
+    assert g0["size_mult"] == 1.0
     # addon blocked by clarity
     g1 = decide_entry_gate(
         side=1,
@@ -93,3 +98,66 @@ def test_decide_entry_gate_cap_and_clarity():
         cfg=cfg,
     )
     assert not gcap["allow"] and "cap_reached" in gcap["skip_reason"]
+
+
+def test_k5_double_gate_uniform_clarity_all_and_size():
+    cfg = {
+        "max_positions_per_side": 5,
+        "clarity": "mean_strength",
+        "clarity_scope": "all",
+        "fib_ext": 0.0,
+        "hold_addon": 12,
+        "base_tp": 0.01,
+        "base_sl": 0.02,
+        "base_hold": 12,
+        "mean_lookback": 168,
+        "size_double_within_bars": 3,
+        "size_double_mult": 2.0,
+        "uniform_books": True,
+        "bar_ms": 3_600_000,
+    }
+    # primary blocked by clarity when scope=all
+    g_block = decide_entry_gate(
+        side=1,
+        pred_mean=0.15,
+        n_open_same_side=0,
+        strength_hist=[0.4, 0.5, 0.6],
+        cfg=cfg,
+        bar_ts_ms=10_000_000,
+        last_entry_ts_ms=None,
+    )
+    assert not g_block["allow"]
+    # first entry in chain: size 1×
+    g0 = decide_entry_gate(
+        side=1,
+        pred_mean=0.9,
+        n_open_same_side=0,
+        strength_hist=[0.1],
+        cfg=cfg,
+        bar_ts_ms=10_000_000,
+        last_entry_ts_ms=None,
+    )
+    assert g0["allow"] and g0["size_mult"] == 1.0 and g0["max_hold_bars"] == 12
+    # next entry within 3h: size 2×; uniform TP still 1%
+    g2 = decide_entry_gate(
+        side=1,
+        pred_mean=0.9,
+        n_open_same_side=2,
+        strength_hist=[0.1],
+        cfg=cfg,
+        bar_ts_ms=10_000_000 + 2 * 3_600_000,
+        last_entry_ts_ms=10_000_000,
+    )
+    assert g2["allow"] and g2["size_mult"] == 2.0
+    assert g2["tp_pct"] == 0.01 and g2["max_hold_bars"] == 12
+    # gap > 3h: back to 1×
+    g_far = decide_entry_gate(
+        side=1,
+        pred_mean=0.9,
+        n_open_same_side=1,
+        strength_hist=[0.1],
+        cfg=cfg,
+        bar_ts_ms=10_000_000 + 4 * 3_600_000,
+        last_entry_ts_ms=10_000_000,
+    )
+    assert g_far["allow"] and g_far["size_mult"] == 1.0

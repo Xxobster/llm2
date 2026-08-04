@@ -1,4 +1,4 @@
-"""Finplot one arm of the concurrent fib/clarity grid (lockbox contaminated)."""
+"""One arm of the concurrent fib/clarity grid on lockbox (sealed; dual accept for Finplot)."""
 
 from __future__ import annotations
 
@@ -11,6 +11,8 @@ _ROOT = Path(__file__).resolve().parents[1]
 if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
 
+os.environ.setdefault("TRADESIM_NO_PLOT", "1")
+
 from tradesim.ensure_source import prefer_botsgeneral_tradesim
 
 prefer_botsgeneral_tradesim()
@@ -21,8 +23,14 @@ from llm2.backtest.conformance import run_conformance_check  # noqa: E402
 from llm2.backtest.run import ohlcv_to_bar_series, run_strategy_backtest  # noqa: E402
 from tradesim import research_margin, research_sizing, research_sim_hedge  # noqa: E402
 
+from llm2.evidence.lockbox_guard import (  # noqa: E402
+    add_lockbox_guard_args,
+    require_lockbox_access,
+    seal_finplot_unless_authorized,
+)
 from llm2.gates.evidence import research_costs_baseline  # noqa: E402
 from llm2.paths import FORWARD_LOCKBOX_START  # noqa: E402
+from llm2.research_policy import PolicyError  # noqa: E402
 
 # Import hunt helpers
 sys.path.insert(0, str(_ROOT / "scripts"))
@@ -42,12 +50,32 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--hold", type=int, default=12)
     ap.add_argument("--k", type=int, default=0, help="0 = unlimited")
     ap.add_argument("--start", default=FORWARD_LOCKBOX_START)
-    ap.add_argument("--no-show", action="store_true")
+    ap.add_argument("--show", action="store_true", help="Finplot (needs dual accept).")
+    ap.add_argument("--no-show", action="store_true", help="Deprecated: Finplot off by default.")
     ap.add_argument("--trade-cap", type=int, default=120)
+    add_lockbox_guard_args(ap)
     args = ap.parse_args(argv)
 
-    if not args.no_show:
-        os.environ.pop("TRADESIM_NO_PLOT", None)
+    open_finplot = bool(args.show) and not bool(args.no_show)
+    try:
+        require_lockbox_access(
+            experiment_id="structure_v1_eth_concurrent_fib_arm_plot",
+            window_start=str(args.start),
+            purpose="finplot_lockbox_open" if open_finplot else "lockbox_report_only",
+            symbols=[SYMBOL],
+            accepted_contamination=bool(args.i_accept_lockbox_contamination),
+            open_finplot=open_finplot,
+            accepted_finplot=bool(args.i_accept_finplot_lockbox),
+            notes="scripts/plot_eth_concurrent_fib_arm.py",
+        )
+    except PolicyError as exc:
+        print(f"REFUSED: {exc}", flush=True)
+        return 2
+
+    show = seal_finplot_unless_authorized(
+        open_finplot=open_finplot,
+        accepted_finplot=bool(args.i_accept_finplot_lockbox),
+    )
 
     if not run_conformance_check(quiet=True).get("passed"):
         print("conformance not green")
@@ -56,10 +84,10 @@ def main(argv: list[str] | None = None) -> int:
         raise SystemExit(f"missing {PACK}")
 
     from hunt_eth_concurrent_fib_clarity import (  # type: ignore
-        extended_tp_offset,
-        resolve_k,
-        k_label,
         UNLIMITED_K,
+        extended_tp_offset,
+        k_label,
+        resolve_k,
     )
 
     ctx = prepare(args.start)
@@ -109,7 +137,7 @@ def main(argv: list[str] | None = None) -> int:
         store_path=None,
     )
     m = bundle.metrics
-    if not args.no_show:
+    if show:
         bars = ohlcv_to_bar_series(
             ctx.window.loc[ctx.window.index >= ctx.start_ts],
             symbol=SYMBOL,
