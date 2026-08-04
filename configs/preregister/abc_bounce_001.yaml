@@ -1,0 +1,103 @@
+# ABC bounce — preregistered BEFORE any forward-lockbox performance is computed.
+# Training-window diagnostics (D-030) showed negative BC-continuation (bounce against
+# the C leg) near factors 0.618 / 1.0 / 1.618. That training window is contaminated for
+# this hypothesis. Only the untouched forward lockbox from 2026-05-01 may confirm it.
+# Do not tune factor set, tolerance, hold, or stop after opening the lockbox.
+
+generation_id: abc_bounce_001_BTCUSDT_1h
+created_utc: "2026-08-03T12:55:00Z"
+status: FROZEN
+source_decision: D-030
+source_report: artifacts/reports/abc_factor/abc_factor_BTCUSDT_20260803T124220Z.md
+# Family hold state lives in artifacts/reports/abc_bounce/abc_bounce_001_family_status.json
+# so the frozen parameter digest is not rewritten after the first lockbox open.
+
+hypothesis: >
+  After a confirmed A→B→C zig-zag on BTCUSDT 1h whose distance factor f = |BC|/|AB|
+  lies within 0.05 of {0.618, 1.000, 1.618}, the next 6-bar return tends to move
+  against the B→C leg (bounce), not continue it.
+
+economic_rationale: >
+  Equal-leg and golden-ratio ABC completions are widely treated as continuation setups.
+  The training diagnostic found the opposite signed mean at the shortest horizon that
+  cleared FDR. A short bounce after an exhausted zig-zag is the economically natural
+  alternative: the C leg has already delivered the move that the classical story expects
+  next. This preregistration tests that alternative once on the lockbox.
+
+diagnostic_evidence_train_only:
+  note: contaminated for selection; recorded for provenance only
+  bc_continuation_0618_fwd6_excess: -39.5 bps
+  bc_continuation_equal_fwd6_excess: -38.8 bps
+  bc_continuation_1618_fwd6_excess: -43.2 bps
+  n_train_triples: 10155
+
+event_definition:
+  geometry: warehouse confirmed swings via indicators.legs (never wavetheory fractal pivots)
+  points: consecutive legs sharing swing B; pattern must be up_down or down_up
+  factor: abs(C - B) / abs(B - A)
+  factor_targets: [0.618, 1.000, 1.618]
+  factor_tolerance: 0.05
+  knowable_at: confirmation time of swing C (end_ts_ms of the BC leg)
+  forbidden: >
+    Hand-drawn A/B/C, wavetheory simulate_long_trades, non-causal wave extrema, and any
+    expansion of factor_targets after this file is hashed.
+
+entry_rule:
+  name: bounce_against_bc
+  side: "opposite of BC direction (+1 if BC was down, -1 if BC was up)"
+  hold_bars: 6
+  entry_ref: next_open_after_confirm_bar
+  tp_pct: null
+  sl_pct: 0.04
+
+exit_design:
+  frozen_utc: "2026-08-03T12:55:00Z"
+  frozen_before: any forward-lockbox or tradesim result for this hypothesis
+  no_take_profit_because: >
+    The diagnostic claim is about the 6-bar signed return against BC. A take-profit would
+    answer a different question and become the first tuning knob.
+  stop_rationale: >
+    0.04 is a protective bound from short-horizon BTCUSDT 1h volatility (~0.5–1% per bar;
+    6 bars typically under 3%). Chosen from volatility alone; must not be adjusted after
+    seeing lockbox results.
+  leverage: 10
+  leverage_derivation: >
+    floor(1 / (0.04 + 0.005 + 0.002)) = floor(21.27) = 21; operational haircut to 10 as
+    lowest comfortable value for a 6-bar research hold. Leverage is not alpha.
+  costs: tradesim research_costs all-taker Bybit non-VIP; funding at actual settlements
+  sizing: tradesim research_sizing smallest venue-legal quantity
+
+universe:
+  symbol: BTCUSDT
+  timeframe: 1h
+  train_end: "2026-05-01"
+  evaluation: forward_lockbox_once
+  lockbox_start: "2026-05-01"
+  engine: tradesim
+  note: >
+    Lockbox event count at freeze time is approximately 58 union events near the three
+    targets — above a thin diagnostic floor, below comfortable nested-walk-forward
+    geometry. Therefore evaluation is a single pristine lockbox pass, not a fold redesign.
+
+controls:
+  required:
+    - name: volatility_matched_random
+      matching: trailing 168-bar volatility within 15 percent of each event bar
+      same_hold: true
+      same_costs: true
+  policy: require_matched_control
+
+success_criteria:
+  - bounce arm pooled profit factor >= 1.20 after fees, slippage and funding
+  - bounce arm beats the volatility-matched random control on pooled profit factor
+  - no liquidation
+  - at least 50 pooled lockbox trades after one-position-at-a-time (else report UNDERPOWERED, do not lower the floor)
+
+failure_is_success: true
+failure_interpretation: >
+  If the bounce does not beat the matched control after costs, the training-window
+  signed mean was regime drift or selection artefact and the ABC-bounce family is CLOSED.
+  Do not respond by widening factor_tolerance, adding targets, or lengthening the hold.
+
+closed_on_failure: abc_bounce_family
+continuation_claim_status: CLOSED_unless_separate_lockbox_prereg

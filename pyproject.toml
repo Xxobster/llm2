@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm2"
+version = "0.1.0"
+description = "LLM2 predictability laboratory — causal features, seven targets, tradesim backtests"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "Proprietary" }
+authors = [{ name = "Xxobster" }]
+dependencies = [
+    "numpy>=1.26",
+    "pandas>=2.1",
+    "pyarrow>=14.0",
+    "scipy>=1.11",
+    "scikit-learn>=1.4",
+    "lightgbm>=4.0",
+    "pandas-ta>=0.3.14b",
+    "statsmodels>=0.14",
+    "httpx>=0.27",
+    "joblib>=1.3",
+]
+
+[project.optional-dependencies]
+deep = ["neuralforecast>=1.7"]
+foundation = ["chronos-forecasting>=1.0", "timesfm>=1.0"]
+dev = ["pytest>=8.0", "pytest-cov>=4.1"]
+
+[project.scripts]
+llm2 = "llm2.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["llm2*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

@@ -1,0 +1,81 @@
+# Preregistered from diagnostics run diag_BTCUSDT_1h_20260803T083613Z.
+#
+# Provenance warning: this candidate was selected by inspecting 550 training-window
+# statistics. The training window is contaminated for this hypothesis; only the nested
+# out-of-sample folds and the untouched forward lockbox can confirm it.
+
+generation_id: diag002_regime_momentum_BTCUSDT_1h
+created_utc: "2026-08-03T09:10:00Z"
+status: PREREGISTERED
+source_run: diag_BTCUSDT_1h_20260803T083613Z
+
+hypothesis: >
+  The relationship between a 24-bar trailing return and the following 6-bar return on
+  BTCUSDT 1h changes sign with regime: positive in the lowest volatility tercile,
+  negative while the fast exponential moving average is below the slow one. Neither is
+  visible unconditionally.
+
+economic_rationale: >
+  In quiet conditions order flow is thinner and a move meets less resistance, so short
+  horizon continuation is plausible. In a downtrend, rallies are supply being met, so the
+  same trailing move mean-reverts. A single unconditional coefficient averages these two
+  opposite regimes toward zero, which is consistent with the unconditional momentum scan
+  finding nothing (0 of 33 effects survived).
+
+diagnostic_evidence:
+  trail24_vs_fwd6_low_vol: 0.0425      # q = 0.0383, n = 19401
+  trail24_vs_fwd6_trend_down: -0.0460  # q = 0.0383, n = 27816
+  trail24_vs_fwd6_unconditional: "not significant"
+  sign_flip_magnitude: 0.0885
+
+regime_definition:
+  volatility: >
+    Terciles of the 24-bar rolling standard deviation of log returns. Boundaries must be
+    fitted inside each training fold only and applied unchanged out of sample.
+  trend: >
+    Sign of (24-span exponential moving average minus 96-span exponential moving average),
+    both causal.
+
+entry_rule:
+  name: regime_switched_momentum
+  side: >
+    +1 when the 24-bar trailing return is positive AND volatility is in the lowest
+    tercile; -1 when the 24-bar trailing return is positive AND the trend regime is down;
+    0 otherwise. The two conditions are evaluated on the frozen definitions above.
+  hold_bars: 6
+
+universe:
+  symbol: BTCUSDT
+  timeframe: 1h
+  train_end: "2026-05-01"
+  run_backtest: true
+  engine: tradesim
+
+validation:
+  outer_folds: nested_walk_forward_existing_builder
+  purge_bars: 24
+  embargo_bars: 24
+  selection: none_single_frozen_comparison
+
+known_weaknesses:
+  - >
+    A correlation of 0.04 explains 0.18 percent of forward-return variance. Over a 6-bar
+    hold that is very unlikely to clear a 16 bps round trip; the honest prior is failure
+    on cost, and the value of running it is closing the question, not finding an edge.
+  - >
+    Both regime survivors sit at q = 0.038, just inside the threshold. They are the two
+    weakest survivors in the run.
+  - >
+    Tercile boundaries fitted on the full training window are part of what was selected on.
+    They must be refitted per fold.
+
+success_criteria:
+  - pooled out-of-sample profit factor > 1.20 after all costs
+  - the sign flip persists out of sample, not merely the average
+  - each regime arm is individually evaluated, never only the combination
+
+failure_is_success: true
+failure_interpretation: >
+  If regime-switched momentum does not clear costs, regime conditioning of simple trailing
+  returns is closed. Do not respond by adding regimes, changing tercile counts, or trying
+  other lookbacks.

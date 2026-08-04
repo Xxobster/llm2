@@ -1,0 +1,73 @@
+{
+  "status": "COMPLETE",
+  "verdict": "ABC_BOUNCE_UNDERPOWERED",
+  "success": false,
+  "family_closed": false,
+  "underpowered": true,
+  "generation_id": "abc_bounce_001_BTCUSDT_1h",
+  "prereg_sha256": "79299eb6fcc587dca1b1b8eb4dba17668f1426cbf5c709fcab4ba7bb7bdc7adf",
+  "engine_stamp": {
+    "engine_name": "tradesim",
+    "engine_version": "1.0.0",
+    "engine_commit": "UNKNOWN_DIRTY",
+    "fixture_pack_hash": "9a037b290c8ab1f4d84706809ae83f548062fe946b811cf2ab2dee7868c371a2",
+    "registry_digest": "f9e9c06aa56214c8f24323159a93a46ba1c3d64469c305663f2dd62b2b0863e2",
+    "contract": "perp_bracket_portfolio",
+    "checked_at_ms": 1785761973795,
+    "passed": true,
+    "required_count": 62,
+    "satisfied_count": 62,
+    "unsatisfied": [],
+    "checker_version": "1",
+    "detail": {
+      "checker_version": "1",
+      "unknown_identifiers_in_tests": [],
+      "n_fixtures": 50
+    }
+  },
+  "n_raw_events": 58,
+  "arms": {
+    "bounce": {
+      "name": "bounce",
+      "pooled_pf": 0.5441797989973571,
+      "pooled_pnl": -7.023627024999983,
+      "n_trades": 46,
+      "n_signals": 48,
+      "gross_profit": 8.385139435000017,
+      "gross_loss": 15.408766459999999,
+      "funding_paid": 0.0,
+      "fees_paid": 3.4219270250000005,
+      "entry_bar_stops": 0,
+      "liquidations": 0,
+      "detail": {
+        "skips": {
+          "SKIP_POSITION_LIMIT": 2
+        }
+      }
+    },
+    "random_vol_matched": {
+      "name": "random_vol_matched",
+      "pooled_pf": Infinity,
+      "pooled_pnl": 0.21258181500000872,
+      "n_trades": 1,
+      "n_signals": 1,
+      "gross_profit": 0.21258181500000872,
+      "gross_loss": -0.0,
+      "funding_paid": 0.0,
+      "fees_paid": 0.089318185,
+      "entry_bar_stops": 0,
+      "liquidations": 0,
+      "detail": {
+        "skips": {}
+      }
+    }
+  },
+  "criteria": {
+    "pooled_trades_ge_50": false,
+    "pooled_pf_ge_1_20": false,
+    "beats_vol_matched_control": false,
+    "no_liquidation": true
+  },
+  "readiness": "RESEARCH_ONLY",
+  "stamped_utc": "20260803T125936Z"
+}

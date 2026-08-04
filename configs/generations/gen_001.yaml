@@ -1,0 +1,23 @@
+generation_id: gen_001_btc_1h_fwd
+hypothesis: >
+  Baseline method tournament on BTCUSDT 1h forward returns using ohlcv_v1 features.
+  Baselines must beat cost hurdle and survive surrogate challenge before any deep model.
+preregistered_at: 2026-08-02T08:00:00Z
+max_trials: 7
+symbol: BTCUSDT
+timeframe: 1h
+target: fwd_return
+feature_space: ohlcv_v1
+horizon: 6
+tp_pct: 0.01
+sl_pct: 0.02
+models:
+  - hist_mean
+  - last_value
+  - seasonal_naive
+  - ridge
+  - lgbm_regressor
+  - lgbm_classifier
+  - torch_mlp
+forward_lockbox_start: 2026-05-01
+gate_profile: trading_bot_v2_1_frozen

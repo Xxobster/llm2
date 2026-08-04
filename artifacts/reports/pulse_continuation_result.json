@@ -1,0 +1,356 @@
+{
+  "status": "COMPLETE",
+  "verdict": "PULSE_FAILS_ON_COST",
+  "success": false,
+  "generation_id": "diag001_pulse_continuation_BTCUSDT_1h",
+  "prereg_sha256": "aa8a75d88c89e63a63c7e06b7f2a377fc7f96d516798e82bf0e44d0a1f9cf1a0",
+  "fold_design_hash": "6c52076664e2fe64",
+  "engine_stamp": {
+    "engine_name": "tradesim",
+    "engine_version": "1.0.0",
+    "engine_commit": "UNKNOWN_DIRTY",
+    "fixture_pack_hash": "9a037b290c8ab1f4d84706809ae83f548062fe946b811cf2ab2dee7868c371a2",
+    "registry_digest": "f9e9c06aa56214c8f24323159a93a46ba1c3d64469c305663f2dd62b2b0863e2",
+    "contract": "perp_bracket_portfolio",
+    "checked_at_ms": 1785750091695,
+    "passed": true,
+    "required_count": 62,
+    "satisfied_count": 62,
+    "unsatisfied": [],
+    "checker_version": "1",
+    "detail": {
+      "checker_version": "1",
+      "unknown_identifiers_in_tests": [],
+      "n_fixtures": 50
+    }
+  },
+  "arms": {
+    "pulse": {
+      "name": "pulse",
+      "pooled_pf": 1.0667004423294277,
+      "pooled_pnl": 6.267609857547039,
+      "n_trades": 92,
+      "fold_rows": [
+        {
+          "fold": 0,
+          "n": 16,
+          "signals": 16,
+          "pnl": -2.9963278619969005,
+          "gross_profit": 10.232194193332106,
+          "gross_loss": 13.228522055329007,
+          "fees": 0.5838078400000001,
+          "funding": -0.33532002199690003,
+          "slippage": 0.26636999999999533,
+          "exit_reasons": {
+            "max_hold": "14",
+            "stop": "2"
+          },
+          "entry_bar_stops": 0,
+          "liquidations": 0,
+          "skips": {}
+        },
+        {
+          "fold": 1,
+          "n": 21,
+          "signals": 22,
+          "pnl": 3.7166382970439926,
+          "gross_profit": 13.582433875571997,
+          "gross_loss": 9.865795578528006,
+          "fees": 0.52278369,
+          "funding": -0.41957801295600006,
+          "slippage": 0.2375000000000073,
+          "exit_reasons": {
+            "max_hold": "20",
+            "stop": "1"
+          },
+          "entry_bar_stops": 0,
+          "liquidations": 0,
+          "skips": {
+            "SKIP_POSITION_LIMIT": 1
+          }
+        },
+        {
+          "fold": 2,
+          "n": 24,
+          "signals": 24,
+          "pnl": 7.10992462330198,
+          "gross_profit": 24.31412985282799,
+          "gross_loss": 17.204205229526007,
+          "fees": 1.001532345,
+          "funding": -1.3052430316980002,
+          "slippage": 0.45380000000001747,
+          "exit_reasons": {
+            "max_hold": "23",
+            "stop": "1"
+          },
+          "entry_bar_stops": 0,
+          "liquidations": 0,
+          "skips": {}
+        },
+        {
+          "fold": 3,
+          "n": 18,
+          "signals": 18,
+          "pnl": -4.41511301045802,
+          "gross_profit": 21.26952681163797,
+          "gross_loss": 25.68463982209599,
+          "fees": 1.4479054700000002,
+          "funding": -1.525407540458,
+          "slippage": 0.659,
+          "exit_reasons": {
+            "max_hold": "16",
+            "stop": "2"
+          },
+          "entry_bar_stops": 0,
+          "liquidations": 0,
+          "skips": {}
+        },
+        {
+          "fold": 4,
+          "n": 13,
+          "signals": 13,
+          "pnl": 2.8524878096559867,
+          "gross_profit": 30.835866254322003,
+          "gross_loss": 27.98337844466602,
+          "fees": 1.507660495,
+          "funding": -1.001151695344,
+          "slippage": 0.6841000000000058,
+          "exit_reasons": {
+            "max_hold": "11",
+            "stop": "2"
+          },
+          "entry_bar_stops": 0,
+          "liquidations": 0,
+          "skips": {}
+        }
+      ],
+      "gross_profit": 100.23415098769206,
+      "gross_loss": 93.96654113014503,
+      "funding_paid": -4.5867003024529005,
+      "fees_paid": 5.06368984,
+      "entry_bar_stops": 0,
+      "liquidations": 0
+    },
+    "random_vol_matched": {
+      "name": "random_vol_matched",
+      "pooled_pf": 1.0491205851566314,
+      "pooled_pnl": 2.961971246495983,
+      "n_trades": 82,
+      "fold_rows": [
+        {
+          "fold": 0,
+          "n": 11,
+          "signals": 11,
+          "pnl": -3.8079292399280056,
+          "gross_profit": 4.779891030099994,
+          "gross_loss": 8.587820270027999,
+          "fees": 0.366212715,
+          "funding": -0.18161652492800004,
+          "slippage": 0.16760000000000946,
+          "exit_reasons": {
+            "max_hold": "10",
+            "stop": "1"
+          },
+          "entry_bar_stops": 0,
+          "liquidations": 0,
+          "skips": {}
+        },
+        {
+          "fold": 1,
+          "n": 17,
+          "signals": 17,
+          "pnl": -1.1697851599009927,
+          "gross_profit": 6.093710433362004,
+          "gross_loss": 7.263495593262996,
+          "fees": 0.43278367,
+          "funding": -0.30480148990100003,
+          "slippage": 0.19749999999999637,
+          "exit_reasons": {
+            "max_hold": "17"
+          },
+          "entry_bar_stops": 0,
+          "liquidations": 0,
+          "skips": {}
+        },
+        {
+          "fold": 2,
+          "n": 21,
+          "signals": 22,
+          "pnl": 10.767505074105024,
+          "gross_profit": 16.16189699985001,
+          "gross_loss": 5.394391925744989,
+          "fees": 0.8489602,
+          "funding": -1.168934725895,
+          "slippage": 0.38349999999999274,
+          "exit_reasons": {
+            "max_hold": "21"
+          },
+          "entry_bar_stops": 0,
+          "liquidations": 0,
+          "skips": {
+            "SKIP_POSITION_LIMIT": 1
+          }
+        },
+        {
+          "fold": 3,
+          "n": 12,
+          "signals": 12,
+          "pnl": -6.38661816904202,
+          "gross_profit": 11.676216380843991,
+          "gross_loss": 18.062834549886013,
+          "fees": 0.8826015,
+          "funding": -0.769416669042,
+          "slippage": 0.40290000000000875,
+          "exit_reasons": {
+            "max_hold": "12"
+          },
+          "entry_bar_stops": 0,
+          "liquidations": 0,
+          "skips": {}
+        },
+        {
+          "fold": 4,
+          "n": 21,
+          "signals": 21,
+          "pnl": 3.558798741261977,
+          "gross_profit": 24.550255619595013,
+          "gross_loss": 20.991456878333036,
+          "fees": 2.416698405,
+          "funding": -1.4376028537380001,
+          "slippage": 1.0969999999999855,
+          "exit_reasons": {
+            "max_hold": "20",
+            "stop": "1"
+          },
+          "entry_bar_stops": 0,
+          "liquidations": 0,
+          "skips": {}
+        }
+      ],
+      "gross_profit": 63.26197046375101,
+      "gross_loss": 60.299999217255035,
+      "funding_paid": -3.862372263504,
+      "fees_paid": 4.94725649,
+      "entry_bar_stops": 0,
+      "liquidations": 0
+    },
+    "down_pulse": {
+      "name": "down_pulse",
+      "pooled_pf": 0.7790343242704918,
+      "pooled_pnl": -24.131057138497592,
+      "n_trades": 90,
+      "fold_rows": [
+        {
+          "fold": 0,
+          "n": 21,
+          "signals": 22,
+          "pnl": -14.972321874973622,
+          "gross_profit": 8.205255025730002,
+          "gross_loss": 23.17757690070362,
+          "fees": 0.7270670000000001,
+          "funding": -0.11905487497360003,
+          "slippage": 0.33500000000001456,
+          "exit_reasons": {
+            "max_hold": "17",
+            "stop": "4"
+          },
+          "entry_bar_stops": 0,
+          "liquidations": 0,
+          "skips": {
+            "SKIP_POSITION_LIMIT": 1
+          }
+        },
+        {
+          "fold": 1,
+          "n": 16,
+          "signals": 16,
+          "pnl": 6.505550834003999,
+          "gross_profit": 11.246214404919002,
+          "gross_loss": 4.740663570915004,
+          "fees": 0.40087415500000007,
+          "funding": -0.219675010996,
+          "slippage": 0.18110000000000584,
+          "exit_reasons": {
+            "max_hold": "15",
+            "stop": "1"
+          },
+          "entry_bar_stops": 0,
+          "liquidations": 0,
+          "skips": {}
+        },
+        {
+          "fold": 2,
+          "n": 15,
+          "signals": 15,
+          "pnl": -2.081886985490004,
+          "gross_profit": 10.511264432887998,
+          "gross_loss": 12.593151418378003,
+          "fees": 0.6374633650000001,
+          "funding": -1.02492362049,
+          "slippage": 0.2905999999999949,
+          "exit_reasons": {
+            "max_hold": "13",
+            "stop": "2"
+          },
+          "entry_bar_stops": 0,
+          "liquidations": 0,
+          "skips": {}
+        },
+        {
+          "fold": 3,
+          "n": 20,
+          "signals": 20,
+          "pnl": -19.742192147527984,
+          "gross_profit": 19.584670085840013,
+          "gross_loss": 39.32686223336799,
+          "fees": 1.5012067400000002,
+          "funding": -1.2973854075280002,
+          "slippage": 0.6873999999999942,
+          "exit_reasons": {
+            "max_hold": "18",
+            "stop": "2"
+          },
+          "entry_bar_stops": 0,
+          "liquidations": 0,
+          "skips": {}
+        },
+        {
+          "fold": 4,
+          "n": 18,
+          "signals": 18,
+          "pnl": 6.159793035490018,
+          "gross_profit": 35.52880406238002,
+          "gross_loss": 29.369011026889996,
+          "fees": 1.977742965,
+          "funding": -1.02796399951,
+          "slippage": 0.897,
+          "exit_reasons": {
+            "max_hold": "17",
+            "stop": "1"
+          },
+          "entry_bar_stops": 0,
+          "liquidations": 0,
+          "skips": {}
+        }
+      ],
+      "gross_profit": 85.07620801175703,
+      "gross_loss": 109.20726515025461,
+      "funding_paid": -3.6890029134976006,
+      "fees_paid": 5.244354225,
+      "entry_bar_stops": 0,
+      "liquidations": 0
+    }
+  },
+  "criteria": {
+    "enough_trades": true,
+    "pooled_pf_above_1_20": false,
+    "beats_vol_matched_control": true,
+    "fold_trade_counts": [
+      16,
+      21,
+      24,
+      18,
+      13
+    ]
+  }
+}

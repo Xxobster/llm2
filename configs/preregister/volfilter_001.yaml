@@ -1,0 +1,86 @@
+# Preregistered BEFORE any out-of-sample inspection of this experiment.
+# Status FROZEN after OOS was viewed — do not edit filter thresholds.
+
+generation_id: volfilter_001_BTCUSDT_1h
+created_utc: "2026-08-02T11:15:00Z"
+status: FROZEN
+frozen_utc: "2026-08-02T11:30:00Z"
+frozen_reason: >
+  Out-of-sample results viewed. Filter grid must not be re-searched
+  (no new percentiles, no alternate vol models on this entry rule).
+
+hypothesis: >
+  A ridge forecast of forward realized range (volatility), used only as a skip
+  filter, improves nested walk-forward proxy profit-and-loss of a frozen
+  momentum entry rule versus the identical rule with no filter.
+
+economic_rationale: >
+  High forecasted volatility widens adverse excursion relative to a fixed
+  stop/target and raises the chance that fees dominate. Skipping the noisiest
+  quartile should raise expectancy of an otherwise fixed entry rule without
+  inventing a directional edge from the volatility model itself.
+
+entry_rule:
+  name: momentum_24_cost_gate
+  lookback_bars: 24
+  side: |
+    +1 if close.pct_change(24) > ROUND_TRIP_COST;
+    -1 if close.pct_change(24) < -ROUND_TRIP_COST;
+    0 otherwise
+  tp_pct: 0.01
+  sl_pct: 0.02
+
+vol_model:
+  target: volatility
+  horizon: 24
+  feature_space: ohlcv_v1
+  model: ridge
+  role: filter_input_only
+
+filter_rule:
+  name: skip_top_quartile_predicted_vol
+  fit_scope: train_fold_only
+  percentile: 75
+  threshold: |
+    75th percentile of the model's predicted volatility on the train fold
+    (in-sample predictions). Applied to out-of-sample predictions: skip entry
+    when pred_vol > threshold.
+  action_on_trigger: skip_entry
+  action_forbidden:
+    - increase_leverage
+    - widen_size
+    - emit_long_or_short_from_vol_forecast
+    - hunt_other_percentiles_after_oos
+
+control:
+  name: always_on
+  description: same entry_rule, no volatility filter
+
+universe:
+  symbol: BTCUSDT
+  timeframe: 1h
+  run_backtest: false
+
+validation:
+  outer_folds: nested_walk_forward_existing_builder
+  purge_bars: 24
+  embargo_bars: 24
+  selection: none_single_frozen_comparison
+
+success_criteria:
+  - filtered_pooled_pf > control_pooled_pf
+  - filtered_pooled_pnl > control_pooled_pnl
+  - filtered uses strictly fewer or equal signals (skip-more policy)
+  - vol model never contributes to side
+success_note: >
+  Beating control while both arms lose is a methodology win, not a strategy
+  candidate. Not SHADOW_READY. No Finplot/live path from this result alone.
+
+failure_is_success: true
+failure_interpretation: >
+  If the filter does not beat always-on, volatility skill is not earning its
+  keep as a gate on this entry rule. Do not expand the filter grid.
+
+oos_result_summary: >
+  Proxy and tradesim: filter beat control (skip-more) but both PF < 1.
+  Recorded as methodology win only. RESEARCH_ONLY.

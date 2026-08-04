@@ -1,0 +1,676 @@
+{
+  "symbol": "ETHUSDT",
+  "lockbox_start": "2026-05-01",
+  "data_end": "2026-08-02 07:00:00+00:00",
+  "evidence_class": "LOCKBOX_OPENED_CONTAMINATED",
+  "engine": "botsgeneral/tradesim",
+  "costs": "all_taker_0.055pct_entry_slip_0.05pct",
+  "leverage": 18.0,
+  "base_bracket": {
+    "tp": 0.01,
+    "sl": 0.02,
+    "hold": 6
+  },
+  "fib_tps": [
+    0.233,
+    0.377,
+    0.618
+  ],
+  "hold_addon": [
+    12,
+    18
+  ],
+  "k_values": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "clarity": [
+    "none",
+    "mean_strength",
+    "range_chop",
+    "favor_confirm"
+  ],
+  "n_arms": 4,
+  "n_trials": 4,
+  "elapsed_sec": 22.555065870285034,
+  "note": "Contaminated lockbox diagnostic. Book 3+ TP are absolute returns (+23.3%/+37.7%/+61.8%) with longer max-hold. Book index assignment uses a 1h OHLC adverse-exit pre-pass heuristic; headline PnL/PF from tradesim. Do not promote or change live from this grid \u2014 re-run any dual-winner on settle outer OOS first.",
+  "anchors": {
+    "one_way_single": {
+      "label": "anchor_one_way_single",
+      "run_id": "llm2-eth-conc-fib-30eedd2ad4-9de5dbfb08",
+      "n_signals": 464,
+      "n_trades": 345,
+      "n_trades_engine": 345,
+      "n_longs": 173,
+      "n_shorts": 172,
+      "net_pnl": 17.114163160020325,
+      "profit_factor": 2.100722047548597,
+      "win_rate": 0.672463768115942,
+      "expectancy": 0.049606270028985516,
+      "total_fees": 7.149036840000001,
+      "total_slippage": 3.268199999999965,
+      "total_funding": 0.0,
+      "max_drawdown": 1.066772244997992,
+      "entry_bar_exits": 47,
+      "entry_bar_exit_rate": 0.13623188405797101,
+      "peak_concurrent_all": 1,
+      "peak_concurrent_long": 1,
+      "peak_concurrent_short": 1,
+      "peak_margin_utilization": 0.0002645288291430486,
+      "skips": {
+        "SKIP_POSITION_LIMIT": 119
+      },
+      "warnings": [
+        "242 decision bar(s) had incomplete touch-timeframe coverage; lower-timeframe resolution was refused for them and the declared same-bar convention was used instead.",
+        "liquidation status is SIMPLIFIED: maintenance tiers and/or a Mark price series were not supplied, so liquidation evidence is bounded, not deployment-grade (standard section 13.3)."
+      ],
+      "kind": "anchor_single",
+      "clarity": "none",
+      "fib_tp": 0.01,
+      "hold": 6,
+      "k": 1,
+      "uniform_baseline": true,
+      "build_stats": {
+        "n_candidates": 1555,
+        "n_emitted": 464,
+        "n_skipped_clarity": 0,
+        "n_skipped_cap": 1091,
+        "n_addon": 0,
+        "n_book3plus": 0
+      }
+    },
+    "hedge3_uniform": {
+      "label": "anchor_hedge3_uniform",
+      "run_id": "llm2-eth-conc-fib-f8728c0c38-6f7ed91cdb",
+      "n_signals": 1081,
+      "n_trades": 1072,
+      "n_trades_engine": 1072,
+      "n_longs": 525,
+      "n_shorts": 547,
+      "net_pnl": 58.04854785503085,
+      "profit_factor": 2.3668397732094264,
+      "win_rate": 0.6781716417910447,
+      "expectancy": 0.054149764790111965,
+      "total_fees": 22.345952145000002,
+      "total_slippage": 10.214299999999945,
+      "total_funding": 0.0,
+      "max_drawdown": 1.6980560200008767,
+      "entry_bar_exits": 127,
+      "entry_bar_exit_rate": 0.11847014925373134,
+      "peak_concurrent_all": 6,
+      "peak_concurrent_long": 3,
+      "peak_concurrent_short": 3,
+      "peak_margin_utilization": 0.000791932399082428,
+      "skips": {
+        "SKIP_NO_EXECUTABLE_BAR": 1,
+        "SKIP_POSITION_LIMIT": 8
+      },
+      "warnings": [
+        "749 decision bar(s) had incomplete touch-timeframe coverage; lower-timeframe resolution was refused for them and the declared same-bar convention was used instead.",
+        "liquidation status is SIMPLIFIED: maintenance tiers and/or a Mark price series were not supplied, so liquidation evidence is bounded, not deployment-grade (standard section 13.3)."
+      ],
+      "kind": "anchor_hedge3",
+      "clarity": "none",
+      "fib_tp": 0.01,
+      "hold": 6,
+      "k": 3,
+      "uniform_baseline": true,
+      "build_stats": {
+        "n_candidates": 1555,
+        "n_emitted": 1081,
+        "n_skipped_clarity": 0,
+        "n_skipped_cap": 474,
+        "n_addon": 775,
+        "n_book3plus": 0
+      }
+    }
+  },
+  "summary": {
+    "n_grid": 2,
+    "n_beat_both_pnl_and_pf_vs_hedge3": 0,
+    "n_entry_bar_rate_gt_25pct": 0,
+    "best_net_pnl": {
+      "label": "clarity=none|fib=0.233|hold=12|K=4",
+      "run_id": "llm2-eth-conc-fib-039311daa3-a347de1ab7",
+      "n_signals": 974,
+      "n_trades": 971,
+      "n_trades_engine": 971,
+      "n_longs": 478,
+      "n_shorts": 493,
+      "net_pnl": 81.25345267504053,
+      "profit_factor": 2.289070692340657,
+      "win_rate": 0.6385169927909372,
+      "expectancy": 0.08368017783213189,
+      "total_fees": 20.237047325000002,
+      "total_slippage": 9.250799999999966,
+      "total_funding": 0.0,
+      "max_drawdown": 3.883984079993752,
+      "entry_bar_exits": 44,
+      "entry_bar_exit_rate": 0.04531410916580844,
+      "peak_concurrent_all": 8,
+      "peak_concurrent_long": 4,
+      "peak_concurrent_short": 4,
+      "peak_margin_utilization": 0.0010532691827058757,
+      "skips": {
+        "SKIP_POSITION_LIMIT": 3
+      },
+      "warnings": [
+        "1381 decision bar(s) had incomplete touch-timeframe coverage; lower-timeframe resolution was refused for them and the declared same-bar convention was used instead.",
+        "liquidation status is SIMPLIFIED: maintenance tiers and/or a Mark price series were not supplied, so liquidation evidence is bounded, not deployment-grade (standard section 13.3)."
+      ],
+      "kind": "grid",
+      "clarity": "none",
+      "fib_tp": 0.233,
+      "hold": 12,
+      "k": 4,
+      "uniform_baseline": false,
+      "build_stats": {
+        "n_candidates": 1555,
+        "n_emitted": 974,
+        "n_skipped_clarity": 0,
+        "n_skipped_cap": 581,
+        "n_addon": 870,
+        "n_book3plus": 679
+      }
+    },
+    "best_pf_min_trades_ge_hedge3": {
+      "label": "clarity=none|fib=0.233|hold=12|K=3",
+      "run_id": "llm2-eth-conc-fib-08b2c6b481-90f27bc74c",
+      "n_signals": 847,
+      "n_trades": 841,
+      "n_trades_engine": 841,
+      "n_longs": 414,
+      "n_shorts": 427,
+      "net_pnl": 65.83079071003158,
+      "profit_factor": 2.319515371244954,
+      "win_rate": 0.6492271105826397,
+      "expectancy": 0.07827680227110588,
+      "total_fees": 17.50820929,
+      "total_slippage": 8.00309999999995,
+      "total_funding": 0.0,
+      "max_drawdown": 2.250584040000831,
+      "entry_bar_exits": 54,
+      "entry_bar_exit_rate": 0.06420927467300833,
+      "peak_concurrent_all": 6,
+      "peak_concurrent_long": 3,
+      "peak_concurrent_short": 3,
+      "peak_margin_utilization": 0.0007914640350681768,
+      "skips": {
+        "SKIP_POSITION_LIMIT": 6
+      },
+      "warnings": [
+        "1038 decision bar(s) had incomplete touch-timeframe coverage; lower-timeframe resolution was refused for them and the declared same-bar convention was used instead.",
+        "liquidation status is SIMPLIFIED: maintenance tiers and/or a Mark price series were not supplied, so liquidation evidence is bounded, not deployment-grade (standard section 13.3)."
+      ],
+      "kind": "grid",
+      "clarity": "none",
+      "fib_tp": 0.233,
+      "hold": 12,
+      "k": 3,
+      "uniform_baseline": false,
+      "build_stats": {
+        "n_candidates": 1555,
+        "n_emitted": 847,
+        "n_skipped_clarity": 0,
+        "n_skipped_cap": 708,
+        "n_addon": 726,
+        "n_book3plus": 455
+      }
+    },
+    "top5_pnl": [
+      {
+        "label": "clarity=none|fib=0.233|hold=12|K=4",
+        "run_id": "llm2-eth-conc-fib-039311daa3-a347de1ab7",
+        "n_signals": 974,
+        "n_trades": 971,
+        "n_trades_engine": 971,
+        "n_longs": 478,
+        "n_shorts": 493,
+        "net_pnl": 81.25345267504053,
+        "profit_factor": 2.289070692340657,
+        "win_rate": 0.6385169927909372,
+        "expectancy": 0.08368017783213189,
+        "total_fees": 20.237047325000002,
+        "total_slippage": 9.250799999999966,
+        "total_funding": 0.0,
+        "max_drawdown": 3.883984079993752,
+        "entry_bar_exits": 44,
+        "entry_bar_exit_rate": 0.04531410916580844,
+        "peak_concurrent_all": 8,
+        "peak_concurrent_long": 4,
+        "peak_concurrent_short": 4,
+        "peak_margin_utilization": 0.0010532691827058757,
+        "skips": {
+          "SKIP_POSITION_LIMIT": 3
+        },
+        "warnings": [
+          "1381 decision bar(s) had incomplete touch-timeframe coverage; lower-timeframe resolution was refused for them and the declared same-bar convention was used instead.",
+          "liquidation status is SIMPLIFIED: maintenance tiers and/or a Mark price series were not supplied, so liquidation evidence is bounded, not deployment-grade (standard section 13.3)."
+        ],
+        "kind": "grid",
+        "clarity": "none",
+        "fib_tp": 0.233,
+        "hold": 12,
+        "k": 4,
+        "uniform_baseline": false,
+        "build_stats": {
+          "n_candidates": 1555,
+          "n_emitted": 974,
+          "n_skipped_clarity": 0,
+          "n_skipped_cap": 581,
+          "n_addon": 870,
+          "n_book3plus": 679
+        }
+      },
+      {
+        "label": "clarity=none|fib=0.233|hold=12|K=3",
+        "run_id": "llm2-eth-conc-fib-08b2c6b481-90f27bc74c",
+        "n_signals": 847,
+        "n_trades": 841,
+        "n_trades_engine": 841,
+        "n_longs": 414,
+        "n_shorts": 427,
+        "net_pnl": 65.83079071003158,
+        "profit_factor": 2.319515371244954,
+        "win_rate": 0.6492271105826397,
+        "expectancy": 0.07827680227110588,
+        "total_fees": 17.50820929,
+        "total_slippage": 8.00309999999995,
+        "total_funding": 0.0,
+        "max_drawdown": 2.250584040000831,
+        "entry_bar_exits": 54,
+        "entry_bar_exit_rate": 0.06420927467300833,
+        "peak_concurrent_all": 6,
+        "peak_concurrent_long": 3,
+        "peak_concurrent_short": 3,
+        "peak_margin_utilization": 0.0007914640350681768,
+        "skips": {
+          "SKIP_POSITION_LIMIT": 6
+        },
+        "warnings": [
+          "1038 decision bar(s) had incomplete touch-timeframe coverage; lower-timeframe resolution was refused for them and the declared same-bar convention was used instead.",
+          "liquidation status is SIMPLIFIED: maintenance tiers and/or a Mark price series were not supplied, so liquidation evidence is bounded, not deployment-grade (standard section 13.3)."
+        ],
+        "kind": "grid",
+        "clarity": "none",
+        "fib_tp": 0.233,
+        "hold": 12,
+        "k": 3,
+        "uniform_baseline": false,
+        "build_stats": {
+          "n_candidates": 1555,
+          "n_emitted": 847,
+          "n_skipped_clarity": 0,
+          "n_skipped_cap": 708,
+          "n_addon": 726,
+          "n_book3plus": 455
+        }
+      }
+    ],
+    "top5_pf": [
+      {
+        "label": "clarity=none|fib=0.233|hold=12|K=3",
+        "run_id": "llm2-eth-conc-fib-08b2c6b481-90f27bc74c",
+        "n_signals": 847,
+        "n_trades": 841,
+        "n_trades_engine": 841,
+        "n_longs": 414,
+        "n_shorts": 427,
+        "net_pnl": 65.83079071003158,
+        "profit_factor": 2.319515371244954,
+        "win_rate": 0.6492271105826397,
+        "expectancy": 0.07827680227110588,
+        "total_fees": 17.50820929,
+        "total_slippage": 8.00309999999995,
+        "total_funding": 0.0,
+        "max_drawdown": 2.250584040000831,
+        "entry_bar_exits": 54,
+        "entry_bar_exit_rate": 0.06420927467300833,
+        "peak_concurrent_all": 6,
+        "peak_concurrent_long": 3,
+        "peak_concurrent_short": 3,
+        "peak_margin_utilization": 0.0007914640350681768,
+        "skips": {
+          "SKIP_POSITION_LIMIT": 6
+        },
+        "warnings": [
+          "1038 decision bar(s) had incomplete touch-timeframe coverage; lower-timeframe resolution was refused for them and the declared same-bar convention was used instead.",
+          "liquidation status is SIMPLIFIED: maintenance tiers and/or a Mark price series were not supplied, so liquidation evidence is bounded, not deployment-grade (standard section 13.3)."
+        ],
+        "kind": "grid",
+        "clarity": "none",
+        "fib_tp": 0.233,
+        "hold": 12,
+        "k": 3,
+        "uniform_baseline": false,
+        "build_stats": {
+          "n_candidates": 1555,
+          "n_emitted": 847,
+          "n_skipped_clarity": 0,
+          "n_skipped_cap": 708,
+          "n_addon": 726,
+          "n_book3plus": 455
+        }
+      },
+      {
+        "label": "clarity=none|fib=0.233|hold=12|K=4",
+        "run_id": "llm2-eth-conc-fib-039311daa3-a347de1ab7",
+        "n_signals": 974,
+        "n_trades": 971,
+        "n_trades_engine": 971,
+        "n_longs": 478,
+        "n_shorts": 493,
+        "net_pnl": 81.25345267504053,
+        "profit_factor": 2.289070692340657,
+        "win_rate": 0.6385169927909372,
+        "expectancy": 0.08368017783213189,
+        "total_fees": 20.237047325000002,
+        "total_slippage": 9.250799999999966,
+        "total_funding": 0.0,
+        "max_drawdown": 3.883984079993752,
+        "entry_bar_exits": 44,
+        "entry_bar_exit_rate": 0.04531410916580844,
+        "peak_concurrent_all": 8,
+        "peak_concurrent_long": 4,
+        "peak_concurrent_short": 4,
+        "peak_margin_utilization": 0.0010532691827058757,
+        "skips": {
+          "SKIP_POSITION_LIMIT": 3
+        },
+        "warnings": [
+          "1381 decision bar(s) had incomplete touch-timeframe coverage; lower-timeframe resolution was refused for them and the declared same-bar convention was used instead.",
+          "liquidation status is SIMPLIFIED: maintenance tiers and/or a Mark price series were not supplied, so liquidation evidence is bounded, not deployment-grade (standard section 13.3)."
+        ],
+        "kind": "grid",
+        "clarity": "none",
+        "fib_tp": 0.233,
+        "hold": 12,
+        "k": 4,
+        "uniform_baseline": false,
+        "build_stats": {
+          "n_candidates": 1555,
+          "n_emitted": 974,
+          "n_skipped_clarity": 0,
+          "n_skipped_cap": 581,
+          "n_addon": 870,
+          "n_book3plus": 679
+        }
+      }
+    ],
+    "bottom5_pnl": [
+      {
+        "label": "clarity=none|fib=0.233|hold=12|K=3",
+        "run_id": "llm2-eth-conc-fib-08b2c6b481-90f27bc74c",
+        "n_signals": 847,
+        "n_trades": 841,
+        "n_trades_engine": 841,
+        "n_longs": 414,
+        "n_shorts": 427,
+        "net_pnl": 65.83079071003158,
+        "profit_factor": 2.319515371244954,
+        "win_rate": 0.6492271105826397,
+        "expectancy": 0.07827680227110588,
+        "total_fees": 17.50820929,
+        "total_slippage": 8.00309999999995,
+        "total_funding": 0.0,
+        "max_drawdown": 2.250584040000831,
+        "entry_bar_exits": 54,
+        "entry_bar_exit_rate": 0.06420927467300833,
+        "peak_concurrent_all": 6,
+        "peak_concurrent_long": 3,
+        "peak_concurrent_short": 3,
+        "peak_margin_utilization": 0.0007914640350681768,
+        "skips": {
+          "SKIP_POSITION_LIMIT": 6
+        },
+        "warnings": [
+          "1038 decision bar(s) had incomplete touch-timeframe coverage; lower-timeframe resolution was refused for them and the declared same-bar convention was used instead.",
+          "liquidation status is SIMPLIFIED: maintenance tiers and/or a Mark price series were not supplied, so liquidation evidence is bounded, not deployment-grade (standard section 13.3)."
+        ],
+        "kind": "grid",
+        "clarity": "none",
+        "fib_tp": 0.233,
+        "hold": 12,
+        "k": 3,
+        "uniform_baseline": false,
+        "build_stats": {
+          "n_candidates": 1555,
+          "n_emitted": 847,
+          "n_skipped_clarity": 0,
+          "n_skipped_cap": 708,
+          "n_addon": 726,
+          "n_book3plus": 455
+        }
+      },
+      {
+        "label": "clarity=none|fib=0.233|hold=12|K=4",
+        "run_id": "llm2-eth-conc-fib-039311daa3-a347de1ab7",
+        "n_signals": 974,
+        "n_trades": 971,
+        "n_trades_engine": 971,
+        "n_longs": 478,
+        "n_shorts": 493,
+        "net_pnl": 81.25345267504053,
+        "profit_factor": 2.289070692340657,
+        "win_rate": 0.6385169927909372,
+        "expectancy": 0.08368017783213189,
+        "total_fees": 20.237047325000002,
+        "total_slippage": 9.250799999999966,
+        "total_funding": 0.0,
+        "max_drawdown": 3.883984079993752,
+        "entry_bar_exits": 44,
+        "entry_bar_exit_rate": 0.04531410916580844,
+        "peak_concurrent_all": 8,
+        "peak_concurrent_long": 4,
+        "peak_concurrent_short": 4,
+        "peak_margin_utilization": 0.0010532691827058757,
+        "skips": {
+          "SKIP_POSITION_LIMIT": 3
+        },
+        "warnings": [
+          "1381 decision bar(s) had incomplete touch-timeframe coverage; lower-timeframe resolution was refused for them and the declared same-bar convention was used instead.",
+          "liquidation status is SIMPLIFIED: maintenance tiers and/or a Mark price series were not supplied, so liquidation evidence is bounded, not deployment-grade (standard section 13.3)."
+        ],
+        "kind": "grid",
+        "clarity": "none",
+        "fib_tp": 0.233,
+        "hold": 12,
+        "k": 4,
+        "uniform_baseline": false,
+        "build_stats": {
+          "n_candidates": 1555,
+          "n_emitted": 974,
+          "n_skipped_clarity": 0,
+          "n_skipped_cap": 581,
+          "n_addon": 870,
+          "n_book3plus": 679
+        }
+      }
+    ],
+    "beats_both": []
+  },
+  "trials": [
+    {
+      "label": "anchor_one_way_single",
+      "run_id": "llm2-eth-conc-fib-30eedd2ad4-9de5dbfb08",
+      "n_signals": 464,
+      "n_trades": 345,
+      "n_trades_engine": 345,
+      "n_longs": 173,
+      "n_shorts": 172,
+      "net_pnl": 17.114163160020325,
+      "profit_factor": 2.100722047548597,
+      "win_rate": 0.672463768115942,
+      "expectancy": 0.049606270028985516,
+      "total_fees": 7.149036840000001,
+      "total_slippage": 3.268199999999965,
+      "total_funding": 0.0,
+      "max_drawdown": 1.066772244997992,
+      "entry_bar_exits": 47,
+      "entry_bar_exit_rate": 0.13623188405797101,
+      "peak_concurrent_all": 1,
+      "peak_concurrent_long": 1,
+      "peak_concurrent_short": 1,
+      "peak_margin_utilization": 0.0002645288291430486,
+      "skips": {
+        "SKIP_POSITION_LIMIT": 119
+      },
+      "warnings": [
+        "242 decision bar(s) had incomplete touch-timeframe coverage; lower-timeframe resolution was refused for them and the declared same-bar convention was used instead.",
+        "liquidation status is SIMPLIFIED: maintenance tiers and/or a Mark price series were not supplied, so liquidation evidence is bounded, not deployment-grade (standard section 13.3)."
+      ],
+      "kind": "anchor_single",
+      "clarity": "none",
+      "fib_tp": 0.01,
+      "hold": 6,
+      "k": 1,
+      "uniform_baseline": true,
+      "build_stats": {
+        "n_candidates": 1555,
+        "n_emitted": 464,
+        "n_skipped_clarity": 0,
+        "n_skipped_cap": 1091,
+        "n_addon": 0,
+        "n_book3plus": 0
+      }
+    },
+    {
+      "label": "anchor_hedge3_uniform",
+      "run_id": "llm2-eth-conc-fib-f8728c0c38-6f7ed91cdb",
+      "n_signals": 1081,
+      "n_trades": 1072,
+      "n_trades_engine": 1072,
+      "n_longs": 525,
+      "n_shorts": 547,
+      "net_pnl": 58.04854785503085,
+      "profit_factor": 2.3668397732094264,
+      "win_rate": 0.6781716417910447,
+      "expectancy": 0.054149764790111965,
+      "total_fees": 22.345952145000002,
+      "total_slippage": 10.214299999999945,
+      "total_funding": 0.0,
+      "max_drawdown": 1.6980560200008767,
+      "entry_bar_exits": 127,
+      "entry_bar_exit_rate": 0.11847014925373134,
+      "peak_concurrent_all": 6,
+      "peak_concurrent_long": 3,
+      "peak_concurrent_short": 3,
+      "peak_margin_utilization": 0.000791932399082428,
+      "skips": {
+        "SKIP_NO_EXECUTABLE_BAR": 1,
+        "SKIP_POSITION_LIMIT": 8
+      },
+      "warnings": [
+        "749 decision bar(s) had incomplete touch-timeframe coverage; lower-timeframe resolution was refused for them and the declared same-bar convention was used instead.",
+        "liquidation status is SIMPLIFIED: maintenance tiers and/or a Mark price series were not supplied, so liquidation evidence is bounded, not deployment-grade (standard section 13.3)."
+      ],
+      "kind": "anchor_hedge3",
+      "clarity": "none",
+      "fib_tp": 0.01,
+      "hold": 6,
+      "k": 3,
+      "uniform_baseline": true,
+      "build_stats": {
+        "n_candidates": 1555,
+        "n_emitted": 1081,
+        "n_skipped_clarity": 0,
+        "n_skipped_cap": 474,
+        "n_addon": 775,
+        "n_book3plus": 0
+      }
+    },
+    {
+      "label": "clarity=none|fib=0.233|hold=12|K=3",
+      "run_id": "llm2-eth-conc-fib-08b2c6b481-90f27bc74c",
+      "n_signals": 847,
+      "n_trades": 841,
+      "n_trades_engine": 841,
+      "n_longs": 414,
+      "n_shorts": 427,
+      "net_pnl": 65.83079071003158,
+      "profit_factor": 2.319515371244954,
+      "win_rate": 0.6492271105826397,
+      "expectancy": 0.07827680227110588,
+      "total_fees": 17.50820929,
+      "total_slippage": 8.00309999999995,
+      "total_funding": 0.0,
+      "max_drawdown": 2.250584040000831,
+      "entry_bar_exits": 54,
+      "entry_bar_exit_rate": 0.06420927467300833,
+      "peak_concurrent_all": 6,
+      "peak_concurrent_long": 3,
+      "peak_concurrent_short": 3,
+      "peak_margin_utilization": 0.0007914640350681768,
+      "skips": {
+        "SKIP_POSITION_LIMIT": 6
+      },
+      "warnings": [
+        "1038 decision bar(s) had incomplete touch-timeframe coverage; lower-timeframe resolution was refused for them and the declared same-bar convention was used instead.",
+        "liquidation status is SIMPLIFIED: maintenance tiers and/or a Mark price series were not supplied, so liquidation evidence is bounded, not deployment-grade (standard section 13.3)."
+      ],
+      "kind": "grid",
+      "clarity": "none",
+      "fib_tp": 0.233,
+      "hold": 12,
+      "k": 3,
+      "uniform_baseline": false,
+      "build_stats": {
+        "n_candidates": 1555,
+        "n_emitted": 847,
+        "n_skipped_clarity": 0,
+        "n_skipped_cap": 708,
+        "n_addon": 726,
+        "n_book3plus": 455
+      }
+    },
+    {
+      "label": "clarity=none|fib=0.233|hold=12|K=4",
+      "run_id": "llm2-eth-conc-fib-039311daa3-a347de1ab7",
+      "n_signals": 974,
+      "n_trades": 971,
+      "n_trades_engine": 971,
+      "n_longs": 478,
+      "n_shorts": 493,
+      "net_pnl": 81.25345267504053,
+      "profit_factor": 2.289070692340657,
+      "win_rate": 0.6385169927909372,
+      "expectancy": 0.08368017783213189,
+      "total_fees": 20.237047325000002,
+      "total_slippage": 9.250799999999966,
+      "total_funding": 0.0,
+      "max_drawdown": 3.883984079993752,
+      "entry_bar_exits": 44,
+      "entry_bar_exit_rate": 0.04531410916580844,
+      "peak_concurrent_all": 8,
+      "peak_concurrent_long": 4,
+      "peak_concurrent_short": 4,
+      "peak_margin_utilization": 0.0010532691827058757,
+      "skips": {
+        "SKIP_POSITION_LIMIT": 3
+      },
+      "warnings": [
+        "1381 decision bar(s) had incomplete touch-timeframe coverage; lower-timeframe resolution was refused for them and the declared same-bar convention was used instead.",
+        "liquidation status is SIMPLIFIED: maintenance tiers and/or a Mark price series were not supplied, so liquidation evidence is bounded, not deployment-grade (standard section 13.3)."
+      ],
+      "kind": "grid",
+      "clarity": "none",
+      "fib_tp": 0.233,
+      "hold": 12,
+      "k": 4,
+      "uniform_baseline": false,
+      "build_stats": {
+        "n_candidates": 1555,
+        "n_emitted": 974,
+        "n_skipped_clarity": 0,
+        "n_skipped_cap": 581,
+        "n_addon": 870,
+        "n_book3plus": 679
+      }
+    }
+  ]
+}

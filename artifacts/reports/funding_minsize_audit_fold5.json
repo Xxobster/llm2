@@ -1,0 +1,12 @@
+{
+  "n_trades": 754,
+  "median_qty": 0.001,
+  "median_notional_usdt": 86.55315,
+  "funding_rows_in_gap": 636,
+  "funding_rate_sum": 0.013031270000000001,
+  "funding_rate_abs_sum": 0.02794377,
+  "median_abs_rate": 3.8905e-05,
+  "typical_one_settlement_usdt": 0.0033673503007500003,
+  "trades_csv_funding_sum": 0.0,
+  "explanation": "At MIN_EXCHANGE qty (~0.001 BTC) notional is tiny (~70 USDT). Bybit funding is rate\u00d7notional per settlement; many holds are <8h so they miss the settlement entirely. Surviving settlements are often <<0.01 USDT and round to 0.00 in headline totals. Rates were attached; dollars are dust."
+}

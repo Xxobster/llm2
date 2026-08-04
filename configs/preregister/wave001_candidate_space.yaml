@@ -1,0 +1,245 @@
+# WAVE001 — full registered candidate space for the market-strength-wave mining plan.
+#
+# REGISTRATION ONLY. This file computes and contains NO statistic, effect, p-value, q-value,
+# or performance number of any kind. It exists to freeze, before any out-of-sample inspection,
+# exactly which hypotheses, symbols, timeframes, families, triggers, thresholds and controls
+# are in scope, so that a later selection cannot be dressed up as a pre-specified test.
+#
+# Hashing: scripts/design_wave_events.py and scripts/run_wave_scan.py compute
+# sha256(json.dumps(this candidate space, sort_keys=True)) at run time and stamp it onto every
+# artefact they write (design JSON, scan report). The placeholder below is intentionally not a
+# real hash — do not hand-compute or hand-edit it; let the scripts write it.
+
+study_id: wave001
+study_type: diag_then_prereg
+created_utc: "2026-08-03T18:00:00+07:00"
+status: REGISTERED_NOT_YET_RUN
+candidate_space_sha256: PLACEHOLDER_COMPUTED_BY_SCRIPT_AT_RUN_TIME
+
+authority:
+  readiness_ceiling: RESEARCH_ONLY
+  deployment_authorized: false
+  notes: >
+    This registration cannot, by itself, produce anything above SHADOW_READY per
+    FROZEN_DEFAULT_GATES_V2_1. No live, shadow-live, or capital-adjacent action is authorized
+    by this file. Any future generation config that survives diagnostics and preregisters a
+    single frozen strategy for outer OOS must cite this study_id as its source_run family.
+
+engine:
+  causal_estimator: llm2.diagnostics.wave.causal_wave
+  non_causal_estimator_display_only: llm2.diagnostics.wave.analytic_wave
+  mining_guard: llm2.diagnostics.wave_mining_guard
+  mining_guard_rule: >
+    forbid_analytic_import(globals()) is called at the top of every mining module listed
+    under `modules` below. assert_causal_mining_caller is available for dynamic-dispatch call
+    sites. Neither analytic_wave nor any zero-phase/whole-series transform may be imported,
+    referenced, or called from a mining module at any point in this study.
+  tradesim_required_for: structural_bracket_outcome_sizing_if_promoted_to_backtest
+  tradesim_note: >
+    No tradesim run is part of this registration. If any candidate below survives diagnostics
+    and false-discovery-rate control and is preregistered as a single frozen strategy, its
+    outer-OOS evaluation must use the pinned botsgeneral tradesim engine per
+    TRADING_BOT_RESEARCH_STANDARD_V2 / trading-bot-core.mdc, with a green conformance stamp
+    quoted alongside any performance number.
+
+universe:
+  symbols: [BTCUSDT]
+  timeframes: [15m, 1h, 4h]
+  source: binance
+  train_end: "2026-05-01"  # forward lockbox start; nothing at or after this date is inspected
+  data_sources:
+    market_ohlcv: "D:\\projectsdata\\candles\\market_ohlcv.sqlite"
+    indicators: "D:\\projectsdata\\indicators\\indicators.sqlite"
+    funding: "D:\\projectsdata\\candles\\binance_funding.sqlite"
+
+modules:
+  - llm2.diagnostics.wave_mining_guard
+  - llm2.diagnostics.wavemetrics
+  - llm2.diagnostics.waveevent
+  - llm2.diagnostics.structurebreak
+  - llm2.diagnostics.wavepanel
+  - llm2.diagnostics.wavemotif
+
+# --------------------------------------------------------------------------------------
+# Family 1 — causal wave metrics (llm2.diagnostics.wavemetrics)
+# --------------------------------------------------------------------------------------
+family_wavemetrics:
+  period_source: llm2.diagnostics.wave.dominant_period  # fitted per (symbol, timeframe), training window only
+  metrics:
+    - amp
+    - amp_slope_k            # k in slope_ks
+    - amp_accel
+    - amp_pct_rank_500
+    - amp_over_realised_vol
+    - wave_level_z
+    - wave_slope_k            # k in slope_ks
+    - wave_curvature
+    - bars_since_zero_cross
+    - phase_velocity
+    - inst_period
+    - period_drift
+    - bars_since_last_peak
+    - energy                 # amp^2
+    - energy_slope
+    - power
+    - energy_pct_rank_500
+    - coherence
+    - sinusoid_r2
+    - amp_x_slope             # interaction
+    - energy_x_coherence      # interaction
+  slope_ks: [2, 4, 8]
+  rank_window_bars: 500
+  triggers:
+    peak_detect:
+      rule: phase_velocity turns non-positive after rising (first bar it is knowable)
+    threshold_grid:
+      levels_radians: [1.8, 2.1, 2.4, 2.7]
+      rule: phase crosses UP through each level
+    capitulation:
+      rule: >
+        energy_pct_rank_500 >= 90 AND volume_pct_rank_500 >= 90 AND a peak_detect turn on the
+        same bar, signed by sign(wave change over the preceding half-period)
+      energy_rank_floor: 90
+      volume_rank_floor: 90
+
+# --------------------------------------------------------------------------------------
+# Family 2 — amplitude-event study (llm2.diagnostics.waveevent)
+# --------------------------------------------------------------------------------------
+family_waveevent:
+  events:
+    amp_surge_pcts: [85, 95]
+    amp_collapse_pcts: [15, 5]
+    amp_slope_burst_pct: 90
+  signing: sign of wave change over the preceding half-period
+  targets:
+    - direction   # signed forward return, excess over unconditional mean
+    - magnitude   # |forward return|, excess over unconditional mean of |forward return|
+  horizons_bars: [6, 24, 96]
+  benchmarks:
+    - realised_vol_percentile_events
+    - atr_percentile_events
+    - trailing_move_control_at_group_delay_plus_margin
+  group_delay_source: llm2.diagnostics.waveevent.group_delay_bars  # measured from filter impulse response
+  control_margin_bars: 2
+  min_events_per_arm: 20
+  policy: llm2.research_policy.require_matched_control(AMPLITUDE_EVENT_STUDY_SPEC)
+
+# --------------------------------------------------------------------------------------
+# Family 3 — boundary-break study (llm2.diagnostics.structurebreak)
+# --------------------------------------------------------------------------------------
+family_structurebreak:
+  boundaries:
+    swing: last confirmed swing high/low (bar_features.last_sh_price / last_sl_price)
+    channel: line through the last TWO confirmed swings of one kind (swings table, pivot_i-projected)
+    donchian:
+      windows_bars: [20, 50]
+      role: BENCHMARK
+    placebo:
+      lower_frac_of_range: 0.40
+      upper_frac_of_range: 0.60
+      range_window_bars: 50
+      role: REQUIRED_CONTROL
+  confirmations:
+    - close_beyond
+    - close_beyond_atr        # margin = 0.25 * ATR(14)
+    - retest                  # within retest_max_wait_bars, atr margin retest_atr_mult
+  break_atr_mult: 0.25
+  retest_atr_mult: 0.25
+  retest_max_wait_bars: 20
+  directions: [up, down]
+  outcomes_reported: [continuation_rate, reversal_rate, mean_forward_return]
+  coil_filter:
+    rule: causal amp_pct_rank_500 read STRICTLY BEFORE the break bar (lookback_bars >= 1), bottom tercile (<=33.33)
+    guard: llm2.diagnostics.structurebreak.CoilLookaheadError raised if lookback_bars < 1
+  structural_bracket:
+    stop: opposite boundary at the break bar
+    target: prior swing (second-most-recent confirmed swing of the same kind)
+    max_hold_bars: 96
+  arms: [single_timeframe, multi_timeframe]
+  mtf_construction: llm2.data.indicators.align_multi_timeframe
+  mtf_pairs: ["15m_decision__1h_boundary", "1h_decision__4h_boundary"]
+  min_break_events: 15
+  policy:
+    - llm2.research_policy.require_placebo_arm(BOUNDARY_LEVEL_CLAIM)
+    - llm2.research_policy.require_matched_control(BREAK_EVENT_STUDY_SPEC)
+
+# --------------------------------------------------------------------------------------
+# Family 4 — cross-series wave panel (llm2.diagnostics.wavepanel)
+# --------------------------------------------------------------------------------------
+family_wavepanel:
+  tier_a_kinds: [close, volume, funding, open_interest, macro]
+  tier_a_note: open_interest included only where the warehouse has coverage for BTCUSDT perp
+  tier_b_closed_list:
+    rsi_14: "bounded momentum oscillator; not a linear filter of price"
+    realised_vol: "second-moment statistic; not a price level or linear transform of one"
+    signed_volume_imbalance: "sign(return) * volume; an order-flow statistic"
+    return_run_length: "count of consecutive same-sign returns; nonlinear, path-dependent"
+    atr_normalised_displacement: "displacement scaled by ATR; nonlinear denominator"
+  excluded_by_construction: [sma_any_span, ema_any_span, macd_any, bollinger_mid]
+  exclusion_enforcement: llm2.diagnostics.wavepanel.admit_series
+  clustering:
+    basis: RAW return correlation (never the wave transform)
+    merge_threshold_abs_rho: 0.9
+    representative_rule: most non-missing observations, ties broken alphabetically
+  lead_scan:
+    channels: [level, amplitude, phase_locking, impulse]
+    forced_common_period: reference symbol's own fitted dominant period
+    max_lag_bars: 48
+  controls:
+    - self_lead    # reference symbol vs itself at a different period, same channel
+    - raw_return_benchmark
+    - circular_shift_surrogate
+  disagreement_rule: prefer raw-return reading when it is not clearly weaker than the wave-based lead
+  policy: llm2.research_policy.require_estimator_self_control
+
+# --------------------------------------------------------------------------------------
+# Family 5 — causal shape k-NN motifs (llm2.diagnostics.wavemotif)
+# --------------------------------------------------------------------------------------
+family_wavemotif:
+  window_lengths_bars: [16, 32]
+  k_neighbours: [10, 50]
+  normalisation: per-window z-normalisation
+  neighbour_pool: TRAIN_FOLD_ONLY
+  embargo_bars: forecast_horizon (default)
+  horizons_bars: [6, 24, 96]
+  scoring: correlation of k-NN prediction vs realised forward return, Newey-West-adjusted significance
+  implementation_note: vectorised sliding-window extraction (stride-tricks view) + chunked matmul k-NN
+
+# --------------------------------------------------------------------------------------
+# Cross-family statistical policy
+# --------------------------------------------------------------------------------------
+statistics:
+  multiplicity_correction: benjamini_hochberg across ALL effects from ALL families in one run
+  significance_threshold_q: 0.05
+  overlap_aware_se: newey_west_tstat, lags = forecast horizon in bars
+  seed_policy: deterministic per-fold/per-trial seeds derived from one recorded root seed
+
+validation:
+  outer_folds: llm2.validation.folds.OUTER_FOLD_RANGES (existing, unchanged by this registration)
+  purge_bars: 96
+  embargo_bars: 96
+  selection: none_this_is_a_diagnostics_only_registration
+  frozen_gates_reference: docs/project_memory/FROZEN_DEFAULT_GATES_V2_1.md
+
+known_risks:
+  - >
+    Structure-break channel boundaries depend on the `swings` table having at least two
+    confirmed swings of the required kind before the decision bar; early history for any
+    (symbol, timeframe) will show the channel arm as NaN until that is satisfied. This is
+    expected and must not be back-filled.
+  - >
+    Multi-timeframe boundary alignment inherits whatever completion-time lag
+    align_multi_timeframe applies; mtf arms are evaluated on a reduced-frequency effective
+    sample relative to their single-timeframe counterpart at the same wall-clock span.
+  - >
+    Wave period fitting (dominant_period) requires roughly 2048+ return observations to
+    produce a non-trivial result; 15m BTCUSDT easily clears this, but any symbol/timeframe
+    combination added later without checking sample size will silently return NaN fits.
+
+failure_is_success: true
+failure_interpretation: >
+  A candidate family that finds nothing surviving false-discovery-rate control, or that finds
+  an effect indistinguishable from its own self-control / matched control / placebo arm, is a
+  valid and complete result for that family. Do not respond to a null result by expanding the
+  threshold grid, adding symbols, or loosening the FDR correction after seeing this run's
+  output — any such change requires a fresh registration.

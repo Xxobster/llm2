@@ -1,0 +1,202 @@
+{
+  "stamped_utc": "20260803T161346Z",
+  "fold_geometry": "v2",
+  "outer_fold_ranges": [
+    [
+      "2022-01-01",
+      "2022-10-01"
+    ],
+    [
+      "2022-10-01",
+      "2023-07-01"
+    ],
+    [
+      "2023-07-01",
+      "2024-04-01"
+    ],
+    [
+      "2024-04-01",
+      "2025-01-01"
+    ],
+    [
+      "2025-01-01",
+      "2025-10-01"
+    ],
+    [
+      "2025-10-01",
+      "2026-05-01"
+    ]
+  ],
+  "readiness": "RESEARCH_ONLY",
+  "vps_deploy": "FORBIDDEN_without_separate_live_pack_and_auth",
+  "combos": [
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "1h",
+      "target": "fwd_return",
+      "generation_id": "settle_struct2_00_ETHUSDT_1h_fwd_return_20260803",
+      "tier": 3,
+      "pooled_pf": 1.7328225884741097,
+      "pooled_trades": 6337,
+      "overall": "PASS",
+      "gates": {
+        "metric_kind": "profit_factor",
+        "outer_folds": "PASS",
+        "trades_per_fold": "PASS",
+        "pooled_trades": "PASS",
+        "pooled_pf": "PASS",
+        "pooled_pf_value": 1.7328225884741097,
+        "daily_mtm_sharpe": "PASS",
+        "hac_sharpe": "PASS",
+        "dsr": "PASS",
+        "bootstrap_positive_frac": "PASS",
+        "positive_fold_frac": "PASS",
+        "stress_pnl": "PASS",
+        "stress_pf": "PASS",
+        "baseline_mdd": "PASS",
+        "stress_mdd": "PASS",
+        "margin_utilization": "PASS",
+        "liquidation": "PASS",
+        "pbo": "UNKNOWN",
+        "pbo_note": "PBO_UNAVAILABLE_INSUFFICIENT_MATRIX",
+        "overall": "PASS"
+      },
+      "model": "lgbm_regressor"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "1h",
+      "target": "direction",
+      "generation_id": "settle_struct2_01_ETHUSDT_1h_direction_20260803",
+      "tier": 3,
+      "pooled_pf": 1.7676659349569006,
+      "pooled_trades": 6473,
+      "overall": "PASS",
+      "gates": {
+        "metric_kind": "profit_factor",
+        "outer_folds": "PASS",
+        "trades_per_fold": "PASS",
+        "pooled_trades": "PASS",
+        "pooled_pf": "PASS",
+        "pooled_pf_value": 1.7676659349569006,
+        "daily_mtm_sharpe": "PASS",
+        "hac_sharpe": "PASS",
+        "dsr": "PASS",
+        "bootstrap_positive_frac": "PASS",
+        "positive_fold_frac": "PASS",
+        "stress_pnl": "PASS",
+        "stress_pf": "PASS",
+        "baseline_mdd": "PASS",
+        "stress_mdd": "PASS",
+        "margin_utilization": "PASS",
+        "liquidation": "PASS",
+        "pbo": "UNKNOWN",
+        "pbo_note": "PBO_UNAVAILABLE_INSUFFICIENT_MATRIX",
+        "overall": "PASS"
+      },
+      "model": "lgbm_regressor"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "timeframe": "1h",
+      "target": "fwd_return",
+      "generation_id": "settle_struct2_02_SOLUSDT_1h_fwd_return_20260803",
+      "tier": 3,
+      "pooled_pf": 1.4708116680877148,
+      "pooled_trades": 10832,
+      "overall": "PASS",
+      "gates": {
+        "metric_kind": "profit_factor",
+        "outer_folds": "PASS",
+        "trades_per_fold": "PASS",
+        "pooled_trades": "PASS",
+        "pooled_pf": "PASS",
+        "pooled_pf_value": 1.4708116680877148,
+        "daily_mtm_sharpe": "PASS",
+        "hac_sharpe": "PASS",
+        "dsr": "PASS",
+        "bootstrap_positive_frac": "PASS",
+        "positive_fold_frac": "PASS",
+        "stress_pnl": "PASS",
+        "stress_pf": "PASS",
+        "baseline_mdd": "PASS",
+        "stress_mdd": "PASS",
+        "margin_utilization": "PASS",
+        "liquidation": "PASS",
+        "pbo": "UNKNOWN",
+        "pbo_note": "PBO_UNAVAILABLE_INSUFFICIENT_MATRIX",
+        "overall": "PASS"
+      },
+      "model": "lgbm_regressor"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "timeframe": "1h",
+      "target": "direction",
+      "generation_id": "settle_struct2_03_SOLUSDT_1h_direction_20260803",
+      "tier": 3,
+      "pooled_pf": 1.857516031538335,
+      "pooled_trades": 10318,
+      "overall": "PASS",
+      "gates": {
+        "metric_kind": "profit_factor",
+        "outer_folds": "PASS",
+        "trades_per_fold": "PASS",
+        "pooled_trades": "PASS",
+        "pooled_pf": "PASS",
+        "pooled_pf_value": 1.857516031538335,
+        "daily_mtm_sharpe": "PASS",
+        "hac_sharpe": "PASS",
+        "dsr": "PASS",
+        "bootstrap_positive_frac": "PASS",
+        "positive_fold_frac": "PASS",
+        "stress_pnl": "PASS",
+        "stress_pf": "PASS",
+        "baseline_mdd": "PASS",
+        "stress_mdd": "PASS",
+        "margin_utilization": "PASS",
+        "liquidation": "PASS",
+        "pbo": "UNKNOWN",
+        "pbo_note": "PBO_UNAVAILABLE_INSUFFICIENT_MATRIX",
+        "overall": "PASS"
+      },
+      "model": "lgbm_regressor"
+    }
+  ],
+  "best_pass": {
+    "symbol": "SOLUSDT",
+    "timeframe": "1h",
+    "target": "direction",
+    "generation_id": "settle_struct2_03_SOLUSDT_1h_direction_20260803",
+    "tier": 3,
+    "pooled_pf": 1.857516031538335,
+    "pooled_trades": 10318,
+    "overall": "PASS",
+    "gates": {
+      "metric_kind": "profit_factor",
+      "outer_folds": "PASS",
+      "trades_per_fold": "PASS",
+      "pooled_trades": "PASS",
+      "pooled_pf": "PASS",
+      "pooled_pf_value": 1.857516031538335,
+      "daily_mtm_sharpe": "PASS",
+      "hac_sharpe": "PASS",
+      "dsr": "PASS",
+      "bootstrap_positive_frac": "PASS",
+      "positive_fold_frac": "PASS",
+      "stress_pnl": "PASS",
+      "stress_pf": "PASS",
+      "baseline_mdd": "PASS",
+      "stress_mdd": "PASS",
+      "margin_utilization": "PASS",
+      "liquidation": "PASS",
+      "pbo": "UNKNOWN",
+      "pbo_note": "PBO_UNAVAILABLE_INSUFFICIENT_MATRIX",
+      "overall": "PASS"
+    },
+    "model": "lgbm_regressor"
+  },
+  "note": "ETH/SOL settles are research evidence only. Do not deploy on Xxobster7 without a frozen pack + certificate naming that symbol.",
+  "min_size_equity_caveat": "Wallet equity / maximum drawdown under research_sizing MIN_EXCHANGE (minimum exchange size) on a large wallet is not tradable-edge evidence. Smooth curves are expected at dust size; do not treat them as deployable sizing.",
+  "equity_is_tradable_edge": false
+}

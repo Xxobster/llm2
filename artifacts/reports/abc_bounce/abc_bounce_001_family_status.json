@@ -1,0 +1,18 @@
+{
+  "generation_id": "abc_bounce_001_BTCUSDT_1h",
+  "family_status": "UNDERPOWERED_HOLD",
+  "readiness": "RESEARCH_ONLY",
+  "first_lockbox_open": {
+    "report": "artifacts/reports/abc_bounce/abc_bounce_BTCUSDT_20260803T130016Z.md",
+    "verdict": "ABC_BOUNCE_UNDERPOWERED",
+    "n_trades": 46,
+    "bounce_pf": 0.5442,
+    "control_pf": 0.5895,
+    "prereg_sha256_text": "c0d9a3ef092ceec973aa5e5b2f97339db5462f32bf2f0fddc3fcd0bc05a082b5",
+    "parameter_sha256": "be318024bd83ec93cc23859e3e487a3e3e8343bad41f5d7525ac55ab850d049b"
+  },
+  "reopen_policy": "Second frozen one-shot only when the same parameter digest projects >= 50 sequential lockbox trades. Do not widen factor_tolerance, add targets, or lengthen the hold.",
+  "continuation_claim_status": "CLOSED_unless_separate_lockbox_prereg",
+  "notes": "Leave abc_bounce_family open only as UNDERPOWERED. Hunt outside ABC continuation.",
+  "parameter_sha256": "be318024bd83ec93cc23859e3e487a3e3e8343bad41f5d7525ac55ab850d049b"
+}

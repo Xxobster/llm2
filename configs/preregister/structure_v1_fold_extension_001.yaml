@@ -1,0 +1,53 @@
+# Preregistered BEFORE re-settling on the Oct-2025 → Apr-2026 gap.
+# Prior settle (fold geometry V1) ended OOS at 2025-10-01, leaving 2025-10-01…2026-05-01
+# unscored. This file freezes fold geometry V2 so that gap is one outer fold only.
+# Model family (structure_v1 / lgbm_regressor / BTCUSDT 1h) was selected on V1 folds;
+# V2 fold 5 is a one-shot evaluation of that frozen selection — do not retune on it.
+
+generation_id: structure_v1_fold_extension_001
+created_utc: "2026-08-03T15:10:00Z"
+status: FROZEN
+fold_geometry: v2
+source_decision: D-033
+
+hypothesis: >
+  The already-selected structure_v1 LightGBM regressor on BTCUSDT 1h retains a post-cost
+  nested outer edge when the outer calendar is extended by one fold covering
+  2025-10-01 ≤ t < 2026-05-01 (through the day before FORWARD_LOCKBOX_START).
+
+frozen_selection:
+  symbol: BTCUSDT
+  timeframe: 1h
+  target: fwd_return
+  feature_space: structure_v1
+  model: lgbm_regressor
+  tp_pct: 0.01
+  sl_pct: 0.02
+  hold_bars: 6
+  selected_on: OUTER_FOLD_RANGES_V1 (five folds ending 2025-10-01)
+  do_not_retune_after: this_file_hash
+
+fold_design:
+  version: v2
+  ranges:
+    - ["2022-01-01", "2022-10-01"]
+    - ["2022-10-01", "2023-07-01"]
+    - ["2023-07-01", "2024-04-01"]
+    - ["2024-04-01", "2025-01-01"]
+    - ["2025-01-01", "2025-10-01"]
+    - ["2025-10-01", "2026-05-01"]  # ends at FORWARD_LOCKBOX_START
+  lockbox_start: "2026-05-01"
+  note: >
+    Fold end is exclusive. The sixth fold closes the former gap; the pristine lockbox
+    from 2026-05-01 remains untouched.
+
+success_criteria:
+  - full V2.1 blocking gates settle (stress/MDD/margin bound)
+  - pooled PF >= 1.20 after fees/slip/funding on tradesim path
+  - no liquidation
+  - report min-size equity caveat (wallet MDD is not deployable sizing evidence)
+
+failure_is_success: true
+live_deploy: FORBIDDEN_without_live_certificate
+vps_deploy: FORBIDDEN_without_live_certificate_and_explicit_user_auth
+

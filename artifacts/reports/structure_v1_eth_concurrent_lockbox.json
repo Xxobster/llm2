@@ -1,0 +1,88 @@
+{
+  "symbol": "ETHUSDT",
+  "lockbox_start": "2026-05-01",
+  "data_end": "2026-08-02 07:00:00+00:00",
+  "evidence_class": "LOCKBOX_OPENED_CONTAMINATED",
+  "note": "Contaminated May\u2192now lockbox. Concurrent arm uses Bybit-style hedge mode with max_positions_per_side=3; each trade keeps its own TP/SL. TP/SL percentages are still frozen identical (1%/2%), so leverage_from_stop is unchanged at research time \u2014 live must still track stacked margin if concurrency is deployed, and per-position leverage if SL ever differs by trade.",
+  "baseline": {
+    "label": "baseline1",
+    "mode": "one_way_single",
+    "max_positions_per_side": 1,
+    "leverage": 18.0,
+    "tp_pct": 0.01,
+    "sl_pct": 0.02,
+    "n_signals": 1555,
+    "n_trades": 435,
+    "n_trades_engine": 435,
+    "n_longs": 213,
+    "n_shorts": 222,
+    "net_pnl": 26.616814550005074,
+    "profit_factor": 2.5211137059636455,
+    "win_rate": 0.7103448275862069,
+    "expectancy": 0.06118807942528739,
+    "total_fees": 8.97958545,
+    "total_slippage": 4.10540000000002,
+    "total_funding": 0.0,
+    "max_drawdown": 1.1891187200017157,
+    "sharpe_daily_raw": null,
+    "entry_bar_exits": 67,
+    "peak_concurrent_all": 1,
+    "peak_concurrent_long": 1,
+    "peak_concurrent_short": 1,
+    "peak_margin_utilization": 0.0002652402370138739,
+    "skips": {
+      "SKIP_NO_EXECUTABLE_BAR": 2,
+      "SKIP_POSITION_LIMIT": 1118
+    },
+    "warnings": [
+      "287 decision bar(s) had incomplete touch-timeframe coverage; lower-timeframe resolution was refused for them and the declared same-bar convention was used instead.",
+      "liquidation status is SIMPLIFIED: maintenance tiers and/or a Mark price series were not supplied, so liquidation evidence is bounded, not deployment-grade (standard section 13.3)."
+    ],
+    "run_id": "llm2-structure_v1-ethusdt-direction-lockbox-baseline1-c59e006b6d",
+    "evidence_class": "LOCKBOX_OPENED_CONTAMINATED"
+  },
+  "concurrent": {
+    "label": "hedge3",
+    "mode": "hedge_3_per_side",
+    "max_positions_per_side": 3,
+    "leverage": 18.0,
+    "tp_pct": 0.01,
+    "sl_pct": 0.02,
+    "n_signals": 1555,
+    "n_trades": 1155,
+    "n_trades_engine": 1155,
+    "n_longs": 564,
+    "n_shorts": 591,
+    "net_pnl": 64.73315377003928,
+    "profit_factor": 2.4431593523120423,
+    "win_rate": 0.6874458874458874,
+    "expectancy": 0.05604602058008662,
+    "total_fees": 24.09084623,
+    "total_slippage": 11.011899999999924,
+    "total_funding": 0.0,
+    "max_drawdown": 1.7583375250014797,
+    "sharpe_daily_raw": null,
+    "entry_bar_exits": 150,
+    "peak_concurrent_all": 6,
+    "peak_concurrent_long": 3,
+    "peak_concurrent_short": 3,
+    "peak_margin_utilization": 0.0008734070177291447,
+    "skips": {
+      "SKIP_NO_EXECUTABLE_BAR": 2,
+      "SKIP_POSITION_LIMIT": 398
+    },
+    "warnings": [
+      "807 decision bar(s) had incomplete touch-timeframe coverage; lower-timeframe resolution was refused for them and the declared same-bar convention was used instead.",
+      "liquidation status is SIMPLIFIED: maintenance tiers and/or a Mark price series were not supplied, so liquidation evidence is bounded, not deployment-grade (standard section 13.3)."
+    ],
+    "run_id": "llm2-structure_v1-ethusdt-direction-lockbox-hedge3-d9b04e2047",
+    "evidence_class": "LOCKBOX_OPENED_CONTAMINATED"
+  },
+  "delta": {
+    "net_pnl_delta": 38.116339220034206,
+    "pf_delta": -0.07795435365160319,
+    "n_trades_delta": 720,
+    "better_net_pnl": true,
+    "better_pf": false
+  }
+}

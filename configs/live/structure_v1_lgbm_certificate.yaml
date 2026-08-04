@@ -1,0 +1,16 @@
+strategy_id: structure_v1_lgbm_BTCUSDT_1h
+status: AUTHORIZED
+authorized_by_user: true
+vps_host: 94.156.189.76
+account_ref: Xxobster7
+intended_vps_host: 94.156.189.76
+intended_account_ref: Xxobster7
+pack_path: artifacts/live_packs/structure_v1_lgbm
+pack_hash: 327cd741f889c5db0fd4844a0c0001e1912dfa9ffac4c99b09b79e33e710f68a
+expires_utc: '2026-08-17T00:00:00Z'
+created_utc: '2026-08-03T15:30:00Z'
+notes: 'User explicitly authorized deploy to 94.156.189.76 / xxobster7 for live tests.
+  Micro-live MIN_EXCHANGE only. Mark/tier pack required in frozen pack. Certificate
+  expires in 14 days unless renewed.
+
+  '

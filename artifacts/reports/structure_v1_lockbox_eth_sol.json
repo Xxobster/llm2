@@ -1,0 +1,43 @@
+{
+  "lockbox_start": "2026-05-01",
+  "evidence_class": "LOCKBOX_OPENED_CONTAMINATED",
+  "note": "User-requested Finplot of forward lockbox for ETHUSDT, SOLUSDT. Window is contaminated for first-look claims; quote settle outer-OOS for promotion.",
+  "results": [
+    {
+      "symbol": "ETHUSDT",
+      "target": "direction",
+      "pack": "D:\\projects\\LLM2\\artifacts\\live_packs\\structure_v1_ethusdt_direction",
+      "lockbox_start": "2026-05-01",
+      "data_end": "2026-08-02 07:00:00+00:00",
+      "n_signals": 1555,
+      "n_trades": 435,
+      "n_trades_engine": 435,
+      "net_pnl": 26.616814550005074,
+      "profit_factor": 2.5211137059636455,
+      "win_rate": 0.7103448275862069,
+      "total_fees": 8.97958545,
+      "total_funding": 0.0,
+      "n_longs": 213,
+      "n_shorts": 222,
+      "evidence_class": "LOCKBOX_OPENED_CONTAMINATED"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "target": "direction",
+      "pack": "D:\\projects\\LLM2\\artifacts\\live_packs\\structure_v1_solusdt_direction",
+      "lockbox_start": "2026-05-01",
+      "data_end": "2026-08-02 08:00:00+00:00",
+      "n_signals": 1505,
+      "n_trades": 469,
+      "n_trades_engine": 469,
+      "net_pnl": 12.850771000013992,
+      "profit_factor": 2.5455426503137186,
+      "win_rate": 0.7270788912579957,
+      "total_fees": 3.9692290000000003,
+      "total_funding": 0.0,
+      "n_longs": 208,
+      "n_shorts": 261,
+      "evidence_class": "LOCKBOX_OPENED_CONTAMINATED"
+    }
+  ]
+}

@@ -1,0 +1,700 @@
+{
+  "designed_utc": "2026-08-03T11:34:47.760264+00:00",
+  "basis": "event counts only; no performance statistic was computed",
+  "symbol": "BTCUSDT",
+  "timeframe": "1h",
+  "period_bars": 15.283582089552239,
+  "min_events_per_fold": 10,
+  "min_pooled_events": 50,
+  "results": [
+    {
+      "name": "trigger:peak_detect",
+      "per_fold": [
+        15,
+        18,
+        14,
+        12,
+        20
+      ],
+      "pooled": 79,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "trigger:threshold_up_1p8",
+      "per_fold": [
+        346,
+        353,
+        361,
+        339,
+        344
+      ],
+      "pooled": 1743,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "trigger:threshold_up_2p1",
+      "per_fold": [
+        329,
+        335,
+        346,
+        327,
+        327
+      ],
+      "pooled": 1664,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "trigger:threshold_up_2p4",
+      "per_fold": [
+        314,
+        323,
+        331,
+        317,
+        313
+      ],
+      "pooled": 1598,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "trigger:threshold_up_2p7",
+      "per_fold": [
+        285,
+        287,
+        291,
+        281,
+        276
+      ],
+      "pooled": 1420,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "trigger:capitulation",
+      "per_fold": [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "pooled": 1,
+      "folds_under_floor": 5,
+      "clears_floor": false
+    },
+    {
+      "name": "trigger:capitulation_up",
+      "per_fold": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pooled": 0,
+      "folds_under_floor": 5,
+      "clears_floor": false
+    },
+    {
+      "name": "trigger:capitulation_down",
+      "per_fold": [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "pooled": 1,
+      "folds_under_floor": 5,
+      "clears_floor": false
+    },
+    {
+      "name": "amp_event:amp_surge_85",
+      "per_fold": [
+        143,
+        87,
+        123,
+        139,
+        119
+      ],
+      "pooled": 611,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "amp_event:amp_surge_95",
+      "per_fold": [
+        60,
+        58,
+        59,
+        63,
+        59
+      ],
+      "pooled": 299,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "amp_event:amp_collapse_15",
+      "per_fold": [
+        237,
+        243,
+        231,
+        211,
+        235
+      ],
+      "pooled": 1157,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "amp_event:amp_collapse_5",
+      "per_fold": [
+        139,
+        137,
+        140,
+        134,
+        156
+      ],
+      "pooled": 706,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "amp_event:amp_slope_burst",
+      "per_fold": [
+        221,
+        195,
+        222,
+        225,
+        215
+      ],
+      "pooled": 1078,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "amp_event:amp_surge_85_up",
+      "per_fold": [
+        68,
+        41,
+        61,
+        60,
+        62
+      ],
+      "pooled": 292,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "amp_event:amp_surge_85_down",
+      "per_fold": [
+        75,
+        46,
+        62,
+        79,
+        57
+      ],
+      "pooled": 319,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "amp_event:amp_surge_95_up",
+      "per_fold": [
+        27,
+        34,
+        27,
+        31,
+        37
+      ],
+      "pooled": 156,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "amp_event:amp_surge_95_down",
+      "per_fold": [
+        33,
+        24,
+        32,
+        32,
+        22
+      ],
+      "pooled": 143,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "amp_event:amp_collapse_15_up",
+      "per_fold": [
+        108,
+        116,
+        110,
+        107,
+        115
+      ],
+      "pooled": 556,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "amp_event:amp_collapse_15_down",
+      "per_fold": [
+        129,
+        127,
+        121,
+        104,
+        120
+      ],
+      "pooled": 601,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "amp_event:amp_collapse_5_up",
+      "per_fold": [
+        75,
+        70,
+        62,
+        68,
+        85
+      ],
+      "pooled": 360,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "amp_event:amp_collapse_5_down",
+      "per_fold": [
+        64,
+        67,
+        78,
+        66,
+        71
+      ],
+      "pooled": 346,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "amp_event:amp_slope_burst_up",
+      "per_fold": [
+        101,
+        94,
+        110,
+        107,
+        109
+      ],
+      "pooled": 521,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "amp_event:amp_slope_burst_down",
+      "per_fold": [
+        120,
+        101,
+        112,
+        118,
+        106
+      ],
+      "pooled": 557,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:swing:close_beyond_up",
+      "per_fold": [
+        288,
+        280,
+        320,
+        353,
+        348
+      ],
+      "pooled": 1589,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:swing:close_beyond_down",
+      "per_fold": [
+        337,
+        286,
+        277,
+        287,
+        314
+      ],
+      "pooled": 1501,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:swing:close_beyond_atr_up",
+      "per_fold": [
+        229,
+        229,
+        266,
+        285,
+        285
+      ],
+      "pooled": 1294,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:swing:close_beyond_atr_down",
+      "per_fold": [
+        258,
+        221,
+        214,
+        248,
+        273
+      ],
+      "pooled": 1214,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:swing:retest_up",
+      "per_fold": [
+        102,
+        87,
+        107,
+        118,
+        123
+      ],
+      "pooled": 537,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:swing:retest_down",
+      "per_fold": [
+        108,
+        99,
+        89,
+        88,
+        122
+      ],
+      "pooled": 506,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:channel:close_beyond_up",
+      "per_fold": [
+        403,
+        453,
+        425,
+        434,
+        413
+      ],
+      "pooled": 2128,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:channel:close_beyond_down",
+      "per_fold": [
+        423,
+        428,
+        409,
+        414,
+        411
+      ],
+      "pooled": 2085,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:channel:close_beyond_atr_up",
+      "per_fold": [
+        356,
+        390,
+        363,
+        375,
+        347
+      ],
+      "pooled": 1831,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:channel:close_beyond_atr_down",
+      "per_fold": [
+        369,
+        379,
+        350,
+        352,
+        384
+      ],
+      "pooled": 1834,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:channel:retest_up",
+      "per_fold": [
+        116,
+        130,
+        135,
+        138,
+        143
+      ],
+      "pooled": 662,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:channel:retest_down",
+      "per_fold": [
+        118,
+        113,
+        121,
+        116,
+        137
+      ],
+      "pooled": 605,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:donchian20:close_beyond_up",
+      "per_fold": [
+        150,
+        178,
+        187,
+        225,
+        241
+      ],
+      "pooled": 981,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:donchian20:close_beyond_down",
+      "per_fold": [
+        213,
+        145,
+        134,
+        185,
+        199
+      ],
+      "pooled": 876,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:donchian20:close_beyond_atr_up",
+      "per_fold": [
+        109,
+        145,
+        144,
+        173,
+        168
+      ],
+      "pooled": 739,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:donchian20:close_beyond_atr_down",
+      "per_fold": [
+        160,
+        102,
+        102,
+        143,
+        157
+      ],
+      "pooled": 664,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:donchian20:retest_up",
+      "per_fold": [
+        33,
+        23,
+        33,
+        49,
+        66
+      ],
+      "pooled": 204,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:donchian20:retest_down",
+      "per_fold": [
+        43,
+        13,
+        13,
+        41,
+        46
+      ],
+      "pooled": 156,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:donchian50:close_beyond_up",
+      "per_fold": [
+        76,
+        101,
+        107,
+        132,
+        144
+      ],
+      "pooled": 560,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:donchian50:close_beyond_down",
+      "per_fold": [
+        135,
+        79,
+        54,
+        114,
+        107
+      ],
+      "pooled": 489,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:donchian50:close_beyond_atr_up",
+      "per_fold": [
+        65,
+        81,
+        86,
+        102,
+        106
+      ],
+      "pooled": 440,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:donchian50:close_beyond_atr_down",
+      "per_fold": [
+        101,
+        63,
+        44,
+        85,
+        81
+      ],
+      "pooled": 374,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:donchian50:retest_up",
+      "per_fold": [
+        15,
+        17,
+        19,
+        32,
+        42
+      ],
+      "pooled": 125,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:donchian50:retest_down",
+      "per_fold": [
+        24,
+        7,
+        6,
+        23,
+        22
+      ],
+      "pooled": 82,
+      "folds_under_floor": 2,
+      "clears_floor": false
+    },
+    {
+      "name": "break:placebo:close_beyond_up",
+      "per_fold": [
+        220,
+        231,
+        283,
+        196,
+        235
+      ],
+      "pooled": 1165,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:placebo:close_beyond_down",
+      "per_fold": [
+        233,
+        231,
+        270,
+        210,
+        218
+      ],
+      "pooled": 1162,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:placebo:close_beyond_atr_up",
+      "per_fold": [
+        210,
+        227,
+        263,
+        202,
+        232
+      ],
+      "pooled": 1134,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:placebo:close_beyond_atr_down",
+      "per_fold": [
+        229,
+        219,
+        266,
+        222,
+        220
+      ],
+      "pooled": 1156,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:placebo:retest_up",
+      "per_fold": [
+        125,
+        152,
+        160,
+        87,
+        138
+      ],
+      "pooled": 662,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    },
+    {
+      "name": "break:placebo:retest_down",
+      "per_fold": [
+        146,
+        144,
+        165,
+        124,
+        130
+      ],
+      "pooled": 709,
+      "folds_under_floor": 0,
+      "clears_floor": true
+    }
+  ]
+}

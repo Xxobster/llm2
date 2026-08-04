@@ -1,0 +1,228 @@
+{
+  "symbol": "BTCUSDT",
+  "source": "bybit_v5_market_risk-limit",
+  "retrieved_utc": "2026-08-03T15:28:52.377880+00:00",
+  "n_tiers": 35,
+  "tiers": [
+    {
+      "notional_floor": 0.0,
+      "mm_rate": 0.005,
+      "max_leverage": 100.0,
+      "deduction": 0.0
+    },
+    {
+      "notional_floor": 2000000.0,
+      "mm_rate": 0.0056,
+      "max_leverage": 90.0,
+      "deduction": 1200.0
+    },
+    {
+      "notional_floor": 2600000.0,
+      "mm_rate": 0.0063,
+      "max_leverage": 80.0,
+      "deduction": 3020.0
+    },
+    {
+      "notional_floor": 3200000.0,
+      "mm_rate": 0.0067,
+      "max_leverage": 75.0,
+      "deduction": 4300.0
+    },
+    {
+      "notional_floor": 3800000.0,
+      "mm_rate": 0.0071,
+      "max_leverage": 70.0,
+      "deduction": 5820.0
+    },
+    {
+      "notional_floor": 4400000.0,
+      "mm_rate": 0.0077,
+      "max_leverage": 65.0,
+      "deduction": 8460.0
+    },
+    {
+      "notional_floor": 5000000.0,
+      "mm_rate": 0.0091,
+      "max_leverage": 55.0,
+      "deduction": 15460.0
+    },
+    {
+      "notional_floor": 5600000.0,
+      "mm_rate": 0.01,
+      "max_leverage": 50.0,
+      "deduction": 20500.0
+    },
+    {
+      "notional_floor": 8500000.0,
+      "mm_rate": 0.013,
+      "max_leverage": 45.0,
+      "deduction": 46000.0
+    },
+    {
+      "notional_floor": 10000000.0,
+      "mm_rate": 0.015,
+      "max_leverage": 40.0,
+      "deduction": 66000.0
+    },
+    {
+      "notional_floor": 14000000.0,
+      "mm_rate": 0.016,
+      "max_leverage": 35.0,
+      "deduction": 80000.0
+    },
+    {
+      "notional_floor": 20000000.0,
+      "mm_rate": 0.02,
+      "max_leverage": 30.0,
+      "deduction": 160000.0
+    },
+    {
+      "notional_floor": 28000000.0,
+      "mm_rate": 0.025,
+      "max_leverage": 25.0,
+      "deduction": 300000.0
+    },
+    {
+      "notional_floor": 38000000.0,
+      "mm_rate": 0.029,
+      "max_leverage": 20.0,
+      "deduction": 452000.0
+    },
+    {
+      "notional_floor": 50000000.0,
+      "mm_rate": 0.03,
+      "max_leverage": 19.0,
+      "deduction": 502000.0
+    },
+    {
+      "notional_floor": 55000000.0,
+      "mm_rate": 0.035,
+      "max_leverage": 18.0,
+      "deduction": 777000.0
+    },
+    {
+      "notional_floor": 60000000.0,
+      "mm_rate": 0.036,
+      "max_leverage": 17.0,
+      "deduction": 837000.0
+    },
+    {
+      "notional_floor": 65000000.0,
+      "mm_rate": 0.038,
+      "max_leverage": 16.0,
+      "deduction": 967000.0
+    },
+    {
+      "notional_floor": 70000000.0,
+      "mm_rate": 0.04,
+      "max_leverage": 15.0,
+      "deduction": 1107000.0
+    },
+    {
+      "notional_floor": 75000000.0,
+      "mm_rate": 0.045,
+      "max_leverage": 14.0,
+      "deduction": 1482000.0
+    },
+    {
+      "notional_floor": 80000000.0,
+      "mm_rate": 0.05,
+      "max_leverage": 13.0,
+      "deduction": 1882000.0
+    },
+    {
+      "notional_floor": 85000000.0,
+      "mm_rate": 0.055,
+      "max_leverage": 12.0,
+      "deduction": 2307000.0
+    },
+    {
+      "notional_floor": 90000000.0,
+      "mm_rate": 0.06,
+      "max_leverage": 11.0,
+      "deduction": 2757000.0
+    },
+    {
+      "notional_floor": 95000000.0,
+      "mm_rate": 0.065,
+      "max_leverage": 10.0,
+      "deduction": 3232000.0
+    },
+    {
+      "notional_floor": 100000000.0,
+      "mm_rate": 0.07,
+      "max_leverage": 9.0,
+      "deduction": 3732000.0
+    },
+    {
+      "notional_floor": 105000000.0,
+      "mm_rate": 0.085,
+      "max_leverage": 8.0,
+      "deduction": 5307000.0
+    },
+    {
+      "notional_floor": 110000000.0,
+      "mm_rate": 0.095,
+      "max_leverage": 7.0,
+      "deduction": 6407000.0
+    },
+    {
+      "notional_floor": 115000000.0,
+      "mm_rate": 0.1,
+      "max_leverage": 6.0,
+      "deduction": 6982000.0
+    },
+    {
+      "notional_floor": 120000000.0,
+      "mm_rate": 0.12,
+      "max_leverage": 5.0,
+      "deduction": 9382000.0
+    },
+    {
+      "notional_floor": 150000000.0,
+      "mm_rate": 0.14,
+      "max_leverage": 4.0,
+      "deduction": 12382000.0
+    },
+    {
+      "notional_floor": 200000000.0,
+      "mm_rate": 0.18,
+      "max_leverage": 3.0,
+      "deduction": 20382000.0
+    },
+    {
+      "notional_floor": 250000000.0,
+      "mm_rate": 0.3,
+      "max_leverage": 2.0,
+      "deduction": 50382000.0
+    },
+    {
+      "notional_floor": 400000000.0,
+      "mm_rate": 0.42,
+      "max_leverage": 1.43,
+      "deduction": 98382000.0
+    },
+    {
+      "notional_floor": 600000000.0,
+      "mm_rate": 0.5,
+      "max_leverage": 1.28,
+      "deduction": 146382000.0
+    },
+    {
+      "notional_floor": 800000000.0,
+      "mm_rate": 0.6,
+      "max_leverage": 1.0,
+      "deduction": 226382000.0
+    }
+  ],
+  "instrument": {
+    "tick_size": 0.1,
+    "qty_step": 0.001,
+    "min_qty": 0.001,
+    "min_notional": 5.0,
+    "max_leverage": 100.0,
+    "tiers_available": true,
+    "n_tiers_on_spec": 35,
+    "source": "bybit_v5_instruments-info+risk-limit"
+  }
+}

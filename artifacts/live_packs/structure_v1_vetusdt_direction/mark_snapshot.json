@@ -1,0 +1,7 @@
+{
+  "symbol": "VETUSDT",
+  "mark_price": "0.004817",
+  "last_price": "0.004815",
+  "retrieved_utc": "2026-08-03T18:52:02.999943+00:00",
+  "source": "bybit_v5_tickers"
+}

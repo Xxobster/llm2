@@ -1,0 +1,140 @@
+{
+  "designed_utc": "2026-08-03T09:35:00.710655+00:00",
+  "basis": "event counts only; no performance statistic was computed",
+  "symbol": "BTCUSDT",
+  "timeframe": "1h",
+  "train_end": "2026-05-01",
+  "up_pulses_total": 157,
+  "up_pulses_per_year": 23.64,
+  "floor_trades_per_fold": 10,
+  "floor_pooled_trades": 50,
+  "floor_folds": 5,
+  "existing_geometry_per_fold": [
+    16,
+    22,
+    24,
+    18,
+    13
+  ],
+  "candidates": [
+    {
+      "oos_months": 9,
+      "n_folds": 7,
+      "pooled_events": 123,
+      "min_fold_events": 14,
+      "folds_under_floor": 0,
+      "satisfies_v21": true,
+      "per_fold": [
+        15,
+        17,
+        19,
+        24,
+        18,
+        14,
+        16
+      ]
+    },
+    {
+      "oos_months": 12,
+      "n_folds": 5,
+      "pooled_events": 120,
+      "min_fold_events": 19,
+      "folds_under_floor": 0,
+      "satisfies_v21": true,
+      "per_fold": [
+        21,
+        22,
+        32,
+        26,
+        19
+      ]
+    },
+    {
+      "oos_months": 15,
+      "n_folds": 4,
+      "pooled_events": 120,
+      "min_fold_events": 27,
+      "folds_under_floor": 0,
+      "satisfies_v21": false,
+      "per_fold": [
+        27,
+        32,
+        34,
+        27
+      ]
+    },
+    {
+      "oos_months": 18,
+      "n_folds": 3,
+      "pooled_events": 107,
+      "min_fold_events": 32,
+      "folds_under_floor": 0,
+      "satisfies_v21": false,
+      "per_fold": [
+        32,
+        43,
+        32
+      ]
+    },
+    {
+      "oos_months": 24,
+      "n_folds": 2,
+      "pooled_events": 101,
+      "min_fold_events": 43,
+      "folds_under_floor": 0,
+      "satisfies_v21": false,
+      "per_fold": [
+        43,
+        58
+      ]
+    }
+  ],
+  "chosen": {
+    "oos_months": 9,
+    "n_folds": 7,
+    "pooled_events": 123,
+    "min_fold_events": 14,
+    "folds_under_floor": 0,
+    "satisfies_v21": true,
+    "ranges": [
+      [
+        "2021-01-01",
+        "2021-10-01"
+      ],
+      [
+        "2021-10-01",
+        "2022-07-01"
+      ],
+      [
+        "2022-07-01",
+        "2023-04-01"
+      ],
+      [
+        "2023-04-01",
+        "2024-01-01"
+      ],
+      [
+        "2024-01-01",
+        "2024-10-01"
+      ],
+      [
+        "2024-10-01",
+        "2025-07-01"
+      ],
+      [
+        "2025-07-01",
+        "2026-04-01"
+      ]
+    ],
+    "per_fold": [
+      15,
+      17,
+      19,
+      24,
+      18,
+      14,
+      16
+    ]
+  },
+  "design_hash": "6c52076664e2fe64"
+}

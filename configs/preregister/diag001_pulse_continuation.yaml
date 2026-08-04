@@ -1,0 +1,174 @@
+# Preregistered from diagnostics run diag_BTCUSDT_1h_20260803T083613Z.
+# BEFORE any out-of-sample inspection of this hypothesis.
+#
+# Provenance warning: the diagnostics pass that produced this candidate is a SELECTION
+# step. It examined 550 statistics on the training window. The effect below survived
+# false-discovery-rate control there, but that training window is now contaminated for
+# this hypothesis. Only the nested walk-forward out-of-sample folds, and ultimately the
+# untouched forward lockbox from 2026-05-01, can confirm it.
+
+generation_id: diag001_pulse_continuation_BTCUSDT_1h
+created_utc: "2026-08-03T09:10:00Z"
+status: FROZEN_FAILED
+source_run: diag_BTCUSDT_1h_20260803T083613Z
+
+oos_result:
+  ran_utc: "2026-08-03T09:55:00Z"
+  verdict: PULSE_FAILS_ON_COST
+  engine: "tradesim 1.0.0, fixtures 9a037b290c8a, conformance 62/62 green"
+  prereg_sha256: aa8a75d88c89e63a
+  fold_design_hash: 6c52076664e2fe64
+  arms:
+    pulse:              {pooled_pf: 1.067, net_pnl: 6.27,   trades: 92, fees: 5.06, funding: -4.59}
+    random_vol_matched: {pooled_pf: 1.049, net_pnl: 2.96,   trades: 82, fees: 4.95, funding: -3.86}
+    down_pulse:         {pooled_pf: 0.779, net_pnl: -24.13, trades: 90, fees: 5.24, funding: -3.69}
+  fold_pnl: [-3.00, 3.72, 7.11, -4.42, 2.85]
+  liquidations: 0
+  entry_bar_exits: 0
+  conclusion: >
+    The 87 bps diagnostic effect does not survive execution. Pooled profit factor is 1.067
+    against a 1.20 gate, and two of five folds are negative, so the 80 percent positive-fold
+    requirement fails as well. The decisive number is the control: a volatility-matched
+    random entry with the same hold and the same costs returns 1.049. The pulse arm beats it
+    by 0.018 of profit factor on 92 trades against 82, which is noise. What the diagnostics
+    measured was mostly the return to holding BTCUSDT long for four days in a volatile
+    regime, not a response to the pulse.
+  funding_note: >
+    Charging funding at actual historical settlements moved pooled profit factor from 1.118
+    to 1.067. Over a four-day hold funding cost 4.59 against 5.06 in fees — nearly as large,
+    and it would have been silently omitted had the warehouse not been wired in.
+  family_status: >
+    CLOSED, as the preregistration committed in advance. Do not respond by tuning the sigma
+    threshold, the hold length, the lookback or the stop. The displacement after a
+    three-sigma pulse is smaller than the cost of capturing it.
+
+hypothesis: >
+  After an upward volatility-normalised price pulse on BTCUSDT 1h, the subsequent
+  96-bar return is positive and larger than the unconditional mean. Downward pulses
+  show no comparable effect.
+
+economic_rationale: >
+  An upward pulse that clears three trailing standard deviations is more likely to
+  reflect forced short covering and a genuine repricing than noise. Liquidation
+  cascades unwind over hours, not minutes, so displacement can persist past the bar
+  that caused it. The asymmetry is expected: leveraged crypto positioning is
+  structurally long, so upward and downward shocks are not mirror images.
+
+diagnostic_evidence:
+  after_up_pulse_fwd6_bps: 52.9    # q = 0.000123
+  after_up_pulse_fwd24_bps: 68.4   # q = 0.003402
+  after_up_pulse_fwd96_bps: 87.1   # q = 0.000377
+  after_down_pulse_fwd96_bps: 27.8 # q = 0.344178, not significant
+  n_pulses_total: 387
+  n_up_pulses: 185
+  round_trip_cost_bps: 16
+
+pulse_definition:
+  lookback_bars: 6
+  vol_window_bars: 168
+  threshold_sigma: 3.0
+  min_gap_bars: 24
+  causality: >
+    The trailing volatility estimate is shifted by one bar, so the pulse flag uses no
+    information from the bar it labels or any bar after it. Verified by a truncation
+    test in tests/test_diagnostics_events.py.
+
+entry_rule:
+  name: long_after_up_pulse
+  side: "+1 on the bar a positive pulse is flagged; never short"
+  hold_bars: 96
+  entry_ref: next_open   # the pulse is known only at the close of the bar it labels
+  tp_pct: null           # deliberately none — see exit_design
+  sl_pct: 0.10
+
+exit_design:
+  frozen_utc: "2026-08-03T09:40:00Z"
+  frozen_before: "any out-of-sample or tradesim result for this hypothesis"
+  no_take_profit_because: >
+    The hypothesis is a statement about the 96-bar forward return. A take-profit truncates
+    exactly the quantity under test, so adding one would answer a different question and
+    would also be the first knob anyone would be tempted to tune. The position exits on the
+    96-bar hold or on the protective stop, and on nothing else.
+  stop_rationale: >
+    0.10 is a protective bound, not a tuned parameter. BTCUSDT 1h realised volatility over a
+    96-bar (four day) window sits near 4-6 percent, so a 10 percent stop is roughly twice
+    the typical excursion and should bind rarely. It exists to cap the tail and to make the
+    liquidation calculation well defined. It was chosen from volatility alone and must not
+    be adjusted after seeing any result.
+  leverage: 9
+  leverage_derivation: >
+    floor(1 / (sl_pct + maintenance_buffer + mark_buffer)) = floor(1 / (0.10 + 0.005 + 0.002))
+    = floor(9.35) = 9. This is the lowest operational value consistent with the frozen stop,
+    per the standing rule that leverage is not alpha. Fixed-quantity PnL is unchanged by it;
+    it sets liquidation distance and margin utilisation only.
+  costs: >
+    tradesim research_costs(): all-taker, Bybit non-VIP 0.055 percent taker and 0.02 percent
+    maker, 5 bps entry slippage. Entry is a market order after a three-sigma move, so taker
+    plus slippage is the honest assumption. Funding is charged at actual historical
+    settlements; a 96-bar hold spans up to twelve of them.
+  sizing: >
+    tradesim research_sizing(): smallest venue-legal quantity, with the Bybit instrument
+    spec supplying quantity step and minimum notional. Any pulse whose minimum executable
+    order breaches the risk cap is skipped and counted, not silently resized.
+
+fold_design:
+  designed_utc: "2026-08-03T09:35:00Z"
+  design_hash: 6c52076664e2fe64
+  basis: >
+    Event counts only. No performance statistic of any kind was computed before this
+    geometry was fixed. Script: scripts/design_pulse_folds.py.
+  finding: >
+    The known weakness recorded below overstated the problem. Up-pulses arrive at 27.9 per
+    year, not 26, and more importantly the binding number is *trades*, not signals: under
+    one-position-at-a-time with a 96-bar hold, 185 signals become 157 sequential trades, 85
+    percent surviving the overlap rule. Across the five existing nine-month outer folds that
+    is 13, 18, 24, 22 and 16 trades, every fold clearing the ten-trade floor, with 93 pooled
+    against a floor of 50.
+  decision: >
+    KEEP the existing geometry in llm2.validation.folds.OUTER_FOLD_RANGES unchanged. Five
+    outer folds, roughly nine months of out-of-sample each, 2022-01-01 to 2025-10-01. No
+    redesign is performed, which is the safest possible outcome for preregistration
+    integrity: nothing about the validation structure moves in response to this hypothesis.
+  alternatives_considered:
+    - {oos_months: 9, folds: 7, pooled: 123, min_fold: 14, satisfies_v21: true}
+    - {oos_months: 12, folds: 5, pooled: 120, min_fold: 19, satisfies_v21: true}
+    - {oos_months: 15, folds: 4, pooled: 120, min_fold: 27, satisfies_v21: false}
+    - {oos_months: 18, folds: 3, pooled: 107, min_fold: 32, satisfies_v21: false}
+    - {oos_months: 24, folds: 2, pooled: 101, min_fold: 43, satisfies_v21: false}
+
+universe:
+  symbol: BTCUSDT
+  timeframe: 1h
+  train_end: "2026-05-01"
+  run_backtest: true
+  engine: tradesim
+
+validation:
+  outer_folds: nested_walk_forward_existing_builder
+  purge_bars: 96
+  embargo_bars: 96
+  selection: none_single_frozen_comparison
+
+known_weaknesses:
+  - >
+    RESOLVED by fold_design above, and the original wording was wrong. 185 up-pulse events
+    across 6.6 years is 27.9 per year, and after the one-position-at-a-time rule 157 of them
+    become trades. Every existing nine-month fold holds 13 to 24 trades, all above the
+    ten-trade floor. No fold redesign was required, so none was performed.
+  - >
+    The 87 bps mean is measured on log returns with no execution costs, no slippage and no
+    funding. A 96-bar hold spans up to 12 funding settlements.
+  - >
+    The effect did not appear at the 4h timeframe (0 of 6 post-pulse effects survived),
+    so it is not yet established as timescale-robust.
+
+success_criteria:
+  - pooled out-of-sample profit factor > 1.20 after all costs
+  - up-pulse arm beats a volatility-matched random-entry control with the same hold
+  - the effect survives with funding charged at actual historical settlements
+
+failure_is_success: true
+failure_interpretation: >
+  If post-pulse continuation does not survive costs, the correct conclusion is that the
+  displacement is smaller than the spread plus fees, and pulse-following is closed as a
+  family. Do not respond by tuning the sigma threshold or the hold length.

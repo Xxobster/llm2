@@ -1,0 +1,741 @@
+{
+  "stamped_utc": "20260803T175941Z",
+  "space": "structure_v1",
+  "leakage_engine": "C:\\projects\\botsgeneral\\packages\\leakage\\src\\leakage\\__init__.py",
+  "readiness": "RESEARCH_ONLY",
+  "overall_ok": true,
+  "n_cases": 26,
+  "n_pass": 26,
+  "n_fail": 0,
+  "cases": [
+    {
+      "confirmation": {
+        "symbol": "BTCUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "n_swings": 17164,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "BTCUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 55488,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 49 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "BTCUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "n_swings": 4358,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "BTCUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 13872,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 41 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "ETHUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "n_swings": 16575,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "ETHUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 55488,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 49 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "ETHUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "n_swings": 4140,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "ETHUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 13872,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 41 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "SOLUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "n_swings": 13957,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "SOLUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 49193,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 49 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "SOLUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "n_swings": 3511,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "SOLUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 12299,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 41 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "BNBUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "n_swings": 15412,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "BNBUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 54520,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 49 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "BNBUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "n_swings": 3999,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "BNBUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 13630,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 41 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "XRPUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "n_swings": 15612,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "XRPUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 55240,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 49 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "XRPUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "n_swings": 4073,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "XRPUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 13810,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 41 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "VETUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "n_swings": 14926,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "VETUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 54304,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 49 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "VETUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "n_swings": 3758,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "VETUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 13576,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 41 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "ADAUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "n_swings": 15115,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "ADAUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 54760,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 49 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "ADAUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "n_swings": 3895,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "ADAUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 13690,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 41 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "DOGEUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "n_swings": 14811,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "DOGEUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 50895,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 49 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "DOGEUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "n_swings": 3759,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "DOGEUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 12724,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 41 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "AVAXUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "n_swings": 13894,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "AVAXUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 49097,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 49 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "AVAXUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "n_swings": 3508,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "AVAXUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 12275,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 41 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "LINKUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "n_swings": 15500,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "LINKUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 55096,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 49 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "LINKUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "n_swings": 3907,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "LINKUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 13774,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 41 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "DOTUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "n_swings": 13840,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "DOTUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 49865,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 49 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "DOTUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "n_swings": 3524,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "DOTUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 12467,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 41 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "TRXUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "n_swings": 14778,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "TRXUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 55024,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 49 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "TRXUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "n_swings": 3881,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "TRXUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 13756,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 41 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "XLMUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "n_swings": 15408,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "XLMUSDT",
+        "timeframe": "1h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 54904,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 49 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    },
+    {
+      "confirmation": {
+        "symbol": "XLMUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "n_swings": 3900,
+        "confirm_lag_bars_ok": true,
+        "confirm_lag_ts_ok": true,
+        "early_cites": {
+          "high": 0,
+          "low": 0
+        },
+        "unknown_pivots": {
+          "high": 0,
+          "low": 0
+        }
+      },
+      "leakage": {
+        "symbol": "XLMUSDT",
+        "timeframe": "4h",
+        "ok": true,
+        "price_type": "last_price",
+        "n_bars": 13726,
+        "leakage_potential": [],
+        "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 41 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n===================================================================================="
+      },
+      "ok": true
+    }
+  ],
+  "note": "Warehouse confirmation-time + botsgeneral leakage. Do not train on FAIL cases."
+}

@@ -1,0 +1,17 @@
+generation_id: gen_002_btc_1h_vol
+hypothesis: >
+  Volatility target may contain more structure than direction. Use realized range labels
+  and LightGBM/Ridge; trade only when predicted vol implies TP/SL expansion above noise.
+preregistered_at: 2026-08-02T08:00:00Z
+max_trials: 5
+symbol: BTCUSDT
+timeframe: 1h
+target: volatility
+feature_space: ohlcv_v1
+horizon: 24
+models:
+  - hist_mean
+  - ridge
+  - lgbm_regressor
+  - torch_mlp
+  - seasonal_naive

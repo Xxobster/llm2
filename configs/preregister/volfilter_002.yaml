@@ -1,0 +1,84 @@
+# Preregistered BEFORE any out-of-sample inspection of this experiment.
+# Same frozen vol-skip filter as volfilter_001; DIFFERENT entry rule only.
+
+generation_id: volfilter_002_BTCUSDT_1h_meanrev
+created_utc: "2026-08-02T11:32:00Z"
+status: FROZEN
+frozen_utc: "2026-08-02T11:40:00Z"
+frozen_reason: >
+  Out-of-sample viewed. Same 75th-percentile vol skip failed vs always-on on
+  mean-reversion (filtered PF 0.75 < control 0.83). Do not retune percentile.
+
+hypothesis: >
+  The same ridge volatility skip filter (train-fold 75th percentile of predicted
+  volatility) improves nested walk-forward proxy profit-and-loss of a frozen
+  mean-reversion entry rule versus the identical rule with no filter.
+
+economic_rationale: >
+  volfilter_001 showed the skip helps a momentum rule without creating an edge.
+  If the same skip also helps mean-reversion (the opposite side rule), the filter
+  is more likely a genuine noise gate than an artefact of momentum geometry.
+  If it fails here, the filter's usefulness is entry-rule-specific.
+
+# --- frozen entry rule (different from volfilter_001) ---
+entry_rule:
+  name: meanrev_24_cost_gate
+  lookback_bars: 24
+  side: |
+    +1 if close.pct_change(24) < -ROUND_TRIP_COST (fade down-move);
+    -1 if close.pct_change(24) > ROUND_TRIP_COST (fade up-move);
+    0 otherwise
+  tp_pct: 0.01
+  sl_pct: 0.02
+
+# --- identical vol filter to volfilter_001 (must not change percentile) ---
+vol_model:
+  target: volatility
+  horizon: 24
+  feature_space: ohlcv_v1
+  model: ridge
+  role: filter_input_only
+
+filter_rule:
+  name: skip_top_quartile_predicted_vol
+  fit_scope: train_fold_only
+  percentile: 75
+  inherits_frozen_filter_from: volfilter_001_BTCUSDT_1h
+  threshold: |
+    75th percentile of the model's predicted volatility on the train fold.
+    Skip entry when out-of-sample pred_vol > threshold.
+  action_on_trigger: skip_entry
+  action_forbidden:
+    - increase_leverage
+    - widen_size
+    - emit_long_or_short_from_vol_forecast
+    - change_percentile_from_75
+
+control:
+  name: always_on
+  description: same mean-reversion entry_rule, no volatility filter
+
+universe:
+  symbol: BTCUSDT
+  timeframe: 1h
+  run_backtest: false
+
+validation:
+  outer_folds: nested_walk_forward_existing_builder
+  purge_bars: 24
+  embargo_bars: 24
+  selection: none_single_frozen_comparison
+
+success_criteria:
+  - filtered_pooled_pf > control_pooled_pf
+  - filtered_pooled_pnl > control_pooled_pnl
+  - filtered uses strictly fewer or equal signals (skip-more policy)
+  - vol model never contributes to side
+success_note: >
+  Beating control while both lose is a methodology win, not a strategy candidate.
+  Not SHADOW_READY. No Finplot/live path from this result alone.
+
+failure_is_success: true
+failure_interpretation: >
+  If the filter does not beat always-on on mean-reversion, do not retune the
+  percentile. Conclude the skip's value is entry-rule-specific or weak.

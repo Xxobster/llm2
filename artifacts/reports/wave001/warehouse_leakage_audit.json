@@ -1,0 +1,55 @@
+{
+  "audited_utc": "2026-08-03T12:04:05.530916+00:00",
+  "symbol": "BTCUSDT",
+  "timeframe": "1h",
+  "results": [
+    {
+      "check": "market_ohlcv.timestamp_integrity",
+      "status": "PASS",
+      "detail": "60,472 bars, 0 duplicate ts_ms, 0 non-monotonic steps, 0 gaps > 1 bar (largest 1.0 bars) \u2014 duplicates/non-monotonic would make later code's use of position-as-time ambiguous"
+    },
+    {
+      "check": "market_ohlcv.is_complete_flag",
+      "status": "PASS",
+      "detail": "0 bars flagged incomplete (only the newest in-progress bar should be)"
+    },
+    {
+      "check": "indicators.swing_high_confirmation_time",
+      "status": "PASS",
+      "detail": "60,465 bars checked, 0 cited a swing_high before its own confirmation (0 pivots not found in swings table)"
+    },
+    {
+      "check": "indicators.swing_low_confirmation_time",
+      "status": "PASS",
+      "detail": "60,466 bars checked, 0 cited a swing_low before its own confirmation (0 pivots not found in swings table)"
+    },
+    {
+      "check": "indicators.support_resistance_ordering",
+      "status": "PASS",
+      "detail": "60,110 bars checked, 0 with support above close, 0 with resistance below close"
+    },
+    {
+      "check": "binance_funding.settlement_time",
+      "status": "PASS",
+      "detail": "7,527 settlements, 0 duplicates, 0 non-monotonic gaps, 0 intervals off the nominal 8h schedule by > 30 minutes"
+    },
+    {
+      "check": "cryptodb.market.date_column_integrity",
+      "status": "PASS",
+      "detail": "1,855 daily rows for BTCUSDT@bybit spot, 0 unparseable dates, 0 duplicate dates"
+    },
+    {
+      "check": "cryptodb.market.timing_semantics",
+      "status": "BLOCKER",
+      "detail": "no per-row knowable-at instant is recorded anywhere in this warehouse's schema (only a calendar 'date' string); the day-boundary/publication-lag convention used by market_ohlcv.sqlite and indicators.sqlite has NOT been established here and must be pinned down (per source in source_audit) before any WAVE001 family reads same-day cryptodb values as a causal feature"
+    },
+    {
+      "check": "leakage.wavemetrics_prefix_invariance",
+      "status": "PASS",
+      "detail": "28 columns clean; pinned period=15.28 bars"
+    }
+  ],
+  "n_pass": 8,
+  "n_fail": 0,
+  "n_blocker": 1
+}

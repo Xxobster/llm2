@@ -1,0 +1,15 @@
+strategy_id: structure_v1_lgbm_SOLUSDT_1h_direction
+status: AUTHORIZED
+authorized_by_user: true
+vps_host: 94.156.189.76
+account_ref: Xxobster7
+intended_vps_host: 94.156.189.76
+intended_account_ref: Xxobster7
+pack_path: artifacts/live_packs/structure_v1_solusdt_direction
+pack_hash: bef3cc1d3499c68a8072aa2019e80afd5bd417700f22567900be75e24f429184
+expires_utc: '2026-08-17T00:00:00Z'
+created_utc: '2026-08-03T17:05:00Z'
+notes: >-
+  User explicitly authorized 2026-08-04 (UTC+7) to run SOLUSDT direction micro-live
+  on 94.156.189.76 / Xxobster7 as a SEPARATE bot from BTCUSDT. MIN_EXCHANGE only.
+  Certificate expires 2026-08-17 unless renewed. Do not scale without a new go-ahead.

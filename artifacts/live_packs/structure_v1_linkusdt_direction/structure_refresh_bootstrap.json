@@ -1,0 +1,49 @@
+{
+  "symbol": "LINKUSDT",
+  "db": "D:\\projects\\LLM2\\artifacts\\live_packs\\structure_v1_linkusdt_direction\\indicators_live_slice.sqlite",
+  "series": [
+    {
+      "timeframe": "1h",
+      "n_bars": 799,
+      "last_ts_ms": 1785776400000,
+      "last_utc": "2026-08-03T17:00:00+00:00",
+      "counts": {
+        "swings": 221,
+        "structure_events": 221,
+        "legs": 185,
+        "levels": 221,
+        "bar_features": 799,
+        "series": 1
+      }
+    },
+    {
+      "timeframe": "4h",
+      "n_bars": 799,
+      "last_ts_ms": 1785758400000,
+      "last_utc": "2026-08-03T12:00:00+00:00",
+      "counts": {
+        "swings": 228,
+        "structure_events": 228,
+        "legs": 175,
+        "levels": 228,
+        "bar_features": 799,
+        "series": 1
+      }
+    },
+    {
+      "timeframe": "1w",
+      "n_bars": 302,
+      "last_ts_ms": 1785110400000,
+      "last_utc": "2026-07-27T00:00:00+00:00",
+      "counts": {
+        "swings": 86,
+        "structure_events": 86,
+        "legs": 66,
+        "levels": 86,
+        "bar_features": 302,
+        "series": 1
+      }
+    }
+  ],
+  "refreshed_utc": "2026-08-03T18:51:58.327888+00:00"
+}

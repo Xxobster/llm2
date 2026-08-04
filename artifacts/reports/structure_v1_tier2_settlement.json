@@ -1,0 +1,70 @@
+{
+  "base_generation": "autostruct1_00_BTCUSDT_1h_fwd_return_structure_v1",
+  "settle_generation": "autostruct1_00_BTCUSDT_1h_fwd_return_structure_v1__settle_v2_20260803",
+  "stamped_utc": "20260803T150937Z",
+  "fold_geometry": "v2",
+  "outer_fold_ranges": [
+    [
+      "2022-01-01",
+      "2022-10-01"
+    ],
+    [
+      "2022-10-01",
+      "2023-07-01"
+    ],
+    [
+      "2023-07-01",
+      "2024-04-01"
+    ],
+    [
+      "2024-04-01",
+      "2025-01-01"
+    ],
+    [
+      "2025-01-01",
+      "2025-10-01"
+    ],
+    [
+      "2025-10-01",
+      "2026-05-01"
+    ]
+  ],
+  "prereg_path": "D:\\projects\\LLM2\\configs\\preregister\\structure_v1_fold_extension_001.yaml",
+  "prereg_sha256_text": "60b19403685c9e1d6a39a1eb9bc99d18cd29936cad0b82ff4f1c406b45c85751",
+  "verdict": "SHADOW_READY_CANDIDATE",
+  "settled": true,
+  "allow_resume_other_structure_combos": true,
+  "overall": "PASS",
+  "tier": 3,
+  "pooled_pf": 1.8651444550275214,
+  "gates": {
+    "metric_kind": "profit_factor",
+    "outer_folds": "PASS",
+    "trades_per_fold": "PASS",
+    "pooled_trades": "PASS",
+    "pooled_pf": "PASS",
+    "pooled_pf_value": 1.8651444550275214,
+    "daily_mtm_sharpe": "PASS",
+    "hac_sharpe": "PASS",
+    "dsr": "PASS",
+    "bootstrap_positive_frac": "PASS",
+    "positive_fold_frac": "PASS",
+    "stress_pnl": "PASS",
+    "stress_pf": "PASS",
+    "baseline_mdd": "PASS",
+    "stress_mdd": "PASS",
+    "margin_utilization": "PASS",
+    "liquidation": "PASS",
+    "pbo": "UNKNOWN",
+    "pbo_note": "PBO_UNAVAILABLE_INSUFFICIENT_MATRIX",
+    "overall": "PASS"
+  },
+  "readiness": "RESEARCH_ONLY",
+  "shadow_ready_candidate": true,
+  "min_size_equity_caveat": "Wallet equity / maximum drawdown under research_sizing MIN_EXCHANGE (minimum exchange size) on a large wallet is not tradable-edge evidence. Smooth curves are expected at dust size; do not treat them as deployable sizing.",
+  "vps_deploy": "FORBIDDEN_without_live_certificate",
+  "abc_bounce": "UNDERPOWERED_HOLD_untouched",
+  "leakage": "botsgeneral leakage + structure confirmation-time tests required",
+  "note": "Fold V2 closes Oct-2025\u2192lockbox gap. Live/VPS still blocked. Use per-fold Finplot with trade cap for readable markers.",
+  "equity_is_tradable_edge": false
+}

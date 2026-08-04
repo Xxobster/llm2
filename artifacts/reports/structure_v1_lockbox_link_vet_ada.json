@@ -1,0 +1,61 @@
+{
+  "lockbox_start": "2026-05-01",
+  "evidence_class": "LOCKBOX_OPENED_CONTAMINATED",
+  "note": "User-requested Finplot of forward lockbox for LINKUSDT, VETUSDT, ADAUSDT. Window is contaminated for first-look claims; quote settle outer-OOS for promotion.",
+  "results": [
+    {
+      "symbol": "LINKUSDT",
+      "target": "direction",
+      "pack": "D:\\projects\\LLM2\\artifacts\\live_packs\\structure_v1_linkusdt_direction",
+      "lockbox_start": "2026-05-01",
+      "data_end": "2026-08-02 07:00:00+00:00",
+      "n_signals": 1399,
+      "n_trades": 463,
+      "n_trades_engine": 463,
+      "net_pnl": 9.762086615015505,
+      "profit_factor": 2.7790100088853844,
+      "win_rate": 0.7451403887688985,
+      "total_fees": 2.771813385,
+      "total_funding": 0.0,
+      "n_longs": 227,
+      "n_shorts": 236,
+      "evidence_class": "LOCKBOX_OPENED_CONTAMINATED"
+    },
+    {
+      "symbol": "VETUSDT",
+      "target": "direction",
+      "pack": "D:\\projects\\LLM2\\artifacts\\live_packs\\structure_v1_vetusdt_direction",
+      "lockbox_start": "2026-05-01",
+      "data_end": "2026-08-02 07:00:00+00:00",
+      "n_signals": 1481,
+      "n_trades": 502,
+      "n_trades_engine": 502,
+      "net_pnl": 8.921418758462096,
+      "profit_factor": 2.358493224380781,
+      "win_rate": 0.7370517928286853,
+      "total_fees": 2.7621102415500003,
+      "total_funding": 0.0,
+      "n_longs": 338,
+      "n_shorts": 164,
+      "evidence_class": "LOCKBOX_OPENED_CONTAMINATED"
+    },
+    {
+      "symbol": "ADAUSDT",
+      "target": "direction",
+      "pack": "D:\\projects\\LLM2\\artifacts\\live_packs\\structure_v1_adausdt_direction",
+      "lockbox_start": "2026-05-01",
+      "data_end": "2026-08-02 07:00:00+00:00",
+      "n_signals": 1210,
+      "n_trades": 506,
+      "n_trades_engine": 506,
+      "net_pnl": 9.282828484994752,
+      "profit_factor": 2.2018599245735784,
+      "win_rate": 0.7845849802371542,
+      "total_fees": 2.834071515,
+      "total_funding": 0.0,
+      "n_longs": 304,
+      "n_shorts": 202,
+      "evidence_class": "LOCKBOX_OPENED_CONTAMINATED"
+    }
+  ]
+}
