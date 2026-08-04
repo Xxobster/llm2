@@ -1,0 +1,20 @@
+{
+  "strategy_id": "structure_v1_lgbm_ETHUSDT_1h_direction_multitrade_v1",
+  "version_id": "eth_multitrade_v1",
+  "status": "FROZEN_LIVE_PACK",
+  "readiness": "MICRO_LIVE_CANDIDATE_LOCKBOX_ONLY",
+  "deployable": true,
+  "evidence_class": "LOCKBOX_CONTAMINATED + outer-OOS hedge\u00d73 proxy",
+  "execution_mode": "multitrade",
+  "account_ref_expected": "Xxobster8",
+  "vps_host_expected": "94.156.189.76",
+  "parent_pack": "artifacts/live_packs/structure_v1_ethusdt_direction",
+  "frozen_utc": "20260804T061543Z",
+  "rollback": {
+    "this_pack": "artifacts/live_packs/structure_v1_ethusdt_multitrade_v1",
+    "single_book_unchanged": "artifacts/live_packs/structure_v1_ethusdt_direction",
+    "git_tag": "live/eth_multitrade_v1",
+    "stop_service": "llm2-structure-eth-multitrade-v1"
+  },
+  "min_size_equity_caveat": "Wallet equity / maximum drawdown under research_sizing MIN_EXCHANGE (minimum exchange size) on a large wallet is not tradable-edge evidence. Smooth curves are expected at dust size; do not treat them as deployable sizing."
+}

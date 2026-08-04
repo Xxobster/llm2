@@ -98,7 +98,8 @@ Type=simple
 WorkingDirectory={REMOTE_ROOT}
 Environment=PYTHONPATH={REMOTE_ROOT}
 Environment=LLM2_INDICATORS_DB={REMOTE_ROOT}/pack/indicators_live_slice.sqlite
-Environment=LLM2_STRUCTURE_SOURCE=bybit
+Environment=LLM2_STRUCTURE_SOURCE=binance
+Environment=SHARED_CANDLES_DB=/var/lib/botsgeneral/shared_candles.db
 ExecStart={REMOTE_ROOT}/venv/bin/python -m llm2.live.micro_runner --pack {REMOTE_ROOT}/pack --state {REMOTE_ROOT}/state/micro_live_state.sqlite --mode {args.mode} {"--live-orders" if args.live_orders else ""} --account {args.account} --cert {REMOTE_ROOT}/structure_v1_lgbm_certificate.yaml
 Restart=always
 RestartSec=10

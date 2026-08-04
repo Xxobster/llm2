@@ -33,11 +33,28 @@ from llm2.live.certificate import (
     pack_fingerprint,
     refuse_vps_deploy_without_live_certificate,
 )
+from llm2.live.multitrade import decide_entry_gate, parse_multitrade_config
+from llm2.live.refresh_structure import DEFAULT_SIGNAL_SOURCE, fetch_signal_ohlcv
 from llm2.paths import ROUND_TRIP_COST, TF_MS
 from llm2.research_policy import PolicyError
 
 BYBIT_REST = "https://api.bybit.com"
 STATE_DB_DEFAULT = "state/micro_live_state.sqlite"
+
+
+def resolve_signal_source(strategy: dict[str, Any] | None = None) -> str:
+    """Binance for research-parity features; Bybit remains execution-only."""
+    import os
+
+    env = (os.environ.get("LLM2_STRUCTURE_SOURCE") or "").strip().lower()
+    if env:
+        return env
+    if strategy:
+        for key in ("signal_source", "structure_source"):
+            val = strategy.get(key)
+            if val:
+                return str(val).strip().lower()
+    return DEFAULT_SIGNAL_SOURCE
 
 
 def _bybit_signed_request(
@@ -247,8 +264,140 @@ def _state_conn(path: Path) -> sqlite3.Connection:
         )
         """
     )
+    con.execute(
+        """
+        CREATE TABLE IF NOT EXISTS open_books (
+            book_id TEXT PRIMARY KEY,
+            side INTEGER NOT NULL,
+            entry_bar_ms INTEGER NOT NULL,
+            max_hold_bars INTEGER NOT NULL,
+            qty REAL NOT NULL,
+            tp_pct REAL NOT NULL,
+            sl_pct REAL NOT NULL,
+            book_idx INTEGER NOT NULL,
+            order_id TEXT,
+            status TEXT NOT NULL DEFAULT 'open'
+        )
+        """
+    )
     con.commit()
     return con
+
+
+def _load_strength_hist(con: sqlite3.Connection) -> list[float]:
+    raw = _get_state(con, "strength_hist_json")
+    if not raw:
+        return []
+    try:
+        vals = json.loads(raw)
+        return [float(x) for x in vals if np.isfinite(float(x))]
+    except (TypeError, ValueError, json.JSONDecodeError):
+        return []
+
+
+def _save_strength_hist(
+    con: sqlite3.Connection, hist: list[float], *, lookback: int = 168
+) -> None:
+    trimmed = [float(x) for x in hist[-int(lookback) :]]
+    _set_state(con, "strength_hist_json", json.dumps(trimmed))
+
+
+def _count_open_books(con: sqlite3.Connection, *, side: int) -> int:
+    row = con.execute(
+        "SELECT COUNT(*) FROM open_books WHERE status='open' AND side=?",
+        (int(side),),
+    ).fetchone()
+    return int(row[0] if row else 0)
+
+
+def _insert_open_book(
+    con: sqlite3.Connection,
+    *,
+    book_id: str,
+    side: int,
+    entry_bar_ms: int,
+    max_hold_bars: int,
+    qty: float,
+    tp_pct: float,
+    sl_pct: float,
+    book_idx: int,
+    order_id: str | None,
+) -> None:
+    con.execute(
+        "INSERT OR REPLACE INTO open_books("
+        "book_id,side,entry_bar_ms,max_hold_bars,qty,tp_pct,sl_pct,book_idx,order_id,status"
+        ") VALUES (?,?,?,?,?,?,?,?,?,'open')",
+        (
+            book_id,
+            int(side),
+            int(entry_bar_ms),
+            int(max_hold_bars),
+            float(qty),
+            float(tp_pct),
+            float(sl_pct),
+            int(book_idx),
+            order_id,
+        ),
+    )
+    con.commit()
+
+
+def _mark_book_closed(con: sqlite3.Connection, book_id: str) -> None:
+    con.execute(
+        "UPDATE open_books SET status='closed' WHERE book_id=?",
+        (book_id,),
+    )
+    con.commit()
+
+
+def _expired_books(
+    con: sqlite3.Connection, *, bar_ms: int, timeframe: str
+) -> list[dict[str, Any]]:
+    tf_ms = int(TF_MS[timeframe])
+    rows = con.execute(
+        "SELECT book_id,side,entry_bar_ms,max_hold_bars,qty FROM open_books "
+        "WHERE status='open'"
+    ).fetchall()
+    out: list[dict[str, Any]] = []
+    for book_id, side, entry_ms, hold, qty in rows:
+        # Hold counted in closed bars after entry bar open; expire when
+        # current closed-bar open >= entry_open + hold * tf.
+        deadline = int(entry_ms) + int(hold) * tf_ms
+        if int(bar_ms) >= deadline:
+            out.append(
+                {
+                    "book_id": str(book_id),
+                    "side": int(side),
+                    "qty": float(qty),
+                }
+            )
+    return out
+
+
+def _reconcile_books_to_exchange(
+    con: sqlite3.Connection,
+    *,
+    account: str,
+    symbol: str,
+    qty_unit: float,
+) -> dict[str, Any]:
+    """Drop oldest local books when exchange size is smaller (TP/SL filled)."""
+    sizes = _position_sizes(account=account, symbol=symbol)
+    dropped = 0
+    for side_name, side_sign in (("Buy", 1), ("Sell", -1)):
+        exch = float(sizes.get(side_name, 0.0))
+        unit = max(float(qty_unit), 1e-12)
+        n_exch = int(round(exch / unit)) if exch > 0 else 0
+        rows = con.execute(
+            "SELECT book_id FROM open_books WHERE status='open' AND side=? "
+            "ORDER BY entry_bar_ms ASC, book_id ASC",
+            (side_sign,),
+        ).fetchall()
+        while len(rows) > n_exch:
+            _mark_book_closed(con, str(rows[0][0]))
+            rows = rows[1:]
+            dropped += 1
+    return {"dropped": dropped, "sizes": sizes}
 
 
 def _get_state(con: sqlite3.Connection, key: str) -> str | None:
@@ -286,8 +435,14 @@ def _features_from_rest_ohlcv(
         slice_db = pack_dir / "indicators_live_slice.sqlite"
         if slice_db.is_file():
             os.environ["LLM2_INDICATORS_DB"] = str(slice_db.resolve())
-    # Live refresh writes source=bybit; research default remains binance warehouse.
-    os.environ["LLM2_STRUCTURE_SOURCE"] = "bybit"
+    # Research parity: Binance structure rows. Execution venue stays Bybit.
+    strat = None
+    if pack_dir is not None:
+        try:
+            strat = json.loads((pack_dir / "strategy.json").read_text(encoding="utf-8"))
+        except Exception:  # noqa: BLE001
+            strat = None
+    os.environ["LLM2_STRUCTURE_SOURCE"] = resolve_signal_source(strat)
     try:
         from llm2.data.indicators import clear_indicator_cache
         from llm2.features.registry import build_space
@@ -406,40 +561,42 @@ def _load_account_keys(account: str) -> tuple[str, str]:
     return key, secret
 
 
+def _position_list(*, account: str, symbol: str) -> list[dict[str, Any]]:
+    api_key, api_secret = _load_account_keys(account)
+    data = _bybit_signed_request(
+        api_key=api_key,
+        api_secret=api_secret,
+        method="GET",
+        path="/v5/position/list",
+        query={"category": "linear", "symbol": symbol.upper()},
+        recv="60000",
+    )
+    return list((data.get("result") or {}).get("list") or [])
+
+
+def _position_sizes(*, account: str, symbol: str) -> dict[str, float]:
+    out: dict[str, float] = {"Buy": 0.0, "Sell": 0.0}
+    for p in _position_list(account=account, symbol=symbol):
+        size = float(p.get("size") or 0)
+        if size <= 0:
+            continue
+        side = str(p.get("side") or "")
+        if side in out:
+            out[side] = size
+    return out
+
+
 def _open_position_sides(*, account: str, symbol: str) -> list[str]:
     """Return open side names (Buy/Sell) for symbol; empty if flat."""
-    import hashlib
-    import hmac
-    import time as _time
-    import urllib.parse
-    import urllib.request
+    sizes = _position_sizes(account=account, symbol=symbol)
+    return [s for s, sz in sizes.items() if sz > 0]
 
-    api_key, api_secret = _load_account_keys(account)
-    params = {"category": "linear", "symbol": symbol.upper()}
-    q = urllib.parse.urlencode(params)
-    ts = str(int(_time.time() * 1000))
-    recv = "60000"
-    sign = hmac.new(
-        api_secret.encode(), f"{ts}{api_key}{recv}{q}".encode(), hashlib.sha256
-    ).hexdigest()
-    req = urllib.request.Request(
-        f"{BYBIT_REST}/v5/position/list?{q}",
-        headers={
-            "X-BAPI-API-KEY": api_key,
-            "X-BAPI-TIMESTAMP": ts,
-            "X-BAPI-RECV-WINDOW": recv,
-            "X-BAPI-SIGN": sign,
-            "User-Agent": "llm2-micro-live/1.0",
-        },
-    )
-    with urllib.request.urlopen(req, timeout=20) as resp:
-        data = json.loads(resp.read().decode("utf-8"))
-    sides: list[str] = []
-    for p in (data.get("result") or {}).get("list") or []:
-        if float(p.get("size") or 0) == 0:
-            continue
-        sides.append(str(p.get("side") or "?"))
-    return sides
+
+def _qty_str(qty: float) -> str:
+    qty_str = f"{float(qty):.6f}".rstrip("0").rstrip(".")
+    if "." not in qty_str:
+        qty_str = f"{qty_str}.0"
+    return qty_str
 
 
 def place_min_order(
@@ -451,21 +608,30 @@ def place_min_order(
     tp_pct: float,
     sl_pct: float,
     leverage: float,
+    partial_tpsl: bool = False,
 ) -> dict[str, Any]:
-    """Place market entry + attach TP/SL via Bybit V5. Never logs secrets."""
+    """Place market entry + attach TP/SL via Bybit V5. Never logs secrets.
+
+    ``partial_tpsl=True`` (multitrade): attach take-profit / stop-loss to this order
+    fill only so concurrent books keep independent brackets. ``False`` (single-book):
+    set full-position trading-stop after fill (legacy path).
+    """
     api_key, api_secret = _load_account_keys(account)
     last = fetch_mark_last(symbol)
     mode_resp = ensure_hedge_mode(account=account, symbol=symbol)
     lev_resp = ensure_exchange_leverage(
         account=account, symbol=symbol, leverage=float(leverage)
     )
-    # Minimal market order (strings only — Bybit rejects numeric qty / stray flags).
-    qty_str = f"{float(qty):.6f}".rstrip("0").rstrip(".")
-    if "." not in qty_str:
-        qty_str = f"{qty_str}.0"
+    qty_str = _qty_str(qty)
     # Hedge-mode: Buy→positionIdx 1, Sell→positionIdx 2.
     position_idx = 1 if side > 0 else 2
-    body = {
+    if side > 0:
+        take = last * (1.0 + float(tp_pct))
+        stop = last * (1.0 - float(sl_pct))
+    else:
+        take = last * (1.0 - float(tp_pct))
+        stop = last * (1.0 + float(sl_pct))
+    body: dict[str, Any] = {
         "category": "linear",
         "symbol": symbol.upper(),
         "side": "Buy" if side > 0 else "Sell",
@@ -473,36 +639,52 @@ def place_min_order(
         "qty": qty_str,
         "positionIdx": position_idx,
     }
-    order = _bybit_signed_request(
-        api_key=api_key,
-        api_secret=api_secret,
-        method="POST",
-        path="/v5/order/create",
-        body=body,
-    )
-    # trading stop
-    if side > 0:
-        take = last * (1.0 + float(tp_pct))
-        stop = last * (1.0 - float(sl_pct))
+    stops: dict[str, Any] = {}
+    if partial_tpsl:
+        # Per-fill bracket; does not overwrite other books' partial TP/SL.
+        body.update(
+            {
+                "takeProfit": f"{take:.2f}",
+                "stopLoss": f"{stop:.2f}",
+                "tpTriggerBy": "MarkPrice",
+                "slTriggerBy": "MarkPrice",
+                "tpslMode": "Partial",
+                "tpOrderType": "Market",
+                "slOrderType": "Market",
+            }
+        )
+        order = _bybit_signed_request(
+            api_key=api_key,
+            api_secret=api_secret,
+            method="POST",
+            path="/v5/order/create",
+            body=body,
+        )
+        stops = {"mode": "partial_on_order", "take": take, "stop": stop}
     else:
-        take = last * (1.0 - float(tp_pct))
-        stop = last * (1.0 + float(sl_pct))
-    stop_body = {
-        "category": "linear",
-        "symbol": symbol.upper(),
-        "takeProfit": f"{take:.2f}",
-        "stopLoss": f"{stop:.2f}",
-        "tpTriggerBy": "MarkPrice",
-        "slTriggerBy": "MarkPrice",
-        "positionIdx": position_idx,
-    }
-    stops = _bybit_signed_request(
-        api_key=api_key,
-        api_secret=api_secret,
-        method="POST",
-        path="/v5/position/trading-stop",
-        body=stop_body,
-    )
+        order = _bybit_signed_request(
+            api_key=api_key,
+            api_secret=api_secret,
+            method="POST",
+            path="/v5/order/create",
+            body=body,
+        )
+        stop_body = {
+            "category": "linear",
+            "symbol": symbol.upper(),
+            "takeProfit": f"{take:.2f}",
+            "stopLoss": f"{stop:.2f}",
+            "tpTriggerBy": "MarkPrice",
+            "slTriggerBy": "MarkPrice",
+            "positionIdx": position_idx,
+        }
+        stops = _bybit_signed_request(
+            api_key=api_key,
+            api_secret=api_secret,
+            method="POST",
+            path="/v5/position/trading-stop",
+            body=stop_body,
+        )
     return {
         "order": order,
         "stops": stops,
@@ -510,7 +692,40 @@ def place_min_order(
         "leverage": float(leverage),
         "leverage_set": lev_resp,
         "mode_set": mode_resp,
+        "partial_tpsl": bool(partial_tpsl),
+        "tp_pct": float(tp_pct),
+        "sl_pct": float(sl_pct),
     }
+
+
+def close_reduce_only(
+    *,
+    account: str,
+    symbol: str,
+    side: int,
+    qty: float,
+) -> dict[str, Any]:
+    """Market reduce-only close for one book qty (max-hold exit)."""
+    api_key, api_secret = _load_account_keys(account)
+    position_idx = 1 if side > 0 else 2
+    # Closing a long = Sell; closing a short = Buy.
+    close_side = "Sell" if side > 0 else "Buy"
+    body = {
+        "category": "linear",
+        "symbol": symbol.upper(),
+        "side": close_side,
+        "orderType": "Market",
+        "qty": _qty_str(qty),
+        "positionIdx": position_idx,
+        "reduceOnly": True,
+    }
+    return _bybit_signed_request(
+        api_key=api_key,
+        api_secret=api_secret,
+        method="POST",
+        path="/v5/order/create",
+        body=body,
+    )
 
 
 def sleep_until_next_close(timeframe: str, *, lead_sec: float = 5.0) -> None:
@@ -528,7 +743,7 @@ def _slice_has_closed_bar(
     symbol: str,
     timeframe: str,
     bar_open_ms: int,
-    source: str = "bybit",
+    source: str = DEFAULT_SIGNAL_SOURCE,
 ) -> bool:
     """True when the live slice already holds features for this closed bar open."""
     if not slice_db.is_file():
@@ -563,6 +778,8 @@ def run_loop(
     strategy = pack["strategy"]
     symbol = strategy["symbol"]
     timeframe = strategy["timeframe"]
+    mt_cfg = parse_multitrade_config(strategy)
+    signal_source = resolve_signal_source(strategy)
     tiers_doc = json.loads((pack_dir / "risk_tiers.json").read_text(encoding="utf-8"))
     qty = float(tiers_doc.get("instrument", {}).get("min_qty", 0.001))
     mark0 = fetch_mark_last(symbol)
@@ -571,8 +788,16 @@ def run_loop(
     )
     leverage = float(lev_info["leverage"])
     con = _state_conn(state_path)
+    exec_label = (
+        f"multitrade/{mt_cfg.get('version_id')} K={mt_cfg['max_positions_per_side']} "
+        f"clarity={mt_cfg['clarity']} fib_ext={mt_cfg['fib_ext']} "
+        f"hold_addon={mt_cfg['hold_addon']}"
+        if mt_cfg
+        else "single_book"
+    )
     print(
         f"micro_runner mode={mode} symbol={symbol} tf={timeframe} qty={qty} "
+        f"signal_source={signal_source} execution_venue=bybit execution={exec_label} "
         f"leverage={leverage} (sl={lev_info['sl_pct']} ceiling={lev_info['ceiling']} "
         f"haircut={lev_info['haircut']} mm={lev_info['mm_buffer']} "
         f"mark_buf={lev_info['mark_buffer']}) "
@@ -608,20 +833,22 @@ def run_loop(
         closed_bar = None
         ohlcv_closed = None
         while time.time() < deadline:
-            ohlcv = fetch_ohlcv_rest(symbol, timeframe, limit=300)
-            # last bar is the currently-forming candle; use previous as closed
-            if len(ohlcv) < 3:
+            # Signal candles = Binance (research parity). Orders still use Bybit.
+            ohlcv = fetch_signal_ohlcv(
+                symbol, timeframe, source=signal_source, limit=300
+            )
+            if len(ohlcv) < 2:
                 time.sleep(close_poll_sec)
                 continue
-            # Prefer last fully closed bar (drop the still-forming candle).
-            candidate = ohlcv.index[-2]
+            # fetch_signal_ohlcv already drops the forming bar.
+            candidate = ohlcv.index[-1]
             last_ms = _get_state(con, "last_processed_bar_ts")
             cand_ms = str(int(candidate.value // 1_000_000))
             if (not skip_schedule) and last_ms is not None and cand_ms <= last_ms:
                 time.sleep(close_poll_sec)
                 continue
             closed_bar = candidate
-            ohlcv_closed = ohlcv.iloc[:-1]
+            ohlcv_closed = ohlcv
             break
         if closed_bar is None or ohlcv_closed is None:
             print("STALE_BAR: no new closed bar within confirm_timeout", flush=True)
@@ -629,9 +856,7 @@ def run_loop(
                 return 3
             continue
 
-        # Refresh structure features from Bybit REST so warehouse lag cannot skip bars.
-        # The :55 timer warms 1h/4h/1w; on close we only recompute the decision timeframe
-        # when that closed bar is not already in the pack slice.
+        # Refresh Binance structure into pack slice (1h + HTF) when decision bar missing.
         t_path = time.perf_counter()
         refresh_ms = 0.0
         refresh_skipped = False
@@ -647,6 +872,7 @@ def run_loop(
                     symbol=symbol,
                     timeframe=timeframe,
                     bar_open_ms=bar_open_ms,
+                    source=signal_source,
                 ):
                     refresh_skipped = True
                     clear_indicator_cache()
@@ -654,9 +880,10 @@ def run_loop(
                     t0 = time.perf_counter()
                     refresh_symbol(
                         symbol=symbol,
-                        timeframes=(timeframe,),
+                        timeframes=(timeframe, "4h", "1w"),
                         indicator_db=slice_db,
-                        limit=350,
+                        limit=800,
+                        source=signal_source,
                     )
                     refresh_ms = (time.perf_counter() - t0) * 1000.0
                     clear_indicator_cache()
@@ -686,15 +913,101 @@ def run_loop(
             },
         }
         order_result = None
+        detail["execution"] = "multitrade" if mt_cfg else "single_book"
+
+        # Multitrade: reconcile ledger vs exchange, then force max-hold exits.
+        if mode == "LIVE" and mt_cfg is not None:
+            try:
+                recon = _reconcile_books_to_exchange(
+                    con, account=account, symbol=symbol, qty_unit=qty
+                )
+                detail["reconcile"] = recon
+                for expired in _expired_books(con, bar_ms=bar_ms, timeframe=timeframe):
+                    try:
+                        close_resp = close_reduce_only(
+                            account=account,
+                            symbol=symbol,
+                            side=int(expired["side"]),
+                            qty=float(expired["qty"]),
+                        )
+                        _mark_book_closed(con, str(expired["book_id"]))
+                        print(
+                            f"MAX_HOLD_CLOSE book={expired['book_id']} "
+                            f"retCode={close_resp.get('retCode')} "
+                            f"retMsg={close_resp.get('retMsg')}",
+                            flush=True,
+                        )
+                        detail.setdefault("max_hold_closes", []).append(
+                            {
+                                "book_id": expired["book_id"],
+                                "retCode": close_resp.get("retCode"),
+                                "retMsg": close_resp.get("retMsg"),
+                            }
+                        )
+                    except Exception as exc:  # noqa: BLE001
+                        print(
+                            f"MAX_HOLD_FAIL book={expired['book_id']} "
+                            f"{type(exc).__name__}: {exc}",
+                            flush=True,
+                        )
+            except Exception as exc:  # noqa: BLE001
+                detail["reconcile_error"] = f"{type(exc).__name__}: {exc}"
+                print(f"RECONCILE_WARN {detail['reconcile_error']}", flush=True)
+
         if mode == "LIVE" and int(decision["side"]) != 0:
-            # One bot handles both directions; do not open a second book while in a position.
-            open_books = _open_position_sides(account=account, symbol=symbol)
-            if open_books:
-                detail["skip_reason"] = f"position_already_open:{','.join(open_books)}"
-                print(f"SKIP_ENTRY {detail['skip_reason']}", flush=True)
+            side_i = int(decision["side"])
+            tp_use = float(decision["tp_pct"])
+            sl_use = float(decision["sl_pct"])
+            hold_use = int(strategy.get("horizon_bars") or 6)
+            book_idx = 1
+            allow_entry = True
+
+            if mt_cfg is not None:
+                strength_hist = _load_strength_hist(con)
+                n_open = _count_open_books(con, side=side_i)
+                gate = decide_entry_gate(
+                    side=side_i,
+                    pred_mean=float(decision.get("pred_mean") or 0.0),
+                    n_open_same_side=n_open,
+                    strength_hist=strength_hist,
+                    cfg=mt_cfg,
+                )
+                detail["multitrade_gate"] = {
+                    k: gate[k]
+                    for k in (
+                        "allow",
+                        "skip_reason",
+                        "book_idx",
+                        "tp_pct",
+                        "max_hold_bars",
+                        "is_addon",
+                    )
+                    if k in gate
+                }
+                if gate.get("append_strength"):
+                    strength_hist.append(float(gate.get("abs_mean") or abs(float(decision.get("pred_mean") or 0.0))))
+                    _save_strength_hist(
+                        con, strength_hist, lookback=int(mt_cfg["mean_lookback"])
+                    )
+                if not gate["allow"]:
+                    allow_entry = False
+                    detail["skip_reason"] = str(gate.get("skip_reason") or "multitrade_gate")
+                    print(f"SKIP_ENTRY {detail['skip_reason']}", flush=True)
+                else:
+                    book_idx = int(gate["book_idx"])
+                    tp_use = float(gate["tp_pct"])
+                    sl_use = float(gate["sl_pct"])
+                    hold_use = int(gate["max_hold_bars"])
             else:
+                # Single-book: one bot, at most one open book on this symbol.
+                open_books = _open_position_sides(account=account, symbol=symbol)
+                if open_books:
+                    allow_entry = False
+                    detail["skip_reason"] = f"position_already_open:{','.join(open_books)}"
+                    print(f"SKIP_ENTRY {detail['skip_reason']}", flush=True)
+
+            if allow_entry:
                 try:
-                    # Refresh mark so tier cap matches current notional.
                     mark_now = fetch_mark_last(symbol)
                     lev_now = resolve_pack_leverage(
                         strategy, tiers_doc, mark_price=mark_now, qty=qty
@@ -702,14 +1015,19 @@ def run_loop(
                     leverage = float(lev_now["leverage"])
                     detail["leverage"] = leverage
                     detail["leverage_ceiling"] = lev_now["ceiling"]
+                    detail["tp_pct"] = tp_use
+                    detail["sl_pct"] = sl_use
+                    detail["book_idx"] = book_idx
+                    detail["max_hold_bars"] = hold_use
                     order_result = place_min_order(
                         account=account,
                         symbol=symbol,
-                        side=int(decision["side"]),
+                        side=side_i,
                         qty=qty,
-                        tp_pct=float(decision["tp_pct"]),
-                        sl_pct=float(decision["sl_pct"]),
+                        tp_pct=tp_use,
+                        sl_pct=sl_use,
                         leverage=leverage,
+                        partial_tpsl=bool(mt_cfg is not None),
                     )
                     order_body = order_result.get("order") or {}
                     detail["order_retCode"] = order_body.get("retCode")
@@ -721,9 +1039,34 @@ def run_loop(
                         f"ORDER retCode={detail.get('order_retCode')} "
                         f"retMsg={detail.get('order_retMsg')} "
                         f"stops={detail.get('stops_retCode')} "
+                        f"book={book_idx} tp={tp_use} hold={hold_use} "
                         f"leverage={leverage}",
                         flush=True,
                     )
+                    if (
+                        mt_cfg is not None
+                        and int(order_body.get("retCode") or -1) == 0
+                    ):
+                        oid = None
+                        try:
+                            oid = str(
+                                ((order_body.get("result") or {}).get("orderId"))
+                                or ""
+                            ) or None
+                        except Exception:  # noqa: BLE001
+                            oid = None
+                        _insert_open_book(
+                            con,
+                            book_id=f"{bar_ms}_{side_i}_{book_idx}",
+                            side=side_i,
+                            entry_bar_ms=bar_ms,
+                            max_hold_bars=hold_use,
+                            qty=qty,
+                            tp_pct=tp_use,
+                            sl_pct=sl_use,
+                            book_idx=book_idx,
+                            order_id=oid,
+                        )
                 except Exception as exc:  # noqa: BLE001
                     detail["order_error"] = f"{type(exc).__name__}: {exc}"
                     print(f"ORDER_FAIL {detail['order_error']}", flush=True)

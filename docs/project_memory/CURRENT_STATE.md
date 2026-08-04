@@ -4,8 +4,8 @@ Updated: 2026-08-04
 
 ## Status
 
-`LIVE_STOP / RESEARCH_ONLY` for scale. Micro-live authorized on Xxobster7 only
-(BTC/ETH/SOL structure packs; certificates expire 2026-08-17).
+`LIVE_STOP / RESEARCH_ONLY` for scale. Micro-live: Xxobster7 single-book fleet
+(BTC/ETH/SOL) + Xxobster8 ETH **multitrade v1** (certificates expire 2026-08-17).
 
 ## ABC family (2026-08-03) — D-030 / D-031
 
@@ -38,12 +38,19 @@ survive all three controls; nonlinear cross-asset direction not promoted.
   - `llm2-structure-eth` ETHUSDT 1h direction
   - `llm2-structure-sol` SOLUSDT 1h direction
   Each: MIN_EXCHANGE, SL-derived **18×**, hedge mode, max one book per symbol.
+- **ETH multitrade on Xxobster8 (user-authorized 2026-08-04):** distinct from
+  single-book ETH. **Active:** `eth_multitrade_v1_1` — mean_strength, fib_ext=1.618
+  (book3+ TP 2.618%), hold_addon=12, **K=7**/side. Service
+  `llm2-structure-eth-multitrade-v1_1`. Prior `eth_multitrade_v1` (K=6) pack+unit
+  retained stopped for rollback. Map: `artifacts/live_packs/VERSIONS.md`. MICRO only.
 - Live leverage is SL-derived with security margin (D-001): `floor(1/(sl+0.5%+0.2%))*0.5`
   → **18×** for SL 2% (ceiling 37). Runner calls Bybit `set-leverage` + hedge mode on LIVE
   start and before every entry; pack leverage mismatch fails closed.
 - Direction packs use gate ±0.10 (research parity), not the fee hurdle.
-- Structure refresh: Bybit REST → pack slice (`llm2-structure-refresh.timer` :55 + on-decide).
-  Collector now registers `llm2_structure` for BTCUSDT 1h/4h/1w (shared BTC 1h had been stale).
+- Structure / signal candles: **Binance USD-M** (research parity) → pack slice; orders /
+  mark / TP-SL remain **Bybit**. Env `LLM2_STRUCTURE_SOURCE=binance`. Collector discovers
+  Binance 1h/4h/1w for BTC/ETH/SOL; on-decide + `:55` refresh recompute structure from
+  Binance shared candles (REST fallback).
 - ETH/SOL full-gate settles (fold V2): all 4 combos **overall PASS**, tier 3;
   report `artifacts/reports/structure_v1_eth_sol_settle_20260803T161346Z.json`.
   **Quotable promotion proxies (stitched outer OOS):** ETH 1h direction pooled PF ≈

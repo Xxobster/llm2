@@ -1,0 +1,19 @@
+strategy_id: structure_v1_lgbm_ETHUSDT_1h_direction_multitrade_v1_1
+version_id: eth_multitrade_v1_1
+status: AUTHORIZED
+authorized_by_user: true
+vps_host: 94.156.189.76
+account_ref: Xxobster8
+intended_vps_host: 94.156.189.76
+intended_account_ref: Xxobster8
+pack_path: artifacts/live_packs/structure_v1_ethusdt_multitrade_v1_1
+pack_hash: 984d21f24fb23fcbd635308ff94fd6058f49f49e4af6e097dfc2ecd4544a0bd7
+expires_utc: '2026-08-17T00:00:00Z'
+created_utc: '2026-08-04T06:20:00Z'
+execution_mode: multitrade
+replaces: eth_multitrade_v1
+notes: >-
+  User explicitly authorized 2026-08-04 to REPLACE eth_multitrade_v1 (K=6) on
+  Xxobster8 / 94.156.189.76 with eth_multitrade_v1_1:
+  mean_strength|fib_ext=1.618|hold=12|K=7. MIN_EXCHANGE only.
+  Prior K=6 pack retained for rollback. Expires 2026-08-17 unless renewed.

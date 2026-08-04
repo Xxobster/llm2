@@ -130,8 +130,8 @@ def timeframe_ms(timeframe: str) -> int:
 def _default_source(symbol: str) -> str:
     """Vendor that produced the structure for a symbol, matching the macro registry.
 
-    Live packs set ``LLM2_STRUCTURE_SOURCE=bybit`` because on-decide refresh writes Bybit
-    REST structure into the pack slice; the research default remains Binance warehouse.
+    Live packs set ``LLM2_STRUCTURE_SOURCE=binance`` (research parity). Execution remains
+    on Bybit; only signal candles / structure rows use this source.
     """
     override = (os.environ.get("LLM2_STRUCTURE_SOURCE") or "").strip()
     if override:

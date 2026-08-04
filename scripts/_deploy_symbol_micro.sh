@@ -30,8 +30,10 @@ Type=simple
 WorkingDirectory=${REMOTE_ROOT}
 Environment=PYTHONPATH=${REMOTE_ROOT}
 Environment=LLM2_INDICATORS_DB=${REMOTE_ROOT}/pack/indicators_live_slice.sqlite
-Environment=LLM2_STRUCTURE_SOURCE=bybit
+Environment=LLM2_STRUCTURE_SOURCE=binance
+Environment=SHARED_CANDLES_DB=/var/lib/botsgeneral/shared_candles.db
 Environment=TRADING_SECRETS_ENV=/root/.trading/secrets.env
+Environment=PYTHONPATH=${REMOTE_ROOT}:/opt/botsgeneral/packages/live_candles/src:/opt/botsgeneral/packages/indicators/src
 ExecStart=${REMOTE_ROOT}/venv/bin/python -m llm2.live.micro_runner --pack ${REMOTE_ROOT}/pack --state ${REMOTE_ROOT}/state/micro_live_state.sqlite --mode LIVE --live-orders --account ${ACCOUNT} --cert ${REMOTE_ROOT}/certificate.yaml
 Restart=always
 RestartSec=10

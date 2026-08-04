@@ -1,0 +1,16 @@
+{
+  "strategy_id": "structure_v1_lgbm_ETHUSDT_1h_direction_multitrade_v1_1",
+  "version_id": "eth_multitrade_v1_1",
+  "status": "FROZEN_LIVE_PACK",
+  "execution_mode": "multitrade",
+  "account_ref_expected": "Xxobster8",
+  "vps_host_expected": "94.156.189.76",
+  "replaces_version": "eth_multitrade_v1",
+  "frozen_utc": "20260804T061954Z",
+  "rollback": {
+    "this_pack": "artifacts/live_packs/structure_v1_ethusdt_multitrade_v1_1",
+    "previous_pack": "artifacts/live_packs/structure_v1_ethusdt_multitrade_v1",
+    "stop_service": "llm2-structure-eth-multitrade-v1_1",
+    "restore_previous_service": "llm2-structure-eth-multitrade-v1"
+  }
+}
