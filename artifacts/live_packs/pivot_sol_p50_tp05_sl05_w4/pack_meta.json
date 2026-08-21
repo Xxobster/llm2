@@ -1,0 +1,43 @@
+{
+  "pack_name": "pivot_sol_p50_tp05_sl05_w4",
+  "arm_id": "sol_p50_tp05_sl05_w4",
+  "status": "LIVE_ACTIVE",
+  "readiness": "RESEARCH_ONLY",
+  "deployable": true,
+  "evidence": {
+    "four_proof_ok": true,
+    "note": "Attach four_proof / tip-identity before certificate AUTHORIZED",
+    "four_proof_hashes": {
+      "builder_responsiveness": "15e3f97010eccceeb6efbeea83e4cf161eeb63c51b8fbdedfdd0769853a0511e",
+      "recompute_prefix": "2ac66b3b7c0f88019c659a1bd3168deadfd76e70314ba87dff9e8300e3a7bcdd",
+      "no_live_feature_fill": "ef3948c4d17f9b73312186268226732fd6d6ef0d9e5d6c901696cdab59f7e3a8",
+      "layer_a_pred_identity": "45db1639fffc9722fcfadb53035b1efde5108e5bad488cd15da38fbf18114714"
+    },
+    "four_proof_summary_sha256": "1acfb3b880f90132b3b0958ab627d1ec1f6666d853b8e9b659f065a4038f53ee",
+    "four_proof_artifact_dir": "D:\\projects\\LLM2\\artifacts\\evidence\\four_proof\\pivot_pivot_sol_geo_tp1_sl1_p75_w4_SOLUSDT_15m_20260812T130914Z"
+  },
+  "frozen_utc": "2026-08-21T21:30:00Z",
+  "parent_pack": "pivot_sol_geo_tp1_sl1_p75_w4",
+  "exit_override": {
+    "tp_pct": 0.005,
+    "sl_pct": 0.005,
+    "leverage": 41.0
+  },
+  "note": "Same model/features/gate as parent 1%/1% pack. Take-profit and stop-loss changed to 0.5%/0.5% by user live authorization. Research still LIVE_STOP: ~80% same-15-minute exits.",
+  "four_proof_ok": true,
+  "four_proof_hashes": {
+    "builder_responsiveness": "15e3f97010eccceeb6efbeea83e4cf161eeb63c51b8fbdedfdd0769853a0511e",
+    "recompute_prefix": "2ac66b3b7c0f88019c659a1bd3168deadfd76e70314ba87dff9e8300e3a7bcdd",
+    "no_live_feature_fill": "ef3948c4d17f9b73312186268226732fd6d6ef0d9e5d6c901696cdab59f7e3a8",
+    "layer_a_pred_identity": "45db1639fffc9722fcfadb53035b1efde5108e5bad488cd15da38fbf18114714"
+  },
+  "live": {
+    "deployed": true,
+    "account_ref": "Xxobster9",
+    "service": "llm2-pivot-sol_p50_tp05_sl05",
+    "vps_host": "212.73.150.178"
+  },
+  "sklearn_runtime": "1.7.2",
+  "sklearn_repacked_utc": "2026-08-12T14:08:05Z",
+  "pack_hash": "b35cadbf641bcb2b81b4aa8ef957741a5d656ddac9da8a71c25e1ee5a9a41457"
+}

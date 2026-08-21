@@ -83,12 +83,18 @@ def predictions_to_signals(
             tp = max(tp_pct * float(vol_scale[i]), edge * 2)
             sl = max(sl_pct * float(vol_scale[i]), edge * 2)
         side = Side.LONG if s > 0 else Side.SHORT
+        meta: dict = {}
+        if pred.mean is not None and np.isfinite(pred.mean[i]):
+            pm = float(pred.mean[i])
+            meta["pred_mean"] = pm
+            meta["abs_mean"] = abs(pm)
         signals.append(
             Signal(
                 ts_ms=int(ts_ms[i]),
                 side=side,
                 stop_offset=sl,
                 target_offset=tp,
+                meta=meta,
             )
         )
     return signals

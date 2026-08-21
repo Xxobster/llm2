@@ -18,8 +18,31 @@ _SPACE_IMPORTS: dict[str, tuple[str, str]] = {
     "macro_v1": ("llm2.features.macro_v1", "build_macro_v1"),
     "crosspair_v1": ("llm2.features.crosspair_v1", "build_crosspair_v1"),
     "structure_v1": ("llm2.features.structure_v1", "build_structure_v1"),
+    # Causal structure minus last_retrace* (post-CAUS-STRUCT-001 clean alpha).
+    "structure_v1_no_retrace": ("llm2.features.structure_v1", "build_structure_v1_no_retrace"),
+    # structure without last_retrace* + causal running-retrace depth (not orange).
+    "structure_v1_run_retrace": ("llm2.features.run_retrace_v1", "build_structure_v1_run_retrace"),
     "xs_v1": ("llm2.features.xs_v1", "build_xs_v1"),
+    "oi_v1": ("llm2.features.oi_v1", "build_oi_v1"),
+    "structure_oi_v1": ("llm2.features.oi_v1", "build_structure_oi_v1"),
+    "news_v1": ("llm2.features.news_v1", "build_news_v1"),
+    "structure_news_v1": ("llm2.features.news_v1", "build_structure_news_v1"),
+    "structure_oi_news_v1": ("llm2.features.news_v1", "build_structure_oi_news_v1"),
 }
+
+# Spaces that need symbol (and usually timeframe) kwargs.
+_STRUCTURE_LIKE = frozenset(
+    {
+        "structure_v1",
+        "structure_v1_no_retrace",
+        "structure_v1_run_retrace",
+        "oi_v1",
+        "structure_oi_v1",
+        "news_v1",
+        "structure_news_v1",
+        "structure_oi_news_v1",
+    }
+)
 
 
 def get_builder(space: str) -> Builder:
@@ -47,28 +70,21 @@ def build_space(ohlcv: pd.DataFrame, space: str, **kwargs) -> pd.DataFrame:
         )
     if space == "macro_v1":
         return builder(ohlcv, **{k: v for k, v in kwargs.items() if k in ("timeframe",)})
-    if space == "structure_v1":
-        # The warehouse is keyed by symbol and timeframe, so this space cannot be built
-        # from bars alone; failing loudly beats silently returning an empty frame.
+    if space in _STRUCTURE_LIKE:
+        # Warehouse-backed: keyed by symbol/timeframe; fail loud without symbol.
         missing = {"symbol"} - set(kwargs)
-        if missing:
-            raise TypeError(f"structure_v1 requires {sorted(missing)}")
-        return builder(
-            ohlcv,
-            **{
-                k: v
-                for k, v in kwargs.items()
-                if k
-                in (
-                    "symbol",
-                    "timeframe",
-                    "higher_timeframes",
-                    "include_volatility_normalised",
-                    "source",
-                    "recent_only",
-                )
-            },
+        if missing and space != "news_v1":
+            raise TypeError(f"{space} requires {sorted(missing)}")
+        allowed = (
+            "symbol",
+            "timeframe",
+            "higher_timeframes",
+            "include_volatility_normalised",
+            "source",
+            "recent_only",
+            "exchange",
         )
+        return builder(ohlcv, **{k: v for k, v in kwargs.items() if k in allowed})
     return builder(ohlcv)
 
 

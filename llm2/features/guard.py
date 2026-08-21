@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 from typing import Any, Callable
 
@@ -29,6 +30,54 @@ def _prefer_leakage() -> None:
         )
 
 
+_WAREHOUSE_STRUCTURE_SPACES = frozenset(
+    {
+        "structure_v1",
+        "structure_v1_no_retrace",
+        "structure_v1_run_retrace",
+        "oi_v1",
+        "structure_oi_v1",
+        "news_v1",
+        "structure_news_v1",
+        "structure_oi_news_v1",
+    }
+)
+
+
+def _with_recomputed_structure(
+    ohlcv: pd.DataFrame,
+    *,
+    interval: str,
+    symbol: str,
+    space: str,
+    **kwargs: Any,
+) -> pd.DataFrame:
+    """Point ``LLM2_INDICATORS_DB`` at a temp warehouse built from ``ohlcv``, then build."""
+    from llm2.data.indicators import clear_indicator_cache
+    from llm2.features.structure_recompute import recompute_structure_warehouse
+    from llm2.features.structure_v1 import HIGHER_TIMEFRAMES
+
+    htfs = HIGHER_TIMEFRAMES.get(interval, ())
+    db = recompute_structure_warehouse(
+        ohlcv,
+        symbol=symbol,
+        timeframe=interval,
+        higher_timeframes=tuple(dict.fromkeys((interval, *htfs))),
+        source=str(kwargs.get("source") or "binance"),
+    )
+    prev = os.environ.get("LLM2_INDICATORS_DB")
+    os.environ["LLM2_INDICATORS_DB"] = str(db)
+    try:
+        clear_indicator_cache()
+        return build_space(ohlcv, space, symbol=symbol, timeframe=interval, **kwargs)
+    finally:
+        clear_indicator_cache()
+        if prev is None:
+            os.environ.pop("LLM2_INDICATORS_DB", None)
+        else:
+            os.environ["LLM2_INDICATORS_DB"] = prev
+
+
 def build_features_for_guard(
     ohlcv: pd.DataFrame,
     *,
@@ -37,20 +86,20 @@ def build_features_for_guard(
     symbol: str = "BTCUSDT",
     **kwargs: Any,
 ) -> pd.DataFrame:
-    """Entry point for leakage prefix-invariance audit (same path as research).
+    """Entry point for the shared leakage audit (must be a pure function of ``ohlcv``).
 
-    Note on what prefix-invariance can and cannot prove for warehouse-backed spaces such as
-    ``structure_v1`` and ``macro_v1``: truncating the bar frame does not truncate the
-    database, so the stored values are re-served unchanged and the test passes trivially on
-    them. It still earns its place, because it does exercise the transforms layered on top —
-    the trailing volatility normaliser here would fail immediately if it were centred. The
-    causality evidence for the stored values themselves comes from the confirmation-time
-    audit documented in :mod:`llm2.data.indicators`, not from this test.
+    Warehouse-backed spaces join a pre-computed indicator database. Truncating the bar
+    frame does not truncate that database, so prefix-invariance used to false-PASS and
+    missed CAUS-STRUCT-001. The guard recomputes structure into a temporary warehouse from
+    the candles it is handed, and the leakage engine's builder-responsiveness probe
+    (CAUS-WAREHOUSE-001) hard-fails any builder that still ignores its frame.
     """
     if space in ("crosspair_v1", "xs_v1"):
         return build_space(ohlcv, space, symbol=symbol, **kwargs)
-    if space == "structure_v1":
-        return build_space(ohlcv, space, symbol=symbol, timeframe=interval, **kwargs)
+    if space in _WAREHOUSE_STRUCTURE_SPACES:
+        return _with_recomputed_structure(
+            ohlcv, interval=interval, symbol=symbol, space=space, **kwargs
+        )
     _ = interval
     return build_space(ohlcv, space, **{k: v for k, v in kwargs.items() if k != "symbol"})
 

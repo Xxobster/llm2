@@ -115,3 +115,40 @@ def build_structure_v1(
     out = out.reindex(target_idx)
     out.index = ohlcv.index
     return out.replace([np.inf, -np.inf], np.nan)
+
+
+def drop_last_retrace_columns(frame: pd.DataFrame) -> pd.DataFrame:
+    """Remove every ``last_retrace*`` column (native + higher-timeframe / vol twins).
+
+    Used by the post-CAUS-STRUCT-001 hypothesis that structure still has edge when
+    the retracement column is not in the model at all (true-cyan space without
+    that family), not as a route back to leaky orange reconstruction.
+    """
+    drop = [c for c in frame.columns if "last_retrace" in str(c).lower()]
+    if not drop:
+        return frame
+    return frame.drop(columns=drop)
+
+
+def build_structure_v1_no_retrace(
+    ohlcv: pd.DataFrame,
+    *,
+    symbol: str,
+    timeframe: str = "1h",
+    higher_timeframes: tuple[str, ...] | None = None,
+    include_volatility_normalised: bool = True,
+    source: str | None = None,
+    recent_only: bool = False,
+) -> pd.DataFrame:
+    """Causal ``structure_v1`` without any ``last_retrace*`` columns (contamination-free)."""
+    return drop_last_retrace_columns(
+        build_structure_v1(
+            ohlcv,
+            symbol=symbol,
+            timeframe=timeframe,
+            higher_timeframes=higher_timeframes,
+            include_volatility_normalised=include_volatility_normalised,
+            source=source,
+            recent_only=recent_only,
+        )
+    )

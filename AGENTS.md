@@ -3,10 +3,13 @@
 Read and obey:
 
 1. `.cursor/rules/trading-bot-core.mdc`
-2. `docs/project_memory/TRADING_BOT_RESEARCH_STANDARD_V2.md`
-3. `docs/project_memory/FROZEN_DEFAULT_GATES_V2_1.md`
-4. `docs/project_memory/TRADING_PROJECT_PROFILE.md`
-5. `docs/project_memory/CURRENT_STATE.md`
+2. `.cursor/rules/long-batch-job-watchdog.mdc`
+3. `.cursor/rules/continuous-services-always-on.mdc`
+4. `docs/project_memory/TRADING_BOT_RESEARCH_STANDARD_V2.md`
+5. `docs/project_memory/FROZEN_DEFAULT_GATES_V2_1.md`
+6. `docs/project_memory/PROCESS_SUPERVISION_AND_CANDLE_FRESHNESS.md`
+7. `docs/project_memory/TRADING_PROJECT_PROFILE.md`
+8. `docs/project_memory/CURRENT_STATE.md`
 
 ## Engines
 
@@ -22,6 +25,42 @@ Refuse if `tradesim.__file__` / `leakage.__file__` lack `botsgeneral`.
 ## Default posture
 
 `LIVE_STOP / RESEARCH_ONLY`. Alert the user only for Tier ≥ 2 gate candidates. Keep hunting.
+
+## Process classes (mandatory)
+
+- **Long batch (finite, local, >~10 min):** run under `scripts/watchdog_run.ps1` with `python -u`. Restart on crash/stall (bounded). Verify process id — do not trust a frozen terminal `status: running`.
+- **Continuous (infinite):** candle collectors, trading/shadow bots, poker bots must **always run** when authorized (`systemd` + restart). Process present ≠ healthy.
+- **Candle tip (`LIVE-DATA-001`):** before every decision, local last closed candle must match exchange **server time** expected tip. Collector/fetch errors (even 15m only) ⇒ fail closed (no new entries; keep protective exits). See `PROCESS_SUPERVISION_AND_CANDLE_FRESHNESS.md`.
+
+## FOUR_PROOF_GATE_V1 (mandatory before train / pack freeze / live authorize)
+
+A green shared `leakage` report alone is **illegal** evidence for warehouse-backed
+spaces (`structure_v1`, `macro_v1`, …). Before any train, hunt fold, pack freeze, or
+live certificate authorization, all four proofs must be green and hashed:
+
+| # | Proof | What it catches |
+|---|---|---|
+| 1 | **builder_responsiveness** (`CAUS-WAREHOUSE-001`) | Builder ignores candles / reads external cache |
+| 2 | **recompute_prefix** | Warehouse recomputed from handed candles is prefix-invariant |
+| 3 | **no_live_feature_fill** | Live invents values (`fillna(0)`) research never scored |
+| 4 | **layer_a_pred_identity** | Shadow audit builder ≠ train/live feature path |
+
+API: `llm2.evidence.four_proof.run_four_proof_gate` → attach via
+`attach_four_proof_to_pack`. `register_freeze` and live certificates **refuse**
+without `evidence.four_proof_hashes` + `four_proof_ok=true`.
+
+Live↔backtest `pred_mean` / side mismatch is a **hard stop** (same class as a failed
+gate). Stop optimization; do not freeze or deploy until Layer A is identically zero.
+
+## Ops parity gates (anytime)
+
+| Name | Script | Scope |
+|---|---|---|
+| **Fleet Live Signal Parity** | `scripts/ops_fleet_live_signal_parity.py` | All active bots ln1+ln3: last 1h live `pred_mean` vs local BT |
+| Ops Live Research Parity (single unit) | `scripts/ops_live_research_parity_gate.py` | One unit deep tip + pack + `pred_mean` |
+| 1m Indicator Parity Bot | `scripts/run_1m_indicator_parity_bot.py` | Indicator tip identity only (no model) |
+
+None of these promote readiness. Update `FLEET_REGISTRY` in the fleet script when units change.
 
 ## Lockbox / Finplot (D-038)
 

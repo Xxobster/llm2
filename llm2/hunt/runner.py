@@ -128,10 +128,15 @@ def _labels_for_target(ohlcv: pd.DataFrame, target: str, horizon: int, symbol: s
     raise ValueError(f"unknown target: {target}")
 
 
-def _feature_matrix(ohlcv: pd.DataFrame, space: str, symbol: str) -> pd.DataFrame:
+def _feature_matrix(
+    ohlcv: pd.DataFrame,
+    space: str,
+    symbol: str,
+    timeframe: str = "1h",
+) -> pd.DataFrame:
     if space == "ohlcv_v1":
         return build_ohlcv_v1(ohlcv)
-    return build_space(ohlcv, space, symbol=symbol)
+    return build_space(ohlcv, space, symbol=symbol, timeframe=timeframe)
 
 
 def _tier_from_gates(
@@ -212,7 +217,58 @@ def run_nested_hunt(config: HuntConfig, *, db: ResearchDB | None = None) -> dict
         append_ledger(f"LEAKAGE FAIL space={config.feature_space}: {audit.get('report_text', '')[:500]}", tier=0)
         return {"generation_id": config.generation_id, "status": "LEAKAGE_FAIL", "audit": audit["report_text"]}
 
-    feats = _feature_matrix(ohlcv, config.feature_space, config.symbol)
+    # Warehouse-backed spaces: shared leakage PASS alone is illegal (D-014/D-016/D-055).
+    from llm2.evidence.four_proof import (
+        refuse_warehouse_leakage_pass_alone,
+        require_four_proof_ok,
+        run_four_proof_gate,
+    )
+    from llm2.research_policy import WAREHOUSE_BACKED_SPACES
+
+    four_proof_summary = None
+    if config.feature_space in WAREHOUSE_BACKED_SPACES:
+        # Structure Layer-A requires the *same* candle universe as the warehouse tip.
+        # Truncating to 4k bars recomputes a different swing path and false-fails identity.
+        four_proof_summary = run_four_proof_gate(
+            space=config.feature_space,
+            symbol=config.symbol,
+            timeframe=config.timeframe,
+            ohlcv=ohlcv,
+        )
+        if not bool(four_proof_summary.get("ok")):
+            append_ledger(
+                f"FOUR_PROOF FAIL space={config.feature_space}: "
+                f"{four_proof_summary.get('proofs_ok')}",
+                tier=0,
+            )
+            return {
+                "generation_id": config.generation_id,
+                "status": "FOUR_PROOF_FAIL",
+                "four_proof": four_proof_summary,
+                "audit": audit.get("report_text"),
+            }
+        refuse_warehouse_leakage_pass_alone(
+            space=config.feature_space,
+            leakage_passed=bool(audit["passed"]),
+            four_proof_ok=True,
+        )
+        try:
+            require_four_proof_ok(four_proof_summary)
+        except Exception as exc:  # noqa: BLE001 — PolicyError or RuntimeError
+            append_ledger(
+                f"FOUR_PROOF FAIL space={config.feature_space}: {exc}",
+                tier=0,
+            )
+            return {
+                "generation_id": config.generation_id,
+                "status": "FOUR_PROOF_FAIL",
+                "four_proof": four_proof_summary,
+                "audit": audit.get("report_text"),
+            }
+
+    feats = _feature_matrix(
+        ohlcv, config.feature_space, config.symbol, config.timeframe
+    )
     family = target_family(config.target)
     y_ser = _labels_for_target(
         ohlcv, config.target, config.horizon, config.symbol
@@ -272,7 +328,9 @@ def run_nested_hunt(config: HuntConfig, *, db: ResearchDB | None = None) -> dict
         symbol=config.symbol,
         timeframe=config.timeframe,
         fold_index=f0.fold_index,
-        build_features=lambda df: _feature_matrix(df, config.feature_space, config.symbol),
+        build_features=lambda df: _feature_matrix(
+            df, config.feature_space, config.symbol, config.timeframe
+        ),
         build_labels=lambda df: _labels_for_target(
             df, config.target, config.horizon, config.symbol
         ).to_frame("y"),

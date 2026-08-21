@@ -2,5 +2,21 @@
   "version_id": "sol_k5_double3h_v1",
   "parent": "structure_v1_solusdt_direction",
   "account": "Xxobster10",
-  "frozen_utc": "2026-08-04T14:40:00Z"
+  "frozen_utc": "2026-08-04T14:40:00Z",
+  "strategy_id": "structure_v1_lgbm_SOLUSDT_1h_direction_k5_double3h_v1",
+  "status": "LIVE_ACTIVE",
+  "readiness": "RESEARCH_ONLY",
+  "pack_hash": "b75261b8697854a58c165641c2de38f7b9b51e08f729b5bfdfb6defe56adca24",
+  "pack_path": "artifacts/live_packs/structure_v1_solusdt_k5_double3h_v1",
+  "parent_pack": "structure_v1_solusdt_direction",
+  "replaces_version": null,
+  "evidence": {},
+  "live": {
+    "account_ref": "Xxobster10",
+    "service": "llm2-structure-sol-k5-double3h-v1",
+    "deployed": true,
+    "certificate_path": "configs/live/structure_v1_solusdt_k5_double3h_v1_certificate.yaml",
+    "deployed_utc": "20260804T162659Z"
+  },
+  "metrics": {}
 }

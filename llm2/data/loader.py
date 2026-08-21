@@ -13,15 +13,27 @@ from llm2.paths import MARKET_DB
 _PRICE_TYPE_PREFERENCE = ("last_price", "last")
 
 
-def _resolve_price_type(
+def _resolve_price_types(
     conn: sqlite3.Connection,
     *,
     symbol: str,
     timeframe: str,
     source: str,
-) -> str:
+) -> list[str]:
+    """Labels that together form one last-trade series for this symbol/timeframe.
+
+    ``price_type`` is not part of the ``market_ohlcv`` primary key
+    ``(source, symbol, timeframe, ts_ms)``, so a bar exists exactly once and the
+    ``last`` / ``last_price`` labels are disjoint slices of the *same* series, split
+    wherever the downloader changed its label. Pinning one label therefore does not
+    pick "the better series", it deletes part of the history: ETHUSDT 1h ``last``
+    holds 8,844 bars with a single 49,807-bar hole covering 2020-01 to 2025-09,
+    which is exactly the range labelled ``last_price``.
+
+    Returns both synonyms when present. Mark prices are never mixed in.
+    """
     rows = conn.execute(
-        "SELECT price_type, COUNT(*) AS n FROM market_ohlcv "
+        "SELECT price_type, COUNT(*) AS n, MAX(ts_ms) AS tip_ms FROM market_ohlcv "
         "WHERE symbol = ? AND timeframe = ? AND source = ? "
         "AND (is_complete = 1 OR is_complete IS NULL) "
         "GROUP BY price_type ORDER BY n DESC",
@@ -30,18 +42,11 @@ def _resolve_price_type(
     if not rows:
         raise ValueError(f"No OHLCV for {symbol} {timeframe} source={source}")
     available = {str(r[0]): int(r[1]) for r in rows}
-    # ``last`` and ``last_price`` are warehouse synonyms for Binance last-trade.
-    # Prefer the densest synonym so a short newly labelled ``last_price`` series
-    # cannot shadow a long ``last`` history (or the reverse).
-    synonyms = [
-        (pref, available[pref])
-        for pref in _PRICE_TYPE_PREFERENCE
-        if available.get(pref, 0) > 0
-    ]
+    synonyms = [p for p in _PRICE_TYPE_PREFERENCE if available.get(p, 0) > 0]
     if synonyms:
-        return max(synonyms, key=lambda item: item[1])[0]
-    # Fall back to the densest remaining type (never mix).
-    return str(rows[0][0])
+        return synonyms
+    # Fall back to the densest remaining type (never mix distinct price kinds).
+    return [str(rows[0][0])]
 
 
 def load_ohlcv(
@@ -65,17 +70,21 @@ def load_ohlcv(
     conn = sqlite3.connect(f"file:{MARKET_DB}?mode=ro", uri=True, timeout=120.0)
     try:
         conn.execute("PRAGMA busy_timeout=120000")
-        chosen = price_type or _resolve_price_type(
-            conn, symbol=symbol_u, timeframe=timeframe, source=source
+        chosen = (
+            [str(price_type)]
+            if price_type
+            else _resolve_price_types(
+                conn, symbol=symbol_u, timeframe=timeframe, source=source
+            )
         )
         clauses = [
             "symbol = ?",
             "timeframe = ?",
             "source = ?",
-            "price_type = ?",
+            f"price_type IN ({','.join('?' for _ in chosen)})",
             "(is_complete = 1 OR is_complete IS NULL)",
         ]
-        params: list[object] = [symbol_u, timeframe, source, chosen]
+        params: list[object] = [symbol_u, timeframe, source, *chosen]
         if start_ms is not None:
             clauses.append("ts_ms >= ?")
             params.append(int(start_ms))
@@ -104,5 +113,5 @@ def load_ohlcv(
         )
     for col in ("open", "high", "low", "close", "volume"):
         df[col] = df[col].astype(float)
-    df.attrs["price_type"] = chosen
+    df.attrs["price_type"] = "+".join(chosen)
     return df

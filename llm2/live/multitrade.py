@@ -42,12 +42,123 @@ def book_tp_hold(
     return extended_tp_offset(float(fib_ext), base_tp=base_tp), int(hold_addon)
 
 
-def mean_strength_ok(abs_mean: float, past_abs: list[float] | np.ndarray) -> bool:
-    """Add-on allowed when |mean| ≥ median of prior non-empty strength history."""
+def strength_scale_factor(
+    abs_mean: float,
+    *,
+    ref: float = 0.5,
+    factor_min: float = 1.0,
+    factor_max: float = 2.0,
+) -> float:
+    """Clip ``|pred_mean|/ref`` into ``[factor_min, factor_max]``.
+
+    Shared kernel for take-profit and size proportional strength scaling.
+    """
+    r = float(ref)
+    if r <= 0.0:
+        raise ValueError(f"strength scale ref must be > 0, got {r}")
+    fmin = float(factor_min)
+    fmax = float(factor_max)
+    if fmin <= 0.0 or fmax < fmin:
+        raise ValueError(f"invalid strength scale bounds min={fmin} max={fmax}")
+    factor = float(abs_mean) / r
+    return float(min(fmax, max(fmin, factor)))
+
+
+def scale_tp_by_abs_mean(
+    base_tp: float,
+    abs_mean: float,
+    *,
+    ref: float = 0.5,
+    factor_min: float = 1.0,
+    factor_max: float = 2.0,
+) -> float:
+    """Proportional take-profit: ``base_tp * clip(|mean|/ref, factor_min, factor_max)``.
+
+    Frozen nested formula (research): TP = 1% × min(2, max(1, |pred_mean|/0.5)).
+    Stronger |pred_mean| → higher TP factor; never below base, never above 2× base.
+    """
+    return float(base_tp) * strength_scale_factor(
+        abs_mean, ref=ref, factor_min=factor_min, factor_max=factor_max
+    )
+
+
+def scale_size_mult_by_abs_mean(
+    abs_mean: float,
+    *,
+    ref: float = 0.5,
+    factor_min: float = 1.0,
+    factor_max: float = 2.0,
+) -> float:
+    """Proportional size multiplier: ``clip(|mean|/ref, factor_min, factor_max)``.
+
+    Research diagnostic formula (same clip as TP scaling without base TP):
+    size_mult = min(2, max(1, |pred_mean|/0.5)). Stronger signal → larger qty.
+    Engine applies via Signal.meta['size_mult'] on MIN_EXCHANGE or equity sizing.
+    """
+    return strength_scale_factor(
+        abs_mean, ref=ref, factor_min=factor_min, factor_max=factor_max
+    )
+
+
+def mean_strength_ok(
+    abs_mean: float,
+    past_abs: list[float] | np.ndarray,
+    *,
+    strength_quantile: float = 0.5,
+) -> bool:
+    """Allow when |mean| ≥ quantile of prior non-empty strength history.
+
+    Default ``strength_quantile=0.5`` is the historical median gate used by live packs.
+    Empty history always passes (first observations seed the histogram).
+    """
     if past_abs is None or len(past_abs) == 0:
         return True
-    thr = float(np.median(np.asarray(past_abs, dtype=float)))
+    q = float(strength_quantile)
+    if not (0.0 < q <= 1.0):
+        raise ValueError(f"strength_quantile must be in (0, 1], got {q}")
+    arr = np.asarray(past_abs, dtype=float)
+    thr = float(np.quantile(arr, q))
     return float(abs_mean) >= thr
+
+
+def slot_release_ts_ms(
+    entry_bar_ts_ms: int,
+    side: int,
+    *,
+    tp_pct: float,
+    sl_pct: float,
+    max_hold_bars: int,
+    bar_ts_ms: np.ndarray,
+    bar_open: np.ndarray,
+    bar_high: np.ndarray,
+    bar_low: np.ndarray,
+    tf_ms: int,
+) -> int:
+    """When a concurrent book stops occupying a slot.
+
+    Live frees the slot as soon as the exchange reports the take-profit or stop
+    filled (observed by the next decision-bar reconcile). A research pre-pass that
+    keeps the slot until max-hold instead will skip entries live actually took, so
+    both sides must use this one rule. Adverse-first inside a bar; this only decides
+    occupancy, never profit and loss.
+    """
+    i = int(np.searchsorted(bar_ts_ms, int(entry_bar_ts_ms), side="right"))
+    hold_deadline = int(entry_bar_ts_ms) + int(max_hold_bars) * int(tf_ms)
+    if i >= len(bar_ts_ms):
+        return hold_deadline
+    entry_px = float(bar_open[i])
+    if not np.isfinite(entry_px) or entry_px <= 0:
+        return hold_deadline
+    s = 1 if int(side) > 0 else -1
+    tp_px = entry_px * (1.0 + s * float(tp_pct))
+    sl_px = entry_px * (1.0 - s * float(sl_pct))
+    last = min(len(bar_ts_ms) - 1, i + int(max_hold_bars) - 1)
+    for j in range(i, last + 1):
+        hit_sl = bar_low[j] <= sl_px if s > 0 else bar_high[j] >= sl_px
+        hit_tp = bar_high[j] >= tp_px if s > 0 else bar_low[j] <= tp_px
+        if hit_sl or hit_tp:
+            return min(hold_deadline, int(bar_ts_ms[j]) + int(tf_ms))
+    return hold_deadline
 
 
 def parse_multitrade_config(strategy: dict[str, Any]) -> dict[str, Any] | None:
@@ -76,6 +187,13 @@ def parse_multitrade_config(strategy: dict[str, Any]) -> dict[str, Any] | None:
             # True → every book uses base_tp/base_hold (no fib tiering)
             "uniform_books": bool(cfg.get("uniform_books", False)),
             "bar_ms": int(cfg.get("bar_ms", BAR_MS_1H)),
+            # 0.5 = median (legacy); 0.75 = p75 expectancy arm
+            "strength_quantile": float(cfg.get("strength_quantile", 0.5) or 0.5),
+            # Variable TP: stronger |pred_mean| → higher TP (capped). Off by default.
+            "tp_scale_by_abs_mean": bool(cfg.get("tp_scale_by_abs_mean", False)),
+            "tp_scale_ref": float(cfg.get("tp_scale_ref", 0.5) or 0.5),
+            "tp_scale_factor_min": float(cfg.get("tp_scale_factor_min", 1.0) or 1.0),
+            "tp_scale_factor_max": float(cfg.get("tp_scale_factor_max", 2.0) or 2.0),
         }
     return None
 
@@ -113,12 +231,13 @@ def decide_entry_gate(
     recent = strength_hist[-lookback:] if strength_hist else []
     clarity = str(cfg.get("clarity", "none"))
     scope = str(cfg.get("clarity_scope", "addon"))
+    strength_q = float(cfg.get("strength_quantile", 0.5) or 0.5)
     apply_clarity = clarity == "mean_strength" and (
         scope == "all" or (scope == "addon" and is_addon)
     )
 
     if apply_clarity:
-        if not mean_strength_ok(abs_m, recent):
+        if not mean_strength_ok(abs_m, recent, strength_quantile=strength_q):
             return {
                 "allow": False,
                 "skip_reason": "clarity_mean_strength",
@@ -145,6 +264,14 @@ def decide_entry_gate(
         base_hold=int(cfg["base_hold"]),
         uniform_books=bool(cfg.get("uniform_books", False)),
     )
+    if bool(cfg.get("tp_scale_by_abs_mean", False)):
+        tp = scale_tp_by_abs_mean(
+            float(tp),
+            abs_m,
+            ref=float(cfg.get("tp_scale_ref", 0.5) or 0.5),
+            factor_min=float(cfg.get("tp_scale_factor_min", 1.0) or 1.0),
+            factor_max=float(cfg.get("tp_scale_factor_max", 2.0) or 2.0),
+        )
     size_mult = 1.0
     double_bars = int(cfg.get("size_double_within_bars", 0) or 0)
     if (

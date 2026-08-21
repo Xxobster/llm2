@@ -1,7 +1,7 @@
 {
   "strategy_id": "structure_v1_lgbm_ETHUSDT_1h_direction_multitrade_v1_1",
   "version_id": "eth_multitrade_v1_1",
-  "status": "FROZEN_LIVE_PACK",
+  "status": "FROZEN",
   "execution_mode": "multitrade",
   "account_ref_expected": "Xxobster8",
   "vps_host_expected": "94.156.189.76",
@@ -12,5 +12,17 @@
     "previous_pack": "artifacts/live_packs/structure_v1_ethusdt_multitrade_v1",
     "stop_service": "llm2-structure-eth-multitrade-v1_1",
     "restore_previous_service": "llm2-structure-eth-multitrade-v1"
-  }
+  },
+  "readiness": "RESEARCH_ONLY",
+  "pack_hash": "984d21f24fb23fcbd635308ff94fd6058f49f49e4af6e097dfc2ecd4544a0bd7",
+  "pack_path": "artifacts/live_packs/structure_v1_ethusdt_multitrade_v1_1",
+  "parent_pack": "structure_v1_ethusdt_direction",
+  "evidence": {},
+  "live": {
+    "account_ref": "Xxobster8",
+    "service": "llm2-structure-eth-multitrade-v1_1",
+    "deployed": false,
+    "certificate_path": "configs/live/structure_v1_ethusdt_multitrade_v1_1_certificate.yaml"
+  },
+  "metrics": {}
 }

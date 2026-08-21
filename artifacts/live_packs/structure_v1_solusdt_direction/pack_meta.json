@@ -1,7 +1,7 @@
 {
   "strategy_id": "structure_v1_lgbm_SOLUSDT_1h_direction",
-  "status": "FROZEN_LIVE_PACK",
-  "readiness": "MICRO_LIVE_AUTHORIZED_PENDING_SERVICE",
+  "status": "FROZEN",
+  "readiness": "RESEARCH_ONLY",
   "deployable": true,
   "settlement_overall": "PASS",
   "settlement_tier": 3,
@@ -11,5 +11,15 @@
   "account_ref_expected": "Xxobster7",
   "vps_host_expected": "94.156.189.76",
   "frozen_utc": "20260803T170353Z",
-  "min_size_equity_caveat": "Wallet equity / maximum drawdown under research_sizing MIN_EXCHANGE (minimum exchange size) on a large wallet is not tradable-edge evidence. Smooth curves are expected at dust size; do not treat them as deployable sizing."
+  "min_size_equity_caveat": "Wallet equity / maximum drawdown under research_sizing MIN_EXCHANGE (minimum exchange size) on a large wallet is not tradable-edge evidence. Smooth curves are expected at dust size; do not treat them as deployable sizing.",
+  "version_id": "solusdt_direction",
+  "pack_hash": "ba1936a76beefa49f6568e77bb106d76d0eebad201af9ae51785c690669daa6e",
+  "pack_path": "artifacts/live_packs/structure_v1_solusdt_direction",
+  "parent_pack": null,
+  "replaces_version": null,
+  "evidence": {},
+  "live": {
+    "certificate_path": "configs/live/structure_v1_solusdt_direction_certificate.yaml"
+  },
+  "metrics": {}
 }

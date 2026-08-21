@@ -1512,6 +1512,33 @@ Required invariants:
 
 Scheduling parameters are execution configuration, not strategy parameters: they must not be tuned on OOS performance. Changing the decision cadence changes live/backtest parity and requires a parity re-check.
 
+### 22.2 Process classes and candle-tip freshness (`LIVE-DATA-001`)
+
+Operators and agents must distinguish:
+
+1. **Long batch jobs** (finite local research/backtest/hunt). Supervise with a crash/stall watchdog; bounded restarts; verify process id. See `PROCESS_SUPERVISION_AND_CANDLE_FRESHNESS.md`.
+2. **Continuous services** (infinite): candle collectors, trading/shadow bots, poker bots, and dependent writers. When authorized they must always run under a process supervisor with restart-on-failure and a singleton lock. Presence is not health.
+
+**Collector / tip failure fail-closed.** If the collector errors or cannot fetch the last candle for a required series — including a lone **15-minute** timeframe — every bot that depends on that series MUST:
+
+- open no new risk;
+- cancel unfilled entry intents / working entry LIMIT orders;
+- leave protective exits in place on existing positions;
+- emit a distinct `CANDLE_STALE` or `COLLECTOR_ERROR` event with symbol, timeframe, local tip, expected tip and exchange server time;
+- resume entries only after tip freshness passes again.
+
+**Per-decision tip check (mandatory).** Before features/signals/new risk on a closed bar, compare the local last **closed** candle to exchange **server time** (not only the machine clock):
+
+```text
+expected_closed_open_ms = floor(server_now_ms / tf_ms) * tf_ms - tf_ms
+PASS iff local_closed_open_ms == expected_closed_open_ms
+      and abs(local_wall_ms - server_now_ms) <= clock_skew_max_ms
+```
+
+Refuse missing, behind, or ahead tips. Decision timeframe and any touch/lower timeframe used for fills must both pass. Higher-timeframe inputs require their own completed tip. Never invent OHLC or treat a forming bar as closed.
+
+Bind this behaviour to conformance id **`LIVE-DATA-001`**. A missing test or ops probe is a live-readiness blocker. Full defaults and agent checklist: `PROCESS_SUPERVISION_AND_CANDLE_FRESHNESS.md`.
+
 ## 23. Engineering rules
 
 - Run feature calculation, model training, backtest, walk-forward and optimization locally by default. VPS is live/shadow only unless explicitly changed.

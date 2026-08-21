@@ -144,11 +144,19 @@ def channel_line(
     s["prev_price"] = s["price"].shift(1)
     s["prev_pivot_i"] = s["pivot_i"].shift(1)
 
+    # merge_asof requires identical datetime unit/tz dtypes (us vs ms fails hard).
     left = pd.DataFrame(
-        {"decision_at": pd.DatetimeIndex(decision_index).tz_convert("UTC"), "pos": decision_pos}
+        {
+            "decision_at": pd.DatetimeIndex(decision_index)
+            .tz_convert("UTC")
+            .astype("datetime64[ns, UTC]"),
+            "pos": decision_pos,
+        }
     ).sort_values("decision_at")
     right = s.rename(columns={"confirm_ts_ms": "confirm_at"}).copy()
-    right["confirm_at"] = pd.to_datetime(right["confirm_at"].to_numpy(), unit="ms", utc=True)
+    right["confirm_at"] = pd.to_datetime(
+        right["confirm_at"].to_numpy(), unit="ms", utc=True
+    ).astype("datetime64[ns, UTC]")
     right = right.sort_values("confirm_at")
 
     merged = pd.merge_asof(left, right, left_on="decision_at", right_on="confirm_at", direction="backward")

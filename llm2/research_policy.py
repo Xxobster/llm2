@@ -11,7 +11,8 @@ Policies covered:
   a placebo control is not evidence.
 - **Confirmation-time audit for warehouse features.** A green leakage report is insufficient:
   it passed on the weekly look-ahead bug because truncating OHLCV does not truncate the
-  database the features are loaded from.
+  database the features are loaded from. Warehouse spaces also require FOUR_PROOF_GATE_V1
+  (`llm2.evidence.four_proof`) before train/freeze/live authorize.
 - **Matched control for event studies.** The pulse effect was real, survived FDR, and was
   still drift — only the volatility-matched random-entry control revealed it.
 - **Estimator self-control.** When a result comes out of a filter or an estimator, run that
@@ -35,6 +36,18 @@ MIN_SIZE_EQUITY_CAVEAT = (
     "Smooth curves are expected at dust size; do not treat them as deployable sizing."
 )
 
+EQUITY_LEVERAGE_SIZING_NOTE = (
+    "Research/display only: EQUITY_LEVERAGE_NOTIONAL notional = equity × equity_fraction "
+    "× leverage (compound when enabled). wallet_return is valid under that mode. "
+    "Live micro bots always use MIN_EXCHANGE (venue min qty per pair); never size live "
+    "from wallet %. Peak concurrent margin utilisation is multi-book research stress. "
+    "Never scale live size from a min-size research wallet % or equity-leverage study."
+)
+
+# Default N in notional = equity × N × leverage (1% of equity as margin proxy per book).
+DEFAULT_EQUITY_FRACTION = 0.01
+
+
 # Feature spaces that load from a warehouse rather than being computed from the OHLCV the
 # leakage audit truncates. Each must carry a confirmation-time / publication-time audit
 # bound as a test; a green prefix-invariance report alone is not sufficient.
@@ -42,8 +55,15 @@ WAREHOUSE_BACKED_SPACES: frozenset[str] = frozenset(
     {
         "macro_v1",
         "structure_v1",
+        "structure_v1_no_retrace",  # same warehouse + publish rules; drops last_retrace*
+        "structure_v1_run_retrace",  # no_retrace + causal OHLCV-path run_retrace features
         "crosspair_v1",  # loads peer OHLCV from the warehouse
         "xs_v1",
+        "oi_v1",
+        "structure_oi_v1",
+        "news_v1",
+        "structure_news_v1",
+        "structure_oi_news_v1",
     }
 )
 
@@ -54,8 +74,15 @@ WAREHOUSE_AUDIT_BOUND: frozenset[str] = frozenset(
     {
         "macro_v1",  # tests/test_macro_causality.py
         "structure_v1",  # tests/test_structure_causality.py
+        "structure_v1_no_retrace",  # same structure causality suite; retrace columns absent
+        "structure_v1_run_retrace",  # structure suite + pure running-retrace from handed OHLCV
         "crosspair_v1",  # tests/test_panel_causality.py
         "xs_v1",  # tests/test_panel_causality.py
+        "oi_v1",  # tests/test_oi_news_causality.py
+        "structure_oi_v1",  # tests/test_oi_news_causality.py
+        "news_v1",  # tests/test_oi_news_causality.py
+        "structure_news_v1",  # tests/test_oi_news_causality.py
+        "structure_oi_news_v1",  # tests/test_oi_news_causality.py
     }
 )
 
@@ -153,6 +180,8 @@ def stamp_min_size_equity_caveat(report: dict[str, Any]) -> dict[str, Any]:
     """Attach the standing MIN_EXCHANGE equity caveat to a settlement / pack report."""
     report = dict(report)
     report["min_size_equity_caveat"] = MIN_SIZE_EQUITY_CAVEAT
+    report["equity_leverage_sizing_note"] = EQUITY_LEVERAGE_SIZING_NOTE
+    report["default_equity_fraction"] = DEFAULT_EQUITY_FRACTION
     report["equity_is_tradable_edge"] = False
     return report
 

@@ -97,4 +97,5 @@ def test_size_double_within_3h() -> None:
     assert sigs[0].meta["size_mult"] == 1
     assert sigs[1].meta["size_mult"] == 2
     assert sigs[2].meta["size_mult"] == 1
-    assert sigs[1].qty == 2 * sigs[0].qty
+    # qty is left unset; engine applies meta size_mult on sizing
+    assert sigs[0].qty is None and sigs[1].qty is None

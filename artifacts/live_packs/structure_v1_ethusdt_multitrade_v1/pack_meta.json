@@ -1,8 +1,8 @@
 {
   "strategy_id": "structure_v1_lgbm_ETHUSDT_1h_direction_multitrade_v1",
   "version_id": "eth_multitrade_v1",
-  "status": "FROZEN_LIVE_PACK",
-  "readiness": "MICRO_LIVE_CANDIDATE_LOCKBOX_ONLY",
+  "status": "FROZEN",
+  "readiness": "RESEARCH_ONLY",
   "deployable": true,
   "evidence_class": "LOCKBOX_CONTAMINATED + outer-OOS hedge\u00d73 proxy",
   "execution_mode": "multitrade",
@@ -16,5 +16,16 @@
     "git_tag": "live/eth_multitrade_v1",
     "stop_service": "llm2-structure-eth-multitrade-v1"
   },
-  "min_size_equity_caveat": "Wallet equity / maximum drawdown under research_sizing MIN_EXCHANGE (minimum exchange size) on a large wallet is not tradable-edge evidence. Smooth curves are expected at dust size; do not treat them as deployable sizing."
+  "min_size_equity_caveat": "Wallet equity / maximum drawdown under research_sizing MIN_EXCHANGE (minimum exchange size) on a large wallet is not tradable-edge evidence. Smooth curves are expected at dust size; do not treat them as deployable sizing.",
+  "pack_hash": "b22c37ccbef811014fcc2d43fef7a8f31b7624b24cbd908aea078835a6a14f67",
+  "pack_path": "artifacts/live_packs/structure_v1_ethusdt_multitrade_v1",
+  "replaces_version": null,
+  "evidence": {},
+  "live": {
+    "account_ref": "Xxobster8",
+    "service": "llm2-structure-eth-multitrade-v1",
+    "deployed": false,
+    "certificate_path": "configs/live/structure_v1_ethusdt_multitrade_v1_certificate.yaml"
+  },
+  "metrics": {}
 }

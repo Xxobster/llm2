@@ -1,7 +1,7 @@
 {
   "strategy_id": "structure_v1_lgbm_BTCUSDT_1h",
-  "status": "FROZEN_LIVE_PACK",
-  "readiness": "MICRO_LIVE_CANDIDATE_PENDING_SHADOW",
+  "status": "FROZEN",
+  "readiness": "RESEARCH_ONLY",
   "deployable": true,
   "settlement_verdict": "SHADOW_READY_CANDIDATE",
   "pooled_pf": 1.8651444550275214,
@@ -11,5 +11,15 @@
   "min_size_equity_caveat": "Wallet equity / maximum drawdown under research_sizing MIN_EXCHANGE (minimum exchange size) on a large wallet is not tradable-edge evidence. Smooth curves are expected at dust size; do not treat them as deployable sizing.",
   "account_ref_expected": "Xxobster7",
   "vps_host_expected": "94.156.189.76",
-  "frozen_utc": "20260803T152852Z"
+  "frozen_utc": "20260803T152852Z",
+  "version_id": "lgbm",
+  "pack_hash": "327cd741f889c5db0fd4844a0c0001e1912dfa9ffac4c99b09b79e33e710f68a",
+  "pack_path": "artifacts/live_packs/structure_v1_lgbm",
+  "parent_pack": null,
+  "replaces_version": null,
+  "evidence": {},
+  "live": {
+    "certificate_path": "configs/live/structure_v1_lgbm_certificate.yaml"
+  },
+  "metrics": {}
 }

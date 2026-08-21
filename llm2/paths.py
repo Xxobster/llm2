@@ -6,7 +6,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ROOT / "artifacts"
-MARKET_DB = Path(r"D:\projectsdata\candles\market_ohlcv.sqlite")
+PROJECTSDATA = Path(r"D:\projectsdata")
+MARKET_DB = PROJECTSDATA / "candles" / "market_ohlcv.sqlite"
+MARKET_OI_DB = PROJECTSDATA / "candles" / "market_oi.sqlite"
+NEWS_EVENTS_DB = PROJECTSDATA / "news" / "news_events.sqlite"
 RESEARCH_DB = ARTIFACTS / "sqlite" / "research.sqlite"
 LEAKAGE_REGISTRY = ARTIFACTS / "sqlite" / "leakage_registry.json"
 FORWARD_LOCKBOX_START = "2026-05-01"
@@ -52,17 +55,12 @@ ROUND_TRIP_COST = 0.0016  # frozen screening hurdle
 def touch_timeframe(decision_tf: str, symbol: str) -> str:
     """Map decision timeframe to touch resolution.
 
-    Prefer the lowest available touch series that keeps same-bar ordering data-driven.
-    For 1h decisions that means 1m (not 5m): several expansion symbols had 5m warehouse
-    series stall weeks behind 1h/1m, which forced adverse same-bar fallbacks.
+    Prefer 1-minute touch for 15m and 1h so same-bar Take-Profit / Stop-Loss
+    order is data-driven, not an Open-High-Low-Close guess. Solana 15m used
+    to map to 5m; the warehouse now has full 1m history, so 15m always uses 1m.
     """
-    sym = symbol.upper()
-    if decision_tf == "15m":
-        return "1m" if sym in ("BTCUSDT", "ETHUSDT") else "5m"
-    if decision_tf == "1h":
+    if decision_tf in ("15m", "1h", "4h"):
         return "1m"
-    if decision_tf == "4h":
-        return "15m"
     return decision_tf
 
 

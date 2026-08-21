@@ -1,0 +1,50 @@
+{
+  "version_id": "eth_k5_double3h_p75_v1",
+  "parent": "structure_v1_ethusdt_k5_double3h_v1",
+  "research_arm": "mean_strength|hold12|tp1pct|K=5|double3h|q0.75",
+  "frozen_utc": "2026-08-05T08:38:52Z",
+  "strategy_id": "structure_v1_lgbm_ETHUSDT_1h_direction_k5_double3h_p75_v1",
+  "status": "LIVE_ACTIVE",
+  "readiness": "MICRO_LIVE_CANDIDATE",
+  "pack_hash": "e401c3ee9b2c36a837e184b5498c7a3eaf3105bd4abfdff5763f9321687a281c",
+  "pack_path": "artifacts/live_packs/structure_v1_ethusdt_k5_double3h_p75_v1",
+  "parent_pack": "structure_v1_ethusdt_k5_double3h_v1",
+  "replaces_version": null,
+  "evidence": {
+    "generation_id": "structure_v1_eth_k5_p75_tp_scale_absmean_001",
+    "report_paths": [
+      "artifacts/reports/structure_v1_eth_k5_expectancy_strength_p75_001_latest.json",
+      "artifacts/reports/structure_v1_eth_k5_p75_tp_scale_absmean_001_latest.json"
+    ],
+    "tradesim_run_ids": [
+      "structure_v1_eth_k5_p75_tp_scale_absmean_001_control-f0-5dfdeccd10",
+      "structure_v1_eth_k5_p75_tp_scale_absmean_001_control-f1-49b22090d8",
+      "structure_v1_eth_k5_p75_tp_scale_absmean_001_control-f2-d2d4f73d24",
+      "structure_v1_eth_k5_p75_tp_scale_absmean_001_control-f3-6231ef60bd",
+      "structure_v1_eth_k5_p75_tp_scale_absmean_001_control-f4-e9605d291a",
+      "structure_v1_eth_k5_p75_tp_scale_absmean_001_control-f5-7af3619fc9",
+      "structure_v1_eth_k5_p75_tp_scale_absmean_001_candidate-f0-97b7a07038",
+      "structure_v1_eth_k5_p75_tp_scale_absmean_001_candidate-f1-e19a29ab5c",
+      "structure_v1_eth_k5_p75_tp_scale_absmean_001_candidate-f2-8402a4d7e7",
+      "structure_v1_eth_k5_p75_tp_scale_absmean_001_candidate-f3-7e3f681629",
+      "structure_v1_eth_k5_p75_tp_scale_absmean_001_candidate-f4-4efed27c9f",
+      "structure_v1_eth_k5_p75_tp_scale_absmean_001_candidate-f5-c6c23abc58"
+    ]
+  },
+  "live": {
+    "deployed": true,
+    "account_ref": "Xxobster3",
+    "service": "llm2-structure-eth-k5-double3h-p75-v1",
+    "vps_host": "185.203.119.52",
+    "certificate_path": "configs/live/structure_v1_ethusdt_k5_double3h_p75_v1_certificate.yaml",
+    "deployed_utc": "20260805T083852Z"
+  },
+  "metrics": {
+    "profit_factor": 7.044474928687612,
+    "expectancy_return_units": 0.0064316547337478335,
+    "n_trades": 5996,
+    "win_rate": 0.890927284856571,
+    "window": "outer_v2_hard_end_2026-05-01",
+    "source_report": "artifacts/reports/structure_v1_eth_k5_expectancy_strength_p75_001_latest.json"
+  }
+}

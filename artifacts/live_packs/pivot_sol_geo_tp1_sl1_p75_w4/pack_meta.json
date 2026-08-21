@@ -1,0 +1,36 @@
+{
+  "pack_name": "pivot_sol_geo_tp1_sl1_p75_w4",
+  "arm_id": "sol_geo_tp1_sl1_p75_w4",
+  "status": "LIVE_ACTIVE",
+  "readiness": "MICRO_LIVE_CANDIDATE",
+  "deployable": true,
+  "evidence": {
+    "four_proof_ok": true,
+    "note": "Attach four_proof / tip-identity before certificate AUTHORIZED",
+    "four_proof_hashes": {
+      "builder_responsiveness": "15e3f97010eccceeb6efbeea83e4cf161eeb63c51b8fbdedfdd0769853a0511e",
+      "recompute_prefix": "2ac66b3b7c0f88019c659a1bd3168deadfd76e70314ba87dff9e8300e3a7bcdd",
+      "no_live_feature_fill": "ef3948c4d17f9b73312186268226732fd6d6ef0d9e5d6c901696cdab59f7e3a8",
+      "layer_a_pred_identity": "45db1639fffc9722fcfadb53035b1efde5108e5bad488cd15da38fbf18114714"
+    },
+    "four_proof_summary_sha256": "1acfb3b880f90132b3b0958ab627d1ec1f6666d853b8e9b659f065a4038f53ee",
+    "four_proof_artifact_dir": "D:\\projects\\LLM2\\artifacts\\evidence\\four_proof\\pivot_pivot_sol_geo_tp1_sl1_p75_w4_SOLUSDT_15m_20260812T130914Z"
+  },
+  "frozen_utc": "2026-08-12T10:01:13Z",
+  "pack_hash": "7aa93aaeb6bf5750896060c64df867b2b6e6637248a0db4974be010f0213f811",
+  "four_proof_ok": true,
+  "four_proof_hashes": {
+    "builder_responsiveness": "15e3f97010eccceeb6efbeea83e4cf161eeb63c51b8fbdedfdd0769853a0511e",
+    "recompute_prefix": "2ac66b3b7c0f88019c659a1bd3168deadfd76e70314ba87dff9e8300e3a7bcdd",
+    "no_live_feature_fill": "ef3948c4d17f9b73312186268226732fd6d6ef0d9e5d6c901696cdab59f7e3a8",
+    "layer_a_pred_identity": "45db1639fffc9722fcfadb53035b1efde5108e5bad488cd15da38fbf18114714"
+  },
+  "live": {
+    "deployed": true,
+    "account_ref": "Xxobster7",
+    "service": "llm2-pivot-sol-geo-p75-w4",
+    "vps_host": "94.156.189.76"
+  },
+  "sklearn_runtime": "1.7.2",
+  "sklearn_repacked_utc": "2026-08-12T14:08:05Z"
+}

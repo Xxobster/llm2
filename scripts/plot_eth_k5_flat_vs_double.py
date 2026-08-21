@@ -30,8 +30,9 @@ prefer_botsgeneral_tradesim()
 from tradesim import (  # noqa: E402
     research_instrument,
     research_margin,
-    research_sizing,
     research_sim_hedge,
+    research_sizing,
+    research_sizing_equity_leverage,
 )
 from tradesim.research.plot import plot_backtest  # noqa: E402
 
@@ -50,6 +51,11 @@ from llm2.paths import (  # noqa: E402
     ROUND_TRIP_COST,
     TF_MS,
     touch_timeframe,
+)
+from llm2.sizing_policy import (  # noqa: E402
+    DEFAULT_EQUITY_FRACTION,
+    labelled_money_metrics,
+    peak_concurrent_margin_util,
 )
 from llm2.signals.cluster_concurrency import (  # noqa: E402
     build_cluster_concurrent_signals,
@@ -288,6 +294,9 @@ def _run_one(
     display_months: float | None,
     display_days: float | None,
     starting_equity: float,
+    leverage: float | None,
+    sizing_mode: str,
+    equity_fraction: float,
     allow_lockbox: bool,
     allow_post_peek: bool,
 ) -> dict[str, Any]:
@@ -338,7 +347,17 @@ def _run_one(
     funding_rt = funding.to_numpy(dtype=float)
     w_ts = index_to_ms(window.index)
     fmask = (funding_ts >= int(w_ts[0])) & (funding_ts <= int(w_ts[-1]))
-    lev = float(leverage_from_stop(SL))
+    lev = float(leverage) if leverage is not None else float(leverage_from_stop(SL))
+    smode = str(sizing_mode).upper()
+    if smode in ("EQUITY_LEVERAGE", "EQUITY_LEVERAGE_NOTIONAL", "N_EQ_X_LEV"):
+        sizing = research_sizing_equity_leverage(
+            equity_fraction=float(equity_fraction),
+            compound=True,
+        )
+        sizing_label = "EQUITY_LEVERAGE_NOTIONAL"
+    else:
+        sizing = research_sizing()
+        sizing_label = "MIN_EXCHANGE"
 
     label = f"{SYMBOL[:3].lower()}-k{K}-{size_mode}"
     if display_days:
@@ -355,7 +374,7 @@ def _run_one(
         touch_timeframe=touch_tf,
         costs=research_costs_baseline(),
         margin=research_margin(leverage=lev),
-        sizing=research_sizing(),  # MIN_EXCHANGE = venue min qty
+        sizing=sizing,
         sim=research_sim_hedge(
             starting_equity=float(starting_equity),
             max_hold_bars=BASE.horizon_bars,
@@ -372,7 +391,13 @@ def _run_one(
             "k": K,
             "evidence_class": evidence,
             "starting_equity_usdt": float(starting_equity),
-            "sizing": "MIN_EXCHANGE",
+            "sizing": sizing_label,
+            "equity_fraction": float(equity_fraction) if sizing_label.startswith("EQUITY") else None,
+            "notional_formula": (
+                "equity*equity_fraction*leverage"
+                if sizing_label.startswith("EQUITY")
+                else "min_exchange"
+            ),
         },
         plot=False,
         print_headline=True,
@@ -381,6 +406,15 @@ def _run_one(
     )
     m = bundle.metrics
     metrics = _metrics_dict(m)
+    money = labelled_money_metrics(m, starting_equity=float(starting_equity))
+    peak = peak_concurrent_margin_util(
+        bundle.result.trades,
+        starting_equity=float(starting_equity),
+        leverage=float(lev),
+        compound=True,
+    )
+    metrics.update(money)
+    metrics["peak_concurrent_margin"] = peak
     row = {
         "name": label,
         "k": K,
@@ -388,12 +422,30 @@ def _run_one(
         "base_arm": BASE.key,
         "leverage": lev,
         "starting_equity_usdt": float(starting_equity),
-        "sizing": "MIN_EXCHANGE",
+        "sizing": sizing_label,
+        "equity_fraction": float(equity_fraction) if sizing_label.startswith("EQUITY") else None,
         "evidence_class": evidence,
         "oos": meta,
         "metrics": metrics,
+        "money_labels": money,
+        "peak_concurrent_margin": peak,
     }
-    print(json.dumps({"arm": size_mode, "evidence_class": evidence, "metrics": metrics}, indent=2), flush=True)
+    print(
+        json.dumps(
+            {
+                "arm": size_mode,
+                "evidence_class": evidence,
+                "sizing": sizing_label,
+                "equity_fraction": row["equity_fraction"],
+                "leverage": lev,
+                "money_labels": money,
+                "peak_concurrent_margin": peak,
+                "metrics": metrics,
+            },
+            indent=2,
+        ),
+        flush=True,
+    )
 
     if show:
         disp_start = pd.Timestamp(meta.get("display_start") or meta["oos_start"])
@@ -403,11 +455,14 @@ def _run_one(
         bars = ohlcv_to_bar_series(plot_win, symbol=SYMBOL, timeframe=TIMEFRAME)
         d0 = str(meta.get("display_start") or meta["oos_start"])[:10]
         d1 = str(meta.get("display_end") or meta["oos_end"])[:10]
+        wr = money.get("wallet_return")
+        roi = money.get("roi_on_invested_notional")
         title = (
             f"{SYMBOL} {TIMEFRAME} K={K} {size_mode} | {BASE.key} | {evidence} | "
-            f"wallet={starting_equity:g}USDT min-ex | [{d0} -> {d1}] "
-            f"PF={m.profit_factor:.3f} PnL={m.net_pnl:.2f} n={m.n_trades} "
-            f"WR={m.win_rate:.1%} MDD%={getattr(m,'max_drawdown_pct', float('nan')):.2%}"
+            f"{sizing_label} N={equity_fraction:g} lev={lev:g} wallet={starting_equity:g} | "
+            f"[{d0} -> {d1}] PF={m.profit_factor:.3f} "
+            f"PnL={m.net_pnl:.2f} wallet%={(wr or float('nan')):.2%} "
+            f"ROII={(roi or float('nan')):.2%} n={m.n_trades}"
         )
         plot_backtest(
             bars,
@@ -424,14 +479,17 @@ def _run_one(
                 "size_mode": size_mode,
                 "evidence_class": evidence,
                 "starting_equity_usdt": float(starting_equity),
-                "sizing": "MIN_EXCHANGE",
+                "sizing": sizing_label,
+                "equity_fraction": float(equity_fraction),
+                "wallet_return": money.get("wallet_return"),
+                "roi_on_invested_notional": money.get("roi_on_invested_notional"),
+                "peak_margin_utilisation": peak.get("peak_margin_utilisation"),
                 "backtest_net_pnl": float(m.net_pnl),
                 "backtest_profit_factor": float(m.profit_factor),
                 "backtest_n_trades": int(m.n_trades),
                 "note": (
-                    f"Display slice {d0}→{d1}; wallet={starting_equity:g} USDT; "
-                    f"MIN_EXCHANGE qty; trade_cap={trade_cap}. "
-                    f"Frozen arm (no re-rank). Double: qty=2× min if same-side ≤3h. "
+                    f"Display slice {d0}→{d1}; {sizing_label}; "
+                    f"notional=equity×{equity_fraction:g}×lev when equity mode. "
                     f"Class={evidence}."
                 ),
             },
@@ -580,6 +638,24 @@ def main() -> int:
         help="Sim wallet start in USDT (live-like micro: 100; research default 10000).",
     )
     ap.add_argument(
+        "--leverage",
+        type=float,
+        default=None,
+        help="Override leverage (default: leverage_from_stop(SL) with haircut, e.g. 18).",
+    )
+    ap.add_argument(
+        "--sizing",
+        default="equity_leverage",
+        choices=("equity_leverage", "min_exchange"),
+        help="equity_leverage: notional=equity×N×lev (default); min_exchange: venue min qty.",
+    )
+    ap.add_argument(
+        "--equity-fraction",
+        type=float,
+        default=DEFAULT_EQUITY_FRACTION,
+        help="N in notional=equity×N×leverage (default 0.01).",
+    )
+    ap.add_argument(
         "--allow-lockbox",
         action="store_true",
         help=(
@@ -592,13 +668,57 @@ def main() -> int:
         action="store_true",
         help="With --allow-lockbox, extend hard end past POST_MULTITRADE_FREEZE_START to now.",
     )
+    ap.add_argument(
+        "--run-id",
+        default=None,
+        help=(
+            "Reopen a stored tradesim run_id (no resim). Labels output REOPEN_ONLY — "
+            "never freeze evidence from a fresh simulation when this flag is set."
+        ),
+    )
+    ap.add_argument(
+        "--from-pack",
+        default=None,
+        help=(
+            "version_id registered in live_pack_versions; reopens primary tradesim "
+            "run_id if evidence.tradesim_run_ids is set. Refuses freeze-evidence label."
+        ),
+    )
     args = ap.parse_args()
+    if args.run_id or args.from_pack:
+        from llm2.evidence.pack_registry import open_pack_run, primary_run_id
+
+        if args.run_id and args.from_pack:
+            raise SystemExit("use only one of --run-id / --from-pack")
+        rid = args.run_id or primary_run_id(str(args.from_pack))
+        if not rid:
+            raise SystemExit(
+                f"no tradesim run_id for --from-pack={args.from_pack!r}; "
+                "pack evidence missing run ids — cannot open without resim "
+                "(refuse freeze-evidence from a fresh plot)"
+            )
+        info = open_pack_run(
+            version_id=str(args.from_pack) if args.from_pack else None,
+            run_id=str(rid),
+        )
+        print(json.dumps({"mode": "REOPEN_ONLY", **info}, indent=2), flush=True)
+        if not info.get("cli_ok") and not info.get("report_dir"):
+            raise SystemExit(
+                f"could not reopen run_id={rid}: {info.get('cli_detail')}"
+            )
+        print(
+            "REOPEN_ONLY: chart/metrics from stored tradesim run — not a new simulation.",
+            flush=True,
+        )
+        return 0
     if "botsgeneral" not in str(__import__("tradesim").__file__).lower():
         raise RuntimeError("tradesim not from botsgeneral")
     if args.allow_post_peek and not args.allow_lockbox:
         raise SystemExit("--allow-post-peek requires --allow-lockbox")
     if args.starting_equity <= 0:
         raise SystemExit("--starting-equity must be > 0")
+    if args.leverage is not None and args.leverage <= 0:
+        raise SystemExit("--leverage must be > 0")
 
     SYMBOL = str(args.symbol).upper()
     if args.target:
@@ -616,14 +736,23 @@ def main() -> int:
     elif args.display_months:
         slice_tag = f"_last{args.display_months:g}m"
     equity_tag = f"_eq{args.starting_equity:g}"
+    lev_tag = f"_lev{args.leverage:g}" if args.leverage is not None else ""
+    size_tag = f"_sz{args.sizing}"
+    if args.sizing.startswith("equity"):
+        size_tag += f"_N{args.equity_fraction:g}"
     OUT = (
         ARTIFACTS
         / "reports"
-        / f"structure_v1_{SYMBOL.lower()}_k5_flat_vs_double{slice_tag}{equity_tag}_metrics.json"
+        / (
+            f"structure_v1_{SYMBOL.lower()}_k5_flat_vs_double"
+            f"{slice_tag}{equity_tag}{lev_tag}{size_tag}_metrics.json"
+        )
     )
+    lev_note = f"{args.leverage:g}" if args.leverage is not None else "from_stop"
     print(
         f"CONFIG symbol={SYMBOL} target={TARGET} min_edge={MIN_EDGE} K={K} arm={BASE.key} "
-        f"starting_equity={args.starting_equity:g} sizing=MIN_EXCHANGE",
+        f"starting_equity={args.starting_equity:g} leverage={lev_note} "
+        f"sizing={args.sizing} equity_fraction={args.equity_fraction:g}",
         flush=True,
     )
 
@@ -633,7 +762,7 @@ def main() -> int:
         print(
             f"\n=== running {SYMBOL} {mode} trade_cap={args.trade_cap} "
             f"display_days={args.display_days} display_months={args.display_months} "
-            f"equity={args.starting_equity:g} ===",
+            f"equity={args.starting_equity:g} leverage={lev_note} sizing={args.sizing} ===",
             flush=True,
         )
         rows[mode] = _run_one(
@@ -643,6 +772,9 @@ def main() -> int:
             display_months=args.display_months,
             display_days=args.display_days,
             starting_equity=float(args.starting_equity),
+            leverage=float(args.leverage) if args.leverage is not None else None,
+            sizing_mode=str(args.sizing),
+            equity_fraction=float(args.equity_fraction),
             allow_lockbox=bool(args.allow_lockbox),
             allow_post_peek=bool(args.allow_post_peek),
         )

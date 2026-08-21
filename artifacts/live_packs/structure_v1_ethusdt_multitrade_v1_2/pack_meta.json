@@ -1,7 +1,7 @@
 {
   "strategy_id": "structure_v1_lgbm_ETHUSDT_1h_direction_multitrade_v1_2",
   "version_id": "eth_multitrade_v1_2",
-  "status": "FROZEN_LIVE_PACK",
+  "status": "LIVE_ACTIVE",
   "execution_mode": "multitrade",
   "account_ref_expected": "Xxobster8",
   "vps_host_expected": "94.156.189.76",
@@ -13,5 +13,26 @@
     "previous_pack": "artifacts/live_packs/structure_v1_ethusdt_multitrade_v1_1",
     "stop_service": "llm2-structure-eth-multitrade-v1_2",
     "restore_previous_service": "llm2-structure-eth-multitrade-v1_1"
-  }
+  },
+  "readiness": "RESEARCH_ONLY",
+  "pack_hash": "bfc5351077fadbdd6e68bbb92fa2cf7af98b8393b72a3b49fbcce055c0d2df3e",
+  "pack_path": "artifacts/live_packs/structure_v1_ethusdt_multitrade_v1_2",
+  "parent_pack": "structure_v1_ethusdt_multitrade_v1_1",
+  "evidence": {
+    "report_paths": [
+      "artifacts/reports/structure_v1_eth_multitrade_loss_streak_cooloff_001_latest.json",
+      "artifacts/reports/structure_v1_eth_multitrade_strength_p75_001_latest.json",
+      "artifacts/reports/structure_v1_eth_multitrade_skip_weak_short_book1_001_latest.json"
+    ],
+    "generation_id": "structure_v1_eth_multitrade_skip_weak_short_book1_001",
+    "tradesim_run_ids": []
+  },
+  "live": {
+    "account_ref": "Xxobster8",
+    "service": "llm2-structure-eth-multitrade-v1_2",
+    "deployed": true,
+    "certificate_path": "configs/live/structure_v1_ethusdt_multitrade_v1_2_certificate.yaml",
+    "deployed_utc": "20260804T162659Z"
+  },
+  "metrics": {}
 }

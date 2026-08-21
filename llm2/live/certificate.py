@@ -34,6 +34,9 @@ class LiveCertificate:
     expires_utc: str | None
     path: Path
 
+    four_proof_ok: bool = False
+    four_proof_hashes: dict[str, str] | None = None
+
     @property
     def is_deployable(self) -> bool:
         if self.status != "AUTHORIZED":
@@ -43,6 +46,8 @@ class LiveCertificate:
         if not self.vps_host or not self.account_ref:
             return False
         if not self.pack_hash:
+            return False
+        if not self.four_proof_ok or not self.four_proof_hashes:
             return False
         if self.expires_utc:
             exp = datetime.fromisoformat(self.expires_utc.replace("Z", "+00:00"))
@@ -58,6 +63,7 @@ def load_certificate(path: Path = DEFAULT_CERT) -> LiveCertificate:
             "certificate. Create and user-authorize a certificate before any VPS action."
         )
     raw = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    hashes = raw.get("four_proof_hashes") or {}
     return LiveCertificate(
         strategy_id=str(raw.get("strategy_id", "")),
         status=str(raw.get("status", "BLOCKED")),
@@ -67,6 +73,8 @@ def load_certificate(path: Path = DEFAULT_CERT) -> LiveCertificate:
         pack_hash=raw.get("pack_hash"),
         expires_utc=raw.get("expires_utc"),
         path=path,
+        four_proof_ok=bool(raw.get("four_proof_ok", False)),
+        four_proof_hashes=dict(hashes) if isinstance(hashes, dict) else None,
     )
 
 
@@ -77,13 +85,19 @@ def refuse_vps_deploy_without_live_certificate(
 ) -> LiveCertificate:
     """Hard stop for VPS sync/restart/enable unless a valid certificate is present."""
     cert = load_certificate(path)
+    if not cert.four_proof_ok or not cert.four_proof_hashes:
+        raise PolicyError(
+            f"VPS deploy REFUSED for {cert.strategy_id or path.name}: "
+            "certificate missing four_proof_ok + four_proof_hashes. "
+            "Shared leakage PASS alone is not deploy evidence (D-055/D-057)."
+        )
     if not cert.is_deployable:
         raise PolicyError(
             f"VPS deploy REFUSED for {cert.strategy_id or path.name}: "
             f"status={cert.status!r} authorized_by_user={cert.authorized_by_user} "
             f"pack_hash={cert.pack_hash!r}. Settle PASS / Finplot / SHADOW_READY_CANDIDATE "
             "are research evidence only. Require a frozen live pack, funding+Mark parity, "
-            "and explicit user authorization on the certificate."
+            "four-proof causality hashes, and explicit user authorization on the certificate."
             + (f" Requested host={host!r}." if host else "")
         )
     if host and cert.vps_host and host != cert.vps_host:
@@ -146,11 +160,12 @@ def write_pack_scaffold(
         "fold_geometry": "v2",
         "min_size_equity_caveat": MIN_SIZE_EQUITY_CAVEAT,
         "required_before_live": [
-            "botsgeneral leakage PASS",
-            "structure confirmation-time tests PASS",
+            "FOUR_PROOF_GATE_V1 (responsiveness + recompute_prefix + no_live_fill + layer_a)",
+            "botsgeneral leakage PASS is necessary but NEVER sufficient for warehouse spaces",
+            "structure knowable-when / confirmation-time tests PASS",
             "funding attached at actual settlements",
             "Mark/tier liquidation pack (not SIMPLIFIED)",
-            "live certificate status=AUTHORIZED + authorized_by_user=true",
+            "live certificate status=AUTHORIZED + authorized_by_user=true + four_proof_hashes",
             "explicit user deploy command naming host and account",
         ],
         "vps_deploy": "FORBIDDEN",

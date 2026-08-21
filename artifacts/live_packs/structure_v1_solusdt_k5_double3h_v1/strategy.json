@@ -85,7 +85,6 @@
     "retrieved_utc": "2026-08-03T17:03:52.096789+00:00",
     "source": "bybit_v5_tickers"
   },
-  "min_size_equity_caveat": "Wallet equity / maximum drawdown under research_sizing MIN_EXCHANGE (minimum exchange size) on a large wallet is not tradable-edge evidence. Smooth curves are expected at dust size; do not treat them as deployable sizing.",
   "what_it_does": "K=5 concurrent books/side on SOLUSDT; mean_strength on every entry; all books TP+1% SL-2% hold12; size 2x min-exchange when same-side entry within 3h of last. Account Xxobster10. MIN_EXCHANGE.",
   "version_id": "sol_k5_double3h_v1",
   "version_lineage": {
@@ -111,5 +110,7 @@
     "uniform_books": true,
     "bar_ms": 3600000,
     "version_id": "sol_k5_double3h_v1"
-  }
+  },
+  "sizing_note": "LIVE: venue minimum qty per fill; size_double_mult scales min qty only. EQUITY_LEVERAGE_NOTIONAL is research/display only \u2014 not used by live micro_runner packs.",
+  "min_size_equity_caveat": "Wallet equity / maximum drawdown under research_sizing MIN_EXCHANGE (minimum exchange size) on a large wallet is not tradable-edge evidence. Smooth curves are expected at dust size; do not treat them as deployable sizing."
 }

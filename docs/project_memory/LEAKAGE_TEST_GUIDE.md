@@ -103,14 +103,27 @@ leakage-check `
 
 | Check | Severity | Meaning |
 |---|---|---|
+| `BUILDER_RESPONSIVENESS` | HARD | Tip shape-shock does not move features — external cache / warehouse join (`CAUS-WAREHOUSE-001`) |
 | `PREFIX_INVARIANCE` | HARD | Truncated recompute differs from full series (or NaN-only-in-prefix) |
 | `FUTURE_MUTATION` | HARD | Shocking bars after a cutoff changes earlier feature values |
+| `STREAMING_BATCH` | HARD | Tip of a prefix disagrees with the same tip inside the full series |
+| `FORWARD_SHIFT_SCAN` | HARD / ADVISORY | Near-identity (or elevated corr) with a forward return — shift/label leak |
 | `NAME_SCAN` | HARD / ADVISORY | Label/outcome tokens in feature names (`net_return`, `is_win`, …); future-ish names advisory |
 | `FORWARD_CORR` | HARD if \|corr\|≥0.50; else ADVISORY if ≥0.20 | Mechanical-leak signature vs forward close returns |
 | `TRAIN_TEST_SPLIT` | HARD on overlap / order / gap fail | File geometry only — not causality proof |
+| `DECISIVE_CHECKS_REQUIRED` | HARD | Builder supplied but a decisive check was skipped |
 
 Hard failures block train/test. Advisory findings still mark the column
 `LEAKAGE_POTENTIAL` in the registry and must be investigated before use.
+
+### Warehouse-backed spaces (LLM2 `FOUR_PROOF_GATE_V1`)
+
+A green shared report alone is **not** evidence for `structure_v1` / `macro_v1` / etc.
+The audit `build_features` must recompute into a temporary store from the handed candles
+(`llm2.features.structure_recompute`). Then run
+`llm2.evidence.four_proof.run_four_proof_gate` before train/freeze. Pack freeze and live
+certificates refuse without `four_proof_hashes`. Live↔backtest prediction mismatch is a
+hard stop.
 
 ## LEAKAGE_POTENTIAL registry
 

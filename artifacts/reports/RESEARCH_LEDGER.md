@@ -18467,3 +18467,971 @@ STRUCTURE_EXPANSION_SETTLE done best_pass=True path=D:\projects\LLM2\artifacts\r
 ## [INFO] 2026-08-04 14:43:34 UTC (tier 0)
 
 STRUCTURE_LEAKAGE_RECHECK overall_ok=True pass=26/26 path=structure_v1_leakage_recheck_20260804T144240Z.json
+
+## [INFO] 2026-08-04 16:26:00 UTC (tier 1)
+
+PACK_LIVE version_id=btc_k5_double3h_v1 deployed=True service=llm2-structure-btc-k5-double3h-v1 account=Xxobster10
+
+## [INFO] 2026-08-04 16:26:00 UTC (tier 1)
+
+PACK_LIVE version_id=eth_k5_double3h_v1 deployed=True service=llm2-structure-eth-k5-double3h-v1 account=Xxobster6
+
+## [INFO] 2026-08-04 16:26:00 UTC (tier 1)
+
+PACK_LIVE version_id=eth_multitrade_v1_2 deployed=True service=llm2-structure-eth-multitrade-v1_2 account=Xxobster8
+
+## [INFO] 2026-08-04 16:26:00 UTC (tier 1)
+
+PACK_LIVE version_id=sol_k5_double3h_v1 deployed=True service=llm2-structure-sol-k5-double3h-v1 account=Xxobster10
+
+## [INFO] 2026-08-04 16:26:00 UTC (tier 0)
+
+PACK_REGISTRY_BACKFILL n=22 versions=['adausdt_direction', 'avaxusdt_direction', 'bnbusdt_direction', 'btcusdt_clarity_hold12_v1', 'btc_k5_double3h_v1', 'dogeusdt_direction', 'dotusdt_direction', 'ethusdt_clarity_hold12_v1', 'ethusdt_direction', 'eth_k5_double3h_v1', 'eth_multitrade_v1', 'eth_multitrade_v1_1', 'eth_multitrade_v1_2', 'lgbm', 'linkusdt_direction', 'solusdt_clarity_hold12_v1', 'solusdt_direction', 'sol_k5_double3h_v1', 'trxusdt_direction', 'vetusdt_direction', 'xlmusdt_direction', 'xrpusdt_direction']
+
+## [INFO] 2026-08-04 16:26:20 UTC (tier 1)
+
+PACK_LIVE version_id=eth_k5_double3h_v1 deployed=True service=llm2-structure-eth-k5-double3h-v1 account=Xxobster6
+
+## [INFO] 2026-08-04 16:26:20 UTC (tier 1)
+
+PACK_LIVE version_id=eth_multitrade_v1_2 deployed=True service=llm2-structure-eth-multitrade-v1_2 account=Xxobster8
+
+## [INFO] 2026-08-04 16:26:20 UTC (tier 1)
+
+PACK_LIVE version_id=btc_k5_double3h_v1 deployed=True service=llm2-structure-btc-k5-double3h-v1 account=Xxobster10
+
+## [INFO] 2026-08-04 16:26:20 UTC (tier 1)
+
+PACK_LIVE version_id=sol_k5_double3h_v1 deployed=True service=llm2-structure-sol-k5-double3h-v1 account=Xxobster10
+
+## [INFO] 2026-08-04 16:26:59 UTC (tier 1)
+
+PACK_LIVE version_id=btc_k5_double3h_v1 deployed=True service=llm2-structure-btc-k5-double3h-v1 account=Xxobster10
+
+## [INFO] 2026-08-04 16:26:59 UTC (tier 1)
+
+PACK_LIVE version_id=eth_k5_double3h_v1 deployed=True service=llm2-structure-eth-k5-double3h-v1 account=Xxobster6
+
+## [INFO] 2026-08-04 16:26:59 UTC (tier 1)
+
+PACK_LIVE version_id=eth_multitrade_v1_2 deployed=True service=llm2-structure-eth-multitrade-v1_2 account=Xxobster8
+
+## [INFO] 2026-08-04 16:26:59 UTC (tier 1)
+
+PACK_LIVE version_id=sol_k5_double3h_v1 deployed=True service=llm2-structure-sol-k5-double3h-v1 account=Xxobster10
+
+## [INFO] 2026-08-04 16:26:59 UTC (tier 0)
+
+PACK_REGISTRY_BACKFILL n=22 versions=['adausdt_direction', 'avaxusdt_direction', 'bnbusdt_direction', 'btcusdt_clarity_hold12_v1', 'btc_k5_double3h_v1', 'dogeusdt_direction', 'dotusdt_direction', 'ethusdt_clarity_hold12_v1', 'ethusdt_direction', 'eth_k5_double3h_v1', 'eth_multitrade_v1', 'eth_multitrade_v1_1', 'eth_multitrade_v1_2', 'lgbm', 'linkusdt_direction', 'solusdt_clarity_hold12_v1', 'solusdt_direction', 'sol_k5_double3h_v1', 'trxusdt_direction', 'vetusdt_direction', 'xlmusdt_direction', 'xrpusdt_direction']
+
+## [INFO] 2026-08-04 16:28:28 UTC (tier 0)
+
+OUTER_TRANSFER_COMPARE generation_id=structure_v1_eth_k5_expectancy_strength_p75_001 control_exp_ru=0.005206316921173494 cand_exp_ru=0.0064316547337478335 control_pf=4.114418041595842 cand_pf=7.044474928687612 path=artifacts/reports/structure_v1_eth_k5_expectancy_strength_p75_001_latest.json
+
+## [INFO] 2026-08-05 05:50:21 UTC (tier 0)
+
+OUTER_TRANSFER_COMPARE generation_id=structure_v1_eth_multitrade_loss_streak_cooloff_001 control_exp_ru=0.008020978933362125 cand_exp_ru=0.007974530894855244 control_pf=4.255642815858733 cand_pf=4.309749181761305 path=artifacts/reports/structure_v1_eth_multitrade_loss_streak_cooloff_001_latest.json
+
+## [INFO] 2026-08-05 06:54:13 UTC (tier 0)
+
+OUTER_TRANSFER_COMPARE generation_id=structure_v1_eth_k5_ev_calibrated_pi_star_001 control_exp_ru=0.005198623714457994 cand_exp_ru=0.005198623714457994 control_pf=4.1206087557058195 cand_pf=4.1206087557058195 path=artifacts/reports/structure_v1_eth_k5_ev_calibrated_pi_star_001_latest.json
+
+## [INFO] 2026-08-05 06:57:36 UTC (tier 0)
+
+OUTER_TRANSFER_COMPARE generation_id=structure_v1_eth_k5_ev_calibrated_pi_star_001 control_exp_ru=0.005206316921173494 cand_exp_ru=0.005203171582749607 control_pf=4.114418041595842 cand_pf=4.071947094142618 path=artifacts/reports/structure_v1_eth_k5_ev_calibrated_pi_star_001_latest.json
+
+## [INFO] 2026-08-05 08:02:10 UTC (tier 0)
+
+PACK_FREEZE version_id=eth_k5_double3h_p75_v1 pack_hash=b54e7846bdfc3a8e7de86d4f86bc5dfda4838dca4374674e5cb7d4e054504a3c run_ids=['structure_v1_eth_k5_expectancy_strength_p75_001_candidate-f0-0a209f4b9b', 'structure_v1_eth_k5_expectancy_strength_p75_001_candidate-f1-e3ae5bfcd5', 'structure_v1_eth_k5_expectancy_strength_p75_001_candidate-f2-7c6a732672', 'structure_v1_eth_k5_expectancy_strength_p75_001_candidate-f3-7c2ad77565', 'structure_v1_eth_k5_expectancy_strength_p75_001_candidate-f4-350ffeac18', 'structure_v1_eth_k5_expectancy_strength_p75_001_candidate-f5-bc45ca42d8'] path=artifacts/live_packs/structure_v1_ethusdt_k5_double3h_p75_v1
+
+## [INFO] 2026-08-05 08:05:24 UTC (tier 0)
+
+OUTER_TRANSFER_COMPARE generation_id=structure_v1_eth_multitrade_strength_p75_001 control_exp_ru=0.008020978933362125 cand_exp_ru=0.00951747831620085 control_pf=4.255642815858733 cand_pf=6.9621444934318975 path=artifacts/reports/structure_v1_eth_multitrade_strength_p75_001_latest.json
+
+## [INFO] 2026-08-05 08:07:06 UTC (tier 0)
+
+OUTER_TRANSFER_COMPARE generation_id=structure_v1_eth_multitrade_skip_weak_short_book1_001 control_exp_ru=0.008020978933362125 cand_exp_ru=0.008260004183604055 control_pf=4.255642815858733 cand_pf=4.432029580486041 path=artifacts/reports/structure_v1_eth_multitrade_skip_weak_short_book1_001_latest.json
+
+## [INFO] 2026-08-05 08:20:43 UTC (tier 0)
+
+PACK_FREEZE version_id=eth_k5_double3h_p75_v1 pack_hash=a291ed3ccb813def63dfc341c9c5e668cb6ddbcccc9d478d9e4178352fb696c7 run_ids=[] path=artifacts/live_packs/structure_v1_ethusdt_k5_double3h_p75_v1
+
+## [INFO] 2026-08-05 08:20:43 UTC (tier 1)
+
+PACK_LIVE version_id=eth_k5_double3h_p75_v1 deployed=True service=llm2-structure-eth-k5-double3h-p75-v1 account=Xxobster3
+
+## [INFO] 2026-08-05 08:23:10 UTC (tier 0)
+
+PACK_FREEZE version_id=eth_k5_double3h_p75_v1 pack_hash=3cbe9f34f2bd0a94d583d9ee23436a2d4e66dbf6ce864ad2c2edb49ebb8ba1d3 run_ids=[] path=artifacts/live_packs/structure_v1_ethusdt_k5_double3h_p75_v1
+
+## [INFO] 2026-08-05 08:23:10 UTC (tier 1)
+
+PACK_LIVE version_id=eth_k5_double3h_p75_v1 deployed=True service=llm2-structure-eth-k5-double3h-p75-v1 account=Xxobster3
+
+## [INFO] 2026-08-05 08:32:14 UTC (tier 0)
+
+PACK_FREEZE version_id=eth_k5_double3h_p75_v1 pack_hash=3cbe9f34f2bd0a94d583d9ee23436a2d4e66dbf6ce864ad2c2edb49ebb8ba1d3 run_ids=[] path=artifacts/live_packs/structure_v1_ethusdt_k5_double3h_p75_v1
+
+## [INFO] 2026-08-05 08:35:33 UTC (tier 0)
+
+PACK_FREEZE version_id=eth_k5_double3h_p75_v1 pack_hash=3dc73d4e9c20d980c4d37c0636e3738ecc00cd4409bfb98b9b7697cff6b108b7 run_ids=[] path=artifacts/live_packs/structure_v1_ethusdt_k5_double3h_p75_v1
+
+## [INFO] 2026-08-05 08:35:33 UTC (tier 1)
+
+PACK_LIVE version_id=eth_k5_double3h_p75_v1 deployed=True service=llm2-structure-eth-k5-double3h-p75-v1 account=Xxobster3
+
+## [INFO] 2026-08-05 08:38:52 UTC (tier 0)
+
+PACK_FREEZE version_id=eth_k5_double3h_p75_v1 pack_hash=b36912b6358a921d6e115bdcd7e439bba09b654822cd2def63ec5fd2cd40f2ca run_ids=[] path=artifacts/live_packs/structure_v1_ethusdt_k5_double3h_p75_v1
+
+## [INFO] 2026-08-05 08:38:52 UTC (tier 1)
+
+PACK_LIVE version_id=eth_k5_double3h_p75_v1 deployed=True service=llm2-structure-eth-k5-double3h-p75-v1 account=Xxobster3
+
+## [INFO] 2026-08-05 08:46:28 UTC (tier 0)
+
+OUTER_TRANSFER_COMPARE generation_id=structure_v1_eth_k5_p75_tp_scale_absmean_001 control_exp_ru=0.0064316547337478335 cand_exp_ru=0.0070315418923162 control_pf=7.044474928687612 cand_pf=7.450904301658215 path=artifacts/reports/structure_v1_eth_k5_p75_tp_scale_absmean_001_latest.json
+
+## [INFO] 2026-08-05 09:15:10 UTC (tier 0)
+
+PACK_FREEZE version_id=eth_multitrade_p75_v1 pack_hash=d86d5407d181d19c4fc379eaff4db9112e52cfe4c910933f1902036f7504d170 run_ids=[] path=artifacts/live_packs/structure_v1_ethusdt_multitrade_p75_v1
+
+## [INFO] 2026-08-05 09:15:10 UTC (tier 1)
+
+PACK_LIVE version_id=eth_multitrade_p75_v1 deployed=True service=llm2-structure-eth-multitrade-p75-v1 account=Xxobster9
+
+## [INFO] 2026-08-05 13:47:26 UTC (tier 0)
+
+OUTER_TRANSFER_COMPARE generation_id=structure_v1_eth_15m_multitrade_geometry_001 control_exp_ru=0.00809385597623016 cand_exp_ru=0.010396663555539894 control_pf=3.72589641601175 cand_pf=6.485352060119762 path=artifacts/reports/structure_v1_eth_15m_multitrade_geometry_001_latest.json
+
+## [INFO] 2026-08-05 13:56:01 UTC (tier 0)
+
+PACK_FREEZE version_id=eth_15m_multitrade_wall_clock_p75_v1 pack_hash=03beafc58556db9adc4937d00eb43829cb5fb04d4284eaab1dbe66dd6de795fc run_ids=[] path=artifacts/live_packs/structure_v1_ethusdt_15m_multitrade_wall_clock_p75_v1
+
+## [INFO] 2026-08-05 13:59:27 UTC (tier 0)
+
+OUTER_TRANSFER_COMPARE generation_id=structure_v1_eth_15m_wall_clock_p75_tp_scale_absmean_001 control_exp_ru=0.010396663555539894 cand_exp_ru=0.010776107777752992 control_pf=6.485352060119762 cand_pf=6.643387213344491 path=artifacts/reports/structure_v1_eth_15m_wall_clock_p75_tp_scale_absmean_001_latest.json
+
+## [INFO] 2026-08-05 14:03:15 UTC (tier 0)
+
+OUTER_TRANSFER_COMPARE generation_id=structure_v1_btc_15m_multitrade_geometry_001 control_exp_ru=0.005566861248867574 cand_exp_ru=0.00796047183425502 control_pf=2.986898816168234 cand_pf=5.280938428297618 path=artifacts/reports/structure_v1_btc_15m_multitrade_geometry_001_latest.json
+
+## [INFO] 2026-08-05 14:10:36 UTC (tier 0)
+
+PACK_FREEZE version_id=eth_15m_multitrade_wall_clock_p75_v1 pack_hash=66cf1c4d9de61ce1d54848c5cc9222f67324cc45568b73925919c35e7d0b6db8 run_ids=[] path=artifacts/live_packs/structure_v1_ethusdt_15m_multitrade_wall_clock_p75_v1
+
+## [INFO] 2026-08-05 14:10:36 UTC (tier 1)
+
+PACK_LIVE version_id=eth_15m_multitrade_wall_clock_p75_v1 deployed=True service=llm2-structure-eth-15m-multitrade-wall-clock-p75-v1 account=Xxobster11
+
+## [INFO] 2026-08-05 14:10:43 UTC (tier 0)
+
+PACK_FREEZE version_id=eth_15m_multitrade_wall_clock_p75_v1 pack_hash=fb6f91112b6530e6a8f96bc54a55ad2b3725ff8becdd41837431b55380605a13 run_ids=[] path=artifacts/live_packs/structure_v1_ethusdt_15m_multitrade_wall_clock_p75_v1
+
+## [INFO] 2026-08-05 14:10:43 UTC (tier 1)
+
+PACK_LIVE version_id=eth_15m_multitrade_wall_clock_p75_v1 deployed=True service=llm2-structure-eth-15m-multitrade-wall-clock-p75-v1 account=Xxobster11
+
+## [INFO] 2026-08-05 14:11:27 UTC (tier 0)
+
+PACK_FREEZE version_id=eth_15m_multitrade_wall_clock_p75_v1 pack_hash=fa0e121cef5a10036d4a423528ddf0fb163536ea24e3a1630d6bd4542fe183a7 run_ids=[] path=artifacts/live_packs/structure_v1_ethusdt_15m_multitrade_wall_clock_p75_v1
+
+## [INFO] 2026-08-05 14:11:27 UTC (tier 1)
+
+PACK_LIVE version_id=eth_15m_multitrade_wall_clock_p75_v1 deployed=True service=llm2-structure-eth-15m-multitrade-wall-clock-p75-v1 account=Xxobster11
+
+## [INFO] 2026-08-06 08:55:54 UTC (tier 0)
+
+CAUS_RETRAIN_001 start stamp=20260806T085554Z prereg_sha=93d76d2e5d9f31a2 fold=v2 lockbox=2026-05-01
+
+## [INFO] 2026-08-06 08:56:39 UTC (tier 0)
+
+CAUS_RETRAIN_001 hunt start caus_retrain_001_00_BTCUSDT_1h_fwd_return_20260806
+
+## [INFO] 2026-08-06 08:56:39 UTC (tier 0)
+
+START gen=caus_retrain_001_00_BTCUSDT_1h_fwd_return_20260806 BTCUSDT 1h target=fwd_return space=structure_v1
+
+## [INFO] 2026-08-06 08:57:13 UTC (tier 0)
+
+PREDICTABILITY real=-0.01602 p=1.0000 surr_q95=-0.00072 surr_max=-0.00049 draws=20 passed=False
+
+## [INFO] 2026-08-06 08:57:39 UTC (tier 0)
+
+SURROGATE FAIL model=hist_mean skill_real=+0.00000 skill_surrogate=+0.00000
+
+## [INFO] 2026-08-06 08:57:39 UTC (tier 0)
+
+trial `38ae0c6d-f0ab-425a-be02-1816e5779915` model=hist_mean tier=0 target=fwd_return pf=0.000 n=0 gates=FAIL
+
+## [INFO] 2026-08-06 08:58:02 UTC (tier 0)
+
+SURROGATE FAIL model=ridge skill_real=-0.00813 skill_surrogate=-0.00076
+
+## [INFO] 2026-08-06 08:58:02 UTC (tier 0)
+
+trial `b54c3a92-3848-4c0d-98ad-3a2f673804b3` model=ridge tier=0 target=fwd_return pf=0.809 n=2274 gates=FAIL
+
+## [INFO] 2026-08-06 08:58:24 UTC (tier 0)
+
+SURROGATE FAIL model=lgbm_regressor skill_real=-0.01600 skill_surrogate=-0.00323
+
+## [INFO] 2026-08-06 08:58:24 UTC (tier 0)
+
+trial `1a8af35c-bf05-46d7-bea8-1f713c60c67e` model=lgbm_regressor tier=0 target=fwd_return pf=0.798 n=2235 gates=FAIL
+
+## [INFO] 2026-08-06 08:59:08 UTC (tier 0)
+
+SURROGATE FAIL model=lgbm_classifier skill_real=-113.28300 skill_surrogate=-3.81511
+
+## [INFO] 2026-08-06 08:59:08 UTC (tier 0)
+
+trial `df2d4007-1087-43aa-8f24-36cca0b044f3` model=lgbm_classifier tier=0 target=fwd_return pf=0.747 n=4328 gates=FAIL
+
+## [INFO] 2026-08-06 08:59:08 UTC (tier 0)
+
+Hunt complete: {"generation_id": "caus_retrain_001_00_BTCUSDT_1h_fwd_return_20260806", "status": "COMPLETE", "n_trials": 4, "best_tier": 0, "predictability_passed": false, "n_folds": 6, "cost_hurdle": 0.0016, "break_even_p": 0.72}
+
+## [INFO] 2026-08-06 08:59:08 UTC (tier 0)
+
+CAUS_RETRAIN_001 hunt start caus_retrain_001_01_ETHUSDT_1h_direction_20260806
+
+## [INFO] 2026-08-06 08:59:08 UTC (tier 0)
+
+START gen=caus_retrain_001_01_ETHUSDT_1h_direction_20260806 ETHUSDT 1h target=direction space=structure_v1
+
+## [INFO] 2026-08-06 08:59:41 UTC (tier 0)
+
+PREDICTABILITY real=-0.00456 p=0.9048 surr_q95=+0.00046 surr_max=+0.00170 draws=20 passed=False
+
+## [INFO] 2026-08-06 09:00:04 UTC (tier 0)
+
+SURROGATE FAIL model=hist_mean skill_real=+0.00000 skill_surrogate=+0.00000
+
+## [INFO] 2026-08-06 09:00:04 UTC (tier 0)
+
+trial `5edec790-7332-45ee-981f-ab7b89289838` model=hist_mean tier=0 target=direction pf=0.000 n=0 gates=FAIL
+
+## [INFO] 2026-08-06 09:00:19 UTC (tier 0)
+
+trial `1c133c75-b392-40ae-9d38-78f090f1b661` model=ridge tier=0 target=direction pf=0.762 n=2875 gates=FAIL
+
+## [INFO] 2026-08-06 09:00:42 UTC (tier 0)
+
+trial `4e432304-6a83-4fbf-aaf6-a5bc46e9caa9` model=lgbm_regressor tier=0 target=direction pf=0.757 n=4763 gates=FAIL
+
+## [INFO] 2026-08-06 09:01:14 UTC (tier 0)
+
+trial `67c9d279-4e6d-400f-9689-d036061877ee` model=lgbm_classifier tier=0 target=direction pf=0.783 n=6926 gates=FAIL
+
+## [INFO] 2026-08-06 09:01:14 UTC (tier 0)
+
+Hunt complete: {"generation_id": "caus_retrain_001_01_ETHUSDT_1h_direction_20260806", "status": "COMPLETE", "n_trials": 4, "best_tier": 0, "predictability_passed": false, "n_folds": 6, "cost_hurdle": 0.0016, "break_even_p": 0.72}
+
+## [INFO] 2026-08-06 09:01:14 UTC (tier 0)
+
+CAUS_RETRAIN_001 hunt start caus_retrain_001_02_SOLUSDT_1h_direction_20260806
+
+## [INFO] 2026-08-06 09:01:14 UTC (tier 0)
+
+START gen=caus_retrain_001_02_SOLUSDT_1h_direction_20260806 SOLUSDT 1h target=direction space=structure_v1
+
+## [INFO] 2026-08-06 09:01:42 UTC (tier 0)
+
+PREDICTABILITY real=-0.00043 p=0.0952 surr_q95=-0.00062 surr_max=+0.00018 draws=20 passed=False
+
+## [INFO] 2026-08-06 09:01:54 UTC (tier 0)
+
+SURROGATE FAIL model=hist_mean skill_real=+0.00000 skill_surrogate=+0.00000
+
+## [INFO] 2026-08-06 09:01:54 UTC (tier 0)
+
+trial `f2a47c38-2ee8-4a74-9fdc-c22d1dd0bf73` model=hist_mean tier=0 target=direction pf=0.000 n=0 gates=FAIL
+
+## [INFO] 2026-08-06 09:02:08 UTC (tier 0)
+
+trial `1086efee-aa65-4ea1-a459-90233f929d77` model=ridge tier=0 target=direction pf=0.799 n=5457 gates=FAIL
+
+## [INFO] 2026-08-06 09:02:26 UTC (tier 0)
+
+trial `06fa0672-4de7-4211-94fd-c8d04253a34b` model=lgbm_regressor tier=0 target=direction pf=0.792 n=7140 gates=FAIL
+
+## [INFO] 2026-08-06 09:02:56 UTC (tier 0)
+
+trial `5cb44ea6-e73e-4171-a5d0-c934abaf6816` model=lgbm_classifier tier=0 target=direction pf=0.805 n=11839 gates=FAIL
+
+## [INFO] 2026-08-06 09:02:56 UTC (tier 0)
+
+Hunt complete: {"generation_id": "caus_retrain_001_02_SOLUSDT_1h_direction_20260806", "status": "COMPLETE", "n_trials": 4, "best_tier": 0, "predictability_passed": false, "n_folds": 6, "cost_hurdle": 0.0016, "break_even_p": 0.72}
+
+## [INFO] 2026-08-06 09:02:56 UTC (tier 0)
+
+CAUS_RETRAIN_001 hunt start caus_retrain_001_03_ETHUSDT_1h_fwd_return_20260806
+
+## [INFO] 2026-08-06 09:02:56 UTC (tier 0)
+
+START gen=caus_retrain_001_03_ETHUSDT_1h_fwd_return_20260806 ETHUSDT 1h target=fwd_return space=structure_v1
+
+## [INFO] 2026-08-06 09:03:19 UTC (tier 0)
+
+PREDICTABILITY real=-0.00894 p=0.8571 surr_q95=+0.00101 surr_max=+0.00234 draws=20 passed=False
+
+## [INFO] 2026-08-06 09:03:28 UTC (tier 0)
+
+SURROGATE FAIL model=hist_mean skill_real=+0.00000 skill_surrogate=+0.00000
+
+## [INFO] 2026-08-06 09:03:28 UTC (tier 0)
+
+trial `e8bdec56-2790-4c1f-b8fa-a5b59279fee8` model=hist_mean tier=0 target=fwd_return pf=0.000 n=0 gates=FAIL
+
+## [INFO] 2026-08-06 09:03:45 UTC (tier 0)
+
+SURROGATE FAIL model=ridge skill_real=-0.00375 skill_surrogate=-0.00096
+
+## [INFO] 2026-08-06 09:03:45 UTC (tier 0)
+
+trial `ddea96a0-7a36-4c65-8c3b-15e3e8eabbdc` model=ridge tier=0 target=fwd_return pf=0.851 n=4158 gates=FAIL
+
+## [INFO] 2026-08-06 09:04:03 UTC (tier 0)
+
+SURROGATE FAIL model=lgbm_regressor skill_real=-0.01195 skill_surrogate=-0.00454
+
+## [INFO] 2026-08-06 09:04:03 UTC (tier 0)
+
+trial `75d9cde0-586f-4084-9e6f-8f440cd806aa` model=lgbm_regressor tier=0 target=fwd_return pf=0.827 n=4063 gates=FAIL
+
+## [INFO] 2026-08-06 09:04:34 UTC (tier 0)
+
+SURROGATE FAIL model=lgbm_classifier skill_real=-80.36274 skill_surrogate=-2.76346
+
+## [INFO] 2026-08-06 09:04:34 UTC (tier 0)
+
+trial `97a4b510-3da4-405d-a616-0dc6c7297621` model=lgbm_classifier tier=0 target=fwd_return pf=0.783 n=6926 gates=FAIL
+
+## [INFO] 2026-08-06 09:04:34 UTC (tier 0)
+
+Hunt complete: {"generation_id": "caus_retrain_001_03_ETHUSDT_1h_fwd_return_20260806", "status": "COMPLETE", "n_trials": 4, "best_tier": 0, "predictability_passed": false, "n_folds": 6, "cost_hurdle": 0.0016, "break_even_p": 0.72}
+
+## [INFO] 2026-08-06 09:04:34 UTC (tier 0)
+
+CAUS_RETRAIN_001 hunt start caus_retrain_001_04_SOLUSDT_1h_fwd_return_20260806
+
+## [INFO] 2026-08-06 09:04:34 UTC (tier 0)
+
+START gen=caus_retrain_001_04_SOLUSDT_1h_fwd_return_20260806 SOLUSDT 1h target=fwd_return space=structure_v1
+
+## [INFO] 2026-08-06 09:04:54 UTC (tier 0)
+
+PREDICTABILITY real=-0.01147 p=1.0000 surr_q95=-0.00036 surr_max=+0.00021 draws=20 passed=False
+
+## [INFO] 2026-08-06 09:05:07 UTC (tier 0)
+
+SURROGATE FAIL model=hist_mean skill_real=+0.00000 skill_surrogate=+0.00000
+
+## [INFO] 2026-08-06 09:05:07 UTC (tier 0)
+
+trial `b0546f0d-2d48-49a6-9306-bcd22e397b6a` model=hist_mean tier=0 target=fwd_return pf=0.751 n=2800 gates=FAIL
+
+## [INFO] 2026-08-06 09:05:27 UTC (tier 0)
+
+SURROGATE FAIL model=ridge skill_real=-0.00018 skill_surrogate=-0.00450
+
+## [INFO] 2026-08-06 09:05:27 UTC (tier 0)
+
+trial `0e133efd-c58c-4548-8729-e9da35ef66df` model=ridge tier=0 target=fwd_return pf=0.802 n=9178 gates=FAIL
+
+## [INFO] 2026-08-06 09:05:45 UTC (tier 0)
+
+SURROGATE FAIL model=lgbm_regressor skill_real=-0.01076 skill_surrogate=-0.00417
+
+## [INFO] 2026-08-06 09:05:45 UTC (tier 0)
+
+trial `3fbb291e-3530-40ce-9b85-a8e5860bf15c` model=lgbm_regressor tier=0 target=fwd_return pf=0.759 n=7766 gates=FAIL
+
+## [INFO] 2026-08-06 09:06:16 UTC (tier 0)
+
+SURROGATE FAIL model=lgbm_classifier skill_real=-70.68581 skill_surrogate=-2.09549
+
+## [INFO] 2026-08-06 09:06:16 UTC (tier 0)
+
+trial `1355c456-07e4-4d9d-8f29-5beb36bdc865` model=lgbm_classifier tier=0 target=fwd_return pf=0.805 n=11839 gates=FAIL
+
+## [INFO] 2026-08-06 09:06:16 UTC (tier 0)
+
+Hunt complete: {"generation_id": "caus_retrain_001_04_SOLUSDT_1h_fwd_return_20260806", "status": "COMPLETE", "n_trials": 4, "best_tier": 0, "predictability_passed": false, "n_folds": 6, "cost_hurdle": 0.0016, "break_even_p": 0.72}
+
+## [INFO] 2026-08-06 09:06:17 UTC (tier 0)
+
+CAUS_RETRAIN_001 hunt start caus_retrain_001_05_BTCUSDT_1h_direction_20260806
+
+## [INFO] 2026-08-06 09:06:17 UTC (tier 0)
+
+START gen=caus_retrain_001_05_BTCUSDT_1h_direction_20260806 BTCUSDT 1h target=direction space=structure_v1
+
+## [INFO] 2026-08-06 09:06:46 UTC (tier 0)
+
+PREDICTABILITY real=+0.00093 p=0.0476 surr_q95=-0.00040 surr_max=-0.00020 draws=20 passed=True
+
+## [INFO] 2026-08-06 09:06:56 UTC (tier 0)
+
+SURROGATE FAIL model=hist_mean skill_real=+0.00000 skill_surrogate=+0.00000
+
+## [INFO] 2026-08-06 09:06:56 UTC (tier 0)
+
+trial `8204b563-a363-4f39-b50e-a40b89155aa3` model=hist_mean tier=0 target=direction pf=0.000 n=0 gates=FAIL
+
+## [INFO] 2026-08-06 09:07:09 UTC (tier 0)
+
+trial `15d11fda-1d3d-47ff-8ac2-9f4d36350582` model=ridge tier=0 target=direction pf=0.736 n=1934 gates=FAIL
+
+## [INFO] 2026-08-06 09:07:34 UTC (tier 0)
+
+trial `2f0853c5-106e-4195-8169-52d5ace8ae60` model=lgbm_regressor tier=0 target=direction pf=0.717 n=3196 gates=FAIL
+
+## [INFO] 2026-08-06 09:08:10 UTC (tier 0)
+
+trial `326f3c8b-5fda-4aa9-98a8-32001496780c` model=lgbm_classifier tier=0 target=direction pf=0.747 n=4328 gates=FAIL
+
+## [INFO] 2026-08-06 09:08:10 UTC (tier 0)
+
+Hunt complete: {"generation_id": "caus_retrain_001_05_BTCUSDT_1h_direction_20260806", "status": "COMPLETE", "n_trials": 4, "best_tier": 0, "predictability_passed": true, "n_folds": 6, "cost_hurdle": 0.0016, "break_even_p": 0.72}
+
+## [INFO] 2026-08-06 17:23:44 UTC (tier 0)
+
+NEXT_RETRACE_FORECAST_001 start sha=36bf1127d2382c81 fold=v2
+
+## [INFO] 2026-08-06 17:26:26 UTC (tier 0)
+
+NEXT_RETRACE_FORECAST_001 start sha=e237dae8ef4d8fcb fold=v2
+
+## [INFO] 2026-08-06 17:28:07 UTC (tier 0)
+
+NEXT_RETRACE_FORECAST_001 start sha=6f4cf86e59757201 fold=v2
+
+## [INFO] 2026-08-06 21:37:41 UTC (tier 0)
+
+FORECAST_FILTER_ON_DIRECTION_001 start sha=d962852a62603ba6 fold=v2
+
+## [INFO] 2026-08-08 04:44:30 UTC (tier 0)
+
+CAUSAL_DROP_RETRACE_001 start stamp=20260808T044430Z prereg_sha=876c2028740b8253 space=structure_v1_no_retrace fold=v2 lockbox=2026-05-01
+
+## [INFO] 2026-08-08 04:47:14 UTC (tier 0)
+
+CAUSAL_DROP_RETRACE_001 hunt start causal_drop_retrace_001_00_BTCUSDT_1h_fwd_return_20260808
+
+## [INFO] 2026-08-08 04:47:14 UTC (tier 0)
+
+START gen=causal_drop_retrace_001_00_BTCUSDT_1h_fwd_return_20260808 BTCUSDT 1h target=fwd_return space=structure_v1_no_retrace
+
+## [INFO] 2026-08-08 04:53:08 UTC (tier 0)
+
+CAUSAL_DROP_RETRACE_001 start stamp=20260808T045308Z prereg_sha=3d45e08a503f70fc space=structure_v1_no_retrace fold=v2 lockbox=2026-05-01
+
+## [INFO] 2026-08-08 04:55:38 UTC (tier 0)
+
+CAUSAL_DROP_RETRACE_001 hunt start causal_drop_retrace_001_00_BTCUSDT_1h_fwd_return_20260808
+
+## [INFO] 2026-08-08 04:55:38 UTC (tier 0)
+
+START gen=causal_drop_retrace_001_00_BTCUSDT_1h_fwd_return_20260808 BTCUSDT 1h target=fwd_return space=structure_v1_no_retrace
+
+## [INFO] 2026-08-08 04:58:57 UTC (tier 0)
+
+PREDICTABILITY real=-0.01429 p=0.9524 surr_q95=-0.00057 surr_max=-0.00042 draws=20 passed=False
+
+## [INFO] 2026-08-08 05:00:08 UTC (tier 0)
+
+SURROGATE FAIL model=hist_mean skill_real=+0.00000 skill_surrogate=+0.00000
+
+## [INFO] 2026-08-08 05:00:08 UTC (tier 0)
+
+trial `26c4bb43-02ec-48b6-ac46-7d497c3d56f5` model=hist_mean tier=0 target=fwd_return pf=0.000 n=0 gates=FAIL
+
+## [INFO] 2026-08-08 05:01:15 UTC (tier 0)
+
+SURROGATE FAIL model=ridge skill_real=-0.00538 skill_surrogate=-0.00184
+
+## [INFO] 2026-08-08 05:01:15 UTC (tier 0)
+
+trial `f6873408-f52d-47ae-a9e1-c647e41f40b0` model=ridge tier=0 target=fwd_return pf=0.805 n=2150 gates=FAIL
+
+## [INFO] 2026-08-08 05:02:32 UTC (tier 0)
+
+SURROGATE FAIL model=lgbm_regressor skill_real=-0.02163 skill_surrogate=-0.00578
+
+## [INFO] 2026-08-08 05:02:32 UTC (tier 0)
+
+trial `23628c84-c40b-44b3-871e-d976a8f554ab` model=lgbm_regressor tier=0 target=fwd_return pf=0.812 n=2201 gates=FAIL
+
+## [INFO] 2026-08-08 05:05:12 UTC (tier 0)
+
+SURROGATE FAIL model=lgbm_classifier skill_real=-113.71569 skill_surrogate=-4.05940
+
+## [INFO] 2026-08-08 05:05:12 UTC (tier 0)
+
+trial `4c39307a-3afa-4183-ac77-242a7292c53b` model=lgbm_classifier tier=0 target=fwd_return pf=0.787 n=4321 gates=FAIL
+
+## [INFO] 2026-08-08 05:05:12 UTC (tier 0)
+
+Hunt complete: {"generation_id": "causal_drop_retrace_001_00_BTCUSDT_1h_fwd_return_20260808", "status": "COMPLETE", "n_trials": 4, "best_tier": 0, "predictability_passed": false, "n_folds": 6, "cost_hurdle": 0.0016, "break_even_p": 0.72}
+
+## [INFO] 2026-08-08 05:05:12 UTC (tier 0)
+
+CAUSAL_DROP_RETRACE_001 hunt start causal_drop_retrace_001_01_ETHUSDT_1h_direction_20260808
+
+## [INFO] 2026-08-08 05:05:12 UTC (tier 0)
+
+START gen=causal_drop_retrace_001_01_ETHUSDT_1h_direction_20260808 ETHUSDT 1h target=direction space=structure_v1_no_retrace
+
+## [INFO] 2026-08-08 05:08:27 UTC (tier 0)
+
+PREDICTABILITY real=-0.00481 p=0.9048 surr_q95=+0.00022 surr_max=+0.00181 draws=20 passed=False
+
+## [INFO] 2026-08-08 05:09:42 UTC (tier 0)
+
+SURROGATE FAIL model=hist_mean skill_real=+0.00000 skill_surrogate=+0.00000
+
+## [INFO] 2026-08-08 05:09:42 UTC (tier 0)
+
+trial `dcc5a8b0-2ea6-4760-ab01-e03662618e2d` model=hist_mean tier=0 target=direction pf=0.000 n=0 gates=FAIL
+
+## [INFO] 2026-08-08 05:10:30 UTC (tier 0)
+
+trial `4a85e3d3-30a9-4d7d-a78c-a36e9bce2bbf` model=ridge tier=0 target=direction pf=0.771 n=2689 gates=FAIL
+
+## [INFO] 2026-08-08 05:12:12 UTC (tier 0)
+
+trial `e7cfed98-7f48-4ced-8409-b3c8065eb539` model=lgbm_regressor tier=0 target=direction pf=0.755 n=4587 gates=FAIL
+
+## [INFO] 2026-08-08 05:14:56 UTC (tier 0)
+
+trial `3620dfb1-ee93-4ff7-a8be-dfe6cbb1a67d` model=lgbm_classifier tier=0 target=direction pf=0.770 n=6958 gates=FAIL
+
+## [INFO] 2026-08-08 05:14:56 UTC (tier 0)
+
+Hunt complete: {"generation_id": "causal_drop_retrace_001_01_ETHUSDT_1h_direction_20260808", "status": "COMPLETE", "n_trials": 4, "best_tier": 0, "predictability_passed": false, "n_folds": 6, "cost_hurdle": 0.0016, "break_even_p": 0.72}
+
+## [INFO] 2026-08-08 05:14:56 UTC (tier 0)
+
+CAUSAL_DROP_RETRACE_001 hunt start causal_drop_retrace_001_02_SOLUSDT_1h_direction_20260808
+
+## [INFO] 2026-08-08 05:14:56 UTC (tier 0)
+
+START gen=causal_drop_retrace_001_02_SOLUSDT_1h_direction_20260808 SOLUSDT 1h target=direction space=structure_v1_no_retrace
+
+## [INFO] 2026-08-08 05:16:48 UTC (tier 0)
+
+PREDICTABILITY real=-0.00022 p=0.1429 surr_q95=+0.00041 surr_max=+0.00072 draws=20 passed=False
+
+## [INFO] 2026-08-08 05:17:03 UTC (tier 0)
+
+SURROGATE FAIL model=hist_mean skill_real=+0.00000 skill_surrogate=+0.00000
+
+## [INFO] 2026-08-08 05:17:03 UTC (tier 0)
+
+trial `71fe28af-0f59-43c8-afc2-3d4592db3dc0` model=hist_mean tier=0 target=direction pf=0.000 n=0 gates=FAIL
+
+## [INFO] 2026-08-08 05:17:19 UTC (tier 0)
+
+trial `8bdf7ac6-6712-455d-ab0b-276dc88eae7a` model=ridge tier=0 target=direction pf=0.811 n=5246 gates=FAIL
+
+## [INFO] 2026-08-08 05:17:47 UTC (tier 0)
+
+trial `9b3a6aa5-9ac7-42b4-b953-e3bbb755fa15` model=lgbm_regressor tier=0 target=direction pf=0.793 n=7132 gates=FAIL
+
+## [INFO] 2026-08-08 05:18:36 UTC (tier 0)
+
+trial `1f896d5d-8f91-4bf8-a0a9-f214d1ee9f44` model=lgbm_classifier tier=0 target=direction pf=0.806 n=11841 gates=FAIL
+
+## [INFO] 2026-08-08 05:18:36 UTC (tier 0)
+
+Hunt complete: {"generation_id": "causal_drop_retrace_001_02_SOLUSDT_1h_direction_20260808", "status": "COMPLETE", "n_trials": 4, "best_tier": 0, "predictability_passed": false, "n_folds": 6, "cost_hurdle": 0.0016, "break_even_p": 0.72}
+
+## [INFO] 2026-08-08 05:18:36 UTC (tier 0)
+
+CAUSAL_DROP_RETRACE_001 hunt start causal_drop_retrace_001_03_ETHUSDT_1h_fwd_return_20260808
+
+## [INFO] 2026-08-08 05:18:36 UTC (tier 0)
+
+START gen=causal_drop_retrace_001_03_ETHUSDT_1h_fwd_return_20260808 ETHUSDT 1h target=fwd_return space=structure_v1_no_retrace
+
+## [INFO] 2026-08-08 05:19:48 UTC (tier 0)
+
+PREDICTABILITY real=-0.00348 p=0.7143 surr_q95=+0.00063 surr_max=+0.00296 draws=20 passed=False
+
+## [INFO] 2026-08-08 05:20:01 UTC (tier 0)
+
+SURROGATE FAIL model=hist_mean skill_real=+0.00000 skill_surrogate=+0.00000
+
+## [INFO] 2026-08-08 05:20:01 UTC (tier 0)
+
+trial `3f1b9d62-00ad-48f9-aaee-3e36a588e0ce` model=hist_mean tier=0 target=fwd_return pf=0.000 n=0 gates=FAIL
+
+## [INFO] 2026-08-08 05:20:24 UTC (tier 0)
+
+SURROGATE FAIL model=ridge skill_real=-0.00332 skill_surrogate=-0.00064
+
+## [INFO] 2026-08-08 05:20:24 UTC (tier 0)
+
+trial `c583a24f-e23d-462c-ad22-23a63f980a08` model=ridge tier=0 target=fwd_return pf=0.859 n=3995 gates=FAIL
+
+## [INFO] 2026-08-08 05:20:50 UTC (tier 0)
+
+SURROGATE FAIL model=lgbm_regressor skill_real=-0.00756 skill_surrogate=-0.00349
+
+## [INFO] 2026-08-08 05:20:50 UTC (tier 0)
+
+trial `75d726b6-8d03-49a8-b839-fc5c330cded3` model=lgbm_regressor tier=0 target=fwd_return pf=0.837 n=3953 gates=FAIL
+
+## [INFO] 2026-08-08 05:21:40 UTC (tier 0)
+
+SURROGATE FAIL model=lgbm_classifier skill_real=-80.37481 skill_surrogate=-2.89887
+
+## [INFO] 2026-08-08 05:21:40 UTC (tier 0)
+
+trial `43b70c94-8fc9-47ed-8b7b-b9823ffc4f96` model=lgbm_classifier tier=0 target=fwd_return pf=0.770 n=6958 gates=FAIL
+
+## [INFO] 2026-08-08 05:21:40 UTC (tier 0)
+
+Hunt complete: {"generation_id": "causal_drop_retrace_001_03_ETHUSDT_1h_fwd_return_20260808", "status": "COMPLETE", "n_trials": 4, "best_tier": 0, "predictability_passed": false, "n_folds": 6, "cost_hurdle": 0.0016, "break_even_p": 0.72}
+
+## [INFO] 2026-08-08 05:21:40 UTC (tier 0)
+
+CAUSAL_DROP_RETRACE_001 hunt start causal_drop_retrace_001_04_SOLUSDT_1h_fwd_return_20260808
+
+## [INFO] 2026-08-08 05:21:40 UTC (tier 0)
+
+START gen=causal_drop_retrace_001_04_SOLUSDT_1h_fwd_return_20260808 SOLUSDT 1h target=fwd_return space=structure_v1_no_retrace
+
+## [INFO] 2026-08-08 05:22:38 UTC (tier 0)
+
+PREDICTABILITY real=-0.00609 p=0.6667 surr_q95=-0.00091 surr_max=+0.00012 draws=20 passed=False
+
+## [INFO] 2026-08-08 05:22:54 UTC (tier 0)
+
+SURROGATE FAIL model=hist_mean skill_real=+0.00000 skill_surrogate=+0.00000
+
+## [INFO] 2026-08-08 05:22:54 UTC (tier 0)
+
+trial `00c02b09-c98a-4305-a41f-9cdad008fa0c` model=hist_mean tier=0 target=fwd_return pf=0.751 n=2800 gates=FAIL
+
+## [INFO] 2026-08-08 05:23:20 UTC (tier 0)
+
+SURROGATE FAIL model=ridge skill_real=-0.00033 skill_surrogate=+0.00236
+
+## [INFO] 2026-08-08 05:23:20 UTC (tier 0)
+
+trial `12c0ae74-859a-457e-aab8-323eefc013d9` model=ridge tier=0 target=fwd_return pf=0.810 n=9043 gates=FAIL
+
+## [INFO] 2026-08-08 05:23:45 UTC (tier 0)
+
+SURROGATE FAIL model=lgbm_regressor skill_real=-0.00313 skill_surrogate=-0.00958
+
+## [INFO] 2026-08-08 05:23:45 UTC (tier 0)
+
+trial `17c386f1-2b04-4d98-9984-f621664918c6` model=lgbm_regressor tier=0 target=fwd_return pf=0.765 n=7308 gates=FAIL
+
+## [INFO] 2026-08-08 05:24:33 UTC (tier 0)
+
+SURROGATE FAIL model=lgbm_classifier skill_real=-70.66874 skill_surrogate=-1.69123
+
+## [INFO] 2026-08-08 05:24:33 UTC (tier 0)
+
+trial `3fce64d9-3b69-4aab-b525-c87794d55fdb` model=lgbm_classifier tier=0 target=fwd_return pf=0.806 n=11841 gates=FAIL
+
+## [INFO] 2026-08-08 05:24:33 UTC (tier 0)
+
+Hunt complete: {"generation_id": "causal_drop_retrace_001_04_SOLUSDT_1h_fwd_return_20260808", "status": "COMPLETE", "n_trials": 4, "best_tier": 0, "predictability_passed": false, "n_folds": 6, "cost_hurdle": 0.0016, "break_even_p": 0.72}
+
+## [INFO] 2026-08-08 05:24:33 UTC (tier 0)
+
+CAUSAL_DROP_RETRACE_001 hunt start causal_drop_retrace_001_05_BTCUSDT_1h_direction_20260808
+
+## [INFO] 2026-08-08 05:24:33 UTC (tier 0)
+
+START gen=causal_drop_retrace_001_05_BTCUSDT_1h_direction_20260808 BTCUSDT 1h target=direction space=structure_v1_no_retrace
+
+## [INFO] 2026-08-08 05:25:34 UTC (tier 0)
+
+PREDICTABILITY real=+0.00127 p=0.0476 surr_q95=-0.00019 surr_max=+0.00018 draws=20 passed=True
+
+## [INFO] 2026-08-08 05:26:08 UTC (tier 0)
+
+SURROGATE FAIL model=hist_mean skill_real=+0.00000 skill_surrogate=+0.00000
+
+## [INFO] 2026-08-08 05:26:08 UTC (tier 0)
+
+trial `18eb368f-fded-4fa1-b8d7-ecab62822f05` model=hist_mean tier=0 target=direction pf=0.000 n=0 gates=FAIL
+
+## [INFO] 2026-08-08 05:27:01 UTC (tier 0)
+
+trial `d2af3681-a997-4573-9846-1c016f9d379f` model=ridge tier=0 target=direction pf=0.737 n=1803 gates=FAIL
+
+## [INFO] 2026-08-08 05:28:47 UTC (tier 0)
+
+trial `2bcbb581-d044-4504-83b2-9420ea32b851` model=lgbm_regressor tier=0 target=direction pf=0.756 n=3183 gates=FAIL
+
+## [INFO] 2026-08-08 05:31:24 UTC (tier 0)
+
+trial `bbdc3138-9f47-4f83-8745-4ecd1f2fef01` model=lgbm_classifier tier=0 target=direction pf=0.787 n=4321 gates=FAIL
+
+## [INFO] 2026-08-08 05:31:24 UTC (tier 0)
+
+Hunt complete: {"generation_id": "causal_drop_retrace_001_05_BTCUSDT_1h_direction_20260808", "status": "COMPLETE", "n_trials": 4, "best_tier": 0, "predictability_passed": true, "n_folds": 6, "cost_hurdle": 0.0016, "break_even_p": 0.72}
+
+## [INFO] 2026-08-08 09:12:13 UTC (tier 0)
+
+D-060 CLOSED_TRADING_FAIL nest-filter + inventory NO parent PF>=1; optional sparse_leg_vol_skip_001 OPEN_OPTIONAL not auto-run
+
+## [INFO] 2026-08-08 09:12:31 UTC (tier 0)
+
+RUN_RETRACE_ALPHA_001 start stamp=20260808T091231Z prereg_sha=9fb2a833ce67e384 space=structure_v1_run_retrace fold=v2 lockbox=2026-05-01
+
+## [INFO] 2026-08-08 09:19:26 UTC (tier 0)
+
+RUN_RETRACE_ALPHA_001 hunt start run_retrace_alpha_001_00_BTCUSDT_1h_fwd_return_20260808
+
+## [INFO] 2026-08-08 09:19:26 UTC (tier 0)
+
+START gen=run_retrace_alpha_001_00_BTCUSDT_1h_fwd_return_20260808 BTCUSDT 1h target=fwd_return space=structure_v1_run_retrace
+
+## [INFO] 2026-08-08 09:25:11 UTC (tier 0)
+
+PREDICTABILITY real=-0.01937 p=0.9048 surr_q95=-0.00113 surr_max=-0.00025 draws=20 passed=False
+
+## [INFO] 2026-08-08 09:26:36 UTC (tier 0)
+
+SURROGATE FAIL model=hist_mean skill_real=+0.00000 skill_surrogate=+0.00000
+
+## [INFO] 2026-08-08 09:26:36 UTC (tier 0)
+
+trial `9559ed8b-b1f3-4979-acb2-eed94de33de4` model=hist_mean tier=0 target=fwd_return pf=0.000 n=0 gates=FAIL
+
+## [INFO] 2026-08-08 09:27:57 UTC (tier 0)
+
+SURROGATE FAIL model=ridge skill_real=-0.00622 skill_surrogate=-0.00245
+
+## [INFO] 2026-08-08 09:27:57 UTC (tier 0)
+
+trial `692a6776-9220-412f-b7d1-f80ae65feca1` model=ridge tier=0 target=fwd_return pf=0.818 n=2409 gates=FAIL
+
+## [INFO] 2026-08-08 09:29:39 UTC (tier 0)
+
+SURROGATE FAIL model=lgbm_regressor skill_real=-0.00871 skill_surrogate=-0.00747
+
+## [INFO] 2026-08-08 09:29:39 UTC (tier 0)
+
+trial `9e04e8cb-c17a-42b6-9f45-67da6b38e59b` model=lgbm_regressor tier=0 target=fwd_return pf=0.846 n=2635 gates=FAIL
+
+## [INFO] 2026-08-08 09:32:44 UTC (tier 0)
+
+SURROGATE FAIL model=lgbm_classifier skill_real=-113.73165 skill_surrogate=-4.58868
+
+## [INFO] 2026-08-08 09:32:44 UTC (tier 0)
+
+trial `5e3375f5-904f-462f-b0e8-b4d9728859cf` model=lgbm_classifier tier=0 target=fwd_return pf=0.761 n=4312 gates=FAIL
+
+## [INFO] 2026-08-08 09:32:44 UTC (tier 0)
+
+Hunt complete: {"generation_id": "run_retrace_alpha_001_00_BTCUSDT_1h_fwd_return_20260808", "status": "COMPLETE", "n_trials": 4, "best_tier": 0, "predictability_passed": false, "n_folds": 6, "cost_hurdle": 0.0016, "break_even_p": 0.72}
+
+## [INFO] 2026-08-08 09:32:44 UTC (tier 0)
+
+RUN_RETRACE_ALPHA_001 hunt start run_retrace_alpha_001_01_ETHUSDT_1h_direction_20260808
+
+## [INFO] 2026-08-08 09:32:44 UTC (tier 0)
+
+START gen=run_retrace_alpha_001_01_ETHUSDT_1h_direction_20260808 ETHUSDT 1h target=direction space=structure_v1_run_retrace
+
+## [INFO] 2026-08-08 09:37:12 UTC (tier 0)
+
+PREDICTABILITY real=-0.01086 p=0.9524 surr_q95=+0.00027 surr_max=+0.00404 draws=20 passed=False
+
+## [INFO] 2026-08-08 09:38:49 UTC (tier 0)
+
+SURROGATE FAIL model=hist_mean skill_real=+0.00000 skill_surrogate=+0.00000
+
+## [INFO] 2026-08-08 09:38:49 UTC (tier 0)
+
+trial `f69ca72f-a644-4c0c-bb7f-ac7e142eba25` model=hist_mean tier=0 target=direction pf=0.000 n=0 gates=FAIL
+
+## [INFO] 2026-08-08 09:39:48 UTC (tier 0)
+
+trial `e0e14e95-a454-402f-b8c4-35f0f7f5efb1` model=ridge tier=0 target=direction pf=0.759 n=3151 gates=FAIL
+
+## [INFO] 2026-08-08 09:41:56 UTC (tier 0)
+
+trial `97481bb4-40ce-4066-bed4-53392539107c` model=lgbm_regressor tier=0 target=direction pf=0.765 n=5298 gates=FAIL
+
+## [INFO] 2026-08-08 09:45:09 UTC (tier 0)
+
+trial `c053fbc4-2671-4e0d-912b-2473ba4b092b` model=lgbm_classifier tier=0 target=direction pf=0.780 n=6972 gates=FAIL
+
+## [INFO] 2026-08-08 09:45:09 UTC (tier 0)
+
+Hunt complete: {"generation_id": "run_retrace_alpha_001_01_ETHUSDT_1h_direction_20260808", "status": "COMPLETE", "n_trials": 4, "best_tier": 0, "predictability_passed": false, "n_folds": 6, "cost_hurdle": 0.0016, "break_even_p": 0.72}
+
+## [INFO] 2026-08-08 09:45:09 UTC (tier 0)
+
+RUN_RETRACE_ALPHA_001 hunt start run_retrace_alpha_001_02_SOLUSDT_1h_direction_20260808
+
+## [INFO] 2026-08-08 09:45:09 UTC (tier 0)
+
+START gen=run_retrace_alpha_001_02_SOLUSDT_1h_direction_20260808 SOLUSDT 1h target=direction space=structure_v1_run_retrace
+
+## [INFO] 2026-08-08 09:47:39 UTC (tier 0)
+
+PREDICTABILITY real=-0.00019 p=0.1429 surr_q95=+0.00002 surr_max=+0.00035 draws=20 passed=False
+
+## [INFO] 2026-08-08 09:47:51 UTC (tier 0)
+
+SURROGATE FAIL model=hist_mean skill_real=+0.00000 skill_surrogate=+0.00000
+
+## [INFO] 2026-08-08 09:47:51 UTC (tier 0)
+
+trial `f4911c61-9bba-4658-8a95-ddf708882586` model=hist_mean tier=0 target=direction pf=0.000 n=0 gates=FAIL
+
+## [INFO] 2026-08-08 09:48:04 UTC (tier 0)
+
+trial `7e9ced94-0690-4c16-a59e-03ef9705be6a` model=ridge tier=0 target=direction pf=0.784 n=6213 gates=FAIL
+
+## [INFO] 2026-08-08 09:48:27 UTC (tier 0)
+
+trial `7649f56a-97b0-4993-b507-48dcdfa63746` model=lgbm_regressor tier=0 target=direction pf=0.775 n=7926 gates=FAIL
+
+## [INFO] 2026-08-08 09:50:36 UTC (tier 0)
+
+trial `5fdc1d0b-b768-4618-919d-629db3e21d03` model=lgbm_classifier tier=0 target=direction pf=0.790 n=11797 gates=FAIL
+
+## [INFO] 2026-08-08 09:50:36 UTC (tier 0)
+
+Hunt complete: {"generation_id": "run_retrace_alpha_001_02_SOLUSDT_1h_direction_20260808", "status": "COMPLETE", "n_trials": 4, "best_tier": 0, "predictability_passed": false, "n_folds": 6, "cost_hurdle": 0.0016, "break_even_p": 0.72}
+
+## [INFO] 2026-08-08 09:50:36 UTC (tier 0)
+
+RUN_RETRACE_ALPHA_001 hunt start run_retrace_alpha_001_03_ETHUSDT_1h_fwd_return_20260808
+
+## [INFO] 2026-08-08 09:50:36 UTC (tier 0)
+
+START gen=run_retrace_alpha_001_03_ETHUSDT_1h_fwd_return_20260808 ETHUSDT 1h target=fwd_return space=structure_v1_run_retrace
+
+## [INFO] 2026-08-08 09:53:29 UTC (tier 0)
+
+PREDICTABILITY real=-0.00594 p=0.6190 surr_q95=+0.00140 surr_max=+0.00267 draws=20 passed=False
+
+## [INFO] 2026-08-08 09:53:41 UTC (tier 0)
+
+SURROGATE FAIL model=hist_mean skill_real=+0.00000 skill_surrogate=+0.00000
+
+## [INFO] 2026-08-08 09:53:41 UTC (tier 0)
+
+trial `ecf9a954-f282-44ea-8359-e91ceb50310d` model=hist_mean tier=0 target=fwd_return pf=0.000 n=0 gates=FAIL
+
+## [INFO] 2026-08-10 08:13:09 UTC (tier 0)
+
+PIVOT_TRAIN_MATRIX start fold=v2
+
+## [INFO] 2026-08-10 10:13:59 UTC (tier 0)
+
+PIVOT_MULTIHEAD_RARE start fold=v2
+
+## [INFO] 2026-08-10 10:21:57 UTC (tier 0)
+
+PIVOT_MULTIHEAD_RARE start fold=v2
+
+## [INFO] 2026-08-10 10:32:45 UTC (tier 0)
+
+PIVOT_LIMIT_STRAT_DIAG start 20260810T103245Z
+
+## [INFO] 2026-08-10 10:38:19 UTC (tier 0)
+
+PIVOT_LIMIT_STRAT_DIAG_GRID start 20260810T103819Z
+
+## [INFO] 2026-08-10 11:39:03 UTC (tier 0)
+
+PIVOT_STRATEGY_STACK start 20260810T113903Z
+
+## [INFO] 2026-08-10 11:39:13 UTC (tier 0)
+
+PIVOT_STRATEGY_STACK start 20260810T113913Z
+
+## [INFO] 2026-08-10 16:12:56 UTC (tier 0)
+
+PIVOT_LEVEL_PLACE_TF start 20260810T161256Z
+
+## [INFO] 2026-08-10 16:14:41 UTC (tier 0)
+
+PIVOT_LEVEL_PLACE_TF start 20260810T161441Z
+
+## [INFO] 2026-08-10 16:15:59 UTC (tier 0)
+
+PIVOT_LEVEL_PLACE_TF start 20260810T161559Z
+
+## [INFO] 2026-08-12 04:52:36 UTC (tier 0)
+
+PIVOT_REENTRY_VSA start 20260812T045236Z
+
+## [INFO] 2026-08-12 04:57:11 UTC (tier 0)
+
+PIVOT_REENTRY_VSA start 20260812T045711Z
+
+## [INFO] 2026-08-12 05:05:34 UTC (tier 0)
+
+PIVOT_REENTRY_VSA start 20260812T050534Z
+
+## [INFO] 2026-08-12 05:39:04 UTC (tier 0)
+
+PIVOT_TIMING_LEVEL_STACK start 20260812T053904Z
+
+## [ALERT] 2026-08-12 13:09:18 UTC (tier 2)
+
+PIVOT_LIVE_AUTH arm=pivot_sol_geo_tp1_sl1_p75_w4 account=Xxobster7 host=94.156.189.76 hash=a94465fd6cd4110f four_proof_ok=true
+
+## [ALERT] 2026-08-12 13:09:20 UTC (tier 2)
+
+PIVOT_LIVE_AUTH arm=pivot_eth_p75_ctrl_atr_w4 account=Xxobster7 host=94.156.189.76 hash=37dc6d256f1c0a9a four_proof_ok=true
+
+## [INFO] 2026-08-15 04:21:27 UTC (tier 0)
+
+OUTER_TRANSFER_COMPARE generation_id=structure_v1_eth_k5_tp1_be_tp2_hold24_001 control_exp_ru=-0.001879089858340348 cand_exp_ru=-0.0018065623450530086 control_pf=0.7145039065339663 cand_pf=0.75137581819614 path=artifacts/reports/structure_v1_eth_k5_tp1_be_tp2_hold24_001_latest.json
+
+## [INFO] 2026-08-15 04:22:40 UTC (tier 0)
+
+OUTER_TRANSFER_COMPARE generation_id=structure_v1_eth_k5_tp1_be_tp2_hold24_001 control_exp_ru=-0.001879089858340348 cand_exp_ru=-0.0018065623450530086 control_pf=0.7145039065339663 cand_pf=0.75137581819614 path=artifacts/reports/structure_v1_eth_k5_tp1_be_tp2_hold24_001_latest.json
+
+## [INFO] 2026-08-15 04:23:06 UTC (tier 0)
+
+OUTER_TRANSFER_COMPARE generation_id=structure_v1_eth_k5_tp1_be_tp2_hold24_001 control_exp_ru=-0.001879089858340348 cand_exp_ru=-0.0018065623450530086 control_pf=0.7145039065339663 cand_pf=0.75137581819614 path=artifacts/reports/structure_v1_eth_k5_tp1_be_tp2_hold24_001_latest.json
+
+## [INFO] 2026-08-19 03:57:49 UTC (tier 0)
+
+CONFLUENCE_EVENT_IMPORTANCE_001 start 20260819T035749Z
+
+## [INFO] 2026-08-19 03:59:15 UTC (tier 0)
+
+CONFLUENCE_EVENT_IMPORTANCE_001 start 20260819T035915Z
+
+## [INFO] 2026-08-19 04:46:25 UTC (tier 0)
+
+CONFLUENCE_EVENT_IMPORTANCE_001 done survivors=14 path=D:\projects\LLM2\artifacts\reports\confluence\event_importance_001_latest.json
+
+## [INFO] 2026-08-19 04:49:25 UTC (tier 0)
+
+CONFLUENCE_EVENT_PACK_TRAIN_001 start 20260819T044925Z n_surv=14
+
+## [INFO] 2026-08-19 04:51:36 UTC (tier 0)
+
+CONFLUENCE_EVENT_PACK_TRAIN_001 done path=D:\projects\LLM2\artifacts\reports\confluence\event_pack_train_001_latest.json
+
+## [INFO] 2026-08-19 04:59:29 UTC (tier 0)
+
+CONFLUENCE_AUTONOMOUS_HUNT_002 start 20260819T045929Z
+
+## [INFO] 2026-08-19 05:20:25 UTC (tier 0)
+
+CONFLUENCE_AUTONOMOUS_HUNT_002 checkpoint arms=1092 path=D:\projects\LLM2\artifacts\reports\confluence\autonomous_hunt_002_latest.md
+
+## [ALERT] 2026-08-20 21:20:30 UTC (tier 2)
+
+PIVOT_LIVE_AUTH ETH+SOL 15m 0.5pct/0.5pct account=Xxobster9 host=212.73.150.178 packs=eth_p50_tp05_sl05_w4,sol_p50_tp05_sl05_w4 (research remains LIVE_STOP; user operational authorize)

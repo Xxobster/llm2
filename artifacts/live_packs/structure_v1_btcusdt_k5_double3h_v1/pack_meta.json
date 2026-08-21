@@ -2,5 +2,21 @@
   "version_id": "btc_k5_double3h_v1",
   "parent": "structure_v1_lgbm",
   "account": "Xxobster10",
-  "frozen_utc": "2026-08-04T14:40:00Z"
+  "frozen_utc": "2026-08-04T14:40:00Z",
+  "strategy_id": "structure_v1_lgbm_BTCUSDT_1h_fwd_return_k5_double3h_v1",
+  "status": "LIVE_ACTIVE",
+  "readiness": "RESEARCH_ONLY",
+  "pack_hash": "8e885c5ea17a92bfb7c876a916774de9d6b37ba6b5b74c98edf88ccd8185855a",
+  "pack_path": "artifacts/live_packs/structure_v1_btcusdt_k5_double3h_v1",
+  "parent_pack": "structure_v1_lgbm",
+  "replaces_version": null,
+  "evidence": {},
+  "live": {
+    "account_ref": "Xxobster10",
+    "service": "llm2-structure-btc-k5-double3h-v1",
+    "deployed": true,
+    "certificate_path": "configs/live/structure_v1_btcusdt_k5_double3h_v1_certificate.yaml",
+    "deployed_utc": "20260804T162659Z"
+  },
+  "metrics": {}
 }

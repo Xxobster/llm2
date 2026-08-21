@@ -30,7 +30,25 @@ def test_mean_strength_median_gate():
     assert mean_strength_ok(0.3, [0.1, 0.3, 0.5]) is True
 
 
-def test_parse_multitrade_config():
+def test_mean_strength_p75_gate():
+    # sorted [0.1, 0.3, 0.5, 0.9] → p75 between 0.5 and 0.9
+    hist = [0.1, 0.3, 0.5, 0.9]
+    assert mean_strength_ok(0.4, hist, strength_quantile=0.75) is False
+    assert mean_strength_ok(0.95, hist, strength_quantile=0.75) is True
+    # default median still works with explicit 0.5
+    assert mean_strength_ok(0.3, [0.1, 0.3, 0.5], strength_quantile=0.5) is True
+
+
+def test_parse_includes_strength_quantile_default():
+    cfg = parse_multitrade_config(
+        {
+            "execution_mode": "multitrade",
+            "multitrade": {"max_positions_per_side": 5, "clarity": "mean_strength"},
+        }
+    )
+    assert cfg is not None
+    assert cfg["strength_quantile"] == 0.5
+
     assert parse_multitrade_config({"max_positions": 1}) is None
     cfg = parse_multitrade_config(
         {

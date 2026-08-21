@@ -5,6 +5,529 @@ results, so a reversal needs an explicit, dated entry rather than a code change.
 
 ---
 
+## D-061 — ETH K5 TP1/BE/TP2 fixed-hold arm fails; do not promote
+
+**Date:** 2026-08-15 · **Status:** ACTIVE · **Evidence:**
+`configs/preregister/structure_v1_eth_k5_tp1_be_tp2_hold24_001.yaml`,
+`artifacts/reports/structure_v1_eth_k5_tp1_be_tp2_hold24_001_latest.json`
+
+One frozen outer-transfer arm retained the ETH K5 median-strength, K=5 and
+double-within-three-hours entry geometry, while changing exits to: 50% TP1 at
+1%, break-even after TP1, 50% TP2 at 2%, and fixed hold 24 from entry.
+
+| Arm | Stitched E[r] | PF | Trades | Decision |
+|---|---:|---:|---:|---|
+| Control, TP1% / SL2% / hold12 | -0.1879% | 0.7145 | 6,384 | baseline |
+| TP1/BE/TP2 / fixed hold24 | -0.1807% | 0.7514 | 3,881 | **FAIL** |
+
+The candidate improves the negative control slightly but remains negative and
+fails the pre-frozen PF >= 1.20 requirement. It is not a live candidate.
+
+The hold is an explicit approximation: it starts at original entry, including
+after TP1. tradesim currently cannot reset/extend residual hold from TP1. The
+required botsgeneral-only engine work is recorded in
+`docs/project_memory/BOTSGENERAL_POST_TP1_HOLD_PROMPT.md`; do not build a
+second simulator in LLM2.
+
+## D-060 — Direction nest-filter trading branch CLOSED (forecast skill ≠ trade)
+
+**Date:** 2026-08-08 · **Status:** ACTIVE · **Evidence:**
+`artifacts/reports/structure_v1_next_retrace_forecast_001_latest.json`,
+`artifacts/reports/structure_v1_forecast_filter_on_direction_001_latest.json`,
+`artifacts/reports/post_caus_parent_pf_inventory_001.json`,
+`configs/preregister/structure_v1_forecast_filter_on_direction_001.yaml`,
+`llm2/research/forecast_filter_seal.py`
+
+Post-CAUS nested program:
+
+| Generation | Forecast skill | Trading Profit Factor (PF) |
+|---|---|---|
+| `structure_v1_next_retrace_forecast_001` Stage-1 | PASS (Spearman IC ≈ 0.67–0.69) | Stage-2 naive every-leg **FAIL** PF ≈ 0.70–0.74 |
+| `structure_v1_forecast_filter_on_direction_001` | next_retrace / next_vol skill reconfirmed | Control + filters **FAIL** mean_fold PF ≈ 0.64–0.79 |
+
+Therefore:
+
+* **Close** the dense `structure_v1` **direction@1h nest-filter trading claim**.
+  Status of gen `structure_v1_forecast_filter_on_direction_001` =
+  `CLOSED_TRADING_FAIL`.
+* **Freeze** nest thresholds (no outer-OOS retune): deep_retrace_thresh=0.5,
+  retrace_score_min=0.05, vol_skip_percentile=75, tp=1%, sl=2%, hold=6,
+  min_edge=0.1, filter arm set = {control, next_retrace_agree_skip,
+  next_vol_skip_p75}. Exact list in `FROZEN_NEST_THRESHOLDS`.
+* High next_retrace Information Coefficient (IC) is a **state forecast**, not a
+  mandate to trade direction and not live authorization.
+* Do not improve by multi-arm grids or multi-task selection on outer PF.
+* Post-CAUS parent inventory: **no** hunt row with pooled PF ≥ 1.0 on
+  `structure_v1` / `structure_v1_no_retrace` direction or fwd_return @ 1h
+  (`caus_retrain_001`, `causal_drop_retrace_001`). **Do not nest** filters on
+  these parents. Prefer shifting trading research off this family.
+* Optional single-arm continuation (not auto-run, not a reopening of the nest):
+  `structure_v1_sparse_leg_vol_skip_001` — sparse leg-confirm impulse + next_vol
+  p75 skip only. One fail closes it without threshold hunting.
+* Re-run of closed nest script requires
+  `LLM2_ALLOW_CLOSED_NEST_FILTER_RERUN=1` and
+  `--i-accept-closed-trading-fail-rerun` (diagnostics with frozen constants only).
+
+## D-058 — Orange / oracle_leaky is contamination forensics only (no PnL track)
+
+**Date:** 2026-08-08 · **Status:** ACTIVE · **Evidence:**
+`artifacts/reports/leaky_proxy_asof_max_001/leaky_proxy_asof_max_001_latest.json`,
+`artifacts/reports/oracle_pred_residual_forensics_001/`,
+`llm2/research/orange_track_seal.py`,
+`configs/preregister/structure_v1_causal_drop_retrace_001.yaml`
+
+Best *causal* reconstruction of the look-ahead orange series (`oracle_leaky` /
+pre-CAUS-STRUCT-001 `last_retrace_pct`) tops out near outer MAE ≈ 0.38 and
+correlation ≈ 0.79 (HistGradientBoosting + as-of running retrace). Trade retest on
+`pred_leaky` loses money while `oracle_leaky` profits — the residual is future-swing
+information, not a deployable edge. Therefore:
+
+* Stop optimizing orange for profit and loss (P&L). Sealed scripts refuse unless
+  `LLM2_ALLOW_ORANGE_FORENSICS=1` and `--i-accept-contamination-forensics`.
+* Never freeze live packs on `pred_leaky` or `oracle_leaky`.
+* HistGradientBoosting + `run_retrace_expand_max` is a leg-state **diagnostic**, not
+  a substitute for cyan publish or a model feature path to promote.
+* Research budget goes to post-CAUS **causal** alphas: true-cyan warehouse publish and
+  `structure_v1_no_retrace` (generation `structure_v1_causal_drop_retrace_001`), not
+  perfect-orange imitation.
+* Residual histogram / Finplot of `oracle − pred` is optional forensics only.
+
+## D-060 — Causal running-retrace is a separate alpha prereg (not orange MAE)
+
+**Date:** 2026-08-08 · **Status:** ACTIVE · **Code:**
+`llm2/features/run_retrace_v1.py`,
+`configs/preregister/structure_v1_run_retrace_alpha_001.yaml`,
+`scripts/run_structure_v1_run_retrace_alpha_001.py`
+
+The ~0.79 correlation HistGradientBoosting reconstruction of orange remains
+**diagnostics only**. Tradable use of retrace-like information must target the
+**causal** running depth (`run_retrace*`, space `structure_v1_run_retrace`) under
+a fresh pre-registration. Forbidden still: mean absolute error (MAE) → 0 on
+`oracle_leaky`, packs with `pred_leaky` / `oracle_leaky`, promoting residual plots.
+
+## D-059 — structure_v1_causal_drop_retrace_001: no edge without last_retrace*
+
+**Date:** 2026-08-08 · **Status:** ACTIVE · **Evidence:**
+`artifacts/reports/structure_v1_causal_drop_retrace_001_latest.json`,
+`configs/preregister/structure_v1_causal_drop_retrace_001.yaml`
+
+Fresh nested hunt on causal `structure_v1_no_retrace` (BTCUSDT/ETHUSDT/SOLUSDT ×
+fwd_return/direction) failed V2.1 on every combo (pooled Profit Factor ≈
+0.77–0.86, negative daily mark-to-market Sharpe, zero positive bootstrap fraction).
+Leakage and four-proof gates passed. Maximum readiness remains
+`LIVE_STOP / RESEARCH_ONLY`. Do not open multitrade/k5 overlays on this parent.
+Do not re-search the same space without a new, pre-registered hypothesis change.
+
+## D-057 — FOUR_PROOF_GATE_V1 before train / freeze / live authorize
+
+**Date:** 2026-08-06 · **Status:** ACTIVE · **Code:** `llm2/evidence/four_proof.py`
+
+A green shared leakage report alone is illegal evidence for warehouse-backed spaces.
+Before train, pack freeze, or live certificate authorization, all four proofs must pass
+and their SHA-256 hashes must be stored on the pack / certificate:
+
+1. builder_responsiveness (CAUS-WAREHOUSE-001)
+2. recompute_prefix (decisive leakage battery on the warehouse-recompute builder)
+3. no_live_feature_fill (no NaN→0 on the live path)
+4. layer_a_pred_identity (research join vs recompute path agree on tip)
+
+`register_freeze` and `refuse_vps_deploy_without_live_certificate` fail closed without
+these hashes. Live↔backtest prediction mismatch is a hard stop.
+
+## D-055 — CAUS-WAREHOUSE-001: leakage engine must catch cache builders
+
+**Date:** 2026-08-06 · **Status:** ACTIVE · **Evidence:**
+`packages/leakage/tests/test_builder_responsiveness.py`,
+`tests/test_caus_warehouse_001.py`,
+`llm2/features/structure_recompute.py`
+
+The shared leakage engine now hard-fails when a tip shape-shock does not move
+feature outputs (`EXTERNAL_CACHE_SUSPECTED` / `BUILDER_RESPONSIVENESS`). Warehouse-
+backed spaces must recompute indicators into a temporary store inside the audit
+builder; joining a calendar-keyed database alone is forbidden as an audit path.
+A missing `pytest.mark.conformance("CAUS-WAREHOUSE-001")` binding fails the build.
+
+## D-056 — structure_v1_caus_retrain_001: no edge after causal fix
+
+**Date:** 2026-08-06 · **Status:** ACTIVE · **Evidence:**
+`artifacts/reports/structure_v1_caus_retrain_001_latest.json`,
+`configs/preregister/structure_v1_caus_retrain_001.yaml`
+
+Fresh nested hunt on the causal warehouse (BTC/ETH/SOL × fwd_return/direction)
+failed V2.1 gates on every combo (pooled Profit Factor ≈ 0.75–0.81, Sharpe negative,
+zero positive-expectancy bootstrap fraction). Maximum earned readiness remains
+`LIVE_STOP / RESEARCH_ONLY`. Do not redeploy LIVE structure_v1 packs from this
+generation. Multitrade / k5 overlays inherit the failed parent and stay stopped.
+
+## D-052 — CAUS-STRUCT-001: leg retracement publishes at the successor leg
+
+**Date:** 2026-08-06 · **Status:** ACTIVE · **Evidence:**
+`docs/project_memory/LIVE_BT_SIGNAL_PARITY_REPORT_20260806.md`,
+`packages/indicators/tests/test_structure_causality.py`,
+`scripts/test_indicator_recompute_prefix_invariance.py`
+
+A leg's `retrace_pct` is measured against the end of the **next** opposite leg, so it
+is published at that successor leg's known time, never at the leg's own confirmation.
+Publishing earlier put post-T prices into bar T and made live (which sees `NaN` there)
+structurally unable to reproduce research: predictions differed on 84–100% of live
+decision bars and the side flipped on about half.
+
+Consequences that must not be quietly undone:
+
+* Every published structure column must stay prefix-invariant; a missing test binding
+  fails the build like a failing test.
+* Live must never substitute a value for a missing feature that research drops. The
+  retrace zero-fill in `micro_runner` is removed permanently.
+* All `structure_v1` models trained before this date consumed the leaked column.
+  Their readiness, backtests and charts are void; retraining under a fresh
+  pre-registration is required before any number is quoted again.
+
+## D-053 — `last` and `last_price` are one series, never a choice
+
+**Date:** 2026-08-06 · **Status:** ACTIVE · **Evidence:**
+`tests/test_ohlcv_price_type_resolve.py`,
+`tests/test_live_bt_signal_parity_guards.py`
+
+`price_type` is not part of the `market_ohlcv` primary key, so the two labels are
+disjoint slices of the same last-trade series. Loading must take both. Pinning one
+label served ETHUSDT 1h as 8,844 bars with a 49,807-bar hole. Mark prices are still
+never mixed into a last-trade load.
+
+## D-054 — one shared slot-release rule for concurrent books
+
+**Date:** 2026-08-06 · **Status:** ACTIVE · **Evidence:**
+`llm2/live/multitrade.py::slot_release_ts_ms`,
+`tests/test_live_bt_signal_parity_guards.py`
+
+A book stops occupying a slot when its take-profit or stop fills, not at max-hold.
+Research and live use the same function, so a `cap_reached` skip means the same thing
+on both sides. The clarity strength history is likewise derived from candles, so it
+does not depend on how long the bot process has been running.
+
+## D-051 — ETH K5 size_scale ref=0.30: hold as potential live upgrade
+
+**Date:** 2026-08-05 · **Status:** ACTIVE · **Evidence:**
+`configs/preregister/structure_v1_eth_k5_size_scale_ref_thresholds_001.yaml`,
+`scripts/settle_eth_k5_size_scale_ref_thresholds_001.py`,
+`artifacts/reports/structure_v1_eth_k5_size_scale_ref_thresholds_001_latest.json`,
+`artifacts/reports/structure_v1_eth_k5_size_scale_ref_0_30_display_001_latest.json`,
+`scripts/plot_eth_k5_size_scale_ref_0_30.py`,
+`llm2/live/multitrade.py` (`scale_size_mult_by_abs_mean`),
+`llm2/signals/cluster_concurrency.py` (`size_scale_by_abs_mean`)
+
+**Rules:**
+1. **Hold only.** User keeps size-scale **ref=0.30** as a **potential upgrade**
+   if (and only if) the **current live** ETH K5 path proves profitable under the
+   existing pack sizing (time-double / no strength size-scale). Research only until
+   then; max readiness `RESEARCH_ONLY`.
+2. **Not live now.** Do **not** freeze, certify, VPS-deploy, or change live
+   `size_mult` to strength-scale without a **new** single-arm generation + pack
+   + certificate + **explicit user authorization** after live profitability is
+   established. Multi-threshold table remains MEASURE_DIAGNOSTIC — not a menu.
+3. **Frozen research formula** (if later promoted as that generation):
+   `size_mult = time_mult × clip(|pred_mean| / 0.30, 1.0, 2.0)` with
+   `time_mult = 2` if same-side entry within 3h else 1; base geometry =
+   ETH K5 double-within-3h + median clarity + min_edge 0.10.
+4. **Do not promote ref=0.15** (or other refs picked from the multi-ref table).
+   Prefer mild refs (≥ ~0.30) so the 2× strength cap is rare (~6% at 0.30 vs
+   ~72% at 0.15). E[r] / WR match control; capital and fees rise — treat as risk
+   scale, not new alpha.
+5. Gate checklist before any future freeze: live profitability evidence for the
+   base K5 unit; single-arm re-settlement at ref=0.30 only; margin/liquidation
+   under the sizing mode live will use; code path parity
+   (`size_scale_by_abs_mean` on research + live); no multi-arm outer pick.
+
+---
+
+## D-050 — ETH 15m wall_clock p75 shipped to Xxobster11 / 185.203.119.52
+
+**Date:** 2026-08-05 · **Status:** ACTIVE · **Evidence:**
+`artifacts/live_packs/structure_v1_ethusdt_15m_multitrade_wall_clock_p75_v1/`,
+`configs/live/structure_v1_ethusdt_15m_multitrade_wall_clock_p75_v1_certificate.yaml`,
+`scripts/authorize_eth_15m_multitrade_wall_clock_p75_v1_live.py`,
+`scripts/deploy_eth_15m_multitrade_wall_clock_p75_v1.ps1`,
+`scripts/_vps_register_llm2_units_185.py`
+
+**Rules:**
+1. User authorized pack `eth_15m_multitrade_wall_clock_p75_v1` on **Xxobster11**
+   / **185.203.119.52** as unit
+   `llm2-structure-eth-15m-multitrade-wall-clock-p75-v1` (registry name
+   `llm2_structure_eth_15m_multitrade_wall_clock_p75`).
+2. Decision TF=15m; touch=1m; HTF structure refresh must include **1h+4h**
+   (not 1w). Live skip-tip must require HTF series depth.
+3. Candles = botsgeneral shared collector (Binance signal); execution Bybit;
+   MIN_EXCHANGE only; cert expires 2026-08-19 unless renewed.
+4. On 185, `bots_registry` fleet lists the three llm2 units explicitly
+   (Xxobster3 / 9 / 11); do not use catch-all `llm2` on this host.
+5. Does **not** authorize capital scale-up or promoting the nested TP∝|mean| arm.
+6. Live must fail-closed on incomplete structure: after refresh, require deep
+   decision+HTF series, decision-bar tip, and HTF tips covering the completed
+   join; on failure log `STRUCTURE_NOT_READY`, skip decide, leave
+   `last_processed` unchanged (retry bar). Redeploy `micro_runner` to 185 when
+   authorized so bring-up tip-drift cannot recur.
+
+---
+
+## D-049 — ETH 15m wall_clock p75 + TP∝|mean| nested PASS (research)
+
+**Date:** 2026-08-05 · **Status:** ACTIVE · **Evidence:**
+`configs/preregister/structure_v1_eth_15m_wall_clock_p75_tp_scale_absmean_001.yaml`,
+`scripts/settle_eth_15m_wall_clock_p75_tp_scale_absmean_001.py`,
+`artifacts/reports/structure_v1_eth_15m_wall_clock_p75_tp_scale_absmean_001_latest.json`,
+`llm2/live/multitrade.py` (`scale_tp_by_abs_mean`),
+`llm2/experiments/eth_multitrade_nested.py` (tp_scale on book TP)
+
+**Rules:**
+1. Nested only on frozen ETH 15m **wall_clock_q75**. No 1h grid reopen;
+   no reopening 15m geometry arms in this generation.
+2. Formula (after book TP including fib books):
+   `TP = book_tp × min(2, max(1, |pred_mean| / 0.5))`.
+3. Outer stitch: candidate E[r] ≈ **1.078%** PF ≈ **6.64** mean TP ≈ **2.23%**
+   vs control E[r] ≈ **1.040%** PF ≈ **6.49**; n≈13502; no liq. **PASS**.
+4. Max readiness `RESEARCH_ONLY`. Live FORBIDDEN without new pack+cert+auth.
+
+---
+
+## D-048 — BTC 15m Phase 2: same geometry; wall_clock p75 wins
+
+**Date:** 2026-08-05 · **Status:** ACTIVE · **Evidence:**
+`scripts/build_btc_15m_structure_and_audit.py`,
+`artifacts/reports/structure_v1_btc_15m_warehouse_audit_latest.json`,
+`configs/preregister/structure_v1_btc_15m_multitrade_geometry_001.yaml`,
+`scripts/settle_btc_15m_multitrade_geometry_001.py`,
+`artifacts/reports/structure_v1_btc_15m_multitrade_geometry_001_latest.json`
+
+**Rules:**
+1. BTC is a **separate generation** from ETH 15m (D-047). ETH OOS must not
+   choose the BTC arm.
+2. Knobs match ETH a priori (wall-clock q50/q75 + bar-count q75). Touch=1m.
+3. BTC warehouse + leakage `structure_v1` @ 15m must PASS before settle.
+4. Outer stitch: best = **wall_clock_q75** E[r] ≈ **0.796%** PF ≈ **5.28**
+   vs q50 E[r] ≈ **0.557%**; bar-count E[r] ≈ **0.426%** loses primary.
+   Criteria **PASSED**. Max readiness `RESEARCH_ONLY`. Live FORBIDDEN.
+5. Do not reopen 1h clarity×hold×TP after this OOS.
+
+---
+
+## D-047 — ETH 15m multitrade wall-clock p75 beats median; bar-count loses on E[r]
+
+**Date:** 2026-08-05 · **Status:** ACTIVE · **Evidence:**
+`scripts/build_eth_15m_structure_and_audit.py`,
+`artifacts/reports/structure_v1_eth_15m_warehouse_audit_latest.json`,
+`configs/preregister/structure_v1_eth_15m_multitrade_geometry_001.yaml`,
+`scripts/settle_eth_15m_multitrade_geometry_001.py`,
+`artifacts/reports/structure_v1_eth_15m_multitrade_geometry_001_latest.json`,
+`llm2/experiments/eth_multitrade_nested.py` (timeframe/label_horizon overrides),
+`artifacts/live_packs/structure_v1_ethusdt_15m_multitrade_wall_clock_p75_v1/`,
+`scripts/freeze_eth_15m_multitrade_wall_clock_p75_v1.py`,
+`scripts/plot_eth_15m_wall_clock_q75_last3m_clean.py`
+
+**Rules:**
+1. ETHUSDT **15m** structure warehouse is built with botsgeneral
+   `indicators.update_series` before any 15m train; leakage
+   `structure_v1` @ 15m must PASS.
+2. Decision TF = 15m; touch TF = **1m** (per `touch_timeframe`).
+3. Frozen multi-arm (all listed before OOS): wall-clock q50 / wall-clock q75 /
+   bar-count q75. Multitrade K=7, fib 1.618, TP1%/SL2%, clarity_scope=all.
+4. Wall-clock mapping: base_hold=24, hold_addon=48, mean_lookback=672,
+   label_horizon=24. Bar-count keeps 6/12/168/6.
+5. Outer stitch: best = **wall_clock_q75** E[r] ≈ **1.040%** PF ≈ **6.49**
+   vs wall_clock_q50 E[r] ≈ **0.809%** PF ≈ **3.73**. Bar-count q75 E[r] ≈
+   **0.633%** PF ≈ **8.79** — loses primary. Criteria **PASSED**.
+   Max readiness `RESEARCH_ONLY`. Live FORBIDDEN without new pack+cert+auth.
+6. Research pack `eth_15m_multitrade_wall_clock_p75_v1` is hashable
+   `FROZEN_RESEARCH_ONLY` (retrained 15m model). Not live.
+7. Display Finplot last-3m uses only pre-lockbox `[2026-02-01, 2026-05-01)`;
+   not a promotion gate (`DISPLAY_ONLY_CLEAN_OOS_SLICE`).
+8. BTC Phase 2 is a **new** prereg (D-048), not this generation.
+9. Do not reopen 1h clarity×hold×TP grids after this OOS.
+
+---
+
+## D-046 — ETH multitrade p75 shipped to Xxobster9 / 185.203.119.52
+
+**Date:** 2026-08-05 · **Status:** ACTIVE · **Evidence:**
+`artifacts/live_packs/structure_v1_ethusdt_multitrade_p75_v1/`,
+`configs/live/structure_v1_ethusdt_multitrade_p75_v1_certificate.yaml`,
+`scripts/authorize_eth_multitrade_p75_v1_live.py`,
+`scripts/deploy_eth_multitrade_p75_v1.sh`,
+`scripts/_vps_register_eth_multitrade_p75_xxobster9.py`,
+`artifacts/reports/structure_v1_eth_multitrade_strength_p75_001_latest.json`
+
+**Rules:**
+1. User authorized pack `eth_multitrade_p75_v1` (v1.2 geometry +
+   `strength_quantile=0.75`) on **Xxobster9** / **185.203.119.52** as unit
+   `llm2-structure-eth-multitrade-p75-v1` (registry bot name
+   `llm2_structure_eth_multitrade_p75`). Xxobster8 on 94 stays **median**
+   multitrade v1.2.
+2. Candles = botsgeneral collector `shared_candles.db` (Binance signal);
+   execution Bybit; MIN_EXCHANGE only; cert expires 2026-08-19 unless renewed.
+3. Does **not** authorize capital scale-up or replacing v1.2 on Xxobster8.
+
+---
+
+## D-045 — ETH K5 p75 shipped to Xxobster3/185; nested TP∝|mean| PASS (research)
+
+**Date:** 2026-08-05 · **Status:** ACTIVE · **Evidence:**
+`artifacts/live_packs/structure_v1_ethusdt_k5_double3h_p75_v1/`,
+`configs/live/structure_v1_ethusdt_k5_double3h_p75_v1_certificate.yaml`,
+`scripts/authorize_eth_k5_double3h_p75_v1_live.py`,
+`scripts/deploy_eth_k5_double3h_p75_v1.ps1`,
+`scripts/_vps_register_eth_k5_p75_xxobster3.py`,
+`configs/preregister/structure_v1_eth_k5_p75_tp_scale_absmean_001.yaml`,
+`scripts/settle_eth_k5_p75_tp_scale_absmean_001.py`,
+`artifacts/reports/structure_v1_eth_k5_p75_tp_scale_absmean_001_latest.json`,
+`llm2/live/multitrade.py` (`scale_tp_by_abs_mean`),
+`tests/test_tp_scale_by_abs_mean.py`
+
+**Rules:**
+1. User authorized **p75 fixed-TP** pack `eth_k5_double3h_p75_v1` on
+   **Xxobster3** / **185.203.119.52** as isolated unit
+   `llm2-structure-eth-k5-double3h-p75-v1` (registry name
+   `llm2_structure_eth_k5_double3h_p75`). Xxobster6 on 94.156.189.76 stays
+   **median** `eth_k5_double3h_v1`.
+2. Certificate + pack_hash must match after registry writes (authorize seals
+   fingerprint **after** `register_freeze` / `register_live`).
+3. Live uses botsgeneral tradesim under `/opt/botsgeneral/packages/tradesim`
+   (`TRADESIM_REQUIRE_UNDER` pinned). Signal candles = **Binance**.
+4. Bybit API IP whitelist for Xxobster3 includes `185.203.119.52` (confirmed
+   2026-08-05: `MODE_SET`/`LEVERAGE_SET` retCode=0). Do not leave the unit in a
+   restart crash-loop if unmatched IP returns.
+5. Nested transfer **p75 + TP proportional to |pred_mean|** PASSED vs p75 fixed
+   TP control: E[r] ≈ **0.703%** vs **0.643%**; PF ≈ **7.45** vs **7.04**;
+   mean TP ≈ **1.07%**; n≈5994; no liq. Frozen formula
+   `TP = 0.01 × min(2, max(1, |pred_mean| / 0.5))`. Evidence
+   `OUTER_TRANSFER_COMPARE`. **Not live** without new pack + cert + auth.
+6. Do **not** reopen clarity×hold×TP after this OOS. Remaining TP ideas
+   (vol-scale, discrete strength buckets, structure impulse, multi-TP/BE,
+   hold-after-TP1) are train-window / new-prereg TODO only.
+7. Does not authorize scaling capital or promoting the TP-scale arm by default.
+
+---
+
+## D-044 — Selective data program: p75 multitrade + weak-short-book1 PASS; OI/news fail
+
+**Date:** 2026-08-05 · **Status:** ACTIVE · **Evidence:**
+`artifacts/live_packs/structure_v1_ethusdt_k5_double3h_p75_v1/`,
+`scripts/freeze_eth_k5_double3h_p75_v1.py`,
+`configs/preregister/structure_v1_eth_multitrade_strength_p75_001.yaml`,
+`scripts/settle_eth_multitrade_strength_p75_001.py`,
+`artifacts/reports/structure_v1_eth_multitrade_strength_p75_001_latest.json`,
+`configs/preregister/structure_v1_eth_multitrade_skip_weak_short_book1_001.yaml`,
+`scripts/settle_eth_multitrade_skip_weak_short_book1_001.py`,
+`artifacts/reports/structure_v1_eth_multitrade_skip_weak_short_book1_001_latest.json`,
+`llm2/features/oi_v1.py`, `llm2/features/news_v1.py`,
+`configs/preregister/structure_v1_selective_data_feature_compare_001.yaml`,
+`scripts/settle_structure_selective_data_feature_compare_001.py`,
+`artifacts/reports/structure_v1_selective_data_feature_compare_001_latest.json`,
+`tests/test_oi_news_causality.py`
+
+**Rules:**
+1. **max readiness remains `RESEARCH_ONLY` / `LIVE_STOP` for scale.** Overlays
+   that beat median live geometry on outer stitch do **not** auto-deploy.
+2. **ETH K5 p75** `eth_k5_double3h_p75_v1` (strength_q=0.75) from D-041; live on
+   Xxobster3/185 authorized under **D-045** (IP whitelist still required).
+   Live Xxobster6 stays median `eth_k5_double3h_v1`.
+3. **ETH multitrade p75 PASSED** outer transfer vs live v1.2 control:
+   expectancy_return_units ≈ **0.952%** vs **0.802%**; PF ≈ **6.96** vs **4.26**;
+   win rate ≈ **83.6%** vs **75.5%**; n≈6697 vs 12608; no liq. Evidence class
+   `OUTER_TRANSFER_COMPARE`. Not live.
+4. **Skip mid/low-strength SHORT book1 PASSED** (causal: side + book_idx +
+   strength history tercile only, no exit labels): E[r] ≈ **0.826%** vs **0.802%**;
+   PF ≈ **4.43** vs **4.26**; ~915 skips. Does not combine with cooloff/EV-π*
+   on this OOS. Not live.
+5. **structure_oi_v1 FAILED** primary E[r] vs structure_v1 (single-book geometry):
+   E[r] 0.223% vs 0.283%; PF 1.74 vs 2.02. Do not promote OI into packs from this
+   generation. Negative success stands; no OOS retune of OI transforms.
+6. **structure_news_v1 FAILED** (identity with control after fixing all-NaN
+   `news_z`); density features alone did not change LightGBM path. Expand labels
+   or entity filters only under a **new** prereg — not re-grid on this window.
+7. Defer order book (short calendar), cryptodb (D-028), vault `tradeshistory`,
+   and Polymarket as promotion evidence for this family.
+8. Does not authorize VPS pack swap or certificate extension.
+
+---
+
+## D-043 — ETH K5 EV isotonic + π* gate fails vs control (research only)
+
+**Date:** 2026-08-05 · **Status:** ACTIVE · **Evidence:**
+`llm2/decision/calibrate.py`,
+`configs/preregister/structure_v1_eth_k5_ev_calibrated_pi_star_001.yaml`,
+`scripts/settle_eth_k5_ev_calibrated_pi_star_001.py`,
+`artifacts/reports/structure_v1_eth_k5_ev_calibrated_pi_star_001_latest.json`,
+`tests/test_calibrate_decision.py`
+
+**Rules:**
+1. Live / structure packs remain **LightGBM regressors**, not calibrated long/short
+   probability models. Open decision is banded `pred_mean` + execution gates; not
+   P(long)/P(short) percent pairs on the micro path.
+2. **Train-only isotonic** maps `|score| → P̂(bracket path win)` then requires
+   `p_hat ≥ π*` from `CostHurdle` (TP 1% / SL 2% → π* ≈ **0.72**). Labels are
+   adverse TP/SL path hits on the train calib slice, not raw direction-match.
+3. Outer transfer on `eth_k5_double3h_v1` geometry: control E[r] ≈ **0.5206%**
+   PF ≈ **4.11** n≈10818; candidate E[r] ≈ **0.5203%** PF ≈ **4.07** n≈9411
+   (π* skipped ~4.2k decision-rows); criteria **FAILED**. Negative result stands.
+4. Do not retune π*, calib_frac, or combine with p75 on this OOS after failure.
+   Best expectancy arm still the prior **p75 strength** transfer (D-041), not live.
+5. Does not authorize live deploy.
+
+---
+
+## D-042 — Fleet streak autopsy; cooloff gate fails primary expectancy (research only)
+
+**Date:** 2026-08-05 · **Status:** ACTIVE · **Evidence:**
+`llm2/evidence/streak_autopsy.py`,
+`scripts/analyze_fleet_streak_autopsy.py`,
+`artifacts/reports/structure_v1_fleet_streak_autopsy_001_latest.json`,
+`configs/preregister/structure_v1_eth_multitrade_loss_streak_cooloff_001.yaml`,
+`scripts/settle_eth_multitrade_loss_streak_cooloff_001.py`,
+`artifacts/reports/structure_v1_eth_multitrade_loss_streak_cooloff_001_latest.json`
+
+**Rules:**
+1. Chronological win/loss streaks (by exit time) are **Measure_diagnostic**, not a
+   promotion gate. Autopsy hard end is exclusive of the forward lockbox.
+2. Large Language Model (LLM) output on dossiers is analyst-only
+   (`promotion_blocked`); does not retrain LightGBM or deploy.
+3. **Cooloff-after-3-losses** on live eth_multitrade_v1_2 geometry was a frozen
+   outer transfer: slightly higher Profit Factor, slightly **lower**
+   expectancy_return_units vs control → **failed success criteria**. Negative
+   result stands; do not promote cooloff.
+4. Do not select cooloff N (or other streak filters) on outer Out-of-Sample (OOS)
+   after viewing this fail. Next arm must be a new prereg (e.g. p75 already
+   settled separately, or a train-only feature) without multi-arm outer grids.
+5. Does not authorize live pack swaps.
+
+---
+
+## D-041 — Pack registry + ETH K5 p75 expectancy transfer (research only)
+
+**Date:** 2026-08-04 · **Status:** ACTIVE · **Evidence:**
+`llm2/evidence/pack_registry.py`, `llm2/registry/schema.sql` (`live_pack_versions`),
+`artifacts/live_packs/VERSIONS.md`, `scripts/backfill_live_pack_registry.py`,
+`configs/preregister/structure_v1_eth_k5_expectancy_strength_p75_001.yaml`,
+`scripts/settle_eth_k5_expectancy_strength_p75_001.py`,
+`artifacts/reports/structure_v1_eth_k5_expectancy_strength_p75_001_latest.json`
+
+**Rules:**
+1. **Pack versions are append-friendly and reopenable.** Every freeze writes
+   `pack_meta.json` + a `live_pack_versions` row; `VERSIONS.md` is generated from
+   the registry (do not hand-edit as source of truth). `open_pack_run(version_id)`
+   / plot `--from-pack` reopens stored `tradesim` run_ids — never label a resim as
+   freeze evidence.
+2. **strength_quantile** default remains **0.5 (median)** on all live packs.
+   `mean_strength_ok(..., strength_quantile=…)` is available for research; live
+   geometry unchanged unless a new pack freezes another quantile.
+3. **p75 transfer PASS (not live):** candidate `strength_quantile=0.75` on
+   eth_k5_double3h geometry beat control on full outer-fold stitch:
+   expectancy_return_units ≈0.6432% vs 0.5206%; Profit Factor ≈7.04 vs 4.11;
+   fewer trades (≈5996 vs ≈10818); no liquidation. Evidence class
+   `OUTER_TRANSFER_COMPARE`. Quote full outer stitch only — not last-30d display.
+4. **Does not authorize live pack freeze or Xxobster6 swap.** Promotion needs
+   new pack directory + certificate + explicit user auth. Do not combine with
+   hold/K/TP grids in the same generation.
+
+---
+
 ## D-040 — User authorized live swap: eth_multitrade_v1_2 (clarity_scope=all)
 
 **Date:** 2026-08-04 · **Status:** ACTIVE · **Evidence:**

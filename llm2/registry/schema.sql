@@ -71,6 +71,24 @@ CREATE TABLE IF NOT EXISTS feedback (
     created_at TEXT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS live_pack_versions (
+    version_id TEXT PRIMARY KEY,
+    pack_path TEXT NOT NULL,
+    pack_hash TEXT,
+    strategy_id TEXT,
+    status TEXT,
+    readiness TEXT,
+    replaces_version TEXT,
+    parent_pack TEXT,
+    frozen_utc TEXT,
+    evidence_json TEXT,
+    live_json TEXT,
+    metrics_json TEXT,
+    created_at TEXT NOT NULL,
+    updated_at TEXT NOT NULL
+);
+
 CREATE INDEX IF NOT EXISTS idx_trials_generation ON trials(generation_id);
 CREATE INDEX IF NOT EXISTS idx_forecasts_trial ON forecasts(trial_id);
 CREATE INDEX IF NOT EXISTS idx_interactions_session ON interactions(session_id);
+CREATE INDEX IF NOT EXISTS idx_live_pack_status ON live_pack_versions(status);

@@ -1,0 +1,37 @@
+{
+  "version_id": "eth_15m_multitrade_wall_clock_p75_v1",
+  "parent": "structure_v1_ethusdt_multitrade_p75_v1",
+  "research_arm": "15m|wall_clock|K=7|fib1.618|base_hold24|addon48|lookback672|label24|strength_q=0.75|touch1m",
+  "frozen_utc": "2026-08-05T14:11:27Z",
+  "strategy_id": "structure_v1_lgbm_ETHUSDT_15m_direction_multitrade_wall_clock_p75_v1",
+  "status": "LIVE_ACTIVE",
+  "readiness": "MICRO_LIVE_CANDIDATE",
+  "timeframe": "15m",
+  "touch_timeframe": "1m",
+  "pack_hash": "d9bc1a4a0c76664fb872458d11b1b6d2089237c2e8194ec48f6fe1d31afbe2c7",
+  "pack_path": "artifacts/live_packs/structure_v1_ethusdt_15m_multitrade_wall_clock_p75_v1",
+  "parent_pack": "structure_v1_ethusdt_multitrade_p75_v1",
+  "replaces_version": null,
+  "evidence": {
+    "generation_id": "structure_v1_eth_15m_multitrade_geometry_001",
+    "report_paths": [
+      "artifacts/reports/structure_v1_eth_15m_multitrade_geometry_001_latest.json"
+    ]
+  },
+  "live": {
+    "deployed": true,
+    "account_ref": "Xxobster11",
+    "service": "llm2-structure-eth-15m-multitrade-wall-clock-p75-v1",
+    "vps_host": "185.203.119.52",
+    "certificate_path": "configs/live/structure_v1_ethusdt_15m_multitrade_wall_clock_p75_v1_certificate.yaml",
+    "deployed_utc": "20260805T141127Z"
+  },
+  "metrics": {
+    "profit_factor": 6.485352060119762,
+    "expectancy_return_units": 0.010396663555539894,
+    "n_trades": 13508,
+    "win_rate": 0.805744743855493,
+    "window": "outer_v2_hard_end_2026-05-01",
+    "source_report": "artifacts/reports/structure_v1_eth_15m_multitrade_geometry_001_latest.json"
+  }
+}

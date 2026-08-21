@@ -1,0 +1,35 @@
+{
+  "version_id": "eth_multitrade_p75_v1",
+  "parent": "structure_v1_ethusdt_multitrade_v1_2",
+  "research_arm": "clarity=mean_strength|clarity_scope=all|fib_ext=1.618|hold=12|K=7|strength_q=0.75",
+  "frozen_utc": "2026-08-05T09:15:10Z",
+  "strategy_id": "structure_v1_lgbm_ETHUSDT_1h_direction_multitrade_p75_v1",
+  "status": "LIVE_ACTIVE",
+  "readiness": "MICRO_LIVE_CANDIDATE",
+  "pack_hash": "6895b8ec019e9307ce27f1881e40abaef7935b63a20624b86ab344ccd5332a55",
+  "pack_path": "artifacts/live_packs/structure_v1_ethusdt_multitrade_p75_v1",
+  "parent_pack": "structure_v1_ethusdt_multitrade_v1_2",
+  "replaces_version": "eth_multitrade_v1_1",
+  "evidence": {
+    "generation_id": "structure_v1_eth_multitrade_strength_p75_001",
+    "report_paths": [
+      "artifacts/reports/structure_v1_eth_multitrade_strength_p75_001_latest.json"
+    ]
+  },
+  "live": {
+    "deployed": true,
+    "account_ref": "Xxobster9",
+    "service": "llm2-structure-eth-multitrade-p75-v1",
+    "vps_host": "185.203.119.52",
+    "certificate_path": "configs/live/structure_v1_ethusdt_multitrade_p75_v1_certificate.yaml",
+    "deployed_utc": "20260805T091510Z"
+  },
+  "metrics": {
+    "profit_factor": 6.9621444934318975,
+    "expectancy_return_units": 0.00951747831620085,
+    "n_trades": 6697,
+    "win_rate": 0.8360459907421234,
+    "window": "outer_v2_hard_end_2026-05-01",
+    "source_report": "artifacts/reports/structure_v1_eth_multitrade_strength_p75_001_latest.json"
+  }
+}

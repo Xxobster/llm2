@@ -42,6 +42,7 @@ def build_singlebook_signals(
     arm: SingleBookArm,
     min_edge: float,
     lookback: int = MEAN_LOOKBACK,
+    strength_quantile: float = 0.5,
 ) -> tuple[list[Signal], dict[str, int]]:
     """Emit single-book Signals with optional primary mean_strength gate."""
     strength_hist: list[float] = []
@@ -66,7 +67,9 @@ def build_singlebook_signals(
         abs_m = abs(m)
         if arm.clarity == "mean_strength":
             recent = strength_hist[-int(lookback) :] if strength_hist else []
-            if not mean_strength_ok(abs_m, recent):
+            if not mean_strength_ok(
+                abs_m, recent, strength_quantile=float(strength_quantile)
+            ):
                 stats["n_skipped_clarity"] += 1
                 strength_hist.append(abs_m)
                 continue
@@ -80,10 +83,13 @@ def build_singlebook_signals(
                 max_hold_bars=int(arm.horizon_bars),
                 tag=arm.key,
                 meta={
+                    "pred_mean": float(m),
+                    "abs_mean": float(abs_m),
                     "clarity": arm.clarity,
                     "tp_pct": arm.tp_pct,
                     "sl_pct": arm.sl_pct,
                     "horizon_bars": arm.horizon_bars,
+                    "strength_quantile": float(strength_quantile),
                 },
             )
         )

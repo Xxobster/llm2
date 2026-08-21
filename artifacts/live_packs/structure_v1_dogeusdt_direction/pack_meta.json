@@ -1,7 +1,7 @@
 {
   "strategy_id": "structure_v1_lgbm_DOGEUSDT_1h_direction",
-  "status": "FROZEN_LIVE_PACK",
-  "readiness": "MICRO_LIVE_AUTHORIZED_PENDING_SERVICE",
+  "status": "FROZEN",
+  "readiness": "RESEARCH_ONLY",
   "deployable": true,
   "settlement_overall": null,
   "settlement_tier": null,
@@ -11,5 +11,13 @@
   "account_ref_expected": "Xxobster7",
   "vps_host_expected": "94.156.189.76",
   "frozen_utc": "20260804T114922Z",
-  "min_size_equity_caveat": "Wallet equity / maximum drawdown under research_sizing MIN_EXCHANGE (minimum exchange size) on a large wallet is not tradable-edge evidence. Smooth curves are expected at dust size; do not treat them as deployable sizing."
+  "min_size_equity_caveat": "Wallet equity / maximum drawdown under research_sizing MIN_EXCHANGE (minimum exchange size) on a large wallet is not tradable-edge evidence. Smooth curves are expected at dust size; do not treat them as deployable sizing.",
+  "version_id": "dogeusdt_direction",
+  "pack_hash": "2b7f2d4fafaa1051e7d43695e9d06dfe3569b9b147519a85c820b960f88ecfdd",
+  "pack_path": "artifacts/live_packs/structure_v1_dogeusdt_direction",
+  "parent_pack": null,
+  "replaces_version": null,
+  "evidence": {},
+  "live": {},
+  "metrics": {}
 }

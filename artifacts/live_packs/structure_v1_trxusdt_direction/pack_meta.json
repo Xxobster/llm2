@@ -1,7 +1,7 @@
 {
   "strategy_id": "structure_v1_lgbm_TRXUSDT_1h_direction",
-  "status": "FROZEN_LIVE_PACK",
-  "readiness": "MICRO_LIVE_AUTHORIZED_PENDING_SERVICE",
+  "status": "FROZEN",
+  "readiness": "RESEARCH_ONLY",
   "deployable": true,
   "settlement_overall": null,
   "settlement_tier": null,
@@ -11,5 +11,13 @@
   "account_ref_expected": "Xxobster7",
   "vps_host_expected": "94.156.189.76",
   "frozen_utc": "20260804T115034Z",
-  "min_size_equity_caveat": "Wallet equity / maximum drawdown under research_sizing MIN_EXCHANGE (minimum exchange size) on a large wallet is not tradable-edge evidence. Smooth curves are expected at dust size; do not treat them as deployable sizing."
+  "min_size_equity_caveat": "Wallet equity / maximum drawdown under research_sizing MIN_EXCHANGE (minimum exchange size) on a large wallet is not tradable-edge evidence. Smooth curves are expected at dust size; do not treat them as deployable sizing.",
+  "version_id": "trxusdt_direction",
+  "pack_hash": "7e6be8c7141c9a890f73ce0de421a6947c2a74c6bfd0c36b08bb363281f783cd",
+  "pack_path": "artifacts/live_packs/structure_v1_trxusdt_direction",
+  "parent_pack": null,
+  "replaces_version": null,
+  "evidence": {},
+  "live": {},
+  "metrics": {}
 }
