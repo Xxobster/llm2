@@ -1,0 +1,874 @@
+{
+  "generated_utc": "2026-08-27T02:44:05.985367+00:00",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "evidence_class": "LIVE_BT_PIVOT_RECONCILE_CONTAMINATED",
+  "principal_blocker": "5 extra backtest fills vs live",
+  "scope": "ln2 Xxobster8 + Xxobster9 pivot only",
+  "since_utc": "2026-08-21T00:00:00+00:00",
+  "units": {
+    "xx8_eth": "active",
+    "xx8_sol": "active",
+    "xx9_eth": "active",
+    "xx9_sol": "active"
+  },
+  "one_m_rows": 0,
+  "arms": [
+    {
+      "name": "xx8_eth",
+      "account": "Xxobster8",
+      "unit": "llm2-pivot-eth-p75-ctrl-atr-w4",
+      "tp_sl": "1%/1%",
+      "symbol": "ETHUSDT",
+      "candles": {
+        "n_vps_bars": 618,
+        "warehouse_missing": 0,
+        "ohlc_mismatch": 0,
+        "match_rate": 1.0,
+        "vps_tip_utc": "2026-08-27T02:15:00+00:00",
+        "warehouse_tip_utc": "2026-08-27T02:15:00+00:00",
+        "samples": [],
+        "pass": true
+      },
+      "replay": {
+        "n_live_decisions": 586,
+        "n_replayed": 586,
+        "n_tip_bound_recompute": 111,
+        "action_match": 586,
+        "p_any_match": 586,
+        "feature_match": 533,
+        "action_match_rate": 1.0,
+        "p_any_match_rate": 1.0,
+        "feature_match_rate": 0.909556313993174,
+        "flips": [],
+        "feature_diffs": [
+          {
+            "utc": "2026-08-21T04:30:00+00:00",
+            "col": "vol_z",
+            "live": -0.7731952640949263,
+            "bt": -0.773102494948234
+          },
+          {
+            "utc": "2026-08-21T10:45:00+00:00",
+            "col": "vol_z",
+            "live": -0.6526843503059161,
+            "bt": -0.6526843210584834
+          },
+          {
+            "utc": "2026-08-21T20:45:00+00:00",
+            "col": "vol_z",
+            "live": -0.6203620133384746,
+            "bt": -0.6203272288550725
+          },
+          {
+            "utc": "2026-08-22T04:00:00+00:00",
+            "col": "vol_z",
+            "live": -0.7741652084774466,
+            "bt": -0.7739906322693775
+          },
+          {
+            "utc": "2026-08-22T06:45:00+00:00",
+            "col": "vol_z",
+            "live": -0.6830017218309676,
+            "bt": -0.6829931285773243
+          },
+          {
+            "utc": "2026-08-22T11:15:00+00:00",
+            "col": "vol_z",
+            "live": -0.6013302720293918,
+            "bt": -0.6012855543749459
+          },
+          {
+            "utc": "2026-08-22T16:00:00+00:00",
+            "col": "vol_z",
+            "live": -0.42609859912196507,
+            "bt": -0.4260630983444704
+          },
+          {
+            "utc": "2026-08-22T17:00:00+00:00",
+            "col": "vol_z",
+            "live": -0.7717326101215155,
+            "bt": -0.7715743141754439
+          }
+        ],
+        "n_feature_compared": 586,
+        "pass": true
+      },
+      "live_counts": {
+        "ENTER_LIMIT": 1,
+        "filled": 0,
+        "cancelled_data_unsafe": 0,
+        "cancelled": 0,
+        "no_result": 1,
+        "place_fail": 0
+      },
+      "materialize": {
+        "n_intent": 1,
+        "n_filled_path": 0,
+        "n_no_touch": 1,
+        "n_adverse_cancel": 0,
+        "n_bad": 0,
+        "fill_rate": 0.0,
+        "work_bars_default": 4,
+        "work_bars_mean_used": 4.0,
+        "adverse_mode": null,
+        "adverse_pct": 0.005,
+        "adverse_atr_mult": 1.0
+      },
+      "bt": {
+        "status": "NO_SIGNALS",
+        "n_trades": 0,
+        "trades": []
+      },
+      "fills": {
+        "n_live_fills": 0,
+        "n_bt_trades": 0,
+        "pairs": [],
+        "extra_bt_trades": [],
+        "n_extra_bt": 0
+      },
+      "missed": {
+        "n_replay_bt_enter_live_not": 0,
+        "n_replay_live_enter_bt_not": 0,
+        "n_bt_enter_no_live_row": 0,
+        "n_live_enter_unfilled": 1,
+        "n_extra_bt_trades": 0,
+        "n_missed_signals": 0,
+        "n_missed_trades": 1,
+        "replay_bt_enter_live_not": [],
+        "replay_live_enter_bt_not": [],
+        "bt_enter_no_live_row": [],
+        "unfilled_breakdown": {
+          "cancelled_data_unsafe": 0,
+          "cancelled": 0,
+          "no_result": 1,
+          "place_fail": 0
+        },
+        "extra_bt_trades": []
+      },
+      "fill_ledger_n": 0
+    },
+    {
+      "name": "xx8_sol",
+      "account": "Xxobster8",
+      "unit": "llm2-pivot-sol-geo-p75-w4",
+      "tp_sl": "1%/1%",
+      "symbol": "SOLUSDT",
+      "candles": {
+        "n_vps_bars": 618,
+        "warehouse_missing": 0,
+        "ohlc_mismatch": 0,
+        "match_rate": 1.0,
+        "vps_tip_utc": "2026-08-27T02:15:00+00:00",
+        "warehouse_tip_utc": "2026-08-27T02:15:00+00:00",
+        "samples": [],
+        "pass": true
+      },
+      "replay": {
+        "n_live_decisions": 586,
+        "n_replayed": 586,
+        "n_tip_bound_recompute": 96,
+        "action_match": 586,
+        "p_any_match": 586,
+        "feature_match": 488,
+        "action_match_rate": 1.0,
+        "p_any_match_rate": 1.0,
+        "feature_match_rate": 0.8327645051194539,
+        "flips": [],
+        "feature_diffs": [
+          {
+            "utc": "2026-08-21T01:00:00+00:00",
+            "col": "vol_z",
+            "live": -0.5057055179398025,
+            "bt": -0.5056172536182255
+          },
+          {
+            "utc": "2026-08-21T01:15:00+00:00",
+            "col": "vol_z",
+            "live": 2.6245365794210427,
+            "bt": 2.6247385785319794
+          },
+          {
+            "utc": "2026-08-21T03:15:00+00:00",
+            "col": "vol_z",
+            "live": -0.4263109954811679,
+            "bt": -0.4261723301977025
+          },
+          {
+            "utc": "2026-08-21T03:30:00+00:00",
+            "col": "vol_z",
+            "live": -0.6522550515712793,
+            "bt": -0.6522546145717603
+          },
+          {
+            "utc": "2026-08-21T03:45:00+00:00",
+            "col": "vol_z",
+            "live": -0.5864907436002252,
+            "bt": -0.5851532473263906
+          },
+          {
+            "utc": "2026-08-21T04:15:00+00:00",
+            "col": "vol_z",
+            "live": -0.2611992878418956,
+            "bt": -0.26062934275345306
+          },
+          {
+            "utc": "2026-08-21T05:00:00+00:00",
+            "col": "vol_z",
+            "live": -0.4463231722236302,
+            "bt": -0.4462465795708827
+          },
+          {
+            "utc": "2026-08-21T06:00:00+00:00",
+            "col": "vol_z",
+            "live": 1.56917292919335,
+            "bt": 1.5691738271119708
+          }
+        ],
+        "n_feature_compared": 586,
+        "pass": true
+      },
+      "live_counts": {
+        "ENTER_LIMIT": 10,
+        "filled": 2,
+        "cancelled_data_unsafe": 0,
+        "cancelled": 2,
+        "no_result": 6,
+        "place_fail": 0
+      },
+      "materialize": {
+        "n_intent": 10,
+        "n_filled_path": 4,
+        "n_no_touch": 6,
+        "n_adverse_cancel": 0,
+        "n_bad": 0,
+        "fill_rate": 0.4,
+        "work_bars_default": 4,
+        "work_bars_mean_used": 4.0,
+        "adverse_mode": null,
+        "adverse_pct": 0.005,
+        "adverse_atr_mult": 1.0
+      },
+      "bt": {
+        "status": "RAN",
+        "n_trades": 4,
+        "profit_factor": 0.8559564512885227,
+        "win_rate": 0.5,
+        "net_pnl": -0.03036679999968328,
+        "trades": [
+          {
+            "entry_ts_ms": 1787301900000,
+            "entry_utc": "2026-08-21T08:45:00+00:00",
+            "exit_ts_ms": 1787301900000,
+            "exit_utc": "2026-08-21T08:45:00+00:00",
+            "side": -1,
+            "entry_price": 93.09,
+            "exit_price": 92.16,
+            "pnl": 0.0860694000000007,
+            "hold_bars": 0.0,
+            "exit_reason": "target_entry_bar"
+          },
+          {
+            "entry_ts_ms": 1787368500000,
+            "entry_utc": "2026-08-22T03:15:00+00:00",
+            "exit_ts_ms": 1787372100000,
+            "exit_utc": "2026-08-22T04:15:00+00:00",
+            "side": -1,
+            "entry_price": 96.75,
+            "exit_price": 97.72,
+            "pnl": -0.10430959999999989,
+            "hold_bars": 4.0,
+            "exit_reason": "stop"
+          },
+          {
+            "entry_ts_ms": 1787782500000,
+            "entry_utc": "2026-08-26T22:15:00+00:00",
+            "exit_ts_ms": 1787782500000,
+            "exit_utc": "2026-08-26T22:15:00+00:00",
+            "side": -1,
+            "entry_price": 99.37,
+            "exit_price": 100.36,
+            "pnl": -0.1065071999999995,
+            "hold_bars": 0.0,
+            "exit_reason": "stop_entry_bar"
+          },
+          {
+            "entry_ts_ms": 1787787900000,
+            "entry_utc": "2026-08-26T23:45:00+00:00",
+            "exit_ts_ms": 1787787900000,
+            "exit_utc": "2026-08-26T23:45:00+00:00",
+            "side": -1,
+            "entry_price": 102.34,
+            "exit_price": 101.32,
+            "pnl": 0.09438060000000104,
+            "hold_bars": 0.0,
+            "exit_reason": "target_entry_bar"
+          }
+        ]
+      },
+      "fills": {
+        "n_live_fills": 2,
+        "n_bt_trades": 4,
+        "pairs": [
+          {
+            "live": {
+              "utc": "2026-08-26T22:15:09Z",
+              "bar_ts_ms": 1787781600000,
+              "side": "Sell",
+              "limit_px": 99.36506568147271,
+              "avg_price": 99.37,
+              "status": "Filled",
+              "entry_bar_ms": 1787782500000,
+              "max_hold_deadline_ms": 1787787900000
+            },
+            "bt": {
+              "entry_ts_ms": 1787782500000,
+              "entry_utc": "2026-08-26T22:15:00+00:00",
+              "exit_ts_ms": 1787782500000,
+              "exit_utc": "2026-08-26T22:15:00+00:00",
+              "side": -1,
+              "entry_price": 99.37,
+              "exit_price": 100.36,
+              "pnl": -0.1065071999999995,
+              "hold_bars": 0.0,
+              "exit_reason": "stop_entry_bar"
+            },
+            "entry_slip_frac": 0.0,
+            "entry_slip_ok": true,
+            "same_side": true,
+            "dt_ms": 900000
+          },
+          {
+            "live": {
+              "utc": "2026-08-26T23:45:03Z",
+              "bar_ts_ms": 1787787000000,
+              "side": "Sell",
+              "limit_px": 102.33973570585836,
+              "avg_price": 102.34,
+              "status": "FilledViaPosition",
+              "entry_bar_ms": 1787787900000,
+              "max_hold_deadline_ms": 1787793300000
+            },
+            "bt": {
+              "entry_ts_ms": 1787787900000,
+              "entry_utc": "2026-08-26T23:45:00+00:00",
+              "exit_ts_ms": 1787787900000,
+              "exit_utc": "2026-08-26T23:45:00+00:00",
+              "side": -1,
+              "entry_price": 102.34,
+              "exit_price": 101.32,
+              "pnl": 0.09438060000000104,
+              "hold_bars": 0.0,
+              "exit_reason": "target_entry_bar"
+            },
+            "entry_slip_frac": 0.0,
+            "entry_slip_ok": true,
+            "same_side": true,
+            "dt_ms": 900000
+          }
+        ],
+        "extra_bt_trades": [
+          {
+            "entry_ts_ms": 1787301900000,
+            "entry_utc": "2026-08-21T08:45:00+00:00",
+            "exit_ts_ms": 1787301900000,
+            "exit_utc": "2026-08-21T08:45:00+00:00",
+            "side": -1,
+            "entry_price": 93.09,
+            "exit_price": 92.16,
+            "pnl": 0.0860694000000007,
+            "hold_bars": 0.0,
+            "exit_reason": "target_entry_bar"
+          },
+          {
+            "entry_ts_ms": 1787368500000,
+            "entry_utc": "2026-08-22T03:15:00+00:00",
+            "exit_ts_ms": 1787372100000,
+            "exit_utc": "2026-08-22T04:15:00+00:00",
+            "side": -1,
+            "entry_price": 96.75,
+            "exit_price": 97.72,
+            "pnl": -0.10430959999999989,
+            "hold_bars": 4.0,
+            "exit_reason": "stop"
+          }
+        ],
+        "n_extra_bt": 2
+      },
+      "missed": {
+        "n_replay_bt_enter_live_not": 0,
+        "n_replay_live_enter_bt_not": 0,
+        "n_bt_enter_no_live_row": 0,
+        "n_live_enter_unfilled": 8,
+        "n_extra_bt_trades": 2,
+        "n_missed_signals": 0,
+        "n_missed_trades": 10,
+        "replay_bt_enter_live_not": [],
+        "replay_live_enter_bt_not": [],
+        "bt_enter_no_live_row": [],
+        "unfilled_breakdown": {
+          "cancelled_data_unsafe": 0,
+          "cancelled": 2,
+          "no_result": 6,
+          "place_fail": 0
+        },
+        "extra_bt_trades": [
+          {
+            "entry_ts_ms": 1787301900000,
+            "entry_utc": "2026-08-21T08:45:00+00:00",
+            "exit_ts_ms": 1787301900000,
+            "exit_utc": "2026-08-21T08:45:00+00:00",
+            "side": -1,
+            "entry_price": 93.09,
+            "exit_price": 92.16,
+            "pnl": 0.0860694000000007,
+            "hold_bars": 0.0,
+            "exit_reason": "target_entry_bar"
+          },
+          {
+            "entry_ts_ms": 1787368500000,
+            "entry_utc": "2026-08-22T03:15:00+00:00",
+            "exit_ts_ms": 1787372100000,
+            "exit_utc": "2026-08-22T04:15:00+00:00",
+            "side": -1,
+            "entry_price": 96.75,
+            "exit_price": 97.72,
+            "pnl": -0.10430959999999989,
+            "hold_bars": 4.0,
+            "exit_reason": "stop"
+          }
+        ]
+      },
+      "fill_ledger_n": 4
+    },
+    {
+      "name": "xx9_eth",
+      "account": "Xxobster9",
+      "unit": "llm2-pivot-eth-p50-tp05-sl05",
+      "tp_sl": "0.5%/0.5%",
+      "symbol": "ETHUSDT",
+      "candles": {
+        "n_vps_bars": 618,
+        "warehouse_missing": 0,
+        "ohlc_mismatch": 0,
+        "match_rate": 1.0,
+        "vps_tip_utc": "2026-08-27T02:15:00+00:00",
+        "warehouse_tip_utc": "2026-08-27T02:15:00+00:00",
+        "samples": [],
+        "pass": true
+      },
+      "replay": {
+        "n_live_decisions": 586,
+        "n_replayed": 586,
+        "n_tip_bound_recompute": 118,
+        "action_match": 586,
+        "p_any_match": 586,
+        "feature_match": 531,
+        "action_match_rate": 1.0,
+        "p_any_match_rate": 1.0,
+        "feature_match_rate": 0.9061433447098977,
+        "flips": [],
+        "feature_diffs": [
+          {
+            "utc": "2026-08-21T01:00:00+00:00",
+            "col": "vol_z",
+            "live": -0.5268678361897402,
+            "bt": -0.5267949332999585
+          },
+          {
+            "utc": "2026-08-21T06:00:00+00:00",
+            "col": "vol_z",
+            "live": 1.3943110473226954,
+            "bt": 1.3943739307783294
+          },
+          {
+            "utc": "2026-08-21T11:00:00+00:00",
+            "col": "vol_z",
+            "live": -0.0801305882378907,
+            "bt": -0.08012471791487549
+          },
+          {
+            "utc": "2026-08-21T14:15:00+00:00",
+            "col": "vol_z",
+            "live": 0.1018086158075351,
+            "bt": 0.10255604276183275
+          },
+          {
+            "utc": "2026-08-22T01:30:00+00:00",
+            "col": "vol_z",
+            "live": -0.6086525251623575,
+            "bt": -0.6080948047555917
+          },
+          {
+            "utc": "2026-08-22T02:15:00+00:00",
+            "col": "vol_z",
+            "live": -0.8550225692738735,
+            "bt": -0.8548865912475024
+          },
+          {
+            "utc": "2026-08-22T02:45:00+00:00",
+            "col": "vol_z",
+            "live": -0.7660302143004075,
+            "bt": -0.7660057152326778
+          },
+          {
+            "utc": "2026-08-22T09:30:00+00:00",
+            "col": "vol_z",
+            "live": -0.7198125849668617,
+            "bt": -0.7198125403222819
+          }
+        ],
+        "n_feature_compared": 586,
+        "pass": true
+      },
+      "live_counts": {
+        "ENTER_LIMIT": 1,
+        "filled": 0,
+        "cancelled_data_unsafe": 0,
+        "cancelled": 0,
+        "no_result": 1,
+        "place_fail": 0
+      },
+      "materialize": {
+        "n_intent": 1,
+        "n_filled_path": 0,
+        "n_no_touch": 1,
+        "n_adverse_cancel": 0,
+        "n_bad": 0,
+        "fill_rate": 0.0,
+        "work_bars_default": 4,
+        "work_bars_mean_used": 4.0,
+        "adverse_mode": null,
+        "adverse_pct": 0.005,
+        "adverse_atr_mult": 1.0
+      },
+      "bt": {
+        "status": "NO_SIGNALS",
+        "n_trades": 0,
+        "trades": []
+      },
+      "fills": {
+        "n_live_fills": 0,
+        "n_bt_trades": 0,
+        "pairs": [],
+        "extra_bt_trades": [],
+        "n_extra_bt": 0
+      },
+      "missed": {
+        "n_replay_bt_enter_live_not": 0,
+        "n_replay_live_enter_bt_not": 0,
+        "n_bt_enter_no_live_row": 0,
+        "n_live_enter_unfilled": 1,
+        "n_extra_bt_trades": 0,
+        "n_missed_signals": 0,
+        "n_missed_trades": 1,
+        "replay_bt_enter_live_not": [],
+        "replay_live_enter_bt_not": [],
+        "bt_enter_no_live_row": [],
+        "unfilled_breakdown": {
+          "cancelled_data_unsafe": 0,
+          "cancelled": 0,
+          "no_result": 1,
+          "place_fail": 0
+        },
+        "extra_bt_trades": []
+      },
+      "fill_ledger_n": 0
+    },
+    {
+      "name": "xx9_sol",
+      "account": "Xxobster9",
+      "unit": "llm2-pivot-sol-p50-tp05-sl05",
+      "tp_sl": "0.5%/0.5%",
+      "symbol": "SOLUSDT",
+      "candles": {
+        "n_vps_bars": 618,
+        "warehouse_missing": 0,
+        "ohlc_mismatch": 0,
+        "match_rate": 1.0,
+        "vps_tip_utc": "2026-08-27T02:15:00+00:00",
+        "warehouse_tip_utc": "2026-08-27T02:15:00+00:00",
+        "samples": [],
+        "pass": true
+      },
+      "replay": {
+        "n_live_decisions": 586,
+        "n_replayed": 586,
+        "n_tip_bound_recompute": 122,
+        "action_match": 586,
+        "p_any_match": 586,
+        "feature_match": 490,
+        "action_match_rate": 1.0,
+        "p_any_match_rate": 1.0,
+        "feature_match_rate": 0.8361774744027304,
+        "flips": [],
+        "feature_diffs": [
+          {
+            "utc": "2026-08-21T01:00:00+00:00",
+            "col": "vol_z",
+            "live": -0.5057055179398025,
+            "bt": -0.5056172536182255
+          },
+          {
+            "utc": "2026-08-21T01:45:00+00:00",
+            "col": "vol_z",
+            "live": 3.210746137424959,
+            "bt": 3.2114146032733375
+          },
+          {
+            "utc": "2026-08-21T02:00:00+00:00",
+            "col": "vol_z",
+            "live": 2.8179256067860066,
+            "bt": 2.8183344727415904
+          },
+          {
+            "utc": "2026-08-21T02:15:00+00:00",
+            "col": "vol_z",
+            "live": 0.4648908208405488,
+            "bt": 0.46517323837960906
+          },
+          {
+            "utc": "2026-08-21T03:15:00+00:00",
+            "col": "vol_z",
+            "live": -0.4278630489614803,
+            "bt": -0.4261723301977025
+          },
+          {
+            "utc": "2026-08-21T05:00:00+00:00",
+            "col": "vol_z",
+            "live": -0.4463231722236302,
+            "bt": -0.4462465795708827
+          },
+          {
+            "utc": "2026-08-21T06:15:00+00:00",
+            "col": "vol_z",
+            "live": 0.4416276622466635,
+            "bt": 0.44293659924168793
+          },
+          {
+            "utc": "2026-08-21T08:15:00+00:00",
+            "col": "vol_z",
+            "live": 1.8033023497608862,
+            "bt": 1.8038664575918035
+          }
+        ],
+        "n_feature_compared": 586,
+        "pass": true
+      },
+      "live_counts": {
+        "ENTER_LIMIT": 10,
+        "filled": 1,
+        "cancelled_data_unsafe": 0,
+        "cancelled": 2,
+        "no_result": 6,
+        "place_fail": 1
+      },
+      "materialize": {
+        "n_intent": 10,
+        "n_filled_path": 4,
+        "n_no_touch": 6,
+        "n_adverse_cancel": 0,
+        "n_bad": 0,
+        "fill_rate": 0.4,
+        "work_bars_default": 4,
+        "work_bars_mean_used": 4.0,
+        "adverse_mode": null,
+        "adverse_pct": 0.005,
+        "adverse_atr_mult": 1.0
+      },
+      "bt": {
+        "status": "RAN",
+        "n_trades": 4,
+        "profit_factor": 2.1601776262281285,
+        "win_rate": 0.75,
+        "net_pnl": 0.06668729999728384,
+        "trades": [
+          {
+            "entry_ts_ms": 1787301900000,
+            "entry_utc": "2026-08-21T08:45:00+00:00",
+            "exit_ts_ms": 1787301900000,
+            "exit_utc": "2026-08-21T08:45:00+00:00",
+            "side": -1,
+            "entry_price": 93.09,
+            "exit_price": 92.62,
+            "pnl": 0.04004409999999989,
+            "hold_bars": 0.0,
+            "exit_reason": "target_entry_bar"
+          },
+          {
+            "entry_ts_ms": 1787368500000,
+            "entry_utc": "2026-08-22T03:15:00+00:00",
+            "exit_ts_ms": 1787368500000,
+            "exit_utc": "2026-08-22T03:15:00+00:00",
+            "side": -1,
+            "entry_price": 96.74,
+            "exit_price": 96.26,
+            "pnl": 0.04077089999999898,
+            "hold_bars": 0.0,
+            "exit_reason": "target_entry_bar"
+          },
+          {
+            "entry_ts_ms": 1787782500000,
+            "entry_utc": "2026-08-26T22:15:00+00:00",
+            "exit_ts_ms": 1787782500000,
+            "exit_utc": "2026-08-26T22:15:00+00:00",
+            "side": -1,
+            "entry_price": 99.37,
+            "exit_price": 99.87,
+            "pnl": -0.057480250000000004,
+            "hold_bars": 0.0,
+            "exit_reason": "stop_entry_bar"
+          },
+          {
+            "entry_ts_ms": 1787787900000,
+            "entry_utc": "2026-08-26T23:45:00+00:00",
+            "exit_ts_ms": 1787787900000,
+            "exit_utc": "2026-08-26T23:45:00+00:00",
+            "side": -1,
+            "entry_price": 102.34,
+            "exit_price": 101.83,
+            "pnl": 0.04335255000000052,
+            "hold_bars": 0.0,
+            "exit_reason": "target_entry_bar"
+          }
+        ]
+      },
+      "fills": {
+        "n_live_fills": 1,
+        "n_bt_trades": 4,
+        "pairs": [
+          {
+            "live": {
+              "utc": "2026-08-26T23:45:06Z",
+              "bar_ts_ms": 1787787000000,
+              "side": "Sell",
+              "limit_px": 102.33973570585836,
+              "avg_price": 102.34,
+              "status": "FilledViaPosition",
+              "entry_bar_ms": 1787787900000,
+              "max_hold_deadline_ms": 1787793300000
+            },
+            "bt": {
+              "entry_ts_ms": 1787787900000,
+              "entry_utc": "2026-08-26T23:45:00+00:00",
+              "exit_ts_ms": 1787787900000,
+              "exit_utc": "2026-08-26T23:45:00+00:00",
+              "side": -1,
+              "entry_price": 102.34,
+              "exit_price": 101.83,
+              "pnl": 0.04335255000000052,
+              "hold_bars": 0.0,
+              "exit_reason": "target_entry_bar"
+            },
+            "entry_slip_frac": 0.0,
+            "entry_slip_ok": true,
+            "same_side": true,
+            "dt_ms": 900000
+          }
+        ],
+        "extra_bt_trades": [
+          {
+            "entry_ts_ms": 1787301900000,
+            "entry_utc": "2026-08-21T08:45:00+00:00",
+            "exit_ts_ms": 1787301900000,
+            "exit_utc": "2026-08-21T08:45:00+00:00",
+            "side": -1,
+            "entry_price": 93.09,
+            "exit_price": 92.62,
+            "pnl": 0.04004409999999989,
+            "hold_bars": 0.0,
+            "exit_reason": "target_entry_bar"
+          },
+          {
+            "entry_ts_ms": 1787368500000,
+            "entry_utc": "2026-08-22T03:15:00+00:00",
+            "exit_ts_ms": 1787368500000,
+            "exit_utc": "2026-08-22T03:15:00+00:00",
+            "side": -1,
+            "entry_price": 96.74,
+            "exit_price": 96.26,
+            "pnl": 0.04077089999999898,
+            "hold_bars": 0.0,
+            "exit_reason": "target_entry_bar"
+          },
+          {
+            "entry_ts_ms": 1787782500000,
+            "entry_utc": "2026-08-26T22:15:00+00:00",
+            "exit_ts_ms": 1787782500000,
+            "exit_utc": "2026-08-26T22:15:00+00:00",
+            "side": -1,
+            "entry_price": 99.37,
+            "exit_price": 99.87,
+            "pnl": -0.057480250000000004,
+            "hold_bars": 0.0,
+            "exit_reason": "stop_entry_bar"
+          }
+        ],
+        "n_extra_bt": 3
+      },
+      "missed": {
+        "n_replay_bt_enter_live_not": 0,
+        "n_replay_live_enter_bt_not": 0,
+        "n_bt_enter_no_live_row": 0,
+        "n_live_enter_unfilled": 9,
+        "n_extra_bt_trades": 3,
+        "n_missed_signals": 0,
+        "n_missed_trades": 12,
+        "replay_bt_enter_live_not": [],
+        "replay_live_enter_bt_not": [],
+        "bt_enter_no_live_row": [],
+        "unfilled_breakdown": {
+          "cancelled_data_unsafe": 0,
+          "cancelled": 2,
+          "no_result": 6,
+          "place_fail": 1
+        },
+        "extra_bt_trades": [
+          {
+            "entry_ts_ms": 1787301900000,
+            "entry_utc": "2026-08-21T08:45:00+00:00",
+            "exit_ts_ms": 1787301900000,
+            "exit_utc": "2026-08-21T08:45:00+00:00",
+            "side": -1,
+            "entry_price": 93.09,
+            "exit_price": 92.62,
+            "pnl": 0.04004409999999989,
+            "hold_bars": 0.0,
+            "exit_reason": "target_entry_bar"
+          },
+          {
+            "entry_ts_ms": 1787368500000,
+            "entry_utc": "2026-08-22T03:15:00+00:00",
+            "exit_ts_ms": 1787368500000,
+            "exit_utc": "2026-08-22T03:15:00+00:00",
+            "side": -1,
+            "entry_price": 96.74,
+            "exit_price": 96.26,
+            "pnl": 0.04077089999999898,
+            "hold_bars": 0.0,
+            "exit_reason": "target_entry_bar"
+          },
+          {
+            "entry_ts_ms": 1787782500000,
+            "entry_utc": "2026-08-26T22:15:00+00:00",
+            "exit_ts_ms": 1787782500000,
+            "exit_utc": "2026-08-26T22:15:00+00:00",
+            "side": -1,
+            "entry_price": 99.37,
+            "exit_price": 99.87,
+            "pnl": -0.057480250000000004,
+            "hold_bars": 0.0,
+            "exit_reason": "stop_entry_bar"
+          }
+        ]
+      },
+      "fill_ledger_n": 2
+    }
+  ],
+  "fix_notes": [
+    "Did not change take-profit, stop, gate, work, or hold.",
+    "Did not disable live-data-001.",
+    "Did not add 1-minute to the live collector.",
+    "Research load used price_type=last. Mark stays under source=binance_mark.",
+    "Xxobster9 0.5%/0.5% was not retuned. Research still flags ~80% same-bar exits."
+  ]
+}

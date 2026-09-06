@@ -1,0 +1,173 @@
+{
+  "evidence_class": "LIVE_SNAPSHOT_VS_RESEARCH_BAR_FEATURES",
+  "generated_utc": "2026-08-05T13:07:59.612609+00:00",
+  "note": "Only columns present in both feature_snapshot and research bar_features. Vol-scaled / derived pack features may be absent in warehouse table.",
+  "rows": [
+    {
+      "bar_ts_ms": 1785916800000,
+      "note": "no_snapshot"
+    },
+    {
+      "bar_ts_ms": 1785920400000,
+      "note": "no_snapshot"
+    },
+    {
+      "bar_ts_ms": 1785924000000,
+      "bar_utc": "2026-08-05T10:00:00+00:00",
+      "live_pred_mean": -0.5639850696288478,
+      "n_common": 12,
+      "n_mismatch": 10,
+      "max_abs": 0.00019812996443679089,
+      "identical": false,
+      "top_mismatches": [
+        {
+          "col": "dist_resistance_pct",
+          "live": 8.033505071812228e-05,
+          "research": 0.00027846501515491317,
+          "abs": 0.00019812996443679089
+        },
+        {
+          "col": "dist_last_sh_pct",
+          "live": -0.005259267987017821,
+          "research": -0.005151602780366016,
+          "abs": 0.00010766520665180575
+        },
+        {
+          "col": "dist_fib_0786_pct",
+          "live": 0.0035974035711607184,
+          "research": 0.003489916353393431,
+          "abs": 0.00010748721776728757
+        },
+        {
+          "col": "dist_fib_0618_pct",
+          "live": 0.002292762347497268,
+          "research": 0.0021854148593215645,
+          "abs": 0.00010734748817570368
+        },
+        {
+          "col": "dist_fib_0500_pct",
+          "live": 0.0013764072023050463,
+          "research": 0.0012691578575329556,
+          "abs": 0.00010724934477209067
+        },
+        {
+          "col": "dist_fib_0382_pct",
+          "live": 0.00046005205711282447,
+          "research": 0.00035290085574434665,
+          "abs": 0.00010715120136847782
+        },
+        {
+          "col": "dist_support_pct",
+          "live": 0.0001874484516758622,
+          "research": 0.0002945303044908813,
+          "abs": 0.00010708185281501907
+        },
+        {
+          "col": "dist_fib_0236_pct",
+          "live": -0.0006737432920232854,
+          "research": -0.0007807730617228864,
+          "abs": 0.00010702976969960095
+        },
+        {
+          "col": "dist_last_sl_pct",
+          "live": 0.002506453582407729,
+          "research": 0.0026132870653001045,
+          "abs": 0.00010683348289237558
+        },
+        {
+          "col": "last_retrace_pct",
+          "live": 0.0,
+          "research": null
+        }
+      ]
+    },
+    {
+      "bar_ts_ms": 1785927600000,
+      "bar_utc": "2026-08-05T11:00:00+00:00",
+      "live_pred_mean": -0.4506275587491164,
+      "n_common": 12,
+      "n_mismatch": 10,
+      "max_abs": 5.3794856491162085e-06,
+      "identical": false,
+      "top_mismatches": [
+        {
+          "col": "dist_last_sh_pct",
+          "live": -0.004850262856408635,
+          "research": -0.004855642342057751,
+          "abs": 5.3794856491162085e-06
+        },
+        {
+          "col": "dist_fib_0786_pct",
+          "live": 0.0031890745955436895,
+          "research": 0.003194445187988774,
+          "abs": 5.370592445084511e-06
+        },
+        {
+          "col": "dist_fib_0618_pct",
+          "live": 0.0018849641851451107,
+          "research": 0.001890327796009459,
+          "abs": 5.3636108643484535e-06
+        },
+        {
+          "col": "dist_fib_0500_pct",
+          "live": 0.0009689818730794058,
+          "research": 0.0009743405802144279,
+          "abs": 5.358707135022099e-06
+        },
+        {
+          "col": "dist_resistance_pct",
+          "live": 0.0003212094606892668,
+          "research": 0.00032656469996193645,
+          "abs": 5.355239272669622e-06
+        },
+        {
+          "col": "dist_fib_0382_pct",
+          "live": 5.299956101370103e-05,
+          "research": 5.835336441939666e-05,
+          "abs": 5.35380340569563e-06
+        },
+        {
+          "col": "dist_support_pct",
+          "live": 5.353491011495895e-05,
+          "research": 4.81816770436502e-05,
+          "abs": 5.353233071308748e-06
+        },
+        {
+          "col": "dist_fib_0236_pct",
+          "live": -0.0010803344861184134,
+          "research": -0.0010749867500388333,
+          "abs": 5.347736079580048e-06
+        },
+        {
+          "col": "dist_last_sl_pct",
+          "live": 0.002912299110249823,
+          "research": 0.002906961181628896,
+          "abs": 5.337928620926906e-06
+        },
+        {
+          "col": "last_retrace_pct",
+          "live": 0.0,
+          "research": null
+        }
+      ]
+    },
+    {
+      "bar_ts_ms": 1785931200000,
+      "bar_utc": "2026-08-05T12:00:00+00:00",
+      "live_pred_mean": -0.26046579158340305,
+      "n_common": 12,
+      "n_mismatch": 1,
+      "max_abs": 0.0,
+      "identical": false,
+      "top_mismatches": [
+        {
+          "col": "last_retrace_pct",
+          "live": 0.0,
+          "research": null
+        }
+      ]
+    }
+  ],
+  "n_identical": 0,
+  "n_with_snap": 3
+}

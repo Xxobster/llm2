@@ -1,0 +1,23 @@
+{
+  "artifact_dir": "D:\\projects\\LLM2\\artifacts\\evidence\\four_proof\\structure_v1_no_retrace_BTCUSDT_1h_20260808T044953Z",
+  "artifact_hashes": {
+    "builder_responsiveness": "bd678005625cdc4f36d04521d1b666aa0dcaf9002c2835b0360849c6eac4d47e",
+    "layer_a_pred_identity": "9b822c25decc85576886d7df8a7e771dc193c0cce74e62e3ad435208058885ce",
+    "no_live_feature_fill": "19e467820bb38cf07e322d5f9cd992836b8a33d15db59c56184403b9d6f6c14f",
+    "recompute_prefix": "cd44af7fc3445f8ec4a3827f6aa02bd0e50f2e9a8fa18a28a0665dcf587af766"
+  },
+  "note": "Warehouse-backed spaces may not treat a lone shared leakage PASS as evidence.",
+  "ok": false,
+  "proofs_ok": {
+    "builder_responsiveness": true,
+    "layer_a_pred_identity": false,
+    "no_live_feature_fill": true,
+    "recompute_prefix": true
+  },
+  "rule": "FOUR_PROOF_GATE_V1",
+  "space": "structure_v1_no_retrace",
+  "stamp": "20260808T044953Z",
+  "summary_sha256": "7b3f8ece4cf87bfe7a38333e8f4ecf2499212ccddc37d92d26ff06d2d699daf4",
+  "symbol": "BTCUSDT",
+  "timeframe": "1h"
+}

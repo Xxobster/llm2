@@ -1,0 +1,319 @@
+{
+  "evidence_class": "LEAKY_PROXY_ASOF_MAX",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "promotion_allowed": false,
+  "generated_utc": "2026-08-07T10:51:58.844172+00:00",
+  "target": "oracle_leaky_only",
+  "causal_features_only": true,
+  "n_features": 125,
+  "n_lgbm_trials": 80,
+  "val_pick": "hgb_best",
+  "val_scores": {
+    "n": 10238,
+    "mae": 0.36708821696176774,
+    "rmse": 0.7804180435072146,
+    "r2": 0.6413077069501918,
+    "corr": 0.8141375570875584,
+    "max_abs": 14.458431105734856,
+    "pct_within_010": 0.4253760500097675,
+    "pct_within_005": 0.27368626684899394
+  },
+  "outer_delivery": {
+    "n": 2878,
+    "mae": 0.38055368641227905,
+    "rmse": 0.9223638070359574,
+    "r2": 0.6109717274782687,
+    "corr": 0.7917525913782538,
+    "max_abs": 9.262615497228714,
+    "pct_within_010": 0.4388464211257818,
+    "pct_within_005": 0.2904794996525365
+  },
+  "outer_all_candidates": {
+    "best_lgbm": {
+      "n": 2878,
+      "mae": 0.446374223048661,
+      "rmse": 0.903815609554446,
+      "r2": 0.6264606715964902,
+      "corr": 0.7953137774982457,
+      "max_abs": 8.938355686479099,
+      "pct_within_010": 0.1719944405837387,
+      "pct_within_005": 0.08825573314801946
+    },
+    "ridge_blend": {
+      "n": 2878,
+      "mae": 0.4544044009518416,
+      "rmse": 0.9118607569755591,
+      "r2": 0.6197810923660765,
+      "corr": 0.7880071747813346,
+      "max_abs": 8.806374797520975,
+      "pct_within_010": 0.19666435024322446,
+      "pct_within_005": 0.09242529534398888
+    },
+    "mean_top3_lgbm": {
+      "n": 2878,
+      "mae": 0.446349708124478,
+      "rmse": 0.902129283454323,
+      "r2": 0.6278532598071651,
+      "corr": 0.7961007189424942,
+      "max_abs": 8.88884198155121,
+      "pct_within_010": 0.1723419041000695,
+      "pct_within_005": 0.08929812369701182
+    },
+    "naive_run": {
+      "n": 2878,
+      "mae": 0.4716748530987101,
+      "rmse": 1.0437458601532084,
+      "r2": 0.5018430540307663,
+      "corr": 0.7368804140377595,
+      "max_abs": 9.740227610093992,
+      "pct_within_010": 0.36622654621264766,
+      "pct_within_005": 0.27623349548297427
+    },
+    "two_stage": {
+      "n": 2878,
+      "mae": 0.44632073554478197,
+      "rmse": 0.9039335873522515,
+      "r2": 0.6263631467846906,
+      "corr": 0.7952191061862344,
+      "max_abs": 8.936966290848336,
+      "pct_within_010": 0.17268936761640027,
+      "pct_within_005": 0.08999305072967338
+    },
+    "hgb_best": {
+      "n": 2878,
+      "mae": 0.38055368641227905,
+      "rmse": 0.9223638070359574,
+      "r2": 0.6109717274782687,
+      "corr": 0.7917525913782538,
+      "max_abs": 9.262615497228714,
+      "pct_within_010": 0.4388464211257818,
+      "pct_within_005": 0.2904794996525365
+    }
+  },
+  "naive_outer": {
+    "n": 2878,
+    "mae": 0.4716748530987101,
+    "rmse": 1.0437458601532084,
+    "r2": 0.5018430540307663,
+    "corr": 0.7368804140377595,
+    "max_abs": 9.740227610093992,
+    "pct_within_010": 0.36622654621264766,
+    "pct_within_005": 0.27623349548297427
+  },
+  "top_importances": [
+    [
+      "fib_position",
+      "368"
+    ],
+    [
+      "last_leg_len_pct_vol",
+      "341"
+    ],
+    [
+      "run_retrace_expand_max",
+      "297"
+    ],
+    [
+      "run_retrace_ext",
+      "291"
+    ],
+    [
+      "run_retrace",
+      "274"
+    ],
+    [
+      "last_leg_len_pct",
+      "201"
+    ],
+    [
+      "run_retrace_diff1",
+      "141"
+    ],
+    [
+      "run_minus_prev_retr",
+      "114"
+    ],
+    [
+      "asof_last_leg_len_abs",
+      "88"
+    ],
+    [
+      "fib_position_4h",
+      "71"
+    ],
+    [
+      "run_retrace_diff3",
+      "71"
+    ],
+    [
+      "dist_last_sl_pct_1w",
+      "62"
+    ],
+    [
+      "close_z_48",
+      "47"
+    ],
+    [
+      "last_leg_len_pct_rstd12",
+      "42"
+    ],
+    [
+      "fib_position_lag1",
+      "38"
+    ],
+    [
+      "naive_run_as_label",
+      "38"
+    ],
+    [
+      "vol_72",
+      "36"
+    ],
+    [
+      "fib_position_rstd12",
+      "35"
+    ],
+    [
+      "last_leg_len_pct_lag1",
+      "34"
+    ],
+    [
+      "prev_leg_retrace_causal",
+      "32"
+    ],
+    [
+      "prev_leg_len_pct",
+      "32"
+    ],
+    [
+      "dist_last_sl_pct_vol",
+      "30"
+    ],
+    [
+      "dist_fib_0236_pct_vol",
+      "30"
+    ],
+    [
+      "asof_leg_id",
+      "29"
+    ],
+    [
+      "sr_asymmetry_rstd12",
+      "26"
+    ]
+  ],
+  "top5_lgbm_val": [
+    {
+      "n": 10238,
+      "mae": 0.41550890647806704,
+      "rmse": 0.7438472886933811,
+      "r2": 0.6741370307950794,
+      "corr": 0.8229580875673477,
+      "max_abs": 15.222189312256795,
+      "pct_within_010": 0.16106661457315882,
+      "pct_within_005": 0.07882398906036335
+    },
+    {
+      "n": 10238,
+      "mae": 0.4174802012374981,
+      "rmse": 0.7450539768254326,
+      "r2": 0.6730789267317786,
+      "corr": 0.8217742968139725,
+      "max_abs": 15.290359857948484,
+      "pct_within_010": 0.15569447157647978,
+      "pct_within_005": 0.07941004102363743
+    },
+    {
+      "n": 10238,
+      "mae": 0.4176078154265338,
+      "rmse": 0.7440645694948576,
+      "r2": 0.6739466312084166,
+      "corr": 0.8226582083560484,
+      "max_abs": 15.204709071744073,
+      "pct_within_010": 0.1578433287751514,
+      "pct_within_005": 0.07394022269974604
+    },
+    {
+      "n": 10238,
+      "mae": 0.4176392445644702,
+      "rmse": 0.7432292329475987,
+      "r2": 0.674678318804629,
+      "corr": 0.8227185497986281,
+      "max_abs": 15.06445356427346,
+      "pct_within_010": 0.16604805626098848,
+      "pct_within_005": 0.08194959953115843
+    },
+    {
+      "n": 10238,
+      "mae": 0.41767622740891747,
+      "rmse": 0.7455379180890809,
+      "r2": 0.6726540931380454,
+      "corr": 0.8221604985276887,
+      "max_abs": 14.871867058268501,
+      "pct_within_010": 0.1639968743895292,
+      "pct_within_005": 0.07941004102363743
+    }
+  ],
+  "trade_arms": [
+    {
+      "arm": "oracle_leaky",
+      "n_trades": 495,
+      "profit_factor": 2.9792801053146882,
+      "win_rate": 0.7676767676767676,
+      "expectancy_return_units": 0.008033067087034391,
+      "net_pnl": 88.71378074998938,
+      "run_id": "eth_1h_leaky_asof_oracle_leaky-7a00654fbd",
+      "signal_stats": {
+        "n_emitted": 495,
+        "n_skipped_clarity": 1497,
+        "n_skipped_cap": 23,
+        "n_skipped_loss_cooloff": 0,
+        "n_skipped_weak_short_book1": 0,
+        "n_primary": 109,
+        "n_addon": 386
+      }
+    },
+    {
+      "arm": "pred_leaky",
+      "n_trades": 246,
+      "profit_factor": 0.5855752832507238,
+      "win_rate": 0.42276422764227645,
+      "expectancy_return_units": -0.0041811579711819626,
+      "net_pnl": -25.427179670008627,
+      "run_id": "eth_1h_leaky_asof_pred_leaky-af26c8ec2b",
+      "signal_stats": {
+        "n_emitted": 247,
+        "n_skipped_clarity": 812,
+        "n_skipped_cap": 39,
+        "n_skipped_loss_cooloff": 0,
+        "n_skipped_weak_short_book1": 0,
+        "n_primary": 74,
+        "n_addon": 173
+      }
+    },
+    {
+      "arm": "naive_run_as_retrace",
+      "n_trades": 233,
+      "profit_factor": 0.7147843829028364,
+      "win_rate": 0.5321888412017167,
+      "expectancy_return_units": -0.001904409829391767,
+      "net_pnl": -13.200035304997073,
+      "run_id": "eth_1h_leaky_asof_naive_run_as_retrace-1f3fee1c5e",
+      "signal_stats": {
+        "n_emitted": 234,
+        "n_skipped_clarity": 787,
+        "n_skipped_cap": 32,
+        "n_skipped_loss_cooloff": 0,
+        "n_skipped_weak_short_book1": 0,
+        "n_primary": 72,
+        "n_addon": 162
+      }
+    }
+  ],
+  "elapsed_sec": 411.4,
+  "ceiling_note": "Even perfect causal running-retrace cannot fully match oracle_leaky because the label is frozen only at the NEXT opposite swing confirm. If outer MAE still >> 0 or trade fails, residual is future structure.",
+  "artifacts": {
+    "series": "D:\\projects\\LLM2\\artifacts\\reports\\leaky_proxy_asof_max_001\\leaky_asof_series.parquet",
+    "model": "D:\\projects\\LLM2\\artifacts\\models\\leaky_proxy_asof_max_001\\proxy_leaky_asof_max.joblib"
+  }
+}

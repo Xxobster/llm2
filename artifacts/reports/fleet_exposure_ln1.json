@@ -1,0 +1,309 @@
+{
+  "host": "vps-LIVENET",
+  "utc": "2026-08-06T08:38:25.279250+00:00",
+  "units": [
+    {
+      "unit": "llm2-structure",
+      "account": "Xxobster8",
+      "symbol": "BTCUSDT",
+      "books": [
+        {
+          "book_id": "1785988800000_-1_1",
+          "side": -1,
+          "entry_bar_ms": 1785988800000,
+          "max_hold_bars": 6,
+          "qty": 0.001
+        }
+      ],
+      "positions": []
+    },
+    {
+      "unit": "llm2-structure-btc-k5-double3h-v1",
+      "account": "Xxobster10",
+      "symbol": "BTCUSDT",
+      "books": [
+        {
+          "book_id": "1785988800000_-1_2",
+          "side": -1,
+          "entry_bar_ms": 1785988800000,
+          "max_hold_bars": 12,
+          "qty": 0.001
+        },
+        {
+          "book_id": "1785992400000_-1_2",
+          "side": -1,
+          "entry_bar_ms": 1785992400000,
+          "max_hold_bars": 12,
+          "qty": 0.002
+        },
+        {
+          "book_id": "1785996000000_-1_3",
+          "side": -1,
+          "entry_bar_ms": 1785996000000,
+          "max_hold_bars": 12,
+          "qty": 0.002
+        }
+      ],
+      "positions": [
+        {
+          "side": "Sell",
+          "size": 0.011,
+          "avgPrice": "64486.69602455",
+          "unrealisedPnl": "-3.99194373",
+          "stopLoss": "",
+          "takeProfit": "",
+          "leverage": "18",
+          "liqPrice": "69338.53845103"
+        }
+      ]
+    },
+    {
+      "unit": "llm2-structure-eth",
+      "account": "Xxobster8",
+      "symbol": "ETHUSDT",
+      "books": [
+        {
+          "book_id": "1785988800000_-1_1",
+          "side": -1,
+          "entry_bar_ms": 1785988800000,
+          "max_hold_bars": 6,
+          "qty": 0.01
+        }
+      ],
+      "positions": [
+        {
+          "side": "Buy",
+          "size": 0.01,
+          "avgPrice": "1884.6220835",
+          "unrealisedPnl": "0.27077916",
+          "stopLoss": "",
+          "takeProfit": "",
+          "leverage": "18",
+          "liqPrice": ""
+        },
+        {
+          "side": "Sell",
+          "size": 0.06,
+          "avgPrice": "1876.22128833",
+          "unrealisedPnl": "-2.1287227",
+          "stopLoss": "",
+          "takeProfit": "",
+          "leverage": "18",
+          "liqPrice": "3127.00259204"
+        }
+      ]
+    },
+    {
+      "unit": "llm2-structure-eth-k5-double3h-v1",
+      "account": "Xxobster6",
+      "symbol": "ETHUSDT",
+      "books": [
+        {
+          "book_id": "1785985200000_1_1",
+          "side": 1,
+          "entry_bar_ms": 1785985200000,
+          "max_hold_bars": 12,
+          "qty": 0.01
+        },
+        {
+          "book_id": "1785988800000_-1_1",
+          "side": -1,
+          "entry_bar_ms": 1785988800000,
+          "max_hold_bars": 12,
+          "qty": 0.01
+        }
+      ],
+      "positions": [
+        {
+          "side": "Buy",
+          "size": 0.01,
+          "avgPrice": "1890.376",
+          "unrealisedPnl": "0.21324",
+          "stopLoss": "1798.85",
+          "takeProfit": "1981.62",
+          "leverage": "18",
+          "liqPrice": ""
+        },
+        {
+          "side": "Sell",
+          "size": 0.03,
+          "avgPrice": "1885.41194467",
+          "unrealisedPnl": "-0.78864166",
+          "stopLoss": "",
+          "takeProfit": "",
+          "leverage": "18",
+          "liqPrice": "2541.6800763"
+        }
+      ]
+    },
+    {
+      "unit": "llm2-structure-eth-multitrade-v1",
+      "account": "Xxobster8",
+      "symbol": "ETHUSDT",
+      "books": [],
+      "positions": [
+        {
+          "side": "Buy",
+          "size": 0.01,
+          "avgPrice": "1884.6220835",
+          "unrealisedPnl": "0.27077916",
+          "stopLoss": "",
+          "takeProfit": "",
+          "leverage": "18",
+          "liqPrice": ""
+        },
+        {
+          "side": "Sell",
+          "size": 0.06,
+          "avgPrice": "1876.22128833",
+          "unrealisedPnl": "-2.1287227",
+          "stopLoss": "",
+          "takeProfit": "",
+          "leverage": "18",
+          "liqPrice": "3127.00259204"
+        }
+      ]
+    },
+    {
+      "unit": "llm2-structure-eth-multitrade-v1_1",
+      "account": "Xxobster8",
+      "symbol": "ETHUSDT",
+      "books": [],
+      "positions": [
+        {
+          "side": "Buy",
+          "size": 0.01,
+          "avgPrice": "1884.6220835",
+          "unrealisedPnl": "0.26987916",
+          "stopLoss": "",
+          "takeProfit": "",
+          "leverage": "18",
+          "liqPrice": ""
+        },
+        {
+          "side": "Sell",
+          "size": 0.06,
+          "avgPrice": "1876.22128833",
+          "unrealisedPnl": "-2.1233227",
+          "stopLoss": "",
+          "takeProfit": "",
+          "leverage": "18",
+          "liqPrice": "3127.00294327"
+        }
+      ]
+    },
+    {
+      "unit": "llm2-structure-eth-multitrade-v1_2",
+      "account": "Xxobster8",
+      "symbol": "ETHUSDT",
+      "books": [
+        {
+          "book_id": "1785985200000_1_1",
+          "side": 1,
+          "entry_bar_ms": 1785985200000,
+          "max_hold_bars": 6,
+          "qty": 0.01
+        },
+        {
+          "book_id": "1785988800000_-1_1",
+          "side": -1,
+          "entry_bar_ms": 1785988800000,
+          "max_hold_bars": 6,
+          "qty": 0.01
+        }
+      ],
+      "positions": [
+        {
+          "side": "Buy",
+          "size": 0.01,
+          "avgPrice": "1884.6220835",
+          "unrealisedPnl": "0.26987916",
+          "stopLoss": "",
+          "takeProfit": "",
+          "leverage": "18",
+          "liqPrice": ""
+        },
+        {
+          "side": "Sell",
+          "size": 0.06,
+          "avgPrice": "1876.22128833",
+          "unrealisedPnl": "-2.1233227",
+          "stopLoss": "",
+          "takeProfit": "",
+          "leverage": "18",
+          "liqPrice": "3127.00294327"
+        }
+      ]
+    },
+    {
+      "unit": "llm2-structure-sol",
+      "account": "Xxobster7",
+      "symbol": "SOLUSDT",
+      "books": [
+        {
+          "book_id": "1785988800000_-1_1",
+          "side": -1,
+          "entry_bar_ms": 1785988800000,
+          "max_hold_bars": 6,
+          "qty": 0.1
+        }
+      ],
+      "positions": [
+        {
+          "side": "Sell",
+          "size": 0.1,
+          "avgPrice": "73.91",
+          "unrealisedPnl": "0.012",
+          "stopLoss": "75.4",
+          "takeProfit": "73.18",
+          "leverage": "18",
+          "liqPrice": "251.71512494"
+        }
+      ]
+    },
+    {
+      "unit": "llm2-structure-sol-k5-double3h-v1",
+      "account": "Xxobster10",
+      "symbol": "SOLUSDT",
+      "books": [
+        {
+          "book_id": "1785988800000_-1_1",
+          "side": -1,
+          "entry_bar_ms": 1785988800000,
+          "max_hold_bars": 12,
+          "qty": 0.1
+        }
+      ],
+      "positions": [
+        {
+          "side": "Sell",
+          "size": 0.5,
+          "avgPrice": "73.8908",
+          "unrealisedPnl": "0.0504",
+          "stopLoss": "",
+          "takeProfit": "",
+          "leverage": "18",
+          "liqPrice": "172.54433847"
+        }
+      ]
+    }
+  ],
+  "accounts": {
+    "Xxobster8": {
+      "totalEquity": "61.33831693",
+      "totalWalletBalance": "63.19423346"
+    },
+    "Xxobster10": {
+      "totalEquity": "53.55823207",
+      "totalWalletBalance": "57.49547558"
+    },
+    "Xxobster6": {
+      "totalEquity": "13.25592167",
+      "totalWalletBalance": "15.689463"
+    },
+    "Xxobster7": {
+      "totalEquity": "18.30170053",
+      "totalWalletBalance": "18.1467699"
+    }
+  }
+}

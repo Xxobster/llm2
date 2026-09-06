@@ -1,0 +1,414 @@
+{
+  "created_utc": "2026-08-12T17:30:19Z",
+  "host": "94.156.189.76",
+  "families": {
+    "structure_llm2": {
+      "family": "structure_llm2",
+      "status": "PASS_STOPPED",
+      "units": [
+        {
+          "unit": "llm2-structure-micro",
+          "active": "inactive"
+        },
+        {
+          "unit": "llm2-structure-eth",
+          "active": "inactive"
+        },
+        {
+          "unit": "llm2-structure-sol",
+          "active": "inactive"
+        },
+        {
+          "unit": "llm2-structure-eth-k5-double3h-v1",
+          "active": "inactive"
+        },
+        {
+          "unit": "llm2-structure-btc-k5-double3h-v1",
+          "active": "inactive"
+        },
+        {
+          "unit": "llm2-structure-sol-k5-double3h-v1",
+          "active": "inactive"
+        },
+        {
+          "unit": "llm2-structure-eth-multitrade-v1_2",
+          "active": "inactive"
+        }
+      ],
+      "why": "CAUS-STRUCT-001 void \u2014 must remain stopped for trading"
+    },
+    "pivot_llm2": {
+      "family": "pivot_llm2",
+      "arms": [
+        {
+          "arm": "sol",
+          "symbol": "SOLUSDT",
+          "n_ledger": 6,
+          "n_post_fix": 6,
+          "n_match": 6,
+          "rows": [
+            {
+              "bar_ts_ms": 1786550400000,
+              "match": true,
+              "diffs": {},
+              "live_action": "FLAT",
+              "live_p_any": 0.12917454316320104,
+              "bt_p_any": 0.12917454316320104
+            },
+            {
+              "bar_ts_ms": 1786551300000,
+              "match": true,
+              "diffs": {},
+              "live_action": "FLAT",
+              "live_p_any": 0.09514331210191083,
+              "bt_p_any": 0.09514331210191083
+            },
+            {
+              "bar_ts_ms": 1786552200000,
+              "match": true,
+              "diffs": {},
+              "live_action": "FLAT",
+              "live_p_any": 0.06926406926406926,
+              "bt_p_any": 0.06926406926406926
+            },
+            {
+              "bar_ts_ms": 1786553100000,
+              "match": true,
+              "diffs": {},
+              "live_action": "FLAT",
+              "live_p_any": 0.0975609756097561,
+              "bt_p_any": 0.0975609756097561
+            },
+            {
+              "bar_ts_ms": 1786554000000,
+              "match": true,
+              "diffs": {},
+              "live_action": "FLAT",
+              "live_p_any": 0.09514331210191083,
+              "bt_p_any": 0.09514331210191083
+            },
+            {
+              "bar_ts_ms": 1786554900000,
+              "match": true,
+              "diffs": {},
+              "live_action": "FLAT",
+              "live_p_any": 0.12917454316320104,
+              "bt_p_any": 0.12917454316320104
+            }
+          ]
+        },
+        {
+          "arm": "eth",
+          "symbol": "ETHUSDT",
+          "n_ledger": 6,
+          "n_post_fix": 6,
+          "n_match": 6,
+          "rows": [
+            {
+              "bar_ts_ms": 1786550400000,
+              "match": true,
+              "diffs": {},
+              "live_action": "FLAT",
+              "live_p_any": 0.17205203524968526,
+              "bt_p_any": 0.17205203524968526
+            },
+            {
+              "bar_ts_ms": 1786551300000,
+              "match": true,
+              "diffs": {},
+              "live_action": "FLAT",
+              "live_p_any": 0.10707964601769913,
+              "bt_p_any": 0.10707964601769913
+            },
+            {
+              "bar_ts_ms": 1786552200000,
+              "match": true,
+              "diffs": {},
+              "live_action": "FLAT",
+              "live_p_any": 0.12568306010928965,
+              "bt_p_any": 0.12568306010928965
+            },
+            {
+              "bar_ts_ms": 1786553100000,
+              "match": true,
+              "diffs": {},
+              "live_action": "FLAT",
+              "live_p_any": 0.12568306010928965,
+              "bt_p_any": 0.12568306010928965
+            },
+            {
+              "bar_ts_ms": 1786554000000,
+              "match": true,
+              "diffs": {},
+              "live_action": "FLAT",
+              "live_p_any": 0.16109422492401215,
+              "bt_p_any": 0.16109422492401215
+            },
+            {
+              "bar_ts_ms": 1786554900000,
+              "match": true,
+              "diffs": {},
+              "live_action": "FLAT",
+              "live_p_any": 0.19335604770017037,
+              "bt_p_any": 0.19335604770017037
+            }
+          ]
+        }
+      ],
+      "all_match": true,
+      "status": "PASS"
+    },
+    "xgb": {
+      "family": "xgb",
+      "pairs": [
+        {
+          "symbol": "BTCUSDT",
+          "audit": "/home/xgb/models/btcusdt_first_touch_live_audit.json",
+          "verdict": "RESEARCH_ONLY_BACKTEST",
+          "live_ready": false,
+          "fee_model": "bybit_maker_0.02pct",
+          "tp_pct": 0.01,
+          "sl_pct": 0.02,
+          "leverage_audit": null,
+          "screen_pf": 5.570054766700948,
+          "lockbox_pf": null,
+          "status": "FAIL_LIVE_READY_FALSE",
+          "ledger_candidates": [],
+          "tip_identity": "UNAVAILABLE_NO_LEDGER"
+        },
+        {
+          "symbol": "ETHUSDT",
+          "audit": "/home/xgb/models/ethusdt_first_touch_live_audit.json",
+          "verdict": "RESEARCH_ONLY_BACKTEST",
+          "live_ready": false,
+          "fee_model": "bybit_taker_entry_taker_tpsl_no_exit_slip",
+          "tp_pct": 0.04,
+          "sl_pct": 0.04,
+          "leverage_audit": 21.0,
+          "screen_pf": null,
+          "lockbox_pf": 1.345849685107442,
+          "status": "FAIL_LIVE_READY_FALSE",
+          "ledger_candidates": [],
+          "tip_identity": "UNAVAILABLE_NO_LEDGER"
+        }
+      ],
+      "status": "FAIL",
+      "blockers": [
+        "BTCUSDT: audit live_ready=false / verdict=RESEARCH_ONLY_BACKTEST",
+        "BTCUSDT: no decision sqlite ledger found",
+        "ETHUSDT: audit live_ready=false / verdict=RESEARCH_ONLY_BACKTEST",
+        "ETHUSDT: no decision sqlite ledger found"
+      ],
+      "processes": [
+        "430299 SCREEN -dmS xxobster2BTCUSDT bash -lc cd /home/xgb && python3 scripts/vps_run_asset_live.py btcusdt >> log/btcusdt/restart.log 2>&1",
+        "430301 bash -lc cd /home/xgb && python3 scripts/vps_run_asset_live.py btcusdt >> log/btcusdt/restart.log 2>&1",
+        "430302 SCREEN -dmS xxobster2ETHUSDT bash -lc cd /home/xgb && python3 scripts/vps_run_asset_live.py ethusdt >> log/ethusdt/restart.log 2>&1",
+        "430304 bash -lc cd /home/xgb && python3 scripts/vps_run_asset_live.py ethusdt >> log/ethusdt/restart.log 2>&1",
+        "430311 python3 scripts/vps_run_asset_live.py btcusdt",
+        "430313 python3 scripts/vps_run_asset_live.py ethusdt",
+        "432863 bash -lc pgrep -af vps_run_asset_live || true"
+      ],
+      "parity_certifiable": false,
+      "why": "XGB audits explicitly mark live_ready=false; no bar-level tip ledger was found to prove live tip_decide \u2261 freeze/BT path. Fee models differ BTC(maker) vs ETH(taker)."
+    },
+    "tsm_vpa": {
+      "family": "tsm_vpa",
+      "root": "/opt/tsm-vpa",
+      "pairs": [
+        {
+          "symbol": "VETUSDT",
+          "state_db": "/opt/tsm-vpa/data/live/VETUSDT_state.sqlite",
+          "tables": [
+            "handled_entries",
+            "open_trades",
+            "events",
+            "sqlite_sequence"
+          ],
+          "tip_identity": "UNAVAILABLE_NO_DECISION_TABLE",
+          "status": "FAIL_NO_LEDGER"
+        },
+        {
+          "symbol": "SOLUSDT",
+          "state_db": "/opt/tsm-vpa/data/live/SOLUSDT_state.sqlite",
+          "tables": [
+            "handled_entries",
+            "open_trades",
+            "events",
+            "sqlite_sequence"
+          ],
+          "tip_identity": "UNAVAILABLE_NO_DECISION_TABLE",
+          "status": "FAIL_NO_LEDGER"
+        },
+        {
+          "symbol": "XLMUSDT",
+          "state_db": "/opt/tsm-vpa/data/live/XLMUSDT_state.sqlite",
+          "tables": [
+            "handled_entries",
+            "open_trades",
+            "events",
+            "sqlite_sequence"
+          ],
+          "tip_identity": "UNAVAILABLE_NO_DECISION_TABLE",
+          "status": "FAIL_NO_LEDGER"
+        },
+        {
+          "symbol": "XRPUSDT",
+          "state_db": "/opt/tsm-vpa/data/live/XRPUSDT_state.sqlite",
+          "tables": [
+            "handled_entries",
+            "open_trades",
+            "events",
+            "sqlite_sequence"
+          ],
+          "tip_identity": "UNAVAILABLE_NO_DECISION_TABLE",
+          "status": "FAIL_NO_LEDGER"
+        }
+      ],
+      "blockers": [
+        "readiness_earned=LIVE_STOP / RESEARCH_ONLY",
+        "tsm_vpa:VETUSDT state has ['handled_entries', 'open_trades', 'events', 'sqlite_sequence'] but no decision/signal table",
+        "tsm_vpa:SOLUSDT state has ['handled_entries', 'open_trades', 'events', 'sqlite_sequence'] but no decision/signal table",
+        "tsm_vpa:XLMUSDT state has ['handled_entries', 'open_trades', 'events', 'sqlite_sequence'] but no decision/signal table",
+        "tsm_vpa:XRPUSDT state has ['handled_entries', 'open_trades', 'events', 'sqlite_sequence'] but no decision/signal table"
+      ],
+      "status": "FAIL",
+      "pack_path": "/opt/tsm-vpa/configs/live_top4_stack2_rr15_v1.json",
+      "pack_id": "live_top4_stack2_rr15_v1",
+      "mode": "LIVE",
+      "readiness_earned": "LIVE_STOP / RESEARCH_ONLY",
+      "strategy": {
+        "name": "stack2_rr15",
+        "min_stack": 2,
+        "min_rr": 1.5,
+        "include_shorts": true,
+        "trend_ma_len": 0,
+        "core_patterns_only": false,
+        "max_hold_bars": 20
+      },
+      "symbols": [
+        "VETUSDT",
+        "SOLUSDT",
+        "XLMUSDT",
+        "XRPUSDT"
+      ],
+      "timeframe": "1d",
+      "candles_exchange": "bybit",
+      "freeze_ref": null,
+      "evidence_contamination": {
+        "symbol_selection": "OOS_USED_FOR_SELECTION",
+        "note": "VETUSDT SOLUSDT XLMUSDT XRPUSDT ranked by nested outer OOS PnL; those OOS slices are contaminated for untouched claims."
+      },
+      "processes": [
+        "428586 /opt/tsm-vpa/venv/bin/python scripts/run_live_bot.py --symbol VETUSDT --account Xxobster5 --keys /opt/tsm-vpa/config/api_keys.json --pack /opt/tsm-vpa/configs/live_top4_stack2_rr15_v1.json --state-db /opt/tsm-vpa/data/live/tsm_vpa_live.sqlite",
+        "429417 ./venv/bin/python scripts/run_live_bot.py --symbol BTCUSDT --account Xxobster6 --keys /opt/tsm-chandelier/config/api_keys.json --pack /opt/tsm-chandelier/configs/live_btc_eth_sol_1h_xxobster6.json --state-db /opt/tsm-chandelier/data/live/tsm_chandelier_live.sqlite",
+        "429418 ./venv/bin/python scripts/run_live_bot.py --symbol ETHUSDT --account Xxobster6 --keys /opt/tsm-chandelier/config/api_keys.json --pack /opt/tsm-chandelier/configs/live_btc_eth_sol_1h_xxobster6.json --state-db /opt/tsm-chandelier/data/live/tsm_chandelier_live.sqlite",
+        "429419 ./venv/bin/python scripts/run_live_bot.py --symbol SOLUSDT --account Xxobster6 --keys /opt/tsm-chandelier/config/api_keys.json --pack /opt/tsm-chandelier/configs/live_btc_eth_sol_1h_xxobster6.json --state-db /opt/tsm-chandelier/data/live/tsm_chandelier_live.sqlite",
+        "430345 /opt/tsm-chandelier/venv/bin/python scripts/run_live_bot.py --symbol BTCUSDT --account Xxobster6 --keys /opt/tsm-chandelier/config/api_keys.json --pack /opt/tsm-chandelier/configs/live_btc_eth_sol_1h_xxobster6.json --state-db /opt/tsm-chandelier/data/live/tsm_chandelier_live.sqlite",
+        "430346 /opt/tsm-chandelier/venv/bin/python scripts/run_live_bot.py --symbol ETHUSDT --account Xxobster6 --keys /opt/tsm-chandelier/config/api_keys.json --pack /opt/tsm-chandelier/configs/live_btc_eth_sol_1h_xxobster6.json --state-db /opt/tsm-chandelier/data/live/tsm_chandelier_live.sqlite",
+        "430347 /opt/tsm-chandelier/venv/bin/python scripts/run_live_bot.py --symbol SOLUSDT --account Xxobster6 --keys /opt/tsm-chandelier/config/api_keys.json --pack /opt/tsm-chandelier/configs/live_btc_eth_sol_1h_xxobster6.json --state-db /opt/tsm-chandelier/data/live/tsm_chandelier_live.sqlite",
+        "432869 bash -lc pgrep -af 'tsm_vpa|tsm-|run_live_bot' || true"
+      ],
+      "parity_certifiable": false,
+      "why": "Pack/process inventory only. Bar-level live tip \u2261 freeze/BT recompute is not certifiable from LLM2 without a shared decide ledger + candle tip hash."
+    },
+    "tsm_chandelier": {
+      "family": "tsm_chandelier",
+      "root": "/opt/tsm-chandelier",
+      "pairs": [
+        {
+          "symbol": "BTCUSDT",
+          "state_db": "/opt/tsm-chandelier/data/live/tsm_chandelier_live.sqlite",
+          "tables": [
+            "handled_entries",
+            "open_trades",
+            "events",
+            "sqlite_sequence",
+            "closed_trades",
+            "equity_snapshots",
+            "funding_events"
+          ],
+          "tip_identity": "UNAVAILABLE_NO_DECISION_TABLE",
+          "status": "FAIL_NO_LEDGER"
+        },
+        {
+          "symbol": "ETHUSDT",
+          "state_db": "/opt/tsm-chandelier/data/live/tsm_chandelier_live.sqlite",
+          "tables": [
+            "handled_entries",
+            "open_trades",
+            "events",
+            "sqlite_sequence",
+            "closed_trades",
+            "equity_snapshots",
+            "funding_events"
+          ],
+          "tip_identity": "UNAVAILABLE_NO_DECISION_TABLE",
+          "status": "FAIL_NO_LEDGER"
+        },
+        {
+          "symbol": "SOLUSDT",
+          "state_db": "/opt/tsm-chandelier/data/live/tsm_chandelier_live.sqlite",
+          "tables": [
+            "handled_entries",
+            "open_trades",
+            "events",
+            "sqlite_sequence",
+            "closed_trades",
+            "equity_snapshots",
+            "funding_events"
+          ],
+          "tip_identity": "UNAVAILABLE_NO_DECISION_TABLE",
+          "status": "FAIL_NO_LEDGER"
+        }
+      ],
+      "blockers": [
+        "freeze_ref missing on disk: artifacts/reports/tsm_chandelier/1h_SHADOW_FREEZE.json",
+        "tsm_chandelier:BTCUSDT state has ['handled_entries', 'open_trades', 'events', 'sqlite_sequence', 'closed_trades', 'equity_snapshots', 'funding_events'] but no decision/signal table",
+        "tsm_chandelier:ETHUSDT state has ['handled_entries', 'open_trades', 'events', 'sqlite_sequence', 'closed_trades', 'equity_snapshots', 'funding_events'] but no decision/signal table",
+        "tsm_chandelier:SOLUSDT state has ['handled_entries', 'open_trades', 'events', 'sqlite_sequence', 'closed_trades', 'equity_snapshots', 'funding_events'] but no decision/signal table"
+      ],
+      "status": "FAIL",
+      "pack_path": "/opt/tsm-chandelier/configs/live_btc_eth_sol_1h_xxobster6.json",
+      "pack_id": "tsm_chandelier_1h_btc_eth_sol_xxobster6_v1",
+      "mode": "LIVE",
+      "readiness_earned": "LIVE_STOP / SHADOW_READY",
+      "strategy": {
+        "name": "tsm_chandelier",
+        "atr_band_mult": 2.5,
+        "chandelier_lookback": 22,
+        "chandelier_atr_mult": 3.0,
+        "ema_filter": 50,
+        "max_hold_bars": 36
+      },
+      "symbols": [
+        "BTCUSDT",
+        "ETHUSDT",
+        "SOLUSDT"
+      ],
+      "timeframe": "1h",
+      "candles_exchange": "binance",
+      "freeze_ref": "artifacts/reports/tsm_chandelier/1h_SHADOW_FREEZE.json",
+      "evidence_contamination": null,
+      "processes": [
+        "428586 /opt/tsm-vpa/venv/bin/python scripts/run_live_bot.py --symbol VETUSDT --account Xxobster5 --keys /opt/tsm-vpa/config/api_keys.json --pack /opt/tsm-vpa/configs/live_top4_stack2_rr15_v1.json --state-db /opt/tsm-vpa/data/live/tsm_vpa_live.sqlite",
+        "429417 ./venv/bin/python scripts/run_live_bot.py --symbol BTCUSDT --account Xxobster6 --keys /opt/tsm-chandelier/config/api_keys.json --pack /opt/tsm-chandelier/configs/live_btc_eth_sol_1h_xxobster6.json --state-db /opt/tsm-chandelier/data/live/tsm_chandelier_live.sqlite",
+        "429418 ./venv/bin/python scripts/run_live_bot.py --symbol ETHUSDT --account Xxobster6 --keys /opt/tsm-chandelier/config/api_keys.json --pack /opt/tsm-chandelier/configs/live_btc_eth_sol_1h_xxobster6.json --state-db /opt/tsm-chandelier/data/live/tsm_chandelier_live.sqlite",
+        "429419 ./venv/bin/python scripts/run_live_bot.py --symbol SOLUSDT --account Xxobster6 --keys /opt/tsm-chandelier/config/api_keys.json --pack /opt/tsm-chandelier/configs/live_btc_eth_sol_1h_xxobster6.json --state-db /opt/tsm-chandelier/data/live/tsm_chandelier_live.sqlite",
+        "430345 /opt/tsm-chandelier/venv/bin/python scripts/run_live_bot.py --symbol BTCUSDT --account Xxobster6 --keys /opt/tsm-chandelier/config/api_keys.json --pack /opt/tsm-chandelier/configs/live_btc_eth_sol_1h_xxobster6.json --state-db /opt/tsm-chandelier/data/live/tsm_chandelier_live.sqlite",
+        "430346 /opt/tsm-chandelier/venv/bin/python scripts/run_live_bot.py --symbol ETHUSDT --account Xxobster6 --keys /opt/tsm-chandelier/config/api_keys.json --pack /opt/tsm-chandelier/configs/live_btc_eth_sol_1h_xxobster6.json --state-db /opt/tsm-chandelier/data/live/tsm_chandelier_live.sqlite",
+        "430347 /opt/tsm-chandelier/venv/bin/python scripts/run_live_bot.py --symbol SOLUSDT --account Xxobster6 --keys /opt/tsm-chandelier/config/api_keys.json --pack /opt/tsm-chandelier/configs/live_btc_eth_sol_1h_xxobster6.json --state-db /opt/tsm-chandelier/data/live/tsm_chandelier_live.sqlite",
+        "432875 bash -lc pgrep -af 'tsm_chandelier|tsm-|run_live_bot' || true"
+      ],
+      "parity_certifiable": false,
+      "why": "Pack/process inventory only. Bar-level live tip \u2261 freeze/BT recompute is not certifiable from LLM2 without a shared decide ledger + candle tip hash."
+    }
+  },
+  "overall": {
+    "pivot_tip_identity": "PASS",
+    "structure_stopped": "PASS_STOPPED",
+    "xgb_certifiable": false,
+    "tsm_vpa_certifiable": false,
+    "tsm_chandelier_certifiable": false,
+    "all_certifiable_live_eq_bt": false
+  }
+}

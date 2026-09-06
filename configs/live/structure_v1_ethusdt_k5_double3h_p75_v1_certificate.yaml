@@ -1,0 +1,18 @@
+strategy_id: structure_v1_lgbm_ETHUSDT_1h_direction_k5_double3h_p75_v1
+version_id: eth_k5_double3h_p75_v1
+status: AUTHORIZED
+authorized_by_user: true
+vps_host: 185.203.119.52
+account_ref: Xxobster3
+intended_vps_host: 185.203.119.52
+intended_account_ref: Xxobster3
+pack_path: artifacts/live_packs/structure_v1_ethusdt_k5_double3h_p75_v1
+pack_hash: e401c3ee9b2c36a837e184b5498c7a3eaf3105bd4abfdff5763f9321687a281c
+expires_utc: '2026-08-19T00:00:00Z'
+created_utc: '2026-08-05T08:20:00Z'
+execution_mode: multitrade
+notes: >-
+  User explicitly authorized 2026-08-05 to ship D-041 ETH K5 p75 strength
+  (strength_quantile=0.75 | hold12 | TP1% | SL2% | K=5 | size_double_within_bars=3)
+  on Xxobster3 / 185.203.119.52 as a new isolated unit. MIN_EXCHANGE only.
+  Distinct from Xxobster6 median k5 on 94.156.189.76. Expires 2026-08-19 unless renewed.

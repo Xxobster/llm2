@@ -1,0 +1,20 @@
+strategy_id: structure_v1_lgbm_ETHUSDT_1h_direction_multitrade_p75_v1
+version_id: eth_multitrade_p75_v1
+status: AUTHORIZED
+authorized_by_user: true
+vps_host: 185.203.119.52
+account_ref: Xxobster9
+intended_vps_host: 185.203.119.52
+intended_account_ref: Xxobster9
+pack_path: artifacts/live_packs/structure_v1_ethusdt_multitrade_p75_v1
+pack_hash: 1babf3afa0406d96b6363e59fb918905bbac17ca6c68d3da4af8db02b148b2ba
+expires_utc: '2026-08-19T00:00:00Z'
+created_utc: '2026-08-05T09:00:00Z'
+execution_mode: multitrade
+notes: >-
+  User explicitly authorized 2026-08-05 to ship ETH multitrade strength p75
+  (v1.2 geometry + strength_quantile=0.75 | K=7 | clarity_scope=all | fib 1.618 |
+  hold12) on Xxobster9 / 185.203.119.52 as a new isolated unit. MIN_EXCHANGE only.
+  Evidence: structure_v1_eth_multitrade_strength_p75_001 (OUTER_TRANSFER_COMPARE).
+  Candles from botsgeneral shared collector (Binance signal). Distinct from
+  Xxobster8 multitrade v1.2 median on 94.156.189.76. Expires 2026-08-19 unless renewed.

@@ -1,0 +1,91 @@
+# OPTIONAL one-shot (OPEN). Not auto-run. Opens only if research continues after D-060.
+# Single arm — no multi-arm hunt, no outer PF selection of filters.
+# Parent inventory: no post-CAUS structure_v1 direction@1h parent has outer PF >= 1.
+# This does NOT re-open the closed nest-filter branch; different geometry (sparse only).
+
+generation_id: structure_v1_sparse_leg_vol_skip_001
+created_utc: "2026-08-08T09:00:00Z"
+status: OPEN_OPTIONAL
+decision_gate: D-060
+fold_geometry: v2
+related:
+  - structure_v1_forecast_filter_on_direction_001  # CLOSED_TRADING_FAIL; do not retune
+  - structure_v1_next_retrace_forecast_001  # Stage-1 skill PASS; Stage-2 trade FAIL
+  - post_caus_parent_pf_inventory_001
+  - CAUS-STRUCT-001
+
+hypothesis: >
+  At leg confirmation only (sparse), trade continuation of the just-confirmed impulse
+  with frozen tp1/sl2/hold6. Use causal next_vol as a skip-only filter (train-fold
+  75th percentile of predicted vol) — never as a side. Forecast skill and trading
+  Profit Factor remain separate gates. next_retrace is NOT used for side or for
+  multi-arm selection in this generation (state variable only if logged).
+
+economic_rationale: >
+  Dense direction@1h + nest filters failed with PF < 1 even when next_retrace IC
+  was high. Sparse decisions match when the structure forecast is knowable and
+  cut noise from every-bar entries. next_vol IC ~0.30 is the only residual filter
+  claim worth ONE frozen test. If this fails, abandon structure_v1 1h trading
+  applications tied to these forecasts without further threshold hunts.
+
+single_arm:
+  name: impulse_continuation_plus_next_vol_skip_p75
+  decisions: sparse_at_leg_confirm_only
+  side_rule: frozen_impulse_continuation  # +1 after up-leg confirm, -1 after down-leg; never from vol or retrace model
+  tp_pct: 0.01
+  sl_pct: 0.02
+  max_hold_bars: 6
+  sizing: MIN_EXCHANGE
+  forecast_filter:
+    target: next_vol
+    horizon_bars: 24
+    feature_space: structure_v1
+    model_selection: ridge_only  # no inner multi-model hunt
+    filter_rule:
+      name: skip_top_quartile_predicted_vol
+      percentile: 75
+      fit_scope: train_fold_only
+      action_on_trigger: skip_entry
+    action_forbidden:
+      - increase_leverage
+      - widen_size
+      - emit_long_or_short_from_vol_forecast
+      - change_percentile_from_75
+      - multi_arm_search
+      - use_next_retrace_to_set_side
+
+control:
+  name: sparse_impulse_always_on
+  description: same sparse continuation side rule, no volatility skip
+
+universe:
+  symbols: [ETHUSDT, BTCUSDT, SOLUSDT]
+  timeframe: 1h
+
+selection:
+  method: nested_outer_folds_v2
+  comparison: single_arm_vs_control_only
+  forbidden:
+    - select_or_rank_on_lockbox
+    - retune_closed_nest_filter_thresholds
+    - restore_leaked_last_retrace_pct_as_feature
+    - promote_on_forecast_ic_alone
+    - multi_arm_filter_grid
+  seed_root: 20260808
+
+evaluation:
+  outer: fold_geometry_v2
+  lockbox: DO_NOT_OPEN_FOR_SELECTION
+  four_proof: FOUR_PROOF_GATE_V1_required
+  success_vs_control:
+    - filtered_pooled_pf > control_pooled_pf
+    - filtered_pooled_pnl > control_pooled_pnl
+    - filtered uses fewer or equal signals
+  trading_gates: frozen_v2_1_if_ever_claiming_readiness
+  success_note: >
+    Beating a losing control is not SHADOW_READY. One fail closes this optional
+    arm without threshold retune. Prefer valid negative over drowning in variants.
+
+live_deploy: FORBIDDEN_without_certificate_and_explicit_user_auth
+promotion: FORBIDDEN
+run_policy: DO_NOT_AUTO_RUN  # open only after explicit user "run sparse_leg_vol_skip"

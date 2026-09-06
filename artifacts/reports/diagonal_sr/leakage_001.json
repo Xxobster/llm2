@@ -1,0 +1,32 @@
+[
+  {
+    "symbol": "ETHUSDT",
+    "timeframe": "15m",
+    "status": "PASS"
+  },
+  {
+    "symbol": "ETHUSDT",
+    "timeframe": "1h",
+    "status": "PASS"
+  },
+  {
+    "symbol": "SOLUSDT",
+    "timeframe": "15m",
+    "status": "PASS"
+  },
+  {
+    "symbol": "SOLUSDT",
+    "timeframe": "1h",
+    "status": "PASS"
+  },
+  {
+    "symbol": "BTCUSDT",
+    "timeframe": "15m",
+    "status": "PASS"
+  },
+  {
+    "symbol": "BTCUSDT",
+    "timeframe": "1h",
+    "status": "PASS"
+  }
+]

@@ -16,7 +16,12 @@ from tradesim import research_sim, research_sim_limit_entry
 from llm2.backtest.run import run_strategy_backtest
 from llm2.data.loader import load_ohlcv
 from llm2.data.macro import load_funding
-from llm2.gates.evidence import leverage_from_stop, research_costs_baseline
+from llm2.gates.evidence import (
+    daily_returns_from_bundle,
+    leverage_from_stop,
+    peak_margin_utilization,
+    research_costs_baseline,
+)
 from llm2.paths import FORWARD_LOCKBOX_START, TF_MS, touch_timeframe
 from llm2.pivot.strategy.working_limit import LimitIntent, materialize_working_limits
 from llm2.validation.folds import index_to_ms
@@ -120,6 +125,19 @@ def metrics_from_bundle(bundle, *, n_intent: int, fill_pct: float, tag: str) -> 
         out["expectancy_intent_all"] = float(out["net_pnl"]) / n_intent
     else:
         out["expectancy_intent_all"] = float("nan")
+    daily = daily_returns_from_bundle(bundle)
+    out["n_daily_returns"] = int(daily.size)
+    out["daily_returns"] = daily.tolist()
+    starting = float(getattr(m, "starting_equity", 0.0) or 0.0)
+    out["starting_equity"] = starting
+    out["ending_equity"] = float(getattr(m, "ending_equity", float("nan")))
+    out["peak_margin_util"] = float(
+        peak_margin_utilization(trades, equity=getattr(getattr(bundle, "result", None), "equity", None), starting_equity=starting)
+    )
+    if trades:
+        out["trade_pnls"] = [float(getattr(t, "realized_pnl", 0.0) or 0.0) for t in trades]
+    else:
+        out["trade_pnls"] = []
     return out
 
 
@@ -135,6 +153,8 @@ def run_signals_bt(
     market: bool,
     n_intent: int,
     fill_pct: float,
+    costs=None,
+    return_bundle: bool = False,
 ) -> dict[str, Any]:
     if len(signals) < 12:
         return {
@@ -177,7 +197,7 @@ def run_signals_bt(
         strategy_id=tag,
         touch_ohlcv=touch_win if len(touch_win) else None,
         touch_timeframe=touch_tf,
-        costs=research_costs_baseline(),
+        costs=costs if costs is not None else research_costs_baseline(),
         margin=research_margin(leverage=float(leverage_from_stop(sl))),
         sizing=research_sizing(),
         sim=sim,
@@ -191,6 +211,9 @@ def run_signals_bt(
     out = metrics_from_bundle(bundle, n_intent=n_intent, fill_pct=fill_pct, tag=tag)
     out["touch_timeframe"] = touch_tf
     out["n_touch_window"] = int(len(touch_win))
+    if return_bundle:
+        out["_bundle"] = bundle
+        out["_window"] = window
     return out
 
 
@@ -206,6 +229,7 @@ def run_limit_arm(
     max_hold: int,
     tp: float,
     sl: float,
+    costs=None,
 ) -> dict[str, Any]:
     n_intent = int(mask.sum())
     if n_intent < 15:
@@ -239,6 +263,7 @@ def run_limit_arm(
         market=False,
         n_intent=n_intent,
         fill_pct=float(fill["fill_rate"]),
+        costs=costs,
     )
 
 
@@ -252,6 +277,7 @@ def run_market_arm(
     max_hold: int,
     tp: float,
     sl: float,
+    costs=None,
 ) -> dict[str, Any]:
     n_intent = int(mask.sum())
     if n_intent < 15:
@@ -282,6 +308,7 @@ def run_market_arm(
         market=True,
         n_intent=n_intent,
         fill_pct=1.0,
+        costs=costs,
     )
 
 

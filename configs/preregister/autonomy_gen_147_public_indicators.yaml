@@ -1,0 +1,23 @@
+# Autonomy gen 147 — close vs SMA 90
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_147_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-22T18:54:00Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  Close versus simple moving average 90 distance sign at t+H and
+  zero-distance crosses, used as one-head filters, can beat the 15-minute
+  Limit 1%/1% pivot control under frozen entry-bar and trades-per-month caps.
+events: [sma90_above_at_h, sma90_below_at_h, sma90_cross_up, sma90_cross_down]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: 254e4a28f96ce28d0827360a39a52ce82d6bebfc5c543f44d5341ebdd7a886ea

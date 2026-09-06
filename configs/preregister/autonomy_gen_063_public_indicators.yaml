@@ -1,0 +1,23 @@
+# Autonomy gen 063 — close-minus-open bias
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_063_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-22T13:26:00Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  14-bar SMA of (close − open) / close sign at t+H and zero-line crosses,
+  used as one-head filters, can beat the 15-minute Limit 1%/1% pivot
+  control under frozen entry-bar and trades-per-month caps.
+events: [cob_pos_at_h, cob_neg_at_h, cob_cross_up_0, cob_cross_down_0]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: 9e5ee61491a00831947ce996d9e5ca9d749a7f29499c2dba85832f4de3b4897b

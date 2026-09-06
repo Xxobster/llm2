@@ -1,0 +1,523 @@
+{
+  "generation_id": "structure_v1_eth_k5_ev_calibrated_pi_star_001",
+  "created_utc": "20260805T065736Z",
+  "preregister_path": "configs/preregister/structure_v1_eth_k5_ev_calibrated_pi_star_001.yaml",
+  "preregister_sha256": "72a44df66897f985a43324c21b65d23d5de7e5cc0ae7b81ae540b644e009186b",
+  "evidence_class": "OUTER_TRANSFER_COMPARE",
+  "max_readiness": "RESEARCH_ONLY",
+  "promotion_allowed": false,
+  "live_deploy": "FORBIDDEN",
+  "primary_metric": "expectancy_return_units",
+  "hard_end_exclusive": "2026-05-01",
+  "lockbox_used": false,
+  "fold_geometry": "v2",
+  "outer_fold_ranges": [
+    [
+      "2022-01-01",
+      "2022-10-01"
+    ],
+    [
+      "2022-10-01",
+      "2023-07-01"
+    ],
+    [
+      "2023-07-01",
+      "2024-04-01"
+    ],
+    [
+      "2024-04-01",
+      "2025-01-01"
+    ],
+    [
+      "2025-01-01",
+      "2025-10-01"
+    ],
+    [
+      "2025-10-01",
+      "2026-05-01"
+    ]
+  ],
+  "conformance_passed": true,
+  "control": {
+    "label": "structure_v1_eth_k5_ev_calibrated_pi_star_001_control",
+    "use_calibration": false,
+    "pi_star": 0.72,
+    "hurdle": {
+      "mu_plus": 0.0084,
+      "mu_minus": 0.021599999999999998,
+      "pi_star": 0.72
+    },
+    "folds": [
+      {
+        "fold_index": 0,
+        "n_trades": 1868,
+        "net_pnl": 364.5437324649829,
+        "profit_factor": 3.4125616450135694,
+        "win_rate": 0.8597430406852249,
+        "expectancy": 0.19515189104122047,
+        "expectancy_return_units": 0.005131006437677756,
+        "total_fees": 74.59716753500001,
+        "n_liquidations": 0,
+        "pi_star_stats": {
+          "n_before": 4830,
+          "n_skipped_pi_star": 0,
+          "n_after": 4830
+        },
+        "calib": {
+          "fold": 0,
+          "fitted": false,
+          "n_fit": 0,
+          "n_calib_rows": 0,
+          "ece": null
+        }
+      },
+      {
+        "fold_index": 1,
+        "n_trades": 1867,
+        "net_pnl": 201.2991246249985,
+        "profit_factor": 2.9561512323505315,
+        "win_rate": 0.7686127477236208,
+        "expectancy": 0.10781956326995182,
+        "expectancy_return_units": 0.004138748886837742,
+        "total_fees": 51.973175375000004,
+        "n_liquidations": 0,
+        "pi_star_stats": {
+          "n_before": 4532,
+          "n_skipped_pi_star": 0,
+          "n_after": 4532
+        },
+        "calib": {
+          "fold": 1,
+          "fitted": false,
+          "n_fit": 0,
+          "n_calib_rows": 0,
+          "ece": null
+        }
+      },
+      {
+        "fold_index": 2,
+        "n_trades": 1804,
+        "net_pnl": 316.7409321700143,
+        "profit_factor": 3.8030708055621623,
+        "win_rate": 0.7971175166297118,
+        "expectancy": 0.1755770133980044,
+        "expectancy_return_units": 0.004589968850617136,
+        "total_fees": 70.67326783,
+        "n_liquidations": 0,
+        "pi_star_stats": {
+          "n_before": 4605,
+          "n_skipped_pi_star": 0,
+          "n_after": 4605
+        },
+        "calib": {
+          "fold": 2,
+          "fitted": false,
+          "n_fit": 0,
+          "n_calib_rows": 0,
+          "ece": null
+        }
+      },
+      {
+        "fold_index": 3,
+        "n_trades": 1937,
+        "net_pnl": 562.3704577649587,
+        "profit_factor": 4.43191202744184,
+        "win_rate": 0.8647392875580795,
+        "expectancy": 0.2903306441739803,
+        "expectancy_return_units": 0.005724585615896129,
+        "total_fees": 105.66224223500001,
+        "n_liquidations": 0,
+        "pi_star_stats": {
+          "n_before": 4754,
+          "n_skipped_pi_star": 0,
+          "n_after": 4754
+        },
+        "calib": {
+          "fold": 3,
+          "fitted": false,
+          "n_fit": 0,
+          "n_calib_rows": 0,
+          "ece": null
+        }
+      },
+      {
+        "fold_index": 4,
+        "n_trades": 1940,
+        "net_pnl": 560.3668570050795,
+        "profit_factor": 4.971601376462953,
+        "win_rate": 0.8747422680412371,
+        "expectancy": 0.288848895363402,
+        "expectancy_return_units": 0.0058973416525746275,
+        "total_fees": 100.315242995,
+        "n_liquidations": 0,
+        "pi_star_stats": {
+          "n_before": 4753,
+          "n_skipped_pi_star": 0,
+          "n_after": 4753
+        },
+        "calib": {
+          "fold": 4,
+          "fitted": false,
+          "n_fit": 0,
+          "n_calib_rows": 0,
+          "ece": null
+        }
+      },
+      {
+        "fold_index": 5,
+        "n_trades": 1402,
+        "net_pnl": 388.65163623503395,
+        "profit_factor": 5.018740739277039,
+        "win_rate": 0.8758915834522111,
+        "expectancy": 0.2772122940335236,
+        "expectancy_return_units": 0.005849146437551967,
+        "total_fees": 70.04346376500001,
+        "n_liquidations": 0,
+        "pi_star_stats": {
+          "n_before": 3475,
+          "n_skipped_pi_star": 0,
+          "n_after": 3475
+        },
+        "calib": {
+          "fold": 5,
+          "fitted": false,
+          "n_fit": 0,
+          "n_calib_rows": 0,
+          "ece": null
+        }
+      }
+    ],
+    "stitched": {
+      "n_trades": 10818,
+      "net_pnl": 2393.9727402649996,
+      "profit_factor": 4.114418041595842,
+      "win_rate": 0.8392493991495655,
+      "expectancy_return_units": 0.005206316921173494,
+      "n_liquidations": 0
+    },
+    "pi_stats_total": {
+      "n_before": 26949,
+      "n_skipped_pi_star": 0,
+      "n_after": 26949
+    },
+    "signal_stats_total": {
+      "n_emitted": 10886,
+      "n_skipped_clarity": 13543,
+      "n_skipped_cap": 2520,
+      "n_size_1x": 4281,
+      "n_size_2x": 6605
+    },
+    "calib_notes": [
+      {
+        "fold": 0,
+        "fitted": false,
+        "n_fit": 0,
+        "n_calib_rows": 0,
+        "ece": null
+      },
+      {
+        "fold": 1,
+        "fitted": false,
+        "n_fit": 0,
+        "n_calib_rows": 0,
+        "ece": null
+      },
+      {
+        "fold": 2,
+        "fitted": false,
+        "n_fit": 0,
+        "n_calib_rows": 0,
+        "ece": null
+      },
+      {
+        "fold": 3,
+        "fitted": false,
+        "n_fit": 0,
+        "n_calib_rows": 0,
+        "ece": null
+      },
+      {
+        "fold": 4,
+        "fitted": false,
+        "n_fit": 0,
+        "n_calib_rows": 0,
+        "ece": null
+      },
+      {
+        "fold": 5,
+        "fitted": false,
+        "n_fit": 0,
+        "n_calib_rows": 0,
+        "ece": null
+      }
+    ],
+    "leverage": 18.0
+  },
+  "candidate": {
+    "label": "structure_v1_eth_k5_ev_calibrated_pi_star_001_candidate",
+    "use_calibration": true,
+    "pi_star": 0.72,
+    "hurdle": {
+      "mu_plus": 0.0084,
+      "mu_minus": 0.021599999999999998,
+      "pi_star": 0.72
+    },
+    "folds": [
+      {
+        "fold_index": 0,
+        "n_trades": 1684,
+        "net_pnl": 305.042175974977,
+        "profit_factor": 3.000679633480681,
+        "win_rate": 0.8515439429928741,
+        "expectancy": 0.18114143466448923,
+        "expectancy_return_units": 0.004741702469634251,
+        "total_fees": 66.60732402500001,
+        "n_liquidations": 0,
+        "pi_star_stats": {
+          "n_before": 4818,
+          "n_skipped_pi_star": 689,
+          "n_after": 4129
+        },
+        "calib": {
+          "fold": 0,
+          "fitted": true,
+          "n_fit": 2251,
+          "n_calib_rows": 3014,
+          "n_over_edge": 2251,
+          "hit_rate_calib": 0.7965348733896046,
+          "ece": 7.552199144092807e-09,
+          "p_hat_median_calib": 0.7878787878787878
+        }
+      },
+      {
+        "fold_index": 1,
+        "n_trades": 1867,
+        "net_pnl": 209.6181106250042,
+        "profit_factor": 3.1373891195030614,
+        "win_rate": 0.7820032137118371,
+        "expectancy": 0.11227536723352975,
+        "expectancy_return_units": 0.004266400570846476,
+        "total_fees": 51.714389375,
+        "n_liquidations": 0,
+        "pi_star_stats": {
+          "n_before": 4606,
+          "n_skipped_pi_star": 23,
+          "n_after": 4583
+        },
+        "calib": {
+          "fold": 1,
+          "fitted": true,
+          "n_fit": 3156,
+          "n_calib_rows": 4324,
+          "n_over_edge": 3156,
+          "hit_rate_calib": 0.8257287705956907,
+          "ece": 9.822560216218319e-09,
+          "p_hat_median_calib": 0.8081264108352144
+        }
+      },
+      {
+        "fold_index": 2,
+        "n_trades": 1222,
+        "net_pnl": 244.31748820006214,
+        "profit_factor": 5.478007345805223,
+        "win_rate": 0.8134206219312602,
+        "expectancy": 0.19993247806873973,
+        "expectancy_return_units": 0.005221187834861688,
+        "total_fees": 46.674911800000004,
+        "n_liquidations": 0,
+        "pi_star_stats": {
+          "n_before": 4650,
+          "n_skipped_pi_star": 1756,
+          "n_after": 2894
+        },
+        "calib": {
+          "fold": 2,
+          "fitted": true,
+          "n_fit": 3808,
+          "n_calib_rows": 5631,
+          "n_over_edge": 3808,
+          "hit_rate_calib": 0.7602415966386554,
+          "ece": 3.019957981227605e-08,
+          "p_hat_median_calib": 0.746971736204576
+        }
+      },
+      {
+        "fold_index": 3,
+        "n_trades": 1262,
+        "net_pnl": 401.2287101449856,
+        "profit_factor": 5.905622619986821,
+        "win_rate": 0.8954041204437401,
+        "expectancy": 0.3179308321275753,
+        "expectancy_return_units": 0.006377768261059896,
+        "total_fees": 67.87078985500001,
+        "n_liquidations": 0,
+        "pi_star_stats": {
+          "n_before": 4717,
+          "n_skipped_pi_star": 1679,
+          "n_after": 3038
+        },
+        "calib": {
+          "fold": 3,
+          "fitted": true,
+          "n_fit": 4768,
+          "n_calib_rows": 6948,
+          "n_over_edge": 4768,
+          "hit_rate_calib": 0.7743288590604027,
+          "ece": 6.291946575517624e-10,
+          "p_hat_median_calib": 0.7847113884555384
+        }
+      },
+      {
+        "fold_index": 4,
+        "n_trades": 1900,
+        "net_pnl": 501.61646714503695,
+        "profit_factor": 3.990463937179081,
+        "win_rate": 0.8573684210526316,
+        "expectancy": 0.2640086669184211,
+        "expectancy_return_units": 0.005445559445952221,
+        "total_fees": 98.093432855,
+        "n_liquidations": 0,
+        "pi_star_stats": {
+          "n_before": 4752,
+          "n_skipped_pi_star": 50,
+          "n_after": 4702
+        },
+        "calib": {
+          "fold": 4,
+          "fitted": true,
+          "n_fit": 5949,
+          "n_calib_rows": 8266,
+          "n_over_edge": 5949,
+          "hit_rate_calib": 0.8243402252479408,
+          "ece": 5.110102547074122e-08,
+          "p_hat_median_calib": 0.7945652173913046
+        }
+      },
+      {
+        "fold_index": 5,
+        "n_trades": 1476,
+        "net_pnl": 391.0589620550618,
+        "profit_factor": 4.441258217005062,
+        "win_rate": 0.8617886178861789,
+        "expectancy": 0.26494509624322504,
+        "expectancy_return_units": 0.005583369182692623,
+        "total_fees": 74.11533794500001,
+        "n_liquidations": 0,
+        "pi_star_stats": {
+          "n_before": 3524,
+          "n_skipped_pi_star": 0,
+          "n_after": 3524
+        },
+        "calib": {
+          "fold": 5,
+          "fitted": true,
+          "n_fit": 6889,
+          "n_calib_rows": 9572,
+          "n_over_edge": 6889,
+          "hit_rate_calib": 0.833212367542459,
+          "ece": 3.29510815030625e-08,
+          "p_hat_median_calib": 0.7992164544564153
+        }
+      }
+    ],
+    "stitched": {
+      "n_trades": 9411,
+      "net_pnl": 2052.8819141450003,
+      "profit_factor": 4.071947094142618,
+      "win_rate": 0.8414621187971523,
+      "expectancy_return_units": 0.005203171582749607,
+      "n_liquidations": 0
+    },
+    "pi_stats_total": {
+      "n_before": 27067,
+      "n_skipped_pi_star": 4197,
+      "n_after": 22870
+    },
+    "signal_stats_total": {
+      "n_emitted": 9458,
+      "n_skipped_clarity": 11440,
+      "n_skipped_cap": 1972,
+      "n_size_1x": 3815,
+      "n_size_2x": 5643
+    },
+    "calib_notes": [
+      {
+        "fold": 0,
+        "fitted": true,
+        "n_fit": 2251,
+        "n_calib_rows": 3014,
+        "n_over_edge": 2251,
+        "hit_rate_calib": 0.7965348733896046,
+        "ece": 7.552199144092807e-09,
+        "p_hat_median_calib": 0.7878787878787878
+      },
+      {
+        "fold": 1,
+        "fitted": true,
+        "n_fit": 3156,
+        "n_calib_rows": 4324,
+        "n_over_edge": 3156,
+        "hit_rate_calib": 0.8257287705956907,
+        "ece": 9.822560216218319e-09,
+        "p_hat_median_calib": 0.8081264108352144
+      },
+      {
+        "fold": 2,
+        "fitted": true,
+        "n_fit": 3808,
+        "n_calib_rows": 5631,
+        "n_over_edge": 3808,
+        "hit_rate_calib": 0.7602415966386554,
+        "ece": 3.019957981227605e-08,
+        "p_hat_median_calib": 0.746971736204576
+      },
+      {
+        "fold": 3,
+        "fitted": true,
+        "n_fit": 4768,
+        "n_calib_rows": 6948,
+        "n_over_edge": 4768,
+        "hit_rate_calib": 0.7743288590604027,
+        "ece": 6.291946575517624e-10,
+        "p_hat_median_calib": 0.7847113884555384
+      },
+      {
+        "fold": 4,
+        "fitted": true,
+        "n_fit": 5949,
+        "n_calib_rows": 8266,
+        "n_over_edge": 5949,
+        "hit_rate_calib": 0.8243402252479408,
+        "ece": 5.110102547074122e-08,
+        "p_hat_median_calib": 0.7945652173913046
+      },
+      {
+        "fold": 5,
+        "fitted": true,
+        "n_fit": 6889,
+        "n_calib_rows": 9572,
+        "n_over_edge": 6889,
+        "hit_rate_calib": 0.833212367542459,
+        "ece": 3.29510815030625e-08,
+        "p_hat_median_calib": 0.7992164544564153
+      }
+    ],
+    "leverage": 18.0
+  },
+  "compare": {
+    "control_expectancy_return_units": 0.005206316921173494,
+    "candidate_expectancy_return_units": 0.005203171582749607,
+    "exp_ru_delta": -3.145338423887409e-06,
+    "control_pf": 4.114418041595842,
+    "candidate_pf": 4.071947094142618,
+    "candidate_beats_control_exp_ru": false,
+    "candidate_pf_ge_1_20": true,
+    "candidate_no_liquidation": true,
+    "passed_success_criteria": false
+  },
+  "elapsed_sec": 64.8,
+  "min_size_equity_caveat": "Wallet equity / maximum drawdown under research_sizing MIN_EXCHANGE (minimum exchange size) on a large wallet is not tradable-edge evidence. Smooth curves are expected at dust size; do not treat them as deployable sizing.",
+  "equity_leverage_sizing_note": "Research/display only: EQUITY_LEVERAGE_NOTIONAL notional = equity \u00d7 equity_fraction \u00d7 leverage (compound when enabled). wallet_return is valid under that mode. Live micro bots always use MIN_EXCHANGE (venue min qty per pair); never size live from wallet %. Peak concurrent margin utilisation is multi-book research stress. Never scale live size from a min-size research wallet % or equity-leverage study.",
+  "default_equity_fraction": 0.01,
+  "equity_is_tradable_edge": false
+}

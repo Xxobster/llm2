@@ -1,0 +1,51 @@
+{
+  "arm_id": "SOLUSDT|1h|fvg_confluence|atr1.5|slcap0.03",
+  "catalog": "i",
+  "entry": "post_only_limit",
+  "expired_entry": "cancel_and_flat",
+  "family": "ml_lab_fvg",
+  "frozen_at_utc": "20260903T220602Z",
+  "htf_context_used": false,
+  "idea": "fvg_confluence",
+  "instrument": {
+    "max_leverage": 100.0,
+    "max_qty": 96000.0,
+    "min_notional": 5.0,
+    "min_qty": 0.1,
+    "qty_step": 0.1,
+    "source": "bybit_v5_instruments-info_20260901",
+    "symbol": "SOLUSDT",
+    "tick_size": 0.01
+  },
+  "k_sl": 1.5,
+  "leverage": 13.0,
+  "leverage_derivation": {
+    "ceiling_floor_1_over_denom": 27,
+    "haircut": 0.5,
+    "leverage_used_live_and_backtest": 13.0,
+    "mark_buffer": 0.002,
+    "mm_buffer": 0.005,
+    "note": "Leverage from the 3% stop cap (worst-case Average True Range stop).",
+    "sl_pct": 0.03
+  },
+  "max_hold_bars": 16,
+  "promotion_allowed": false,
+  "readiness_max": "RESEARCH_ONLY",
+  "risk_fraction": 0.05,
+  "runner": "llm2.live.ema_stack_runner",
+  "session_filter": null,
+  "side": "long",
+  "signal_module": "llm2.ml_lab.live_signal:tip_signal",
+  "sizing": {
+    "mode": "MIN_EXCHANGE",
+    "note": "Venue-minimum lot (0.1 Solana). User 2026-09-04: keep minimum size for now; do not use 5% stop-risk on this unit.",
+    "size_mult": 1.0
+  },
+  "sl_cap": 0.03,
+  "space": "ml_lab_catalog_i_v1",
+  "strategy_id": "sol_1h_fvg_confluence",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h",
+  "tp_ratio": 1.5,
+  "work_bars": 3
+}

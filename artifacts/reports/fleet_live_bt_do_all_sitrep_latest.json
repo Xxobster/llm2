@@ -1,0 +1,31 @@
+{
+  "created_utc": "2026-08-12T17:35:00Z",
+  "host": "94.156.189.76",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "evidence_class": "OPS_TIP_IDENTITY + LEDGER_WIRING (not V2.1 SHADOW_READY)",
+  "principal_blocker": "XGB/TSM not fully live≡BT certifiable yet (XGB live_ready=false + tip ledger awaiting next 1h cycle; TSM tip_decide wired but freeze/BT replay missing). Pivot tip identity PASS on 3/3 watched closes; full-day watcher running.",
+  "done": {
+    "pivot_tip_hard_gate_deployed": true,
+    "pivot_3_closes_all_match": true,
+    "structure_packs_stopped": true,
+    "collector_memory_capped": "MemoryMax=800M MemoryHigh=600M OOMPolicy=stop",
+    "day_tip_watcher_running": true,
+    "xgb_tip_ledger_wired": true,
+    "tsm_vpa_tip_decide_wired": true,
+    "tsm_chandelier_tip_decide_wired": true
+  },
+  "pivot_closes": [
+    {"n": 1, "utc": "2026-08-12T17:01:06Z", "pivot_status": "PASS", "all_match": true},
+    {"n": 2, "utc": "2026-08-12T17:15:57Z", "pivot_status": "PASS", "all_match": true},
+    {"n": 3, "utc": "2026-08-12T17:30:46Z", "pivot_status": "PASS", "all_match": true}
+  ],
+  "tip_gate_example": "2026-08-12T17:15:03Z ETH TIP_UNSTABLE refuse_decide REST tip close unstable 1888.81 -> 1888.82 (then decided after stable re-read)",
+  "research_pf_judgment": "REFUSED until fleet_tip_identity_sitrep_latest.json full_day_green=true",
+  "reports": [
+    "artifacts/reports/watch_pivot_closes_tip_gate.json",
+    "artifacts/reports/ops_fleet_live_bt_decision_parity_latest.json",
+    "artifacts/reports/fleet_tip_identity_sitrep_latest.json",
+    "artifacts/reports/audit_xgb_live_bt_decision_parity_latest.json",
+    "artifacts/reports/audit_tsm_live_bt_decision_parity_latest.json"
+  ]
+}

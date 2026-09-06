@@ -1,0 +1,23 @@
+{
+  "artifact_dir": "D:\\projects\\LLM2\\artifacts\\evidence\\four_proof\\pivot_autonomy_gen705_eth_ema1320_below_h4_ETHUSDT_15m_20260825T140648Z",
+  "artifact_hashes": {
+    "builder_responsiveness": "4951e15a49159ef78ab43b9571dbdee57b61ee3eb16b34dca128c17aed47596b",
+    "layer_a_pred_identity": "8202584cba5b40f77f96bfe82d5b94599b5096357120125e70540c8e4ee25a1c",
+    "no_live_feature_fill": "36e4f0d59e810e84c431b74e3fc5fc39516345d79a12e1235d2af2d2215f8b57",
+    "recompute_prefix": "d46286c4cca5127dc6b198f52983537e33bb14c168f8f9d4376dcffca1d020f7"
+  },
+  "ok": true,
+  "pack_dir": "D:\\projects\\LLM2\\artifacts\\live_packs\\autonomy_gen705_eth_ema1320_below_h4",
+  "proofs_ok": {
+    "builder_responsiveness": true,
+    "layer_a_pred_identity": true,
+    "no_live_feature_fill": true,
+    "recompute_prefix": true
+  },
+  "rule": "PIVOT_FOUR_PROOF_V1",
+  "space": "pivot:level_vsa",
+  "stamp": "20260825T140648Z",
+  "summary_sha256": "11eca8fe2961f770632d9e5618a3d074f4fc4d7616f390b9af40dc84b0abd56a",
+  "symbol": "ETHUSDT",
+  "timeframe": "15m"
+}

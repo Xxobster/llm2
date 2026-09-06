@@ -1,0 +1,432 @@
+{
+  "generation_id": "structure_v1_eth_k5_p75_tp_scale_absmean_001",
+  "created_utc": "20260805T084628Z",
+  "preregister_path": "configs/preregister/structure_v1_eth_k5_p75_tp_scale_absmean_001.yaml",
+  "preregister_sha256": "37ec1e534745726ec836e189f45723df67fab0b2c4218f6c080467e848068bfe",
+  "evidence_class": "OUTER_TRANSFER_COMPARE",
+  "max_readiness": "RESEARCH_ONLY",
+  "promotion_allowed": false,
+  "live_deploy": "FORBIDDEN",
+  "primary_metric": "expectancy_return_units",
+  "hard_end_exclusive": "2026-05-01",
+  "lockbox_used": false,
+  "fold_geometry": "v2",
+  "outer_fold_ranges": [
+    [
+      "2022-01-01",
+      "2022-10-01"
+    ],
+    [
+      "2022-10-01",
+      "2023-07-01"
+    ],
+    [
+      "2023-07-01",
+      "2024-04-01"
+    ],
+    [
+      "2024-04-01",
+      "2025-01-01"
+    ],
+    [
+      "2025-01-01",
+      "2025-10-01"
+    ],
+    [
+      "2025-10-01",
+      "2026-05-01"
+    ]
+  ],
+  "conformance_passed": true,
+  "control_pack": "artifacts/live_packs/structure_v1_ethusdt_k5_double3h_p75_v1",
+  "control": {
+    "label": "structure_v1_eth_k5_p75_tp_scale_absmean_001_control",
+    "strength_quantile": 0.75,
+    "tp_scale_by_abs_mean": false,
+    "cfg": {
+      "k": 5,
+      "clarity": "mean_strength",
+      "clarity_scope": "all",
+      "strength_quantile": 0.75,
+      "hold": 12,
+      "tp_base": 0.01,
+      "tp_scale_by_abs_mean": false,
+      "tp_scale_formula": "0.01",
+      "sl": 0.02,
+      "size_double_within_bars": 3
+    },
+    "folds": [
+      {
+        "fold_index": 0,
+        "n_trades": 1074,
+        "net_pnl": 260.79460749498867,
+        "profit_factor": 6.065723649094741,
+        "win_rate": 0.9059590316573557,
+        "expectancy": 0.24282551908286765,
+        "expectancy_return_units": 0.006487151672524518,
+        "total_fees": 42.500292505000004,
+        "n_liquidations": 0,
+        "entry_bar_exits": 359,
+        "payoff_ratio": 0.6296383232873267,
+        "avg_win": 0.3209422501130523,
+        "avg_loss": -0.509724770940594,
+        "sharpe_annualised": 15.838928054480427,
+        "signal_stats": {
+          "n_emitted": 1074,
+          "n_skipped_clarity": 3585,
+          "n_skipped_cap": 171,
+          "n_size_1x": 421,
+          "n_size_2x": 653
+        }
+      },
+      {
+        "fold_index": 1,
+        "n_trades": 1042,
+        "net_pnl": 147.96891057996982,
+        "profit_factor": 5.305324580273719,
+        "win_rate": 0.8378119001919386,
+        "expectancy": 0.14200471264875242,
+        "expectancy_return_units": 0.005565181527639125,
+        "total_fees": 28.077689420000002,
+        "n_liquidations": 0,
+        "entry_bar_exits": 187,
+        "payoff_ratio": 1.0270330516222892,
+        "avg_win": 0.20886337583619705,
+        "avg_loss": -0.20336577825443783,
+        "sharpe_annualised": 15.111159940665331,
+        "signal_stats": {
+          "n_emitted": 1047,
+          "n_skipped_clarity": 3358,
+          "n_skipped_cap": 127,
+          "n_size_1x": 460,
+          "n_size_2x": 587
+        }
+      },
+      {
+        "fold_index": 2,
+        "n_trades": 991,
+        "net_pnl": 198.86003002006328,
+        "profit_factor": 5.669598585289364,
+        "win_rate": 0.8446014127144299,
+        "expectancy": 0.2006660242381432,
+        "expectancy_return_units": 0.00553134205171234,
+        "total_fees": 37.447169980000005,
+        "n_liquidations": 0,
+        "entry_bar_exits": 155,
+        "payoff_ratio": 1.0431519499815556,
+        "avg_win": 0.288466114808841,
+        "avg_loss": -0.2765331693181818,
+        "sharpe_annualised": 14.613288746389385,
+        "signal_stats": {
+          "n_emitted": 998,
+          "n_skipped_clarity": 3424,
+          "n_skipped_cap": 183,
+          "n_size_1x": 443,
+          "n_size_2x": 555
+        }
+      },
+      {
+        "fold_index": 3,
+        "n_trades": 1061,
+        "net_pnl": 362.4398040449887,
+        "profit_factor": 7.997256006348723,
+        "win_rate": 0.9189443920829407,
+        "expectancy": 0.3416020773279923,
+        "expectancy_return_units": 0.006984375394379411,
+        "total_fees": 56.516095955000004,
+        "n_liquidations": 0,
+        "entry_bar_exits": 238,
+        "payoff_ratio": 0.7053989913292206,
+        "avg_win": 0.4248586907179486,
+        "avg_loss": -0.6022955744767439,
+        "sharpe_annualised": 18.96125189209896,
+        "signal_stats": {
+          "n_emitted": 1063,
+          "n_skipped_clarity": 3533,
+          "n_skipped_cap": 158,
+          "n_size_1x": 465,
+          "n_size_2x": 598
+        }
+      },
+      {
+        "fold_index": 4,
+        "n_trades": 1033,
+        "net_pnl": 329.87239864006733,
+        "profit_factor": 7.411251275889631,
+        "win_rate": 0.9157792836398838,
+        "expectancy": 0.319334364607938,
+        "expectancy_return_units": 0.006923296798216212,
+        "total_fees": 51.87120136,
+        "n_liquidations": 0,
+        "entry_bar_exits": 284,
+        "payoff_ratio": 0.6815844196642683,
+        "avg_win": 0.4030914455708245,
+        "avg_loss": -0.5914035502298856,
+        "sharpe_annualised": 17.856274743881265,
+        "signal_stats": {
+          "n_emitted": 1035,
+          "n_skipped_clarity": 3575,
+          "n_skipped_cap": 143,
+          "n_size_1x": 450,
+          "n_size_2x": 585
+        }
+      },
+      {
+        "fold_index": 5,
+        "n_trades": 795,
+        "net_pnl": 258.05094721999194,
+        "profit_factor": 10.899451086985211,
+        "win_rate": 0.9283018867924528,
+        "expectancy": 0.3245923864402515,
+        "expectancy_return_units": 0.007238155819144507,
+        "total_fees": 38.539852780000004,
+        "n_liquidations": 0,
+        "entry_bar_exits": 200,
+        "payoff_ratio": 0.8418275229785326,
+        "avg_win": 0.38498393601626,
+        "avg_loss": -0.4573192554385959,
+        "sharpe_annualised": 16.71751379342456,
+        "signal_stats": {
+          "n_emitted": 796,
+          "n_skipped_clarity": 2582,
+          "n_skipped_cap": 97,
+          "n_size_1x": 346,
+          "n_size_2x": 450
+        }
+      }
+    ],
+    "stitched": {
+      "n_trades": 5996,
+      "net_pnl": 1557.9866979999997,
+      "profit_factor": 7.044474928687612,
+      "win_rate": 0.890927284856571,
+      "expectancy": 0.2598376747831887,
+      "expectancy_return_units": 0.0064316547337478335,
+      "total_fees": 254.95230199999997,
+      "n_liquidations": 0,
+      "mean_tp_pct": 0.009999999999999998,
+      "median_tp_pct": 0.01,
+      "frac_folds_pf_gt_1": 1.0
+    },
+    "signal_stats_total": {
+      "n_emitted": 6013,
+      "n_skipped_clarity": 20057,
+      "n_skipped_cap": 879,
+      "n_size_1x": 2585,
+      "n_size_2x": 3428
+    },
+    "tradesim_run_ids": [
+      "structure_v1_eth_k5_p75_tp_scale_absmean_001_control-f0-5dfdeccd10",
+      "structure_v1_eth_k5_p75_tp_scale_absmean_001_control-f1-49b22090d8",
+      "structure_v1_eth_k5_p75_tp_scale_absmean_001_control-f2-d2d4f73d24",
+      "structure_v1_eth_k5_p75_tp_scale_absmean_001_control-f3-6231ef60bd",
+      "structure_v1_eth_k5_p75_tp_scale_absmean_001_control-f4-e9605d291a",
+      "structure_v1_eth_k5_p75_tp_scale_absmean_001_control-f5-7af3619fc9"
+    ],
+    "leverage": 18.0
+  },
+  "candidate": {
+    "label": "structure_v1_eth_k5_p75_tp_scale_absmean_001_candidate",
+    "strength_quantile": 0.75,
+    "tp_scale_by_abs_mean": true,
+    "cfg": {
+      "k": 5,
+      "clarity": "mean_strength",
+      "clarity_scope": "all",
+      "strength_quantile": 0.75,
+      "hold": 12,
+      "tp_base": 0.01,
+      "tp_scale_by_abs_mean": true,
+      "tp_scale_formula": "0.01*min(2,max(1,abs(mean)/0.5))",
+      "sl": 0.02,
+      "size_double_within_bars": 3
+    },
+    "folds": [
+      {
+        "fold_index": 0,
+        "n_trades": 1073,
+        "net_pnl": 284.8248466199857,
+        "profit_factor": 6.34972188921186,
+        "win_rate": 0.9030754892823858,
+        "expectancy": 0.2654472009506057,
+        "expectancy_return_units": 0.0070809124901859335,
+        "total_fees": 42.424553380000006,
+        "n_liquidations": 0,
+        "entry_bar_exits": 340,
+        "payoff_ratio": 0.6814974989453391,
+        "avg_win": 0.3488812212125902,
+        "avg_loss": -0.5119332378365382,
+        "sharpe_annualised": 16.19827692536874,
+        "signal_stats": {
+          "n_emitted": 1074,
+          "n_skipped_clarity": 3585,
+          "n_skipped_cap": 171,
+          "n_size_1x": 421,
+          "n_size_2x": 653
+        }
+      },
+      {
+        "fold_index": 1,
+        "n_trades": 1042,
+        "net_pnl": 159.09686406998117,
+        "profit_factor": 5.478884118207577,
+        "win_rate": 0.8358925143953935,
+        "expectancy": 0.1526841305854127,
+        "expectancy_return_units": 0.005955165204218087,
+        "total_fees": 28.077935930000002,
+        "n_liquidations": 0,
+        "entry_bar_exits": 175,
+        "payoff_ratio": 1.0756477430694555,
+        "avg_win": 0.2234424852755454,
+        "avg_loss": -0.2077283076315789,
+        "sharpe_annualised": 15.119002322626033,
+        "signal_stats": {
+          "n_emitted": 1047,
+          "n_skipped_clarity": 3358,
+          "n_skipped_cap": 127,
+          "n_size_1x": 460,
+          "n_size_2x": 587
+        }
+      },
+      {
+        "fold_index": 2,
+        "n_trades": 990,
+        "net_pnl": 218.9669757100619,
+        "profit_factor": 5.875446650223896,
+        "win_rate": 0.8373737373737373,
+        "expectancy": 0.22117876334343425,
+        "expectancy_return_units": 0.006047484234250884,
+        "total_fees": 37.42002429,
+        "n_liquidations": 0,
+        "entry_bar_exits": 144,
+        "payoff_ratio": 1.141069856074846,
+        "avg_win": 0.31831020933654985,
+        "avg_loss": -0.27895768838509305,
+        "sharpe_annualised": 14.022427788068752,
+        "signal_stats": {
+          "n_emitted": 998,
+          "n_skipped_clarity": 3424,
+          "n_skipped_cap": 183,
+          "n_size_1x": 443,
+          "n_size_2x": 555
+        }
+      },
+      {
+        "fold_index": 3,
+        "n_trades": 1061,
+        "net_pnl": 403.69400521499665,
+        "profit_factor": 8.793708834383196,
+        "win_rate": 0.9189443920829407,
+        "expectancy": 0.38048445354853894,
+        "expectancy_return_units": 0.007722011230097855,
+        "total_fees": 56.517894785,
+        "n_liquidations": 0,
+        "entry_bar_exits": 215,
+        "payoff_ratio": 0.7756502151353384,
+        "avg_win": 0.4671706919179486,
+        "avg_loss": -0.6022955744767439,
+        "sharpe_annualised": 18.862566967516727,
+        "signal_stats": {
+          "n_emitted": 1063,
+          "n_skipped_clarity": 3533,
+          "n_skipped_cap": 158,
+          "n_size_1x": 465,
+          "n_size_2x": 598
+        }
+      },
+      {
+        "fold_index": 4,
+        "n_trades": 1033,
+        "net_pnl": 366.76746884004024,
+        "profit_factor": 7.774121418841219,
+        "win_rate": 0.9138431752178122,
+        "expectancy": 0.3550507926815101,
+        "expectancy_return_units": 0.007704740739392056,
+        "total_fees": 51.86913116,
+        "n_liquidations": 0,
+        "entry_bar_exits": 256,
+        "payoff_ratio": 0.732941532072954,
+        "avg_win": 0.4458791417161016,
+        "avg_loss": -0.6083420330337082,
+        "sharpe_annualised": 17.119495128369973,
+        "signal_stats": {
+          "n_emitted": 1035,
+          "n_skipped_clarity": 3575,
+          "n_skipped_cap": 143,
+          "n_size_1x": 450,
+          "n_size_2x": 585
+        }
+      },
+      {
+        "fold_index": 5,
+        "n_trades": 795,
+        "net_pnl": 280.53798391000055,
+        "profit_factor": 11.76210755929071,
+        "win_rate": 0.9283018867924528,
+        "expectancy": 0.3528779671823899,
+        "expectancy_return_units": 0.00780490612194258,
+        "total_fees": 38.54041609,
+        "n_liquidations": 0,
+        "entry_bar_exits": 188,
+        "payoff_ratio": 0.908455461896437,
+        "avg_win": 0.4154541754336043,
+        "avg_loss": -0.4573192554385959,
+        "sharpe_annualised": 16.73199428036143,
+        "signal_stats": {
+          "n_emitted": 796,
+          "n_skipped_clarity": 2582,
+          "n_skipped_cap": 97,
+          "n_size_1x": 346,
+          "n_size_2x": 450
+        }
+      }
+    ],
+    "stitched": {
+      "n_trades": 5994,
+      "net_pnl": 1713.8881443649998,
+      "profit_factor": 7.450904301658215,
+      "win_rate": 0.8885552218885552,
+      "expectancy": 0.28593395801885213,
+      "expectancy_return_units": 0.0070315418923162,
+      "total_fees": 254.84995563500001,
+      "n_liquidations": 0,
+      "mean_tp_pct": 0.01070613630053754,
+      "median_tp_pct": 0.01,
+      "frac_folds_pf_gt_1": 1.0
+    },
+    "signal_stats_total": {
+      "n_emitted": 6013,
+      "n_skipped_clarity": 20057,
+      "n_skipped_cap": 879,
+      "n_size_1x": 2585,
+      "n_size_2x": 3428
+    },
+    "tradesim_run_ids": [
+      "structure_v1_eth_k5_p75_tp_scale_absmean_001_candidate-f0-97b7a07038",
+      "structure_v1_eth_k5_p75_tp_scale_absmean_001_candidate-f1-e19a29ab5c",
+      "structure_v1_eth_k5_p75_tp_scale_absmean_001_candidate-f2-8402a4d7e7",
+      "structure_v1_eth_k5_p75_tp_scale_absmean_001_candidate-f3-7e3f681629",
+      "structure_v1_eth_k5_p75_tp_scale_absmean_001_candidate-f4-4efed27c9f",
+      "structure_v1_eth_k5_p75_tp_scale_absmean_001_candidate-f5-c6c23abc58"
+    ],
+    "leverage": 18.0
+  },
+  "compare": {
+    "control_expectancy_return_units": 0.0064316547337478335,
+    "candidate_expectancy_return_units": 0.0070315418923162,
+    "exp_ru_delta": 0.0005998871585683662,
+    "control_pf": 7.044474928687612,
+    "candidate_pf": 7.450904301658215,
+    "candidate_mean_tp_pct": 0.01070613630053754,
+    "candidate_beats_control_exp_ru": true,
+    "candidate_pf_ge_1_20": true,
+    "candidate_no_liquidation": true,
+    "passed_success_criteria": true
+  },
+  "elapsed_sec": 61.0,
+  "note": "Nested on p75 control only. Formula TP=1%*min(2,max(1,|mean|/0.5)). No clarity\u00d7hold\u00d7TP reopen. MIN_EXCHANGE dust caveat.",
+  "min_size_equity_caveat": "Wallet equity / maximum drawdown under research_sizing MIN_EXCHANGE (minimum exchange size) on a large wallet is not tradable-edge evidence. Smooth curves are expected at dust size; do not treat them as deployable sizing.",
+  "equity_leverage_sizing_note": "Research/display only: EQUITY_LEVERAGE_NOTIONAL notional = equity \u00d7 equity_fraction \u00d7 leverage (compound when enabled). wallet_return is valid under that mode. Live micro bots always use MIN_EXCHANGE (venue min qty per pair); never size live from wallet %. Peak concurrent margin utilisation is multi-book research stress. Never scale live size from a min-size research wallet % or equity-leverage study.",
+  "default_equity_fraction": 0.01,
+  "equity_is_tradable_edge": false
+}

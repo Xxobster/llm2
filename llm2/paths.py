@@ -55,11 +55,17 @@ ROUND_TRIP_COST = 0.0016  # frozen screening hurdle
 def touch_timeframe(decision_tf: str, symbol: str) -> str:
     """Map decision timeframe to touch resolution.
 
-    Prefer 1-minute touch for 15m and 1h so same-bar Take-Profit / Stop-Loss
-    order is data-driven, not an Open-High-Low-Close guess. Solana 15m used
-    to map to 5m; the warehouse now has full 1m history, so 15m always uses 1m.
+    Prefer 1-minute touch so same-bar Take-Profit / Stop-Loss order is
+    data-driven, not an Open-High-Low-Close guess. Solana 15m used to map to 5m;
+    the warehouse now has full 1m history, so 15m always uses 1m.
+
+    5m also maps to 1m: with 5m touch equal to the decision bar, a bracket hit
+    inside the entry bar would be unresolved and would fall back to the adverse
+    feasible sequence. 1m history starts 2020-01-01 (2020-09-14 for Solana), so
+    5m arms are scored from there; ``cached_touch`` fails closed rather than
+    silently degrading when the touch window is thin.
     """
-    if decision_tf in ("15m", "1h", "4h"):
+    if decision_tf in ("5m", "15m", "1h", "4h"):
         return "1m"
     return decision_tf
 

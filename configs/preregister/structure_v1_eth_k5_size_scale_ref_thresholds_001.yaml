@@ -1,0 +1,48 @@
+# Preregister — structure_v1_eth_k5_size_scale_ref_thresholds_001
+#
+# MEASURE_DIAGNOSTIC multi-threshold table for size_mult ∝ |pred_mean|/ref.
+# Outer folds only (hard end = FORWARD_LOCKBOX_START). Lockbox unused.
+#
+# Promotion NOT allowed. Do not pick a live ref after viewing this table;
+# a future single-arm promotion must freeze one ref in a new prereg + settle.
+#
+# Control: ETH K5 double-within-3h, strength median, no size-scale.
+# Candidates: same + size_scale with ref ∈ prereg grid, factor clip [1, 2].
+# Also: pure min_edge ladder (time-double only, no size-scale) for frequency
+# context next to size design.
+#
+# Primary metrics per arm: n_trades, trades/month, net_pnl, PF, WR,
+# expectancy, expectancy_return_units, fees, liqs, mean_size_mult,
+# pct size-lift met/not-met.
+
+generation_id: structure_v1_eth_k5_size_scale_ref_thresholds_001
+symbol: ETHUSDT
+timeframe: 1h
+space: structure_v1
+target: direction
+geometry: k5_double3h_v1
+strength_quantile: 0.5
+size_double_within_bars: 3
+size_scale_factor_min: 1.0
+size_scale_factor_max: 2.0
+# Size-scale refs (threshold that starts strength lift):
+size_scale_refs:
+  - 0.15
+  - 0.20
+  - 0.25
+  - 0.30
+  - 0.35
+  - 0.40
+  - 0.50
+  - 0.60
+  - 0.75
+# Pure |pred_mean| entry thresholds (no size-scale; min_edge ladder):
+min_edge_ladder:
+  - 0.10
+  - 0.20
+  - 0.30
+  - 0.40
+  - 0.50
+  - 0.60
+promotion_allowed: false
+evidence_class: MEASURE_DIAGNOSTIC

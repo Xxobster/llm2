@@ -1,0 +1,746 @@
+{
+  "generation_id": "pivot_exec_improve_001",
+  "stamp": "20260812T141428Z",
+  "readiness_max": "RESEARCH_ONLY",
+  "freeze_path": "D:\\projects\\LLM2\\artifacts\\reports\\pivot_forecast\\exec_improve_arms_freeze_20260812T141428Z.json",
+  "leakage": [
+    {
+      "symbol": "ETHUSDT",
+      "pack": "level_vsa",
+      "status": "PASS"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "pack": "level_vsa",
+      "status": "PASS"
+    }
+  ],
+  "symbols": {
+    "ETHUSDT": {
+      "level_mode": "atr",
+      "diagnostics": {
+        "frac_any": 0.15617577197149643,
+        "pr_auc": 0.26093260807449864,
+        "pr_auc_lift": 0.10475683610300221,
+        "ece": 0.006650250869834315,
+        "level_mae": 0.00926882414294466,
+        "level_p90": 0.020635256032956812,
+        "cal_methods": [
+          "isotonic",
+          "isotonic",
+          "isotonic",
+          "isotonic"
+        ],
+        "ece_outer_mean": 0.011047040947761266
+      },
+      "diagnostics_q50": {
+        "frac_any": 0.15617577197149643,
+        "pr_auc": 0.26093260807449864,
+        "pr_auc_lift": 0.10475683610300221,
+        "ece": 0.006650250869834315,
+        "level_mae": 0.008853422864807826,
+        "level_p90": 0.02023346029906864,
+        "cal_methods": [
+          "isotonic",
+          "isotonic",
+          "isotonic",
+          "isotonic"
+        ],
+        "ece_outer_mean": 0.011047040947761266
+      },
+      "arms": [
+        {
+          "tag": "ETH_ctrl_w4",
+          "n_intent": 2696,
+          "fill_pct": 0.30452522255192876,
+          "fill_stats": {
+            "n_intent": 2696,
+            "n_filled_path": 821,
+            "n_no_touch": 1875,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.30452522255192876,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 674,
+          "profit_factor": 1.779732457614695,
+          "win_rate": 0.6661721068249258,
+          "net_pnl": 39.74895840001591,
+          "expectancy": 0.058974715727002976,
+          "entry_bar_exit_rate": 0.271513353115727,
+          "sharpe_daily_raw": NaN,
+          "expectancy_intent_all": 0.014743678931756642
+        },
+        {
+          "tag": "ETH_adverse_pct_50bps",
+          "n_intent": 2696,
+          "fill_pct": 0.27485163204747776,
+          "fill_stats": {
+            "n_intent": 2696,
+            "n_filled_path": 741,
+            "n_no_touch": 826,
+            "n_adverse_cancel": 1129,
+            "n_bad": 0,
+            "fill_rate": 0.27485163204747776,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": "pct",
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 613,
+          "profit_factor": 1.6867651895053397,
+          "win_rate": 0.6541598694942904,
+          "net_pnl": 32.11508574001164,
+          "expectancy": 0.0523900256769984,
+          "entry_bar_exit_rate": 0.24469820554649266,
+          "sharpe_daily_raw": NaN,
+          "expectancy_intent_all": 0.011912123790805503
+        },
+        {
+          "tag": "ETH_adverse_atr_1x",
+          "n_intent": 2696,
+          "fill_pct": 0.26817507418397624,
+          "fill_stats": {
+            "n_intent": 2696,
+            "n_filled_path": 723,
+            "n_no_touch": 616,
+            "n_adverse_cancel": 1357,
+            "n_bad": 0,
+            "fill_rate": 0.26817507418397624,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": "atr",
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 605,
+          "profit_factor": 1.6996739358320356,
+          "win_rate": 0.656198347107438,
+          "net_pnl": 32.6197226400036,
+          "expectancy": 0.05391689692561989,
+          "entry_bar_exit_rate": 0.26776859504132233,
+          "sharpe_daily_raw": NaN,
+          "expectancy_intent_all": 0.012099303649852969
+        },
+        {
+          "tag": "ETH_adverse_atr_0p5x",
+          "n_intent": 2696,
+          "fill_pct": 0.20289317507418397,
+          "fill_stats": {
+            "n_intent": 2696,
+            "n_filled_path": 547,
+            "n_no_touch": 177,
+            "n_adverse_cancel": 1972,
+            "n_bad": 0,
+            "fill_rate": 0.20289317507418397,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": "atr",
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 0.5
+          },
+          "status": "RAN",
+          "n_trades": 482,
+          "profit_factor": 1.7722334327800895,
+          "win_rate": 0.6618257261410788,
+          "net_pnl": 26.949532944994644,
+          "expectancy": 0.05591189407676358,
+          "entry_bar_exit_rate": 0.2551867219917012,
+          "sharpe_daily_raw": NaN,
+          "expectancy_intent_all": 0.009996117561199794
+        },
+        {
+          "tag": "ETH_level_q50_w4",
+          "n_intent": 2696,
+          "fill_pct": 0.3698071216617211,
+          "fill_stats": {
+            "n_intent": 2696,
+            "n_filled_path": 997,
+            "n_no_touch": 1699,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.3698071216617211,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 812,
+          "profit_factor": 1.6194070885035619,
+          "win_rate": 0.646551724137931,
+          "net_pnl": 40.88669681500869,
+          "expectancy": 0.05035307489532017,
+          "entry_bar_exit_rate": 0.27586206896551724,
+          "sharpe_daily_raw": NaN,
+          "expectancy_intent_all": 0.01516568872960263
+        },
+        {
+          "tag": "ETH_level_atr_clip_w4",
+          "n_intent": 2696,
+          "fill_pct": 0.41060830860534125,
+          "fill_stats": {
+            "n_intent": 2696,
+            "n_filled_path": 1107,
+            "n_no_touch": 1589,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.41060830860534125,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 886,
+          "profit_factor": 1.5121737009592362,
+          "win_rate": 0.6331828442437923,
+          "net_pnl": 37.7877835750005,
+          "expectancy": 0.042649868594808134,
+          "entry_bar_exit_rate": 0.2516930022573363,
+          "sharpe_daily_raw": NaN,
+          "expectancy_intent_all": 0.014016240198442323
+        },
+        {
+          "tag": "ETH_mid_atr_band_w4",
+          "n_intent": 448,
+          "fill_pct": 0.4419642857142857,
+          "fill_stats": {
+            "n_intent": 448,
+            "n_filled_path": 198,
+            "n_no_touch": 250,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.4419642857142857,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 184,
+          "profit_factor": 1.6688842581252263,
+          "win_rate": 0.6413043478260869,
+          "net_pnl": 8.766761454999141,
+          "expectancy": 0.0476454426902174,
+          "entry_bar_exit_rate": 0.15760869565217392,
+          "sharpe_daily_raw": NaN,
+          "expectancy_intent_all": 0.019568663962051654
+        }
+      ],
+      "ranking_by_intent_expectancy": [
+        {
+          "rank": 1,
+          "tag": "ETH_mid_atr_band_w4",
+          "expectancy_intent_all": 0.019568663962051654,
+          "profit_factor": 1.6688842581252263,
+          "n_trades": 184,
+          "fill_pct": 0.4419642857142857,
+          "win_rate": 0.6413043478260869,
+          "net_pnl": 8.766761454999141,
+          "sharpe_daily_raw": NaN
+        },
+        {
+          "rank": 2,
+          "tag": "ETH_level_q50_w4",
+          "expectancy_intent_all": 0.01516568872960263,
+          "profit_factor": 1.6194070885035619,
+          "n_trades": 812,
+          "fill_pct": 0.3698071216617211,
+          "win_rate": 0.646551724137931,
+          "net_pnl": 40.88669681500869,
+          "sharpe_daily_raw": NaN
+        },
+        {
+          "rank": 3,
+          "tag": "ETH_ctrl_w4",
+          "expectancy_intent_all": 0.014743678931756642,
+          "profit_factor": 1.779732457614695,
+          "n_trades": 674,
+          "fill_pct": 0.30452522255192876,
+          "win_rate": 0.6661721068249258,
+          "net_pnl": 39.74895840001591,
+          "sharpe_daily_raw": NaN
+        },
+        {
+          "rank": 4,
+          "tag": "ETH_level_atr_clip_w4",
+          "expectancy_intent_all": 0.014016240198442323,
+          "profit_factor": 1.5121737009592362,
+          "n_trades": 886,
+          "fill_pct": 0.41060830860534125,
+          "win_rate": 0.6331828442437923,
+          "net_pnl": 37.7877835750005,
+          "sharpe_daily_raw": NaN
+        },
+        {
+          "rank": 5,
+          "tag": "ETH_adverse_atr_1x",
+          "expectancy_intent_all": 0.012099303649852969,
+          "profit_factor": 1.6996739358320356,
+          "n_trades": 605,
+          "fill_pct": 0.26817507418397624,
+          "win_rate": 0.656198347107438,
+          "net_pnl": 32.6197226400036,
+          "sharpe_daily_raw": NaN
+        },
+        {
+          "rank": 6,
+          "tag": "ETH_adverse_pct_50bps",
+          "expectancy_intent_all": 0.011912123790805503,
+          "profit_factor": 1.6867651895053397,
+          "n_trades": 613,
+          "fill_pct": 0.27485163204747776,
+          "win_rate": 0.6541598694942904,
+          "net_pnl": 32.11508574001164,
+          "sharpe_daily_raw": NaN
+        },
+        {
+          "rank": 7,
+          "tag": "ETH_adverse_atr_0p5x",
+          "expectancy_intent_all": 0.009996117561199794,
+          "profit_factor": 1.7722334327800895,
+          "n_trades": 482,
+          "fill_pct": 0.20289317507418397,
+          "win_rate": 0.6618257261410788,
+          "net_pnl": 26.949532944994644,
+          "sharpe_daily_raw": NaN
+        }
+      ],
+      "promotions_vs_ctrl_w4": {
+        "ETH_adverse_pct_50bps": {
+          "intent_exp_improved": false,
+          "pf_not_collapsed": true,
+          "ece_ok": true,
+          "promote": false
+        },
+        "ETH_adverse_atr_1x": {
+          "intent_exp_improved": false,
+          "pf_not_collapsed": true,
+          "ece_ok": true,
+          "promote": false
+        },
+        "ETH_adverse_atr_0p5x": {
+          "intent_exp_improved": false,
+          "pf_not_collapsed": true,
+          "ece_ok": true,
+          "promote": false
+        },
+        "ETH_level_q50_w4": {
+          "intent_exp_improved": true,
+          "pf_not_collapsed": true,
+          "ece_ok": true,
+          "promote": true
+        },
+        "ETH_level_atr_clip_w4": {
+          "intent_exp_improved": false,
+          "pf_not_collapsed": false,
+          "ece_ok": true,
+          "promote": false
+        },
+        "ETH_mid_atr_band_w4": {
+          "intent_exp_improved": true,
+          "pf_not_collapsed": true,
+          "ece_ok": true,
+          "promote": true
+        }
+      }
+    },
+    "SOLUSDT": {
+      "level_mode": "ret",
+      "diagnostics": {
+        "frac_any": 0.14554732477152865,
+        "pr_auc": 0.24376394975736942,
+        "pr_auc_lift": 0.09821662498584077,
+        "ece": 0.005352879372836751,
+        "level_mae": 0.012793557078404967,
+        "level_p90": 0.028145788585235584,
+        "cal_methods": [
+          "isotonic",
+          "isotonic",
+          "isotonic",
+          "isotonic"
+        ],
+        "ece_outer_mean": 0.012105367678499606
+      },
+      "diagnostics_q50": {
+        "frac_any": 0.14554732477152865,
+        "pr_auc": 0.24376394975736942,
+        "pr_auc_lift": 0.09821662498584077,
+        "ece": 0.005352879372836751,
+        "level_mae": 0.011909056203879921,
+        "level_p90": 0.027089240382670587,
+        "cal_methods": [
+          "isotonic",
+          "isotonic",
+          "isotonic",
+          "isotonic"
+        ],
+        "ece_outer_mean": 0.012105367678499606
+      },
+      "arms": [
+        {
+          "tag": "SOL_ctrl_w4",
+          "n_intent": 2512,
+          "fill_pct": 0.294984076433121,
+          "fill_stats": {
+            "n_intent": 2512,
+            "n_filled_path": 741,
+            "n_no_touch": 1771,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.294984076433121,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 619,
+          "profit_factor": 2.134745633040173,
+          "win_rate": 0.6962843295638126,
+          "net_pnl": 24.38649460002125,
+          "expectancy": 0.03939659870759286,
+          "entry_bar_exit_rate": 0.4555735056542811,
+          "sharpe_daily_raw": NaN,
+          "expectancy_intent_all": 0.009707999442683619
+        },
+        {
+          "tag": "SOL_sibling_w5",
+          "n_intent": 2512,
+          "fill_pct": 0.32404458598726116,
+          "fill_stats": {
+            "n_intent": 2512,
+            "n_filled_path": 814,
+            "n_no_touch": 1698,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.32404458598726116,
+            "work_bars_default": 5,
+            "work_bars_mean_used": 5.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 668,
+          "profit_factor": 2.059148398865311,
+          "win_rate": 0.6901197604790419,
+          "net_pnl": 24.87227730002087,
+          "expectancy": 0.037233948053892185,
+          "entry_bar_exit_rate": 0.4416167664670659,
+          "sharpe_daily_raw": NaN,
+          "expectancy_intent_all": 0.009901384275486015
+        },
+        {
+          "tag": "SOL_adverse_pct_50bps",
+          "n_intent": 2512,
+          "fill_pct": 0.24721337579617833,
+          "fill_stats": {
+            "n_intent": 2512,
+            "n_filled_path": 621,
+            "n_no_touch": 602,
+            "n_adverse_cancel": 1289,
+            "n_bad": 0,
+            "fill_rate": 0.24721337579617833,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": "pct",
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 527,
+          "profit_factor": 1.8716046657532301,
+          "win_rate": 0.6660341555977229,
+          "net_pnl": 17.00131465000777,
+          "expectancy": 0.032260559108159385,
+          "entry_bar_exit_rate": 0.4060721062618596,
+          "sharpe_daily_raw": NaN,
+          "expectancy_intent_all": 0.0067680392714999085
+        },
+        {
+          "tag": "SOL_adverse_atr_1x",
+          "n_intent": 2512,
+          "fill_pct": 0.2627388535031847,
+          "fill_stats": {
+            "n_intent": 2512,
+            "n_filled_path": 660,
+            "n_no_touch": 637,
+            "n_adverse_cancel": 1215,
+            "n_bad": 0,
+            "fill_rate": 0.2627388535031847,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": "atr",
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 562,
+          "profit_factor": 2.079947949815183,
+          "win_rate": 0.6886120996441281,
+          "net_pnl": 21.19591065001623,
+          "expectancy": 0.037715143505338056,
+          "entry_bar_exit_rate": 0.43416370106761565,
+          "sharpe_daily_raw": NaN,
+          "expectancy_intent_all": 0.00843786251991092
+        },
+        {
+          "tag": "SOL_adverse_atr_0p5x",
+          "n_intent": 2512,
+          "fill_pct": 0.1910828025477707,
+          "fill_stats": {
+            "n_intent": 2512,
+            "n_filled_path": 480,
+            "n_no_touch": 207,
+            "n_adverse_cancel": 1825,
+            "n_bad": 0,
+            "fill_rate": 0.1910828025477707,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": "atr",
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 0.5
+          },
+          "status": "RAN",
+          "n_trades": 430,
+          "profit_factor": 2.0417377163811925,
+          "win_rate": 0.6767441860465117,
+          "net_pnl": 15.39113790000738,
+          "expectancy": 0.03579334395348836,
+          "entry_bar_exit_rate": 0.43953488372093025,
+          "sharpe_daily_raw": NaN,
+          "expectancy_intent_all": 0.006127045342359625
+        },
+        {
+          "tag": "SOL_level_q50_w4",
+          "n_intent": 2512,
+          "fill_pct": 0.3622611464968153,
+          "fill_stats": {
+            "n_intent": 2512,
+            "n_filled_path": 910,
+            "n_no_touch": 1602,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.3622611464968153,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 731,
+          "profit_factor": 1.8977883504885729,
+          "win_rate": 0.6580027359781122,
+          "net_pnl": 24.463342550008747,
+          "expectancy": 0.03346558488372091,
+          "entry_bar_exit_rate": 0.4158686730506156,
+          "sharpe_daily_raw": NaN,
+          "expectancy_intent_all": 0.009738591779462081
+        },
+        {
+          "tag": "SOL_level_atr_clip_w4",
+          "n_intent": 2512,
+          "fill_pct": 0.3877388535031847,
+          "fill_stats": {
+            "n_intent": 2512,
+            "n_filled_path": 974,
+            "n_no_touch": 1538,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.3877388535031847,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 790,
+          "profit_factor": 2.0443066852305116,
+          "win_rate": 0.6759493670886076,
+          "net_pnl": 29.014201600006345,
+          "expectancy": 0.03672683746835445,
+          "entry_bar_exit_rate": 0.42658227848101266,
+          "sharpe_daily_raw": NaN,
+          "expectancy_intent_all": 0.011550239490448385
+        },
+        {
+          "tag": "SOL_mid_atr_band_w4",
+          "n_intent": 490,
+          "fill_pct": 0.43673469387755104,
+          "fill_stats": {
+            "n_intent": 490,
+            "n_filled_path": 214,
+            "n_no_touch": 276,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.43673469387755104,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 204,
+          "profit_factor": 1.9409806922087938,
+          "win_rate": 0.6911764705882353,
+          "net_pnl": 6.709998849994008,
+          "expectancy": 0.03289215122549018,
+          "entry_bar_exit_rate": 0.4264705882352941,
+          "sharpe_daily_raw": NaN,
+          "expectancy_intent_all": 0.013693875204069405
+        }
+      ],
+      "ranking_by_intent_expectancy": [
+        {
+          "rank": 1,
+          "tag": "SOL_mid_atr_band_w4",
+          "expectancy_intent_all": 0.013693875204069405,
+          "profit_factor": 1.9409806922087938,
+          "n_trades": 204,
+          "fill_pct": 0.43673469387755104,
+          "win_rate": 0.6911764705882353,
+          "net_pnl": 6.709998849994008,
+          "sharpe_daily_raw": NaN
+        },
+        {
+          "rank": 2,
+          "tag": "SOL_level_atr_clip_w4",
+          "expectancy_intent_all": 0.011550239490448385,
+          "profit_factor": 2.0443066852305116,
+          "n_trades": 790,
+          "fill_pct": 0.3877388535031847,
+          "win_rate": 0.6759493670886076,
+          "net_pnl": 29.014201600006345,
+          "sharpe_daily_raw": NaN
+        },
+        {
+          "rank": 3,
+          "tag": "SOL_sibling_w5",
+          "expectancy_intent_all": 0.009901384275486015,
+          "profit_factor": 2.059148398865311,
+          "n_trades": 668,
+          "fill_pct": 0.32404458598726116,
+          "win_rate": 0.6901197604790419,
+          "net_pnl": 24.87227730002087,
+          "sharpe_daily_raw": NaN
+        },
+        {
+          "rank": 4,
+          "tag": "SOL_level_q50_w4",
+          "expectancy_intent_all": 0.009738591779462081,
+          "profit_factor": 1.8977883504885729,
+          "n_trades": 731,
+          "fill_pct": 0.3622611464968153,
+          "win_rate": 0.6580027359781122,
+          "net_pnl": 24.463342550008747,
+          "sharpe_daily_raw": NaN
+        },
+        {
+          "rank": 5,
+          "tag": "SOL_ctrl_w4",
+          "expectancy_intent_all": 0.009707999442683619,
+          "profit_factor": 2.134745633040173,
+          "n_trades": 619,
+          "fill_pct": 0.294984076433121,
+          "win_rate": 0.6962843295638126,
+          "net_pnl": 24.38649460002125,
+          "sharpe_daily_raw": NaN
+        },
+        {
+          "rank": 6,
+          "tag": "SOL_adverse_atr_1x",
+          "expectancy_intent_all": 0.00843786251991092,
+          "profit_factor": 2.079947949815183,
+          "n_trades": 562,
+          "fill_pct": 0.2627388535031847,
+          "win_rate": 0.6886120996441281,
+          "net_pnl": 21.19591065001623,
+          "sharpe_daily_raw": NaN
+        },
+        {
+          "rank": 7,
+          "tag": "SOL_adverse_pct_50bps",
+          "expectancy_intent_all": 0.0067680392714999085,
+          "profit_factor": 1.8716046657532301,
+          "n_trades": 527,
+          "fill_pct": 0.24721337579617833,
+          "win_rate": 0.6660341555977229,
+          "net_pnl": 17.00131465000777,
+          "sharpe_daily_raw": NaN
+        },
+        {
+          "rank": 8,
+          "tag": "SOL_adverse_atr_0p5x",
+          "expectancy_intent_all": 0.006127045342359625,
+          "profit_factor": 2.0417377163811925,
+          "n_trades": 430,
+          "fill_pct": 0.1910828025477707,
+          "win_rate": 0.6767441860465117,
+          "net_pnl": 15.39113790000738,
+          "sharpe_daily_raw": NaN
+        }
+      ],
+      "promotions_vs_ctrl_w4": {
+        "SOL_sibling_w5": {
+          "intent_exp_improved": true,
+          "pf_not_collapsed": true,
+          "ece_ok": true,
+          "promote": true
+        },
+        "SOL_adverse_pct_50bps": {
+          "intent_exp_improved": false,
+          "pf_not_collapsed": true,
+          "ece_ok": true,
+          "promote": false
+        },
+        "SOL_adverse_atr_1x": {
+          "intent_exp_improved": false,
+          "pf_not_collapsed": true,
+          "ece_ok": true,
+          "promote": false
+        },
+        "SOL_adverse_atr_0p5x": {
+          "intent_exp_improved": false,
+          "pf_not_collapsed": true,
+          "ece_ok": true,
+          "promote": false
+        },
+        "SOL_level_q50_w4": {
+          "intent_exp_improved": true,
+          "pf_not_collapsed": true,
+          "ece_ok": true,
+          "promote": true
+        },
+        "SOL_level_atr_clip_w4": {
+          "intent_exp_improved": true,
+          "pf_not_collapsed": true,
+          "ece_ok": true,
+          "promote": true
+        },
+        "SOL_mid_atr_band_w4": {
+          "intent_exp_improved": true,
+          "pf_not_collapsed": true,
+          "ece_ok": true,
+          "promote": true
+        }
+      }
+    }
+  }
+}

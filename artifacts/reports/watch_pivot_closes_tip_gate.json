@@ -1,0 +1,32 @@
+{
+  "base_sol": "1786552200000",
+  "base_eth": "1786552200000",
+  "closes": [
+    {
+      "n": 1,
+      "sol_bar": 1786553100000,
+      "eth_bar": 1786553100000,
+      "pivot_status": "PASS",
+      "all_match": true,
+      "utc": "2026-08-12T17:01:06Z"
+    },
+    {
+      "n": 2,
+      "sol_bar": 1786554000000,
+      "eth_bar": 1786554000000,
+      "pivot_status": "PASS",
+      "all_match": true,
+      "utc": "2026-08-12T17:15:57Z"
+    },
+    {
+      "n": 3,
+      "sol_bar": 1786554900000,
+      "eth_bar": 1786554900000,
+      "pivot_status": "PASS",
+      "all_match": true,
+      "utc": "2026-08-12T17:30:46Z"
+    }
+  ],
+  "updated_utc": "2026-08-12T17:30:46Z",
+  "closes_seen": 3
+}

@@ -1,0 +1,605 @@
+{
+  "generated_utc": "2026-08-17T13:43:58.366252+00:00",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "evidence_class": "FORWARD_MICRO_LIVE_RECONCILE",
+  "period": {
+    "since_utc": "2026-08-12T00:00:00+00:00",
+    "note": "Xxobster7 pivot go-live / collector since"
+  },
+  "arms": [
+    {
+      "arm": "sol",
+      "symbol": "SOLUSDT",
+      "window": {
+        "first_live": "2026-08-12T13:00:00+00:00",
+        "last_live": "2026-08-17T13:15:00+00:00"
+      },
+      "n_live_decisions": 482,
+      "n_scored_bars": 534,
+      "n_overlap_bars": 482,
+      "n_action_match": 482,
+      "n_p_any_match": 446,
+      "n_action_flips": 0,
+      "flips_head": [],
+      "n_live_enter": 29,
+      "n_bound_enter_match": 29,
+      "n_bt_enter": 33,
+      "fill_stats": {
+        "n_intent": 33,
+        "n_filled_path": 4,
+        "n_no_touch": 29,
+        "n_adverse_cancel": 0,
+        "n_bad": 0,
+        "fill_rate": 0.12121212121212122,
+        "work_bars_default": 4,
+        "work_bars_mean_used": 4.0,
+        "adverse_mode": null,
+        "adverse_pct": 0.005,
+        "adverse_atr_mult": 1.0
+      },
+      "live_fills": [
+        {
+          "decision_utc": "2026-08-13T05:00:00+00:00",
+          "decision_ts_ms": 1786597200000,
+          "side": "Sell",
+          "entry": 76.57,
+          "exit": 75.8,
+          "exit_utc": "2026-08-13T10:14:00+00:00",
+          "pnl": 0.0720637,
+          "qty": 0.1
+        },
+        {
+          "decision_utc": "2026-08-16T20:45:00+00:00",
+          "decision_ts_ms": 1786913100000,
+          "side": "Buy",
+          "entry": 74.59,
+          "exit": 75.35,
+          "exit_utc": "2026-08-17T02:35:00+00:00",
+          "pnl": 0.07023209,
+          "qty": 0.1
+        }
+      ],
+      "live_enter_status": [
+        {
+          "bar_utc": "2026-08-13T02:45:00+00:00",
+          "side": "Sell",
+          "p_any": 0.46464646464646464,
+          "limit_px": 76.40915849478482,
+          "filled": false,
+          "status": "Cancelled",
+          "avg_price": 76.40915849478482
+        },
+        {
+          "bar_utc": "2026-08-13T03:00:00+00:00",
+          "side": "Sell",
+          "p_any": 0.3504043126684636,
+          "limit_px": 76.64160641588978,
+          "filled": false,
+          "status": "Cancelled",
+          "avg_price": 76.64160641588978
+        },
+        {
+          "bar_utc": "2026-08-13T03:15:00+00:00",
+          "side": "Sell",
+          "p_any": 0.3504043126684636,
+          "limit_px": 76.44163989008501,
+          "filled": false,
+          "status": "Cancelled",
+          "avg_price": 76.44163989008501
+        },
+        {
+          "bar_utc": "2026-08-13T05:00:00+00:00",
+          "side": "Sell",
+          "p_any": 0.3504043126684636,
+          "limit_px": 76.57328227937278,
+          "filled": true,
+          "status": "Filled",
+          "avg_price": 76.57
+        },
+        {
+          "bar_utc": "2026-08-13T05:30:00+00:00",
+          "side": "Sell",
+          "p_any": 0.46464646464646464,
+          "limit_px": 77.03542616834098,
+          "filled": null,
+          "status": null,
+          "avg_price": null
+        },
+        {
+          "bar_utc": "2026-08-13T13:30:00+00:00",
+          "side": "Sell",
+          "p_any": 0.3504043126684636,
+          "limit_px": 76.69168701143339,
+          "filled": false,
+          "status": "Cancelled",
+          "avg_price": 76.69168701143339
+        },
+        {
+          "bar_utc": "2026-08-13T14:30:00+00:00",
+          "side": "Sell",
+          "p_any": 0.75,
+          "limit_px": 77.06916227145494,
+          "filled": false,
+          "status": "Cancelled",
+          "avg_price": 77.06916227145494
+        },
+        {
+          "bar_utc": "2026-08-14T08:45:00+00:00",
+          "side": "Sell",
+          "p_any": 0.3504043126684636,
+          "limit_px": 75.96709398626939,
+          "filled": false,
+          "status": "Cancelled",
+          "avg_price": 75.96709398626939
+        },
+        {
+          "bar_utc": "2026-08-14T09:00:00+00:00",
+          "side": "Sell",
+          "p_any": 0.3504043126684636,
+          "limit_px": 75.883655,
+          "filled": false,
+          "status": "Cancelled",
+          "avg_price": 75.883655
+        },
+        {
+          "bar_utc": "2026-08-14T15:15:00+00:00",
+          "side": "Sell",
+          "p_any": 0.3504043126684636,
+          "limit_px": 75.94720763123968,
+          "filled": false,
+          "status": "Cancelled",
+          "avg_price": 75.94720763123968
+        },
+        {
+          "bar_utc": "2026-08-14T15:30:00+00:00",
+          "side": "Sell",
+          "p_any": 0.46464646464646464,
+          "limit_px": 76.11543962413292,
+          "filled": false,
+          "status": "Cancelled",
+          "avg_price": 76.11543962413292
+        },
+        {
+          "bar_utc": "2026-08-15T12:45:00+00:00",
+          "side": "Sell",
+          "p_any": 0.46464646464646464,
+          "limit_px": 75.6847087704309,
+          "filled": false,
+          "status": "CancelledDataUnsafe",
+          "avg_price": 75.6847087704309
+        },
+        {
+          "bar_utc": "2026-08-15T13:00:00+00:00",
+          "side": "Sell",
+          "p_any": 0.6129032258064516,
+          "limit_px": 75.81105495683842,
+          "filled": false,
+          "status": "CancelledDataUnsafe",
+          "avg_price": 75.81105495683842
+        },
+        {
+          "bar_utc": "2026-08-15T13:30:00+00:00",
+          "side": "Sell",
+          "p_any": 0.7401066061033545,
+          "limit_px": 75.90938670155428,
+          "filled": false,
+          "status": "CancelledDataUnsafe",
+          "avg_price": 75.90938670155428
+        },
+        {
+          "bar_utc": "2026-08-15T13:45:00+00:00",
+          "side": "Sell",
+          "p_any": 0.3504043126684636,
+          "limit_px": 75.83130915898435,
+          "filled": null,
+          "status": null,
+          "avg_price": null
+        },
+        {
+          "bar_utc": "2026-08-15T17:00:00+00:00",
+          "side": "Sell",
+          "p_any": 0.3504043126684636,
+          "limit_px": 75.9412148428267,
+          "filled": false,
+          "status": "CancelledDataUnsafe",
+          "avg_price": 75.9412148428267
+        },
+        {
+          "bar_utc": "2026-08-15T17:30:00+00:00",
+          "side": "Sell",
+          "p_any": 0.3504043126684636,
+          "limit_px": 76.06890716910263,
+          "filled": null,
+          "status": null,
+          "avg_price": null
+        },
+        {
+          "bar_utc": "2026-08-15T18:00:00+00:00",
+          "side": "Sell",
+          "p_any": 0.46464646464646464,
+          "limit_px": 75.88435409463918,
+          "filled": false,
+          "status": "CancelledDataUnsafe",
+          "avg_price": 75.88435409463918
+        },
+        {
+          "bar_utc": "2026-08-15T21:30:00+00:00",
+          "side": "Sell",
+          "p_any": 0.6129032258064516,
+          "limit_px": 75.95153973594216,
+          "filled": false,
+          "status": "CancelledDataUnsafe",
+          "avg_price": 75.95153973594216
+        },
+        {
+          "bar_utc": "2026-08-16T09:30:00+00:00",
+          "side": "Buy",
+          "p_any": 0.3504043126684636,
+          "limit_px": 74.79702665357108,
+          "filled": false,
+          "status": "CancelledDataUnsafe",
+          "avg_price": 74.79702665357108
+        },
+        {
+          "bar_utc": "2026-08-16T13:15:00+00:00",
+          "side": "Sell",
+          "p_any": 0.3504043126684636,
+          "limit_px": 75.62161464796208,
+          "filled": false,
+          "status": "CancelledDataUnsafe",
+          "avg_price": 75.62161464796208
+        },
+        {
+          "bar_utc": "2026-08-16T14:30:00+00:00",
+          "side": "Sell",
+          "p_any": 0.3504043126684636,
+          "limit_px": 75.48711918878328,
+          "filled": false,
+          "status": "CancelledDataUnsafe",
+          "avg_price": 75.48711918878328
+        },
+        {
+          "bar_utc": "2026-08-16T15:15:00+00:00",
+          "side": "Sell",
+          "p_any": 0.75,
+          "limit_px": 75.98154666809776,
+          "filled": false,
+          "status": "CancelledDataUnsafe",
+          "avg_price": 75.98154666809776
+        },
+        {
+          "bar_utc": "2026-08-16T15:45:00+00:00",
+          "side": "Sell",
+          "p_any": 0.6129032258064516,
+          "limit_px": 75.79571902754822,
+          "filled": false,
+          "status": "CancelledDataUnsafe",
+          "avg_price": 75.79571902754822
+        },
+        {
+          "bar_utc": "2026-08-16T16:15:00+00:00",
+          "side": "Sell",
+          "p_any": 0.75,
+          "limit_px": 76.01185901136006,
+          "filled": null,
+          "status": null,
+          "avg_price": null
+        },
+        {
+          "bar_utc": "2026-08-16T20:30:00+00:00",
+          "side": "Buy",
+          "p_any": 0.3504043126684636,
+          "limit_px": 74.64902368311726,
+          "filled": false,
+          "status": "CancelledDataUnsafe",
+          "avg_price": 74.64902368311726
+        },
+        {
+          "bar_utc": "2026-08-16T20:45:00+00:00",
+          "side": "Buy",
+          "p_any": 0.3504043126684636,
+          "limit_px": 74.59166385435239,
+          "filled": true,
+          "status": "Filled",
+          "avg_price": 74.59
+        },
+        {
+          "bar_utc": "2026-08-17T01:15:00+00:00",
+          "side": "Sell",
+          "p_any": 0.46464646464646464,
+          "limit_px": 75.72319756752636,
+          "filled": null,
+          "status": null,
+          "avg_price": null
+        },
+        {
+          "bar_utc": "2026-08-17T10:30:00+00:00",
+          "side": "Sell",
+          "p_any": 0.3504043126684636,
+          "limit_px": 76.22445191312404,
+          "filled": false,
+          "status": "CancelledDataUnsafe",
+          "avg_price": 76.22445191312404
+        }
+      ],
+      "bt_hold6": {
+        "status": "RAN",
+        "n_trades": 3,
+        "profit_factor": 0.10435955401326667,
+        "win_rate": 0.3333333333333333,
+        "net_pnl": -0.02799059999961173,
+        "trades": [
+          {
+            "entry_ts_ms": 1786599000000,
+            "entry_utc": "2026-08-13T05:30:00+00:00",
+            "exit_ts_ms": 1786604400000,
+            "exit_utc": "2026-08-13T07:00:00+00:00",
+            "side": -1,
+            "entry_price": 76.58,
+            "exit_price": 76.49,
+            "qty": 0.1,
+            "pnl": 0.003261450000000341,
+            "hold_bars": 6.0,
+            "exit_reason": "max_hold"
+          },
+          {
+            "entry_ts_ms": 1786893300000,
+            "entry_utc": "2026-08-16T15:15:00+00:00",
+            "exit_ts_ms": 1786898700000,
+            "exit_utc": "2026-08-16T16:45:00+00:00",
+            "side": -1,
+            "entry_price": 75.49,
+            "exit_price": 75.52,
+            "qty": 0.1,
+            "pnl": -0.008663400000000114,
+            "hold_bars": 6.0,
+            "exit_reason": "max_hold"
+          },
+          {
+            "entry_ts_ms": 1786915800000,
+            "entry_utc": "2026-08-16T21:30:00+00:00",
+            "exit_ts_ms": 1786921200000,
+            "exit_utc": "2026-08-16T23:00:00+00:00",
+            "side": 1,
+            "entry_price": 74.64,
+            "exit_price": 74.47,
+            "qty": 0.1,
+            "pnl": -0.022588650000000172,
+            "hold_bars": 6.0,
+            "exit_reason": "max_hold"
+          }
+        ]
+      },
+      "bt_hold48_live_like": {
+        "status": "RAN",
+        "n_trades": 3,
+        "profit_factor": 0.10435955401326667,
+        "win_rate": 0.3333333333333333,
+        "net_pnl": -0.02799059999961173,
+        "trades": [
+          {
+            "entry_ts_ms": 1786599000000,
+            "entry_utc": "2026-08-13T05:30:00+00:00",
+            "exit_ts_ms": 1786604400000,
+            "exit_utc": "2026-08-13T07:00:00+00:00",
+            "side": -1,
+            "entry_price": 76.58,
+            "exit_price": 76.49,
+            "qty": 0.1,
+            "pnl": 0.003261450000000341,
+            "hold_bars": 6.0,
+            "exit_reason": "max_hold"
+          },
+          {
+            "entry_ts_ms": 1786893300000,
+            "entry_utc": "2026-08-16T15:15:00+00:00",
+            "exit_ts_ms": 1786898700000,
+            "exit_utc": "2026-08-16T16:45:00+00:00",
+            "side": -1,
+            "entry_price": 75.49,
+            "exit_price": 75.52,
+            "qty": 0.1,
+            "pnl": -0.008663400000000114,
+            "hold_bars": 6.0,
+            "exit_reason": "max_hold"
+          },
+          {
+            "entry_ts_ms": 1786915800000,
+            "entry_utc": "2026-08-16T21:30:00+00:00",
+            "exit_ts_ms": 1786921200000,
+            "exit_utc": "2026-08-16T23:00:00+00:00",
+            "side": 1,
+            "entry_price": 74.64,
+            "exit_price": 74.47,
+            "qty": 0.1,
+            "pnl": -0.022588650000000172,
+            "hold_bars": 6.0,
+            "exit_reason": "max_hold"
+          }
+        ]
+      }
+    },
+    {
+      "arm": "eth",
+      "symbol": "ETHUSDT",
+      "window": {
+        "first_live": "2026-08-12T13:00:00+00:00",
+        "last_live": "2026-08-17T13:15:00+00:00"
+      },
+      "n_live_decisions": 482,
+      "n_scored_bars": 349,
+      "n_overlap_bars": 297,
+      "n_action_match": 295,
+      "n_p_any_match": 243,
+      "n_action_flips": 2,
+      "flips_head": [
+        {
+          "bar_utc": "2026-08-15T08:30:00+00:00",
+          "live": "ENTER_LIMIT",
+          "bt": "FLAT",
+          "live_p": 0.58,
+          "bt_p": 0.29317269076305214
+        },
+        {
+          "bar_utc": "2026-08-15T12:45:00+00:00",
+          "live": "ENTER_LIMIT",
+          "bt": "FLAT",
+          "live_p": 0.4230769230769231,
+          "bt_p": 0.32533333333333336
+        }
+      ],
+      "n_live_enter": 7,
+      "n_bound_enter_match": 1,
+      "n_bt_enter": 3,
+      "fill_stats": {
+        "n_intent": 3,
+        "n_filled_path": 2,
+        "n_no_touch": 1,
+        "n_adverse_cancel": 0,
+        "n_bad": 0,
+        "fill_rate": 0.6666666666666666,
+        "work_bars_default": 4,
+        "work_bars_mean_used": 4.0,
+        "adverse_mode": null,
+        "adverse_pct": 0.005,
+        "adverse_atr_mult": 1.0
+      },
+      "live_fills": [],
+      "live_enter_status": [
+        {
+          "bar_utc": "2026-08-13T05:00:00+00:00",
+          "side": "Sell",
+          "p_any": 0.4230769230769231,
+          "limit_px": 1906.4035308273096,
+          "filled": false,
+          "status": "Cancelled",
+          "avg_price": 1906.4035308273096
+        },
+        {
+          "bar_utc": "2026-08-14T06:45:00+00:00",
+          "side": "Buy",
+          "p_any": 0.4230769230769231,
+          "limit_px": 1866.0749746864083,
+          "filled": false,
+          "status": "Cancelled",
+          "avg_price": 1866.0749746864083
+        },
+        {
+          "bar_utc": "2026-08-14T15:15:00+00:00",
+          "side": "Sell",
+          "p_any": 0.58,
+          "limit_px": 1890.261764333939,
+          "filled": false,
+          "status": "Cancelled",
+          "avg_price": 1890.261764333939
+        },
+        {
+          "bar_utc": "2026-08-14T15:30:00+00:00",
+          "side": "Sell",
+          "p_any": 0.58,
+          "limit_px": 1900.6244556082472,
+          "filled": false,
+          "status": "Cancelled",
+          "avg_price": 1900.6244556082472
+        },
+        {
+          "bar_utc": "2026-08-15T08:30:00+00:00",
+          "side": "Buy",
+          "p_any": 0.58,
+          "limit_px": 1873.932977018722,
+          "filled": false,
+          "status": "CancelledDataUnsafe",
+          "avg_price": 1873.932977018722
+        },
+        {
+          "bar_utc": "2026-08-15T12:45:00+00:00",
+          "side": "Sell",
+          "p_any": 0.4230769230769231,
+          "limit_px": 1886.4609226697871,
+          "filled": false,
+          "status": "CancelledDataUnsafe",
+          "avg_price": 1886.4609226697871
+        },
+        {
+          "bar_utc": "2026-08-16T16:15:00+00:00",
+          "side": "Sell",
+          "p_any": 0.58,
+          "limit_px": 1891.8979884103687,
+          "filled": false,
+          "status": "CancelledDataUnsafe",
+          "avg_price": 1891.8979884103687
+        }
+      ],
+      "bt_hold6": {
+        "status": "RAN",
+        "n_trades": 2,
+        "profit_factor": 3.7595711974544894,
+        "win_rate": 0.5,
+        "net_pnl": 0.046208384997953544,
+        "trades": [
+          {
+            "entry_ts_ms": 1786528800000,
+            "entry_utc": "2026-08-12T10:00:00+00:00",
+            "exit_ts_ms": 1786534200000,
+            "exit_utc": "2026-08-12T11:30:00+00:00",
+            "side": -1,
+            "entry_price": 1912.46,
+            "exit_price": 1912.7,
+            "qty": 0.01,
+            "pnl": -0.016744770000000093,
+            "hold_bars": 6.0,
+            "exit_reason": "max_hold"
+          },
+          {
+            "entry_ts_ms": 1786897800000,
+            "entry_utc": "2026-08-16T16:30:00+00:00",
+            "exit_ts_ms": 1786903200000,
+            "exit_utc": "2026-08-16T18:00:00+00:00",
+            "side": -1,
+            "entry_price": 1891.9,
+            "exit_price": 1884.19,
+            "qty": 0.01,
+            "pnl": 0.06295315500000036,
+            "hold_bars": 6.0,
+            "exit_reason": "max_hold"
+          }
+        ]
+      },
+      "bt_hold48_live_like": {
+        "status": "RAN",
+        "n_trades": 2,
+        "profit_factor": 3.7595711974544894,
+        "win_rate": 0.5,
+        "net_pnl": 0.046208384997953544,
+        "trades": [
+          {
+            "entry_ts_ms": 1786528800000,
+            "entry_utc": "2026-08-12T10:00:00+00:00",
+            "exit_ts_ms": 1786534200000,
+            "exit_utc": "2026-08-12T11:30:00+00:00",
+            "side": -1,
+            "entry_price": 1912.46,
+            "exit_price": 1912.7,
+            "qty": 0.01,
+            "pnl": -0.016744770000000093,
+            "hold_bars": 6.0,
+            "exit_reason": "max_hold"
+          },
+          {
+            "entry_ts_ms": 1786897800000,
+            "entry_utc": "2026-08-16T16:30:00+00:00",
+            "exit_ts_ms": 1786903200000,
+            "exit_utc": "2026-08-16T18:00:00+00:00",
+            "side": -1,
+            "entry_price": 1891.9,
+            "exit_price": 1884.19,
+            "qty": 0.01,
+            "pnl": 0.06295315500000036,
+            "hold_bars": 6.0,
+            "exit_reason": "max_hold"
+          }
+        ]
+      }
+    }
+  ]
+}

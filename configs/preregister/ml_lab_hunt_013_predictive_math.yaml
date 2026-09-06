@@ -1,0 +1,58 @@
+# ML lab hunt 013 — third invented causal formula pack
+# RESEARCH_ONLY. Frozen before any hunt-013 result was viewed.
+generation_id: ml_lab_hunt_013_predictive_math
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-09-03T21:50:00Z"
+fold_geometry: v2
+failure_is_success: true
+
+hypothesis: >
+  New formulas after hunt 009 / 011, not a threshold search on those names:
+  causal Hilbert envelope fade; instantaneous-frequency slow-quartile follow;
+  Hjorth mobility regime switch; Theil–Sen-style end-point slope follow;
+  Haar 1-bar vs 8-bar energy-ratio fade; exponential kinematic acceleration
+  follow; Fisher transform of rolling rank fade; quadratic Volterra one-step
+  residual fade; single-scale Detrended Fluctuation Analysis exponent switch;
+  delay-embedding trajectory-divergence fade. Event study first (11 basis-point
+  floor). Tradesim at most 8 skill-passers. Maker 0.02% resting legs. EXEC-021.
+  Inner screen before 2022-01-01.
+
+do_not:
+  - peep FORWARD_LOCKBOX_START
+  - deploy
+  - stamp Shadow-Ready from this inner screen
+  - widen Average-True-Range to hide entry-bar exits
+  - retune hunt 009 / 011 / 012 after viewing nested profit factor
+  - retune live Exponential Moving Average stack or autonomy 376 / 705 / 013
+
+selection_window: "strictly before 2022-01-01"
+universe:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  event_study_timeframes: [15m, 1h, 4h]
+  tradesim_timeframes: [15m, 1h, 4h]
+
+cost_floor: 0.0011
+max_tradesim_arms: 8
+work_bars: {15m: 4, 1h: 3, 4h: 2}
+max_hold_bars: {15m: 24, 1h: 16, 4h: 8}
+k_sl: 1.5
+tp_ratio: 1.5
+sl_cap: 0.030
+maker_first_costs: true
+
+screen_gates:
+  min_skill_n: 80
+  min_directional_acc: 0.51
+  min_mean_signed: 0.0015
+  min_trades: 80
+  min_trades_per_month: 2.0
+  max_trades_per_month: 90.0
+  min_profit_factor: 1.20
+  max_entry_bar_exit_rate: 0.25
+  min_sharpe_annualised: 0.50
+
+leakage_audit:
+  builder: llm2.ml_lab.idea_catalog_j.build_features_for_guard
+
+preregister_sha256_at_run: c4abaa29145e001b6124c730a38cca8004f14c88819d6060a330285f8643f75d

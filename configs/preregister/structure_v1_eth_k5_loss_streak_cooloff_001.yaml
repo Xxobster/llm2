@@ -1,0 +1,75 @@
+# Nested transfer: freeze cooloff after 3 consecutive proxy losses on live
+# eth_k5_double3h_v1 geometry. ONE candidate vs live control.
+# Written before outer settle. No lockbox. No multi-arm grid.
+#
+# Motivation: fleet streak autopsy (structure_v1_fleet_streak_autopsy_001) —
+# consecutive realized losses; gate pauses new entries after loss runs.
+
+generation_id: structure_v1_eth_k5_loss_streak_cooloff_001
+created_utc: "2026-08-05T05:20:00Z"
+status: FROZEN
+decision_refs: [D-041, D-042]
+fold_geometry: v2
+parent_pack: structure_v1_ethusdt_k5_double3h_v1
+parent_version_id: eth_k5_double3h_v1
+autopsy_generation: structure_v1_fleet_streak_autopsy_001
+proposal_id: loss_streak_cooloff_3
+
+hypothesis: >
+  After three consecutive closed-trade losses (causal max-hold PnL proxy on
+  entry-close vs hold-end close), pause new entries for cooloff_pause_bars=12
+  while keeping eth_k5_double3h_v1 geometry (K=5, hold12, TP1%/SL2%, size×2
+  within 3h, clarity_scope=all, strength_quantile=0.5). This reduces stacking
+  during loss runs without changing the model.
+
+economic_rationale: >
+  Streak autopsy ranks loss-run churn as a cost of stacking concurrent books.
+  A temporary cooloff cut churn; it does not invent new entry alpha.
+
+control_arm:
+  version_id: eth_k5_double3h_v1
+  cooloff_after_consecutive_losses: 0
+  strength_quantile: 0.5
+  k_per_side: 5
+  hold_bars: 12
+  tp_pct: 0.01
+  sl_pct: 0.02
+  size_double_within_bars: 3
+
+frozen_candidate:
+  same_as_control_except:
+    cooloff_after_consecutive_losses: 3
+    cooloff_pause_bars: 12
+
+selection:
+  method: FROZEN_TRANSFER — one candidate; no ranking among alternatives
+  forbidden:
+    - re_search_cooloff_N_on_outer_OOS
+    - select_on_lockbox
+    - combine_with_p75_strength_in_same_generation
+    - promote_without_beating_control_expectancy_return_units
+
+evaluation:
+  symbol: ETHUSDT
+  target: direction
+  min_edge: 0.10
+  outer: fold_geometry_v2_stitched_oos
+  hard_end_exclusive: "2026-05-01"
+  lockbox: DO_NOT_OPEN
+  engine: botsgeneral_tradesim
+  costs: research_costs_baseline
+  sizing: MIN_EXCHANGE
+  primary_metric: expectancy_return_units
+  secondary: [profit_factor, win_rate, n_trades, n_skipped_loss_cooloff]
+  evidence_class: OUTER_TRANSFER_COMPARE
+  quote_window: full_outer_stitch_not_last30d_display
+  promotion: FORBIDDEN_without_new_pack_hash_certificate_and_explicit_user_auth
+
+success_criteria:
+  - candidate_expectancy_return_units > control_expectancy_return_units
+  - candidate_stitched_pf >= 1.20
+  - no liquidation
+  - report full outer stitch (not last-30d slice)
+
+failure_is_success: true
+live_deploy: FORBIDDEN_without_certificate_and_explicit_user_auth

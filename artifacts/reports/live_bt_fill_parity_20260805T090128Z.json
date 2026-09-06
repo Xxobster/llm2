@@ -1,0 +1,125 @@
+{
+  "experiment_id": "live_bt_fill_parity_layer_c",
+  "evidence_class": "LIVE_BT_FILL_PARITY_DIAGNOSTIC_CONTAMINATED",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "principal_blocker": "Fill % deviation is diagnostic. Live calendar is post-lockbox; do not use for ranking or readiness. Prefer Layer A indicator parity and outer-fold settle for promotion.",
+  "calendar": {
+    "forward_lockbox_start": "2026-05-01",
+    "forward_lockbox_end": null,
+    "lockbox_note": "Lockbox is open-ended from FORWARD_LOCKBOX_START; it does not end. Any evaluation on/after that date requires --i-accept-lockbox-contamination.",
+    "live_trading_started_documented": "2026-08-03",
+    "live_trading_note": "User-authorized micro-live certificate 2026-08-03; VPS fleet services 2026-08-04. First logged decisions ~2026-08-03 16:00 UTC (BTC).",
+    "window_start": "2026-08-03T00:00:00+00:00",
+    "window_end_exclusive": "2026-08-06T00:00:00+00:00",
+    "window_is_post_lockbox": true
+  },
+  "pack": "D:\\projects\\LLM2\\artifacts\\live_packs\\structure_v1_ethusdt_direction",
+  "account": "Xxobster8",
+  "live_meta": {
+    "source": "artifacts\\reports\\_live_closed_xxobster8_eth.json",
+    "n_raw": 2,
+    "account": "Xxobster8"
+  },
+  "backtest_meta": {
+    "symbol": "ETHUSDT",
+    "timeframe": "1h",
+    "family": "directional",
+    "edge": 0.1,
+    "tp_pct": 0.01,
+    "sl_pct": 0.02,
+    "max_hold_bars": 6,
+    "leverage": 18.0,
+    "n_signals": 46,
+    "n_bt_trades_in_window": 13,
+    "engine": "tradesim"
+  },
+  "match_tol_hours": 3.0,
+  "n_live_fills_in_window": 2,
+  "n_bt_fills_in_window": 13,
+  "summary": {
+    "n_live": 2,
+    "n_matched": 1,
+    "match_rate": 0.5,
+    "entry_pct_dev": {
+      "n": 1,
+      "mean": -0.674840330295826,
+      "median": -0.674840330295826,
+      "p90": -0.674840330295826,
+      "max": -0.674840330295826,
+      "min": -0.674840330295826
+    },
+    "exit_pct_dev": {
+      "n": 1,
+      "mean": 0.4040458096971092,
+      "median": 0.4040458096971092,
+      "p90": 0.4040458096971092,
+      "max": 0.4040458096971092,
+      "min": 0.4040458096971092
+    },
+    "abs_entry_pct_dev": {
+      "n": 1,
+      "mean": 0.674840330295826,
+      "median": 0.674840330295826,
+      "p90": 0.674840330295826,
+      "max": 0.674840330295826,
+      "min": 0.674840330295826
+    },
+    "abs_exit_pct_dev": {
+      "n": 1,
+      "mean": 0.4040458096971092,
+      "median": 0.4040458096971092,
+      "p90": 0.4040458096971092,
+      "max": 0.4040458096971092,
+      "min": 0.4040458096971092
+    }
+  },
+  "matches": [
+    {
+      "matched": false,
+      "live": {
+        "symbol": "ETHUSDT",
+        "side": -1,
+        "entry_price": 1858.4234,
+        "exit_price": 1874.73,
+        "entry_ts_ms": 1785826802563,
+        "exit_ts_ms": 1785846920646,
+        "qty": 0.01,
+        "source_id": "5c4e762c-7ceb-4126-ae41-bff925bb9b7e"
+      },
+      "backtest": null,
+      "entry_pct_dev": null,
+      "exit_pct_dev": null,
+      "exit_ts_delta_ms": null,
+      "entry_ts_delta_ms": null
+    },
+    {
+      "matched": true,
+      "live": {
+        "symbol": "ETHUSDT",
+        "side": -1,
+        "entry_price": 1858.4234,
+        "exit_price": 1876.15,
+        "entry_ts_ms": 1785834011480,
+        "exit_ts_ms": 1785846921565,
+        "qty": 0.01,
+        "source_id": "527f9741-fa14-41ed-aec5-c080e1b8885b"
+      },
+      "backtest": {
+        "symbol": "ETHUSDT",
+        "side": -1,
+        "entry_price": 1871.05,
+        "exit_price": 1868.6,
+        "entry_ts_ms": 1785844800000,
+        "exit_ts_ms": 1785866400000,
+        "qty": 0.01,
+        "source_id": "10"
+      },
+      "entry_pct_dev": -0.674840330295826,
+      "exit_pct_dev": 0.4040458096971092,
+      "exit_ts_delta_ms": -19478435,
+      "entry_ts_delta_ms": -10788520
+    }
+  ],
+  "peek_record_id": null,
+  "generated_utc": "2026-08-05T09:01:28.375436+00:00"
+}

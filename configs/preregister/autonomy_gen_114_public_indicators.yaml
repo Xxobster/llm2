@@ -1,0 +1,25 @@
+# Autonomy gen 114 — effort versus result (volume up, range down)
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_114_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-22T16:09:00Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  Volume above its 20-bar average while bar range is below its 20-bar
+  average (effort without result), and the opposite, at t+H and those
+  state entries in the next H bars, used as one-head filters, can beat
+  the 15-minute Limit 1%/1% pivot control under frozen entry-bar and
+  trades-per-month caps.
+events: [evr_absorb_at_h, evr_thrust_at_h, evr_absorb_start, evr_thrust_start]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: 75d80a9d71fdd06e4b94862f59e5128341e6306295d0319da4f23fdb37e67ea8

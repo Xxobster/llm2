@@ -1,0 +1,35 @@
+# Pivot answer A — EXEC-021 maker retest of exec_improve_002 trio + frozen retunes
+# CONTAMINATED_OOS_VIEWED. User-authorized fine-tune. Not Shadow-Ready.
+generation_id: pivot_answer_a_exec021
+status: OPEN
+readiness_max: RESEARCH_ONLY
+evidence_class: CONTAMINATED_OOS_VIEWED
+frozen_at_utc: "2026-09-02T02:00:00Z"
+
+hypothesis: >
+  Re-score the 2026-08-12 recommended trio (Bitcoin control return work-4,
+  Ether q50 work-4, Solana Average-True-Range clip work-5) on tradesim 1.1.0
+  maker 0.02% and EXEC-021. Then score a frozen retune list chosen after
+  viewing those old prints: Ether q50 work-5, pull 0.90, pi-star 0.60;
+  Solana clip 0.6–1.2 and 1.0–2.0 and q50 work-5; Bitcoin inner 80th-percentile
+  gate and Average-True-Range clip work-4. Inner before 2022-01-01; nested
+  2022-01-01 to lockbox. Do not peep lockbox. Do not deploy.
+
+do_not:
+  - deploy
+  - peep FORWARD_LOCKBOX_START
+  - stamp Shadow-Ready
+  - retune live 15-minute 1% pivot packs from these numbers
+
+arms:
+  - {id: BTC_ctrl_ret_w4, symbol: BTCUSDT, level_mode: ret, work: 4, kind: exact}
+  - {id: ETH_level_q50_w4, symbol: ETHUSDT, level_mode: q50, work: 4, kind: exact}
+  - {id: SOL_level_atr_clip_w5, symbol: SOLUSDT, level_mode: ret, work: 5, clip: [0.8, 1.5], kind: exact}
+  - {id: ETH_level_q50_w5, symbol: ETHUSDT, level_mode: q50, work: 5, kind: retune}
+  - {id: ETH_level_q50_pull90_w4, symbol: ETHUSDT, level_mode: q50, work: 4, pull: 0.90, kind: retune}
+  - {id: ETH_pi_star_060_w4, symbol: ETHUSDT, level_mode: q50, work: 4, gate: pi_star, pi_star: 0.60, kind: retune}
+  - {id: SOL_clip_06_12_w5, symbol: SOLUSDT, level_mode: ret, work: 5, clip: [0.6, 1.2], kind: retune}
+  - {id: SOL_clip_10_20_w5, symbol: SOLUSDT, level_mode: ret, work: 5, clip: [1.0, 2.0], kind: retune}
+  - {id: SOL_level_q50_w5, symbol: SOLUSDT, level_mode: q50, work: 5, kind: retune}
+  - {id: BTC_p80_inner_w4, symbol: BTCUSDT, level_mode: ret, work: 4, gate: p80_inner, kind: retune}
+  - {id: BTC_level_atr_clip_w4, symbol: BTCUSDT, level_mode: ret, work: 4, clip: [0.8, 1.5], kind: retune}

@@ -1,0 +1,60 @@
+# ML lab hunt 010 — contaminated tunes of 004 / 007 / 008
+# RESEARCH_ONLY_CONTAMINATED. User asked to tweak using already-viewed OOS.
+# Cannot earn Shadow-Ready. Lockbox (2026-05-01+) still sealed. Stops not widened.
+generation_id: ml_lab_hunt_010_contaminated_tune
+status: OPEN
+readiness_max: RESEARCH_ONLY_CONTAMINATED
+frozen_at_utc: "2026-09-02T02:20:00Z"
+fold_geometry: v2
+failure_is_success: true
+contaminated: true
+
+hypothesis: >
+  User authorized using already-viewed inner and nested numbers to tweak names
+  that were close. Ten new *event definitions*, not a stop search: two-bar
+  failed-break hold; same-bar wick fail; Donchian 55 failed-break; Asia-open
+  fade only when Kaufman Efficiency Ratio is low; Tuesday hold of a Monday
+  weekend-range break; five-close impulse stall; New York opening-range next-bar
+  hold; quiet Efficiency-Ratio Donchian break; hunt-004 Exponential Moving
+  Average 12/48/192 stack as a pullback to the 48-span mean; first bar that
+  stack turns on. Score window is pre-lockbox (to 2026-05-01), which includes
+  nested out-of-sample already seen for hunt 007. Not a Shadow-Ready path.
+  Min-size live later needs a separate explicit authorization. Do not widen
+  Average True Range stops. Maker 0.02%. EXEC-021.
+
+do_not:
+  - peep FORWARD_LOCKBOX_START
+  - deploy
+  - claim Shadow-Ready
+  - widen k_sl / sl_cap to hide entry-bar exits
+
+selection_window: "strictly before FORWARD_LOCKBOX_START (contaminated nested OOS allowed)"
+universe:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  event_study_timeframes: [15m, 1h, 4h]
+  tradesim_timeframes: [15m, 1h, 4h]
+
+cost_floor: 0.0011
+max_tradesim_arms: 8
+work_bars: {15m: 4, 1h: 3, 4h: 2}
+max_hold_bars: {15m: 24, 1h: 16, 4h: 8}
+k_sl: 1.5
+tp_ratio: 1.5
+sl_cap: 0.030
+maker_first_costs: true
+
+screen_gates:
+  min_skill_n: 80
+  min_directional_acc: 0.51
+  min_mean_signed: 0.0015
+  min_trades: 80
+  min_trades_per_month: 2.0
+  max_trades_per_month: 90.0
+  min_profit_factor: 1.20
+  max_entry_bar_exit_rate: 0.25
+  min_sharpe_annualised: 0.50
+
+leakage_audit:
+  builder: llm2.ml_lab.idea_catalog_g.build_features_for_guard
+
+preregister_sha256_at_run: d3a8535c48c5eb9c3eb3edc354e732a0e8b1b79b8524e58ac746f97990bd8bfd

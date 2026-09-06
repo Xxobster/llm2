@@ -41,9 +41,12 @@ from llm2.paths import ROUND_TRIP_COST, TF_MS
 from llm2.research_policy import PolicyError
 from llm2.sizing_policy import (
     DEFAULT_EQUITY_FRACTION,
+    DEFAULT_STOP_RISK_FRACTION,
     SIZING_MODE_EQUITY_LEVERAGE,
+    SIZING_MODE_RISK_FRACTION,
     equity_leverage_notional,
     parse_pack_sizing,
+    size_by_stop_risk,
 )
 from tradesim.ensure_source import prefer_botsgeneral_tradesim
 
@@ -523,14 +526,20 @@ def _ensure_single_book_ledger(
                     "entry_bar_ms": int(entry_ms),
                 }
             )
-        # Ensure Full TP/SL exists on the position (single-book uses trading-stop).
+        # Ensure maker exits exist (Post-Only take-profit + stop-limit). Full
+        # trading-stop is Market-only on Bybit and is not protection.
         pos = positions.get(side_name) or {}
-        tp = str(pos.get("takeProfit") or "").strip()
-        sl = str(pos.get("stopLoss") or "").strip()
-        if tp in {"", "0", "0.0"} or sl in {"", "0", "0.0"}:
-            avg = float(pos.get("avgPrice") or 0.0)
-            if avg > 0:
-                try:
+        avg = float(pos.get("avgPrice") or 0.0)
+        if avg > 0:
+            try:
+                if not maker_exit_bracket_present(
+                    account=account,
+                    symbol=symbol,
+                    side=side_sign,
+                    avg_price=avg,
+                    tp_pct=float(tp_pct),
+                    sl_pct=float(sl_pct),
+                ):
                     resp = ensure_full_position_tpsl(
                         account=account,
                         symbol=symbol,
@@ -538,6 +547,7 @@ def _ensure_single_book_ledger(
                         avg_price=avg,
                         tp_pct=float(tp_pct),
                         sl_pct=float(sl_pct),
+                        qty=float(exch),
                     )
                     out["ensure_tpsl"].append(
                         {
@@ -545,6 +555,7 @@ def _ensure_single_book_ledger(
                             "retCode": resp.get("retCode"),
                             "retMsg": resp.get("retMsg"),
                             "avgPrice": avg,
+                            "mode": resp.get("mode"),
                         }
                     )
                     print(
@@ -552,10 +563,10 @@ def _ensure_single_book_ledger(
                         f"retCode={resp.get('retCode')} retMsg={resp.get('retMsg')}",
                         flush=True,
                     )
-                except Exception as exc:  # noqa: BLE001
-                    out["ensure_tpsl"].append(
-                        {"side": side_name, "error": f"{type(exc).__name__}: {exc}"}
-                    )
+            except Exception as exc:  # noqa: BLE001
+                out["ensure_tpsl"].append(
+                    {"side": side_name, "error": f"{type(exc).__name__}: {exc}"}
+                )
     return out
 
 
@@ -850,25 +861,56 @@ def resolve_order_qty(
     instrument: InstrumentSpec,
     min_qty_fallback: float,
     force_min_exchange: bool = False,
+    sl_pct: float | None = None,
 ) -> tuple[float, dict[str, Any]]:
     """Base qty from pack sizing policy; mult applies (double-within-window).
 
-    Live bots always use venue minimum per pair (``force_min_exchange=True`` /
+    Live bots default to venue minimum per pair (``force_min_exchange=True`` /
     pack MIN_EXCHANGE). ``EQUITY_LEVERAGE_NOTIONAL`` is research-only — if a pack
     claims it under live force, it is forced to min and the detail records that.
+    ``RISK_FRACTION`` is never forced to min. Default floor-to-step and skip if
+    below the exchange minimum. Packs may set ``qty_round: nearest`` so the lot
+    tracks 5% stop-risk instead of collapsing to the venue minimum.
     """
     mode = str(sizing.get("mode") or "MIN_EXCHANGE").upper()
+    if mode in ("STOP_RISK_FRACTION", "PCT_EQUITY_AT_SL"):
+        mode = SIZING_MODE_RISK_FRACTION
     mult = max(float(size_mult), 0.0)
     detail: dict[str, Any] = {
         "sizing_mode": mode,
         "size_mult": mult,
         "equity_fraction": sizing.get("equity_fraction"),
+        "risk_fraction": sizing.get("risk_fraction"),
     }
     if force_min_exchange and mode == SIZING_MODE_EQUITY_LEVERAGE:
         detail["live_override"] = "force_MIN_EXCHANGE"
         detail["pack_sizing_ignored"] = mode
         mode = "MIN_EXCHANGE"
         detail["sizing_mode"] = mode
+
+    if mode == SIZING_MODE_RISK_FRACTION:
+        if equity is None or equity <= 0:
+            raise RuntimeError("risk_fraction sizing needs positive wallet equity")
+        stop = float(sl_pct) if sl_pct is not None else 0.0
+        if stop <= 0:
+            raise RuntimeError("risk_fraction sizing needs a positive stop-loss percent")
+        frac = float(sizing.get("risk_fraction") or DEFAULT_STOP_RISK_FRACTION)
+        sized = size_by_stop_risk(
+            equity=float(equity),
+            price=float(price),
+            sl_pct=stop,
+            instrument=instrument,
+            risk_fraction=frac,
+            size_mult=mult,
+            leverage=float(leverage),
+            qty_round=str(sizing.get("qty_round") or "floor"),
+        )
+        detail.update(sized)
+        detail["wallet_equity_usdt"] = float(equity)
+        detail["sl_pct"] = stop
+        detail["risk_fraction"] = frac
+        detail["sizing_mode"] = SIZING_MODE_RISK_FRACTION
+        return float(sized["qty"]), detail
 
     if mode == SIZING_MODE_EQUITY_LEVERAGE and not force_min_exchange:
         if equity is None or equity <= 0:
@@ -908,6 +950,25 @@ def _qty_str(qty: float) -> str:
     if "." not in qty_str:
         qty_str = f"{qty_str}.0"
     return qty_str
+
+
+def _list_open_orders(*, account: str, symbol: str) -> list[dict[str, Any]]:
+    """Resting limit orders (includes reduce-only Post-Only take-profit)."""
+    api_key, api_secret = _load_account_keys(account)
+    data = _bybit_signed_request(
+        api_key=api_key,
+        api_secret=api_secret,
+        method="GET",
+        path="/v5/order/realtime",
+        query={
+            "category": "linear",
+            "symbol": symbol.upper(),
+            "openOnly": "1",
+            "limit": "50",
+        },
+        recv="60000",
+    )
+    return list((data.get("result") or {}).get("list") or [])
 
 
 def _list_stop_orders(*, account: str, symbol: str) -> list[dict[str, Any]]:
@@ -984,18 +1045,40 @@ def _prune_partial_stops(
     return {"n_partials_before": len(partials) + len(cancelled), "cancelled": cancelled}
 
 
-def ensure_full_position_tpsl(
+def _tick_decimals(tick: float) -> int:
+    if tick >= 1:
+        return 0
+    text = f"{float(tick):.12f}".rstrip("0")
+    return len(text.split(".", 1)[1]) if "." in text else 0
+
+
+def _round_px(price: float, tick: float) -> float:
+    if tick <= 0:
+        return float(price)
+    return float(round(float(price) / tick) * tick)
+
+
+def _price_str(price: float, tick: float) -> str:
+    px = _round_px(price, tick)
+    return f"{px:.{_tick_decimals(tick)}f}"
+
+
+def _instrument_tick(symbol: str) -> float:
+    from tradesim import research_instrument
+
+    inst = research_instrument(symbol)
+    return float(getattr(inst, "tick_size", 0.01) or 0.01)
+
+
+def exit_bracket_prices(
     *,
-    account: str,
-    symbol: str,
     side: int,
     avg_price: float,
     tp_pct: float,
     sl_pct: float,
-) -> dict[str, Any]:
-    """Attach Full-mode trading-stop TP/SL to a hedge position (single-book path)."""
-    api_key, api_secret = _load_account_keys(account)
-    position_idx = 1 if side > 0 else 2
+    tick: float,
+) -> tuple[float, float]:
+    """Take-profit and stop prices from fill, rounded to the venue tick."""
     px = float(avg_price)
     if side > 0:
         take = px * (1.0 + float(tp_pct))
@@ -1003,6 +1086,137 @@ def ensure_full_position_tpsl(
     else:
         take = px * (1.0 - float(tp_pct))
         stop = px * (1.0 + float(sl_pct))
+    return _round_px(take, tick), _round_px(stop, tick)
+
+
+def _close_side(side: int) -> str:
+    return "Sell" if int(side) > 0 else "Buy"
+
+
+def _position_idx(side: int) -> int:
+    return 1 if int(side) > 0 else 2
+
+
+def _truthy(val: Any) -> bool:
+    return str(val).strip().lower() in {"1", "true", "yes"}
+
+
+def _px_close(a: Any, b: float, tick: float) -> bool:
+    try:
+        return abs(float(a) - float(b)) <= max(float(tick), 1e-12) * 1.51
+    except (TypeError, ValueError):
+        return False
+
+
+def _open_qty_for_side(*, account: str, symbol: str, side: int) -> float:
+    want = "Buy" if int(side) > 0 else "Sell"
+    for row in _position_list(account=account, symbol=symbol):
+        if str(row.get("side") or "") == want:
+            return float(row.get("size") or 0)
+    return 0.0
+
+
+def find_resting_postonly_tp(
+    orders: list[dict[str, Any]],
+    *,
+    close_side: str,
+    tp_px: float,
+    tick: float,
+    position_idx: int,
+) -> dict[str, Any] | None:
+    for row in orders:
+        if str(row.get("side") or "") != close_side:
+            continue
+        if str(row.get("orderType") or "") != "Limit":
+            continue
+        if str(row.get("timeInForce") or "") != "PostOnly":
+            continue
+        if not _truthy(row.get("reduceOnly")):
+            continue
+        idx = int(row.get("positionIdx") or 0)
+        if idx not in (0, int(position_idx)):
+            continue
+        if _px_close(row.get("price"), tp_px, tick):
+            return row
+    return None
+
+
+def find_reduce_only_stop_limit(
+    orders: list[dict[str, Any]],
+    *,
+    close_side: str,
+    sl_px: float,
+    tick: float,
+    position_idx: int,
+) -> dict[str, Any] | None:
+    for row in orders:
+        if str(row.get("side") or "") != close_side:
+            continue
+        if str(row.get("orderType") or "Limit") not in {"Limit", "limit"}:
+            continue
+        idx = int(row.get("positionIdx") or 0)
+        if idx not in (0, int(position_idx)):
+            continue
+        trig = row.get("triggerPrice") or row.get("stopOrderPrice") or 0
+        lim = row.get("price") or trig
+        if _px_close(trig, sl_px, tick) or _px_close(lim, sl_px, tick):
+            return row
+    return None
+
+
+def maker_exit_bracket_present(
+    *,
+    account: str,
+    symbol: str,
+    side: int,
+    avg_price: float,
+    tp_pct: float,
+    sl_pct: float,
+) -> bool:
+    """True when a Post-Only take-profit and a stop-limit stop are already working."""
+    tick = _instrument_tick(symbol)
+    tp_px, sl_px = exit_bracket_prices(
+        side=side, avg_price=avg_price, tp_pct=tp_pct, sl_pct=sl_pct, tick=tick
+    )
+    close = _close_side(side)
+    idx = _position_idx(side)
+    limits = _list_open_orders(account=account, symbol=symbol)
+    stops = _list_stop_orders(account=account, symbol=symbol)
+    tp = find_resting_postonly_tp(
+        limits, close_side=close, tp_px=tp_px, tick=tick, position_idx=idx
+    )
+    sl = find_reduce_only_stop_limit(
+        stops, close_side=close, sl_px=sl_px, tick=tick, position_idx=idx
+    )
+    return tp is not None and sl is not None
+
+
+def stop_trigger_px_from_open_orders(
+    *,
+    account: str,
+    symbol: str,
+    side: int,
+) -> float:
+    """Mark-trigger of the working reduce-only stop-limit, else 0."""
+    close = _close_side(side)
+    idx = _position_idx(side)
+    for row in _list_stop_orders(account=account, symbol=symbol):
+        if str(row.get("side") or "") != close:
+            continue
+        if int(row.get("positionIdx") or 0) not in (0, idx):
+            continue
+        try:
+            trig = float(row.get("triggerPrice") or row.get("price") or 0)
+        except (TypeError, ValueError):
+            continue
+        if trig > 0:
+            return trig
+    return 0.0
+
+
+def clear_full_trading_stop(*, account: str, symbol: str, side: int) -> dict[str, Any]:
+    """Cancel Bybit Full-mode position TP/SL (those fire as market / taker)."""
+    api_key, api_secret = _load_account_keys(account)
     return _bybit_signed_request(
         api_key=api_key,
         api_secret=api_secret,
@@ -1011,13 +1225,169 @@ def ensure_full_position_tpsl(
         body={
             "category": "linear",
             "symbol": symbol.upper(),
-            "takeProfit": f"{take:.2f}",
-            "stopLoss": f"{stop:.2f}",
-            "tpTriggerBy": "MarkPrice",
-            "slTriggerBy": "MarkPrice",
+            "takeProfit": "0",
+            "stopLoss": "0",
             "tpslMode": "Full",
-            "positionIdx": position_idx,
+            "positionIdx": _position_idx(side),
         },
+    )
+
+
+def place_maker_exit_bracket(
+    *,
+    account: str,
+    symbol: str,
+    side: int,
+    avg_price: float,
+    tp_pct: float,
+    sl_pct: float,
+    qty: float | None = None,
+) -> dict[str, Any]:
+    """Resting Post-Only take-profit + reduce-only stop-limit stop.
+
+    Bybit Full-mode ``trading-stop`` only supports Market exits (taker). Do not
+    use it. Place independent reduce-only orders instead, then cancel any Full
+    trading-stop so it cannot fire a market close.
+    """
+    tick = _instrument_tick(symbol)
+    tp_px, sl_px = exit_bracket_prices(
+        side=side, avg_price=avg_price, tp_pct=tp_pct, sl_pct=sl_pct, tick=tick
+    )
+    close = _close_side(side)
+    idx = _position_idx(side)
+    size = float(qty) if qty is not None and float(qty) > 0 else _open_qty_for_side(
+        account=account, symbol=symbol, side=side
+    )
+    if size <= 0:
+        return {
+            "retCode": 1,
+            "retMsg": "maker_exit_bracket needs positive position qty",
+            "mode": "maker_exit_bracket",
+            "tp_price": tp_px,
+            "sl_price": sl_px,
+        }
+    api_key, api_secret = _load_account_keys(account)
+    qty_s = _qty_str(size)
+    tp_s = _price_str(tp_px, tick)
+    sl_s = _price_str(sl_px, tick)
+    limits = _list_open_orders(account=account, symbol=symbol)
+    stops = _list_stop_orders(account=account, symbol=symbol)
+    tp_row = find_resting_postonly_tp(
+        limits, close_side=close, tp_px=tp_px, tick=tick, position_idx=idx
+    )
+    sl_row = find_reduce_only_stop_limit(
+        stops, close_side=close, sl_px=sl_px, tick=tick, position_idx=idx
+    )
+    tp_resp: dict[str, Any]
+    sl_resp: dict[str, Any]
+    if tp_row is not None:
+        tp_resp = {
+            "retCode": 0,
+            "retMsg": "already_resting_postonly_tp",
+            "result": {"orderId": tp_row.get("orderId")},
+            "skipped": True,
+        }
+    else:
+        tp_body = {
+            "category": "linear",
+            "symbol": symbol.upper(),
+            "side": close,
+            "orderType": "Limit",
+            "qty": qty_s,
+            "price": tp_s,
+            "timeInForce": "PostOnly",
+            "reduceOnly": True,
+            "positionIdx": idx,
+        }
+        tp_resp = _bybit_signed_request(
+            api_key=api_key,
+            api_secret=api_secret,
+            method="POST",
+            path="/v5/order/create",
+            body=tp_body,
+        )
+        tp_resp = {**tp_resp, "request": tp_body}
+    if sl_row is not None:
+        sl_resp = {
+            "retCode": 0,
+            "retMsg": "already_stop_limit",
+            "result": {"orderId": sl_row.get("orderId")},
+            "skipped": True,
+        }
+    else:
+        sl_body = {
+            "category": "linear",
+            "symbol": symbol.upper(),
+            "side": close,
+            "orderType": "Limit",
+            "qty": qty_s,
+            "price": sl_s,
+            "triggerPrice": sl_s,
+            "triggerBy": "MarkPrice",
+            "triggerDirection": 2 if int(side) > 0 else 1,
+            "timeInForce": "GTC",
+            "reduceOnly": True,
+            "closeOnTrigger": True,
+            "positionIdx": idx,
+        }
+        sl_resp = _bybit_signed_request(
+            api_key=api_key,
+            api_secret=api_secret,
+            method="POST",
+            path="/v5/order/create",
+            body=sl_body,
+        )
+        sl_resp = {**sl_resp, "request": sl_body}
+    tp_ok = _bybit_retcode(tp_resp) == 0
+    sl_ok = _bybit_retcode(sl_resp) == 0
+    cleared: dict[str, Any] = {}
+    if sl_ok:
+        try:
+            cleared = clear_full_trading_stop(account=account, symbol=symbol, side=side)
+        except Exception as exc:  # noqa: BLE001
+            cleared = {"error": f"{type(exc).__name__}: {exc}"}
+    return {
+        "retCode": 0 if sl_ok else int(_bybit_retcode(sl_resp) or 1),
+        "retMsg": (
+            "OK"
+            if tp_ok and sl_ok
+            else ("stop_ok_tp_failed" if sl_ok else str(sl_resp.get("retMsg") or "sl_failed"))
+        ),
+        "mode": "maker_exit_bracket",
+        "tp_ok": tp_ok,
+        "sl_ok": sl_ok,
+        "tp_price": tp_px,
+        "sl_price": sl_px,
+        "tp": tp_resp,
+        "sl": sl_resp,
+        "cleared_trading_stop": cleared,
+        "qty": size,
+    }
+
+
+def ensure_full_position_tpsl(
+    *,
+    account: str,
+    symbol: str,
+    side: int,
+    avg_price: float,
+    tp_pct: float,
+    sl_pct: float,
+    qty: float | None = None,
+) -> dict[str, Any]:
+    """Protect a filled hedge book: Post-Only take-profit + stop-limit stop.
+
+    Kept name for callers. Bybit Full trading-stop is Market-only (taker) and
+    must not be used as the live product.
+    """
+    return place_maker_exit_bracket(
+        account=account,
+        symbol=symbol,
+        side=side,
+        avg_price=avg_price,
+        tp_pct=tp_pct,
+        sl_pct=sl_pct,
+        qty=qty,
     )
 
 
@@ -1127,28 +1497,15 @@ def place_min_order(
             body=body,
         )
         if _bybit_retcode(order) == 0:
-            stops = _bybit_signed_request(
-                api_key=api_key,
-                api_secret=api_secret,
-                method="POST",
-                path="/v5/position/trading-stop",
-                body={
-                    "category": "linear",
-                    "symbol": symbol.upper(),
-                    "takeProfit": f"{take:.2f}",
-                    "stopLoss": f"{stop:.2f}",
-                    "tpTriggerBy": "MarkPrice",
-                    "slTriggerBy": "MarkPrice",
-                    "tpslMode": "Full",
-                    "positionIdx": position_idx,
-                },
+            stops = ensure_full_position_tpsl(
+                account=account,
+                symbol=symbol,
+                side=side,
+                avg_price=float(last),
+                tp_pct=float(tp_pct),
+                sl_pct=float(sl_pct),
+                qty=float(qty),
             )
-            stops = {
-                **stops,
-                "mode": "full_trading_stop",
-                "take": take,
-                "stop": stop,
-            }
             if _bybit_retcode(stops) != 0:
                 # Protection missing after fill — flatten immediately.
                 try:
@@ -1160,11 +1517,11 @@ def place_min_order(
                 stops = {
                     **stops,
                     "fail_closed_flatten": flat,
-                    "take": take,
-                    "stop": stop,
+                    "take": stops.get("tp_price"),
+                    "stop": stops.get("sl_price"),
                 }
         else:
-            stops = {"mode": "full_trading_stop_skipped", "order_retCode": order.get("retCode")}
+            stops = {"mode": "maker_exit_bracket_skipped", "order_retCode": order.get("retCode")}
     return {
         "order": order,
         "stops": stops,

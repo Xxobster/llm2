@@ -1,0 +1,41 @@
+# Diagonal S/R Generation C — nested settle of hunt 001 inner survivors
+# RESEARCH_ONLY. Frozen list. Do not add arms after viewing these numbers.
+generation_id: diagonal_sr_nested_settle_001
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-22T06:05:00Z"
+parent_hunt: diagonal_sr_autonomous_hunt_001
+rank_window: stitched_outer_oos_pre_lockbox
+fold_geometry: v2
+lockbox: do_not_rank_on_or_after_2026-05-01
+failure_is_success: true
+entry_bar_exit_rate_cap: 0.35
+min_pooled_trades: 50
+min_trades_per_month: 4
+pooled_profit_factor_gate: 1.20
+
+hypothesis: >
+  The eleven rule-event arms that cleared the hunt-001 inner chronological
+  test also clear Frozen V2.1-style stitched outer-out-of-sample on the
+  same causal occurrence bits, without refitting a model.
+
+survivors:
+  - {symbol: BTCUSDT, timeframe: 1h, generation: B, event: confluence_bounce_long, tp: 0.01, sl: 0.01}
+  - {symbol: BTCUSDT, timeframe: 1h, generation: A, event: channel_walk_long, tp: 0.01, sl: 0.01}
+  - {symbol: BTCUSDT, timeframe: 1h, generation: A, event: bounce_lower, tp: 0.01, sl: 0.01}
+  - {symbol: BTCUSDT, timeframe: 1h, generation: A, event: bounce_upper, tp: 0.01, sl: 0.01}
+  - {symbol: ETHUSDT, timeframe: 1h, generation: A, event: bounce_lower, tp: 0.015, sl: 0.01}
+  - {symbol: BTCUSDT, timeframe: 1h, generation: B, event: confluence_bounce_short, tp: 0.01, sl: 0.01}
+  - {symbol: ETHUSDT, timeframe: 1h, generation: A, event: channel_walk_short, tp: 0.015, sl: 0.01}
+  - {symbol: ETHUSDT, timeframe: 1h, generation: A, event: channel_walk_long, tp: 0.015, sl: 0.01}
+  - {symbol: ETHUSDT, timeframe: 1h, generation: A, event: bounce_upper, tp: 0.015, sl: 0.01}
+  - {symbol: SOLUSDT, timeframe: 1h, generation: A, event: bounce_upper, tp: 0.015, sl: 0.01}
+  - {symbol: SOLUSDT, timeframe: 15m, generation: B, event: confluence_bounce_short, tp: 0.01, sl: 0.01}
+
+do_not:
+  - add survivors after viewing settle profit factor
+  - peep lockbox 2026-05-01+
+  - deploy or restart VPS
+  - treat inner-test numbers as nested evidence
+
+preregister_sha256_at_run: fccb7059e07829a250f3607bc7add5c1b2c217c6541d6eb8fd7a1f24380ac366

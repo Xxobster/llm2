@@ -1,0 +1,181 @@
+﻿=== ln3 COLLECTOR ===
+  UNIT                                         LOAD   ACTIVE SUB     DESCRIPTION
+  botsgeneral-collector@185.203.119.52.service loaded active running botsgeneral shared candle collector
+
+LOAD   = Reflects whether the unit definition was properly loaded.
+ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
+SUB    = The low-level unit activation state, values depend on unit type.
+1 loaded units listed.
+collector=botsgeneral-collector@185.203.119.52.service active=active
+2026-08-05 19:11:27,416 INFO botsgeneral.fetch.binance_rest: Binance fetched 3 bars for binance:ETHUSDT:1h (market_data Last)
+2026-08-05 19:11:27,746 INFO botsgeneral.fetch.binance_rest: Binance fetched 3 bars for binance:SOLUSDT:1w (market_data Last)
+2026-08-05 19:12:28,474 INFO botsgeneral.fetch.binance_rest: Binance fetched 5 bars for binance:BTCUSDT:1h (market_data Last)
+2026-08-05 19:12:28,839 INFO botsgeneral.fetch.binance_rest: Binance fetched 5 bars for binance:BTCUSDT:1w (market_data Last)
+2026-08-05 19:12:29,174 INFO botsgeneral.fetch.binance_rest: Binance fetched 5 bars for binance:BTCUSDT:4h (market_data Last)
+2026-08-05 19:12:29,521 INFO botsgeneral.fetch.binance_rest: Binance fetched 5 bars for binance:ETHUSDT:1h (market_data Last)
+2026-08-05 19:12:29,979 INFO botsgeneral.fetch.binance_rest: Binance fetched 5 bars for binance:ETHUSDT:1w (market_data Last)
+2026-08-05 19:12:30,316 INFO botsgeneral.fetch.binance_rest: Binance fetched 5 bars for binance:ETHUSDT:4h (market_data Last)
+2026-08-05 19:12:30,677 INFO botsgeneral.fetch.binance_rest: Binance fetched 5 bars for binance:SOLUSDT:1h (market_data Last)
+2026-08-05 19:12:31,010 INFO botsgeneral.fetch.binance_rest: Binance fetched 5 bars for binance:SOLUSDT:1w (market_data Last)
+2026-08-05 19:12:31,347 INFO botsgeneral.fetch.binance_rest: Binance fetched 5 bars for binance:SOLUSDT:4h (market_data Last)
+2026-08-05 19:12:31,682 INFO botsgeneral.fetch.binance_rest: Binance fetched 3 bars for binance:BTCUSDT:1w (market_data Last)
+2026-08-05 19:12:32,164 INFO botsgeneral.fetch.binance_rest: Binance fetched 3 bars for binance:SOLUSDT:4h (market_data Last)
+2026-08-05 19:12:32,497 INFO botsgeneral.fetch.binance_rest: Binance fetched 3 bars for binance:SOLUSDT:1h (market_data Last)
+2026-08-05 19:12:32,826 INFO botsgeneral.fetch.binance_rest: Binance fetched 3 bars for binance:ETHUSDT:1w (market_data Last)
+2026-08-05 19:12:33,150 INFO botsgeneral.fetch.binance_rest: Binance fetched 3 bars for binance:BTCUSDT:4h (market_data Last)
+2026-08-05 19:12:33,484 INFO botsgeneral.fetch.binance_rest: Binance fetched 3 bars for binance:BTCUSDT:1h (market_data Last)
+2026-08-05 19:12:33,815 INFO botsgeneral.fetch.binance_rest: Binance fetched 3 bars for binance:ETHUSDT:4h (market_data Last)
+2026-08-05 19:12:34,147 INFO botsgeneral.fetch.binance_rest: Binance fetched 3 bars for binance:ETHUSDT:1h (market_data Last)
+2026-08-05 19:12:34,480 INFO botsgeneral.fetch.binance_rest: Binance fetched 3 bars for binance:SOLUSDT:1w (market_data Last)
+2026-08-05 19:13:35,096 INFO botsgeneral.fetch.binance_rest: Binance fetched 5 bars for binance:BTCUSDT:1h (market_data Last)
+2026-08-05 19:13:35,430 INFO botsgeneral.fetch.binance_rest: Binance fetched 5 bars for binance:BTCUSDT:1w (market_data Last)
+2026-08-05 19:13:35,778 INFO botsgeneral.fetch.binance_rest: Binance fetched 5 bars for binance:BTCUSDT:4h (market_data Last)
+2026-08-05 19:13:36,162 INFO botsgeneral.fetch.binance_rest: Binance fetched 5 bars for binance:ETHUSDT:1h (market_data Last)
+2026-08-05 19:13:36,516 INFO botsgeneral.fetch.binance_rest: Binance fetched 5 bars for binance:ETHUSDT:1w (market_data Last)
+2026-08-05 19:13:36,835 INFO botsgeneral.fetch.binance_rest: Binance fetched 5 bars for binance:ETHUSDT:4h (market_data Last)
+2026-08-05 19:13:37,190 INFO botsgeneral.fetch.binance_rest: Binance fetched 5 bars for binance:SOLUSDT:1h (market_data Last)
+2026-08-05 19:13:37,522 INFO botsgeneral.fetch.binance_rest: Binance fetched 5 bars for binance:SOLUSDT:1w (market_data Last)
+2026-08-05 19:13:37,887 INFO botsgeneral.fetch.binance_rest: Binance fetched 5 bars for binance:SOLUSDT:4h (market_data Last)
+2026-08-05 19:13:38,679 INFO botsgeneral.fetch.binance_rest: Binance fetched 3 bars for binance:BTCUSDT:1w (market_data Last)
+=== ln3 LLM2 UNITS ===
+n_units=2
+{
+  "shared_tips": {
+    "BTCUSDT:1h": {
+      "n": 60548,
+      "ts_ms": 1785931200000,
+      "utc": "2026-08-05T12:00:00+00:00",
+      "ohlc": [
+        64044.7,
+        64115.6,
+        64003.0,
+        64115.6
+      ],
+      "volume": 480.249,
+      "forming": true,
+      "age_after_close_s": -2781.027
+    },
+    "BTCUSDT:4h": {
+      "n": 15138,
+      "ts_ms": 1785931200000,
+      "utc": "2026-08-05T12:00:00+00:00",
+      "ohlc": [
+        64044.7,
+        64115.6,
+        64003.0,
+        64115.6
+      ],
+      "volume": 480.249,
+      "forming": true,
+      "age_after_close_s": -13581.027
+    },
+    "BTCUSDT:1w": {
+      "n": 362,
+      "ts_ms": 1785715200000,
+      "utc": "2026-08-03T00:00:00+00:00",
+      "ohlc": [
+        63550.0,
+        64512.9,
+        62268.2,
+        64115.6
+      ],
+      "volume": 336514.977,
+      "forming": true,
+      "age_after_close_s": -387981.027
+    },
+    "ETHUSDT:1h": {
+      "n": 58638,
+      "ts_ms": 1785931200000,
+      "utc": "2026-08-05T12:00:00+00:00",
+      "ohlc": [
+        1867.93,
+        1870.21,
+        1866.48,
+        1869.99
+      ],
+      "volume": 14948.735,
+      "forming": true,
+      "age_after_close_s": -2781.027
+    },
+    "ETHUSDT:4h": {
+      "n": 14661,
+      "ts_ms": 1785931200000,
+      "utc": "2026-08-05T12:00:00+00:00",
+      "ohlc": [
+        1867.93,
+        1870.21,
+        1866.48,
+        1869.99
+      ],
+      "volume": 14956.076,
+      "forming": true,
+      "age_after_close_s": -13581.027
+    },
+    "ETHUSDT:1w": {
+      "n": 350,
+      "ts_ms": 1785715200000,
+      "utc": "2026-08-03T00:00:00+00:00",
+      "ohlc": [
+        1884.38,
+        1885.16,
+        1827.18,
+        1869.99
+      ],
+      "volume": 7648498.808,
+      "forming": true,
+      "age_after_close_s": -387981.027
+    },
+    "SOLUSDT:1h": {
+      "n": 51630,
+      "ts_ms": 1785931200000,
+      "utc": "2026-08-05T12:00:00+00:00",
+      "ohlc": [
+        73.74,
+        73.81,
+        73.67,
+        73.81
+      ],
+      "volume": 81204.59,
+      "forming": true,
+      "age_after_close_s": -2781.027
+    },
+    "SOLUSDT:4h": {
+      "n": 12909,
+      "ts_ms": 1785931200000,
+      "utc": "2026-08-05T12:00:00+00:00",
+      "ohlc": [
+        73.74,
+        73.81,
+        73.67,
+        73.8
+      ],
+      "volume": 81177.04,
+      "forming": true,
+      "age_after_close_s": -13581.027
+    },
+    "SOLUSDT:1w": {
+      "n": 308,
+      "ts_ms": 1785715200000,
+      "utc": "2026-08-03T00:00:00+00:00",
+      "ohlc": [
+        73.61,
+        74.47,
+        71.87,
+        73.81
+      ],
+      "volume": 33469272.84,
+      "forming": true,
+      "age_after_close_s": -387981.027
+    }
+  }
+}
+---- llm2-structure-eth-k5-double3h-p75-v1.service ----
+active=active
+wd=/opt/llm2-structure-eth-k5-double3h-p75-v1 source=binance shared=/var/lib/botsgeneral/shared_candles.db indicators=/opt/llm2-structure-eth-k5-double3h-p75-v1/pack/indicators_live_slice.sqlite
+bar_features: [{"symbol": "ETHUSDT", "tf": "1h", "source": "binance", "n": 58637, "min": 1574838000000, "max": 1785927600000}, {"symbol": "ETHUSDT", "tf": "1h", "source": "bybit", "n": 800, "min": 1782900000000, "max": 1785776400000}, {"symbol": "ETHUSDT", "tf": "1w", "source": "binance", "n": 349, "min": 1574640000000, "max": 1785110400000}, {"symbol": "ETHUSDT", "tf": "1w", "source": "bybit", "n": 282, "min": 1615766400000, "max": 1785715200000}, {"symbol": "ETHUSDT", "tf": "4h", "source": "binance", "n": 14660, "min": 1574827200000, "max": 1785916800000}, {"symbol": "ETHUSDT", "tf": "4h", "source": "bybit", "n": 800, "min": 1774267200000, "max": 1785772800000}]
+depth_ok_1h=True n=58637
+---- llm2-structure-eth-multitrade-p75-v1.service ----
+active=active
+wd=/opt/llm2-structure-eth-multitrade-p75-v1 source=binance shared=/var/lib/botsgeneral/shared_candles.db indicators=/opt/llm2-structure-eth-multitrade-p75-v1/pack/indicators_live_slice.sqlite
+bar_features: [{"symbol": "ETHUSDT", "tf": "1h", "source": "binance", "n": 58637, "min": 1574838000000, "max": 1785927600000}, {"symbol": "ETHUSDT", "tf": "1h", "source": "bybit", "n": 800, "min": 1782900000000, "max": 1785776400000}, {"symbol": "ETHUSDT", "tf": "1w", "source": "binance", "n": 349, "min": 1574640000000, "max": 1785110400000}, {"symbol": "ETHUSDT", "tf": "1w", "source": "bybit", "n": 282, "min": 1615766400000, "max": 1785715200000}, {"symbol": "ETHUSDT", "tf": "4h", "source": "binance", "n": 14660, "min": 1574827200000, "max": 1785916800000}, {"symbol": "ETHUSDT", "tf": "4h", "source": "bybit", "n": 800, "min": 1774267200000, "max": 1785772800000}]
+depth_ok_1h=True n=58637

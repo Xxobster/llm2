@@ -1,0 +1,117 @@
+{
+  "evidence_class": "LIVE_PRED_DIVERGENCE_DIAGNOSTIC",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "bar_ts": "2026-08-03T16:00:00+00:00",
+  "live_ledger_pred_mean": 0.4560721581125096,
+  "live_ledger_side": 1,
+  "model_sha256": "7e826c63aa8537fd0cd358c5f65556e75a2e7d48cac4f02ac2f70ffb8f8baa38",
+  "path_warehouse_pred_mean": -0.3099441701387499,
+  "path_trunc800_live_like_pred_mean": 0.40215836953788225,
+  "abs_live_vs_warehouse": 0.7660163282512595,
+  "abs_live_vs_trunc800": 0.053913788574627364,
+  "trunc800_matches_live": false,
+  "warehouse_matches_live": false,
+  "n_feature_mismatches_wh_vs_trunc": 16,
+  "top_feature_diffs": [
+    {
+      "column": "last_retrace_pct",
+      "warehouse": 0.6846990188278947,
+      "trunc800": null,
+      "abs_diff": null
+    },
+    {
+      "column": "last_retrace_pct_1w",
+      "warehouse": 1.4957780867442096,
+      "trunc800": null,
+      "abs_diff": null
+    },
+    {
+      "column": "sr_asymmetry",
+      "warehouse": 0.9259259259259882,
+      "trunc800": 0.37037037037033915,
+      "abs_diff": 0.5555555555556491
+    },
+    {
+      "column": "dist_support_pct_vol",
+      "warehouse": 0.002195237151571337,
+      "trunc800": 0.05597854736511891,
+      "abs_diff": 0.053783310213547576
+    },
+    {
+      "column": "sr_asymmetry_4h",
+      "warehouse": 0.6764705882352843,
+      "trunc800": 0.7238442822384459,
+      "abs_diff": 0.047373694003161604
+    },
+    {
+      "column": "dist_resistance_pct_vol",
+      "warehouse": 0.027440464394666672,
+      "trunc800": 0.03292855727359495,
+      "abs_diff": 0.005488092878928277
+    },
+    {
+      "column": "dist_support_pct",
+      "warehouse": 1.072092886126679e-05,
+      "trunc800": 0.00027338368596254695,
+      "abs_diff": 0.00026266275710128015
+    },
+    {
+      "column": "dist_resistance_pct",
+      "warehouse": 0.00013401161076595676,
+      "trunc800": 0.00016081393291912373,
+      "abs_diff": 2.6802322153166968e-05
+    },
+    {
+      "column": "last_leg_len_pct_vol",
+      "warehouse": 4.1637718139462505,
+      "trunc800": 4.1637718139462425,
+      "abs_diff": 7.993605777301127e-15
+    },
+    {
+      "column": "dist_last_sl_pct_vol",
+      "warehouse": 3.281879541602144,
+      "trunc800": 3.281879541602138,
+      "abs_diff": 6.217248937900877e-15
+    },
+    {
+      "column": "dist_fib_0786_pct_vol",
+      "warehouse": -2.396107936653749,
+      "trunc800": -2.396107936653744,
+      "abs_diff": 4.884981308350689e-15
+    },
+    {
+      "column": "dist_fib_0618_pct_vol",
+      "warehouse": -1.700735835572772,
+      "trunc800": -1.7007358355727686,
+      "abs_diff": 3.3306690738754696e-15
+    },
+    {
+      "column": "dist_fib_0500_pct_vol",
+      "warehouse": -1.2123197169563815,
+      "trunc800": -1.212319716956379,
+      "abs_diff": 2.4424906541753444e-15
+    },
+    {
+      "column": "dist_last_sh_pct_vol",
+      "warehouse": -0.8572401076893809,
+      "trunc800": -0.8572401076893792,
+      "abs_diff": 1.6653345369377348e-15
+    },
+    {
+      "column": "dist_fib_0382_pct_vol",
+      "warehouse": -0.723903598339991,
+      "trunc800": -0.7239035983399896,
+      "abs_diff": 1.3322676295501878e-15
+    }
+  ],
+  "root_cause_hypothesis": "Live refresh_symbol(limit=800) deletes/rebuilds structure from only the last 800 OHLCV bars each decision hour. Confirmed-swing geometry on a truncated window differs from the full-history warehouse; decisions store no feature snapshot so past decide-time rows are lost.",
+  "generated_utc": "2026-08-05T09:41:39.533982+00:00",
+  "conclusion": {
+    "primary_cause": "truncated_structure_refresh_limit_800_wipe_rebuild",
+    "sign_flip_proven": true,
+    "residual_abs_vs_live": 0.0539,
+    "no_feature_snapshot_at_decide_time": true,
+    "fix": "refresh_symbol(limit=None)+MIN_STRUCTURE_HISTORY+feature_snapshot",
+    "deployed": false
+  }
+}

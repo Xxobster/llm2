@@ -1,0 +1,149 @@
+# Diagonal support/resistance autonomous hunt 001
+# RESEARCH_ONLY. Not live. Frozen before any profit-factor ranking.
+#
+# Hypothesis: causal diagonal lines through confirmed swing highs/lows
+# (last-two, OLS-3/5, parallel channel, min-3-touch validated), optionally
+# combined with confirmed horizontal levels, contain a post-cost edge when
+# traded as bounce / break / retest / channel-walk events under pi-star.
+generation_id: diagonal_sr_autonomous_hunt_001
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-21T03:45:00Z"
+rank_by: expectancy_intent_all
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+oracle_arms: never_promote
+lockbox: do_not_rank_on_or_after_2026-05-01
+failure_is_success: true
+min_test_trades_to_quote: 12
+min_test_trades_to_flag: 50
+min_trades_per_month: 4
+max_trades_per_month:
+  15m: 40
+  1h: 20
+  4h: 12
+
+hypothesis: >
+  Causal diagonal support and resistance drawn through confirmed swings,
+  alone and in confluence with confirmed horizontal levels, can produce a
+  calibrated P(event) head that beats a same-bracket no-edge baseline on
+  inner chronological test intent expectancy without collapsing profit
+  factor or violating the entry-bar exit rate cap.
+
+economic_rationale: >
+  Traders treat multi-touch descending/ascending lines and parallel channels
+  as psychological barriers. A close-through plus retest (polarity flip) is
+  the classic confirmation. Higher-timeframe lines must only become visible
+  after that higher-timeframe candle closes. Tight 0.5 percent / 0.5 percent
+  15-minute brackets remain a labeled never-promote negative control because
+  the stop sits inside single-bar noise.
+
+universe:
+  symbols: [ETHUSDT, SOLUSDT, BTCUSDT]
+  decision_timeframes: [15m, 1h, 4h]
+  geometry_context:
+    15m: [1h, 4h]
+    1h: [4h, 1d]
+    4h: [1d]
+  source: binance
+  research_proxy: true
+
+horizons_bars: [4, 8]
+work_bars:
+  15m: 4
+  1h: 3
+  4h: 2
+max_hold_bars:
+  15m: 6
+  1h: 8
+  4h: 6
+
+constructions:
+  - last2_high
+  - last2_low
+  - ols3_high
+  - ols3_low
+  - ols5_high
+  - ols5_low
+  - parallel_channel
+  - validated_min3_high
+  - validated_min3_low
+placebos:
+  - donchian20
+  - trailing_range_40_60
+  - shuffled_slope_last2
+
+events_gen_a:
+  - bounce_upper
+  - bounce_lower
+  - break_upper
+  - break_lower
+  - retest_after_break_up
+  - retest_after_break_down
+  - channel_walk_long
+  - channel_walk_short
+
+events_gen_b:
+  - confluence_bounce_long
+  - confluence_bounce_short
+  - confluence_break_up
+  - confluence_break_down
+
+brackets_15m_1h:
+  - {tp: 0.010, sl: 0.010}
+  - {tp: 0.015, sl: 0.010}
+  - {tp: 0.020, sl: 0.010}
+  - {tp: 0.010, sl: 0.015}
+  - {tp: 0.020, sl: 0.020}
+brackets_4h_extra:
+  - {tp: 0.030, sl: 0.020}
+never_promote_brackets:
+  - {tp: 0.005, sl: 0.005, reason: entry_bar_noise_control}
+
+models:
+  - lgbm
+  - lgbm_shallow
+  - ridge
+
+modes:
+  - rule_event
+  - standalone_pi_star
+  - filter_pi_star
+
+gates:
+  predicted: p_hat_ge_pi_star_of_that_bracket
+  model: train_only_isotonic_last_20pct_of_train
+  screening:
+    - entry_bar_exit_rate_le_0.35
+    - trades_per_month_ge_4
+    - trades_per_month_le_tf_cap
+    - n_trades_ge_50_to_flag
+    - beats_same_bracket_rule_or_placebo_control
+
+supervisor_order:
+  - gen_a_diagonal_only
+  - gen_b_diagonal_plus_horizontal
+  - gen_c_nested_settle_flagged_only
+
+selection:
+  inner_train_fit_only: true
+  test_window_score_once: true
+  train_test_sqlite_split: true
+  do_not_peep_lockbox: true
+
+costs: >
+  tradesim research_costs_baseline: Bybit non-VIP taker 0.055 percent per fill
+  on market/stop; resting LIMIT entry maker 0.02 percent if it rests.
+  Exit taker until maker-exit evidence is proven. No exit slip on limit
+  Take-Profit / Stop-Loss touch. Funding at historical settlements while open.
+
+do_not:
+  - expand events or constructions after viewing test profit factor
+  - peep lockbox 2026-05-01+ for ranking or Finplot
+  - join warehouse structure_v1 / macro_v1 without FOUR_PROOF_GATE_V1
+  - promote 0.5/0.5 fifteen-minute brackets
+  - deploy, restart VPS, or swap live packs
+  - relax Frozen V2.1 after seeing test numbers
+  - use language-model outputs as trade signals
+
+preregister_sha256_at_run: 7abfb35f65b5fc004ce3b0087bb41558b7bfa207f48a090fefee56a7af5102f5

@@ -1,0 +1,916 @@
+{
+  "xgb": {
+    "procs": [],
+    "audits": {
+      "btcusdt_first_touch_live_audit.json": {
+        "verdict": "RESEARCH_ONLY_BACKTEST",
+        "live_ready": false,
+        "tp_pct": 0.01,
+        "sl_pct": 0.02,
+        "fee_model": "bybit_maker_0.02pct",
+        "screen_pf": 5.570054766700948,
+        "lockbox_pf": null
+      },
+      "ethusdt_first_touch_live_audit.json": {
+        "verdict": "RESEARCH_ONLY_BACKTEST",
+        "live_ready": 0,
+        "tp_pct": 0.04,
+        "sl_pct": 0.04,
+        "fee_model": "bybit_taker_entry_taker_tpsl_no_exit_slip",
+        "screen_pf": null,
+        "lockbox_pf": 1.345849685107442
+      },
+      "live_trades_summary.json": {
+        "generated_utc": "2026-07-25T08:03:18.837750+00:00",
+        "jobs": {
+          "btcusdt": {
+            "symbol": "BTCUSDT",
+            "trial": "0c8975ef2819",
+            "since": "2026-07-20",
+            "closed_trades": 3,
+            "executions": 6,
+            "total_closed_pnl": 0.153605,
+            "earliest": "2026-07-23T11:00:06.316000+00:00",
+            "latest": "2026-07-24T02:01:33.648000+00:00",
+            "open_size": "0"
+          },
+          "ethusdt": {
+            "symbol": "ETHUSDT",
+            "trial": "e8895d051627",
+            "since": "2026-07-22",
+            "closed_trades": 15,
+            "executions": 37,
+            "total_closed_pnl": 0.242188,
+            "earliest": "2026-07-23T11:00:06.330000+00:00",
+            "latest": "2026-07-24T01:00:05.633000+00:00",
+            "open_size": "0.01"
+          }
+        }
+      }
+    },
+    "state_dbs": {}
+  },
+  "tsm_vpa": {
+    "pack_id": "shadow_xrp_sol_stack2_rr15_v1",
+    "readiness_earned": "LIVE_STOP / RESEARCH_ONLY",
+    "mode": "SHADOW_ONLY",
+    "strategy": {
+      "name": "stack2_rr15",
+      "min_stack": 2,
+      "min_rr": 1.5,
+      "include_shorts": true,
+      "trend_ma_len": 0,
+      "core_patterns_only": false,
+      "max_hold_bars": 20
+    },
+    "symbols": [
+      "XRPUSDT",
+      "SOLUSDT"
+    ],
+    "timeframe": "1d",
+    "candles_exchange": null,
+    "freeze_ref": null,
+    "evidence_contamination": {
+      "symbol_selection": "OOS_USED_FOR_SELECTION",
+      "note": "XRPUSDT and SOLUSDT were chosen after viewing nested outer OOS. Those OOS slices are contaminated for untouched claims on these symbols."
+    },
+    "freeze_paths_found": [
+      "/opt/tsm-vpa/configs/shadow_xrp_sol_stack2_rr15_v1.json",
+      "/opt/tsm-vpa/src/vpa/shadow.py",
+      "/opt/tsm-vpa/src/vpa/__pycache__/shadow.cpython-314.pyc",
+      "/opt/tsm-vpa/scripts/run_shadow.py"
+    ],
+    "dbs": [
+      {
+        "path": "/opt/tsm-vpa/data/live/XRPUSDT_state.sqlite",
+        "exists": true,
+        "tables": [
+          "handled_entries",
+          "open_trades",
+          "events",
+          "sqlite_sequence"
+        ],
+        "samples": {
+          "handled_entries": {
+            "n": 0,
+            "tail": []
+          },
+          "open_trades": {
+            "n": 0,
+            "tail": []
+          },
+          "events": {
+            "n": 6,
+            "tail": [
+              {
+                "cols": [
+                  "id",
+                  "ts_utc",
+                  "symbol",
+                  "kind",
+                  "detail_json"
+                ],
+                "row": [
+                  "6",
+                  "2026-07-25T07:12:49Z",
+                  "XRPUSDT",
+                  "bootstrap",
+                  "{\"bars\": 1900, \"candles_ok\": true, \"reason\": \"ok\"}"
+                ]
+              },
+              {
+                "cols": [
+                  "id",
+                  "ts_utc",
+                  "symbol",
+                  "kind",
+                  "detail_json"
+                ],
+                "row": [
+                  "5",
+                  "2026-07-25T07:04:55Z",
+                  "XRPUSDT",
+                  "bootstrap",
+                  "{\"bars\": 1900, \"candles_ok\": true, \"reason\": \"ok\"}"
+                ]
+              }
+            ]
+          },
+          "sqlite_sequence": {
+            "n": 1,
+            "tail": [
+              {
+                "cols": [
+                  "name",
+                  "seq"
+                ],
+                "row": [
+                  "events",
+                  "6"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "path": "/opt/tsm-vpa/data/live/XLMUSDT_state.sqlite",
+        "exists": true,
+        "tables": [
+          "handled_entries",
+          "open_trades",
+          "events",
+          "sqlite_sequence"
+        ],
+        "samples": {
+          "handled_entries": {
+            "n": 0,
+            "tail": []
+          },
+          "open_trades": {
+            "n": 0,
+            "tail": []
+          },
+          "events": {
+            "n": 6,
+            "tail": [
+              {
+                "cols": [
+                  "id",
+                  "ts_utc",
+                  "symbol",
+                  "kind",
+                  "detail_json"
+                ],
+                "row": [
+                  "6",
+                  "2026-07-25T07:12:49Z",
+                  "XLMUSDT",
+                  "bootstrap",
+                  "{\"bars\": 1790, \"candles_ok\": true, \"reason\": \"ok\"}"
+                ]
+              },
+              {
+                "cols": [
+                  "id",
+                  "ts_utc",
+                  "symbol",
+                  "kind",
+                  "detail_json"
+                ],
+                "row": [
+                  "5",
+                  "2026-07-25T07:04:55Z",
+                  "XLMUSDT",
+                  "bootstrap",
+                  "{\"bars\": 1790, \"candles_ok\": true, \"reason\": \"ok\"}"
+                ]
+              }
+            ]
+          },
+          "sqlite_sequence": {
+            "n": 1,
+            "tail": [
+              {
+                "cols": [
+                  "name",
+                  "seq"
+                ],
+                "row": [
+                  "events",
+                  "6"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "path": "/opt/tsm-vpa/data/live/SOLUSDT_state.sqlite",
+        "exists": true,
+        "tables": [
+          "handled_entries",
+          "open_trades",
+          "events",
+          "sqlite_sequence"
+        ],
+        "samples": {
+          "handled_entries": {
+            "n": 0,
+            "tail": []
+          },
+          "open_trades": {
+            "n": 0,
+            "tail": []
+          },
+          "events": {
+            "n": 6,
+            "tail": [
+              {
+                "cols": [
+                  "id",
+                  "ts_utc",
+                  "symbol",
+                  "kind",
+                  "detail_json"
+                ],
+                "row": [
+                  "6",
+                  "2026-07-25T07:12:49Z",
+                  "SOLUSDT",
+                  "bootstrap",
+                  "{\"bars\": 1745, \"candles_ok\": true, \"reason\": \"ok\"}"
+                ]
+              },
+              {
+                "cols": [
+                  "id",
+                  "ts_utc",
+                  "symbol",
+                  "kind",
+                  "detail_json"
+                ],
+                "row": [
+                  "5",
+                  "2026-07-25T07:04:55Z",
+                  "SOLUSDT",
+                  "bootstrap",
+                  "{\"bars\": 1745, \"candles_ok\": true, \"reason\": \"ok\"}"
+                ]
+              }
+            ]
+          },
+          "sqlite_sequence": {
+            "n": 1,
+            "tail": [
+              {
+                "cols": [
+                  "name",
+                  "seq"
+                ],
+                "row": [
+                  "events",
+                  "6"
+                ]
+              }
+            ]
+          }
+        }
+      },
+      {
+        "path": "/opt/tsm-vpa/data/live/tsm_vpa_live.sqlite",
+        "exists": true,
+        "tables": [
+          "handled_entries",
+          "open_trades",
+          "events",
+          "sqlite_sequence",
+          "closed_trades",
+          "equity_snapshots",
+          "funding_events"
+        ],
+        "samples": {
+          "handled_entries": {
+            "n": 0,
+            "tail": []
+          },
+          "open_trades": {
+            "n": 0,
+            "tail": []
+          },
+          "events": {
+            "n": 9,
+            "tail": [
+              {
+                "cols": [
+                  "id",
+                  "ts_utc",
+                  "symbol",
+                  "kind",
+                  "detail_json"
+                ],
+                "row": [
+                  "9",
+                  "2026-08-01T22:08:50Z",
+                  "VETUSDT",
+                  "bootstrap",
+                  "{\"bars\": 1742, \"candles_ok\": true, \"reason\": \"ok\", \"account_margin_mode\": \"REGULAR_MARGIN\", \"use_min_size\": true, \"instr"
+                ]
+              },
+              {
+                "cols": [
+                  "id",
+                  "ts_utc",
+                  "symbol",
+                  "kind",
+                  "detail_json"
+                ],
+                "row": [
+                  "8",
+                  "2026-07-25T07:30:24Z",
+                  "SOLUSDT",
+                  "bootstrap",
+                  "{\"bars\": 1745, \"candles_ok\": true, \"reason\": \"ok\", \"account_margin_mode\": \"REGULAR_MARGIN\", \"use_min_size\": true, \"instr"
+                ]
+              }
+            ]
+          },
+          "sqlite_sequence": {
+            "n": 2,
+            "tail": [
+              {
+                "cols": [
+                  "name",
+                  "seq"
+                ],
+                "row": [
+                  "equity_snapshots",
+                  "1628"
+                ]
+              },
+              {
+                "cols": [
+                  "name",
+                  "seq"
+                ],
+                "row": [
+                  "events",
+                  "9"
+                ]
+              }
+            ]
+          },
+          "closed_trades": {
+            "n": 0,
+            "tail": []
+          },
+          "equity_snapshots": {
+            "n": 1628,
+            "tail": [
+              {
+                "cols": [
+                  "id",
+                  "ts_ms",
+                  "ts_utc",
+                  "symbol",
+                  "wallet_balance",
+                  "total_equity",
+                  "available",
+                  "position_size",
+                  "position_side",
+                  "position_entry",
+                  "unrealised_pnl",
+                  "mark_price",
+                  "liq_price",
+                  "leverage"
+                ],
+                "row": [
+                  "1628",
+                  "1786548518000",
+                  "2026-08-12T15:28:38Z",
+                  "VETUSDT",
+                  "30.00008515",
+                  "29.96624505",
+                  "29.96624505",
+                  "None",
+                  "None",
+                  "None",
+                  "None",
+                  "None",
+                  "None",
+                  "None"
+                ]
+              },
+              {
+                "cols": [
+                  "id",
+                  "ts_ms",
+                  "ts_utc",
+                  "symbol",
+                  "wallet_balance",
+                  "total_equity",
+                  "available",
+                  "position_size",
+                  "position_side",
+                  "position_entry",
+                  "unrealised_pnl",
+                  "mark_price",
+                  "liq_price",
+                  "leverage"
+                ],
+                "row": [
+                  "1627",
+                  "1786547498000",
+                  "2026-08-12T15:11:38Z",
+                  "VETUSDT",
+                  "30.00008515",
+                  "29.96843506",
+                  "29.96843506",
+                  "None",
+                  "None",
+                  "None",
+                  "None",
+                  "None",
+                  "None",
+                  "None"
+                ]
+              }
+            ]
+          },
+          "funding_events": {
+            "n": 0,
+            "tail": []
+          }
+        }
+      },
+      {
+        "path": "/opt/tsm-vpa/data/live/VETUSDT_state.sqlite",
+        "exists": true,
+        "tables": [
+          "handled_entries",
+          "open_trades",
+          "events",
+          "sqlite_sequence"
+        ],
+        "samples": {
+          "handled_entries": {
+            "n": 0,
+            "tail": []
+          },
+          "open_trades": {
+            "n": 0,
+            "tail": []
+          },
+          "events": {
+            "n": 6,
+            "tail": [
+              {
+                "cols": [
+                  "id",
+                  "ts_utc",
+                  "symbol",
+                  "kind",
+                  "detail_json"
+                ],
+                "row": [
+                  "6",
+                  "2026-07-25T07:12:49Z",
+                  "VETUSDT",
+                  "bootstrap",
+                  "{\"bars\": 1735, \"candles_ok\": true, \"reason\": \"ok\"}"
+                ]
+              },
+              {
+                "cols": [
+                  "id",
+                  "ts_utc",
+                  "symbol",
+                  "kind",
+                  "detail_json"
+                ],
+                "row": [
+                  "5",
+                  "2026-07-25T07:04:55Z",
+                  "VETUSDT",
+                  "bootstrap",
+                  "{\"bars\": 1735, \"candles_ok\": true, \"reason\": \"ok\"}"
+                ]
+              }
+            ]
+          },
+          "sqlite_sequence": {
+            "n": 1,
+            "tail": [
+              {
+                "cols": [
+                  "name",
+                  "seq"
+                ],
+                "row": [
+                  "events",
+                  "6"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "tsm_chandelier": {
+    "pack_id": "tsm_chandelier_1h_btc_eth_sol_xxobster6_v1",
+    "readiness_earned": "LIVE_STOP / SHADOW_READY",
+    "mode": "LIVE",
+    "strategy": {
+      "name": "tsm_chandelier",
+      "atr_band_mult": 2.5,
+      "chandelier_lookback": 22,
+      "chandelier_atr_mult": 3.0,
+      "ema_filter": 50,
+      "max_hold_bars": 36
+    },
+    "symbols": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "SOLUSDT"
+    ],
+    "timeframe": "1h",
+    "candles_exchange": "binance",
+    "freeze_ref": "artifacts/reports/tsm_chandelier/1h_SHADOW_FREEZE.json",
+    "evidence_contamination": null,
+    "freeze_paths_found": [],
+    "dbs": [
+      {
+        "path": "/opt/tsm-chandelier/data/live/tsm_chandelier_live.sqlite",
+        "exists": true,
+        "tables": [
+          "handled_entries",
+          "open_trades",
+          "events",
+          "sqlite_sequence",
+          "closed_trades",
+          "equity_snapshots",
+          "funding_events"
+        ],
+        "samples": {
+          "handled_entries": {
+            "n": 2,
+            "tail": [
+              {
+                "cols": [
+                  "symbol",
+                  "entry_ts_ms",
+                  "side",
+                  "detail_json",
+                  "created_utc"
+                ],
+                "row": [
+                  "ETHUSDT",
+                  "1786460400000",
+                  "short",
+                  "{\"skipped\": \"stale_entry\", \"delay_sec\": 3619.0, \"signal\": {\"side\": \"short\", \"signal_ts_ms\": 1786456800000, \"entry_ts_ms\"",
+                  "2026-08-11T16:00:25Z"
+                ]
+              },
+              {
+                "cols": [
+                  "symbol",
+                  "entry_ts_ms",
+                  "side",
+                  "detail_json",
+                  "created_utc"
+                ],
+                "row": [
+                  "BTCUSDT",
+                  "1786460400000",
+                  "short",
+                  "{\"skipped\": \"stale_entry\", \"delay_sec\": 3612.0, \"signal\": {\"side\": \"short\", \"signal_ts_ms\": 1786456800000, \"entry_ts_ms\"",
+                  "2026-08-11T16:00:16Z"
+                ]
+              }
+            ]
+          },
+          "open_trades": {
+            "n": 0,
+            "tail": []
+          },
+          "events": {
+            "n": 13,
+            "tail": [
+              {
+                "cols": [
+                  "id",
+                  "ts_utc",
+                  "symbol",
+                  "kind",
+                  "detail_json"
+                ],
+                "row": [
+                  "13",
+                  "2026-08-12T12:05:17Z",
+                  "BTCUSDT",
+                  "position_closed",
+                  "{\"symbol\": \"BTCUSDT\", \"side\": \"short\", \"entry_ts_ms\": 1786460400000, \"entry_price\": 63766.7, \"stop_price\": 64240.6142857"
+                ]
+              },
+              {
+                "cols": [
+                  "id",
+                  "ts_utc",
+                  "symbol",
+                  "kind",
+                  "detail_json"
+                ],
+                "row": [
+                  "12",
+                  "2026-08-12T05:49:13Z",
+                  "ETHUSDT",
+                  "bootstrap",
+                  "{\"bars\": 58798, \"candles_ok\": true, \"reason\": \"ok\", \"account_margin_mode\": \"REGULAR_MARGIN\", \"use_min_size\": true, \"inst"
+                ]
+              }
+            ]
+          },
+          "sqlite_sequence": {
+            "n": 2,
+            "tail": [
+              {
+                "cols": [
+                  "name",
+                  "seq"
+                ],
+                "row": [
+                  "equity_snapshots",
+                  "1616"
+                ]
+              },
+              {
+                "cols": [
+                  "name",
+                  "seq"
+                ],
+                "row": [
+                  "events",
+                  "13"
+                ]
+              }
+            ]
+          },
+          "closed_trades": {
+            "n": 2,
+            "tail": [
+              {
+                "cols": [
+                  "order_id",
+                  "symbol",
+                  "side",
+                  "qty",
+                  "avg_entry_price",
+                  "avg_exit_price",
+                  "closed_pnl",
+                  "cum_entry_value",
+                  "cum_exit_value",
+                  "leverage",
+                  "created_ms",
+                  "updated_ms",
+                  "exec_type",
+                  "planned_stop",
+                  "planned_target",
+                  "planned_entry_ts_ms",
+                  "pattern",
+                  "raw_json",
+                  "recorded_utc"
+                ],
+                "row": [
+                  "2942927d-33e1-4b1b-b759-f9f062951e15",
+                  "BTCUSDT",
+                  "Buy",
+                  "0.001",
+                  "63766.7",
+                  "64243.3",
+                  "-0.53846109",
+                  "63.7667",
+                  "64.2433",
+                  "55.0",
+                  "1786460425618",
+                  "1786536270825",
+                  "Trade",
+                  "64240.614285714284",
+                  "62266.15714285715",
+                  "1786460400000",
+                  "chand_atr_band",
+                  "{\"symbol\": \"BTCUSDT\", \"orderType\": \"Market\", \"leverage\": \"55\", \"updatedTime\": \"1786536270825\", \"side\": \"Buy\", \"orderId\":",
+                  "2026-08-12T12:05:07Z"
+                ]
+              },
+              {
+                "cols": [
+                  "order_id",
+                  "symbol",
+                  "side",
+                  "qty",
+                  "avg_entry_price",
+                  "avg_exit_price",
+                  "closed_pnl",
+                  "cum_entry_value",
+                  "cum_exit_value",
+                  "leverage",
+                  "created_ms",
+                  "updated_ms",
+                  "exec_type",
+                  "planned_stop",
+                  "planned_target",
+                  "planned_entry_ts_ms",
+                  "pattern",
+                  "raw_json",
+                  "recorded_utc"
+                ],
+                "row": [
+                  "7506e3fa-19b2-45e7-865e-248fde553737",
+                  "ETHUSDT",
+                  "Buy",
+                  "0.01",
+                  "1872.33",
+                  "1890.98",
+                  "-0.20505348",
+                  "18.7233",
+                  "18.9098",
+                  "48.0",
+                  "1786460430726",
+                  "1786508463663",
+                  "Trade",
+                  "1890.1749999999997",
+                  "1820.155000000001",
+                  "1786460400000",
+                  "chand_atr_band",
+                  "{\"symbol\": \"ETHUSDT\", \"orderType\": \"Market\", \"leverage\": \"48\", \"updatedTime\": \"1786508463663\", \"side\": \"Buy\", \"orderId\":",
+                  "2026-08-12T04:21:13Z"
+                ]
+              }
+            ]
+          },
+          "equity_snapshots": {
+            "n": 1616,
+            "tail": [
+              {
+                "cols": [
+                  "id",
+                  "ts_ms",
+                  "ts_utc",
+                  "symbol",
+                  "wallet_balance",
+                  "total_equity",
+                  "available",
+                  "position_size",
+                  "position_side",
+                  "position_entry",
+                  "unrealised_pnl",
+                  "mark_price",
+                  "liq_price",
+                  "leverage"
+                ],
+                "row": [
+                  "1616",
+                  "1786548514000",
+                  "2026-08-12T15:28:34Z",
+                  "SOLUSDT",
+                  "12.35985289",
+                  "12.34578737",
+                  "12.34578737",
+                  "None",
+                  "None",
+                  "None",
+                  "None",
+                  "None",
+                  "None",
+                  "None"
+                ]
+              },
+              {
+                "cols": [
+                  "id",
+                  "ts_ms",
+                  "ts_utc",
+                  "symbol",
+                  "wallet_balance",
+                  "total_equity",
+                  "available",
+                  "position_size",
+                  "position_side",
+                  "position_entry",
+                  "unrealised_pnl",
+                  "mark_price",
+                  "liq_price",
+                  "leverage"
+                ],
+                "row": [
+                  "1615",
+                  "1786548297000",
+                  "2026-08-12T15:24:57Z",
+                  "ETHUSDT",
+                  "12.35985289",
+                  "12.3453177",
+                  "12.3453177",
+                  "None",
+                  "None",
+                  "None",
+                  "None",
+                  "None",
+                  "None",
+                  "None"
+                ]
+              }
+            ]
+          },
+          "funding_events": {
+            "n": 5,
+            "tail": [
+              {
+                "cols": [
+                  "tx_id",
+                  "symbol",
+                  "ts_ms",
+                  "funding",
+                  "cash_flow",
+                  "size",
+                  "side",
+                  "raw_json",
+                  "recorded_utc"
+                ],
+                "row": [
+                  "29388096_BTCUSDT_758317434834_0",
+                  "BTCUSDT",
+                  "1786464000000",
+                  "0.00228699",
+                  "0.00228699",
+                  "-0.001",
+                  "Sell",
+                  "{\"transSubType\": \"\", \"symbol\": \"BTCUSDT\", \"side\": \"Sell\", \"funding\": \"0.00228699\", \"orderLinkId\": \"\", \"orderId\": \"1150c5",
+                  "2026-08-12T12:05:17Z"
+                ]
+              },
+              {
+                "cols": [
+                  "tx_id",
+                  "symbol",
+                  "ts_ms",
+                  "funding",
+                  "cash_flow",
+                  "size",
+                  "side",
+                  "raw_json",
+                  "recorded_utc"
+                ],
+                "row": [
+                  "29388096_BTCUSDT_759180334687_0",
+                  "BTCUSDT",
+                  "1786492800000",
+                  "0.0014893",
+                  "0.0014893",
+                  "-0.001",
+                  "Sell",
+                  "{\"transSubType\": \"\", \"symbol\": \"BTCUSDT\", \"side\": \"Sell\", \"funding\": \"0.0014893\", \"orderLinkId\": \"\", \"orderId\": \"5208da7",
+                  "2026-08-12T12:05:17Z"
+                ]
+              }
+            ]
+          }
+        }
+      }
+    ]
+  },
+  "logs": {
+    "/home/xgb/log": [
+      "ethusdt8",
+      "ethusdt8_position_state.json",
+      "ethusdt_position_state.json",
+      "reboot_start.log",
+      "solusdt",
+      "trading.log",
+      "trxusdt",
+      "vetusdt",
+      "xlmusdt",
+      "xrpusdt"
+    ]
+  }
+}

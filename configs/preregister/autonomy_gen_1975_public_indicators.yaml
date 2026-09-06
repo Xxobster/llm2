@@ -1,0 +1,21 @@
+# Autonomy gen 1975 — Prior487_high_low
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_1975_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-09-03T05:03:48Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  Distance and crosses of close versus the prior 487-bar high and low at t+H, used as one-head filters, can beat the 15-minute Limit 1%/1% pivot control under frozen entry-bar and trades-per-month caps.
+events: [xh487_at_h, xl487_at_h, xh487_cross_up, xl487_cross_down]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: 3502da20e19e211b33f1cf7c2e85296f866f288cd0668576deb0d7855b60c08b

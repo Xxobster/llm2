@@ -1,0 +1,39 @@
+{
+  "evidence_class": "CONTAMINATION_FORENSICS",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "promotion_allowed": false,
+  "generated_utc": "2026-08-08T04:44:25.143907+00:00",
+  "series_path": "D:\\projects\\LLM2\\artifacts\\reports\\leaky_proxy_asof_max_001\\leaky_asof_series.parquet",
+  "outer_window": [
+    "2026-01-01 00:00:00+00:00",
+    "2026-05-01 00:00:00+00:00"
+  ],
+  "residual_all": {
+    "n": 56277,
+    "mean": 0.17013787503489933,
+    "std": 0.9291516912946821,
+    "mae": 0.35474854485585317,
+    "rmse": 0.9446003186306681,
+    "p05": -0.3158424550003168,
+    "p50": -0.0013571878419746941,
+    "p95": 1.3744530731970959,
+    "frac_abs_gt_0_25": 0.29134459903690674,
+    "frac_abs_gt_0_50": 0.17596886827656058,
+    "frac_abs_gt_1_00": 0.09151162997316843
+  },
+  "residual_outer": {
+    "n": 2878,
+    "mean": 0.09731119535779732,
+    "std": 0.9172161815994644,
+    "mae": 0.38055368641227905,
+    "rmse": 0.9223638070359574,
+    "p05": -0.485315208228163,
+    "p50": -0.009674448043306264,
+    "p95": 1.2102140153526224,
+    "frac_abs_gt_0_25": 0.31028492008339126,
+    "frac_abs_gt_0_50": 0.1834607366226546,
+    "frac_abs_gt_1_00": 0.08825573314801946
+  },
+  "note": "Residual is the future-swing gap under no-leakage. Do not freeze packs on pred_leaky or oracle_leaky. Do not optimize residual for profit and loss.",
+  "histogram_png": "D:\\projects\\LLM2\\artifacts\\reports\\oracle_pred_residual_forensics_001\\residual_histogram_outer.png"
+}

@@ -1,0 +1,441 @@
+{
+  "generation_id": "structure_v1_eth_k5_size_scale_absmean_001",
+  "gate_name": "ETH K5 size scale by |pred_mean|",
+  "evidence_class": "MEASURE_DIAGNOSTIC",
+  "maximum_earned_readiness": "RESEARCH_ONLY",
+  "promotion_allowed": false,
+  "created_utc": "20260805T142837Z",
+  "fold_geometry": "v2",
+  "outer_fold_ranges": [
+    [
+      "2022-01-01",
+      "2022-10-01"
+    ],
+    [
+      "2022-10-01",
+      "2023-07-01"
+    ],
+    [
+      "2023-07-01",
+      "2024-04-01"
+    ],
+    [
+      "2024-04-01",
+      "2025-01-01"
+    ],
+    [
+      "2025-01-01",
+      "2025-10-01"
+    ],
+    [
+      "2025-10-01",
+      "2026-05-01"
+    ]
+  ],
+  "hard_end_exclusive": "2026-05-01",
+  "lockbox_used": false,
+  "conformance_ok": true,
+  "prereg_sha256": "afd3e2c0b0a19379e370613717b2e1887ec4b9c443277ea7cbf791271a8851dc",
+  "formula": {
+    "strength_mult": "clip(|pred_mean|/0.5, 1.0, 2.0)",
+    "size_mult": "time_mult \u00d7 strength_mult",
+    "time_mult": "2 if same-side entry within 3h else 1 (when enabled)",
+    "note": "MIN_EXCHANGE\u00d7size_mult sizes positions; E[r] often stable while net_pnl scales with notional. Not a readiness unlock."
+  },
+  "arms": [
+    {
+      "label": "control_time_double",
+      "cfg": {
+        "k": 5,
+        "strength_quantile": 0.5,
+        "hold": 12,
+        "tp": 0.01,
+        "sl": 0.02,
+        "size_double_within_bars": 3,
+        "size_scale_by_abs_mean": false,
+        "size_scale_ref": 0.5,
+        "size_scale_factor_min": 1.0,
+        "size_scale_factor_max": 2.0,
+        "size_formula": "size_mult = time_mult \u00d7 clip(|pred_mean|/0.5, 1, 2); time_mult = 2 if same-side within size_double_within_bars else 1"
+      },
+      "folds": [
+        {
+          "fold_index": 0,
+          "n_trades": 1868,
+          "net_pnl": 364.5437324649829,
+          "profit_factor": 3.4125616450135694,
+          "win_rate": 0.8597430406852249,
+          "expectancy": 0.19515189104122047,
+          "expectancy_return_units": 0.005131006437677756,
+          "total_fees": 74.59716753500001,
+          "n_liquidations": 0,
+          "max_drawdown": 6.288794800002506,
+          "sharpe_annualised": 17.02727138506337
+        },
+        {
+          "fold_index": 1,
+          "n_trades": 1867,
+          "net_pnl": 201.2991246249985,
+          "profit_factor": 2.9561512323505315,
+          "win_rate": 0.7686127477236208,
+          "expectancy": 0.10781956326995182,
+          "expectancy_return_units": 0.004138748886837742,
+          "total_fees": 51.973175375000004,
+          "n_liquidations": 0,
+          "max_drawdown": 3.730029865000688,
+          "sharpe_annualised": 14.106169564774007
+        },
+        {
+          "fold_index": 2,
+          "n_trades": 1804,
+          "net_pnl": 316.7409321700143,
+          "profit_factor": 3.8030708055621623,
+          "win_rate": 0.7971175166297118,
+          "expectancy": 0.1755770133980044,
+          "expectancy_return_units": 0.004589968850617136,
+          "total_fees": 70.67326783,
+          "n_liquidations": 0,
+          "max_drawdown": 6.457322764999844,
+          "sharpe_annualised": 16.187765691760113
+        },
+        {
+          "fold_index": 3,
+          "n_trades": 1937,
+          "net_pnl": 562.3704577649587,
+          "profit_factor": 4.43191202744184,
+          "win_rate": 0.8647392875580795,
+          "expectancy": 0.2903306441739803,
+          "expectancy_return_units": 0.005724585615896129,
+          "total_fees": 105.66224223500001,
+          "n_liquidations": 0,
+          "max_drawdown": 6.5016636199979985,
+          "sharpe_annualised": 19.237069433960425
+        },
+        {
+          "fold_index": 4,
+          "n_trades": 1940,
+          "net_pnl": 560.3668570050795,
+          "profit_factor": 4.971601376462953,
+          "win_rate": 0.8747422680412371,
+          "expectancy": 0.288848895363402,
+          "expectancy_return_units": 0.0058973416525746275,
+          "total_fees": 100.315242995,
+          "n_liquidations": 0,
+          "max_drawdown": 8.36293063499761,
+          "sharpe_annualised": 21.165643496811025
+        },
+        {
+          "fold_index": 5,
+          "n_trades": 1402,
+          "net_pnl": 388.65163623503395,
+          "profit_factor": 5.018740739277039,
+          "win_rate": 0.8758915834522111,
+          "expectancy": 0.2772122940335236,
+          "expectancy_return_units": 0.005849146437551967,
+          "total_fees": 70.04346376500001,
+          "n_liquidations": 0,
+          "max_drawdown": 6.824577829998816,
+          "sharpe_annualised": 18.16502927560299
+        }
+      ],
+      "stitched": {
+        "n_trades": 10818,
+        "net_pnl": 2393.9727402649996,
+        "profit_factor": 4.114418041595842,
+        "win_rate": 0.8392493991495655,
+        "expectancy": 0.22129531708864852,
+        "expectancy_return_units": 0.005206316921173494,
+        "total_fees": 473.26455973500003,
+        "n_liquidations": 0,
+        "mean_size_mult": 1.6067426051809663,
+        "frac_folds_pf_gt_1": 1.0
+      },
+      "signal_stats_total": {
+        "n_emitted": 10886,
+        "n_skipped_clarity": 13543,
+        "n_size_1x": 4281,
+        "n_size_2x": 6605,
+        "n_size_strength_scaled": 0
+      },
+      "leverage": 18.0
+    },
+    {
+      "label": "size_scale_on_time_double",
+      "cfg": {
+        "k": 5,
+        "strength_quantile": 0.5,
+        "hold": 12,
+        "tp": 0.01,
+        "sl": 0.02,
+        "size_double_within_bars": 3,
+        "size_scale_by_abs_mean": true,
+        "size_scale_ref": 0.5,
+        "size_scale_factor_min": 1.0,
+        "size_scale_factor_max": 2.0,
+        "size_formula": "size_mult = time_mult \u00d7 clip(|pred_mean|/0.5, 1, 2); time_mult = 2 if same-side within size_double_within_bars else 1"
+      },
+      "folds": [
+        {
+          "fold_index": 0,
+          "n_trades": 1868,
+          "net_pnl": 365.87921066497984,
+          "profit_factor": 3.4159755170331643,
+          "win_rate": 0.8597430406852249,
+          "expectancy": 0.19586681513115622,
+          "expectancy_return_units": 0.005131006437677756,
+          "total_fees": 74.822489335,
+          "n_liquidations": 0,
+          "max_drawdown": 6.288794800002506,
+          "sharpe_annualised": 17.031821384140542
+        },
+        {
+          "fold_index": 1,
+          "n_trades": 1867,
+          "net_pnl": 202.39243632499347,
+          "profit_factor": 2.9667756353790216,
+          "win_rate": 0.7686127477236208,
+          "expectancy": 0.1084051613952866,
+          "expectancy_return_units": 0.004138748886837742,
+          "total_fees": 52.108863675,
+          "n_liquidations": 0,
+          "max_drawdown": 3.730029865000688,
+          "sharpe_annualised": 14.117283367130883
+        },
+        {
+          "fold_index": 2,
+          "n_trades": 1804,
+          "net_pnl": 321.0238096150133,
+          "profit_factor": 3.8369959886990332,
+          "win_rate": 0.7971175166297118,
+          "expectancy": 0.1779511139772727,
+          "expectancy_return_units": 0.004589968850617136,
+          "total_fees": 71.25789038500001,
+          "n_liquidations": 0,
+          "max_drawdown": 6.457322764999844,
+          "sharpe_annualised": 16.249947782147277
+        },
+        {
+          "fold_index": 3,
+          "n_trades": 1937,
+          "net_pnl": 569.2285327049576,
+          "profit_factor": 4.473763994497903,
+          "win_rate": 0.8647392875580795,
+          "expectancy": 0.2938712094501806,
+          "expectancy_return_units": 0.005724585615896129,
+          "total_fees": 106.512767295,
+          "n_liquidations": 0,
+          "max_drawdown": 6.5016636199979985,
+          "sharpe_annualised": 19.317477320093158
+        },
+        {
+          "fold_index": 4,
+          "n_trades": 1940,
+          "net_pnl": 565.5909452350788,
+          "profit_factor": 4.976937905604636,
+          "win_rate": 0.8747422680412371,
+          "expectancy": 0.29154172434793807,
+          "expectancy_return_units": 0.0058973416525746275,
+          "total_fees": 101.158954765,
+          "n_liquidations": 0,
+          "max_drawdown": 9.086931279996861,
+          "sharpe_annualised": 21.132398969321684
+        },
+        {
+          "fold_index": 5,
+          "n_trades": 1402,
+          "net_pnl": 390.9777923050333,
+          "profit_factor": 5.0427936887383735,
+          "win_rate": 0.8758915834522111,
+          "expectancy": 0.2788714638409415,
+          "expectancy_return_units": 0.005849146437551967,
+          "total_fees": 70.331307695,
+          "n_liquidations": 0,
+          "max_drawdown": 6.824577829998816,
+          "sharpe_annualised": 18.21949209526746
+        }
+      ],
+      "stitched": {
+        "n_trades": 10818,
+        "net_pnl": 2415.0927268499995,
+        "profit_factor": 4.13527834902037,
+        "win_rate": 0.8392493991495655,
+        "expectancy": 0.22324761756794229,
+        "expectancy_return_units": 0.005206316921173494,
+        "total_fees": 476.19227315000006,
+        "n_liquidations": 0,
+        "mean_size_mult": 1.6649818965530752,
+        "frac_folds_pf_gt_1": 1.0
+      },
+      "signal_stats_total": {
+        "n_emitted": 10886,
+        "n_skipped_clarity": 13543,
+        "n_size_1x": 4280,
+        "n_size_2x": 6606,
+        "n_size_strength_scaled": 10886
+      },
+      "leverage": 18.0
+    },
+    {
+      "label": "size_scale_only",
+      "cfg": {
+        "k": 5,
+        "strength_quantile": 0.5,
+        "hold": 12,
+        "tp": 0.01,
+        "sl": 0.02,
+        "size_double_within_bars": 0,
+        "size_scale_by_abs_mean": true,
+        "size_scale_ref": 0.5,
+        "size_scale_factor_min": 1.0,
+        "size_scale_factor_max": 2.0,
+        "size_formula": "size_mult = time_mult \u00d7 clip(|pred_mean|/0.5, 1, 2); time_mult = 2 if same-side within size_double_within_bars else 1"
+      },
+      "folds": [
+        {
+          "fold_index": 0,
+          "n_trades": 1868,
+          "net_pnl": 222.1951153549726,
+          "profit_factor": 3.3646524208166575,
+          "win_rate": 0.8597430406852249,
+          "expectancy": 0.11894813455835114,
+          "expectancy_return_units": 0.005131006437677756,
+          "total_fees": 45.842584645,
+          "n_liquidations": 0,
+          "max_drawdown": 3.520671480000601,
+          "sharpe_annualised": 17.782473492420767
+        },
+        {
+          "fold_index": 1,
+          "n_trades": 1867,
+          "net_pnl": 121.27651783002511,
+          "profit_factor": 2.8055360336477815,
+          "win_rate": 0.7686127477236208,
+          "expectancy": 0.06495796348687735,
+          "expectancy_return_units": 0.004138748886837742,
+          "total_fees": 32.48088217,
+          "n_liquidations": 0,
+          "max_drawdown": 1.9452818350000598,
+          "sharpe_annualised": 14.70054085387295
+        },
+        {
+          "fold_index": 2,
+          "n_trades": 1804,
+          "net_pnl": 190.1167982700572,
+          "profit_factor": 3.5520176966174724,
+          "win_rate": 0.7971175166297118,
+          "expectancy": 0.10538625181263858,
+          "expectancy_return_units": 0.004589968850617136,
+          "total_fees": 44.10040173,
+          "n_liquidations": 0,
+          "max_drawdown": 3.768732064998403,
+          "sharpe_annualised": 16.380598779248583
+        },
+        {
+          "fold_index": 3,
+          "n_trades": 1937,
+          "net_pnl": 341.7480237450127,
+          "profit_factor": 4.176839068852538,
+          "win_rate": 0.8647392875580795,
+          "expectancy": 0.17643160750903455,
+          "expectancy_return_units": 0.005724585615896129,
+          "total_fees": 66.03007625500001,
+          "n_liquidations": 0,
+          "max_drawdown": 3.3756413250030164,
+          "sharpe_annualised": 20.125841440160734
+        },
+        {
+          "fold_index": 4,
+          "n_trades": 1940,
+          "net_pnl": 339.9167368450544,
+          "profit_factor": 4.592857624157525,
+          "win_rate": 0.8747422680412371,
+          "expectancy": 0.175214812806701,
+          "expectancy_return_units": 0.0058973416525746275,
+          "total_fees": 62.694963155,
+          "n_liquidations": 0,
+          "max_drawdown": 4.510611390001941,
+          "sharpe_annualised": 21.63203696778089
+        },
+        {
+          "fold_index": 5,
+          "n_trades": 1402,
+          "net_pnl": 235.39058134497645,
+          "profit_factor": 4.655144046995352,
+          "win_rate": 0.8758915834522111,
+          "expectancy": 0.16789627770684734,
+          "expectancy_return_units": 0.005849146437551967,
+          "total_fees": 43.707318655,
+          "n_liquidations": 0,
+          "max_drawdown": 3.9729760650025128,
+          "sharpe_annualised": 18.836963405752247
+        }
+      ],
+      "stitched": {
+        "n_trades": 10818,
+        "net_pnl": 1450.6437733899998,
+        "profit_factor": 3.8884924237505842,
+        "win_rate": 0.8392493991495655,
+        "expectancy": 0.1340953756137918,
+        "expectancy_return_units": 0.005206316921173494,
+        "total_fees": 294.85622661,
+        "n_liquidations": 0,
+        "mean_size_mult": 1.0327196496975282,
+        "frac_folds_pf_gt_1": 1.0
+      },
+      "signal_stats_total": {
+        "n_emitted": 10886,
+        "n_skipped_clarity": 13543,
+        "n_size_1x": 10882,
+        "n_size_2x": 4,
+        "n_size_strength_scaled": 10886
+      },
+      "leverage": 18.0
+    }
+  ],
+  "compare": [
+    {
+      "label": "control_time_double",
+      "n_trades": 10818,
+      "net_pnl": 2393.9727402649996,
+      "profit_factor": 4.114418041595842,
+      "expectancy_return_units": 0.005206316921173494,
+      "win_rate": 0.8392493991495655,
+      "total_fees": 473.26455973500003,
+      "n_liquidations": 0,
+      "mean_size_mult": 1.6067426051809663,
+      "delta_net_pnl_vs_control": null,
+      "delta_exp_ru_vs_control": null
+    },
+    {
+      "label": "size_scale_on_time_double",
+      "n_trades": 10818,
+      "net_pnl": 2415.0927268499995,
+      "profit_factor": 4.13527834902037,
+      "expectancy_return_units": 0.005206316921173494,
+      "win_rate": 0.8392493991495655,
+      "total_fees": 476.19227315000006,
+      "n_liquidations": 0,
+      "mean_size_mult": 1.6649818965530752,
+      "delta_net_pnl_vs_control": 21.11998658499988,
+      "delta_exp_ru_vs_control": 0.0
+    },
+    {
+      "label": "size_scale_only",
+      "n_trades": 10818,
+      "net_pnl": 1450.6437733899998,
+      "profit_factor": 3.8884924237505842,
+      "expectancy_return_units": 0.005206316921173494,
+      "win_rate": 0.8392493991495655,
+      "total_fees": 294.85622661,
+      "n_liquidations": 0,
+      "mean_size_mult": 1.0327196496975282,
+      "delta_net_pnl_vs_control": -943.3289668749999,
+      "delta_exp_ru_vs_control": 0.0
+    }
+  ],
+  "verdict": {
+    "size_scale_on_time_double_raises_net_pnl": true,
+    "principal_blocker": null
+  },
+  "elapsed_sec": 88.1751515000069
+}

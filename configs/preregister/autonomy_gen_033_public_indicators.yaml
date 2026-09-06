@@ -1,0 +1,24 @@
+# Autonomy gen 033 — Ichimoku Tenkan/Kijun spread
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_033_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-22T11:21:00Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  Ichimoku Tenkan minus Kijun spread sign at t+H and zero-line crosses, used
+  as one-head filters, can beat the 15-minute Limit 1%/1% pivot control under
+  frozen entry-bar and trades-per-month caps. Uses only completed Tenkan/Kijun
+  (no future-shifted cloud).
+events: [tk_bull_at_h, tk_bear_at_h, tk_cross_up, tk_cross_down]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: 61f19722ca032831a04a793050afc0564ee96f21238a764ff04ee76c83a16993

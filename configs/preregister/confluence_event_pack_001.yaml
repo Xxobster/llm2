@@ -1,0 +1,103 @@
+# Confluence future-event pack 001
+# RESEARCH_ONLY. Not live. Frozen before any profit-factor is viewed.
+#
+# Hypothesis: a small pack of discrete FUTURE events (not reconstructed
+# indicator levels) can add incremental value to the current pivot 15m
+# Limit controls. Classic reversal toys must earn a seat; continuation
+# is allowed to beat reversal on the same costed path.
+generation_id: confluence_event_pack_001
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-19T03:45:00Z"
+rank_by: expectancy_intent_all
+entry_bar_exit_rate_cap: 0.35
+oracle_arms: never_promote
+lockbox: do_not_rank_on_or_after_2026-05-01
+failure_is_success: true
+
+hypothesis: >
+  Predicting whether a closed list of reversal or continuation events occurs
+  in the next H closed bars, then trading only when a small pack agrees,
+  can beat the current pivot control on inner intent expectancy without
+  collapsing profit factor or pushing entry-bar exits above 35 percent.
+  Predicting today's RSI / MACD / stochastic / HH-LL value is rejected as
+  tautological reconstruction of a known formula.
+
+economic_rationale: >
+  A single probability of "pivot" or "up" mixes several distinct market
+  stories. If several independently defined future events (RSI leaving
+  oversold, MACD histogram flip, failed swing, pulse extension) co-occur,
+  the trade is a confluence, not a restated RSI. Correlated events
+  (RSI and stochastic) are pruned rather than AND-gated.
+
+universe:
+  symbols: [ETHUSDT, SOLUSDT, BTCUSDT]
+  timeframe: 15m
+  source: binance
+  research_proxy: true
+  note: "Bybit native 15m last is not the warehouse primary; label RESEARCH_PROXY."
+
+horizons_bars: [4, 8]
+work_bars_default: 4
+tp_pct: 0.01
+sl_pct: 0.01
+costs: >
+  tradesim research_costs_baseline: Bybit non-VIP taker 0.055 percent per fill
+  on market/stop; resting LIMIT entry maker 0.02 percent if it rests.
+  Exit taker until maker-exit evidence is proven. No exit slip on limit TP/SL
+  touch. Funding at historical settlements while open.
+
+controls:
+  ETHUSDT: { id: ETH_q50_w4, level_mode: q50, gate: p75, work_bars: 4, tp: 0.01, sl: 0.01 }
+  SOLUSDT: { id: SOL_atr_clip_w5, level_mode: ret, gate: p75, work_bars: 5, tp: 0.01, sl: 0.01, placement: atr_clip_0p8_1p5 }
+  BTCUSDT: { id: BTC_p80_w4, level_mode: ret, gate: p80, work_bars: 4, tp: 0.01, sl: 0.01 }
+
+# Closed event list. Do not add after the first OOS peek.
+events:
+  reversal:
+    - rsi_cross_up_30
+    - rsi_cross_down_70
+    - macd_hist_flip_up
+    - macd_hist_flip_down
+    - adx_fade
+    - vsa_dryup_expand
+    - failed_swing_ll
+    - failed_swing_hh
+    - stoch_cross_up_20
+    - stoch_cross_down_80
+  continuation:
+    - pulse_extend
+    - structure_break_hold
+
+duplicate_abs_corr_drop: 0.8
+fdr_q_cap: 0.05
+
+promote_to_pack_requires:
+  - inner_intent_expectancy_beats_control
+  - profit_factor_ge_0.85_of_control
+  - entry_bar_exit_rate_le_0.35
+  - fdr_q_le_0.05_on_signed_forward_return
+  - not_a_near_duplicate
+
+# Frozen before outer. One rule only.
+model_gate: all_heads_ge_pi_star
+pi_star_from: net_bracket_magnitudes_tp1_sl1
+entry_style:
+  reversal_or_failed_swing: limit
+  pulse_extend: market
+
+selection:
+  inner_walk_forward_only: true
+  outer: one_frozen_pack_scored_once
+  train_test_sqlite_split: true
+
+do_not:
+  - predict raw RSI / MACD / stochastic / HH-LL levels as targets
+  - add events after viewing OOS
+  - quote oracle (true future event bit) profit factor as deployable edge
+  - join warehouse structure_v1 / macro_v1 without FOUR_PROOF_GATE_V1
+  - peep lockbox 2026-05-01+ for ranking
+  - deploy, restart VPS, or swap live packs
+  - restore structure_v1 LightGBM bots on Xxobster7
+
+preregister_sha256_at_run: 25cffba26382c40054fafaae164ed4faa40145020cc27afdeb12bb4b95ab5df4

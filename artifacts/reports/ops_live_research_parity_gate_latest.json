@@ -1,0 +1,62 @@
+{
+  "evidence_class": "OPS_LIVE_RESEARCH_PARITY_GATE",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "generated_utc": "2026-08-05T16:13:41.370648+00:00",
+  "host": "ln3",
+  "unit": "llm2-structure-eth-15m-multitrade-wall-clock-p75-v1",
+  "live_pull": {
+    "ledger": "/opt/llm2-structure-eth-15m-multitrade-wall-clock-p75-v1/state/micro_live_state.sqlite",
+    "pack_1h": {
+      "n": 58641
+    },
+    "decision": {
+      "bar_ts_ms": 1785944700000,
+      "decided_utc": "2026-08-05T16:08:12.922464+00:00",
+      "side": 1,
+      "pred_mean": 0.11753800324027865
+    }
+  },
+  "indicators_pack_vs_research": {
+    "error": "research_tip_missing",
+    "ts_ms": 1785944700000,
+    "n_cols": 37
+  },
+  "warehouse_recompute": {
+    "pred_mean": 0.4256216187720369,
+    "side": 1,
+    "edge": 0.1,
+    "bar_ts_ms": 1785944700000,
+    "error": null
+  },
+  "signal": {
+    "live_pred_mean": 0.11753800324027865,
+    "live_side": 1,
+    "warehouse_pred_mean": 0.4256216187720369,
+    "warehouse_side": 1,
+    "abs_diff": 0.3080836155317583,
+    "side_match": true,
+    "pred_close_match_1e6": false,
+    "feature_snapshot": {
+      "n_mismatch": 9,
+      "sample": [
+        "dist_last_sh_pct_vol",
+        "dist_last_sl_pct_vol",
+        "dist_fib_0236_pct_vol",
+        "dist_fib_0382_pct_vol",
+        "dist_fib_0500_pct_vol",
+        "dist_fib_0618_pct_vol",
+        "dist_fib_0786_pct_vol",
+        "dist_support_pct_vol",
+        "last_leg_len_pct_vol"
+      ],
+      "ok": false
+    }
+  },
+  "principal_blocker": "PACK_INDICATOR_ROW_MISSING",
+  "blockers": [
+    "PACK_INDICATOR_ROW_MISSING",
+    "PRED_MEAN_MISMATCH",
+    "FEATURE_SNAPSHOT_MISMATCH"
+  ],
+  "all_ok": false
+}

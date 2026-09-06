@@ -1,0 +1,761 @@
+[
+  {
+    "account": "Xxobster8",
+    "label": "ETH_multitrade_v1_2",
+    "ledger_key": "llm2-structure-eth-multitrade-v1_2",
+    "pack": "structure_v1_ethusdt_multitrade_v1_2",
+    "symbol": "ETHUSDT",
+    "timeframe": "1h",
+    "target": "direction",
+    "min_edge_used": 0.1,
+    "multitrade": true,
+    "window": [
+      "2026-08-04T05:00:00+00:00",
+      "2026-08-06T01:00:00+00:00"
+    ],
+    "n_decision_bars": 45,
+    "n_live_orders": 22,
+    "layer_a_prediction": {
+      "trailing_identical_bars": 0,
+      "last_divergent_bar_utc": "2026-08-06T01:00:00+00:00",
+      "bars_compared": 45,
+      "bars_missing_locally": 0,
+      "max_abs_pred_diff": 1.0244011409968543,
+      "median_abs_pred_diff": 0.4861120672760588,
+      "n_bars_pred_differ": 45,
+      "n_bars_side_flip": 21,
+      "top_divergent_features": []
+    },
+    "layer_b_gate": {
+      "C0_cold_holdslots": {
+        "n_replay": 20,
+        "n_live": 22,
+        "match": 17,
+        "replay_only": [
+          "2026-08-05T00:00:00+00:00",
+          "2026-08-05T03:00:00+00:00",
+          "2026-08-05T09:00:00+00:00"
+        ],
+        "live_only": [
+          "2026-08-04T06:00:00+00:00",
+          "2026-08-04T07:00:00+00:00",
+          "2026-08-04T10:00:00+00:00",
+          "2026-08-04T12:00:00+00:00",
+          "2026-08-04T14:00:00+00:00"
+        ],
+        "exact": false,
+        "skips": {
+          "clarity_mean_strength": 18
+        }
+      },
+      "C1_seeded_holdslots": {
+        "n_replay": 31,
+        "n_live": 22,
+        "match": 20,
+        "replay_only": [
+          "2026-08-04T15:00:00+00:00",
+          "2026-08-04T19:00:00+00:00",
+          "2026-08-04T20:00:00+00:00",
+          "2026-08-05T00:00:00+00:00",
+          "2026-08-05T06:00:00+00:00",
+          "2026-08-05T08:00:00+00:00",
+          "2026-08-05T09:00:00+00:00",
+          "2026-08-05T11:00:00+00:00",
+          "2026-08-05T16:00:00+00:00",
+          "2026-08-05T17:00:00+00:00",
+          "2026-08-05T18:00:00+00:00"
+        ],
+        "live_only": [
+          "2026-08-04T10:00:00+00:00",
+          "2026-08-04T12:00:00+00:00"
+        ],
+        "exact": false,
+        "skips": {
+          "clarity_mean_strength": 5,
+          "cap_reached:7": 2
+        }
+      },
+      "C2_cold_exitaware": {
+        "n_replay": 20,
+        "n_live": 22,
+        "match": 17,
+        "replay_only": [
+          "2026-08-05T00:00:00+00:00",
+          "2026-08-05T03:00:00+00:00",
+          "2026-08-05T09:00:00+00:00"
+        ],
+        "live_only": [
+          "2026-08-04T06:00:00+00:00",
+          "2026-08-04T07:00:00+00:00",
+          "2026-08-04T10:00:00+00:00",
+          "2026-08-04T12:00:00+00:00",
+          "2026-08-04T14:00:00+00:00"
+        ],
+        "exact": false,
+        "skips": {
+          "clarity_mean_strength": 18
+        }
+      },
+      "C3_seeded_exitaware": {
+        "n_replay": 32,
+        "n_live": 22,
+        "match": 20,
+        "replay_only": [
+          "2026-08-04T15:00:00+00:00",
+          "2026-08-04T19:00:00+00:00",
+          "2026-08-04T20:00:00+00:00",
+          "2026-08-05T00:00:00+00:00",
+          "2026-08-05T06:00:00+00:00",
+          "2026-08-05T08:00:00+00:00",
+          "2026-08-05T09:00:00+00:00",
+          "2026-08-05T11:00:00+00:00",
+          "2026-08-05T16:00:00+00:00",
+          "2026-08-05T17:00:00+00:00",
+          "2026-08-05T18:00:00+00:00",
+          "2026-08-05T19:00:00+00:00"
+        ],
+        "live_only": [
+          "2026-08-04T10:00:00+00:00",
+          "2026-08-04T12:00:00+00:00"
+        ],
+        "exact": false,
+        "skips": {
+          "clarity_mean_strength": 5,
+          "cap_reached:7": 1
+        }
+      },
+      "seed_strength_n": 168
+    },
+    "layer_c_execution": {
+      "live_size_mults": [
+        1.0
+      ],
+      "live_tp_pcts": [
+        0.01
+      ],
+      "live_max_holds": [
+        6
+      ],
+      "bt_applies_size_mult": false,
+      "size_double_configured": false
+    }
+  },
+  {
+    "account": "Xxobster7",
+    "label": "BTC_single",
+    "ledger_key": "llm2-structure",
+    "pack": "structure_v1_lgbm",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h",
+    "target": "fwd_return",
+    "min_edge_used": 0.0016,
+    "multitrade": false,
+    "window": [
+      "2026-08-03T14:00:00+00:00",
+      "2026-08-06T01:00:00+00:00"
+    ],
+    "n_decision_bars": 59,
+    "n_live_orders": 3,
+    "layer_a_prediction": {
+      "trailing_identical_bars": 0,
+      "last_divergent_bar_utc": null,
+      "bars_compared": 46,
+      "bars_missing_locally": 13,
+      "max_abs_pred_diff": 0.031335229276503306,
+      "median_abs_pred_diff": 0.006702979063434796,
+      "n_bars_pred_differ": 46,
+      "n_bars_side_flip": 33,
+      "top_divergent_features": []
+    },
+    "layer_b_gate": {
+      "single_book_holdslots": {
+        "n_replay": 10,
+        "n_live": 3,
+        "match": 0,
+        "replay_only": [
+          "2026-08-03T14:00:00+00:00",
+          "2026-08-03T20:00:00+00:00",
+          "2026-08-04T02:00:00+00:00",
+          "2026-08-04T08:00:00+00:00",
+          "2026-08-04T14:00:00+00:00",
+          "2026-08-04T21:00:00+00:00",
+          "2026-08-05T03:00:00+00:00",
+          "2026-08-05T09:00:00+00:00",
+          "2026-08-05T15:00:00+00:00",
+          "2026-08-05T21:00:00+00:00"
+        ],
+        "live_only": [
+          "2026-08-05T10:00:00+00:00",
+          "2026-08-05T16:00:00+00:00",
+          "2026-08-05T22:00:00+00:00"
+        ],
+        "exact": false
+      }
+    },
+    "layer_c_execution": {
+      "live_size_mults": [
+        1.0
+      ],
+      "live_tp_pcts": [
+        0.01
+      ],
+      "live_max_holds": [
+        6
+      ],
+      "bt_applies_size_mult": false,
+      "size_double_configured": false
+    }
+  },
+  {
+    "account": "Xxobster7",
+    "label": "ETH_single",
+    "ledger_key": "llm2-structure-eth",
+    "pack": "structure_v1_ethusdt_direction",
+    "symbol": "ETHUSDT",
+    "timeframe": "1h",
+    "target": "direction",
+    "min_edge_used": 0.1,
+    "multitrade": false,
+    "window": [
+      "2026-08-03T16:00:00+00:00",
+      "2026-08-06T01:00:00+00:00"
+    ],
+    "n_decision_bars": 58,
+    "n_live_orders": 2,
+    "layer_a_prediction": {
+      "trailing_identical_bars": 0,
+      "last_divergent_bar_utc": "2026-08-06T01:00:00+00:00",
+      "bars_compared": 58,
+      "bars_missing_locally": 0,
+      "max_abs_pred_diff": 1.2134186942826874,
+      "median_abs_pred_diff": 0.5018385427289503,
+      "n_bars_pred_differ": 58,
+      "n_bars_side_flip": 31,
+      "top_divergent_features": []
+    },
+    "layer_b_gate": {
+      "single_book_holdslots": {
+        "n_replay": 9,
+        "n_live": 2,
+        "match": 0,
+        "replay_only": [
+          "2026-08-03T16:00:00+00:00",
+          "2026-08-03T22:00:00+00:00",
+          "2026-08-04T04:00:00+00:00",
+          "2026-08-04T10:00:00+00:00",
+          "2026-08-04T16:00:00+00:00",
+          "2026-08-04T22:00:00+00:00",
+          "2026-08-05T04:00:00+00:00",
+          "2026-08-05T10:00:00+00:00",
+          "2026-08-05T16:00:00+00:00"
+        ],
+        "live_only": [
+          "2026-08-05T15:00:00+00:00",
+          "2026-08-05T17:00:00+00:00"
+        ],
+        "exact": false
+      }
+    },
+    "layer_c_execution": {
+      "live_size_mults": [
+        1.0
+      ],
+      "live_tp_pcts": [
+        0.01
+      ],
+      "live_max_holds": [
+        6
+      ],
+      "bt_applies_size_mult": false,
+      "size_double_configured": false
+    }
+  },
+  {
+    "account": "Xxobster7",
+    "label": "SOL_single",
+    "ledger_key": "llm2-structure-sol",
+    "pack": "structure_v1_solusdt_direction",
+    "symbol": "SOLUSDT",
+    "timeframe": "1h",
+    "target": "direction",
+    "min_edge_used": 0.1,
+    "multitrade": false,
+    "window": [
+      "2026-08-03T16:00:00+00:00",
+      "2026-08-06T02:00:00+00:00"
+    ],
+    "n_decision_bars": 56,
+    "n_live_orders": 3,
+    "layer_a_prediction": {
+      "trailing_identical_bars": 0,
+      "last_divergent_bar_utc": null,
+      "bars_compared": 45,
+      "bars_missing_locally": 11,
+      "max_abs_pred_diff": 0.8604287410719033,
+      "median_abs_pred_diff": 0.43557183356460805,
+      "n_bars_pred_differ": 45,
+      "n_bars_side_flip": 23,
+      "top_divergent_features": []
+    },
+    "layer_b_gate": {
+      "single_book_holdslots": {
+        "n_replay": 10,
+        "n_live": 3,
+        "match": 0,
+        "replay_only": [
+          "2026-08-03T16:00:00+00:00",
+          "2026-08-03T22:00:00+00:00",
+          "2026-08-04T04:00:00+00:00",
+          "2026-08-04T10:00:00+00:00",
+          "2026-08-04T16:00:00+00:00",
+          "2026-08-04T23:00:00+00:00",
+          "2026-08-05T05:00:00+00:00",
+          "2026-08-05T11:00:00+00:00",
+          "2026-08-05T17:00:00+00:00",
+          "2026-08-05T23:00:00+00:00"
+        ],
+        "live_only": [
+          "2026-08-05T10:00:00+00:00",
+          "2026-08-05T16:00:00+00:00",
+          "2026-08-05T22:00:00+00:00"
+        ],
+        "exact": false
+      }
+    },
+    "layer_c_execution": {
+      "live_size_mults": [
+        1.0
+      ],
+      "live_tp_pcts": [
+        0.01
+      ],
+      "live_max_holds": [
+        6
+      ],
+      "bt_applies_size_mult": false,
+      "size_double_configured": false
+    }
+  },
+  {
+    "account": "Xxobster10",
+    "label": "BTC_k5_double3h",
+    "ledger_key": "llm2-structure-btc-k5-double3h-v1",
+    "pack": "structure_v1_btcusdt_k5_double3h_v1",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h",
+    "target": "fwd_return",
+    "min_edge_used": 0.0016,
+    "multitrade": true,
+    "window": [
+      "2026-08-04T13:00:00+00:00",
+      "2026-08-06T01:00:00+00:00"
+    ],
+    "n_decision_bars": 37,
+    "n_live_orders": 13,
+    "layer_a_prediction": {
+      "trailing_identical_bars": 0,
+      "last_divergent_bar_utc": null,
+      "bars_compared": 24,
+      "bars_missing_locally": 13,
+      "max_abs_pred_diff": 0.008557781737100055,
+      "median_abs_pred_diff": 0.00655095501040161,
+      "n_bars_pred_differ": 24,
+      "n_bars_side_flip": 19,
+      "top_divergent_features": []
+    },
+    "layer_b_gate": {
+      "C0_cold_holdslots": {
+        "n_replay": 13,
+        "n_live": 13,
+        "match": 11,
+        "replay_only": [
+          "2026-08-05T15:00:00+00:00",
+          "2026-08-05T21:00:00+00:00"
+        ],
+        "live_only": [
+          "2026-08-05T13:00:00+00:00",
+          "2026-08-05T17:00:00+00:00"
+        ],
+        "exact": false,
+        "skips": {
+          "clarity_mean_strength": 15,
+          "cap_reached:5": 6
+        }
+      },
+      "C1_seeded_holdslots": {
+        "n_replay": 22,
+        "n_live": 13,
+        "match": 10,
+        "replay_only": [
+          "2026-08-04T17:00:00+00:00",
+          "2026-08-04T22:00:00+00:00",
+          "2026-08-04T23:00:00+00:00",
+          "2026-08-05T00:00:00+00:00",
+          "2026-08-05T01:00:00+00:00",
+          "2026-08-05T14:00:00+00:00",
+          "2026-08-05T15:00:00+00:00",
+          "2026-08-05T21:00:00+00:00",
+          "2026-08-05T22:00:00+00:00",
+          "2026-08-05T23:00:00+00:00",
+          "2026-08-06T00:00:00+00:00",
+          "2026-08-06T01:00:00+00:00"
+        ],
+        "live_only": [
+          "2026-08-05T04:00:00+00:00",
+          "2026-08-05T13:00:00+00:00",
+          "2026-08-05T17:00:00+00:00"
+        ],
+        "exact": false,
+        "skips": {
+          "clarity_mean_strength": 1,
+          "cap_reached:5": 11
+        }
+      },
+      "C2_cold_exitaware": {
+        "n_replay": 13,
+        "n_live": 13,
+        "match": 11,
+        "replay_only": [
+          "2026-08-05T15:00:00+00:00",
+          "2026-08-05T21:00:00+00:00"
+        ],
+        "live_only": [
+          "2026-08-05T13:00:00+00:00",
+          "2026-08-05T17:00:00+00:00"
+        ],
+        "exact": false,
+        "skips": {
+          "clarity_mean_strength": 15,
+          "cap_reached:5": 6
+        }
+      },
+      "C3_seeded_exitaware": {
+        "n_replay": 22,
+        "n_live": 13,
+        "match": 10,
+        "replay_only": [
+          "2026-08-04T17:00:00+00:00",
+          "2026-08-04T22:00:00+00:00",
+          "2026-08-04T23:00:00+00:00",
+          "2026-08-05T00:00:00+00:00",
+          "2026-08-05T01:00:00+00:00",
+          "2026-08-05T14:00:00+00:00",
+          "2026-08-05T15:00:00+00:00",
+          "2026-08-05T21:00:00+00:00",
+          "2026-08-05T22:00:00+00:00",
+          "2026-08-05T23:00:00+00:00",
+          "2026-08-06T00:00:00+00:00",
+          "2026-08-06T01:00:00+00:00"
+        ],
+        "live_only": [
+          "2026-08-05T04:00:00+00:00",
+          "2026-08-05T13:00:00+00:00",
+          "2026-08-05T17:00:00+00:00"
+        ],
+        "exact": false,
+        "skips": {
+          "clarity_mean_strength": 1,
+          "cap_reached:5": 11
+        }
+      },
+      "seed_strength_n": 168
+    },
+    "layer_c_execution": {
+      "live_size_mults": [
+        1.0,
+        2.0
+      ],
+      "live_tp_pcts": [
+        0.01
+      ],
+      "live_max_holds": [
+        12
+      ],
+      "bt_applies_size_mult": false,
+      "size_double_configured": true
+    }
+  },
+  {
+    "account": "Xxobster10",
+    "label": "SOL_k5_double3h",
+    "ledger_key": "llm2-structure-sol-k5-double3h-v1",
+    "pack": "structure_v1_solusdt_k5_double3h_v1",
+    "symbol": "SOLUSDT",
+    "timeframe": "1h",
+    "target": "direction",
+    "min_edge_used": 0.1,
+    "multitrade": true,
+    "window": [
+      "2026-08-04T13:00:00+00:00",
+      "2026-08-06T02:00:00+00:00"
+    ],
+    "n_decision_bars": 35,
+    "n_live_orders": 12,
+    "layer_a_prediction": {
+      "trailing_identical_bars": 0,
+      "last_divergent_bar_utc": null,
+      "bars_compared": 24,
+      "bars_missing_locally": 11,
+      "max_abs_pred_diff": 0.8604287410719033,
+      "median_abs_pred_diff": 0.4351220470041165,
+      "n_bars_pred_differ": 24,
+      "n_bars_side_flip": 8,
+      "top_divergent_features": []
+    },
+    "layer_b_gate": {
+      "C0_cold_holdslots": {
+        "n_replay": 12,
+        "n_live": 12,
+        "match": 11,
+        "replay_only": [
+          "2026-08-04T20:00:00+00:00"
+        ],
+        "live_only": [
+          "2026-08-05T10:00:00+00:00"
+        ],
+        "exact": false,
+        "skips": {
+          "clarity_mean_strength": 22,
+          "cap_reached:5": 1
+        }
+      },
+      "C1_seeded_holdslots": {
+        "n_replay": 23,
+        "n_live": 12,
+        "match": 10,
+        "replay_only": [
+          "2026-08-04T14:00:00+00:00",
+          "2026-08-04T15:00:00+00:00",
+          "2026-08-04T18:00:00+00:00",
+          "2026-08-04T19:00:00+00:00",
+          "2026-08-05T01:00:00+00:00",
+          "2026-08-05T02:00:00+00:00",
+          "2026-08-05T05:00:00+00:00",
+          "2026-08-05T11:00:00+00:00",
+          "2026-08-05T17:00:00+00:00",
+          "2026-08-05T18:00:00+00:00",
+          "2026-08-05T19:00:00+00:00",
+          "2026-08-05T20:00:00+00:00",
+          "2026-08-06T00:00:00+00:00"
+        ],
+        "live_only": [
+          "2026-08-04T21:00:00+00:00",
+          "2026-08-05T10:00:00+00:00"
+        ],
+        "exact": false,
+        "skips": {
+          "cap_reached:5": 3,
+          "clarity_mean_strength": 9
+        }
+      },
+      "C2_cold_exitaware": {
+        "n_replay": 12,
+        "n_live": 12,
+        "match": 11,
+        "replay_only": [
+          "2026-08-04T20:00:00+00:00"
+        ],
+        "live_only": [
+          "2026-08-05T10:00:00+00:00"
+        ],
+        "exact": false,
+        "skips": {
+          "clarity_mean_strength": 22,
+          "cap_reached:5": 1
+        }
+      },
+      "C3_seeded_exitaware": {
+        "n_replay": 23,
+        "n_live": 12,
+        "match": 10,
+        "replay_only": [
+          "2026-08-04T14:00:00+00:00",
+          "2026-08-04T15:00:00+00:00",
+          "2026-08-04T18:00:00+00:00",
+          "2026-08-04T19:00:00+00:00",
+          "2026-08-05T01:00:00+00:00",
+          "2026-08-05T02:00:00+00:00",
+          "2026-08-05T05:00:00+00:00",
+          "2026-08-05T11:00:00+00:00",
+          "2026-08-05T17:00:00+00:00",
+          "2026-08-05T18:00:00+00:00",
+          "2026-08-05T19:00:00+00:00",
+          "2026-08-05T20:00:00+00:00",
+          "2026-08-06T00:00:00+00:00"
+        ],
+        "live_only": [
+          "2026-08-04T21:00:00+00:00",
+          "2026-08-05T10:00:00+00:00"
+        ],
+        "exact": false,
+        "skips": {
+          "cap_reached:5": 3,
+          "clarity_mean_strength": 9
+        }
+      },
+      "seed_strength_n": 168
+    },
+    "layer_c_execution": {
+      "live_size_mults": [
+        1.0,
+        2.0
+      ],
+      "live_tp_pcts": [
+        0.01
+      ],
+      "live_max_holds": [
+        12
+      ],
+      "bt_applies_size_mult": false,
+      "size_double_configured": true
+    }
+  },
+  {
+    "account": "unassigned",
+    "label": "ETH_k5_double3h",
+    "ledger_key": "llm2-structure-eth-k5-double3h-v1",
+    "pack": "structure_v1_ethusdt_k5_double3h_v1",
+    "symbol": "ETHUSDT",
+    "timeframe": "1h",
+    "target": "direction",
+    "min_edge_used": 0.1,
+    "multitrade": true,
+    "window": [
+      "2026-08-04T10:00:00+00:00",
+      "2026-08-06T01:00:00+00:00"
+    ],
+    "n_decision_bars": 40,
+    "n_live_orders": 14,
+    "layer_a_prediction": {
+      "trailing_identical_bars": 0,
+      "last_divergent_bar_utc": "2026-08-06T01:00:00+00:00",
+      "bars_compared": 40,
+      "bars_missing_locally": 0,
+      "max_abs_pred_diff": 1.0244011409968543,
+      "median_abs_pred_diff": 0.490995693625323,
+      "n_bars_pred_differ": 40,
+      "n_bars_side_flip": 19,
+      "top_divergent_features": []
+    },
+    "layer_b_gate": {
+      "C0_cold_holdslots": {
+        "n_replay": 18,
+        "n_live": 14,
+        "match": 12,
+        "replay_only": [
+          "2026-08-05T02:00:00+00:00",
+          "2026-08-05T03:00:00+00:00",
+          "2026-08-05T05:00:00+00:00",
+          "2026-08-05T07:00:00+00:00",
+          "2026-08-05T09:00:00+00:00",
+          "2026-08-05T10:00:00+00:00"
+        ],
+        "live_only": [
+          "2026-08-04T18:00:00+00:00",
+          "2026-08-04T23:00:00+00:00"
+        ],
+        "exact": false,
+        "skips": {
+          "cap_reached:5": 3,
+          "clarity_mean_strength": 12
+        }
+      },
+      "C1_seeded_holdslots": {
+        "n_replay": 19,
+        "n_live": 14,
+        "match": 9,
+        "replay_only": [
+          "2026-08-04T19:00:00+00:00",
+          "2026-08-05T01:00:00+00:00",
+          "2026-08-05T02:00:00+00:00",
+          "2026-08-05T03:00:00+00:00",
+          "2026-08-05T05:00:00+00:00",
+          "2026-08-05T06:00:00+00:00",
+          "2026-08-05T09:00:00+00:00",
+          "2026-08-05T10:00:00+00:00",
+          "2026-08-05T11:00:00+00:00",
+          "2026-08-05T16:00:00+00:00"
+        ],
+        "live_only": [
+          "2026-08-04T10:00:00+00:00",
+          "2026-08-04T12:00:00+00:00",
+          "2026-08-04T22:00:00+00:00",
+          "2026-08-04T23:00:00+00:00",
+          "2026-08-05T00:00:00+00:00"
+        ],
+        "exact": false,
+        "skips": {
+          "clarity_mean_strength": 5,
+          "cap_reached:5": 9
+        }
+      },
+      "C2_cold_exitaware": {
+        "n_replay": 18,
+        "n_live": 14,
+        "match": 12,
+        "replay_only": [
+          "2026-08-05T02:00:00+00:00",
+          "2026-08-05T03:00:00+00:00",
+          "2026-08-05T05:00:00+00:00",
+          "2026-08-05T07:00:00+00:00",
+          "2026-08-05T09:00:00+00:00",
+          "2026-08-05T10:00:00+00:00"
+        ],
+        "live_only": [
+          "2026-08-04T18:00:00+00:00",
+          "2026-08-04T23:00:00+00:00"
+        ],
+        "exact": false,
+        "skips": {
+          "cap_reached:5": 3,
+          "clarity_mean_strength": 12
+        }
+      },
+      "C3_seeded_exitaware": {
+        "n_replay": 21,
+        "n_live": 14,
+        "match": 9,
+        "replay_only": [
+          "2026-08-04T19:00:00+00:00",
+          "2026-08-05T01:00:00+00:00",
+          "2026-08-05T02:00:00+00:00",
+          "2026-08-05T03:00:00+00:00",
+          "2026-08-05T05:00:00+00:00",
+          "2026-08-05T06:00:00+00:00",
+          "2026-08-05T09:00:00+00:00",
+          "2026-08-05T10:00:00+00:00",
+          "2026-08-05T11:00:00+00:00",
+          "2026-08-05T16:00:00+00:00",
+          "2026-08-05T18:00:00+00:00",
+          "2026-08-05T19:00:00+00:00"
+        ],
+        "live_only": [
+          "2026-08-04T10:00:00+00:00",
+          "2026-08-04T12:00:00+00:00",
+          "2026-08-04T22:00:00+00:00",
+          "2026-08-04T23:00:00+00:00",
+          "2026-08-05T00:00:00+00:00"
+        ],
+        "exact": false,
+        "skips": {
+          "clarity_mean_strength": 5,
+          "cap_reached:5": 7
+        }
+      },
+      "seed_strength_n": 168
+    },
+    "layer_c_execution": {
+      "live_size_mults": [
+        1.0
+      ],
+      "live_tp_pcts": [
+        0.01
+      ],
+      "live_max_holds": [
+        12
+      ],
+      "bt_applies_size_mult": false,
+      "size_double_configured": true
+    }
+  }
+]

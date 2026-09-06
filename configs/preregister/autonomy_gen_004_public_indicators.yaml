@@ -1,0 +1,40 @@
+# Autonomy gen 004 — Williams %R / Keltner / Parabolic SAR filters
+# RESEARCH_ONLY. Frozen before profit-factor ranking. Not a TradingView scrape.
+generation_id: autonomy_gen_004_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-21T05:00:00Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+
+hypothesis: >
+  Single-head P(future regime) for Williams percent-R bands / crosses,
+  Keltner channel breaks, or Parabolic SAR flips can filter the Ether /
+  Solana / Bitcoin 15-minute Limit 1%/1% pivot control and beat that control
+  on test expectancy without entry-bar exits above 35% or over-trading.
+
+events:
+  - wr_oversold_at_h
+  - wr_overbought_at_h
+  - wr_cross_up_neg80
+  - wr_cross_down_neg20
+  - kc_break_up_at_h
+  - kc_break_down_at_h
+  - psar_flip_up
+  - psar_flip_down
+
+brackets:
+  - {tp: 0.01, sl: 0.01}
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not:
+  - scrape TradingView / paste Pine
+  - peep lockbox for ranking
+  - deploy or retune live packs
+  - reopen 0.5%/0.5% grid
+
+preregister_sha256_at_run: 74e6a1b6b33220c9cf3fcedce2ecd4ff54a4bcebbe8b2b744293a4efbdc2fbfa

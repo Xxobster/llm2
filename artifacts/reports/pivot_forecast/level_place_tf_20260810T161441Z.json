@@ -1,0 +1,161 @@
+{
+  "generation_id": "pivot_level_place_tf_001",
+  "stamp": "20260810T161441Z",
+  "readiness_max": "RESEARCH_ONLY",
+  "leakage": [
+    {
+      "status": "FAIL",
+      "symbol": "SOLUSDT",
+      "timeframe": "15m",
+      "pack": "level_focus",
+      "error": "'method' object is not subscriptable"
+    },
+    {
+      "status": "FAIL",
+      "symbol": "SOLUSDT",
+      "timeframe": "15m",
+      "pack": "price_vol_mom",
+      "error": "'method' object is not subscriptable"
+    },
+    {
+      "status": "FAIL",
+      "symbol": "SOLUSDT",
+      "timeframe": "5m",
+      "pack": "level_focus",
+      "error": "'method' object is not subscriptable"
+    },
+    {
+      "status": "FAIL",
+      "symbol": "SOLUSDT",
+      "timeframe": "1h",
+      "pack": "level_focus",
+      "error": "'method' object is not subscriptable"
+    },
+    {
+      "status": "FAIL",
+      "symbol": "ETHUSDT",
+      "timeframe": "15m",
+      "pack": "level_focus",
+      "error": "'method' object is not subscriptable"
+    }
+  ],
+  "mae_by_pack": {},
+  "arms": [
+    {
+      "arm": "sol15_raw_w4",
+      "status": "SKIP_LEAKAGE_FAIL",
+      "leakage": {
+        "status": "FAIL",
+        "symbol": "SOLUSDT",
+        "timeframe": "15m",
+        "pack": "price_vol_mom",
+        "error": "'method' object is not subscriptable"
+      }
+    },
+    {
+      "arm": "sol15_levelpack_raw_w4",
+      "status": "SKIP_LEAKAGE_FAIL",
+      "leakage": {
+        "status": "FAIL",
+        "symbol": "SOLUSDT",
+        "timeframe": "15m",
+        "pack": "level_focus",
+        "error": "'method' object is not subscriptable"
+      }
+    },
+    {
+      "arm": "sol15_blend75_1pct_w4",
+      "status": "SKIP_LEAKAGE_FAIL",
+      "leakage": {
+        "status": "FAIL",
+        "symbol": "SOLUSDT",
+        "timeframe": "15m",
+        "pack": "level_focus",
+        "error": "'method' object is not subscriptable"
+      }
+    },
+    {
+      "arm": "sol15_miss_comp_w4",
+      "status": "SKIP_LEAKAGE_FAIL",
+      "leakage": {
+        "status": "FAIL",
+        "symbol": "SOLUSDT",
+        "timeframe": "15m",
+        "pack": "level_focus",
+        "error": "'method' object is not subscriptable"
+      }
+    },
+    {
+      "arm": "sol15_miss_minus_os_w4",
+      "status": "SKIP_LEAKAGE_FAIL",
+      "leakage": {
+        "status": "FAIL",
+        "symbol": "SOLUSDT",
+        "timeframe": "15m",
+        "pack": "level_focus",
+        "error": "'method' object is not subscriptable"
+      }
+    },
+    {
+      "arm": "sol15_blend_timebucket",
+      "status": "SKIP_LEAKAGE_FAIL",
+      "leakage": {
+        "status": "FAIL",
+        "symbol": "SOLUSDT",
+        "timeframe": "15m",
+        "pack": "level_focus",
+        "error": "'method' object is not subscriptable"
+      }
+    },
+    {
+      "arm": "sol15_raw_w2",
+      "status": "SKIP_LEAKAGE_FAIL",
+      "leakage": {
+        "status": "FAIL",
+        "symbol": "SOLUSDT",
+        "timeframe": "15m",
+        "pack": "level_focus",
+        "error": "'method' object is not subscriptable"
+      }
+    },
+    {
+      "arm": "sol5m_raw_w4",
+      "status": "SKIP_LEAKAGE_FAIL",
+      "leakage": {
+        "status": "FAIL",
+        "symbol": "SOLUSDT",
+        "timeframe": "5m",
+        "pack": "level_focus",
+        "error": "'method' object is not subscriptable"
+      }
+    },
+    {
+      "arm": "sol1h_raw_w1",
+      "status": "SKIP_LEAKAGE_FAIL",
+      "leakage": {
+        "status": "FAIL",
+        "symbol": "SOLUSDT",
+        "timeframe": "1h",
+        "pack": "level_focus",
+        "error": "'method' object is not subscriptable"
+      }
+    },
+    {
+      "arm": "eth15_blend75_1pct_w4",
+      "status": "SKIP_LEAKAGE_FAIL",
+      "leakage": {
+        "status": "FAIL",
+        "symbol": "ETHUSDT",
+        "timeframe": "15m",
+        "pack": "level_focus",
+        "error": "'method' object is not subscriptable"
+      }
+    }
+  ],
+  "placement_idea": {
+    "user": "75% weight on pred\u00b11% toward market, 25% on raw pred (one limit)",
+    "miss_overshoot": "pull_bps = max(0, median_miss - median_overshoot) from early gated sample",
+    "note": "0.82% mean abs gap is not 'precision'; 100-82'; it is typical |limit-wick| across intents. Pulling toward market raises fills; may dilute edge."
+  },
+  "multi_limit_recommendation": "Yes later: ladder 2\u20133 rests with size \u221d calibrated p_any * side_confidence, but only after level P90 <~1%. Today, ladders mostly buy more fills of a noisy level and add fee drag. Prefer one bias-corrected limit + hard cancel."
+}

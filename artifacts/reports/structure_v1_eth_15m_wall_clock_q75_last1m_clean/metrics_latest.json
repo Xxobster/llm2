@@ -1,0 +1,40 @@
+{
+  "evidence_class": "DISPLAY_ONLY_CLEAN_OOS_SLICE",
+  "promotion_allowed": false,
+  "lockbox_used": false,
+  "selection_on_slice": false,
+  "window": [
+    "2026-04-01",
+    "2026-05-01"
+  ],
+  "arm": "wall_clock_q75",
+  "live_bot": "llm2_structure_eth_15m_multitrade_wall_clock_p75",
+  "timeframe": "15m",
+  "touch_timeframe": "1m",
+  "n_trades": 303,
+  "profit_factor": 4.107017899409668,
+  "win_rate": 0.759075907590759,
+  "expectancy_return_units": 0.008072638729107769,
+  "expectancy": 0.18025947914191412,
+  "net_pnl": 54.61862218001261,
+  "payoff_ratio": 1.3035317680735035,
+  "avg_win": 0.3139032012391304,
+  "avg_loss": -0.24080978226027405,
+  "total_fees": 7.51697782,
+  "n_liquidations": 0,
+  "entry_bar_exits": 1,
+  "sharpe_annualised": 15.798347974542956,
+  "signal_stats": {
+    "n_emitted": 307,
+    "n_skipped_clarity": 1367,
+    "n_skipped_cap": 229,
+    "n_skipped_loss_cooloff": 0,
+    "n_skipped_weak_short_book1": 0,
+    "n_primary": 39,
+    "n_addon": 268
+  },
+  "run_id": "eth_15m_wall_clock_q75_last1m_clean-7ffae4c752",
+  "created_utc": "20260805T151513Z",
+  "elapsed_sec": 23.0,
+  "note": "Last month of pre-lockbox outer OOS only [2026-04-01,2026-05-01). Calendar May\u2013Aug 2026 is lockbox/live and was NOT used. Not a promotion gate."
+}

@@ -1,0 +1,77 @@
+# Frozen outer transfer: train-only isotonic calibration + break-even π* gate
+# on live eth_k5_double3h_v1 geometry. ONE candidate. Maximize expectancy_return_units.
+# Written before settle. No lockbox. No multi-arm outer grid.
+#
+# Does not combine with cooloff or p75 strength in this generation.
+
+generation_id: structure_v1_eth_k5_ev_calibrated_pi_star_001
+created_utc: "2026-08-05T07:00:00Z"
+status: OOS_COMPARE_COMPLETE
+settled_utc: "20260805T065736Z"
+note: >
+  Corrected settle after train_calib_split + bracket_path labels. First settle
+  (20260805T065413Z) was invalid identity (calib collapsed). FAILED primary E[r].
+preregister_sha256_at_run: see_report_field
+decision_refs: [D-041, D-042, D-043]
+fold_geometry: v2
+parent_pack: structure_v1_ethusdt_k5_double3h_v1
+parent_version_id: eth_k5_double3h_v1
+
+hypothesis: >
+  Mapping |LightGBM direction score| to a hit probability with isotonic
+  regression fitted only on a held-out slice of each outer-fold TRAINING
+  window, then requiring p_hat >= π* (CostHurdle for TP1%/SL2% + fees),
+  raises stitched outer expectancy_return_units vs the live K5 median
+  strength control by suppressing miscalibrated "go" signals.
+
+economic_rationale: >
+  Live packs gate on raw score bands, not calibrated probabilities. Tree scores
+  are mis-scaled as probabilities; EV theory needs p_hat vs μ+/μ−. Calibration
+  is train-window only; π* is precomputed from frozen costs.
+
+control_arm:
+  version_id: eth_k5_double3h_v1
+  strength_quantile: 0.5
+  min_edge: 0.10
+  decision_gate: raw_edge_plus_mean_strength_median
+  k: 5
+  hold: 12
+  tp_pct: 0.01
+  sl_pct: 0.02
+  size_double_within_bars: 3
+
+frozen_candidate:
+  same_as_control_except:
+    decision_gate: isotonic_hit_prob_then_pi_star
+    calibration: isotonic_train_last_20pct
+    calib_labels: bracket_path_tp_sl_hold  # not raw direction match
+    train_split: train_calib_split(calib_frac=0.20)  # not max(0.8n, n-1)
+    pi_star_from: CostHurdle(tp=0.01, sl=0.02, taker=0.00055, entry_slip=0.0005)
+    keep_mean_strength_median: true
+
+selection:
+  method: FROZEN_TRANSFER — one candidate
+  forbidden:
+    - multi_arm_outer_grid
+    - refit_calibrator_on_oos
+    - combine_p75_or_cooloff
+    - select_on_lockbox
+
+evaluation:
+  symbol: ETHUSDT
+  target: direction
+  outer: fold_geometry_v2_stitched_oos
+  hard_end_exclusive: "2026-05-01"
+  lockbox: DO_NOT_OPEN
+  primary_metric: expectancy_return_units
+  secondary: [profit_factor, n_trades, ece_train_slice, win_rate]
+  evidence_class: OUTER_TRANSFER_COMPARE
+  promotion: FORBIDDEN_without_pack_certificate_and_explicit_user_auth
+
+success_criteria:
+  - candidate_expectancy_return_units > control
+  - candidate_stitched_pf >= 1.20
+  - no liquidation
+
+failure_is_success: true
+live_deploy: FORBIDDEN_without_certificate_and_explicit_user_auth

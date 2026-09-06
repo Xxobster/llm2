@@ -1,0 +1,176 @@
+{
+  "generation_id": "pivot_reentry_vsa_001",
+  "stamp": "20260812T050534Z",
+  "readiness_max": "RESEARCH_ONLY",
+  "symbol": "SOLUSDT",
+  "setup": {
+    "tf": "15m",
+    "tp": 0.01,
+    "sl": 0.01,
+    "work": 4,
+    "pack_trade": "level_focus",
+    "reentry": "one LIMIT after SL; work=2; limit pulled by train miss bps"
+  },
+  "leakage": [
+    {
+      "pack": "price_vol_mom",
+      "status": "PASS",
+      "summary": "LeakageReport(ok=True, n_columns=15, findings=[], leakage_potential=[], registry_path=None, notes=[])"
+    },
+    {
+      "pack": "level_focus",
+      "status": "PASS",
+      "summary": "LeakageReport(ok=True, n_columns=31, findings=[], leakage_potential=[], registry_path=None, notes=[])"
+    },
+    {
+      "pack": "vsa_proxy",
+      "status": "PASS",
+      "summary": "LeakageReport(ok=True, n_columns=30, findings=[], leakage_potential=[], registry_path=None, notes=[])"
+    },
+    {
+      "pack": "level_vsa",
+      "status": "PASS",
+      "summary": "LeakageReport(ok=True, n_columns=39, findings=[], leakage_potential=[], registry_path=None, notes=[])"
+    }
+  ],
+  "level_mae_by_pack": {
+    "price_vol_mom": {
+      "n": 14461,
+      "mae_pct": 0.012873395108499577,
+      "p50_abs_pct": 0.008326481382389913,
+      "p90_abs_pct": 0.02847941988940578,
+      "bias_pct": -0.00019994799447497385,
+      "corr": 0.31568420994510416,
+      "mae_atr": 2.0663891584113117,
+      "p90_abs_atr": 4.340613090861315
+    },
+    "level_focus": {
+      "n": 14461,
+      "mae_pct": 0.01284710349906627,
+      "p50_abs_pct": 0.008396109408791336,
+      "p90_abs_pct": 0.02838263411943779,
+      "bias_pct": -0.00046031381782537904,
+      "corr": 0.33200746852699053,
+      "mae_atr": 2.0626690476506657,
+      "p90_abs_atr": 4.348065439501105
+    },
+    "vsa_proxy": {
+      "n": 14461,
+      "mae_pct": 0.01285499252310119,
+      "p50_abs_pct": 0.008329884258430727,
+      "p90_abs_pct": 0.028380130168489948,
+      "bias_pct": -0.00040895442592854656,
+      "corr": 0.32406481163114964,
+      "mae_atr": 2.0650192893338764,
+      "p90_abs_atr": 4.363089950093589
+    },
+    "level_vsa": {
+      "n": 14461,
+      "mae_pct": 0.012793557078404967,
+      "p50_abs_pct": 0.008270320271619652,
+      "p90_abs_pct": 0.028145788585235584,
+      "bias_pct": -0.0004675160406441831,
+      "corr": 0.3356272798557957,
+      "mae_atr": 2.0553131755225076,
+      "p90_abs_atr": 4.3575513616262915
+    }
+  },
+  "baseline": {
+    "status": "RAN",
+    "metrics": {
+      "n_trades": 625,
+      "profit_factor": 1.9983219077798626,
+      "net_pnl": 23.541671250015497,
+      "win_rate": 0.6816,
+      "expectancy": 0.037666674000000046,
+      "n_liquidations": 0,
+      "entry_bar_exit_rate": 0.4432,
+      "n_stop": 135,
+      "n_target": 344,
+      "n_max_hold": 146
+    },
+    "n_signals": 807,
+    "expectancy_intent_all": 0.00878420569030429,
+    "fill_stats": {
+      "n_intent": 2680,
+      "n_filled_path": 807,
+      "n_no_touch": 1873,
+      "n_bad": 0,
+      "fill_rate": 0.3011194029850746,
+      "work_bars_default": 4,
+      "work_bars_mean_used": 4.0
+    }
+  },
+  "baseline_plus_reentry": {
+    "status": "RAN",
+    "metrics": {
+      "n_trades": 667,
+      "profit_factor": 1.83834028353353,
+      "net_pnl": 22.371692400007305,
+      "win_rate": 0.6746626686656672,
+      "expectancy": 0.033540768215892115,
+      "n_liquidations": 0,
+      "entry_bar_exit_rate": 0.42278860569715143,
+      "n_stop": 150,
+      "n_target": 361,
+      "n_max_hold": 156
+    },
+    "n_signals": 909,
+    "expectancy_intent_all": 0.008347646417913173,
+    "fill_stats_primary": {
+      "n_intent": 2680,
+      "n_filled_path": 807,
+      "n_no_touch": 1873,
+      "n_bad": 0,
+      "fill_rate": 0.3011194029850746,
+      "work_bars_default": 4,
+      "work_bars_mean_used": 4.0
+    },
+    "fill_stats_reentry": {
+      "n_intent": 135,
+      "n_filled_path": 102,
+      "n_no_touch": 33,
+      "n_bad": 0,
+      "fill_rate": 0.7555555555555555,
+      "work_bars_default": 2,
+      "work_bars_mean_used": 2.0
+    },
+    "n_reentry_intents": 135
+  },
+  "reentry_leg_only": {
+    "status": "RAN",
+    "metrics": {
+      "n_trades": 64,
+      "profit_factor": 0.7573004465404831,
+      "net_pnl": -1.1653794500070944,
+      "win_rate": 0.546875,
+      "expectancy": -0.018209053906249915,
+      "n_liquidations": 0,
+      "entry_bar_exit_rate": 0.25,
+      "n_stop": 25,
+      "n_target": 28,
+      "n_max_hold": 11
+    },
+    "n_signals": 102,
+    "fill_stats": {
+      "n_intent": 135,
+      "n_filled_path": 102,
+      "n_no_touch": 33,
+      "n_bad": 0,
+      "fill_rate": 0.7555555555555555,
+      "work_bars_default": 2,
+      "work_bars_mean_used": 2.0
+    }
+  },
+  "advice": {
+    "vsa": "VSA proxies can help *timing confidence* (effort vs result, climax shape) but rarely fix level MAE alone. Use as a gate on when to rest, not as magic.",
+    "reentry": "Re-limit after SL is a second bet on side accuracy. It helps only if the first stop was a level miss, not a wrong thesis. Always report reentry-only PF.",
+    "other_timing": [
+      "time-to-touch model / time buckets (already)",
+      "realized vol regime (only rest in medium vol)",
+      "session / funding window filters",
+      "order-book / trade imbalance if venue data is causal and live-available",
+      "multi-TF confirm: 1h side agrees with 15m rest"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+strategy_id: sol_1h_hilbert_amp_fade
+arm_id: SOLUSDT|1h|hilbert_amp_fade|atr1.5|slcap0.03
+status: AUTHORIZED
+authorized_by_user: true
+authorized_scope: 5% equity stop-risk Post-Only (nearest Bybit qty step; skip if below min; not venue-minimum size)
+authorization_source: >-
+  user chat 2026-09-04: find a free Xxobster account and run Solana 1h
+  hilbert_amp_fade on vps 94.x (94.156.189.76); 5% of equity as risk at
+  that bar's stop (nearest venue step, not the exchange minimum lot);
+  Post-Only; adapt bots start, leverage 13x
+vps_host: 94.156.189.76
+account_ref: Xxobster3
+intended_account_ref: Xxobster3
+pack_path: artifacts/live_packs/sol_1h_hilbert_amp_fade
+pack_hash: 4001364b39d82d1cd07842c99e02403ce2cd8267d6209ea50307d74630b0fdac
+authorized_from_utc: '2026-09-04T00:00:00Z'
+expires_utc: '2026-10-04T00:00:00Z'
+created_utc: '2026-09-04T09:10:11Z'
+symbol: SOLUSDT
+timeframe: 1h
+idea: hilbert_amp_fade
+leverage: 13.0
+risk_fraction: 0.05
+sizing_mode: RISK_FRACTION
+four_proof_ok: true
+four_proof_hashes:
+  builder_responsiveness: 072c68aafe0c09fc11db35ac0f5858e09d7c745fa86f8dba5a2ff420a35e955c
+  recompute_prefix: c1629a4ae652a5f02a4571e55106741d83d7afe59c3e537198a4604fa64860c0
+  no_live_feature_fill: 6c812d39ab1acbeb88b9084c59b7bdb6d51995f7baf865968dcda098910fd864
+  layer_a_pred_identity: 70c5782e1b36797e0ef736542653f78fc58c52945c4803bfe2d849846b683311
+research_readiness: RESEARCH_ONLY (not SHADOW_READY)
+blockers_acknowledged:
+- nested stitched 2022-01-01..2026-05-01 subset PASS (n=726, ~14.0/month, profit factor 1.266, Sharpe 1.242, Heteroskedasticity-and-Autocorrelation-Consistent Sharpe 1.322, entry-bar 0.088, 6/6 positive folds) — operational fill-test only; not Shadow-Ready
+- no Deflated Sharpe / dependence-aware bootstrap / Probability of Backtest Overfitting on this pack
+- no Gate C all-taker stress on this pack
+- lockbox 2026-05-01+ still sealed
+- unfilled Post-Only cancels and stays flat
+- skip the order if 5% equity at that bar's stop is below the venue minimum (do not round up)
+- two-sided: fade signed 3-bar return when Hilbert envelope z >= 1.5
+- nested subset PASS is not a Frozen Default Gates V2.1 overall PASS

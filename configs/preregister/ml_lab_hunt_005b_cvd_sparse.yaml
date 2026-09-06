@@ -1,0 +1,54 @@
+# ML lab hunt 005b — sparse CVD events (not a stop/ATR retune of hunt 005)
+# RESEARCH_ONLY. Frozen before any hunt-005b result was viewed.
+generation_id: ml_lab_hunt_005b_cvd_sparse
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-09-01T04:20:00Z"
+parent_generation: ml_lab_hunt_005_orb_structure
+fold_geometry: v2
+failure_is_success: true
+
+hypothesis: >
+  Hunt 005 always-on close-location volume slope failed because every bar had a
+  sign, so the Average-True-Range 1.5 stop sat inside single-bar noise
+  (entry-bar exit rate 0.33–0.58). This family keeps the SAME frozen 1.5
+  Average-True-Range bracket and tests two sparse events of the same formula:
+  slope sign-change, and |96-bar z-score of slope| >= 1.5. Full Bitcoin/Ether/
+  Solana × 15m/1h/4h universe — not only the hunt-005 profit-factor printers.
+  Not a stop search.
+
+do_not:
+  - widen k_sl / sl_cap after seeing hunt-005 entry-bar exits
+  - retune bounce_upper or EMA stack
+  - peep FORWARD_LOCKBOX_START
+  - deploy
+
+selection_window: "strictly before 2022-01-01"
+universe:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  event_study_timeframes: [15m, 1h, 4h]
+  tradesim_timeframes: [15m, 1h, 4h]
+
+cost_floor: 0.0011
+max_tradesim_arms: 8
+work_bars: {15m: 4, 1h: 3, 4h: 2}
+max_hold_bars: {15m: 24, 1h: 16, 4h: 8}
+k_sl: 1.5
+tp_ratio: 1.5
+sl_cap: 0.030
+
+screen_gates:
+  min_skill_n: 80
+  min_directional_acc: 0.51
+  min_mean_signed: 0.0015
+  min_trades: 80
+  min_trades_per_month: 2.0
+  max_trades_per_month: 90.0
+  min_profit_factor: 1.20
+  max_entry_bar_exit_rate: 0.25
+  min_sharpe_annualised: 0.50
+
+leakage_audit:
+  builder: llm2.ml_lab.idea_catalog_b.build_features_for_guard_b5
+
+preregister_sha256_at_run: 0d7aadf85ad913c2402746145f57b54adb6b7aacf416b4e9847194a62690c066

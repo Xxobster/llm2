@@ -1,0 +1,11 @@
+{
+  "stamp": "20260812T153622Z",
+  "frozen_arms_before_pf": [
+    "BTC_ctrl_ret_w4",
+    "BTC_softvsa_w4",
+    "BTC_p80_w4",
+    "BTC_tp2_sl1_w4",
+    "BTC_mid_atr_band_w4",
+    "BTC_pi_band_w4"
+  ]
+}

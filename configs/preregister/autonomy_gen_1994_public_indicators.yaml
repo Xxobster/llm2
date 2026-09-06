@@ -1,0 +1,21 @@
+# Autonomy gen 1994 — Return1848_bar
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_1994_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-09-03T06:30:25Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  Sign and zero-crosses of the 1848-bar close-to-close return at t+H, used as one-head filters, can beat the 15-minute Limit 1%/1% pivot control under frozen entry-bar and trades-per-month caps.
+events: [ret1848_pos_at_h, ret1848_neg_at_h, ret1848_cross_up_0, ret1848_cross_down_0]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: 137ebc0cb0956540f9ac824497f9707af6f893b14332d6ca94a1bee952b9ad99

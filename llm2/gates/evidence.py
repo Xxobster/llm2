@@ -25,6 +25,22 @@ def mdd_fraction_from_equity(equity: np.ndarray) -> float:
     return float(np.nanmax(dd))
 
 
+def daily_returns_from_bundle(bundle) -> np.ndarray:
+    """Chronological daily mark-to-market wallet returns from a tradesim bundle."""
+    result = getattr(bundle, "result", None)
+    de = getattr(result, "daily_equity", None) if result is not None else None
+    if de is None:
+        return np.asarray([], dtype=float)
+    if isinstance(de, pd.DataFrame) and "equity" in de.columns:
+        eq = de["equity"].to_numpy(dtype=float)
+    else:
+        eq = np.asarray(de, dtype=float).reshape(-1)
+    eq = eq[np.isfinite(eq)]
+    if eq.size < 2:
+        return np.asarray([], dtype=float)
+    return (np.diff(eq) / np.maximum(eq[:-1], 1e-12)).astype(float)
+
+
 def mdd_fraction_from_daily_returns(returns: np.ndarray) -> float:
     r = np.asarray(returns, dtype=float)
     r = r[np.isfinite(r)]
@@ -98,6 +114,21 @@ def research_costs_baseline():
     from tradesim import research_costs
 
     return research_costs()
+
+
+def research_maker_first_costs():
+    """Live product preference: maker on resting entry, take-profit and stop.
+
+    Pair with Post-Only live entry and limit TP/SL. Still run
+    ``research_costs_baseline`` (all-taker) as stress. Last-resort market
+    flatten (gap, max-hold) is taker and is not this schedule.
+    """
+    from tradesim import Liquidity, research_limit_entry_costs
+
+    return research_limit_entry_costs(
+        take_profit_liquidity=Liquidity.MAKER,
+        stop_liquidity=Liquidity.MAKER,
+    )
 
 
 def research_costs_moderate_stress(*, slip_mult: float = 2.0):

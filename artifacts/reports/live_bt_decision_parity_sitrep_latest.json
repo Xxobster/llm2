@@ -1,0 +1,70 @@
+{
+  "created_utc": "2026-08-12T15:35:00Z",
+  "host": "94.156.189.76",
+  "question": "Do live decisions match backtest/recompute decisions?",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY (scale); pivot MICRO_LIVE authorized only",
+  "summary": {
+    "pivot_llm2": "PARTIAL_FAIL → FIX_DEPLOYED",
+    "structure_llm2": "HARD_FAIL (CAUS-STRUCT-001) — units STOPPED",
+    "xgb": "NOT_PROVEN / live_ready=false in audits",
+    "tsm_vpa": "NOT_PROVEN in this repo (no tip ledger parity harness)",
+    "tsm_chandelier": "NOT_PROVEN in this repo (freeze_ref claimed, no bar-level identity audit here)"
+  },
+  "pivot": {
+    "audit_path": "artifacts/reports/audit_pivot_live_bt_decision_parity_latest.json",
+    "window_bars": 8,
+    "sol_match": "6/8",
+    "eth_match": "5/8",
+    "action_flips": 0,
+    "root_cause": "Shared Binance 15m tip used when 'fresh' without REST overlay; tip close later revised (example SOL bar 1786542300000 live close 76.22 vs recompute 76.19) → p_any_raw/limit_px drift. Gate action stayed FLAT on all mismatched bars.",
+    "fix": {
+      "fetch_signal_ohlcv.force_rest_tip": true,
+      "load_pivot_ohlcv": "always REST tip overlay + second REST settle merge",
+      "tip_ohlc_persisted_on_decide": true,
+      "deployed_utc": "2026-08-12T15:35Z",
+      "units_restarted": [
+        "llm2-pivot-sol-geo-p75-w4",
+        "llm2-pivot-eth-p75-ctrl-atr-w4"
+      ]
+    },
+    "note": "Historical DIFF rows in the state DB cannot be rewritten; next closes must re-audit to green. Research stack PF used walk-forward OOS models + warehouse; live tip pack is a separate freeze — tip_decide identity is the live↔BT contract for this micro-live."
+  },
+  "structure": {
+    "status": "STOPPED",
+    "evidence": "artifacts/reports/live_bt_signal_parity_audit/audit_latest.json + llm2_accounts_live_vs_bt/summary_latest.json",
+    "why": "CAUS-STRUCT-001 last_retrace_pct look-ahead made live and research feature paths disagree (pred_mean / side flips). Causal retrain failed V2.1. Cannot make live copy that BT until a new causal space passes gates.",
+    "fix": "Do not restart. Abandoned for trading until a clean space earns readiness."
+  },
+  "xgb": {
+    "account": "Xxobster2",
+    "audits": {
+      "btc": {
+        "verdict": "RESEARCH_ONLY_BACKTEST",
+        "live_ready": false,
+        "fee_model_research": "bybit_maker_0.02pct",
+        "screen_pf": 5.57
+      },
+      "eth": {
+        "verdict": "RESEARCH_ONLY_BACKTEST",
+        "live_ready": false,
+        "fee_model_research": "bybit_taker_entry_taker_tpsl_no_exit_slip",
+        "lockbox_pf": 1.35
+      }
+    },
+    "gap": "No bar-level live decision ledger found under /home/xgb for tip identity. Research fee models differ BTC vs ETH; live open ETH uses lev 37 vs audit leverage 21 — execution assumptions not proven identical to BT.",
+    "fix_owner": "xgb repo / operator — not LLM2 pack freeze"
+  },
+  "tsm": {
+    "vpa": {
+      "live_process": "VETUSDT LIVE pack live_top4_stack2_rr15_v1",
+      "readiness_earned": "LIVE_STOP / RESEARCH_ONLY",
+      "contamination": "symbol selection used OOS"
+    },
+    "chandelier": {
+      "live_process": "BTC/ETH/SOL 1h",
+      "readiness_earned": "LIVE_STOP / SHADOW_READY (pack claim)",
+      "freeze_ref": "artifacts/reports/tsm_chandelier/1h_SHADOW_FREEZE.json (not verified bar-identical live)"
+    },
+    "gap": "No shared tip-identity audit in LLM2; state DBs have events/handled_entries but not a frozen BT replay harness here."
+  }
+}

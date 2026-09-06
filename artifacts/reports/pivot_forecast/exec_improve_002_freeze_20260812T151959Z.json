@@ -1,0 +1,29 @@
+{
+  "stamp": "20260812T151959Z",
+  "preregister": "configs/preregister/pivot_exec_improve_002.yaml",
+  "frozen_arms_before_pf": {
+    "BTCUSDT": [
+      "BTC_ctrl_ret_w4",
+      "BTC_ctrl_atr_w4",
+      "BTC_level_q50_w4",
+      "BTC_level_atr_clip_w4",
+      "BTC_mid_atr_band_w4",
+      "BTC_pull85_w4",
+      "BTC_sibling_w5"
+    ],
+    "ETHUSDT": [
+      "ETH_ctrl_atr_w4",
+      "ETH_level_q50_w4",
+      "ETH_level_q50_pull85_w4",
+      "ETH_mid_atr_band_w4"
+    ],
+    "SOLUSDT": [
+      "SOL_ctrl_ret_w4",
+      "SOL_level_atr_clip_w4",
+      "SOL_level_atr_clip_w5",
+      "SOL_level_q50_w4",
+      "SOL_mid_atr_band_w4"
+    ]
+  },
+  "ranking": "expectancy_intent_all"
+}

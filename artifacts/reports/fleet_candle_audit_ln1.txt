@@ -1,0 +1,180 @@
+﻿=== ln1 COLLECTOR ===
+  UNIT                                        LOAD   ACTIVE SUB     DESCRIPTION
+  botsgeneral-collector@94.156.189.76.service loaded active running botsgeneral shared candle collector
+
+LOAD   = Reflects whether the unit definition was properly loaded.
+ACTIVE = The high-level unit activation state, i.e. generalization of SUB.
+SUB    = The low-level unit activation state, values depend on unit type.
+1 loaded units listed.
+collector=botsgeneral-collector@94.156.189.76.service active=active
+2026-08-05 19:10:06,986 WARNING botsgeneral.collect: history_schema 4 -> 6: will full backfill all pairs
+2026-08-05 19:10:07,009 ERROR botsgeneral.fetch.bybit_ws: subscribe failed: socket is already closed.
+Traceback (most recent call last):
+2026-08-05 19:10:10,617 INFO botsgeneral.collect: history_schema set to 6
+=== ln1 LLM2 UNITS ===
+n_units=7
+{
+  "shared_tips": {
+    "BTCUSDT:1h": {
+      "n": 60548,
+      "ts_ms": 1785931200000,
+      "utc": "2026-08-05T12:00:00+00:00",
+      "ohlc": [
+        64044.7,
+        64133.9,
+        64003.0,
+        64123.0
+      ],
+      "volume": 553.975,
+      "forming": true,
+      "age_after_close_s": -2787.154
+    },
+    "BTCUSDT:4h": {
+      "n": 15138,
+      "ts_ms": 1785931200000,
+      "utc": "2026-08-05T12:00:00+00:00",
+      "ohlc": [
+        64044.7,
+        64133.9,
+        64003.0,
+        64129.4
+      ],
+      "volume": 535.905,
+      "forming": true,
+      "age_after_close_s": -13587.154
+    },
+    "BTCUSDT:1w": {
+      "n": 362,
+      "ts_ms": 1785715200000,
+      "utc": "2026-08-03T00:00:00+00:00",
+      "ohlc": [
+        63550.0,
+        64512.9,
+        62268.2,
+        64123.1
+      ],
+      "volume": 336588.462,
+      "forming": true,
+      "age_after_close_s": -387987.154
+    },
+    "ETHUSDT:1h": {
+      "n": 58638,
+      "ts_ms": 1785931200000,
+      "utc": "2026-08-05T12:00:00+00:00",
+      "ohlc": [
+        1867.93,
+        1870.77,
+        1866.48,
+        1870.69
+      ],
+      "volume": 15986.085,
+      "forming": true,
+      "age_after_close_s": -2787.154
+    },
+    "ETHUSDT:4h": {
+      "n": 14661,
+      "ts_ms": 1785931200000,
+      "utc": "2026-08-05T12:00:00+00:00",
+      "ohlc": [
+        1867.93,
+        1870.77,
+        1866.48,
+        1870.51
+      ],
+      "volume": 16166.544,
+      "forming": true,
+      "age_after_close_s": -13587.154
+    },
+    "ETHUSDT:1w": {
+      "n": 350,
+      "ts_ms": 1785715200000,
+      "utc": "2026-08-03T00:00:00+00:00",
+      "ohlc": [
+        1884.38,
+        1885.16,
+        1827.18,
+        1870.26
+      ],
+      "volume": 7649571.473,
+      "forming": true,
+      "age_after_close_s": -387987.154
+    },
+    "SOLUSDT:1h": {
+      "n": 51630,
+      "ts_ms": 1785931200000,
+      "utc": "2026-08-05T12:00:00+00:00",
+      "ohlc": [
+        73.74,
+        73.85,
+        73.67,
+        73.82
+      ],
+      "volume": 90065.88,
+      "forming": true,
+      "age_after_close_s": -2787.154
+    },
+    "SOLUSDT:4h": {
+      "n": 12909,
+      "ts_ms": 1785931200000,
+      "utc": "2026-08-05T12:00:00+00:00",
+      "ohlc": [
+        73.74,
+        73.85,
+        73.67,
+        73.82
+      ],
+      "volume": 90065.88,
+      "forming": true,
+      "age_after_close_s": -13587.154
+    },
+    "SOLUSDT:1w": {
+      "n": 308,
+      "ts_ms": 1785715200000,
+      "utc": "2026-08-03T00:00:00+00:00",
+      "ohlc": [
+        73.61,
+        74.47,
+        71.87,
+        73.82
+      ],
+      "volume": 33478120.58,
+      "forming": true,
+      "age_after_close_s": -387987.154
+    }
+  }
+}
+---- llm2-structure-btc-k5-double3h-v1.service ----
+active=active
+wd=/opt/llm2-structure-btc-k5-double3h-v1 source=binance shared=/var/lib/botsgeneral/shared_candles.db indicators=/opt/llm2-structure-btc-k5-double3h-v1/pack/indicators_live_slice.sqlite
+bar_features: [{"symbol": "BTCUSDT", "tf": "1h", "source": "binance", "n": 60547, "min": 1567962000000, "max": 1785927600000}, {"symbol": "BTCUSDT", "tf": "1h", "source": "binance_mark", "n": 57760, "min": 1577836800000, "max": 1785769200000}, {"symbol": "BTCUSDT", "tf": "1w", "source": "binance", "n": 361, "min": 1567382400000, "max": 1785110400000}, {"symbol": "BTCUSDT", "tf": "1w", "source": "binance_mark", "n": 345, "min": 1577664000000, "max": 1785715200000}, {"symbol": "BTCUSDT", "tf": "4h", "source": "binance", "n": 15137, "min": 1567958400000, "max": 1785916800000}, {"symbol": "BTCUSDT", "tf": "4h", "source": "binance_mark", "n": 14440, "min": 1577836800000, "max": 1785758400000}]
+depth_ok_1h=True n=60547
+---- llm2-structure-eth-k5-double3h-v1.service ----
+active=active
+wd=/opt/llm2-structure-eth-k5-double3h-v1 source=binance shared=/var/lib/botsgeneral/shared_candles.db indicators=/opt/llm2-structure-eth-k5-double3h-v1/pack/indicators_live_slice.sqlite
+bar_features: [{"symbol": "ETHUSDT", "tf": "1h", "source": "binance", "n": 58637, "min": 1574838000000, "max": 1785927600000}, {"symbol": "ETHUSDT", "tf": "1h", "source": "bybit", "n": 800, "min": 1782900000000, "max": 1785776400000}, {"symbol": "ETHUSDT", "tf": "1w", "source": "binance", "n": 349, "min": 1574640000000, "max": 1785110400000}, {"symbol": "ETHUSDT", "tf": "1w", "source": "bybit", "n": 282, "min": 1615766400000, "max": 1785715200000}, {"symbol": "ETHUSDT", "tf": "4h", "source": "binance", "n": 14660, "min": 1574827200000, "max": 1785916800000}, {"symbol": "ETHUSDT", "tf": "4h", "source": "bybit", "n": 800, "min": 1774267200000, "max": 1785772800000}]
+depth_ok_1h=True n=58637
+---- llm2-structure-eth-multitrade-v1_2.service ----
+active=active
+wd=/opt/llm2-structure-eth-multitrade-v1_2 source=binance shared=/var/lib/botsgeneral/shared_candles.db indicators=/opt/llm2-structure-eth-multitrade-v1_2/pack/indicators_live_slice.sqlite
+bar_features: [{"symbol": "ETHUSDT", "tf": "1h", "source": "binance", "n": 58637, "min": 1574838000000, "max": 1785927600000}, {"symbol": "ETHUSDT", "tf": "1h", "source": "bybit", "n": 800, "min": 1782900000000, "max": 1785776400000}, {"symbol": "ETHUSDT", "tf": "1w", "source": "binance", "n": 349, "min": 1574640000000, "max": 1785110400000}, {"symbol": "ETHUSDT", "tf": "1w", "source": "bybit", "n": 282, "min": 1615766400000, "max": 1785715200000}, {"symbol": "ETHUSDT", "tf": "4h", "source": "binance", "n": 14660, "min": 1574827200000, "max": 1785916800000}, {"symbol": "ETHUSDT", "tf": "4h", "source": "bybit", "n": 800, "min": 1774267200000, "max": 1785772800000}]
+depth_ok_1h=True n=58637
+---- llm2-structure-eth.service ----
+active=active
+wd=/opt/llm2-structure-eth source=binance shared=/var/lib/botsgeneral/shared_candles.db indicators=/opt/llm2-structure-eth/pack/indicators_live_slice.sqlite
+bar_features: [{"symbol": "ETHUSDT", "tf": "1h", "source": "binance", "n": 58637, "min": 1574838000000, "max": 1785927600000}, {"symbol": "ETHUSDT", "tf": "1h", "source": "bybit", "n": 349, "min": 1784566800000, "max": 1785819600000}, {"symbol": "ETHUSDT", "tf": "1w", "source": "binance", "n": 349, "min": 1574640000000, "max": 1785110400000}, {"symbol": "ETHUSDT", "tf": "1w", "source": "bybit", "n": 281, "min": 1615766400000, "max": 1785110400000}, {"symbol": "ETHUSDT", "tf": "4h", "source": "binance", "n": 14660, "min": 1574827200000, "max": 1785916800000}, {"symbol": "ETHUSDT", "tf": "4h", "source": "bybit", "n": 349, "min": 1780790400000, "max": 1785801600000}]
+depth_ok_1h=True n=58637
+---- llm2-structure-micro.service ----
+active=active
+wd=/opt/llm2-structure source=binance shared=/var/lib/botsgeneral/shared_candles.db indicators=/opt/llm2-structure/pack/indicators_live_slice.sqlite
+bar_features: [{"symbol": "BTCUSDT", "tf": "1h", "source": "binance", "n": 60547, "min": 1567962000000, "max": 1785927600000}, {"symbol": "BTCUSDT", "tf": "1h", "source": "binance_mark", "n": 57760, "min": 1577836800000, "max": 1785769200000}, {"symbol": "BTCUSDT", "tf": "1h", "source": "bybit", "n": 349, "min": 1784566800000, "max": 1785819600000}, {"symbol": "BTCUSDT", "tf": "1w", "source": "binance", "n": 361, "min": 1567382400000, "max": 1785110400000}, {"symbol": "BTCUSDT", "tf": "1w", "source": "binance_mark", "n": 345, "min": 1577664000000, "max": 1785715200000}, {"symbol": "BTCUSDT", "tf": "1w", "source": "bybit", "n": 332, "min": 1584921600000, "max": 1785110400000}, {"symbol": "BTCUSDT", "tf": "4h", "source": "binance", "n": 15137, "min": 1567958400000, "max": 1785916800000}, {"symbol": "BTCUSDT", "tf": "4h", "source": "binance_mark", "n": 14440, "min": 1577836800000, "max": 1785758400000}, {"symbol": "BTCUSDT", "tf": "4h", "source": "bybit", "n": 1499, "min": 1764230400000, "max": 1785801600000}]
+depth_ok_1h=True n=60547
+---- llm2-structure-sol-k5-double3h-v1.service ----
+active=active
+wd=/opt/llm2-structure-sol-k5-double3h-v1 source=binance shared=/var/lib/botsgeneral/shared_candles.db indicators=/opt/llm2-structure-sol-k5-double3h-v1/pack/indicators_live_slice.sqlite
+bar_features: [{"symbol": "SOLUSDT", "tf": "1h", "source": "binance", "n": 51629, "min": 1600066800000, "max": 1785927600000}, {"symbol": "SOLUSDT", "tf": "1h", "source": "bybit", "n": 800, "min": 1782900000000, "max": 1785776400000}, {"symbol": "SOLUSDT", "tf": "1w", "source": "binance", "n": 307, "min": 1600041600000, "max": 1785110400000}, {"symbol": "SOLUSDT", "tf": "1w", "source": "bybit", "n": 252, "min": 1633910400000, "max": 1785715200000}, {"symbol": "SOLUSDT", "tf": "4h", "source": "binance", "n": 12908, "min": 1600056000000, "max": 1785916800000}, {"symbol": "SOLUSDT", "tf": "4h", "source": "bybit", "n": 800, "min": 1774267200000, "max": 1785772800000}]
+depth_ok_1h=True n=51629
+---- llm2-structure-sol.service ----
+active=active
+wd=/opt/llm2-structure-sol source=binance shared=/var/lib/botsgeneral/shared_candles.db indicators=/opt/llm2-structure-sol/pack/indicators_live_slice.sqlite
+bar_features: [{"symbol": "SOLUSDT", "tf": "1h", "source": "binance", "n": 51629, "min": 1600066800000, "max": 1785927600000}, {"symbol": "SOLUSDT", "tf": "1h", "source": "bybit", "n": 349, "min": 1784566800000, "max": 1785819600000}, {"symbol": "SOLUSDT", "tf": "1w", "source": "binance", "n": 307, "min": 1600041600000, "max": 1785110400000}, {"symbol": "SOLUSDT", "tf": "1w", "source": "bybit", "n": 251, "min": 1633910400000, "max": 1785110400000}, {"symbol": "SOLUSDT", "tf": "4h", "source": "binance", "n": 12908, "min": 1600056000000, "max": 1785916800000}, {"symbol": "SOLUSDT", "tf": "4h", "source": "bybit", "n": 349, "min": 1780790400000, "max": 1785801600000}]
+depth_ok_1h=True n=51629

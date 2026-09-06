@@ -1,0 +1,35 @@
+{
+  "stamp": "20260812T092157Z",
+  "pi_star": 0.5375,
+  "counts_freeze": {
+    "BTCUSDT": {
+      "n_rows": 99356,
+      "thr_any_median": 0.35,
+      "pi_star": 0.5375,
+      "n_p75": 5105,
+      "n_p75_and_pi": 62,
+      "n_pi_star_level_tight": 55,
+      "n_pi_star_level_wide": 57,
+      "n_p75_atr_band": 2735,
+      "n_p75_qband_p20_p80": 3302,
+      "n_pi_only_no_p75": 62,
+      "qband_lo": 0.002832568885435355,
+      "qband_hi": 0.008834316080603047
+    },
+    "ETHUSDT": {
+      "n_rows": 99356,
+      "thr_any_median": 0.35,
+      "pi_star": 0.5375,
+      "n_p75": 2696,
+      "n_p75_and_pi": 68,
+      "n_pi_star_level_tight": 54,
+      "n_pi_star_level_wide": 63,
+      "n_p75_atr_band": 1549,
+      "n_p75_qband_p20_p80": 1631,
+      "n_pi_only_no_p75": 68,
+      "qband_lo": 0.005043504791927448,
+      "qband_hi": 0.013659892723691525
+    }
+  },
+  "note": "frozen before any arm Profit Factor"
+}

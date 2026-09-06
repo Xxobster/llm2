@@ -1,0 +1,435 @@
+{
+  "host": "vps-LIVENET",
+  "ip": "94.156.189.76",
+  "active_units": [
+    "llm2-structure-btc-k5-double3h-v1.service",
+    "llm2-structure-eth-k5-double3h-v1.service",
+    "llm2-structure-eth-multitrade-v1_2.service",
+    "llm2-structure-eth.service",
+    "llm2-structure-micro.service",
+    "llm2-structure-sol-k5-double3h-v1.service",
+    "llm2-structure-sol.service"
+  ],
+  "roots": [
+    {
+      "root": "/opt/llm2-structure",
+      "micro_sha16": "e93a4e2a52f7796e",
+      "has_parity": true,
+      "has_depth_gate": true,
+      "has_contract": true,
+      "has_sizing": true,
+      "model_sha16": "b194e1bce6f4d866",
+      "symbol": "BTCUSDT",
+      "signal_source_strategy": null,
+      "series": [
+        {
+          "source": "binance",
+          "timeframe": "1h",
+          "n_bars": 60545
+        },
+        {
+          "source": "binance",
+          "timeframe": "1w",
+          "n_bars": 361
+        },
+        {
+          "source": "binance",
+          "timeframe": "4h",
+          "n_bars": 15136
+        },
+        {
+          "source": "binance_mark",
+          "timeframe": "1h",
+          "n_bars": 57760
+        },
+        {
+          "source": "binance_mark",
+          "timeframe": "1w",
+          "n_bars": 345
+        },
+        {
+          "source": "binance_mark",
+          "timeframe": "4h",
+          "n_bars": 14440
+        },
+        {
+          "source": "bybit",
+          "timeframe": "1h",
+          "n_bars": 349
+        },
+        {
+          "source": "bybit",
+          "timeframe": "1w",
+          "n_bars": 332
+        },
+        {
+          "source": "bybit",
+          "timeframe": "4h",
+          "n_bars": 1499
+        }
+      ],
+      "binance_1h_n": 60545,
+      "binance_1h_deep": true
+    },
+    {
+      "root": "/opt/llm2-structure-btc-k5-double3h-v1",
+      "micro_sha16": "e93a4e2a52f7796e",
+      "has_parity": true,
+      "has_depth_gate": true,
+      "has_contract": true,
+      "has_sizing": true,
+      "model_sha16": "b194e1bce6f4d866",
+      "symbol": "BTCUSDT",
+      "signal_source_strategy": null,
+      "series": [
+        {
+          "source": "binance",
+          "timeframe": "1h",
+          "n_bars": 60545
+        },
+        {
+          "source": "binance",
+          "timeframe": "1w",
+          "n_bars": 361
+        },
+        {
+          "source": "binance",
+          "timeframe": "4h",
+          "n_bars": 15136
+        },
+        {
+          "source": "binance_mark",
+          "timeframe": "1h",
+          "n_bars": 57760
+        },
+        {
+          "source": "binance_mark",
+          "timeframe": "1w",
+          "n_bars": 345
+        },
+        {
+          "source": "binance_mark",
+          "timeframe": "4h",
+          "n_bars": 14440
+        }
+      ],
+      "binance_1h_n": 60545,
+      "binance_1h_deep": true
+    },
+    {
+      "root": "/opt/llm2-structure-eth",
+      "micro_sha16": "e93a4e2a52f7796e",
+      "has_parity": true,
+      "has_depth_gate": true,
+      "has_contract": true,
+      "has_sizing": true,
+      "model_sha16": "7e826c63aa8537fd",
+      "symbol": "ETHUSDT",
+      "signal_source_strategy": null,
+      "series": [
+        {
+          "source": "binance",
+          "timeframe": "1h",
+          "n_bars": 58635
+        },
+        {
+          "source": "binance",
+          "timeframe": "1w",
+          "n_bars": 349
+        },
+        {
+          "source": "binance",
+          "timeframe": "4h",
+          "n_bars": 14659
+        },
+        {
+          "source": "bybit",
+          "timeframe": "1h",
+          "n_bars": 349
+        },
+        {
+          "source": "bybit",
+          "timeframe": "1w",
+          "n_bars": 281
+        },
+        {
+          "source": "bybit",
+          "timeframe": "4h",
+          "n_bars": 349
+        }
+      ],
+      "binance_1h_n": 58635,
+      "binance_1h_deep": true
+    },
+    {
+      "root": "/opt/llm2-structure-eth-k5-double3h-v1",
+      "micro_sha16": "e93a4e2a52f7796e",
+      "has_parity": true,
+      "has_depth_gate": true,
+      "has_contract": true,
+      "has_sizing": true,
+      "model_sha16": "7e826c63aa8537fd",
+      "symbol": "ETHUSDT",
+      "signal_source_strategy": null,
+      "series": [
+        {
+          "source": "binance",
+          "timeframe": "1h",
+          "n_bars": 58635
+        },
+        {
+          "source": "binance",
+          "timeframe": "1w",
+          "n_bars": 349
+        },
+        {
+          "source": "binance",
+          "timeframe": "4h",
+          "n_bars": 14659
+        },
+        {
+          "source": "bybit",
+          "timeframe": "1h",
+          "n_bars": 800
+        },
+        {
+          "source": "bybit",
+          "timeframe": "1w",
+          "n_bars": 282
+        },
+        {
+          "source": "bybit",
+          "timeframe": "4h",
+          "n_bars": 800
+        }
+      ],
+      "binance_1h_n": 58635,
+      "binance_1h_deep": true
+    },
+    {
+      "root": "/opt/llm2-structure-eth-multitrade-v1",
+      "micro_sha16": "e93a4e2a52f7796e",
+      "has_parity": true,
+      "has_depth_gate": true,
+      "has_contract": true,
+      "has_sizing": true,
+      "model_sha16": "7e826c63aa8537fd",
+      "symbol": "ETHUSDT",
+      "signal_source_strategy": null,
+      "series": [
+        {
+          "source": "binance",
+          "timeframe": "1h",
+          "n_bars": 58635
+        },
+        {
+          "source": "binance",
+          "timeframe": "1w",
+          "n_bars": 349
+        },
+        {
+          "source": "binance",
+          "timeframe": "4h",
+          "n_bars": 14659
+        },
+        {
+          "source": "bybit",
+          "timeframe": "1h",
+          "n_bars": 800
+        },
+        {
+          "source": "bybit",
+          "timeframe": "1w",
+          "n_bars": 282
+        },
+        {
+          "source": "bybit",
+          "timeframe": "4h",
+          "n_bars": 800
+        }
+      ],
+      "binance_1h_n": 58635,
+      "binance_1h_deep": true
+    },
+    {
+      "root": "/opt/llm2-structure-eth-multitrade-v1_1",
+      "micro_sha16": "e93a4e2a52f7796e",
+      "has_parity": true,
+      "has_depth_gate": true,
+      "has_contract": true,
+      "has_sizing": true,
+      "model_sha16": "7e826c63aa8537fd",
+      "symbol": "ETHUSDT",
+      "signal_source_strategy": null,
+      "series": [
+        {
+          "source": "binance",
+          "timeframe": "1h",
+          "n_bars": 58635
+        },
+        {
+          "source": "binance",
+          "timeframe": "1w",
+          "n_bars": 349
+        },
+        {
+          "source": "binance",
+          "timeframe": "4h",
+          "n_bars": 14659
+        },
+        {
+          "source": "bybit",
+          "timeframe": "1h",
+          "n_bars": 800
+        },
+        {
+          "source": "bybit",
+          "timeframe": "1w",
+          "n_bars": 282
+        },
+        {
+          "source": "bybit",
+          "timeframe": "4h",
+          "n_bars": 800
+        }
+      ],
+      "binance_1h_n": 58635,
+      "binance_1h_deep": true
+    },
+    {
+      "root": "/opt/llm2-structure-eth-multitrade-v1_2",
+      "micro_sha16": "e93a4e2a52f7796e",
+      "has_parity": true,
+      "has_depth_gate": true,
+      "has_contract": true,
+      "has_sizing": true,
+      "model_sha16": "7e826c63aa8537fd",
+      "symbol": "ETHUSDT",
+      "signal_source_strategy": null,
+      "series": [
+        {
+          "source": "binance",
+          "timeframe": "1h",
+          "n_bars": 58635
+        },
+        {
+          "source": "binance",
+          "timeframe": "1w",
+          "n_bars": 349
+        },
+        {
+          "source": "binance",
+          "timeframe": "4h",
+          "n_bars": 14659
+        },
+        {
+          "source": "bybit",
+          "timeframe": "1h",
+          "n_bars": 800
+        },
+        {
+          "source": "bybit",
+          "timeframe": "1w",
+          "n_bars": 282
+        },
+        {
+          "source": "bybit",
+          "timeframe": "4h",
+          "n_bars": 800
+        }
+      ],
+      "binance_1h_n": 58635,
+      "binance_1h_deep": true
+    },
+    {
+      "root": "/opt/llm2-structure-sol",
+      "micro_sha16": "e93a4e2a52f7796e",
+      "has_parity": true,
+      "has_depth_gate": true,
+      "has_contract": true,
+      "has_sizing": true,
+      "model_sha16": "cad39b7c1f6c3bc2",
+      "symbol": "SOLUSDT",
+      "signal_source_strategy": null,
+      "series": [
+        {
+          "source": "binance",
+          "timeframe": "1h",
+          "n_bars": 51627
+        },
+        {
+          "source": "binance",
+          "timeframe": "1w",
+          "n_bars": 307
+        },
+        {
+          "source": "binance",
+          "timeframe": "4h",
+          "n_bars": 12907
+        },
+        {
+          "source": "bybit",
+          "timeframe": "1h",
+          "n_bars": 349
+        },
+        {
+          "source": "bybit",
+          "timeframe": "1w",
+          "n_bars": 251
+        },
+        {
+          "source": "bybit",
+          "timeframe": "4h",
+          "n_bars": 349
+        }
+      ],
+      "binance_1h_n": 51627,
+      "binance_1h_deep": true
+    },
+    {
+      "root": "/opt/llm2-structure-sol-k5-double3h-v1",
+      "micro_sha16": "e93a4e2a52f7796e",
+      "has_parity": true,
+      "has_depth_gate": true,
+      "has_contract": true,
+      "has_sizing": true,
+      "model_sha16": "cad39b7c1f6c3bc2",
+      "symbol": "SOLUSDT",
+      "signal_source_strategy": null,
+      "series": [
+        {
+          "source": "binance",
+          "timeframe": "1h",
+          "n_bars": 51627
+        },
+        {
+          "source": "binance",
+          "timeframe": "1w",
+          "n_bars": 307
+        },
+        {
+          "source": "binance",
+          "timeframe": "4h",
+          "n_bars": 12907
+        },
+        {
+          "source": "bybit",
+          "timeframe": "1h",
+          "n_bars": 800
+        },
+        {
+          "source": "bybit",
+          "timeframe": "1w",
+          "n_bars": 252
+        },
+        {
+          "source": "bybit",
+          "timeframe": "4h",
+          "n_bars": 800
+        }
+      ],
+      "binance_1h_n": 51627,
+      "binance_1h_deep": true
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "artifact_dir": "D:\\projects\\LLM2\\artifacts\\evidence\\four_proof\\ml_lab_catalog_f_v1_quad_slope_follow_BTCUSDT_1h_20260903T220559Z",
+  "artifact_hashes": {
+    "builder_responsiveness": "c14adc17ac839eaf8b05dd1b72357937318eeeaf944a295de3586aceea2f2465",
+    "layer_a_pred_identity": "9fcd85203f4522684b5531f96b4046664c33341be6dd1e2f874e9bf91cefe85f",
+    "no_live_feature_fill": "7b247ef54afaa2825f21885b4cec1b85d61ab3fd3e0d92f9bacef5095fcb2768",
+    "recompute_prefix": "146c023abc5aefea70dde367e046a759b3cae7d44411ac37ce7a7b69d3e2f310"
+  },
+  "idea": "quad_slope_follow",
+  "ok": true,
+  "proofs_ok": {
+    "builder_responsiveness": true,
+    "layer_a_pred_identity": true,
+    "no_live_feature_fill": true,
+    "recompute_prefix": true
+  },
+  "readiness": "RESEARCH_ONLY (gate is causality, not performance)",
+  "rule": "FOUR_PROOF_GATE_V1",
+  "space": "ml_lab_catalog_f_v1",
+  "stamp": "20260903T220559Z",
+  "summary_sha256": "acbd668e06ad4da80a9a07b850d355a6e5ec61ef3acc15254258fcb0e635479b",
+  "symbol": "BTCUSDT",
+  "timeframe": "1h"
+}

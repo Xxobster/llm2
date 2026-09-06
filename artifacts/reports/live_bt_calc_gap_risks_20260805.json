@@ -1,0 +1,153 @@
+{
+  "evidence_class": "LIVE_BT_CALC_GAP_RISKS",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "principal_blocker_for_exact_signal_identity": "SHARED_VS_RESEARCH_OHLCV",
+  "fleet_corrected": {
+    "ln1_94": "all 7 active units + inactive packs deep binance slices",
+    "ln3_185": "both p75 active units deep binance slices + parity code"
+  },
+  "gold_path_for_exact_match": "Use the same indicators.sqlite bytes the backtest read (sync research warehouse to VPS / point LLM2_INDICATORS_DB at it), and the same completed OHLCV closes for vol columns. Do not recompute structure from a second candle store unless checksum-equal.",
+  "warehouse_tips_local": {
+    "ETHUSDT": {
+      "price_type": "last_price",
+      "tip": [
+        {
+          "ts_ms": 1785906000000,
+          "close": 1872.51
+        },
+        {
+          "ts_ms": 1785909600000,
+          "close": 1868.84
+        },
+        {
+          "ts_ms": 1785913200000,
+          "close": 1871.85
+        },
+        {
+          "ts_ms": 1785916800000,
+          "close": 1868.98
+        },
+        {
+          "ts_ms": 1785920400000,
+          "close": 1873.36
+        }
+      ]
+    },
+    "BTCUSDT": {
+      "price_type": "last_price",
+      "tip": [
+        {
+          "ts_ms": 1785769200000,
+          "close": 63659.5
+        },
+        {
+          "ts_ms": 1785772800000,
+          "close": 63738.0
+        },
+        {
+          "ts_ms": 1785776400000,
+          "close": 63874.1
+        },
+        {
+          "ts_ms": 1785780000000,
+          "close": 63835.5
+        },
+        {
+          "ts_ms": 1785783600000,
+          "close": 63878.4
+        }
+      ]
+    },
+    "SOLUSDT": {
+      "price_type": "last_price",
+      "tip": [
+        {
+          "ts_ms": 1785769200000,
+          "close": 73.57
+        },
+        {
+          "ts_ms": 1785772800000,
+          "close": 73.39
+        },
+        {
+          "ts_ms": 1785776400000,
+          "close": 73.66
+        },
+        {
+          "ts_ms": 1785780000000,
+          "close": 73.94
+        },
+        {
+          "ts_ms": 1785783600000,
+          "close": 73.98
+        }
+      ]
+    }
+  },
+  "risks": [
+    {
+      "id": "SHARED_VS_RESEARCH_OHLCV",
+      "severity": "high_for_exact_match",
+      "status": "open_residual",
+      "detail": "Backtest loads Open-High-Low-Close-Volume from research market_ohlcv.sqlite (pinned last/last_price). Live builds structure and vol features from botsgeneral shared_candles.db. If any historical bar differs, confirmed swings and pred_mean can diverge even with full history.",
+      "mitigation": "Periodic tip+history checksum shared vs market_ohlcv; or sync research indicators.sqlite (~2.5GB) to VPS and read features from it (gold path)."
+    },
+    {
+      "id": "STRUCTURE_RECOMPUTE_VS_WAREHOUSE_FILE",
+      "severity": "medium",
+      "status": "mitigated_full_history",
+      "detail": "Live recompute_structure(full shared) \u2248 research warehouse if OHLCV identical. Was broken at limit=800 (sign flip). Now full history + depth gate >=5000.",
+      "mitigation": "Keep hard refuse short limits; prefer warehouse sync for byte identity."
+    },
+    {
+      "id": "LIVE_OHLCV_TIP_WINDOW",
+      "severity": "low_after_fix",
+      "status": "mitigated",
+      "detail": "Live previously used only 300 bars for vol-normalised columns (VOL_WINDOW=168). Raised to LIVE_SIGNAL_OHLCV_BARS=2000."
+    },
+    {
+      "id": "LAST_RETRACE_FILLNA_ZERO",
+      "severity": "low",
+      "status": "known_live_policy",
+      "detail": "Live zero-fills last_retrace_pct* NaNs at decide time. Training dropped those rows. Rare tip NaN can change pred vs a BT row that would have been skipped.",
+      "mitigation": "Refuse decide on NaN retrace (fail closed) instead of fillna, matching train drop."
+    },
+    {
+      "id": "RECENT_ONLY_READ_WINDOW",
+      "severity": "none_if_same_db",
+      "status": "safe",
+      "detail": "recent_only=True only truncates warehouse READ; Layer A match rate 1.0 on same DB."
+    },
+    {
+      "id": "FORMING_BAR_DROP",
+      "severity": "low",
+      "status": "aligned",
+      "detail": "Live drops forming bar; BT uses completed bars only. Off-by-one if clock/freshness wrong."
+    },
+    {
+      "id": "MODEL_PACK_HASH",
+      "severity": "ops",
+      "status": "verify_per_pack",
+      "detail": "Signals require identical model.joblib as frozen research pack."
+    },
+    {
+      "id": "EDGE_AND_PROXY_SIDE",
+      "severity": "low",
+      "status": "code_shared",
+      "detail": "proxy_side + min_edge from same llm2.hunt.targets / strategy.json."
+    },
+    {
+      "id": "MULTITRADE_GATES",
+      "severity": "medium_for_entries",
+      "status": "separate_from_pred",
+      "detail": "pred_mean can match while live skips entry (clarity, cap, cooloff, position limits). That is execution gating, not signal calc \u2014 but live trade set \u2260 unconstrained BT."
+    },
+    {
+      "id": "FEATURE_SNAPSHOT",
+      "severity": "audit",
+      "status": "mitigated",
+      "detail": "Decide-time feature_snapshot now persisted for reproducibility audits."
+    }
+  ],
+  "generated_utc": "2026-08-05T10:22:57.394815+00:00"
+}

@@ -1,0 +1,58 @@
+# ML lab hunt 008 — US-hours inventory / weekend range
+# RESEARCH_ONLY. Frozen before any hunt-008 result was viewed.
+generation_id: ml_lab_hunt_008_us_inventory
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-09-01T14:50:00Z"
+fold_geometry: v2
+failure_is_success: true
+
+hypothesis: >
+  Hunt 007 confirm/session already scored failed-Donchian, NY-cash opening-range
+  follow, and related confirm bars. This family is a different inventory story:
+  US-cash open drive (first bar only, not range follow), US-cash close fade,
+  New York lunch fade, London-then-New-York agreement, Monday weekend-range
+  first break, Monday failed-break fade, Friday late unwind, Asia-open fade of
+  the prior US afternoon. Not a retune of hunt-004 Exponential Moving Average
+  spans, hunt-005 cumulative-volume-delta, hunt-006 Asia range, hunt-007
+  Donchian fail, or live filters 376 / 705 / 013. Event study first (11
+  basis-point cost floor). Tradesim at most 8 skill-passers on tradesim 1.1.0
+  one-minute fill clock.
+
+do_not:
+  - retune hunt 001–007 or bounce_upper
+  - widen Average-True-Range stop to hide entry-bar exits
+  - peep FORWARD_LOCKBOX_START
+  - deploy
+  - add Exponential Moving Average pullback filters after seeing hunt 004
+
+selection_window: "strictly before 2022-01-01"
+universe:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  event_study_timeframes: [15m, 1h, 4h]
+  tradesim_timeframes: [15m, 1h, 4h]
+
+cost_floor: 0.0011
+max_tradesim_arms: 8
+work_bars: {15m: 4, 1h: 3, 4h: 2}
+max_hold_bars: {15m: 24, 1h: 16, 4h: 8}
+k_sl: 1.5
+tp_ratio: 1.5
+sl_cap: 0.030
+maker_first_costs: true
+
+screen_gates:
+  min_skill_n: 80
+  min_directional_acc: 0.51
+  min_mean_signed: 0.0015
+  min_trades: 80
+  min_trades_per_month: 2.0
+  max_trades_per_month: 90.0
+  min_profit_factor: 1.20
+  max_entry_bar_exit_rate: 0.25
+  min_sharpe_annualised: 0.50
+
+leakage_audit:
+  builder: llm2.ml_lab.idea_catalog_e.build_features_for_guard
+
+preregister_sha256_at_run: 1d2d5e36117dd84640fe48bcceaf2ee37cdb21aa9992198e012738ac29264188

@@ -1,0 +1,25 @@
+{
+  "artifact_dir": "D:\\projects\\LLM2\\artifacts\\evidence\\four_proof\\diagonal_sr_v1_bounce_upper_SOLUSDT_1h_20260826T175635Z",
+  "artifact_hashes": {
+    "builder_responsiveness": "180c8f9c652751639a9c990d94329f580fa304a6e48942164855340c169bc00f",
+    "layer_a_pred_identity": "9d493e42bf9a728cc9743b79edbd46440886a593b920f9952ec42b7e6d9aea68",
+    "no_live_feature_fill": "b66a252f58a792cf3f882aaeb07edf3bdbdb0fd8eb4b6744d07790359d95d80d",
+    "recompute_prefix": "354778a6bda789b90732096d505a5703435b503a9e81bf79a80b91245cbae6e2"
+  },
+  "event": "bounce_upper",
+  "generation": "A",
+  "ok": true,
+  "proofs_ok": {
+    "builder_responsiveness": true,
+    "layer_a_pred_identity": true,
+    "no_live_feature_fill": true,
+    "recompute_prefix": true
+  },
+  "readiness": "RESEARCH_ONLY (gate is causality, not performance)",
+  "rule": "FOUR_PROOF_GATE_V1",
+  "space": "diagonal_sr_v1",
+  "stamp": "20260826T175635Z",
+  "summary_sha256": "7df2d96a949a59fe8d5bbe4c6766600f65e989483ab22730ab29fb15645962ee",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h"
+}

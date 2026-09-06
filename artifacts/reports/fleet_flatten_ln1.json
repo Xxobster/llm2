@@ -1,0 +1,967 @@
+{
+  "utc": "2026-08-06T08:49:27.519267+00:00",
+  "host": "vps-LIVENET",
+  "execute": true,
+  "accounts": [
+    {
+      "account": "Xxobster3",
+      "execute": true,
+      "before": {
+        "positions": [],
+        "n_orders": 0
+      },
+      "cancels": [],
+      "closes": [],
+      "after": {
+        "positions": [],
+        "n_orders": 0
+      },
+      "flat": true
+    },
+    {
+      "account": "Xxobster6",
+      "execute": true,
+      "before": {
+        "positions": [
+          {
+            "symbol": "BTCUSDT",
+            "side": "Sell",
+            "size": "0.001",
+            "unrealisedPnl": "-1.7975",
+            "positionIdx": 0
+          },
+          {
+            "symbol": "ETHUSDT",
+            "side": "Buy",
+            "size": "0.01",
+            "unrealisedPnl": "0.22734",
+            "positionIdx": 1
+          },
+          {
+            "symbol": "ETHUSDT",
+            "side": "Sell",
+            "size": "0.03",
+            "unrealisedPnl": "-0.83094166",
+            "positionIdx": 2
+          },
+          {
+            "symbol": "SOLUSDT",
+            "side": "Sell",
+            "size": "0.1",
+            "unrealisedPnl": "-0.12",
+            "positionIdx": 0
+          }
+        ],
+        "n_orders": 8
+      },
+      "cancels": [
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "e06d1096-9781-4f5e-bbcd-6a1f252aefb6",
+          "stopOrderType": "PartialStopLoss",
+          "qty": "0.01",
+          "triggerPrice": "1953.5",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "98c56817-4336-476b-87d8-2699ba09e845",
+          "stopOrderType": "PartialTakeProfit",
+          "qty": "0.01",
+          "triggerPrice": "1896.05",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "BTCUSDT",
+          "orderId": "dcf8fd44-997e-433a-bf7e-db08dec6b4fd",
+          "stopOrderType": "StopLoss",
+          "qty": "0.001",
+          "triggerPrice": "66565",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "BTCUSDT",
+          "orderId": "b5cff650-9ca6-4780-b9ad-1921fadcbbcd",
+          "stopOrderType": "TakeProfit",
+          "qty": "0.001",
+          "triggerPrice": "61643.6",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "SOLUSDT",
+          "orderId": "79b3667b-0176-4032-8fe0-0b1990266d2d",
+          "stopOrderType": "StopLoss",
+          "qty": "0.1",
+          "triggerPrice": "77.09",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "SOLUSDT",
+          "orderId": "684bfcde-c32f-4d6e-b0a8-265f861c8217",
+          "stopOrderType": "TakeProfit",
+          "qty": "0.1",
+          "triggerPrice": "69.82",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "e41d9339-3a79-4808-81ad-7ee3bc01d5af",
+          "stopOrderType": "StopLoss",
+          "qty": "0.01",
+          "triggerPrice": "1798.85",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "35b60a00-d03d-40b6-89e4-0d2c165ebbda",
+          "stopOrderType": "TakeProfit",
+          "qty": "0.01",
+          "triggerPrice": "1981.62",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        }
+      ],
+      "closes": [
+        {
+          "action": "close",
+          "symbol": "BTCUSDT",
+          "side": "Sell",
+          "close_side": "Buy",
+          "size": "0.001",
+          "positionIdx": 0,
+          "avgPrice": "63094.8",
+          "unrealisedPnl": "-1.7974",
+          "retCode": 0,
+          "retMsg": "OK",
+          "orderId": "cd5a6d65-7c64-45c3-8778-baa0425e946f"
+        },
+        {
+          "action": "close",
+          "symbol": "ETHUSDT",
+          "side": "Buy",
+          "close_side": "Sell",
+          "size": "0.01",
+          "positionIdx": 1,
+          "avgPrice": "1890.376",
+          "unrealisedPnl": "0.22744",
+          "retCode": 0,
+          "retMsg": "OK",
+          "orderId": "931cbd81-f768-44de-ba9e-11f09494a778"
+        },
+        {
+          "action": "close",
+          "symbol": "ETHUSDT",
+          "side": "Sell",
+          "close_side": "Buy",
+          "size": "0.03",
+          "positionIdx": 2,
+          "avgPrice": "1885.41194467",
+          "unrealisedPnl": "-0.83124166",
+          "retCode": 0,
+          "retMsg": "OK",
+          "orderId": "97544139-8850-4b2d-8d23-44c6cf47fe6b"
+        },
+        {
+          "action": "close",
+          "symbol": "SOLUSDT",
+          "side": "Sell",
+          "close_side": "Buy",
+          "size": "0.1",
+          "positionIdx": 0,
+          "avgPrice": "72.73",
+          "unrealisedPnl": "-0.12",
+          "retCode": 0,
+          "retMsg": "OK",
+          "orderId": "09efe3e8-f965-4da8-b68e-baff82a05ae5"
+        }
+      ],
+      "after": {
+        "positions": [],
+        "n_orders": 0
+      },
+      "flat": true
+    },
+    {
+      "account": "Xxobster7",
+      "execute": true,
+      "before": {
+        "positions": [
+          {
+            "symbol": "BTCUSDT",
+            "side": "Sell",
+            "size": "0.001",
+            "unrealisedPnl": "0.0589",
+            "positionIdx": 2
+          },
+          {
+            "symbol": "ETHUSDT",
+            "side": "Sell",
+            "size": "0.01",
+            "unrealisedPnl": "0.0265",
+            "positionIdx": 2
+          },
+          {
+            "symbol": "SOLUSDT",
+            "side": "Sell",
+            "size": "0.1",
+            "unrealisedPnl": "-0.002",
+            "positionIdx": 2
+          }
+        ],
+        "n_orders": 6
+      },
+      "cancels": [
+        {
+          "action": "cancel",
+          "symbol": "BTCUSDT",
+          "orderId": "1cfc5411-9558-41dc-82b7-5d0cf8dc656c",
+          "stopOrderType": "TakeProfit",
+          "qty": "0.001",
+          "triggerPrice": "64302.3",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "BTCUSDT",
+          "orderId": "151c4638-170f-451f-b8df-ed5e7190a8be",
+          "stopOrderType": "StopLoss",
+          "qty": "0.001",
+          "triggerPrice": "66250.9",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "40fbfc5e-8cfb-4525-80a5-e29ab8d85522",
+          "stopOrderType": "StopLoss",
+          "qty": "0.01",
+          "triggerPrice": "1954.3",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "0bd9b80c-0464-4c5b-ba80-be580cb5af9e",
+          "stopOrderType": "TakeProfit",
+          "qty": "0.01",
+          "triggerPrice": "1896.82",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "SOLUSDT",
+          "orderId": "7261b2dd-ebe5-4d08-ad24-24f9071784d0",
+          "stopOrderType": "TakeProfit",
+          "qty": "0.1",
+          "triggerPrice": "73.18",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "SOLUSDT",
+          "orderId": "50b7d55b-8070-470e-8304-b3bc065a7f48",
+          "stopOrderType": "StopLoss",
+          "qty": "0.1",
+          "triggerPrice": "75.4",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        }
+      ],
+      "closes": [
+        {
+          "action": "close",
+          "symbol": "BTCUSDT",
+          "side": "Sell",
+          "close_side": "Buy",
+          "size": "0.001",
+          "positionIdx": 2,
+          "avgPrice": "64951.2",
+          "unrealisedPnl": "0.0589",
+          "retCode": 0,
+          "retMsg": "OK",
+          "orderId": "80a81d97-fc20-4135-a52f-272aa8802a50"
+        },
+        {
+          "action": "close",
+          "symbol": "ETHUSDT",
+          "side": "Sell",
+          "close_side": "Buy",
+          "size": "0.01",
+          "positionIdx": 2,
+          "avgPrice": "1915.77",
+          "unrealisedPnl": "0.0271",
+          "retCode": 0,
+          "retMsg": "OK",
+          "orderId": "05a448fc-d375-4f44-b130-13afd276c8a8"
+        },
+        {
+          "action": "close",
+          "symbol": "SOLUSDT",
+          "side": "Sell",
+          "close_side": "Buy",
+          "size": "0.1",
+          "positionIdx": 2,
+          "avgPrice": "73.91",
+          "unrealisedPnl": "-0.001",
+          "retCode": 0,
+          "retMsg": "OK",
+          "orderId": "7a6c7dfc-0f5d-4fd0-8b1b-bdf5c6d58718"
+        }
+      ],
+      "after": {
+        "positions": [],
+        "n_orders": 0
+      },
+      "flat": true
+    },
+    {
+      "account": "Xxobster8",
+      "execute": true,
+      "before": {
+        "positions": [
+          {
+            "symbol": "ETHUSDT",
+            "side": "Buy",
+            "size": "0.01",
+            "unrealisedPnl": "0.28457916",
+            "positionIdx": 1
+          },
+          {
+            "symbol": "ETHUSDT",
+            "side": "Sell",
+            "size": "0.06",
+            "unrealisedPnl": "-2.2115227",
+            "positionIdx": 2
+          }
+        ],
+        "n_orders": 2
+      },
+      "cancels": [
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "1a1e10d0-053a-4f6c-8137-367344f7644a",
+          "stopOrderType": "PartialTakeProfit",
+          "qty": "0.01",
+          "triggerPrice": "1895.18",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "05fd0098-24e3-4bba-a3c4-33f753af953f",
+          "stopOrderType": "PartialStopLoss",
+          "qty": "0.01",
+          "triggerPrice": "1952.61",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        }
+      ],
+      "closes": [
+        {
+          "action": "close",
+          "symbol": "ETHUSDT",
+          "side": "Buy",
+          "close_side": "Sell",
+          "size": "0.01",
+          "positionIdx": 1,
+          "avgPrice": "1884.6220835",
+          "unrealisedPnl": "0.28447916",
+          "retCode": 0,
+          "retMsg": "OK",
+          "orderId": "578479ee-4731-45a8-b92f-9bbd8612c8f4"
+        },
+        {
+          "action": "close",
+          "symbol": "ETHUSDT",
+          "side": "Sell",
+          "close_side": "Buy",
+          "size": "0.06",
+          "positionIdx": 2,
+          "avgPrice": "1876.22128833",
+          "unrealisedPnl": "-2.2109227",
+          "retCode": 0,
+          "retMsg": "OK",
+          "orderId": "2da62d96-b891-4046-8a40-77eb02f43d14"
+        }
+      ],
+      "after": {
+        "positions": [],
+        "n_orders": 0
+      },
+      "flat": true
+    },
+    {
+      "account": "Xxobster9",
+      "execute": true,
+      "before": {
+        "positions": [],
+        "n_orders": 0
+      },
+      "cancels": [],
+      "closes": [],
+      "after": {
+        "positions": [],
+        "n_orders": 0
+      },
+      "flat": true
+    },
+    {
+      "account": "Xxobster10",
+      "execute": true,
+      "before": {
+        "positions": [
+          {
+            "symbol": "BTCUSDT",
+            "side": "Sell",
+            "size": "0.011",
+            "unrealisedPnl": "-4.31974373",
+            "positionIdx": 2
+          },
+          {
+            "symbol": "SOLUSDT",
+            "side": "Sell",
+            "size": "0.5",
+            "unrealisedPnl": "-0.0096",
+            "positionIdx": 2
+          }
+        ],
+        "n_orders": 26
+      },
+      "cancels": [
+        {
+          "action": "cancel",
+          "symbol": "BTCUSDT",
+          "orderId": "58bf141e-8eef-4b99-8094-b17319bb87fd",
+          "stopOrderType": "PartialStopLoss",
+          "qty": "0.002",
+          "triggerPrice": "66122.9",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "BTCUSDT",
+          "orderId": "13309f0a-4712-4f1c-a7b1-f860aae32239",
+          "stopOrderType": "PartialTakeProfit",
+          "qty": "0.002",
+          "triggerPrice": "64178.1",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "BTCUSDT",
+          "orderId": "48353c25-ed01-4001-bf77-822481d48eee",
+          "stopOrderType": "PartialTakeProfit",
+          "qty": "0.002",
+          "triggerPrice": "64165.3",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "BTCUSDT",
+          "orderId": "35ed8038-858c-4c20-9d14-51a42c8cdaed",
+          "stopOrderType": "PartialStopLoss",
+          "qty": "0.002",
+          "triggerPrice": "66109.7",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "BTCUSDT",
+          "orderId": "72554e05-b6a6-444c-92ad-a5e33b4a230d",
+          "stopOrderType": "PartialStopLoss",
+          "qty": "0.001",
+          "triggerPrice": "66251.9",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "BTCUSDT",
+          "orderId": "0b071592-bff6-4096-9251-107dc30a2481",
+          "stopOrderType": "PartialTakeProfit",
+          "qty": "0.001",
+          "triggerPrice": "64303.4",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "SOLUSDT",
+          "orderId": "4aa633e0-e004-41bb-b567-71c0cf35f1bb",
+          "stopOrderType": "PartialTakeProfit",
+          "qty": "0.1",
+          "triggerPrice": "73.16",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "SOLUSDT",
+          "orderId": "3741868c-f5f7-46b5-988c-cb0ee04925b0",
+          "stopOrderType": "PartialStopLoss",
+          "qty": "0.1",
+          "triggerPrice": "75.38",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "BTCUSDT",
+          "orderId": "c6cc1295-fe6b-44d1-8c05-d3ebe4a62ff5",
+          "stopOrderType": "PartialStopLoss",
+          "qty": "0.001",
+          "triggerPrice": "65979.6",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "BTCUSDT",
+          "orderId": "c6737ed3-cac0-4aec-9d7a-a7a670d9ee08",
+          "stopOrderType": "PartialTakeProfit",
+          "qty": "0.001",
+          "triggerPrice": "64039",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "BTCUSDT",
+          "orderId": "7ffe96d6-cc84-4ee3-8b5f-061ea5e66b54",
+          "stopOrderType": "PartialStopLoss",
+          "qty": "0.002",
+          "triggerPrice": "65739.7",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "BTCUSDT",
+          "orderId": "47f6ab3c-f7e5-4196-b59e-1e2ee7466454",
+          "stopOrderType": "PartialTakeProfit",
+          "qty": "0.002",
+          "triggerPrice": "63806.1",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "BTCUSDT",
+          "orderId": "58111083-ff3c-4646-a2b3-dbc72fca57d2",
+          "stopOrderType": "PartialTakeProfit",
+          "qty": "0.002",
+          "triggerPrice": "63584.2",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "BTCUSDT",
+          "orderId": "1db5ffcf-66c9-4da0-890f-0a71cf3f359c",
+          "stopOrderType": "PartialStopLoss",
+          "qty": "0.002",
+          "triggerPrice": "65511",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "BTCUSDT",
+          "orderId": "f1f4e44e-ed1e-4ab8-9e53-1ca58a9d0330",
+          "stopOrderType": "PartialTakeProfit",
+          "qty": "0.002",
+          "triggerPrice": "63446.9",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "BTCUSDT",
+          "orderId": "ea00638b-d2c5-49ca-ab14-1927f144abc8",
+          "stopOrderType": "PartialStopLoss",
+          "qty": "0.002",
+          "triggerPrice": "65369.5",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "BTCUSDT",
+          "orderId": "df3a8205-c382-43a3-adeb-ccfe7dd91992",
+          "stopOrderType": "PartialTakeProfit",
+          "qty": "0.001",
+          "triggerPrice": "63434",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "BTCUSDT",
+          "orderId": "29b5e612-6a1d-42d9-a1b5-6b6e0587ba3c",
+          "stopOrderType": "PartialStopLoss",
+          "qty": "0.001",
+          "triggerPrice": "65356.3",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "SOLUSDT",
+          "orderId": "a465eaf4-4de1-4a98-88e2-e1342a1cb393",
+          "stopOrderType": "PartialStopLoss",
+          "qty": "0.1",
+          "triggerPrice": "75.35",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "SOLUSDT",
+          "orderId": "069ae5f5-7c7b-457a-8a7e-a90e9296e8f7",
+          "stopOrderType": "PartialTakeProfit",
+          "qty": "0.1",
+          "triggerPrice": "73.13",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "BTCUSDT",
+          "orderId": "92c49abe-e1c4-4fb1-80b5-66c38e7b3e16",
+          "stopOrderType": "PartialTakeProfit",
+          "qty": "0.001",
+          "triggerPrice": "63479.7",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "BTCUSDT",
+          "orderId": "572b6bcc-26fb-4575-8456-7ca5d81693fb",
+          "stopOrderType": "PartialStopLoss",
+          "qty": "0.001",
+          "triggerPrice": "65403.3",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "SOLUSDT",
+          "orderId": "b8c7990f-dd45-4edb-aceb-f779a6a19dd2",
+          "stopOrderType": "PartialTakeProfit",
+          "qty": "0.1",
+          "triggerPrice": "72.99",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "SOLUSDT",
+          "orderId": "aa7cfb97-b941-4d7b-958c-8be68159c097",
+          "stopOrderType": "PartialStopLoss",
+          "qty": "0.1",
+          "triggerPrice": "75.2",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "SOLUSDT",
+          "orderId": "912919b2-7409-4056-8174-80e0b525e4da",
+          "stopOrderType": "PartialTakeProfit",
+          "qty": "0.1",
+          "triggerPrice": "73.06",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "SOLUSDT",
+          "orderId": "8d6379ac-a8a4-48a8-a4b0-17631ba5ca26",
+          "stopOrderType": "PartialStopLoss",
+          "qty": "0.1",
+          "triggerPrice": "75.28",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        }
+      ],
+      "closes": [
+        {
+          "action": "close",
+          "symbol": "BTCUSDT",
+          "side": "Sell",
+          "close_side": "Buy",
+          "size": "0.011",
+          "positionIdx": 2,
+          "avgPrice": "64486.69602455",
+          "unrealisedPnl": "-4.36924373",
+          "retCode": 0,
+          "retMsg": "OK",
+          "orderId": "6066badc-a227-49fe-9529-ac93a9234ce9"
+        },
+        {
+          "action": "close",
+          "symbol": "SOLUSDT",
+          "side": "Sell",
+          "close_side": "Buy",
+          "size": "0.5",
+          "positionIdx": 2,
+          "avgPrice": "73.8908",
+          "unrealisedPnl": "-0.0196",
+          "retCode": 0,
+          "retMsg": "OK",
+          "orderId": "36314221-d766-432a-8032-e29092cab12a"
+        }
+      ],
+      "after": {
+        "positions": [],
+        "n_orders": 0
+      },
+      "flat": true
+    },
+    {
+      "account": "Xxobster11",
+      "execute": true,
+      "before": {
+        "positions": [
+          {
+            "symbol": "ETHUSDT",
+            "side": "Sell",
+            "size": "0.07",
+            "unrealisedPnl": "-0.47630815",
+            "positionIdx": 2
+          }
+        ],
+        "n_orders": 18
+      },
+      "cancels": [
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "f137cfb3-a926-4458-b564-9a7e019000ed",
+          "stopOrderType": "PartialTakeProfit",
+          "qty": "0.01",
+          "triggerPrice": "1847.18",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "41ac2770-a07f-41d2-b134-5bf3505ffb9f",
+          "stopOrderType": "PartialStopLoss",
+          "qty": "0.01",
+          "triggerPrice": "1934.78",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "cea4e8d4-bb89-4335-aa7c-9ee1b3ac1092",
+          "stopOrderType": "PartialTakeProfit",
+          "qty": "0.01",
+          "triggerPrice": "1846.25",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "73eb830e-1c59-4a25-9fc9-fa0148fee459",
+          "stopOrderType": "PartialStopLoss",
+          "qty": "0.01",
+          "triggerPrice": "1933.8",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "c8b8326a-bd88-4acc-b497-ff452b157a3a",
+          "stopOrderType": "PartialStopLoss",
+          "qty": "0.01",
+          "triggerPrice": "1945.99",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "8218457d-d175-474f-bcad-d4e03f64f28a",
+          "stopOrderType": "PartialTakeProfit",
+          "qty": "0.01",
+          "triggerPrice": "1857.88",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "6f2a1fa8-ed82-49c9-a883-3ab4b1bc3f50",
+          "stopOrderType": "PartialTakeProfit",
+          "qty": "0.01",
+          "triggerPrice": "1858.88",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "1c03f7ae-541e-410f-82b4-3e136d39db19",
+          "stopOrderType": "PartialStopLoss",
+          "qty": "0.01",
+          "triggerPrice": "1947.03",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "9ff1c702-3df2-43d3-abb4-b9bac963b2b8",
+          "stopOrderType": "PartialStopLoss",
+          "qty": "0.01",
+          "triggerPrice": "1948.66",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "1151e8e2-df21-4e89-b7c8-5ca5ac400cf2",
+          "stopOrderType": "PartialTakeProfit",
+          "qty": "0.01",
+          "triggerPrice": "1860.43",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "d203f9d3-243a-40d5-b6af-214203c52b43",
+          "stopOrderType": "PartialStopLoss",
+          "qty": "0.01",
+          "triggerPrice": "1950.92",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "a301514e-8178-40fb-a013-79459414d79f",
+          "stopOrderType": "PartialTakeProfit",
+          "qty": "0.01",
+          "triggerPrice": "1862.6",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "9a5acf9e-036b-4c10-948e-846ab2101c15",
+          "stopOrderType": "PartialStopLoss",
+          "qty": "0.01",
+          "triggerPrice": "1945.97",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "09567046-ccae-4d72-b224-6ad0c5f6c735",
+          "stopOrderType": "PartialTakeProfit",
+          "qty": "0.01",
+          "triggerPrice": "1857.86",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "c9bbda96-ab46-4176-8afe-bece3a23a55a",
+          "stopOrderType": "PartialTakeProfit",
+          "qty": "0.01",
+          "triggerPrice": "1892.14",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "9f6589b8-4441-4ffa-8713-5b912c274920",
+          "stopOrderType": "PartialStopLoss",
+          "qty": "0.01",
+          "triggerPrice": "1949.48",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        },
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "ac03065a-eaf1-410e-857e-f963f3db364b",
+          "stopOrderType": "PartialTakeProfit",
+          "qty": "0.01",
+          "triggerPrice": "1893.24",
+          "retCode": 0,
+          "retMsg": "OK"
+        },
+        {
+          "action": "cancel",
+          "symbol": "ETHUSDT",
+          "orderId": "6d6f038c-73fe-47c2-97cf-d1af96e2c907",
+          "stopOrderType": "PartialStopLoss",
+          "qty": "0.01",
+          "triggerPrice": "1950.61",
+          "retCode": 110001,
+          "retMsg": "order not exists or too late to cancel"
+        }
+      ],
+      "closes": [
+        {
+          "action": "close",
+          "symbol": "ETHUSDT",
+          "side": "Sell",
+          "close_side": "Buy",
+          "size": "0.07",
+          "positionIdx": 2,
+          "avgPrice": "1906.46559786",
+          "unrealisedPnl": "-0.48960815",
+          "retCode": 0,
+          "retMsg": "OK",
+          "orderId": "1a3dfb24-c657-49b7-b992-294ebbe69492"
+        }
+      ],
+      "after": {
+        "positions": [],
+        "n_orders": 0
+      },
+      "flat": true
+    }
+  ]
+}

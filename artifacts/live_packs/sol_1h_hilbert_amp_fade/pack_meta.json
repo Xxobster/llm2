@@ -1,0 +1,32 @@
+{
+  "arm_id": "SOLUSDT|1h|hilbert_amp_fade|atr1.5|slcap0.03",
+  "evidence": {
+    "four_proof_artifact_dir": "D:\\projects\\LLM2\\artifacts\\evidence\\four_proof\\ml_lab_catalog_j_v1_hilbert_amp_fade_SOLUSDT_1h_20260904T091004Z",
+    "four_proof_hashes": {
+      "builder_responsiveness": "072c68aafe0c09fc11db35ac0f5858e09d7c745fa86f8dba5a2ff420a35e955c",
+      "layer_a_pred_identity": "70c5782e1b36797e0ef736542653f78fc58c52945c4803bfe2d849846b683311",
+      "no_live_feature_fill": "6c812d39ab1acbeb88b9084c59b7bdb6d51995f7baf865968dcda098910fd864",
+      "recompute_prefix": "c1629a4ae652a5f02a4571e55106741d83d7afe59c3e537198a4604fa64860c0"
+    },
+    "four_proof_ok": true,
+    "four_proof_stamp": "20260904T091004Z",
+    "four_proof_summary_sha256": "c0b685776caa8d7a0b83611520dd8ab5e766ec3bae0473ea78e70be172d4b2fe"
+  },
+  "evidence_class": "inner_screen_before_2022_plus_nested_subset_pass_2022_2026",
+  "evidence_window_end": "2026-05-01",
+  "four_proof_hashes": {
+    "builder_responsiveness": "072c68aafe0c09fc11db35ac0f5858e09d7c745fa86f8dba5a2ff420a35e955c",
+    "layer_a_pred_identity": "70c5782e1b36797e0ef736542653f78fc58c52945c4803bfe2d849846b683311",
+    "no_live_feature_fill": "6c812d39ab1acbeb88b9084c59b7bdb6d51995f7baf865968dcda098910fd864",
+    "recompute_prefix": "c1629a4ae652a5f02a4571e55106741d83d7afe59c3e537198a4604fa64860c0"
+  },
+  "four_proof_ok": true,
+  "frozen_at_utc": "20260904T091003Z",
+  "min_size_equity_caveat": "Wallet equity / maximum drawdown under research_sizing MIN_EXCHANGE (minimum exchange size) on a large wallet is not tradable-edge evidence. Smooth curves are expected at dust size; do not treat them as deployable sizing.",
+  "pack_hash": "4001364b39d82d1cd07842c99e02403ce2cd8267d6209ea50307d74630b0fdac",
+  "readiness": "RESEARCH_ONLY",
+  "readiness_note": "Hunt 013 inner screen n=337 profit factor 1.310 entry-bar 0.223 ~21.8/month. Nested 2022\u20132026 n=726 profit factor 1.266 Sharpe 1.242 HAC 1.322 entry-bar 0.088 6/6 folds subset PASS. Still not Shadow-Ready. User-authorized 5% equity stop-risk Post-Only live test only.",
+  "space": "ml_lab_catalog_j_v1",
+  "status": "FROZEN_LIVE_PACK",
+  "strategy_id": "sol_1h_hilbert_amp_fade"
+}

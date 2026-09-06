@@ -1,0 +1,21 @@
+# Autonomy gen 1361 — EMA2960_distance
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_1361_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-30T00:27:29Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  Distance and crosses of close versus the 2960-bar exponential moving average at t+H, used as one-head filters, can beat the 15-minute Limit 1%/1% pivot control under frozen entry-bar and trades-per-month caps.
+events: [ema2960_above_at_h, ema2960_below_at_h, ema2960_cross_up, ema2960_cross_down]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: 0be6a8c5fddf409cb9b3746e46f4f543da66608512ca6f629e6c677d04a3ead9

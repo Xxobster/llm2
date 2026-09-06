@@ -1,0 +1,7 @@
+ssh : xxobs@185.203.119.52: Permission denied (publickey,password).
+At C:\Users\xxobs\AppData\Local\Temp\ps-script-86dfa585-7480-4990-85e0-ec42a52bd3c3.ps1:87 char:128
++ ... n_audit.py; ssh -o BatchMode=yes -o ConnectTimeout=12 185.203.119.52  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (xxobs@185.203.1...ckey,password).:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 

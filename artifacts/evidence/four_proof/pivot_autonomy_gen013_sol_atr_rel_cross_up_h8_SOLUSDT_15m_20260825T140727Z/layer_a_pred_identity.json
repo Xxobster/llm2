@@ -1,0 +1,28 @@
+{
+  "diffs": {},
+  "full": {
+    "action": "FLAT",
+    "bar_ts_ms": 1787661000000,
+    "level_ret": -0.0061628486397923695,
+    "limit_px": 97.68425360719482,
+    "p_any": 0.09514331210191083,
+    "p_event": 0.09883720930232558,
+    "p_high": 0.3023255813953488,
+    "reason": "filter_below_pi_star",
+    "side": "Buy"
+  },
+  "ok": true,
+  "pack_dir": "D:\\projects\\LLM2\\artifacts\\live_packs\\autonomy_gen013_sol_atr_rel_cross_up_h8",
+  "proof": "layer_a_pred_identity",
+  "short": {
+    "action": "FLAT",
+    "bar_ts_ms": 1787661000000,
+    "level_ret": -0.0061628486397923695,
+    "limit_px": 97.68425360719482,
+    "p_any": 0.09514331210191083,
+    "p_event": 0.09883720930232558,
+    "p_high": 0.3023255813953488,
+    "reason": "filter_below_pi_star",
+    "side": "Buy"
+  }
+}

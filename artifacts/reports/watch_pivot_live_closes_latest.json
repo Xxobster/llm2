@@ -1,0 +1,46 @@
+{
+  "updated_utc": "2026-08-12T14:50:30Z",
+  "host": "94.156.189.76",
+  "account": "Xxobster7",
+  "units": ["llm2-pivot-sol-geo-p75-w4", "llm2-pivot-eth-p75-ctrl-atr-w4"],
+  "sizing": "MIN_EXCHANGE",
+  "sklearn_repack": {
+    "runtime_vps": "1.7.2",
+    "done": true,
+    "sol_pack_hash": "7aa93aaeb6bf5750896060c64df867b2b6e6637248a0db4974be010f0213f811",
+    "eth_pack_hash": "771d1fe66b732bcf3e73d906ddb6fc25453dd113b021c6447b9e273b07683642"
+  },
+  "structure_trading_packs_restarted": false,
+  "closes_watched": [
+    {
+      "bar_ts_ms": 1786543200000,
+      "approx_close_utc": "2026-08-12T14:15:00Z",
+      "sol": {"action": "FLAT", "p_any": 0.2028301886792453, "thr_any": 0.35},
+      "eth": {"action": "FLAT", "p_any": 0.12568306010928965, "thr_any": 0.35},
+      "parity_all_match": true
+    },
+    {
+      "bar_ts_ms": 1786544100000,
+      "approx_close_utc": "2026-08-12T14:30:00Z",
+      "sol": {"action": "FLAT", "p_any": 0.27422680412371137, "thr_any": 0.35},
+      "eth": {"action": "FLAT", "p_any": 0.2671232876712329, "thr_any": 0.35},
+      "parity_all_match": true
+    },
+    {
+      "bar_ts_ms": 1786545000000,
+      "approx_close_utc": "2026-08-12T14:45:00Z",
+      "sol": {"action": "FLAT", "p_any": 0.2733812949640287, "thr_any": 0.35},
+      "eth": {"action": "FLAT", "p_any": 0.19335604770017037, "thr_any": 0.35},
+      "parity_all_match": true
+    }
+  ],
+  "enter_limit_or_order_result_seen": false,
+  "first_fill_checks": {
+    "status": "N/A_NO_FILL_YET",
+    "last_fill_check_utc": "2026-08-12T14:11:15Z",
+    "working_order_id": null,
+    "open_positions": [],
+    "note": "Will verify leverage 29x + Full TP/SL + Limit cancel on first ENTER_LIMIT/fill"
+  },
+  "vps_blocker": "Host memory pressure (~2.9Gi RAM, load ~13) makes SSH intermittently time out; pivot units stayed active."
+}

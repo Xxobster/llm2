@@ -1,0 +1,65 @@
+generation_id: structure_v1_eth_k5_tp1_be_tp2_hold24_001
+created_utc: "2026-08-15T04:20:00Z"
+status: OOS_COMPARE_COMPLETE
+settled_utc: "20260815T042127Z"
+preregister_sha256_at_run: c31ce33cac28043308b6b36fbf57cbf20439c327984dedfb9efaa313976612d3
+readiness_max: RESEARCH_ONLY
+evidence_class: OUTER_TRANSFER_COMPARE
+parent_pack: structure_v1_ethusdt_k5_double3h_v1
+
+hypothesis: >
+  Taking 50% at 1%, moving the residual stop to entry after TP1, and targeting
+  2% on the remaining 50% improves stitched outer-OOS expectancy_return_units
+  over the frozen ETH K5 median-strength/double-within-3h control.
+
+control_arm:
+  symbol: ETHUSDT
+  timeframe: 1h
+  target: direction
+  strength_quantile: 0.5
+  min_edge: 0.10
+  k: 5
+  hold_bars: 12
+  tp_pct: 0.01
+  sl_pct: 0.02
+  size_double_within_bars: 3
+
+frozen_candidate:
+  same_entry_gates_as_control: true
+  tp_legs:
+    - {label: tp1, qty_fraction: 0.50, price_offset: 0.01}
+    - {label: tp2, qty_fraction: 0.50, price_offset: 0.02}
+  break_even: {trigger_on_leg: 0, stop_offset: 0.0}
+  initial_sl_pct: 0.02
+  max_hold_bars: 24
+  hold_semantics: >
+    Fixed from entry. This is explicitly not a reset/extension from TP1;
+    tradesim does not yet support post-TP1 hold mutation.
+
+selection:
+  method: FROZEN_TRANSFER
+  candidate_count: 1
+  forbidden:
+    - multi_arm_tp_fraction_grid
+    - hold_after_tp1_claim
+    - p75_strength
+    - cooloff
+    - pred_mean_edge_sweep
+    - lockbox_access
+
+evaluation:
+  hard_end_exclusive: "2026-05-01"
+  lockbox: DO_NOT_OPEN
+  outer: fold_geometry_v2_stitched_oos
+  primary_metric: expectancy_return_units
+  secondary: [profit_factor, n_trades, win_rate, net_pnl, entry_bar_exit_rate]
+  conformance_required: [EXEC-018, EXEC-020]
+  promotion: FORBIDDEN_without_explicit_user_authorization
+
+success_criteria:
+  - candidate_expectancy_return_units > control
+  - candidate_stitched_pf >= 1.20
+  - no_liquidation
+
+failure_is_success: true
+live_deploy: FORBIDDEN

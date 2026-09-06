@@ -1,0 +1,14 @@
+{
+  "evidence_class": "LIVE_PRED_POST_FIX",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "bar_ts": "2026-08-05T09:00:00+00:00",
+  "live_pred_mean": -0.4619535933616573,
+  "live_side": -1,
+  "warehouse_pred_mean": -0.33223535034485796,
+  "warehouse_side": -1,
+  "abs_diff": 0.12971824301679935,
+  "side_match": true,
+  "close_match_1e3": false,
+  "note": "Post full-history slice refresh + feature_snapshot. Pre-fix ledger bars remain non-reproducible.",
+  "generated_utc": "2026-08-05T10:10:31.313917+00:00"
+}

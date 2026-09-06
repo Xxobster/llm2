@@ -1,0 +1,34 @@
+# Autonomy public-indicator hunt gen 2170
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. Stamp `20260904T075845Z`. Arms: 27.
+Gates: ebr≤0.35, tpm∈[4.0,40.0], n≥50, PF≥max(1.20, control).
+
+| Symbol | H | Event | Mode | n | /mo | PF | WR | Sharpe | exp_i | ebr | flag | status |
+|---|---:|---|---|---:|---:|---:|---:|---:|---:|---:|---|---|
+| SOLUSDT | 4 | `ret2024_pos_at_h` | one_head_filter_pi_star | 27 | 2.3173 | 1.6269 | 0.6667 | 1.0549 | 0.0122 | 0.1481 | TPM<MIN | RAN |
+| SOLUSDT | 8 | `ret2024_pos_at_h` | one_head_filter_pi_star | 31 | 2.9106 | 1.5391 | 0.6129 | 1.0250 | 0.0088 | 0.0968 | TPM<MIN | RAN |
+| SOLUSDT | 4 | `control` | control | 376 | 30.5314 | 1.0041 | 0.5479 | 0.0341 | 0.0001 | 0.1330 | ok | RAN |
+| SOLUSDT | 4 | `ret2024_neg_at_h` | one_head_filter_pi_star | 339 | 27.5783 | 0.9952 | 0.5457 | -0.0374 | -0.0001 | 0.1298 | ok | RAN |
+| SOLUSDT | 8 | `ret2024_neg_at_h` | one_head_filter_pi_star | 346 | 28.1478 | 0.9766 | 0.5434 | -0.1895 | -0.0005 | 0.1272 | ok | RAN |
+| ETHUSDT | 4 | `ret2024_neg_at_h` | one_head_filter_pi_star | 351 | 28.5545 | 0.9838 | 0.5613 | -0.1335 | -0.0005 | 0.1311 | ok | RAN |
+| ETHUSDT | 4 | `control` | control | 373 | 30.3443 | 0.9511 | 0.5576 | -0.4157 | -0.0017 | 0.1421 | ok | RAN |
+| ETHUSDT | 8 | `ret2024_neg_at_h` | one_head_filter_pi_star | 352 | 28.6359 | 0.9477 | 0.5568 | -0.4491 | -0.0017 | 0.1364 | ok | RAN |
+| BTCUSDT | 4 | `control` | control | 28 | 2.3723 | 0.8377 | 0.3929 | -0.3856 | -0.0166 | 0.0357 | TPM<MIN | RAN |
+| ETHUSDT | 4 | `ret2024_pos_at_h` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW |
+| ETHUSDT | 4 | `ret2024_cross_up_0` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| ETHUSDT | 4 | `ret2024_cross_down_0` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| ETHUSDT | 8 | `ret2024_pos_at_h` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW |
+| ETHUSDT | 8 | `ret2024_cross_up_0` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| ETHUSDT | 8 | `ret2024_cross_down_0` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| SOLUSDT | 4 | `ret2024_cross_up_0` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| SOLUSDT | 4 | `ret2024_cross_down_0` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| SOLUSDT | 8 | `ret2024_cross_up_0` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| SOLUSDT | 8 | `ret2024_cross_down_0` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| BTCUSDT | 4 | `ret2024_pos_at_h` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| BTCUSDT | 4 | `ret2024_neg_at_h` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW |
+| BTCUSDT | 4 | `ret2024_cross_up_0` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| BTCUSDT | 4 | `ret2024_cross_down_0` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| BTCUSDT | 8 | `ret2024_pos_at_h` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| BTCUSDT | 8 | `ret2024_neg_at_h` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW |
+| BTCUSDT | 8 | `ret2024_cross_up_0` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| BTCUSDT | 8 | `ret2024_cross_down_0` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |

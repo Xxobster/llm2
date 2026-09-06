@@ -1,0 +1,294 @@
+{
+  "evidence_class": "RETRACE_PROXY_EXPERIMENT",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "promotion_allowed": false,
+  "generated_utc": "2026-08-06T21:41:48.861777+00:00",
+  "symbol": "ETHUSDT",
+  "timeframe": "1h",
+  "calendar": {
+    "hunt_end_exclusive": "2025-10-01",
+    "outer": [
+      "2026-01-01",
+      "2026-05-01"
+    ],
+    "lockbox_start": "2026-05-01",
+    "lockbox_used": false
+  },
+  "feature_space": {
+    "base": "structure_v1",
+    "x_without_retrace_n": 46,
+    "retrace_cols_overwritten": [
+      "last_retrace_pct",
+      "last_retrace_pct_4h",
+      "last_retrace_pct_1w"
+    ]
+  },
+  "proxy_hunt": {
+    "leaky": {
+      "best": {
+        "trial": 0,
+        "params": {
+          "n_estimators": 60,
+          "learning_rate": 0.05,
+          "num_leaves": 15,
+          "min_child_samples": 50,
+          "subsample": 0.8,
+          "colsample_bytree": 0.8
+        },
+        "val": {
+          "n": 9574,
+          "mae": 0.4555329680134754,
+          "rmse": 0.8037300816755355,
+          "r2": 0.6292241524704172,
+          "corr": 0.7951720800455324,
+          "max_abs": 16.59974120526329
+        },
+        "elapsed_sec": 1.54
+      },
+      "n_train_final": 47870,
+      "n_trials": 8
+    },
+    "causal": {
+      "best": {
+        "trial": 0,
+        "params": {
+          "n_estimators": 60,
+          "learning_rate": 0.05,
+          "num_leaves": 15,
+          "min_child_samples": 50,
+          "subsample": 0.8,
+          "colsample_bytree": 0.8
+        },
+        "val": {
+          "n": 9574,
+          "mae": 0.49152370556378533,
+          "rmse": 0.9219674033112402,
+          "r2": 0.3052419367354614,
+          "corr": 0.5701017020788166,
+          "max_abs": 21.56113685731368
+        },
+        "elapsed_sec": 0.24
+      },
+      "n_train_final": 47870,
+      "n_trials": 8
+    }
+  },
+  "outer_reconstruction": {
+    "leaky_proxy_vs_leaky_truth": {
+      "n": 2868,
+      "mae": 0.47797534755345294,
+      "rmse": 0.9300568809070222,
+      "r2": 0.6055795870090221,
+      "corr": 0.7813359556108374,
+      "max_abs": 9.337338225332143
+    },
+    "causal_proxy_vs_causal_truth": {
+      "n": 2870,
+      "mae": 0.507802033289554,
+      "rmse": 0.9878881716206582,
+      "r2": 0.36647971409355384,
+      "corr": 0.6059738676038979,
+      "max_abs": 10.265719708346452
+    },
+    "leaky_proxy_vs_causal_truth": {
+      "n": 2870,
+      "mae": 1.1576070251611172,
+      "rmse": 1.7845390309992784,
+      "r2": -1.0672693102712851,
+      "corr": -0.16893067311864424,
+      "max_abs": 12.266698090478082
+    },
+    "causal_proxy_vs_leaky_truth": {
+      "n": 2868,
+      "mae": 1.1966552434381341,
+      "rmse": 1.8016066647676496,
+      "r2": -0.47999525397339604,
+      "corr": -0.20730516706283866,
+      "max_abs": 12.101332346215461
+    }
+  },
+  "trade_arms": [
+    {
+      "arm": "oracle_causal_warehouse",
+      "n_trades": 227,
+      "profit_factor": 0.6760768432801723,
+      "win_rate": 0.4889867841409692,
+      "expectancy_return_units": -0.0027583218130031533,
+      "net_pnl": -16.30926614499913,
+      "n_liquidations": 0,
+      "signal_stats": {
+        "n_emitted": 227,
+        "n_skipped_clarity": 714,
+        "n_skipped_cap": 14,
+        "n_skipped_loss_cooloff": 0,
+        "n_skipped_weak_short_book1": 0,
+        "n_primary": 65,
+        "n_addon": 162
+      },
+      "run_id": "eth_1h_retrace_proxy_oracle_causal_warehouse-4885ff31aa",
+      "train_n": 50065,
+      "oos_n": 2864
+    },
+    {
+      "arm": "oracle_leaky",
+      "n_trades": 488,
+      "profit_factor": 3.246816255808589,
+      "win_rate": 0.7868852459016393,
+      "expectancy_return_units": 0.008770743056998192,
+      "net_pnl": 96.28948436998326,
+      "n_liquidations": 0,
+      "signal_stats": {
+        "n_emitted": 488,
+        "n_skipped_clarity": 1460,
+        "n_skipped_cap": 23,
+        "n_skipped_loss_cooloff": 0,
+        "n_skipped_weak_short_book1": 0,
+        "n_primary": 109,
+        "n_addon": 379
+      },
+      "run_id": "eth_1h_retrace_proxy_oracle_leaky-0006088262",
+      "train_n": 50065,
+      "oos_n": 2864
+    },
+    {
+      "arm": "pred_causal",
+      "n_trades": 181,
+      "profit_factor": 0.469871649258041,
+      "win_rate": 0.4088397790055249,
+      "expectancy_return_units": -0.005456145162451674,
+      "net_pnl": -24.27120509499764,
+      "n_liquidations": 0,
+      "signal_stats": {
+        "n_emitted": 181,
+        "n_skipped_clarity": 590,
+        "n_skipped_cap": 32,
+        "n_skipped_loss_cooloff": 0,
+        "n_skipped_weak_short_book1": 0,
+        "n_primary": 46,
+        "n_addon": 135
+      },
+      "run_id": "eth_1h_retrace_proxy_pred_causal-7b41c09c4b",
+      "train_n": 50065,
+      "oos_n": 2864
+    },
+    {
+      "arm": "pred_leaky",
+      "n_trades": 158,
+      "profit_factor": 0.521801274205291,
+      "win_rate": 0.41139240506329117,
+      "expectancy_return_units": -0.0051812439836363055,
+      "net_pnl": -18.806241584994495,
+      "n_liquidations": 0,
+      "signal_stats": {
+        "n_emitted": 159,
+        "n_skipped_clarity": 574,
+        "n_skipped_cap": 29,
+        "n_skipped_loss_cooloff": 0,
+        "n_skipped_weak_short_book1": 0,
+        "n_primary": 44,
+        "n_addon": 115
+      },
+      "run_id": "eth_1h_retrace_proxy_pred_leaky-72b9f7321c",
+      "train_n": 50065,
+      "oos_n": 2864
+    },
+    {
+      "arm": "drop_retrace_zero",
+      "n_trades": 204,
+      "profit_factor": 0.612193471733829,
+      "win_rate": 0.46568627450980393,
+      "expectancy_return_units": -0.0033816678586297186,
+      "net_pnl": -17.74118130998795,
+      "n_liquidations": 0,
+      "signal_stats": {
+        "n_emitted": 206,
+        "n_skipped_clarity": 623,
+        "n_skipped_cap": 13,
+        "n_skipped_loss_cooloff": 0,
+        "n_skipped_weak_short_book1": 0,
+        "n_primary": 52,
+        "n_addon": 154
+      },
+      "run_id": "eth_1h_retrace_proxy_drop_retrace_zero-6611f6d5c6",
+      "train_n": 50065,
+      "oos_n": 2864
+    }
+  ],
+  "trade_rank_by_expectancy": [
+    "oracle_leaky",
+    "oracle_causal_warehouse",
+    "drop_retrace_zero",
+    "pred_leaky",
+    "pred_causal"
+  ],
+  "best_trade_arm": {
+    "arm": "oracle_leaky",
+    "n_trades": 488,
+    "profit_factor": 3.246816255808589,
+    "win_rate": 0.7868852459016393,
+    "expectancy_return_units": 0.008770743056998192,
+    "net_pnl": 96.28948436998326,
+    "n_liquidations": 0,
+    "signal_stats": {
+      "n_emitted": 488,
+      "n_skipped_clarity": 1460,
+      "n_skipped_cap": 23,
+      "n_skipped_loss_cooloff": 0,
+      "n_skipped_weak_short_book1": 0,
+      "n_primary": 109,
+      "n_addon": 379
+    },
+    "run_id": "eth_1h_retrace_proxy_oracle_leaky-0006088262",
+    "train_n": 50065,
+    "oos_n": 2864
+  },
+  "best_proxy_by_val_mae": {
+    "leaky": {
+      "trial": 0,
+      "params": {
+        "n_estimators": 60,
+        "learning_rate": 0.05,
+        "num_leaves": 15,
+        "min_child_samples": 50,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8
+      },
+      "val": {
+        "n": 9574,
+        "mae": 0.4555329680134754,
+        "rmse": 0.8037300816755355,
+        "r2": 0.6292241524704172,
+        "corr": 0.7951720800455324,
+        "max_abs": 16.59974120526329
+      },
+      "elapsed_sec": 1.54
+    },
+    "causal": {
+      "trial": 0,
+      "params": {
+        "n_estimators": 60,
+        "learning_rate": 0.05,
+        "num_leaves": 15,
+        "min_child_samples": 50,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8
+      },
+      "val": {
+        "n": 9574,
+        "mae": 0.49152370556378533,
+        "rmse": 0.9219674033112402,
+        "r2": 0.3052419367354614,
+        "corr": 0.5701017020788166,
+        "max_abs": 21.56113685731368
+      },
+      "elapsed_sec": 0.24
+    }
+  },
+  "artifacts": {
+    "series": "D:\\projects\\LLM2\\artifacts\\reports\\last_retrace_proxy_trade_001\\retrace_proxy_series.parquet",
+    "model_leaky": "D:\\projects\\LLM2\\artifacts\\models\\last_retrace_proxy_001\\proxy_leaky.joblib",
+    "model_causal": "D:\\projects\\LLM2\\artifacts\\models\\last_retrace_proxy_001\\proxy_causal.joblib"
+  },
+  "elapsed_sec": 104.2,
+  "note": "Orange/leaky targets are still look-ahead labels \u2014 modelling them is diagnostic. Prefer cyan/causal proxy for any post-fix feature swap. Trade metrics on MIN_EXCHANGE dust are not scale-edge. Not a live pack."
+}

@@ -1,0 +1,74 @@
+# ML lab hunt 001 — FinVerse scoring of KReF retrieval + MoFE-lite Fourier mixture
+# RESEARCH_ONLY. Frozen before any hunt-001 result was viewed.
+generation_id: ml_lab_hunt_001_kref_mofe
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-27T09:00:00Z"
+fold_geometry: v2
+failure_is_success: true
+
+hypothesis: >
+  A training-free retrieval forecast (KReF-style: similar past lookbacks whose
+  futures are already known) and a training-free spectral/local mixture
+  (MoFE-inspired, no neural fit) each produce a directional 8-bar return
+  forecast with Spearman information coefficient above a frozen 0.03 screen
+  hurdle on pre-2022 data, and turning the signed forecast into a working-limit
+  Average-True-Range bracket has post-cost profit factor above 1.20 on that
+  same screen. FinVerse is used as the evaluation protocol (point skill, then
+  tradesim portfolio), not as a model. Cross-sectional ranking is skipped
+  because the universe is one symbol per arm.
+
+do_not:
+  - retune Ether 1-hour bounce_upper or hunt-003 WaveTheory survivors
+  - join warehouse spaces (structure_v1, macro_v1) in this generation
+  - train Adaptive Fourier Neural Operators or QLoRA in this generation
+  - rank or select on data on/after 2022-01-01
+  - peep FORWARD_LOCKBOX_START
+  - deploy
+
+selection_window: "strictly before 2022-01-01 (first outer out-of-sample start)"
+lockbox: do_not_rank_on_or_after_2026-05-01
+
+universe:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  timeframes: [15m, 1h]
+
+models: [naive_last, kref, mofe_lite]
+horizon_bars: 8
+lookback: 32
+archive: 512
+neighbors: 32
+purge_bars: 1
+abs_pred_tau: 0.0015
+
+bracket_mode: atr_scaled
+k_sl: [1.5]
+tp_ratio: [1.5]
+sl_cap: 0.030
+work_bars: {15m: 4, 1h: 3}
+max_hold_bars: {15m: 24, 1h: 16}
+
+screen_gates:
+  min_skill_n: 400
+  min_spearman_ic: 0.03
+  min_directional_acc: 0.51
+  min_trades: 80
+  min_trades_per_month: 2.0
+  max_trades_per_month: 90.0
+  min_profit_factor: 1.20
+  max_entry_bar_exit_rate: 0.25
+  min_sharpe_annualised: 0.50
+
+leakage_audit:
+  builder: llm2.ml_lab.features.build_features_for_guard
+  note: >
+    Features are predictions from handed Open-High-Low-Close only. Forward
+    return is a label, never a column. Must PASS before any profit factor is
+    written.
+
+papers:
+  finverse: "https://arxiv.org/html/2608.03259"
+  mofe: "https://arxiv.org/html/2608.17342"
+  kref: "https://arxiv.org/abs/2608.06748v1"
+
+preregister_sha256_at_run: b37720de59643199fde43350ea37c1af45c1ff88e17fb5ff66e076b9e128a0d5

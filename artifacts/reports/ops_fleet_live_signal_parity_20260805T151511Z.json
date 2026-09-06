@@ -1,0 +1,55 @@
+{
+  "gate_name": "Fleet Live Signal Parity",
+  "evidence_class": "OPS_FLEET_LIVE_SIGNAL_PARITY",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "generated_utc": "2026-08-05T15:14:49.330638+00:00",
+  "target_closed_1h_bar_utc": "2026-08-05T14:00:00+00:00",
+  "target_closed_1h_bar_ts_ms": 1785938400000,
+  "require_target_bar": false,
+  "strict_indicators": false,
+  "pred_eps": 1e-06,
+  "note": "Compares each unit's decision on the target closed 1h bar (or latest if missing and not --require-target-bar) to local warehouse recompute with the matching frozen pack. Does not claim readiness. Single-unit deep tip audit: ops_live_research_parity_gate.py. 1m indicator-only: run_1m_indicator_parity_bot.py.",
+  "results": [
+    {
+      "host": "ln3",
+      "host_class": "185.x",
+      "unit": "llm2-structure-eth-15m-multitrade-wall-clock-p75-v1",
+      "pack": "structure_v1_ethusdt_15m_multitrade_wall_clock_p75_v1",
+      "symbol": "ETHUSDT",
+      "timeframe": "15m",
+      "local_pack_ok": true,
+      "bar_ts_ms": 1785938400000,
+      "bar_utc": "2026-08-05T14:00:00+00:00",
+      "live_pred_mean": -0.2659234567260125,
+      "live_side": -1,
+      "live_decided_utc": "2026-08-05T14:32:34.545290+00:00",
+      "warehouse_pred_mean": null,
+      "warehouse_side": null,
+      "recompute_error": "bar_missing_in_warehouse_ohlcv",
+      "abs_diff": null,
+      "side_match": null,
+      "pred_match": null,
+      "pack_1h_max_ts": null,
+      "indicators_identical": null,
+      "indicators_n_mismatch": null,
+      "blockers": [
+        "bar_missing_in_warehouse_ohlcv",
+        "RECOMPUTE_FAILED"
+      ],
+      "soft_blockers": [],
+      "ok": false
+    }
+  ],
+  "summary": {
+    "gate_name": "Fleet Live Signal Parity",
+    "n_units": 1,
+    "n_pass": 0,
+    "n_fail": 1,
+    "all_pred_match": false,
+    "units_with_soft_indicator_mismatch": []
+  },
+  "principal_blocker": [
+    "bar_missing_in_warehouse_ohlcv",
+    "RECOMPUTE_FAILED"
+  ]
+}

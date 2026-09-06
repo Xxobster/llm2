@@ -39,9 +39,32 @@ EVENT_IDS_002: tuple[str, ...] = (
     "atr_squeeze_expand",
 )
 
-REVERSAL_EVENTS = frozenset(EVENT_IDS[:10])
+# Generation 003: unused public-formula regimes (not TradingView scrapes).
+EVENT_IDS_003: tuple[str, ...] = (
+    "supertrend_up_at_h",
+    "supertrend_down_at_h",
+    "ichimoku_tk_bull_at_h",
+    "ichimoku_tk_bear_at_h",
+    "cci_oversold_at_h",
+    "cci_overbought_at_h",
+)
+
+REVERSAL_EVENTS = frozenset(EVENT_IDS[:10]) | frozenset(
+    {
+        "cci_oversold_at_h",
+        "cci_overbought_at_h",
+    }
+)
 CONTINUATION_EVENTS = frozenset(EVENT_IDS[10:]) | frozenset(
-    {"range_break_up", "range_break_down", "atr_squeeze_expand"}
+    {
+        "range_break_up",
+        "range_break_down",
+        "atr_squeeze_expand",
+        "supertrend_up_at_h",
+        "supertrend_down_at_h",
+        "ichimoku_tk_bull_at_h",
+        "ichimoku_tk_bear_at_h",
+    }
 )
 RANGE_EVENTS = frozenset({"range_hold"})
 MARKET_ENTRY_EVENTS = frozenset(
@@ -54,6 +77,9 @@ LONG_EVENTS = frozenset(
         "stoch_cross_up_20",
         "failed_swing_ll",
         "range_break_up",
+        "supertrend_up_at_h",
+        "ichimoku_tk_bull_at_h",
+        "cci_oversold_at_h",
     }
 )
 SHORT_EVENTS = frozenset(
@@ -63,6 +89,9 @@ SHORT_EVENTS = frozenset(
         "stoch_cross_down_80",
         "failed_swing_hh",
         "range_break_down",
+        "supertrend_down_at_h",
+        "ichimoku_tk_bear_at_h",
+        "cci_overbought_at_h",
     }
 )
 
@@ -140,6 +169,97 @@ def _wilder_atr(high: np.ndarray, low: np.ndarray, close: np.ndarray, period: in
     prev_c[1:] = close[:-1]
     tr = np.maximum(high - low, np.maximum(np.abs(high - prev_c), np.abs(low - prev_c)))
     return _rma(tr, period)
+
+
+def _supertrend_dir(
+    high: np.ndarray,
+    low: np.ndarray,
+    close: np.ndarray,
+    *,
+    period: int = 10,
+    multiplier: float = 3.0,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Public Average True Range Supertrend: direction +1 up / -1 down, and line.
+
+    Final bands are path-dependent; only the recursive pass is sequential.
+    """
+    atr = _wilder_atr(high, low, close, period)
+    hl2 = 0.5 * (high + low)
+    basic_upper = hl2 + float(multiplier) * atr
+    basic_lower = hl2 - float(multiplier) * atr
+    n = close.size
+    final_upper = np.full(n, np.nan)
+    final_lower = np.full(n, np.nan)
+    direction = np.full(n, np.nan)
+    line = np.full(n, np.nan)
+    if n == 0:
+        return direction, line
+    final_upper[0] = basic_upper[0]
+    final_lower[0] = basic_lower[0]
+    direction[0] = 1.0
+    line[0] = final_lower[0]
+    for i in range(1, n):
+        bu = basic_upper[i]
+        bl = basic_lower[i]
+        pu = final_upper[i - 1]
+        pl = final_lower[i - 1]
+        if not np.isfinite(bu) or not np.isfinite(bl):
+            final_upper[i] = pu
+            final_lower[i] = pl
+            direction[i] = direction[i - 1]
+            line[i] = line[i - 1]
+            continue
+        # Final upper: tighten only while prior close was below prior upper.
+        if np.isfinite(pu) and close[i - 1] <= pu:
+            final_upper[i] = min(bu, pu) if np.isfinite(pu) else bu
+        else:
+            final_upper[i] = bu
+        if np.isfinite(pl) and close[i - 1] >= pl:
+            final_lower[i] = max(bl, pl) if np.isfinite(pl) else bl
+        else:
+            final_lower[i] = bl
+        prev_dir = direction[i - 1]
+        if prev_dir >= 0.0:
+            if close[i] < final_lower[i]:
+                direction[i] = -1.0
+            else:
+                direction[i] = 1.0
+        else:
+            if close[i] > final_upper[i]:
+                direction[i] = 1.0
+            else:
+                direction[i] = -1.0
+        line[i] = final_lower[i] if direction[i] > 0.0 else final_upper[i]
+    return direction, line
+
+
+def _ichimoku_tenkan_kijun(
+    high: np.ndarray, low: np.ndarray, *, tenkan: int = 9, kijun: int = 26
+) -> tuple[np.ndarray, np.ndarray]:
+    """Public Ichimoku Tenkan / Kijun (no cloud / no displaced lines)."""
+    hh_t = pd.Series(high).rolling(tenkan, min_periods=tenkan).max().to_numpy()
+    ll_t = pd.Series(low).rolling(tenkan, min_periods=tenkan).min().to_numpy()
+    hh_k = pd.Series(high).rolling(kijun, min_periods=kijun).max().to_numpy()
+    ll_k = pd.Series(low).rolling(kijun, min_periods=kijun).min().to_numpy()
+    ten = 0.5 * (hh_t + ll_t)
+    kij = 0.5 * (hh_k + ll_k)
+    return ten, kij
+
+
+def _cci(high: np.ndarray, low: np.ndarray, close: np.ndarray, period: int = 20) -> np.ndarray:
+    """Public Commodity Channel Index (Lambert)."""
+    from numpy.lib.stride_tricks import sliding_window_view
+
+    tp = (high + low + close) / 3.0
+    n = tp.size
+    sma = pd.Series(tp).rolling(period, min_periods=period).mean().to_numpy()
+    mad = np.full(n, np.nan)
+    if n >= period:
+        windows = sliding_window_view(tp, period)
+        means = windows.mean(axis=1)
+        mad[period - 1 :] = np.mean(np.abs(windows - means[:, None]), axis=1)
+    with np.errstate(divide="ignore", invalid="ignore"):
+        return (tp - sma) / np.where(mad > 0, 0.015 * mad, np.nan)
 
 
 def any_in_next(bit: np.ndarray, horizon: int) -> np.ndarray:
@@ -297,6 +417,12 @@ def build_known_now_features(ohlcv: pd.DataFrame) -> pd.DataFrame:
     atr_pos = (atr - atr_min) / np.where(np.abs(atr_span) > 1e-15, atr_span, np.nan)
     ret4 = np.full_like(close, np.nan)
     ret4[4:] = close[4:] / np.where(close[:-4] > 0, close[:-4], np.nan) - 1.0
+    st_dir, st_line = _supertrend_dir(high, low, close)
+    tenkan, kijun = _ichimoku_tenkan_kijun(high, low)
+    cci = _cci(high, low, close, 20)
+    with np.errstate(divide="ignore", invalid="ignore"):
+        st_dist = (close - st_line) / np.where(close > 0, close, np.nan)
+        tk_spread = (tenkan - kijun) / np.where(close > 0, close, np.nan)
     out = pd.DataFrame(
         {
             "rsi_14": rsi,
@@ -326,6 +452,15 @@ def build_known_now_features(ohlcv: pd.DataFrame) -> pd.DataFrame:
             "close_pos_in_range20": close_pos,
             "atr_pos_100": atr_pos,
             "ret4": ret4,
+            "supertrend_dir": st_dir,
+            "supertrend_dist": st_dist,
+            "ichimoku_tenkan": tenkan,
+            "ichimoku_kijun": kijun,
+            "ichimoku_tk_spread": tk_spread,
+            "ichimoku_tk_bull": (tenkan > kijun).astype(float),
+            "cci_20": cci,
+            "cci_oversold": (cci < -100.0).astype(float),
+            "cci_overbought": (cci > 100.0).astype(float),
         },
         index=df.index,
     )
@@ -338,7 +473,11 @@ def build_features_for_guard(ohlcv: pd.DataFrame, **_kwargs) -> pd.DataFrame:
 
 
 def build_event_pack(
-    ohlcv: pd.DataFrame, *, horizon: int = 4, include_002: bool = False
+    ohlcv: pd.DataFrame,
+    *,
+    horizon: int = 4,
+    include_002: bool = False,
+    include_003: bool = False,
 ) -> EventPack:
     """Build features + oracle labels for one horizon."""
     if horizon < 1:
@@ -508,6 +647,42 @@ def build_event_pack(
         sides["atr_squeeze_expand"] = np.where(expand, np.sign(ret4), 0.0)
         ids = EVENT_IDS + EVENT_IDS_002
 
+    if include_003:
+        st_dir = feat["supertrend_dir"].to_numpy(dtype=float)
+        tk_bull = feat["ichimoku_tk_bull"].to_numpy(dtype=float)
+        cci = feat["cci_20"].to_numpy(dtype=float)
+        # Regime at bar t+H (last bar of the forward window).
+        st_h = _window_from(st_dir, horizon, offset=1)[:, -1]
+        tk_h = _window_from(tk_bull, horizon, offset=1)[:, -1]
+        cci_h = _window_from(cci, horizon, offset=1)[:, -1]
+        up = np.isfinite(st_h) & (st_h > 0.0)
+        dn = np.isfinite(st_h) & (st_h < 0.0)
+        bull = np.isfinite(tk_h) & (tk_h > 0.5)
+        bear = np.isfinite(tk_h) & (tk_h < 0.5)
+        osold = np.isfinite(cci_h) & (cci_h < -100.0)
+        obought = np.isfinite(cci_h) & (cci_h > 100.0)
+        occ["supertrend_up_at_h"] = np.isfinite(st_dir) & (st_dir > 0.0)
+        occ["supertrend_down_at_h"] = np.isfinite(st_dir) & (st_dir < 0.0)
+        bits["supertrend_up_at_h"] = up
+        bits["supertrend_down_at_h"] = dn
+        sides["supertrend_up_at_h"] = np.where(up, 1.0, 0.0)
+        sides["supertrend_down_at_h"] = np.where(dn, -1.0, 0.0)
+        occ["ichimoku_tk_bull_at_h"] = feat["ichimoku_tk_bull"].to_numpy(dtype=bool)
+        occ["ichimoku_tk_bear_at_h"] = ~feat["ichimoku_tk_bull"].to_numpy(dtype=bool) & np.isfinite(
+            feat["ichimoku_tk_spread"].to_numpy(dtype=float)
+        )
+        bits["ichimoku_tk_bull_at_h"] = bull
+        bits["ichimoku_tk_bear_at_h"] = bear
+        sides["ichimoku_tk_bull_at_h"] = np.where(bull, 1.0, 0.0)
+        sides["ichimoku_tk_bear_at_h"] = np.where(bear, -1.0, 0.0)
+        occ["cci_oversold_at_h"] = feat["cci_oversold"].to_numpy(dtype=bool)
+        occ["cci_overbought_at_h"] = feat["cci_overbought"].to_numpy(dtype=bool)
+        bits["cci_oversold_at_h"] = osold
+        bits["cci_overbought_at_h"] = obought
+        sides["cci_oversold_at_h"] = np.where(osold, 1.0, 0.0)
+        sides["cci_overbought_at_h"] = np.where(obought, -1.0, 0.0)
+        ids = tuple(ids) + EVENT_IDS_003
+
     valid = np.arange(n) + horizon < n
     labels = pd.DataFrame(index=df.index)
     side_df = pd.DataFrame(index=df.index)
@@ -530,8 +705,17 @@ def build_event_pack(
     )
 
 
-def event_ids(*, family: str | None = None, include_002: bool = False) -> tuple[str, ...]:
-    ids = EVENT_IDS + EVENT_IDS_002 if include_002 else EVENT_IDS
+def event_ids(
+    *,
+    family: str | None = None,
+    include_002: bool = False,
+    include_003: bool = False,
+) -> tuple[str, ...]:
+    ids = EVENT_IDS
+    if include_002:
+        ids = ids + EVENT_IDS_002
+    if include_003:
+        ids = ids + EVENT_IDS_003
     if family is None:
         return ids
     if family == "reversal":

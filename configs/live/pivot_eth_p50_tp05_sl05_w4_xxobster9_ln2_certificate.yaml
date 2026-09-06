@@ -1,0 +1,23 @@
+strategy_id: pivot_eth_p50_tp05_sl05_w4_ETHUSDT_15m
+status: AUTHORIZED
+authorized_by_user: true
+vps_host: '212.73.150.178'
+account_ref: Xxobster9
+intended_vps_host: '212.73.150.178'
+intended_account_ref: Xxobster9
+pack_path: artifacts/live_packs/pivot_eth_p50_tp05_sl05_w4
+pack_hash: fa20486e60afeca7ff781305c522d5999c45d29916c6a5553836400f9975d207
+expires_utc: '2026-09-04T21:00:00Z'
+created_utc: '2026-08-21T21:30:00Z'
+four_proof_ok: true
+four_proof_hashes:
+  builder_responsiveness: 15e3f97010eccceeb6efbeea83e4cf161eeb63c51b8fbdedfdd0769853a0511e
+  recompute_prefix: 2ac66b3b7c0f88019c659a1bd3168deadfd76e70314ba87dff9e8300e3a7bcdd
+  no_live_feature_fill: ef3948c4d17f9b73312186268226732fd6d6ef0d9e5d6c901696cdab59f7e3a8
+  layer_a_pred_identity: 3c4c0849264c3551216db4d29b7f0866bc2b6dd9c55d570ccda778aa5b6f3508
+notes: >-
+  User explicitly authorized 2026-08-21 (UTC+7) real-USDT MIN_EXCHANGE pivot
+  LIMIT micro-live on 212.73.150.178 / Xxobster9 (ETHUSDT 15m 0.5%/0.5%). Same
+  model and p75 gate as the 1%/1% parent pack. Leverage from stop 0.5% = 41x.
+  Research readiness remains LIVE_STOP / RESEARCH_ONLY (high same-bar exit
+  rate). This certificate is operational authorization only.

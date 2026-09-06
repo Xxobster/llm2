@@ -1,0 +1,21 @@
+{
+  "hits": [],
+  "idea": "quad_slope_follow",
+  "ok": true,
+  "proof": "no_live_feature_fill",
+  "required_guards": {
+    "catalog_dispatch": true,
+    "no_taker_fallback": true,
+    "pack_fail_loud": true,
+    "risk_fraction_sizing": true,
+    "runner_nan_refuse": true,
+    "signal_isfinite_check": true,
+    "signal_nan_cols": true,
+    "signed_short": true
+  },
+  "sources_sha256": {
+    "llm2\\live\\ema_stack_runner.py": "8fa77af8df7d8f16cf21c32b257923c6875edf86f8cbe303852f99b3d42c7fd5",
+    "llm2\\ml_lab\\live_signal.py": "edaef26521023be7437ac229a3d43c0fb10f27046ac06482ed7bdaf73f7905c9"
+  },
+  "space": "ml_lab_catalog_f_v1"
+}

@@ -1,0 +1,78 @@
+# Edge lab hunt 002 — same events, Average-True-Range-scaled brackets
+# RESEARCH_ONLY. Frozen before any hunt-002 result was viewed.
+generation_id: edge_lab_hunt_002_atr
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-27T00:30:00Z"
+parent_generation: edge_lab_hunt_001
+fold_geometry: v2
+failure_is_success: true
+
+motivation: >
+  Hunt 001 fixed the bracket in percentage terms. Its **diagnostic** (not its
+  profit factor) showed entry-bar exit rates of 0.47-0.66 on 1-hour arms: a 1%
+  stop is inside one 1-hour candle when Average True Range is near 1%, so the
+  stop was being resolved in the bar that filled the entry. That is a
+  specification error in the bracket, independent of whether any event has edge.
+  Hunt 002 therefore re-registers the identical event catalogue with the bracket
+  expressed in Average True Range units, so the stop lies outside single-bar
+  noise by construction. Only the entry-bar diagnostic from hunt 001 was used to
+  motivate this; no hunt-001 profit factor was used to pick events, symbols,
+  timeframes or session filters — the grid is unchanged and complete.
+
+hypothesis: >
+  When the stop is placed at least one Average True Range from the fill, the
+  liquidity-sweep, fair-value-gap and momentum-breakout events retain a positive
+  post-cost expectancy and their entry-bar exit rate falls below 0.35.
+
+selection_window: "strictly before 2022-01-01 (first outer out-of-sample start)"
+lockbox: do_not_rank_on_or_after_2026-05-01
+
+universe:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  timeframes: [1h, 15m, 4h]
+
+bracket_mode: atr_scaled
+bracket_formula: >
+  stop_offset = clip(k_sl * atr_frac[t], 0.004, 0.030);
+  target_offset = clip(tp_ratio * stop_offset, 0.004, 0.090)
+k_sl: [1.0, 1.5, 2.0]
+tp_ratio: [1.0, 1.5, 2.0]
+sl_cap: 0.030
+leverage: >
+  llm2.gates.evidence.leverage_from_stop(sl_cap) — worst-case stop, so margin and
+  liquidation distance are conservative for every trade in the arm.
+
+work_bars: {15m: 4, 1h: 3, 4h: 2}
+max_hold_bars: {15m: 24, 1h: 16, 4h: 10}
+max_hold_note: >
+  Longer than hunt 001 because an Average-True-Range-scaled target needs more
+  bars to be reached than a fixed 1% target.
+
+session_filters: [all, no_weekend, ny_am_kz_no_weekend, weekday_ny]
+
+entry_style:
+  market_if_name_contains: [breakout, ignition, choch]
+  otherwise: working_limit_atr_offset
+
+events_source: llm2.edge_lab.events.EVENT_IDS
+events_note: identical catalogue to hunt 001, all 42 events, no additions
+sides_are_frozen: true
+sides_source: llm2.edge_lab.events.EVENT_SIDE
+
+screen_gates:
+  min_trades: 50
+  min_trades_per_month: 4
+  max_trades_per_month: 150
+  min_profit_factor: 1.20
+  max_entry_bar_exit_rate: 0.35
+  min_sharpe_annualised: 1.00
+
+do_not:
+  - add events, symbols, timeframes, session filters or bracket knobs after viewing results
+  - flip a frozen event side
+  - score the screen on 2022-01-01 or later
+  - peep lockbox 2026-05-01+
+  - deploy, sync or restart any VPS unit from this hunt
+
+preregister_sha256_at_run: b3410e8ca3c6767dcddccfcc9021270a2f1e3619d702d8caf345a17c6586ac19

@@ -1,0 +1,23 @@
+{
+  "artifact_dir": "D:\\projects\\LLM2\\artifacts\\evidence\\four_proof\\structure_v1_run_retrace_ETHUSDT_1h_20260808T093407Z",
+  "artifact_hashes": {
+    "builder_responsiveness": "685014c10c278ff73b2ce3f3ac311509123ff20aa65b5744263aa107657cfe2b",
+    "layer_a_pred_identity": "180df4dd8f52561702ba58bf50c5414f9e9aee23feaf498384206d12850da7d7",
+    "no_live_feature_fill": "19e467820bb38cf07e322d5f9cd992836b8a33d15db59c56184403b9d6f6c14f",
+    "recompute_prefix": "3134f034b0cd5e0a7d6c40d52057769e5c5e0b10e83fb12387afced445f28c69"
+  },
+  "note": "Warehouse-backed spaces may not treat a lone shared leakage PASS as evidence.",
+  "ok": true,
+  "proofs_ok": {
+    "builder_responsiveness": true,
+    "layer_a_pred_identity": true,
+    "no_live_feature_fill": true,
+    "recompute_prefix": true
+  },
+  "rule": "FOUR_PROOF_GATE_V1",
+  "space": "structure_v1_run_retrace",
+  "stamp": "20260808T093407Z",
+  "summary_sha256": "8a03b92521994ca4ea69fbb5a0bdd22d856da830ef2329e183fe7a274050f933",
+  "symbol": "ETHUSDT",
+  "timeframe": "1h"
+}

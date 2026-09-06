@@ -1,0 +1,24 @@
+# Autonomy gen 078 — ATR as fraction of close
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_078_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-22T14:13:00Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  Wilder Average True Range as a fraction of close, high versus low at
+  t+H and 1.0%/0.5% crosses, used as one-head filters, can beat the
+  15-minute Limit 1%/1% pivot control under frozen entry-bar and
+  trades-per-month caps.
+events: [atrf_high_at_h, atrf_low_at_h, atrf_cross_up_p01, atrf_cross_down_p005]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: 196d96160395c36a0439c075c8bb111b79b9eaf5a14b75f0e5c1d0855e627c5c

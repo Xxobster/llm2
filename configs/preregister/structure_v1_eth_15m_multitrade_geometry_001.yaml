@@ -1,0 +1,102 @@
+# ETHUSDT 15m multitrade transfer of 1h principles. ALL arms preregistered
+# before OOS. Touch = 1m. Phase 1 ETH; BTC Phase 2 deferred.
+#
+# Arms (try all, frozen before OOS):
+#   A wall_clock_q50  — control geometry, median strength
+#   B wall_clock_q75  — wall-clock + p75 (1h best filter idea)
+#   C bar_count_q75   — bar-count knobs + p75
+# Primary: expectancy_return_units. Also report PF, Sharpe, WR, n.
+
+generation_id: structure_v1_eth_15m_multitrade_geometry_001
+created_utc: "2026-08-05T13:45:00Z"
+status: OOS_COMPARE_COMPLETE
+settled_utc: "20260805T134726Z"
+preregister_sha256_at_run: 5eb7359ae4f76df8803b87a1e085a271668328b7d78fa02c93164cfc55140888
+decision_refs: [D-039, D-044, D-046]
+fold_geometry: v2
+parent_1h_pack: structure_v1_ethusdt_multitrade_p75_v1
+phase: ETH_FIRST
+btc_phase2: DEFERRED_new_prereg
+
+hypothesis: >
+  Transferring the eth_multitrade p75 design ideas to 15m decision bars with
+  1m touch resolution, under both wall-clock-scaled and bar-count-scaled hold /
+  lookback / label horizons, can produce a stitched outer-fold expectancy_return_units
+  edge with PF>=1.20 on ETHUSDT without reopening a free K×hold×TP grid.
+
+economic_rationale: >
+  1h multitrade p75 was the best E[r] arm (~0.952%). Shorter decision clock needs
+  a retrain (not the 1h model file). Wall-clock preserves the economic claim of
+  ~6h/12h holds and ~1-week strength history; bar-count keeps the 1h bar knobs
+  literally (much shorter clock). Both are frozen a priori; p75 remains the
+  strength filter from the 1h win.
+
+shared:
+  symbol: ETHUSDT
+  timeframe: 15m
+  touch_timeframe: 1m
+  space: structure_v1
+  target: direction
+  min_edge: 0.10
+  k_per_side: 7
+  fib_ext: 1.618
+  base_tp: 0.01
+  base_sl: 0.02
+  clarity: mean_strength
+  clarity_scope: all
+  uniform_books: false
+  bar_ms: 900000
+
+arms:
+  wall_clock_q50:
+    geometry: wall_clock
+    strength_quantile: 0.5
+    base_hold: 24          # 6h
+    hold_addon: 48         # 12h
+    mean_lookback: 672     # ~1 week of 15m
+    label_horizon: 24      # 6h
+  wall_clock_q75:
+    geometry: wall_clock
+    strength_quantile: 0.75
+    base_hold: 24
+    hold_addon: 48
+    mean_lookback: 672
+    label_horizon: 24
+  bar_count_q75:
+    geometry: bar_count
+    strength_quantile: 0.75
+    base_hold: 6
+    hold_addon: 12
+    mean_lookback: 168
+    label_horizon: 6
+
+selection:
+  method: FROZEN_MULTI_ARM — all arms listed before OOS; no post-hoc add
+  ranking_primary: expectancy_return_units
+  forbidden:
+    - re_search_K_hold_tp_grid_after_oos
+    - select_on_lockbox
+    - reopen_clarity_hold_tp_from_1h_oos
+    - promote_without_new_pack_hash_certificate_and_explicit_user_auth
+
+evaluation:
+  outer: fold_geometry_v2_stitched_oos
+  hard_end_exclusive: "2026-05-01"
+  lockbox: DO_NOT_OPEN
+  engine: botsgeneral_tradesim
+  costs: research_costs_baseline
+  sizing: MIN_EXCHANGE
+  leverage: leverage_from_stop(0.02)
+  primary_metric: expectancy_return_units
+  secondary: [profit_factor, sharpe_annualised_fold_mean, win_rate, n_trades]
+  evidence_class: OUTER_TRANSFER_COMPARE
+  promotion: FORBIDDEN_without_new_pack_hash_certificate_and_explicit_user_auth
+
+success_criteria:
+  - best_arm_expectancy_return_units > 0
+  - best_arm_stitched_pf >= 1.20
+  - no liquidation on best arm
+  - report all three arms (full outer stitch)
+
+failure_is_success: true
+live_deploy: FORBIDDEN_without_certificate_and_explicit_user_auth

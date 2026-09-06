@@ -1,0 +1,21 @@
+# Autonomy gen 1901 — Return315_bar
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_1901_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-09-02T22:19:54Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  Sign and zero-crosses of the 315-bar close-to-close return at t+H, used as one-head filters, can beat the 15-minute Limit 1%/1% pivot control under frozen entry-bar and trades-per-month caps.
+events: [ret315_pos_at_h, ret315_neg_at_h, ret315_cross_up_0, ret315_cross_down_0]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: 48c7109a4f5d78bfdc2f7a07d8321bd6dbcef3bd964563db116bab63026a9f33

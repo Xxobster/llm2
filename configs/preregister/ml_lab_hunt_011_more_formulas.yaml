@@ -1,0 +1,55 @@
+# ML lab hunt 011 — second invented causal formula pack
+# RESEARCH_ONLY. Frozen before any hunt-011 result was viewed.
+generation_id: ml_lab_hunt_011_more_formulas
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-09-02T02:25:00Z"
+fold_geometry: v2
+failure_is_success: true
+
+hypothesis: >
+  New formulas after hunt 009, not a threshold search on 009 names: single-scale
+  rescaled-range Hurst regime switch; realized-quarticity spike fade; Amihud
+  illiquidity fade; exponential local-level residual fade (causal Kalman proxy);
+  rolling-skew fade; rolling cumulative-sum drift follow; volume-synchronized
+  return follow; Average-True-Range compression then Donchian-style break.
+  Event study first (11 basis-point floor). Tradesim at most 8 skill-passers.
+  Maker 0.02% resting legs. EXEC-021. Inner screen before 2022-01-01.
+
+do_not:
+  - peep FORWARD_LOCKBOX_START
+  - deploy
+  - stamp Shadow-Ready from this inner screen
+  - widen Average-True-Range to hide entry-bar exits
+  - retune hunt 009 thresholds after viewing its profit factor
+
+selection_window: "strictly before 2022-01-01"
+universe:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  event_study_timeframes: [15m, 1h, 4h]
+  tradesim_timeframes: [15m, 1h, 4h]
+
+cost_floor: 0.0011
+max_tradesim_arms: 8
+work_bars: {15m: 4, 1h: 3, 4h: 2}
+max_hold_bars: {15m: 24, 1h: 16, 4h: 8}
+k_sl: 1.5
+tp_ratio: 1.5
+sl_cap: 0.030
+maker_first_costs: true
+
+screen_gates:
+  min_skill_n: 80
+  min_directional_acc: 0.51
+  min_mean_signed: 0.0015
+  min_trades: 80
+  min_trades_per_month: 2.0
+  max_trades_per_month: 90.0
+  min_profit_factor: 1.20
+  max_entry_bar_exit_rate: 0.25
+  min_sharpe_annualised: 0.50
+
+leakage_audit:
+  builder: llm2.ml_lab.idea_catalog_h.build_features_for_guard
+
+preregister_sha256_at_run: 462b3af6e9245ed56c64a409f5f4e2274f907ccbd54d6ffb94a5551ac2c31c17

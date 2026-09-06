@@ -1,0 +1,21 @@
+# Autonomy gen 1914 — Return1768_bar
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_1914_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-09-02T23:02:52Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  Sign and zero-crosses of the 1768-bar close-to-close return at t+H, used as one-head filters, can beat the 15-minute Limit 1%/1% pivot control under frozen entry-bar and trades-per-month caps.
+events: [ret1768_pos_at_h, ret1768_neg_at_h, ret1768_cross_up_0, ret1768_cross_down_0]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: a07ae675b1e38128e38438b5340628e43dc0158616604beb94bf15842d400c71

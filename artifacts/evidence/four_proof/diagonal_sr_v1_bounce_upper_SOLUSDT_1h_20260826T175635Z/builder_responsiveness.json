@@ -1,0 +1,10 @@
+{
+  "conformance": "CAUS-WAREHOUSE-001",
+  "findings": [],
+  "n_findings": 0,
+  "ok": true,
+  "proof": "builder_responsiveness",
+  "space": "diagonal_sr_v1",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h"
+}

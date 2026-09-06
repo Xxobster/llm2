@@ -1,0 +1,21 @@
+{
+  "stamp": "20260813T092654Z",
+  "preregister": "configs/preregister/pivot_fleet_004_eth_dual_btc1h.yaml",
+  "eth_dual": [
+    "ETH_q50_w4",
+    "ETH_q50_softvsa_w4"
+  ],
+  "sol_hold": "SOL_atr_clip_w5",
+  "btc_15m_fleet": "BTC_p80_w4",
+  "ebr_cap": 0.35,
+  "btc_1h_arms_frozen_before_pf": [
+    "BTC_1h_p80_tp1_sl1_w2",
+    "BTC_1h_p80_tp15_sl15_w2",
+    "BTC_1h_p80_tp2_sl2_w2",
+    "BTC_1h_p80_tp2_sl15_w2",
+    "BTC_1h_p80_sl_atr1p0_tp_eq_w2",
+    "BTC_1h_p80_sl_atr1p5_tp_eq_w2",
+    "BTC_1h_p80_atr_min2_tp15_sl15_w2",
+    "BTC_1h_p80_filter_atr_ge_sl_w2"
+  ]
+}

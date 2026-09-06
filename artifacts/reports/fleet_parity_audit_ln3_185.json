@@ -1,0 +1,114 @@
+{
+  "host": "vps-LIVENET",
+  "ip": "185.203.119.52",
+  "active_units": [
+    "llm2-structure-eth-k5-double3h-p75-v1.service",
+    "llm2-structure-eth-multitrade-p75-v1.service"
+  ],
+  "roots": [
+    {
+      "root": "/opt/llm2-structure",
+      "micro_sha16": "e93a4e2a52f7796e",
+      "has_parity": true,
+      "has_depth_gate": true,
+      "has_contract": true,
+      "has_sizing": true,
+      "model_sha16": null,
+      "symbol": null,
+      "signal_source_strategy": null,
+      "series": [],
+      "binance_1h_n": null,
+      "binance_1h_deep": false
+    },
+    {
+      "root": "/opt/llm2-structure-eth-k5-double3h-p75-v1",
+      "micro_sha16": "e93a4e2a52f7796e",
+      "has_parity": true,
+      "has_depth_gate": true,
+      "has_contract": true,
+      "has_sizing": true,
+      "model_sha16": "7e826c63aa8537fd",
+      "symbol": "ETHUSDT",
+      "signal_source_strategy": null,
+      "series": [
+        {
+          "source": "binance",
+          "timeframe": "1h",
+          "n_bars": 58635
+        },
+        {
+          "source": "binance",
+          "timeframe": "1w",
+          "n_bars": 349
+        },
+        {
+          "source": "binance",
+          "timeframe": "4h",
+          "n_bars": 14659
+        },
+        {
+          "source": "bybit",
+          "timeframe": "1h",
+          "n_bars": 800
+        },
+        {
+          "source": "bybit",
+          "timeframe": "1w",
+          "n_bars": 282
+        },
+        {
+          "source": "bybit",
+          "timeframe": "4h",
+          "n_bars": 800
+        }
+      ],
+      "binance_1h_n": 58635,
+      "binance_1h_deep": true
+    },
+    {
+      "root": "/opt/llm2-structure-eth-multitrade-p75-v1",
+      "micro_sha16": "e93a4e2a52f7796e",
+      "has_parity": true,
+      "has_depth_gate": true,
+      "has_contract": true,
+      "has_sizing": true,
+      "model_sha16": "7e826c63aa8537fd",
+      "symbol": "ETHUSDT",
+      "signal_source_strategy": null,
+      "series": [
+        {
+          "source": "binance",
+          "timeframe": "1h",
+          "n_bars": 58635
+        },
+        {
+          "source": "binance",
+          "timeframe": "1w",
+          "n_bars": 349
+        },
+        {
+          "source": "binance",
+          "timeframe": "4h",
+          "n_bars": 14659
+        },
+        {
+          "source": "bybit",
+          "timeframe": "1h",
+          "n_bars": 800
+        },
+        {
+          "source": "bybit",
+          "timeframe": "1w",
+          "n_bars": 282
+        },
+        {
+          "source": "bybit",
+          "timeframe": "4h",
+          "n_bars": 800
+        }
+      ],
+      "binance_1h_n": 58635,
+      "binance_1h_deep": true
+    }
+  ]
+}

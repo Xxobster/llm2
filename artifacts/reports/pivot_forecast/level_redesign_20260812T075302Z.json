@@ -1,0 +1,776 @@
+{
+  "generation_id": "pivot_level_redesign_001",
+  "stamp": "20260812T075302Z",
+  "readiness_max": "RESEARCH_ONLY",
+  "leakage": [
+    {
+      "symbol": "BTCUSDT",
+      "pack": "level_vsa",
+      "tf": "15m",
+      "status": "PASS"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "pack": "level_strong",
+      "tf": "15m",
+      "status": "PASS"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "pack": "level_strong",
+      "tf": "1h",
+      "status": "PASS"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "pack": "level_vsa",
+      "tf": "15m",
+      "status": "PASS"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "pack": "level_strong",
+      "tf": "15m",
+      "status": "PASS"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "pack": "level_strong",
+      "tf": "1h",
+      "status": "PASS"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "pack": "level_vsa",
+      "tf": "15m",
+      "status": "PASS"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "pack": "level_strong",
+      "tf": "15m",
+      "status": "PASS"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "pack": "level_strong",
+      "tf": "1h",
+      "status": "PASS"
+    }
+  ],
+  "level_mae": {
+    "BTCUSDT": {
+      "level_vsa_ret_point": {
+        "n": 15606,
+        "mae_pct": 0.006645250324428296,
+        "p50_abs_pct": 0.004202832697371966,
+        "p90_abs_pct": 0.014932979791227858,
+        "bias_pct": -0.00024322789789845128,
+        "corr": 0.3521813274257612,
+        "mae_atr": 2.2629807909184922,
+        "p90_abs_atr": 4.791343966950617
+      },
+      "level_vsa_ret_q50": {
+        "n": 15606,
+        "mae_pct": 0.006303730191416913,
+        "p50_abs_pct": 0.0037540084327253092,
+        "p90_abs_pct": 0.014627300560189984,
+        "bias_pct": -5.2872871868346086e-05,
+        "corr": 0.3681092676912194,
+        "mae_atr": 2.1651648051332493,
+        "p90_abs_atr": 4.748347185460796
+      },
+      "level_vsa_ret_q50_narrow": {
+        "n": 7803,
+        "mae_pct": 0.0041562932087086555,
+        "p50_abs_pct": 0.0024308097957867255,
+        "p90_abs_pct": 0.009779602767211903,
+        "bias_pct": 1.9608308125438226e-05,
+        "corr": 0.44729664006382847,
+        "mae_atr": 2.0183915467485334,
+        "p90_abs_atr": 4.729287376242984,
+        "width_thr": 0.007928491624495857,
+        "n_narrow": 7803
+      },
+      "level_vsa_atr_resid_point": {
+        "n": 15606,
+        "mae_pct": 0.006588550251031955,
+        "p50_abs_pct": 0.004162364841361122,
+        "p90_abs_pct": 0.014919999650168703,
+        "bias_pct": -0.00025670717145870786,
+        "corr": 0.36473188567612613,
+        "mae_atr": 2.245118743852714,
+        "p90_abs_atr": 4.786550329794897
+      },
+      "level_vsa_atr_resid_q50": {
+        "n": 15606,
+        "mae_pct": 0.006274828098417214,
+        "p50_abs_pct": 0.0036084910531110044,
+        "p90_abs_pct": 0.01474696813733547,
+        "bias_pct": -7.679001081922476e-05,
+        "corr": 0.3668573772179933,
+        "mae_atr": 2.1467343703882156,
+        "p90_abs_atr": 4.721343406953164
+      },
+      "level_vsa_atr_resid_q50_narrow": {
+        "n": 7803,
+        "mae_pct": 0.004161781526314536,
+        "p50_abs_pct": 0.0024270982917922413,
+        "p90_abs_pct": 0.009644154589324704,
+        "bias_pct": -9.08053437559367e-05,
+        "corr": 0.4667185669074522,
+        "mae_atr": 2.0215576946991445,
+        "p90_abs_atr": 4.680471436014759,
+        "width_thr": 0.00783212773711008,
+        "n_narrow": 7803
+      },
+      "level_strong_ret_point": {
+        "n": 15606,
+        "mae_pct": 0.006677116951533933,
+        "p50_abs_pct": 0.00421520551630691,
+        "p90_abs_pct": 0.01508607554631157,
+        "bias_pct": -0.00022357403603117022,
+        "corr": 0.3452423347746275,
+        "mae_atr": 2.27301733685402,
+        "p90_abs_atr": 4.799209927114182
+      },
+      "level_strong_ret_q50": {
+        "n": 15606,
+        "mae_pct": 0.00629817579764888,
+        "p50_abs_pct": 0.0037455262553067474,
+        "p90_abs_pct": 0.014719339734511373,
+        "bias_pct": -1.2857377647201048e-05,
+        "corr": 0.3724510442121608,
+        "mae_atr": 2.1627944741335554,
+        "p90_abs_atr": 4.738920842194421
+      },
+      "level_strong_ret_q50_narrow": {
+        "n": 7803,
+        "mae_pct": 0.004294119250016457,
+        "p50_abs_pct": 0.0024572395160138826,
+        "p90_abs_pct": 0.010000423121463693,
+        "bias_pct": -1.3673255631956044e-05,
+        "corr": 0.41779202714894814,
+        "mae_atr": 2.043250135164668,
+        "p90_abs_atr": 4.695778433054226,
+        "width_thr": 0.007968444562114424,
+        "n_narrow": 7803
+      },
+      "level_strong_atr_resid_point": {
+        "n": 15606,
+        "mae_pct": 0.006606490283212974,
+        "p50_abs_pct": 0.0041382404734041645,
+        "p90_abs_pct": 0.014955623046006727,
+        "bias_pct": -0.0002703337088045589,
+        "corr": 0.3664152580409979,
+        "mae_atr": 2.2560466191440818,
+        "p90_abs_atr": 4.797547665615955
+      },
+      "level_strong_atr_resid_q50": {
+        "n": 15606,
+        "mae_pct": 0.006271643879544254,
+        "p50_abs_pct": 0.0036517981852366376,
+        "p90_abs_pct": 0.01468154839182815,
+        "bias_pct": -6.932124659664452e-05,
+        "corr": 0.3715303525610856,
+        "mae_atr": 2.1471123698480628,
+        "p90_abs_atr": 4.683431176846172
+      },
+      "level_strong_atr_resid_q50_narrow": {
+        "n": 7803,
+        "mae_pct": 0.004120953548344487,
+        "p50_abs_pct": 0.0023869693922189865,
+        "p90_abs_pct": 0.00952253433780733,
+        "bias_pct": -7.003095722470893e-05,
+        "corr": 0.44415914423902386,
+        "mae_atr": 2.0004966325565565,
+        "p90_abs_atr": 4.573795230163323,
+        "width_thr": 0.00779755294958304,
+        "n_narrow": 7803
+      }
+    },
+    "ETHUSDT": {
+      "level_vsa_ret_point": {
+        "n": 15517,
+        "mae_pct": 0.009369732676962578,
+        "p50_abs_pct": 0.006246656710217268,
+        "p90_abs_pct": 0.020467426948312994,
+        "bias_pct": -0.000529449237225118,
+        "corr": 0.36492564414088635,
+        "mae_atr": 2.3509394230109946,
+        "p90_abs_atr": 4.994876366353489
+      },
+      "level_vsa_ret_q50": {
+        "n": 15517,
+        "mae_pct": 0.008853422864807826,
+        "p50_abs_pct": 0.005469245248389968,
+        "p90_abs_pct": 0.02023346029906864,
+        "bias_pct": -1.1742631732714623e-05,
+        "corr": 0.3854172556870184,
+        "mae_atr": 2.2317459599219025,
+        "p90_abs_atr": 4.850988882137614
+      },
+      "level_vsa_ret_q50_narrow": {
+        "n": 7759,
+        "mae_pct": 0.0061509143170943355,
+        "p50_abs_pct": 0.003652105875282789,
+        "p90_abs_pct": 0.01448385878153276,
+        "bias_pct": -8.38946400483712e-05,
+        "corr": 0.478630722880626,
+        "mae_atr": 2.152576338468136,
+        "p90_abs_atr": 4.9661985740007175,
+        "width_thr": 0.011157960910461243,
+        "n_narrow": 7759
+      },
+      "level_vsa_atr_resid_point": {
+        "n": 15517,
+        "mae_pct": 0.00926882414294466,
+        "p50_abs_pct": 0.006018592899644586,
+        "p90_abs_pct": 0.020635256032956812,
+        "bias_pct": -0.0006301665742281651,
+        "corr": 0.38771461808933816,
+        "mae_atr": 2.325126973180502,
+        "p90_abs_atr": 4.959129256548312
+      },
+      "level_vsa_atr_resid_q50": {
+        "n": 15517,
+        "mae_pct": 0.008836849219961558,
+        "p50_abs_pct": 0.0053629684287831965,
+        "p90_abs_pct": 0.020478960846084134,
+        "bias_pct": -0.0002139958423833261,
+        "corr": 0.3958627812248733,
+        "mae_atr": 2.2129065298253052,
+        "p90_abs_atr": 4.836452898485895
+      },
+      "level_vsa_atr_resid_q50_narrow": {
+        "n": 7759,
+        "mae_pct": 0.006051873005745606,
+        "p50_abs_pct": 0.003551790318044561,
+        "p90_abs_pct": 0.014343582667551246,
+        "bias_pct": -0.00017249073216222982,
+        "corr": 0.47915098824106417,
+        "mae_atr": 2.1251983258304206,
+        "p90_abs_atr": 4.864729245367224,
+        "width_thr": 0.011182538304969554,
+        "n_narrow": 7759
+      },
+      "level_strong_ret_point": {
+        "n": 15517,
+        "mae_pct": 0.00941042894265904,
+        "p50_abs_pct": 0.0062308657291215395,
+        "p90_abs_pct": 0.02074213857008326,
+        "bias_pct": -0.0005618892865950928,
+        "corr": 0.36002175150021154,
+        "mae_atr": 2.352362526057543,
+        "p90_abs_atr": 4.994037274232065
+      },
+      "level_strong_ret_q50": {
+        "n": 15517,
+        "mae_pct": 0.008872761206295808,
+        "p50_abs_pct": 0.0054816813279969555,
+        "p90_abs_pct": 0.02031741358780776,
+        "bias_pct": -1.8100936096616095e-05,
+        "corr": 0.38146186274287214,
+        "mae_atr": 2.230530637075585,
+        "p90_abs_atr": 4.809853703112416
+      },
+      "level_strong_ret_q50_narrow": {
+        "n": 7759,
+        "mae_pct": 0.006167871378550911,
+        "p50_abs_pct": 0.003615586264236287,
+        "p90_abs_pct": 0.01446120303656328,
+        "bias_pct": 9.136285894295573e-05,
+        "corr": 0.48348001156950277,
+        "mae_atr": 2.1390520707995617,
+        "p90_abs_atr": 4.951977836643799,
+        "width_thr": 0.011091759516464898,
+        "n_narrow": 7759
+      },
+      "level_strong_atr_resid_point": {
+        "n": 15517,
+        "mae_pct": 0.009253745084500742,
+        "p50_abs_pct": 0.006123908182791506,
+        "p90_abs_pct": 0.02036993308013541,
+        "bias_pct": -0.0006315562378187667,
+        "corr": 0.3959223015096881,
+        "mae_atr": 2.3309923850518346,
+        "p90_abs_atr": 4.960231677428645
+      },
+      "level_strong_atr_resid_q50": {
+        "n": 15517,
+        "mae_pct": 0.008872774599051225,
+        "p50_abs_pct": 0.005385461321199261,
+        "p90_abs_pct": 0.020431877018481436,
+        "bias_pct": -0.0001840395576401393,
+        "corr": 0.39438657446862685,
+        "mae_atr": 2.2232071768385855,
+        "p90_abs_atr": 4.835895305153391
+      },
+      "level_strong_atr_resid_q50_narrow": {
+        "n": 7759,
+        "mae_pct": 0.0061018152941636475,
+        "p50_abs_pct": 0.003578900501436307,
+        "p90_abs_pct": 0.014491816569120332,
+        "bias_pct": -5.0689683735860344e-05,
+        "corr": 0.49056787615380315,
+        "mae_atr": 2.1410119768864453,
+        "p90_abs_atr": 4.929251535888865,
+        "width_thr": 0.011185530961085887,
+        "n_narrow": 7759
+      }
+    },
+    "SOLUSDT": {
+      "level_vsa_ret_point": {
+        "n": 14461,
+        "mae_pct": 0.012793557078404967,
+        "p50_abs_pct": 0.008270320271619652,
+        "p90_abs_pct": 0.028145788585235584,
+        "bias_pct": -0.0004675160406441831,
+        "corr": 0.3356272798557957,
+        "mae_atr": 2.0553131755225076,
+        "p90_abs_atr": 4.3575513616262915
+      },
+      "level_vsa_ret_q50": {
+        "n": 14461,
+        "mae_pct": 0.011909056203879921,
+        "p50_abs_pct": 0.007218158479893188,
+        "p90_abs_pct": 0.027089240382670587,
+        "bias_pct": -4.8199906573304434e-05,
+        "corr": 0.378188326860088,
+        "mae_atr": 1.9448121950638753,
+        "p90_abs_atr": 4.306811643217437
+      },
+      "level_vsa_ret_q50_narrow": {
+        "n": 7231,
+        "mae_pct": 0.008367464661281413,
+        "p50_abs_pct": 0.004778284642047048,
+        "p90_abs_pct": 0.019701142477048898,
+        "bias_pct": -6.895406419623672e-05,
+        "corr": 0.45710713852361146,
+        "mae_atr": 1.7454528896104475,
+        "p90_abs_atr": 4.198116535435925,
+        "width_thr": 0.01583623529280169,
+        "n_narrow": 7231
+      },
+      "level_vsa_atr_resid_point": {
+        "n": 14461,
+        "mae_pct": 0.012612240567831598,
+        "p50_abs_pct": 0.008179294553309097,
+        "p90_abs_pct": 0.027935243456076106,
+        "bias_pct": -0.00034792873514645966,
+        "corr": 0.3560783335364355,
+        "mae_atr": 2.0486751685396705,
+        "p90_abs_atr": 4.3544530780019395
+      },
+      "level_vsa_atr_resid_q50": {
+        "n": 14461,
+        "mae_pct": 0.011808530423380306,
+        "p50_abs_pct": 0.007051754473303924,
+        "p90_abs_pct": 0.027035997563268105,
+        "bias_pct": -1.1450626202264583e-05,
+        "corr": 0.3813613008491241,
+        "mae_atr": 1.9255069813090007,
+        "p90_abs_atr": 4.2804614771151055
+      },
+      "level_vsa_atr_resid_q50_narrow": {
+        "n": 7231,
+        "mae_pct": 0.008200422686879101,
+        "p50_abs_pct": 0.004699570769594085,
+        "p90_abs_pct": 0.01966883885500157,
+        "bias_pct": -0.00026038450933302785,
+        "corr": 0.46139876067685676,
+        "mae_atr": 1.7349768508050547,
+        "p90_abs_atr": 4.169548783373406,
+        "width_thr": 0.015583181751338847,
+        "n_narrow": 7231
+      },
+      "level_strong_ret_point": {
+        "n": 14461,
+        "mae_pct": 0.012774714921093387,
+        "p50_abs_pct": 0.008264773889485743,
+        "p90_abs_pct": 0.028155358547640882,
+        "bias_pct": -0.00034393754817779395,
+        "corr": 0.3257014860171591,
+        "mae_atr": 2.0496046229472915,
+        "p90_abs_atr": 4.327558614314582
+      },
+      "level_strong_ret_q50": {
+        "n": 14461,
+        "mae_pct": 0.011914116064270886,
+        "p50_abs_pct": 0.0071747941804949,
+        "p90_abs_pct": 0.027302199547879994,
+        "bias_pct": 3.649972455121816e-06,
+        "corr": 0.37163647235951,
+        "mae_atr": 1.9410223842341596,
+        "p90_abs_atr": 4.314206901783143
+      },
+      "level_strong_ret_q50_narrow": {
+        "n": 7231,
+        "mae_pct": 0.008349740299718793,
+        "p50_abs_pct": 0.0046812688457624155,
+        "p90_abs_pct": 0.0199525792490455,
+        "bias_pct": -5.5440041320480536e-05,
+        "corr": 0.453603570766679,
+        "mae_atr": 1.7344013650476717,
+        "p90_abs_atr": 4.210413850531183,
+        "width_thr": 0.015618168233211164,
+        "n_narrow": 7231
+      },
+      "level_strong_atr_resid_point": {
+        "n": 14461,
+        "mae_pct": 0.012636850014137266,
+        "p50_abs_pct": 0.008160558900221729,
+        "p90_abs_pct": 0.028181929304674308,
+        "bias_pct": -0.0003058387712979441,
+        "corr": 0.34640049533025274,
+        "mae_atr": 2.0466694343301386,
+        "p90_abs_atr": 4.356069795143703
+      },
+      "level_strong_atr_resid_q50": {
+        "n": 14461,
+        "mae_pct": 0.011813004286058216,
+        "p50_abs_pct": 0.006965324996625601,
+        "p90_abs_pct": 0.027283934792038254,
+        "bias_pct": -2.8684562780210263e-05,
+        "corr": 0.37878773230722557,
+        "mae_atr": 1.9231810632420319,
+        "p90_abs_atr": 4.301686703277218
+      },
+      "level_strong_atr_resid_q50_narrow": {
+        "n": 7231,
+        "mae_pct": 0.008157512434260718,
+        "p50_abs_pct": 0.004607036375507845,
+        "p90_abs_pct": 0.01959814319549311,
+        "bias_pct": -0.0002514619223738748,
+        "corr": 0.4714344621342506,
+        "mae_atr": 1.7300389274153078,
+        "p90_abs_atr": 4.164769560969716,
+        "width_thr": 0.015339040172253023,
+        "n_narrow": 7231
+      }
+    }
+  },
+  "trade_controls": {
+    "BTCUSDT": {
+      "level_mode": "ret",
+      "soft_vsa_thr": 0.6666666666666666,
+      "arms": [
+        {
+          "tag": "BTCUSDT_ctrl_p75_ret",
+          "n_gated": 4088,
+          "fill_stats": {
+            "n_intent": 4088,
+            "n_filled_path": 1277,
+            "n_no_touch": 2811,
+            "n_bad": 0,
+            "fill_rate": 0.31237769080234834,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0
+          },
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 876,
+            "profit_factor": 0.8307962805330282,
+            "net_pnl": -31.96203457001684,
+            "win_rate": 0.5057077625570776,
+            "expectancy": -0.03648634083333323,
+            "entry_bar_exit_rate": 0.10616438356164383
+          },
+          "n_signals": 1277,
+          "expectancy_intent_all": -0.007818501607146977
+        },
+        {
+          "tag": "BTCUSDT_ctrl_p75_softvsa_ret",
+          "n_gated": 2251,
+          "fill_stats": {
+            "n_intent": 2251,
+            "n_filled_path": 765,
+            "n_no_touch": 1486,
+            "n_bad": 0,
+            "fill_rate": 0.33984895601954684,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0
+          },
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 598,
+            "profit_factor": 0.8437630162043561,
+            "net_pnl": -21.274263250015792,
+            "win_rate": 0.5033444816053512,
+            "expectancy": -0.03557569105351159,
+            "entry_bar_exit_rate": 0.13043478260869565
+          },
+          "n_signals": 765,
+          "expectancy_intent_all": -0.009451027654382849
+        },
+        {
+          "tag": "BTCUSDT_pi_band_ret",
+          "n_gated": 371,
+          "fill_stats": {
+            "n_intent": 371,
+            "n_filled_path": 124,
+            "n_no_touch": 247,
+            "n_bad": 0,
+            "fill_rate": 0.33423180592991913,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0
+          },
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 113,
+            "profit_factor": 1.0020146940661367,
+            "net_pnl": 0.03888709498642129,
+            "win_rate": 0.504424778761062,
+            "expectancy": 0.00034413358407108614,
+            "entry_bar_exit_rate": 0.13274336283185842
+          },
+          "n_signals": 124,
+          "expectancy_intent_all": 0.00010481696761838622
+        },
+        {
+          "tag": "BTCUSDT_q50_narrow_ret",
+          "n_gated": 2250,
+          "fill_stats": {
+            "n_intent": 2250,
+            "n_filled_path": 859,
+            "n_no_touch": 1391,
+            "n_bad": 0,
+            "fill_rate": 0.38177777777777777,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0
+          },
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 598,
+            "profit_factor": 0.7080370161355666,
+            "net_pnl": -36.34996350501024,
+            "win_rate": 0.4765886287625418,
+            "expectancy": -0.060785892148829346,
+            "entry_bar_exit_rate": 0.033444816053511704
+          },
+          "n_signals": 859,
+          "expectancy_intent_all": -0.016155539335560104
+        }
+      ]
+    },
+    "ETHUSDT": {
+      "level_mode": "atr",
+      "soft_vsa_thr": 0.6666666666666666,
+      "arms": [
+        {
+          "tag": "ETHUSDT_ctrl_p75_atr",
+          "n_gated": 1591,
+          "fill_stats": {
+            "n_intent": 1591,
+            "n_filled_path": 481,
+            "n_no_touch": 1110,
+            "n_bad": 0,
+            "fill_rate": 0.3023255813953488,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0
+          },
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 400,
+            "profit_factor": 1.7289288840379025,
+            "net_pnl": 23.16539006500716,
+            "win_rate": 0.6425,
+            "expectancy": 0.05791347516249992,
+            "entry_bar_exit_rate": 0.3075
+          },
+          "n_signals": 481,
+          "expectancy_intent_all": 0.014560270311129579
+        },
+        {
+          "tag": "ETHUSDT_ctrl_p75_softvsa_atr",
+          "n_gated": 996,
+          "fill_stats": {
+            "n_intent": 996,
+            "n_filled_path": 312,
+            "n_no_touch": 684,
+            "n_bad": 0,
+            "fill_rate": 0.3132530120481928,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0
+          },
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 283,
+            "profit_factor": 1.8483106601393744,
+            "net_pnl": 18.670340520005993,
+            "win_rate": 0.6537102473498233,
+            "expectancy": 0.06597293469964652,
+            "entry_bar_exit_rate": 0.3250883392226148
+          },
+          "n_signals": 312,
+          "expectancy_intent_all": 0.018745321807234934
+        },
+        {
+          "tag": "ETHUSDT_pi_band_atr",
+          "n_gated": 29,
+          "fill_stats": {
+            "n_intent": 29,
+            "n_filled_path": 11,
+            "n_no_touch": 18,
+            "n_bad": 0,
+            "fill_rate": 0.3793103448275862,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0
+          },
+          "status": "TOO_FEW",
+          "n_signals": 11
+        },
+        {
+          "tag": "ETHUSDT_q50_narrow_atr",
+          "n_gated": 812,
+          "fill_stats": {
+            "n_intent": 812,
+            "n_filled_path": 329,
+            "n_no_touch": 483,
+            "n_bad": 0,
+            "fill_rate": 0.4051724137931034,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0
+          },
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 265,
+            "profit_factor": 0.9167426355376789,
+            "net_pnl": -2.1182425249880907,
+            "win_rate": 0.5320754716981132,
+            "expectancy": -0.007993368018867904,
+            "entry_bar_exit_rate": 0.12075471698113208
+          },
+          "n_signals": 329,
+          "expectancy_intent_all": -0.002608673060330161
+        }
+      ]
+    },
+    "SOLUSDT": {
+      "level_mode": "ret",
+      "soft_vsa_thr": 0.6666666666666666,
+      "arms": [
+        {
+          "tag": "SOLUSDT_ctrl_p75_ret",
+          "n_gated": 3777,
+          "fill_stats": {
+            "n_intent": 3777,
+            "n_filled_path": 1059,
+            "n_no_touch": 2718,
+            "n_bad": 0,
+            "fill_rate": 0.28038125496425736,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0
+          },
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 845,
+            "profit_factor": 2.364790042496392,
+            "net_pnl": 41.23931705002724,
+            "win_rate": 0.7112426035502959,
+            "expectancy": 0.0488039255029586,
+            "entry_bar_exit_rate": 0.4544378698224852
+          },
+          "n_signals": 1059,
+          "expectancy_intent_all": 0.01091853774160107
+        },
+        {
+          "tag": "SOLUSDT_ctrl_p75_softvsa_ret",
+          "n_gated": 1707,
+          "fill_stats": {
+            "n_intent": 1707,
+            "n_filled_path": 476,
+            "n_no_touch": 1231,
+            "n_bad": 0,
+            "fill_rate": 0.27885178676039835,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0
+          },
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 437,
+            "profit_factor": 3.332374496482671,
+            "net_pnl": 27.99641855001937,
+            "win_rate": 0.7665903890160183,
+            "expectancy": 0.06406503100686503,
+            "entry_bar_exit_rate": 0.540045766590389
+          },
+          "n_signals": 476,
+          "expectancy_intent_all": 0.016400948183959794
+        },
+        {
+          "tag": "SOLUSDT_pi_band_ret",
+          "n_gated": 41,
+          "fill_stats": {
+            "n_intent": 41,
+            "n_filled_path": 11,
+            "n_no_touch": 30,
+            "n_bad": 0,
+            "fill_rate": 0.2682926829268293,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0
+          },
+          "status": "TOO_FEW",
+          "n_signals": 11
+        },
+        {
+          "tag": "SOLUSDT_q50_narrow_ret",
+          "n_gated": 2157,
+          "fill_stats": {
+            "n_intent": 2157,
+            "n_filled_path": 802,
+            "n_no_touch": 1355,
+            "n_bad": 0,
+            "fill_rate": 0.37181270282800183,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0
+          },
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 607,
+            "profit_factor": 1.2642318929739984,
+            "net_pnl": 7.732574649988237,
+            "win_rate": 0.5914332784184514,
+            "expectancy": 0.012739002718286653,
+            "entry_bar_exit_rate": 0.23887973640856672
+          },
+          "n_signals": 802,
+          "expectancy_intent_all": 0.003584874663879572
+        }
+      ]
+    }
+  },
+  "sol_tf_trial": [
+    {
+      "tag": "SOLUSDT_1h_p75_ret",
+      "n_gated": 6655,
+      "fill_stats": {
+        "n_intent": 6655,
+        "n_filled_path": 2568,
+        "n_no_touch": 4087,
+        "n_bad": 0,
+        "fill_rate": 0.38587528174305036,
+        "work_bars_default": 2,
+        "work_bars_mean_used": 2.0
+      },
+      "status": "RAN",
+      "metrics": {
+        "n_trades": 2207,
+        "profit_factor": 3.055469199404435,
+        "net_pnl": 129.702795550038,
+        "win_rate": 0.7743543271409152,
+        "expectancy": 0.0587688244449479,
+        "entry_bar_exit_rate": 0.701857725419121
+      },
+      "n_signals": 2568,
+      "expectancy_intent_all": 0.019489526003010967
+    }
+  ],
+  "policy": {
+    "no_full_timing_stack": true,
+    "no_reentry": true,
+    "eth_default_level": "atr",
+    "sol_btc_default_level": "ret",
+    "pi_band_sparse": true
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "generated_utc": "2026-08-05T10:17:00+00:00",
+  "evidence_class": "LIVE_DEPLOY_PARITY_MAXHOLD",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "principal_blocker": "Scale still stopped; residual live vs local-warehouse pred magnitude (~0.13) from shared tip vs research last_price — side now matches.",
+  "deploy": {
+    "ln1": "all structure live units restarted; tradesim installed; PYTHONPATH fixed",
+    "ln3": "p75 units restarted; indicators package installed; slices full-refreshed to binance"
+  },
+  "max_hold": {
+    "eth_buy_overdue": "MAX_HOLD_CLOSE book=sync_Buy_1785920400000 retCode=0",
+    "followed_by": "opened Sell (side=-1) on post-fix signal; open_books tracking active"
+  },
+  "structure_parity": {
+    "eth_1h_n_bars_before": 800,
+    "eth_1h_n_bars_after": 58635,
+    "all_ln1_active_slices_refreshed": true,
+    "ln3_slices_binance_1h": 58635,
+    "hard_refuse_limit_800": true,
+    "depth_gate_skips_only_if_n_bars_gte_5000": true
+  },
+  "feature_snapshot": {
+    "present_on_post_fix_decision": true,
+    "sha256_prefix": "df68522cf6947f56",
+    "n_cols": 49
+  },
+  "pred_mean_post_fix": {
+    "bar": "2026-08-05T09:00:00+00:00",
+    "live_ledger": -0.4619535933616573,
+    "recompute_same_live_slice": -0.4619535933616573,
+    "abs_diff_live_vs_slice": 0.0,
+    "local_warehouse_recompute": -0.33223535034485796,
+    "side_match_vs_warehouse": true,
+    "pre_fix_ledger": "non-reproducible (truncated 800-bar era)"
+  }
+}

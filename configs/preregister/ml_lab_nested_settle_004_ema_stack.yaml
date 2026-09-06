@@ -1,0 +1,48 @@
+# ML lab nested settle 004 — exactly two hunt-004 inner screen passes
+# RESEARCH_ONLY. Frozen from inner screen BEFORE any 2022+ bar was used to pick them.
+# Do not add Solana 4h (entry-bar 0.60) or Ether 15m vol-expand (n=41).
+generation_id: ml_lab_nested_settle_004_ema_stack
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-31T16:15:00Z"
+parent_generation: ml_lab_hunt_004_idea_catalog
+fold_geometry: v2
+failure_is_success: true
+
+hypothesis: >
+  The two inner-screen survivors of hunt 004 (long-only EMA 12>48>192 with
+  Kaufman efficiency ratio >= 0.40, Average-True-Range 1.5 bracket) are
+  evaluated once per outer fold and once on the stitched 2022-01-01 .. 2026-05-01
+  union. No retune of efficiency ratio, EMA spans, stop, or target. Inner
+  pre-2022 includes a bull market; this settle is the first bear/chop test.
+
+do_not:
+  - add failed hunt-004 arms after seeing this settle
+  - retune bounce_upper or WaveTheory
+  - peep FORWARD_LOCKBOX_START for ranking
+  - deploy
+
+lockbox: do_not_score_on_or_after_2026-05-01
+outer_window: "2022-01-01 .. 2026-05-01 exclusive"
+
+work_bars: {1h: 3, 4h: 2}
+max_hold_bars: {1h: 16, 4h: 8}
+k_sl: 1.5
+tp_ratio: 1.5
+sl_cap: 0.030
+
+gates_for_shadow_ready:
+  min_eligible_folds: 5
+  min_trades_per_gating_fold: 10
+  min_pooled_oos_trades: 50
+  min_pooled_profit_factor: 1.20
+  min_sharpe_annualised: 1.00
+  min_sharpe_hac_annualised: 0.75
+  min_fraction_positive_folds: 0.80
+  max_entry_bar_exit_rate: 0.25
+
+survivors:
+  - {symbol: SOLUSDT, timeframe: 1h, idea: power_ema_stack_long}
+  - {symbol: BTCUSDT, timeframe: 4h, idea: power_ema_stack_long}
+
+preregister_sha256_at_run: bd134db7604e2c27bdaf032ab711c72d594f6f04919918876110d3fc66c6a835

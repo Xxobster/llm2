@@ -1,0 +1,51 @@
+{
+  "created_utc": "20260805T080400Z",
+  "purpose": "warehouse_refresh_before_selective_data_phase_b",
+  "paths": {
+    "market_ohlcv": "D:\\projectsdata\\candles\\market_ohlcv.sqlite",
+    "funding": "D:\\projectsdata\\candles\\binance_funding.sqlite",
+    "market_oi": "D:\\projectsdata\\candles\\market_oi.sqlite"
+  },
+  "pre_sizes_bytes": {
+    "market_ohlcv": 22113038336,
+    "funding": 7090176,
+    "market_oi": 3083390976
+  },
+  "steps": [
+    {
+      "cmd": [
+        "C:\\Users\\xxobs\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-m",
+        "botsgeneral.research_candles.download_all",
+        "--only",
+        "BTCUSDT",
+        "ETHUSDT",
+        "SOLUSDT"
+      ],
+      "returncode": 0,
+      "stdout_tail": "",
+      "stderr_tail": "",
+      "elapsed_sec": 1.3
+    },
+    {
+      "cmd": [
+        "C:\\Users\\xxobs\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "-m",
+        "botsgeneral.research_candles.download_all",
+        "--only",
+        "funding"
+      ],
+      "returncode": 0,
+      "stdout_tail": "",
+      "stderr_tail": "",
+      "elapsed_sec": 1.1
+    }
+  ],
+  "post_sizes_bytes": {
+    "market_ohlcv": 22113038336,
+    "funding": 7090176,
+    "market_oi": 3083390976
+  },
+  "funding_eth_max_ts_ms": 1784851200000,
+  "funding_eth_max_utc": "2026-07-24T00:00:00+00:00"
+}

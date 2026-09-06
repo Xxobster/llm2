@@ -1,0 +1,24 @@
+# Autonomy gen 088 — structure pulse present vs quiet
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_088_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-22T14:46:00Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  Confirmed-structure pulse present versus absent at t+H, and pulse
+  anywhere versus nowhere in the next H bars, used as one-head filters,
+  can beat the 15-minute Limit 1%/1% pivot control under frozen entry-bar
+  and trades-per-month caps.
+events: [pflag_at_h, pquiet_at_h, pflag_any, pquiet_all]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: 55b49872d37a40f164a0369bd52f6bbc13fd65ab5ce579aca39113913355678d

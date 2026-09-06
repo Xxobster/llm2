@@ -1,0 +1,584 @@
+{
+  "generation_id": "pivot_level_place_tf_001",
+  "stamp": "20260810T161559Z",
+  "readiness_max": "RESEARCH_ONLY",
+  "leakage": [
+    {
+      "status": "PASS",
+      "symbol": "SOLUSDT",
+      "timeframe": "15m",
+      "pack": "level_focus",
+      "summary": "LeakageReport(ok=True, n_columns=31, findings=[], leakage_potential=[], registry_path=None, notes=[])",
+      "ok": true
+    },
+    {
+      "status": "PASS",
+      "symbol": "SOLUSDT",
+      "timeframe": "15m",
+      "pack": "price_vol_mom",
+      "summary": "LeakageReport(ok=True, n_columns=15, findings=[], leakage_potential=[], registry_path=None, notes=[])",
+      "ok": true
+    },
+    {
+      "status": "PASS",
+      "symbol": "SOLUSDT",
+      "timeframe": "5m",
+      "pack": "level_focus",
+      "summary": "LeakageReport(ok=True, n_columns=31, findings=[], leakage_potential=[], registry_path=None, notes=[])",
+      "ok": true
+    },
+    {
+      "status": "PASS",
+      "symbol": "SOLUSDT",
+      "timeframe": "1h",
+      "pack": "level_focus",
+      "summary": "LeakageReport(ok=True, n_columns=31, findings=[], leakage_potential=[], registry_path=None, notes=[])",
+      "ok": true
+    },
+    {
+      "status": "PASS",
+      "symbol": "ETHUSDT",
+      "timeframe": "15m",
+      "pack": "level_focus",
+      "summary": "LeakageReport(ok=True, n_columns=31, findings=[], leakage_potential=[], registry_path=None, notes=[])",
+      "ok": true
+    }
+  ],
+  "mae_by_pack": {
+    "SOLUSDT_15m_price_vol_mom_H4": {
+      "n": 14461,
+      "mae_pct": 0.012873395108499577,
+      "p50_abs_pct": 0.008326481382389913,
+      "p90_abs_pct": 0.02847941988940578,
+      "bias_pct": -0.00019994799447497385,
+      "corr": 0.31568420994510416,
+      "mae_atr": 2.0663891584113117,
+      "p90_abs_atr": 4.340613090861315
+    },
+    "SOLUSDT_15m_level_focus_H4": {
+      "n": 14461,
+      "mae_pct": 0.01284710349906627,
+      "p50_abs_pct": 0.008396109408791336,
+      "p90_abs_pct": 0.02838263411943779,
+      "bias_pct": -0.00046031381782537904,
+      "corr": 0.33200746852699053,
+      "mae_atr": 2.0626690476506657,
+      "p90_abs_atr": 4.348065439501105
+    },
+    "SOLUSDT_5m_level_focus_H12": {
+      "n": 24281,
+      "mae_pct": 0.007815188098603702,
+      "p50_abs_pct": 0.005399113024891202,
+      "p90_abs_pct": 0.016466012054047928,
+      "bias_pct": 0.0005828056399573133,
+      "corr": 0.22033820916555655,
+      "mae_atr": 2.794670812651843,
+      "p90_abs_atr": 5.564595608368351
+    },
+    "SOLUSDT_1h_level_focus_H1": {
+      "n": 1442,
+      "mae_pct": 0.017844526239191826,
+      "p50_abs_pct": 0.010508516501811654,
+      "p90_abs_pct": 0.039322531977391856,
+      "bias_pct": 0.00013817177940751612,
+      "corr": 0.4732758264556812,
+      "mae_atr": 1.3177233800634558,
+      "p90_abs_atr": 3.0623778294292427
+    },
+    "ETHUSDT_15m_level_focus_H4": {
+      "n": 15517,
+      "mae_pct": 0.009393416289936734,
+      "p50_abs_pct": 0.006213755104666129,
+      "p90_abs_pct": 0.02071925050922452,
+      "bias_pct": -0.0005079876144197721,
+      "corr": 0.3596174994044372,
+      "mae_atr": 2.3493767382071638,
+      "p90_abs_atr": 4.994020950604581
+    }
+  },
+  "arms": [
+    {
+      "arm": "sol15_raw_w4",
+      "symbol": "SOLUSDT",
+      "tf": "15m",
+      "pack": "price_vol_mom",
+      "placement": "raw",
+      "work_mode": "fixed4",
+      "note": "baseline",
+      "n_intent": 3445,
+      "fill_stats": {
+        "n_intent": 3445,
+        "n_filled_path": 991,
+        "n_no_touch": 2454,
+        "n_bad": 0,
+        "fill_rate": 0.2876632801161103,
+        "work_bars_default": 4,
+        "work_bars_mean_used": 4.0
+      },
+      "train_pull": {
+        "median_miss_bps": 66.53790426029951,
+        "median_overshoot_bps": 60.262701802427024,
+        "net_pull_bps": 6.2752024578724885
+      },
+      "level_mae_oos": {
+        "n": 14461,
+        "mae_pct": 0.012873395108499577,
+        "p50_abs_pct": 0.008326481382389913,
+        "p90_abs_pct": 0.02847941988940578,
+        "bias_pct": -0.00019994799447497385,
+        "corr": 0.31568420994510416,
+        "mae_atr": 2.0663891584113117,
+        "p90_abs_atr": 4.340613090861315
+      },
+      "status": "RAN",
+      "metrics": {
+        "n_trades": 798,
+        "profit_factor": 2.448529961230131,
+        "net_pnl": 39.37515454996537,
+        "win_rate": 0.6979949874686717,
+        "expectancy": 0.04934229893483703,
+        "n_liquidations": 0,
+        "entry_bar_exit_rate": 0.45864661654135336,
+        "entry_bar_exits": 366.0
+      },
+      "n_signals": 991,
+      "expectancy_intent_all": 0.011429652989830298,
+      "expectancy_fill_only": 0.04934229893483703,
+      "trades_per_month": 19.152159601330013
+    },
+    {
+      "arm": "sol15_levelpack_raw_w4",
+      "symbol": "SOLUSDT",
+      "tf": "15m",
+      "pack": "level_focus",
+      "placement": "raw",
+      "work_mode": "fixed4",
+      "note": "better where pack",
+      "n_intent": 2680,
+      "fill_stats": {
+        "n_intent": 2680,
+        "n_filled_path": 807,
+        "n_no_touch": 1873,
+        "n_bad": 0,
+        "fill_rate": 0.3011194029850746,
+        "work_bars_default": 4,
+        "work_bars_mean_used": 4.0
+      },
+      "train_pull": {
+        "median_miss_bps": 61.29162404186161,
+        "median_overshoot_bps": 57.6344466539773,
+        "net_pull_bps": 3.6571773878843103
+      },
+      "level_mae_oos": {
+        "n": 14461,
+        "mae_pct": 0.01284710349906627,
+        "p50_abs_pct": 0.008396109408791336,
+        "p90_abs_pct": 0.02838263411943779,
+        "bias_pct": -0.00046031381782537904,
+        "corr": 0.33200746852699053,
+        "mae_atr": 2.0626690476506657,
+        "p90_abs_atr": 4.348065439501105
+      },
+      "status": "RAN",
+      "metrics": {
+        "n_trades": 625,
+        "profit_factor": 1.9983219077798626,
+        "net_pnl": 23.541671250015497,
+        "win_rate": 0.6816,
+        "expectancy": 0.037666674000000046,
+        "n_liquidations": 0,
+        "entry_bar_exit_rate": 0.4432,
+        "entry_bar_exits": 277.0
+      },
+      "n_signals": 807,
+      "expectancy_intent_all": 0.00878420569030429,
+      "expectancy_fill_only": 0.037666674000000046,
+      "trades_per_month": 15.000125001041678
+    },
+    {
+      "arm": "sol15_blend75_1pct_w4",
+      "symbol": "SOLUSDT",
+      "tf": "15m",
+      "pack": "level_focus",
+      "placement": "blend_75_1pct",
+      "work_mode": "fixed4",
+      "note": "user 75/25@1%",
+      "n_intent": 2680,
+      "fill_stats": {
+        "n_intent": 2680,
+        "n_filled_path": 1978,
+        "n_no_touch": 702,
+        "n_bad": 0,
+        "fill_rate": 0.7380597014925373,
+        "work_bars_default": 4,
+        "work_bars_mean_used": 4.0
+      },
+      "train_pull": {
+        "median_miss_bps": 61.29162404186161,
+        "median_overshoot_bps": 57.6344466539773,
+        "net_pull_bps": 3.6571773878843103
+      },
+      "level_mae_oos": {
+        "n": 14461,
+        "mae_pct": 0.01284710349906627,
+        "p50_abs_pct": 0.008396109408791336,
+        "p90_abs_pct": 0.02838263411943779,
+        "bias_pct": -0.00046031381782537904,
+        "corr": 0.33200746852699053,
+        "mae_atr": 2.0626690476506657,
+        "p90_abs_atr": 4.348065439501105
+      },
+      "status": "RAN",
+      "metrics": {
+        "n_trades": 1442,
+        "profit_factor": 1.0412042283786018,
+        "net_pnl": 3.1248122000069998,
+        "win_rate": 0.5471567267683772,
+        "expectancy": 0.0021669987517336856,
+        "n_liquidations": 0,
+        "entry_bar_exit_rate": 0.23509015256588073,
+        "entry_bar_exits": 339.0
+      },
+      "n_signals": 1978,
+      "expectancy_intent_all": 0.0011659747014951493,
+      "expectancy_fill_only": 0.0021669987517336856,
+      "trades_per_month": 34.60828840240336
+    },
+    {
+      "arm": "sol15_miss_comp_w4",
+      "symbol": "SOLUSDT",
+      "tf": "15m",
+      "pack": "level_focus",
+      "placement": "miss_comp",
+      "work_mode": "fixed4",
+      "note": "pull by train miss",
+      "n_intent": 2680,
+      "fill_stats": {
+        "n_intent": 2680,
+        "n_filled_path": 1785,
+        "n_no_touch": 895,
+        "n_bad": 0,
+        "fill_rate": 0.6660447761194029,
+        "work_bars_default": 4,
+        "work_bars_mean_used": 4.0
+      },
+      "train_pull": {
+        "median_miss_bps": 61.29162404186161,
+        "median_overshoot_bps": 57.6344466539773,
+        "net_pull_bps": 3.6571773878843103
+      },
+      "level_mae_oos": {
+        "n": 14461,
+        "mae_pct": 0.01284710349906627,
+        "p50_abs_pct": 0.008396109408791336,
+        "p90_abs_pct": 0.02838263411943779,
+        "bias_pct": -0.00046031381782537904,
+        "corr": 0.33200746852699053,
+        "mae_atr": 2.0626690476506657,
+        "p90_abs_atr": 4.348065439501105
+      },
+      "status": "RAN",
+      "metrics": {
+        "n_trades": 1297,
+        "profit_factor": 1.0820379630101618,
+        "net_pnl": 5.473741800033167,
+        "win_rate": 0.5528141865844256,
+        "expectancy": 0.004220309791827326,
+        "n_liquidations": 0,
+        "entry_bar_exit_rate": 0.24441017733230533,
+        "entry_bar_exits": 317.0
+      },
+      "n_signals": 1785,
+      "expectancy_intent_all": 0.0020424409701616294,
+      "expectancy_fill_only": 0.004220309791827326,
+      "trades_per_month": 31.12825940216169
+    },
+    {
+      "arm": "sol15_miss_minus_os_w4",
+      "symbol": "SOLUSDT",
+      "tf": "15m",
+      "pack": "level_focus",
+      "placement": "miss_minus_overshoot",
+      "work_mode": "fixed4",
+      "note": "miss-overshoot",
+      "n_intent": 2680,
+      "fill_stats": {
+        "n_intent": 2680,
+        "n_filled_path": 847,
+        "n_no_touch": 1833,
+        "n_bad": 0,
+        "fill_rate": 0.31604477611940296,
+        "work_bars_default": 4,
+        "work_bars_mean_used": 4.0
+      },
+      "train_pull": {
+        "median_miss_bps": 61.29162404186161,
+        "median_overshoot_bps": 57.6344466539773,
+        "net_pull_bps": 3.6571773878843103
+      },
+      "level_mae_oos": {
+        "n": 14461,
+        "mae_pct": 0.01284710349906627,
+        "p50_abs_pct": 0.008396109408791336,
+        "p90_abs_pct": 0.02838263411943779,
+        "bias_pct": -0.00046031381782537904,
+        "corr": 0.33200746852699053,
+        "mae_atr": 2.0626690476506657,
+        "p90_abs_atr": 4.348065439501105
+      },
+      "status": "RAN",
+      "metrics": {
+        "n_trades": 651,
+        "profit_factor": 1.9134857903201388,
+        "net_pnl": 22.772158100002343,
+        "win_rate": 0.6666666666666666,
+        "expectancy": 0.034980273579109045,
+        "n_liquidations": 0,
+        "entry_bar_exit_rate": 0.43317972350230416,
+        "entry_bar_exits": 282.0
+      },
+      "n_signals": 847,
+      "expectancy_intent_all": 0.008497073917911322,
+      "expectancy_fill_only": 0.034980273579109045,
+      "trades_per_month": 15.624130201085011
+    },
+    {
+      "arm": "sol15_blend_timebucket",
+      "symbol": "SOLUSDT",
+      "tf": "15m",
+      "pack": "level_focus",
+      "placement": "blend_75_1pct",
+      "work_mode": "time_bucket",
+      "note": "cancel if late",
+      "n_intent": 2680,
+      "fill_stats": {
+        "n_intent": 2680,
+        "n_filled_path": 1931,
+        "n_no_touch": 749,
+        "n_bad": 0,
+        "fill_rate": 0.7205223880597015,
+        "work_bars_default": 4,
+        "work_bars_mean_used": 3.433955223880597
+      },
+      "train_pull": {
+        "median_miss_bps": 61.29162404186161,
+        "median_overshoot_bps": 57.6344466539773,
+        "net_pull_bps": 3.6571773878843103
+      },
+      "level_mae_oos": {
+        "n": 14461,
+        "mae_pct": 0.01284710349906627,
+        "p50_abs_pct": 0.008396109408791336,
+        "p90_abs_pct": 0.02838263411943779,
+        "bias_pct": -0.00046031381782537904,
+        "corr": 0.33200746852699053,
+        "mae_atr": 2.0626690476506657,
+        "p90_abs_atr": 4.348065439501105
+      },
+      "status": "RAN",
+      "metrics": {
+        "n_trades": 1409,
+        "profit_factor": 1.0327047278656565,
+        "net_pnl": 2.428724350002085,
+        "win_rate": 0.5443577004968062,
+        "expectancy": 0.0017237220369055882,
+        "n_liquidations": 0,
+        "entry_bar_exit_rate": 0.23066004258339248,
+        "entry_bar_exits": 325.0
+      },
+      "n_signals": 1931,
+      "expectancy_intent_all": 0.0009062404291052556,
+      "expectancy_fill_only": 0.0017237220369055882,
+      "trades_per_month": 33.81628180234836
+    },
+    {
+      "arm": "sol15_raw_w2",
+      "symbol": "SOLUSDT",
+      "tf": "15m",
+      "pack": "level_focus",
+      "placement": "raw",
+      "work_mode": "fixed2",
+      "note": "short work",
+      "n_intent": 2680,
+      "fill_stats": {
+        "n_intent": 2680,
+        "n_filled_path": 531,
+        "n_no_touch": 2149,
+        "n_bad": 0,
+        "fill_rate": 0.19813432835820896,
+        "work_bars_default": 2,
+        "work_bars_mean_used": 2.0
+      },
+      "train_pull": {
+        "median_miss_bps": 61.29162404186161,
+        "median_overshoot_bps": 57.6344466539773,
+        "net_pull_bps": 3.6571773878843103
+      },
+      "level_mae_oos": {
+        "n": 14461,
+        "mae_pct": 0.01284710349906627,
+        "p50_abs_pct": 0.008396109408791336,
+        "p90_abs_pct": 0.02838263411943779,
+        "bias_pct": -0.00046031381782537904,
+        "corr": 0.33200746852699053,
+        "mae_atr": 2.0626690476506657,
+        "p90_abs_atr": 4.348065439501105
+      },
+      "status": "RAN",
+      "metrics": {
+        "n_trades": 456,
+        "profit_factor": 2.1521622724129563,
+        "net_pnl": 18.73851355001716,
+        "win_rate": 0.6864035087719298,
+        "expectancy": 0.041093231469298296,
+        "n_liquidations": 0,
+        "entry_bar_exit_rate": 0.4605263157894737,
+        "entry_bar_exits": 210.0
+      },
+      "n_signals": 531,
+      "expectancy_intent_all": 0.006991982667916851,
+      "expectancy_fill_only": 0.041093231469298296,
+      "trades_per_month": 10.944091200760008
+    },
+    {
+      "arm": "sol5m_raw_w4",
+      "symbol": "SOLUSDT",
+      "tf": "5m",
+      "pack": "level_focus",
+      "placement": "raw",
+      "work_mode": "fixed4",
+      "note": "TF trial 5m; expect more entry-bar noise",
+      "n_intent": 22195,
+      "fill_stats": {
+        "n_intent": 22195,
+        "n_filled_path": 9005,
+        "n_no_touch": 13190,
+        "n_bad": 0,
+        "fill_rate": 0.4057220094615904,
+        "work_bars_default": 4,
+        "work_bars_mean_used": 4.0
+      },
+      "train_pull": {
+        "median_miss_bps": 12.935580861341279,
+        "median_overshoot_bps": 17.537024847663538,
+        "net_pull_bps": 0.0
+      },
+      "level_mae_oos": {
+        "n": 24281,
+        "mae_pct": 0.007815188098603702,
+        "p50_abs_pct": 0.005399113024891202,
+        "p90_abs_pct": 0.016466012054047928,
+        "bias_pct": 0.0005828056399573133,
+        "corr": 0.22033820916555655,
+        "mae_atr": 2.794670812651843,
+        "p90_abs_atr": 5.564595608368351
+      },
+      "status": "RAN",
+      "metrics": {
+        "n_trades": 2327,
+        "profit_factor": 0.7699166970227933,
+        "net_pnl": -19.711418699973365,
+        "win_rate": 0.4641168886978943,
+        "expectancy": -0.008470742887838388,
+        "n_liquidations": 0,
+        "entry_bar_exit_rate": 0.018048990116029222,
+        "entry_bar_exits": 42.0
+      },
+      "n_signals": 9005,
+      "expectancy_intent_all": -0.0008881017661623503,
+      "expectancy_fill_only": -0.008470742887838388,
+      "trades_per_month": 167.54539621163508
+    },
+    {
+      "arm": "sol1h_raw_w1",
+      "symbol": "SOLUSDT",
+      "tf": "1h",
+      "pack": "level_focus",
+      "placement": "raw",
+      "work_mode": "fixed1",
+      "note": "TF trial 1h; expect fewer entry-bar exits",
+      "n_intent": 10,
+      "fill_stats": {
+        "n_intent": 10,
+        "n_filled_path": 2,
+        "n_no_touch": 8,
+        "n_bad": 0,
+        "fill_rate": 0.2,
+        "work_bars_default": 1,
+        "work_bars_mean_used": 1.0
+      },
+      "train_pull": {
+        "median_miss_bps": 123.78867643966574,
+        "median_overshoot_bps": 219.88526061451643,
+        "net_pull_bps": 0.0
+      },
+      "level_mae_oos": {
+        "n": 1442,
+        "mae_pct": 0.017844526239191826,
+        "p50_abs_pct": 0.010508516501811654,
+        "p90_abs_pct": 0.039322531977391856,
+        "bias_pct": 0.00013817177940751612,
+        "corr": 0.4732758264556812,
+        "mae_atr": 1.3177233800634558,
+        "p90_abs_atr": 3.0623778294292427
+      },
+      "status": "TOO_FEW",
+      "n_signals": 2
+    },
+    {
+      "arm": "eth15_blend75_1pct_w4",
+      "symbol": "ETHUSDT",
+      "tf": "15m",
+      "pack": "level_focus",
+      "placement": "blend_75_1pct",
+      "work_mode": "fixed4",
+      "note": "ETH control",
+      "n_intent": 2091,
+      "fill_stats": {
+        "n_intent": 2091,
+        "n_filled_path": 1589,
+        "n_no_touch": 502,
+        "n_bad": 0,
+        "fill_rate": 0.759923481587757,
+        "work_bars_default": 4,
+        "work_bars_mean_used": 4.0
+      },
+      "train_pull": {
+        "median_miss_bps": 48.51171757330006,
+        "median_overshoot_bps": 34.42030065365882,
+        "net_pull_bps": 14.09141691964124
+      },
+      "level_mae_oos": {
+        "n": 15517,
+        "mae_pct": 0.009393416289936734,
+        "p50_abs_pct": 0.006213755104666129,
+        "p90_abs_pct": 0.02071925050922452,
+        "bias_pct": -0.0005079876144197721,
+        "corr": 0.3596174994044372,
+        "mae_atr": 2.3493767382071638,
+        "p90_abs_atr": 4.994020950604581
+      },
+      "status": "RAN",
+      "metrics": {
+        "n_trades": 1263,
+        "profit_factor": 0.9132816314271857,
+        "net_pnl": -10.912712290006311,
+        "win_rate": 0.5304829770387965,
+        "expectancy": -0.008640310601741854,
+        "n_liquidations": 0,
+        "entry_bar_exit_rate": 0.14726840855106887,
+        "entry_bar_exits": 186.0
+      },
+      "n_signals": 1589,
+      "expectancy_intent_all": -0.005218896360596036,
+      "expectancy_fill_only": -0.008640310601741854,
+      "trades_per_month": 30.31225260210502
+    }
+  ],
+  "placement_idea": {
+    "user": "75% weight on pred\u00b11% toward market, 25% on raw pred (one limit)",
+    "miss_overshoot": "pull_bps = max(0, median_miss - median_overshoot) from early gated sample",
+    "note": "0.82% mean abs gap is not 'precision'; 100-82'; it is typical |limit-wick| across intents. Pulling toward market raises fills; may dilute edge."
+  },
+  "multi_limit_recommendation": "Yes later: ladder 2\u20133 rests with size \u221d calibrated p_any * side_confidence, but only after level P90 <~1%. Today, ladders mostly buy more fills of a noisy level and add fee drag. Prefer one bias-corrected limit + hard cancel."
+}

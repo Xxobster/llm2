@@ -1,0 +1,47 @@
+# Preregistered before outer PF peeks — pivot LIMIT execution improve
+generation_id: pivot_exec_improve_001
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-12T14:00:00Z"
+
+default_research_pair:
+  - { symbol: ETHUSDT, gate: p75, level_mode: atr, pack: level_vsa, work_bars: 4, tp: 0.01, sl: 0.01 }
+  - { symbol: SOLUSDT, gate: p75, level_mode: ret, pack: level_vsa, work_bars: 4, tp: 0.01, sl: 0.01 }
+
+sibling_arms_frozen:
+  - id: SOLUSDT_p75_w5
+    note: "Sibling only; freeze before further peeks. Rank by intent expectancy."
+    symbol: SOLUSDT
+    gate: p75
+    level_mode: ret
+    pack: level_vsa
+    work_bars: 5
+    tp: 0.01
+    sl: 0.01
+
+dropped:
+  - time_head_adaptive_cancel
+
+execution_arms:
+  - { id: ctrl_w4, work_bars: 4, adverse: null }
+  - { id: sibling_w5_sol_only, work_bars: 5, adverse: null }
+  - { id: adverse_pct_50bps, work_bars: 4, adverse: { mode: pct, pct: 0.005 } }
+  - { id: adverse_atr_1x, work_bars: 4, adverse: { mode: atr, atr_mult: 1.0 } }
+  - { id: adverse_atr_0p5x, work_bars: 4, adverse: { mode: atr, atr_mult: 0.5 } }
+
+placement_arms:
+  - { id: level_default }
+  - { id: level_q50 }
+  - { id: level_atr_clip_0p8_1p5, note: "clip |level| into [0.8,1.5]*ATR" }
+  - { id: gate_mid_atr_band, note: "P75 & |level| in [0.8,1.5]*ATR" }
+
+calibration:
+  policy: pick_isotonic_vs_platt_by_inner_ece
+  promote_pack_only_if: [ece_not_worse, pr_auc_lift_not_worse, control_pf_ge_0p85_baseline]
+
+ranking:
+  primary: expectancy_intent_all
+  report: [n_intent, fill_pct, n_trades, expectancy_intent_all, profit_factor, win_rate, sharpe_daily_raw]
+  no_post_hoc_band_or_work_widen: true
+
+pi_star_tight_band: diagnostic_only

@@ -1,0 +1,22 @@
+# Autonomy gen 823 — prior-425 high/low
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_823_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-25T16:28:00Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  Close versus the prior-425-bar high or low (shifted so the current bar is excluded) at t+H, used as one-head filters, can
+  beat the 15-minute Limit 1%/1% pivot control under frozen entry-bar and trades-per-month caps.
+events: [xh425_at_h, xl425_at_h, xh425_cross_up, xl425_cross_down]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: 9a9d37990666ac528ad941f56a0e03f3d005a667ee32f50e50c15bb45df2ea04

@@ -1,0 +1,48 @@
+# Nested settle of hunt-013 inner screen passers.
+# RESEARCH_ONLY. Frozen from inner screen BEFORE any 2022+ bar was used to pick them.
+generation_id: ml_lab_nested_settle_013_predictive_math
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-09-03T21:57:00Z"
+parent_generation: ml_lab_hunt_013_predictive_math
+fold_geometry: v2
+failure_is_success: true
+
+hypothesis: >
+  Three hunt-013 inner screen passers (before 2022-01-01, maker 0.02%, EXEC-021)
+  are scored once per outer fold and once on the stitched 2022-01-01 .. 2026-05-01
+  union. Same Average-True-Range bracket. No retune of Hilbert length, kinematic
+  spans, or fire thresholds.
+
+do_not:
+  - add other hunt-013 arms after seeing this settle
+  - retune live Exponential Moving Average stack or 376 / 705 / 013
+  - peep FORWARD_LOCKBOX_START
+  - deploy
+
+lockbox: do_not_score_on_or_after_2026-05-01
+outer_window: "2022-01-01 .. 2026-05-01 exclusive"
+
+work_bars: {1h: 3}
+max_hold_bars: {1h: 16}
+k_sl: 1.5
+tp_ratio: 1.5
+sl_cap: 0.030
+maker_first_costs: true
+
+gates_for_shadow_ready:
+  min_eligible_folds: 5
+  min_trades_per_gating_fold: 10
+  min_pooled_oos_trades: 50
+  min_pooled_profit_factor: 1.20
+  min_sharpe_annualised: 1.00
+  min_sharpe_hac_annualised: 0.75
+  min_fraction_positive_folds: 0.80
+  max_entry_bar_exit_rate: 0.25
+
+survivors:
+  - {symbol: BTCUSDT, timeframe: 1h, idea: kalman_accel_follow, catalog: j, evidence_class: inner_screen_pass}
+  - {symbol: ETHUSDT, timeframe: 1h, idea: kalman_accel_follow, catalog: j, evidence_class: inner_screen_pass}
+  - {symbol: SOLUSDT, timeframe: 1h, idea: hilbert_amp_fade, catalog: j, evidence_class: inner_screen_pass}
+
+preregister_sha256_at_run: 52ecfa8657058457b0673034f7a018677738e3da54baf1f25fdedad355aa0e4a

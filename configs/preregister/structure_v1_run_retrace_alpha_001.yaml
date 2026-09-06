@@ -1,0 +1,69 @@
+# Causal running-retrace as FEATURES for direction / fwd_return (NOT oracle_leaky).
+# Orange remain sealed (D-058). Residual MAE hunts forbidden as promotion paths.
+# Registered BEFORE any outer-OOS view of this generation.
+
+generation_id: structure_v1_run_retrace_alpha_001
+created_utc: "2026-08-08T09:00:00Z"
+status: OPEN
+fold_geometry: v2
+invalidates:
+  - never_inherits_orange_leaky_proxy
+  - never_uses_oracle_leaky_or_pred_leaky_as_feature
+
+hypothesis: >
+  Causal running-retrace depth (how far price has moved against the last known
+  completed leg, plus expandable max / velocity / prior cyan leg retrace that is
+  already knowable) added to structure_v1_no_retrace gives a post-cost edge under
+  V2.1 that plain structure and cyan last_retrace alone did not.
+
+economic_rationale: >
+  True orange freezes only at the next opposite swing. The active opposite move's
+  *running* depth is knowable every bar and is the same information class as live
+  traders mark on the chart. If that state predicts near-term returns/direction
+  more than static structure geometry, light models on structure_v1_run_retrace
+  should survive outer OOS. This is not reconstruction of look-ahead retrace.
+
+candidate_space:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  timeframes: [1h]
+  targets: [fwd_return, direction]
+  feature_space: [structure_v1_run_retrace]
+  forbidden:
+    - oracle_leaky
+    - pred_leaky
+    - last_retrace_pct (warehouse leeky family)
+    - any optimization of MAE vs oracle_leaky as a promotion objective
+  models: [hist_mean, ridge, lgbm_regressor, lgbm_classifier]
+  tp_pct: [0.01]
+  sl_pct: [0.02]
+  max_trials_per_combo: 4
+
+selection:
+  method: nested_hunt_inner_then_one_outer_freeze
+  objective: mean_inner_profit_factor
+  forbidden:
+    - select_or_rank_on_outer_oos
+    - select_or_rank_on_lockbox
+    - optimize_oracle_leaky_mae
+  seed_root: 20260808
+
+evaluation:
+  outer: fold_geometry_v2_stitched_oos
+  lockbox: DO_NOT_OPEN_FOR_SELECTION
+  engine: botsgeneral_tradesim
+  costs: research_costs_baseline
+  sizing: min_exchange
+  leverage: leverage_from_stop(0.02)
+  leakage_gate: warehouse_recompute + four_proof + no leaky columns
+
+success_criteria:
+  - leakage_audit_ok
+  - four_proof_ok
+  - no_oracle_or_pred_leaky_in_features
+  - stitched_oos once per frozen selection
+
+live_deploy: FORBIDDEN_without_certificate_and_explicit_user_auth
+promotion: FORBIDDEN_without_new_pack_hash_certificate_and_explicit_user_auth
+
+preregister_sha256_at_run: 9fb2a833ce67e3841be27adfa95c5a199b8d4afc487eb23a004f7e5e8343c2a3
+run_started_utc: "2026-08-08T09:12:31Z"

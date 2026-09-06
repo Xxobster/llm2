@@ -1,0 +1,22 @@
+{
+  "stamp": "20260813T144804Z",
+  "preregister": "configs/preregister/pivot_confirm_fromto_005.yaml",
+  "ebr_cap": 0.35,
+  "arms_frozen_before_pf": [
+    "ctrl",
+    "size_linear",
+    "size_tertile",
+    "confirm_enter_k1",
+    "confirm_enter_k2",
+    "confirm_enter_k3",
+    "confirm_addon_k1",
+    "confirm_addon_k2",
+    "confirm_addon_k3",
+    "fromto_abs_level",
+    "fromto_2x_level",
+    "fromto_pred_next",
+    "fromto_oracle_next",
+    "ETH_label_confirm_4",
+    "ETH_label_confirm_5"
+  ]
+}

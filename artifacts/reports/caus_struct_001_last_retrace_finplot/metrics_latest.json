@@ -1,0 +1,27 @@
+{
+  "evidence_class": "DISPLAY_ONLY_LEAK_DIAGNOSTIC",
+  "promotion_allowed": false,
+  "leak_columns": [
+    "last_retrace_pct",
+    "last_retrace_pct_4h",
+    "last_retrace_pct_1w"
+  ],
+  "registry_status": "REMEDIATED_RETRAIN_REQUIRED",
+  "conformance": "CAUS-STRUCT-001",
+  "window": [
+    "2026-01-01",
+    "2026-05-01"
+  ],
+  "timeframe": "1h",
+  "n_trades_sim": 222,
+  "max_trades_plotted": 300,
+  "disagreement_bars": 2878,
+  "disagreement_frac": 0.9993055555555556,
+  "premature_lookahead_bars": 0,
+  "median_abs_gap_when_diff": 0.799793923461483,
+  "run_id": "eth_1h_leak_diag_last4m_clean-2c9db73d8f",
+  "profit_factor": 0.6350121495461738,
+  "created_utc": "20260806T213311Z",
+  "elapsed_sec": 27.4,
+  "note": "Educational: leaky vs causal last_retrace_pct on ETHUSDT 1h. Trade overlay is display-only. Pre-fix packs trained on the leak are not re-validated here."
+}

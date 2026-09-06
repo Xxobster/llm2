@@ -1,0 +1,52 @@
+# ML lab hunt 005 — new stories not in the hunt-004 thirty
+# RESEARCH_ONLY. Frozen before any hunt-005 result was viewed.
+generation_id: ml_lab_hunt_005_orb_structure
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-31T16:20:00Z"
+fold_geometry: v2
+failure_is_success: true
+
+hypothesis: >
+  After hunt 004, new named stories: UTC opening-range breakout follow,
+  swing higher-low / lower-high structure, wick-rejection continuation,
+  rising Average Directional Index with DI side, NR7 break, volume-spring
+  (quiet then shock), cumulative close-location volume slope, and UTC-day
+  open-drive. Event study first (11 basis-point cost floor). Tradesim at
+  most 8 skill-passers. Does not retune hunt-004 EMA stack.
+
+do_not:
+  - retune hunt 001–004 or bounce_upper
+  - add hunt-004 4h high entry-bar rows
+  - peep FORWARD_LOCKBOX_START
+  - deploy
+
+selection_window: "strictly before 2022-01-01"
+universe:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  event_study_timeframes: [15m, 1h, 4h]
+  tradesim_timeframes: [15m, 1h, 4h]
+
+cost_floor: 0.0011
+max_tradesim_arms: 8
+work_bars: {15m: 4, 1h: 3, 4h: 2}
+max_hold_bars: {15m: 24, 1h: 16, 4h: 8}
+k_sl: 1.5
+tp_ratio: 1.5
+sl_cap: 0.030
+
+screen_gates:
+  min_skill_n: 80
+  min_directional_acc: 0.51
+  min_mean_signed: 0.0015
+  min_trades: 80
+  min_trades_per_month: 2.0
+  max_trades_per_month: 90.0
+  min_profit_factor: 1.20
+  max_entry_bar_exit_rate: 0.25
+  min_sharpe_annualised: 0.50
+
+leakage_audit:
+  builder: llm2.ml_lab.idea_catalog_b.build_features_for_guard
+
+preregister_sha256_at_run: 10d89e96a39dfcf443cbdfd11a6d724003be355100cf3f5503856d56f2b9f408

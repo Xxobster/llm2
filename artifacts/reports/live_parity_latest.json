@@ -1,0 +1,415 @@
+{
+  "generated_utc": "2026-08-27T02:44:49.845746+00:00",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "evidence_class": "LIVE_BT_PIVOT_RECONCILE_CONTAMINATED",
+  "principal_blocker": "ln1: 33 live ENTER cancelled as data-unsafe; backtest still fills those limits. Operational gate, not a frozen-pack bug.; ln2: 5 extra backtest fills vs live",
+  "material_logic_bug": false,
+  "hosts": [
+    "ln1",
+    "ln2"
+  ],
+  "ln1": {
+    "blocker": "33 live ENTER cancelled as data-unsafe; backtest still fills those limits. Operational gate, not a frozen-pack bug.",
+    "arms": [
+      {
+        "name": "sol",
+        "account": "Xxobster7",
+        "unit": "llm2-pivot-sol-geo-p75-w4",
+        "symbol": "SOLUSDT",
+        "candle_match_rate": 1.0,
+        "action_match": "1398/1398",
+        "p_any_match": "1396/1398",
+        "enter": 51,
+        "filled": 6,
+        "live_fills": 6,
+        "replay_pass": true,
+        "candle_pass": true,
+        "closeness": {
+          "candles_pct": 100.0,
+          "calculations_pct": 99.85693848354794,
+          "signals_pct": 100.0,
+          "entries_exits_pct": 100.0,
+          "fill_price_pct": 99.98455321856477,
+          "overall_pct": 99.96423462088698
+        },
+        "missed": {
+          "n_replay_bt_enter_live_not": 0,
+          "n_replay_live_enter_bt_not": 0,
+          "n_bt_enter_no_live_row": 4,
+          "n_live_enter_unfilled": 45,
+          "n_extra_bt_trades": 5,
+          "n_missed_signals": 4,
+          "n_missed_trades": 50,
+          "replay_bt_enter_live_not": [],
+          "replay_live_enter_bt_not": [],
+          "bt_enter_no_live_row": [
+            "2026-08-12T09:15:00+00:00",
+            "2026-08-12T10:00:00+00:00",
+            "2026-08-12T12:15:00+00:00",
+            "2026-08-12T12:30:00+00:00"
+          ],
+          "unfilled_breakdown": {
+            "cancelled_data_unsafe": 26,
+            "cancelled": 13,
+            "no_result": 5,
+            "place_fail": 1
+          },
+          "extra_bt_trades": [
+            {
+              "entry_ts_ms": 1786893300000,
+              "entry_utc": "2026-08-16T15:15:00+00:00",
+              "exit_ts_ms": 1786898700000,
+              "exit_utc": "2026-08-16T16:45:00+00:00",
+              "side": -1,
+              "entry_price": 75.49,
+              "exit_price": 75.52,
+              "pnl": -0.008663400000000114,
+              "hold_bars": 6.0,
+              "exit_reason": "max_hold"
+            },
+            {
+              "entry_ts_ms": 1787143500000,
+              "entry_utc": "2026-08-19T12:45:00+00:00",
+              "exit_ts_ms": 1787148900000,
+              "exit_utc": "2026-08-19T14:15:00+00:00",
+              "side": -1,
+              "entry_price": 78.75,
+              "exit_price": 78.58,
+              "pnl": 0.011103100000000171,
+              "hold_bars": 6.0,
+              "exit_reason": "max_hold"
+            },
+            {
+              "entry_ts_ms": 1787301900000,
+              "entry_utc": "2026-08-21T08:45:00+00:00",
+              "exit_ts_ms": 1787301900000,
+              "exit_utc": "2026-08-21T08:45:00+00:00",
+              "side": -1,
+              "entry_price": 93.09,
+              "exit_price": 92.16,
+              "pnl": 0.0860694000000007,
+              "hold_bars": 0.0,
+              "exit_reason": "target_entry_bar"
+            },
+            {
+              "entry_ts_ms": 1787368500000,
+              "entry_utc": "2026-08-22T03:15:00+00:00",
+              "exit_ts_ms": 1787372100000,
+              "exit_utc": "2026-08-22T04:15:00+00:00",
+              "side": -1,
+              "entry_price": 96.74,
+              "exit_price": 97.71,
+              "pnl": -0.1043088499999999,
+              "hold_bars": 4.0,
+              "exit_reason": "stop"
+            },
+            {
+              "entry_ts_ms": 1787435100000,
+              "entry_utc": "2026-08-22T21:45:00+00:00",
+              "exit_ts_ms": 1787436000000,
+              "exit_utc": "2026-08-22T22:00:00+00:00",
+              "side": 1,
+              "entry_price": 92.72,
+              "exit_price": 93.65,
+              "pnl": 0.08599485000000069,
+              "hold_bars": 1.0,
+              "exit_reason": "target"
+            }
+          ]
+        }
+      },
+      {
+        "name": "eth",
+        "account": "Xxobster7",
+        "unit": "llm2-pivot-eth-p75-ctrl-atr-w4",
+        "symbol": "ETHUSDT",
+        "candle_match_rate": 1.0,
+        "action_match": "1398/1398",
+        "p_any_match": "1397/1398",
+        "enter": 12,
+        "filled": 1,
+        "live_fills": 1,
+        "replay_pass": true,
+        "candle_pass": true,
+        "closeness": {
+          "candles_pct": 100.0,
+          "calculations_pct": 99.92846924177397,
+          "signals_pct": 100.0,
+          "entries_exits_pct": 100.0,
+          "fill_price_pct": 99.99948487065102,
+          "overall_pct": 99.9821173104435
+        },
+        "missed": {
+          "n_replay_bt_enter_live_not": 0,
+          "n_replay_live_enter_bt_not": 0,
+          "n_bt_enter_no_live_row": 2,
+          "n_live_enter_unfilled": 11,
+          "n_extra_bt_trades": 1,
+          "n_missed_signals": 2,
+          "n_missed_trades": 12,
+          "replay_bt_enter_live_not": [],
+          "replay_live_enter_bt_not": [],
+          "bt_enter_no_live_row": [
+            "2026-08-12T09:15:00+00:00",
+            "2026-08-12T12:15:00+00:00"
+          ],
+          "unfilled_breakdown": {
+            "cancelled_data_unsafe": 7,
+            "cancelled": 4,
+            "no_result": 0,
+            "place_fail": 0
+          },
+          "extra_bt_trades": [
+            {
+              "entry_ts_ms": 1786897800000,
+              "entry_utc": "2026-08-16T16:30:00+00:00",
+              "exit_ts_ms": 1786903200000,
+              "exit_utc": "2026-08-16T18:00:00+00:00",
+              "side": -1,
+              "entry_price": 1891.9,
+              "exit_price": 1884.19,
+              "pnl": 0.06295315500000036,
+              "hold_bars": 6.0,
+              "exit_reason": "max_hold"
+            }
+          ]
+        }
+      }
+    ],
+    "report": "D:\\projects\\LLM2\\artifacts\\reports\\audit_llm2_pivot_live_vs_bt_latest.json",
+    "markdown": "D:\\projects\\LLM2\\artifacts\\reports\\audit_llm2_pivot_live_vs_bt_latest.md"
+  },
+  "ln2": {
+    "blocker": "5 extra backtest fills vs live",
+    "arms": [
+      {
+        "name": "xx8_eth",
+        "account": "Xxobster8",
+        "unit": "llm2-pivot-eth-p75-ctrl-atr-w4",
+        "symbol": "ETHUSDT",
+        "candle_match_rate": 1.0,
+        "action_match": "586/586",
+        "p_any_match": "586/586",
+        "enter": 1,
+        "filled": 0,
+        "live_fills": 0,
+        "replay_pass": true,
+        "candle_pass": true,
+        "closeness": {
+          "candles_pct": 100.0,
+          "calculations_pct": 100.0,
+          "signals_pct": 100.0,
+          "entries_exits_pct": null,
+          "fill_price_pct": null,
+          "overall_pct": 100.0
+        },
+        "missed": {
+          "n_replay_bt_enter_live_not": 0,
+          "n_replay_live_enter_bt_not": 0,
+          "n_bt_enter_no_live_row": 0,
+          "n_live_enter_unfilled": 1,
+          "n_extra_bt_trades": 0,
+          "n_missed_signals": 0,
+          "n_missed_trades": 1,
+          "replay_bt_enter_live_not": [],
+          "replay_live_enter_bt_not": [],
+          "bt_enter_no_live_row": [],
+          "unfilled_breakdown": {
+            "cancelled_data_unsafe": 0,
+            "cancelled": 0,
+            "no_result": 1,
+            "place_fail": 0
+          },
+          "extra_bt_trades": []
+        }
+      },
+      {
+        "name": "xx8_sol",
+        "account": "Xxobster8",
+        "unit": "llm2-pivot-sol-geo-p75-w4",
+        "symbol": "SOLUSDT",
+        "candle_match_rate": 1.0,
+        "action_match": "586/586",
+        "p_any_match": "586/586",
+        "enter": 10,
+        "filled": 2,
+        "live_fills": 2,
+        "replay_pass": true,
+        "candle_pass": true,
+        "closeness": {
+          "candles_pct": 100.0,
+          "calculations_pct": 100.0,
+          "signals_pct": 100.0,
+          "entries_exits_pct": 100.0,
+          "fill_price_pct": 100.0,
+          "overall_pct": 100.0
+        },
+        "missed": {
+          "n_replay_bt_enter_live_not": 0,
+          "n_replay_live_enter_bt_not": 0,
+          "n_bt_enter_no_live_row": 0,
+          "n_live_enter_unfilled": 8,
+          "n_extra_bt_trades": 2,
+          "n_missed_signals": 0,
+          "n_missed_trades": 10,
+          "replay_bt_enter_live_not": [],
+          "replay_live_enter_bt_not": [],
+          "bt_enter_no_live_row": [],
+          "unfilled_breakdown": {
+            "cancelled_data_unsafe": 0,
+            "cancelled": 2,
+            "no_result": 6,
+            "place_fail": 0
+          },
+          "extra_bt_trades": [
+            {
+              "entry_ts_ms": 1787301900000,
+              "entry_utc": "2026-08-21T08:45:00+00:00",
+              "exit_ts_ms": 1787301900000,
+              "exit_utc": "2026-08-21T08:45:00+00:00",
+              "side": -1,
+              "entry_price": 93.09,
+              "exit_price": 92.16,
+              "pnl": 0.0860694000000007,
+              "hold_bars": 0.0,
+              "exit_reason": "target_entry_bar"
+            },
+            {
+              "entry_ts_ms": 1787368500000,
+              "entry_utc": "2026-08-22T03:15:00+00:00",
+              "exit_ts_ms": 1787372100000,
+              "exit_utc": "2026-08-22T04:15:00+00:00",
+              "side": -1,
+              "entry_price": 96.75,
+              "exit_price": 97.72,
+              "pnl": -0.10430959999999989,
+              "hold_bars": 4.0,
+              "exit_reason": "stop"
+            }
+          ]
+        }
+      },
+      {
+        "name": "xx9_eth",
+        "account": "Xxobster9",
+        "unit": "llm2-pivot-eth-p50-tp05-sl05",
+        "symbol": "ETHUSDT",
+        "candle_match_rate": 1.0,
+        "action_match": "586/586",
+        "p_any_match": "586/586",
+        "enter": 1,
+        "filled": 0,
+        "live_fills": 0,
+        "replay_pass": true,
+        "candle_pass": true,
+        "closeness": {
+          "candles_pct": 100.0,
+          "calculations_pct": 100.0,
+          "signals_pct": 100.0,
+          "entries_exits_pct": null,
+          "fill_price_pct": null,
+          "overall_pct": 100.0
+        },
+        "missed": {
+          "n_replay_bt_enter_live_not": 0,
+          "n_replay_live_enter_bt_not": 0,
+          "n_bt_enter_no_live_row": 0,
+          "n_live_enter_unfilled": 1,
+          "n_extra_bt_trades": 0,
+          "n_missed_signals": 0,
+          "n_missed_trades": 1,
+          "replay_bt_enter_live_not": [],
+          "replay_live_enter_bt_not": [],
+          "bt_enter_no_live_row": [],
+          "unfilled_breakdown": {
+            "cancelled_data_unsafe": 0,
+            "cancelled": 0,
+            "no_result": 1,
+            "place_fail": 0
+          },
+          "extra_bt_trades": []
+        }
+      },
+      {
+        "name": "xx9_sol",
+        "account": "Xxobster9",
+        "unit": "llm2-pivot-sol-p50-tp05-sl05",
+        "symbol": "SOLUSDT",
+        "candle_match_rate": 1.0,
+        "action_match": "586/586",
+        "p_any_match": "586/586",
+        "enter": 10,
+        "filled": 1,
+        "live_fills": 1,
+        "replay_pass": true,
+        "candle_pass": true,
+        "closeness": {
+          "candles_pct": 100.0,
+          "calculations_pct": 100.0,
+          "signals_pct": 100.0,
+          "entries_exits_pct": 100.0,
+          "fill_price_pct": 100.0,
+          "overall_pct": 100.0
+        },
+        "missed": {
+          "n_replay_bt_enter_live_not": 0,
+          "n_replay_live_enter_bt_not": 0,
+          "n_bt_enter_no_live_row": 0,
+          "n_live_enter_unfilled": 9,
+          "n_extra_bt_trades": 3,
+          "n_missed_signals": 0,
+          "n_missed_trades": 12,
+          "replay_bt_enter_live_not": [],
+          "replay_live_enter_bt_not": [],
+          "bt_enter_no_live_row": [],
+          "unfilled_breakdown": {
+            "cancelled_data_unsafe": 0,
+            "cancelled": 2,
+            "no_result": 6,
+            "place_fail": 1
+          },
+          "extra_bt_trades": [
+            {
+              "entry_ts_ms": 1787301900000,
+              "entry_utc": "2026-08-21T08:45:00+00:00",
+              "exit_ts_ms": 1787301900000,
+              "exit_utc": "2026-08-21T08:45:00+00:00",
+              "side": -1,
+              "entry_price": 93.09,
+              "exit_price": 92.62,
+              "pnl": 0.04004409999999989,
+              "hold_bars": 0.0,
+              "exit_reason": "target_entry_bar"
+            },
+            {
+              "entry_ts_ms": 1787368500000,
+              "entry_utc": "2026-08-22T03:15:00+00:00",
+              "exit_ts_ms": 1787368500000,
+              "exit_utc": "2026-08-22T03:15:00+00:00",
+              "side": -1,
+              "entry_price": 96.74,
+              "exit_price": 96.26,
+              "pnl": 0.04077089999999898,
+              "hold_bars": 0.0,
+              "exit_reason": "target_entry_bar"
+            },
+            {
+              "entry_ts_ms": 1787782500000,
+              "entry_utc": "2026-08-26T22:15:00+00:00",
+              "exit_ts_ms": 1787782500000,
+              "exit_utc": "2026-08-26T22:15:00+00:00",
+              "side": -1,
+              "entry_price": 99.37,
+              "exit_price": 99.87,
+              "pnl": -0.057480250000000004,
+              "hold_bars": 0.0,
+              "exit_reason": "stop_entry_bar"
+            }
+          ]
+        }
+      }
+    ],
+    "report": "D:\\projects\\LLM2\\artifacts\\reports\\audit_llm2_pivot_ln2_xx89_live_vs_bt_latest.json",
+    "markdown": "D:\\projects\\LLM2\\artifacts\\reports\\audit_llm2_pivot_ln2_xx89_live_vs_bt_latest.md"
+  }
+}

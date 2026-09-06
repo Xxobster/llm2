@@ -1,0 +1,77 @@
+# Nested transfer: strength_quantile p75 on live eth_multitrade_v1_2 geometry.
+# ONE candidate vs live control. No lockbox. No multi-arm grid.
+#
+# Goal: raise expectancy_return_units (edge per unit invested).
+
+generation_id: structure_v1_eth_multitrade_strength_p75_001
+created_utc: "2026-08-05T08:00:00Z"
+status: OOS_COMPARE_COMPLETE
+settled_utc: "20260805T080524Z"
+preregister_sha256_at_run: abf1007361e4684e67da382797a597c12608b2ab54c347f37415f9501c1fa931
+decision_refs: [D-041, D-039]
+fold_geometry: v2
+parent_pack: structure_v1_ethusdt_multitrade_v1_2
+parent_version_id: eth_multitrade_v1_2
+
+hypothesis: >
+  Raising the mean_strength clarity threshold from the median (q=0.5) of the
+  168-bar |mean| history to the 75th percentile (q=0.75), while keeping the
+  frozen eth_multitrade_v1_2 geometry (K=7, clarity_scope=all, fib 1.618,
+  hold base 6 / addon 12, TP1%/SL2%), increases stitched outer-fold
+  expectancy_return_units versus the live control without inventing a new
+  entry family.
+
+economic_rationale: >
+  ETH K5 p75 transfer (D-041) raised expectancy_return_units on the same
+  mean_strength gate idea. Multitrade v1.2 already uses clarity_scope=all;
+  tightening the quantile further should filter weaker primary books that
+  dominate loss streaks in the fleet autopsy.
+
+control_arm:
+  version_id: eth_multitrade_v1_2
+  clarity: mean_strength
+  clarity_scope: all
+  strength_quantile: 0.5
+  k_per_side: 7
+  fib_ext: 1.618
+  base_hold: 6
+  hold_addon: 12
+  tp_pct: 0.01
+  sl_pct: 0.02
+
+frozen_candidate:
+  same_as_control_except:
+    strength_quantile: 0.75
+
+selection:
+  method: FROZEN_TRANSFER — one candidate; no ranking among alternatives
+  forbidden:
+    - re_search_K_hold_tp_grid
+    - select_on_lockbox
+    - combine_with_cooloff_or_ev_pi_star_in_same_generation
+    - promote_without_beating_control_expectancy_return_units
+
+evaluation:
+  symbol: ETHUSDT
+  target: direction
+  min_edge: 0.10
+  outer: fold_geometry_v2_stitched_oos
+  hard_end_exclusive: "2026-05-01"
+  lockbox: DO_NOT_OPEN
+  engine: botsgeneral_tradesim
+  costs: research_costs_baseline
+  sizing: MIN_EXCHANGE
+  leverage: leverage_from_stop(0.02)
+  primary_metric: expectancy_return_units
+  secondary: [profit_factor, win_rate, n_trades, net_pnl]
+  evidence_class: OUTER_TRANSFER_COMPARE
+  promotion: FORBIDDEN_without_new_pack_hash_certificate_and_explicit_user_auth
+
+success_criteria:
+  - candidate_expectancy_return_units > control_expectancy_return_units
+  - candidate_stitched_pf >= 1.20
+  - no liquidation
+  - report full outer stitch (not last-30d slice)
+
+failure_is_success: true
+live_deploy: FORBIDDEN_without_certificate_and_explicit_user_auth

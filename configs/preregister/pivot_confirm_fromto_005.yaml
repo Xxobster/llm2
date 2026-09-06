@@ -1,0 +1,54 @@
+# Fleet 005: pivot confirmation, confidence sizing, from→to next pivot
+# RESEARCH_ONLY. Not live. Arms frozen before any profit-factor is viewed.
+generation_id: pivot_confirm_fromto_005
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-13T12:10:00Z"
+rank_by: expectancy_intent_all
+entry_bar_exit_rate_cap: 0.35
+prefer_entry_bar_lt: 0.25
+sizing_arms_also_require: expectancy_per_size_ge_0p95_of_control
+oracle_arms: never_promote
+
+controls:
+  ETHUSDT: { id: ETH_q50_w4, level_mode: q50, gate: p75, work_bars: 4, tp: 0.01, sl: 0.01, confirm_bars: 3 }
+  SOLUSDT: { id: SOL_atr_clip_w5, level_mode: ret, gate: p75, work_bars: 5, tp: 0.01, sl: 0.01, placement: atr_clip_0p8_1p5 }
+  BTCUSDT: { id: BTC_p80_w4, level_mode: ret, gate: p80, work_bars: 4, tp: 0.01, sl: 0.01 }
+
+# A. Label knowability: confirm_bars must stay >= right_bars (right_bars frozen at 3).
+label_confirm_sweep:
+  symbols: [ETHUSDT]
+  right_bars: 3
+  confirm_bars: [3, 4, 5]
+  note: "Retrain + rescore. This is when a fractal pivot is knowable, not a live delay."
+
+# B. Confirm then enter (one trade, delayed). K=1 uses close direction; K>=2 uses pivot-shape.
+confirm_then_enter:
+  confirm_k: [1, 2, 3]
+  rule: pivot_shape_confirm
+
+# C. First LIMIT as control, then a second same-side trade after K confirming bars.
+# Size of the add-on = clip(p_any / thr, 0.5, 2.0). max_positions_per_symbol=2.
+confirm_addon:
+  confirm_k: [1, 2, 3]
+  size_rule: p_any_over_thr_clip_0p5_2p0
+  max_positions_per_symbol: 2
+  allow_concurrent_positions: true
+
+# D. Confidence sizing of the original LIMIT (no extra entry).
+confidence_size:
+  - { id: size_linear, rule: p_any_over_thr_clip_0p5_2p0 }
+  - { id: size_tertile, rule: train_gated_p_any_tertiles_0p5_1p0_1p5 }
+
+# E. Trade FROM predicted pivot 1 TO a target (not a fixed 1% take-profit).
+from_to:
+  - { id: tp_abs_level, tp: abs_predicted_first_level_ret, sl: 0.01 }
+  - { id: tp_2x_level, tp: 2x_abs_predicted_first_level_ret, sl: abs_predicted_first_level_ret }
+  - { id: tp_pred_next, tp: predicted_next_opposite_pivot_price, sl: 0.01, next_horizon_bars: 8 }
+  - { id: tp_oracle_next, tp: labeled_next_opposite_pivot_price, sl: 0.01, promote: false, note: "Upper bound only. Uses future labels. Not a tradable model." }
+
+do_not:
+  - copy ETH q50 or SOL atr_clip onto BTC
+  - promote any arm with entry_bar_exit_rate > 0.35
+  - promote oracle_next
+  - deploy or restart live bots

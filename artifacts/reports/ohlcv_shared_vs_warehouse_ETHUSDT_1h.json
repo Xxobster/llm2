@@ -1,0 +1,101 @@
+{
+  "evidence_class": "OHLCV_SHARED_VS_WAREHOUSE",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "principal_blocker": "SHARED_CANDLES_NE_RESEARCH_MARKET_OHLCV",
+  "symbol": "ETHUSDT",
+  "timeframe": "1h",
+  "shared_exchange": "binance",
+  "warehouse_source": "binance",
+  "warehouse_price_type": "last_price",
+  "generated_utc": "2026-08-05T11:44:57.500119+00:00",
+  "n_shared": 58636,
+  "n_warehouse": 57802,
+  "n_overlap": 57802,
+  "n_only_shared": 834,
+  "n_only_warehouse": 0,
+  "n_mismatch_bars": 23,
+  "n_price_mismatch_bars": 6,
+  "n_volume_only_mismatch_bars": 17,
+  "max_abs_diff": {
+    "open": 12.190000000000055,
+    "high": 30.0,
+    "low": 10.769999999999982,
+    "close": 24.779999999999745,
+    "volume": 126393.75099999999
+  },
+  "overlap_hash_shared": "fb83cfeb01929d203609ad76bf5f70495de44d4a5feba47ccd430ce4d1428c77",
+  "overlap_hash_warehouse": "e7655b744c980cf7814a2af089871033fce6b7f9a5ffe7eac23f32663fac3e0f",
+  "hashes_equal": false,
+  "first_mismatch": {
+    "ts_ms": 1610431200000,
+    "utc": "2021-01-12T06:00:00+00:00",
+    "shared": {
+      "open": 1130.89,
+      "high": 1150.0,
+      "low": 1124.23,
+      "close": 1139.13,
+      "volume": 223680.097
+    },
+    "warehouse": {
+      "open": 1130.89,
+      "high": 1150.0,
+      "low": 1124.23,
+      "close": 1139.13,
+      "volume": 223077.592
+    },
+    "abs_diff": {
+      "open": 0.0,
+      "high": 0.0,
+      "low": 0.0,
+      "close": 0.0,
+      "volume": 602.5050000000047
+    }
+  },
+  "first_price_mismatch": {
+    "ts_ms": 1730145600000,
+    "utc": "2024-10-28T20:00:00+00:00",
+    "shared": {
+      "open": 2505.93,
+      "high": 2516.49,
+      "low": 2504.13,
+      "close": 2516.41,
+      "volume": 47283.244
+    },
+    "warehouse": {
+      "open": 2503.77,
+      "high": 2503.77,
+      "low": 2503.77,
+      "close": 2503.77,
+      "volume": 0.0
+    },
+    "abs_diff": {
+      "open": 2.1599999999998545,
+      "high": 12.7199999999998,
+      "low": 0.36000000000012733,
+      "close": 12.639999999999873,
+      "volume": 47283.244
+    }
+  },
+  "tip_bars": 500,
+  "tip_n_price_mismatch": 1,
+  "tip_n_any_mismatch": 1,
+  "tip_ohlc_identical": false,
+  "overlap_first_ts_ms": 1577836800000,
+  "overlap_last_ts_ms": 1785920400000,
+  "exact_same_series": false,
+  "overlap_values_identical": false,
+  "overlap_ohlc_identical": false,
+  "price_eps": 1e-08,
+  "volume_eps": 0.0001,
+  "abs_eps": 1e-08,
+  "howto_keep_identical": [
+    "Both sides must use Binance USD-M futures Last (fapi), not spot.",
+    "Exclude forming bar on both sides before compare.",
+    "Pin warehouse price_type to densest of last_price/last \u2014 never mix.",
+    "Refresh warehouse: python -m botsgeneral research-candles --only binance --symbols ETHUSDT --timeframes 1h --price-type last",
+    "Refresh shared: ensure botsgeneral collector healthy (sitrep) / force backfill if gaps.",
+    "Re-run this compare; require overlap_ohlc_identical=true and tip_ohlc_identical=true.",
+    "For byte-exact hashes_equal=true, also reconcile volume float storage / re-ingest.",
+    "Gold path (strongest): one store \u2014 sync market_ohlcv or indicators.sqlite to VPS and make live read that file (no dual independent collectors)."
+  ]
+}

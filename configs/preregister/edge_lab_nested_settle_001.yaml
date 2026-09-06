@@ -1,0 +1,107 @@
+# Edge lab nested outer out-of-sample settle 001
+# RESEARCH_ONLY. Frozen from the hunt 001 inner screen BEFORE any bar on or
+# after 2022-01-01 was scored for these arms.
+generation_id: edge_lab_nested_settle_001
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-26T23:20:00Z"
+parent_generation: edge_lab_hunt_001
+parent_preregister: configs/preregister/edge_lab_hunt_001.yaml
+fold_geometry: v2
+failure_is_success: true
+
+inner_screen_summary:
+  arms_planned: 9072
+  arms_scored: 5724
+  too_few: 600
+  too_few_gated: 2748
+  screen_passes: 154
+  distinct_mechanisms_behind_passes: 49
+  screen_window: "bars strictly before 2022-01-01"
+  passes_by_timeframe: {15m: 136, 1h: 18}
+
+selection_rule: >
+  Mechanical, applied once, no judgement. (1) Group the 154 screen passes by
+  mechanism = (symbol, timeframe, event). (2) Within a group keep the single arm
+  with the highest inner profit factor, tie-break higher HAC-adjusted Sharpe then
+  more trades. (3) Rank groups by that arm's inner profit factor and keep the top
+  12. Session filter and bracket are inherited from the kept arm and are frozen;
+  they are NOT re-searched in the outer folds.
+
+multiplicity_note: >
+  12 arms are evaluated once each in each outer fold. No arm is ranked, reordered
+  or dropped using outer results. Deflated Sharpe uses the full hunt 001 trial
+  record (5724 scored arms), not 12.
+
+quotable_metrics: >
+  Profit factor, win rate, payoff ratio, annualised and HAC-adjusted Sharpe,
+  Sortino, entry-bar exit rate, trades per month, fill percentage and
+  touch-resolved rate are scale-free and quotable.
+  **Total return, max drawdown percent and recovery factor are NOT quotable** at
+  research sizing: positions are minimum-exchange size against the research
+  wallet, so exposure runs ~3-5% and drawdown lands near 0.02%. The frozen
+  drawdown gates (<=20% baseline, <=25% stress) are therefore passed for a
+  sizing reason, not a skill reason, and are reported as NOT_APPLICABLE until a
+  capital-realistic sizing study is run.
+
+fill_caveat: >
+  Working-limit arms filled only 29-42% of intents inside the work window. The
+  per-intent expectancy (expectancy_intent_all) is the honest planning number and
+  is roughly 5x lower than per-trade expectancy. Any live pack must reproduce the
+  same work-bar cancel horizon or the trade count will not match.
+
+outer_folds:
+  source: llm2.validation.folds.build_outer_folds
+  purge_bars: 24
+  embargo_bars: 24
+  window: "2022-01-01 .. 2026-05-01 (forward lockbox start)"
+  lockbox: do_not_score_on_or_after_2026-05-01
+
+headline: stitched_outer_oos_union
+diagnostics: per_fold_rows
+
+work_bars: {15m: 4, 1h: 3, 4h: 2}
+max_hold_bars: {15m: 12, 1h: 8, 4h: 6}
+entry_style:
+  market_if_name_contains: [breakout, ignition, choch]
+  otherwise: working_limit_atr_offset
+
+gates_for_shadow_ready:
+  min_eligible_folds: 5
+  min_trades_per_gating_fold: 10
+  min_pooled_oos_trades: 50
+  min_pooled_profit_factor: 1.20
+  min_sharpe_annualised: 1.00
+  min_sharpe_hac_annualised: 0.75
+  min_fraction_positive_folds: 0.80
+  max_entry_bar_exit_rate: 0.35
+  max_drawdown_pct: NOT_APPLICABLE_AT_RESEARCH_SIZING
+
+survivors:
+  - {symbol: BTCUSDT, timeframe: 1h, event: fvg_bear_ob_bear_short, session_filter: all, tp: 0.015, sl: 0.01, inner_pf: 2.531, inner_hac_sharpe: 2.224, inner_trades: 161, inner_tpm: 5.93, inner_ebr: 0.329, inner_fill_pct: 0.292}
+  - {symbol: ETHUSDT, timeframe: 15m, event: fvg_bear_ob_bear_short, session_filter: no_weekend, tp: 0.01, sl: 0.01, inner_pf: 2.180, inner_hac_sharpe: 3.125, inner_trades: 449, inner_tpm: 17.91, inner_ebr: 0.243, inner_fill_pct: 0.382}
+  - {symbol: BTCUSDT, timeframe: 1h, event: sweep_pdl_fvg_bull_long, session_filter: all, tp: 0.02, sl: 0.01, inner_pf: 1.808, inner_hac_sharpe: 1.400, inner_trades: 137, inner_tpm: 4.99, inner_ebr: 0.328, inner_fill_pct: 0.380}
+  - {symbol: SOLUSDT, timeframe: 15m, event: fvg_bear_ce_premium, session_filter: no_weekend, tp: 0.015, sl: 0.01, inner_pf: 1.768, inner_hac_sharpe: 2.651, inner_trades: 168, inner_tpm: 10.87, inner_ebr: 0.333, inner_fill_pct: 0.384}
+  - {symbol: SOLUSDT, timeframe: 15m, event: sweep_pdh_fvg_bear_short, session_filter: all, tp: 0.02, sl: 0.01, inner_pf: 1.682, inner_hac_sharpe: 2.475, inner_trades: 142, inner_tpm: 9.18, inner_ebr: 0.232, inner_fill_pct: 0.399}
+  - {symbol: ETHUSDT, timeframe: 15m, event: fvg_bull_ob_bull_long, session_filter: weekday_ny, tp: 0.01, sl: 0.01, inner_pf: 1.678, inner_hac_sharpe: 1.749, inner_trades: 166, inner_tpm: 6.64, inner_ebr: 0.307, inner_fill_pct: 0.366}
+  - {symbol: ETHUSDT, timeframe: 15m, event: fvg_bear_with_structure, session_filter: no_weekend, tp: 0.01, sl: 0.0075, inner_pf: 1.650, inner_hac_sharpe: 1.303, inner_trades: 113, inner_tpm: 4.50, inner_ebr: 0.221, inner_fill_pct: 0.309}
+  - {symbol: SOLUSDT, timeframe: 15m, event: sweep_prev_day_high, session_filter: all, tp: 0.02, sl: 0.01, inner_pf: 1.639, inner_hac_sharpe: 2.392, inner_trades: 256, inner_tpm: 16.55, inner_ebr: 0.301, inner_fill_pct: 0.424}
+  - {symbol: ETHUSDT, timeframe: 1h, event: sweep_asia_high, session_filter: all, tp: 0.02, sl: 0.01, inner_pf: 1.633, inner_hac_sharpe: 1.727, inner_trades: 223, inner_tpm: 8.86, inner_ebr: 0.341, inner_fill_pct: 0.341}
+  - {symbol: BTCUSDT, timeframe: 15m, event: sweep_prev_day_high, session_filter: weekday_ny, tp: 0.01, sl: 0.0075, inner_pf: 1.617, inner_hac_sharpe: 1.260, inner_trades: 132, inner_tpm: 4.76, inner_ebr: 0.242, inner_fill_pct: 0.389}
+  - {symbol: ETHUSDT, timeframe: 15m, event: fvg_bull_ce_tag, session_filter: weekday_ny, tp: 0.015, sl: 0.01, inner_pf: 1.607, inner_hac_sharpe: 1.512, inner_trades: 133, inner_tpm: 5.42, inner_ebr: 0.188, inner_fill_pct: 0.350}
+  - {symbol: ETHUSDT, timeframe: 15m, event: ignition_with_trend_long, session_filter: all, tp: 0.02, sl: 0.01, inner_pf: 1.597, inner_hac_sharpe: 1.599, inner_trades: 222, inner_tpm: 8.91, inner_ebr: 0.176, inner_fill_pct: 1.000}
+
+frequency_note: >
+  No surviving mechanism reaches the 2-3 trades/day (60-90 per month) target. The
+  densest is ETHUSDT 15m fvg_bear_ob_bear_short at 17.9 per month. Reaching the
+  frequency target would require either a portfolio of several of these arms or a
+  5-minute generation (see edge_lab_hunt_003_structure_mtf), not a relaxed gate.
+
+do_not:
+  - re-search session filter, bracket, side, work bars or max hold in the outer folds
+  - add, drop or reorder survivors using outer-fold results
+  - quote total return, max drawdown or recovery factor at research sizing
+  - score any bar on or after 2026-05-01
+  - deploy, sync or restart any VPS unit from this settle
+
+preregister_sha256_at_run: 4b3f2fb8a1e784a7887ccb5cfc6d6f1a9100096358ea465540d0655d8a403919

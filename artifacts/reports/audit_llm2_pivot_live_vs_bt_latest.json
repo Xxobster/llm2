@@ -1,0 +1,851 @@
+{
+  "generated_utc": "2026-08-27T02:42:47.076404+00:00",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "evidence_class": "LIVE_BT_PIVOT_RECONCILE_CONTAMINATED",
+  "principal_blocker": "33 live ENTER cancelled as data-unsafe; backtest still fills those limits. Operational gate, not a frozen-pack bug.",
+  "scope": "llm2 pivot units on ln1 only",
+  "since_utc": "2026-08-12T00:00:00+00:00",
+  "arms": [
+    {
+      "name": "sol",
+      "unit": "llm2-pivot-sol-geo-p75-w4",
+      "symbol": "SOLUSDT",
+      "candles": {
+        "n_vps_bars": 1442,
+        "warehouse_missing": 0,
+        "ohlc_mismatch": 0,
+        "match_rate": 1.0,
+        "vps_tip_utc": "2026-08-27T02:15:00+00:00",
+        "warehouse_tip_utc": "2026-08-27T02:15:00+00:00",
+        "pass": true,
+        "samples": []
+      },
+      "replay": {
+        "n_live_decisions": 1398,
+        "n_replayed": 1398,
+        "n_tip_bound_recompute": 255,
+        "action_match": 1398,
+        "p_any_match": 1396,
+        "feature_match": 652,
+        "action_match_rate": 1.0,
+        "p_any_match_rate": 0.9985693848354793,
+        "feature_match_rate": 0.4663805436337625,
+        "flips": [
+          {
+            "utc": "2026-08-12T13:45:00+00:00",
+            "live_action": "FLAT",
+            "bt_action": "FLAT",
+            "live_p": 0.2028301886792453,
+            "bt_p": 0.20695652173913043,
+            "live_side": "Buy",
+            "bt_side": "Buy",
+            "tip_bound": false
+          },
+          {
+            "utc": "2026-08-12T15:15:00+00:00",
+            "live_action": "FLAT",
+            "bt_action": "FLAT",
+            "live_p": 0.17058165548098433,
+            "bt_p": 0.13043478260869565,
+            "live_side": "Buy",
+            "bt_side": "Buy",
+            "tip_bound": false
+          }
+        ],
+        "feature_diffs": [
+          {
+            "utc": "2026-08-19T05:30:00+00:00",
+            "col": "vol_z",
+            "live": -1.278557189232899,
+            "bt": -1.2784867210829598
+          },
+          {
+            "utc": "2026-08-19T08:30:00+00:00",
+            "col": "vol_z",
+            "live": 5.330572368946545,
+            "bt": 5.330867268101207
+          },
+          {
+            "utc": "2026-08-19T11:15:00+00:00",
+            "col": "vol_z",
+            "live": 0.5015665056878083,
+            "bt": 0.5016474190474005
+          },
+          {
+            "utc": "2026-08-19T11:45:00+00:00",
+            "col": "vol_z",
+            "live": -0.5776356292900793,
+            "bt": -0.5776210919093008
+          },
+          {
+            "utc": "2026-08-19T12:30:00+00:00",
+            "col": "vol_z",
+            "live": 4.1547876191493565,
+            "bt": 4.1645465775600305
+          },
+          {
+            "utc": "2026-08-19T12:45:00+00:00",
+            "col": "vol_z",
+            "live": 5.145519914623529,
+            "bt": 5.145521201285247
+          },
+          {
+            "utc": "2026-08-19T13:45:00+00:00",
+            "col": "vol_z",
+            "live": 0.9949585079793049,
+            "bt": 0.9951345092706765
+          },
+          {
+            "utc": "2026-08-19T15:45:00+00:00",
+            "col": "vol_z",
+            "live": 0.7422894282274217,
+            "bt": 0.7422906389087742
+          }
+        ],
+        "n_feature_compared": 765,
+        "pass": true
+      },
+      "live_counts": {
+        "ENTER_LIMIT": 51,
+        "filled": 6,
+        "cancelled_data_unsafe": 26,
+        "cancelled": 13,
+        "no_result": 5,
+        "place_fail": 1
+      },
+      "materialize": {
+        "n_intent": 51,
+        "n_filled_path": 13,
+        "n_no_touch": 38,
+        "n_adverse_cancel": 0,
+        "n_bad": 0,
+        "fill_rate": 0.2549019607843137,
+        "work_bars_default": 4,
+        "work_bars_mean_used": 4.0,
+        "adverse_mode": null,
+        "adverse_pct": 0.005,
+        "adverse_atr_mult": 1.0
+      },
+      "bt": {
+        "status": "RAN",
+        "n_trades": 11,
+        "profit_factor": 1.0907167086890812,
+        "win_rate": 0.5454545454545454,
+        "net_pnl": 0.029668700000911485,
+        "trades": [
+          {
+            "entry_ts_ms": 1786599000000,
+            "entry_utc": "2026-08-13T05:30:00+00:00",
+            "exit_ts_ms": 1786604400000,
+            "exit_utc": "2026-08-13T07:00:00+00:00",
+            "side": -1,
+            "entry_price": 76.58,
+            "exit_price": 76.49,
+            "pnl": 0.003261450000000341,
+            "hold_bars": 6.0,
+            "exit_reason": "max_hold"
+          },
+          {
+            "entry_ts_ms": 1786893300000,
+            "entry_utc": "2026-08-16T15:15:00+00:00",
+            "exit_ts_ms": 1786898700000,
+            "exit_utc": "2026-08-16T16:45:00+00:00",
+            "side": -1,
+            "entry_price": 75.49,
+            "exit_price": 75.52,
+            "pnl": -0.008663400000000114,
+            "hold_bars": 6.0,
+            "exit_reason": "max_hold"
+          },
+          {
+            "entry_ts_ms": 1786915800000,
+            "entry_utc": "2026-08-16T21:30:00+00:00",
+            "exit_ts_ms": 1786921200000,
+            "exit_utc": "2026-08-16T23:00:00+00:00",
+            "side": 1,
+            "entry_price": 74.64,
+            "exit_price": 74.47,
+            "pnl": -0.022588650000000172,
+            "hold_bars": 6.0,
+            "exit_reason": "max_hold"
+          },
+          {
+            "entry_ts_ms": 1787143500000,
+            "entry_utc": "2026-08-19T12:45:00+00:00",
+            "exit_ts_ms": 1787148900000,
+            "exit_utc": "2026-08-19T14:15:00+00:00",
+            "side": -1,
+            "entry_price": 78.75,
+            "exit_price": 78.58,
+            "pnl": 0.011103100000000171,
+            "hold_bars": 6.0,
+            "exit_reason": "max_hold"
+          },
+          {
+            "entry_ts_ms": 1787150700000,
+            "entry_utc": "2026-08-19T14:45:00+00:00",
+            "exit_ts_ms": 1787150700000,
+            "exit_utc": "2026-08-19T14:45:00+00:00",
+            "side": -1,
+            "entry_price": 79.15,
+            "exit_price": 79.94,
+            "pnl": -0.08497969999999921,
+            "hold_bars": 0.0,
+            "exit_reason": "stop_entry_bar"
+          },
+          {
+            "entry_ts_ms": 1787151600000,
+            "entry_utc": "2026-08-19T15:00:00+00:00",
+            "exit_ts_ms": 1787151600000,
+            "exit_utc": "2026-08-19T15:00:00+00:00",
+            "side": -1,
+            "entry_price": 81.84,
+            "exit_price": 81.02,
+            "pnl": 0.07590710000000074,
+            "hold_bars": 0.0,
+            "exit_reason": "target_entry_bar"
+          },
+          {
+            "entry_ts_ms": 1787301900000,
+            "entry_utc": "2026-08-21T08:45:00+00:00",
+            "exit_ts_ms": 1787301900000,
+            "exit_utc": "2026-08-21T08:45:00+00:00",
+            "side": -1,
+            "entry_price": 93.09,
+            "exit_price": 92.16,
+            "pnl": 0.0860694000000007,
+            "hold_bars": 0.0,
+            "exit_reason": "target_entry_bar"
+          },
+          {
+            "entry_ts_ms": 1787368500000,
+            "entry_utc": "2026-08-22T03:15:00+00:00",
+            "exit_ts_ms": 1787372100000,
+            "exit_utc": "2026-08-22T04:15:00+00:00",
+            "side": -1,
+            "entry_price": 96.74,
+            "exit_price": 97.71,
+            "pnl": -0.1043088499999999,
+            "hold_bars": 4.0,
+            "exit_reason": "stop"
+          },
+          {
+            "entry_ts_ms": 1787435100000,
+            "entry_utc": "2026-08-22T21:45:00+00:00",
+            "exit_ts_ms": 1787436000000,
+            "exit_utc": "2026-08-22T22:00:00+00:00",
+            "side": 1,
+            "entry_price": 92.72,
+            "exit_price": 93.65,
+            "pnl": 0.08599485000000069,
+            "hold_bars": 1.0,
+            "exit_reason": "target"
+          },
+          {
+            "entry_ts_ms": 1787782500000,
+            "entry_utc": "2026-08-26T22:15:00+00:00",
+            "exit_ts_ms": 1787782500000,
+            "exit_utc": "2026-08-26T22:15:00+00:00",
+            "side": -1,
+            "entry_price": 99.37,
+            "exit_price": 100.36,
+            "pnl": -0.1065071999999995,
+            "hold_bars": 0.0,
+            "exit_reason": "stop_entry_bar"
+          },
+          {
+            "entry_ts_ms": 1787787900000,
+            "entry_utc": "2026-08-26T23:45:00+00:00",
+            "exit_ts_ms": 1787787900000,
+            "exit_utc": "2026-08-26T23:45:00+00:00",
+            "side": -1,
+            "entry_price": 102.34,
+            "exit_price": 101.32,
+            "pnl": 0.09438060000000104,
+            "hold_bars": 0.0,
+            "exit_reason": "target_entry_bar"
+          }
+        ]
+      },
+      "fills": {
+        "n_live_fills": 6,
+        "n_bt_trades": 11,
+        "pairs": [
+          {
+            "live": {
+              "utc": "2026-08-13T05:15:03Z",
+              "bar_ts_ms": 1786597200000,
+              "side": "Sell",
+              "limit_px": 76.57328227937278,
+              "avg_price": 76.57,
+              "status": "Filled",
+              "entry_bar_ms": null,
+              "max_hold_deadline_ms": null
+            },
+            "bt": {
+              "entry_ts_ms": 1786599000000,
+              "entry_utc": "2026-08-13T05:30:00+00:00",
+              "exit_ts_ms": 1786604400000,
+              "exit_utc": "2026-08-13T07:00:00+00:00",
+              "side": -1,
+              "entry_price": 76.58,
+              "exit_price": 76.49,
+              "pnl": 0.003261450000000341,
+              "hold_bars": 6.0,
+              "exit_reason": "max_hold"
+            },
+            "entry_slip_frac": 0.00013058239749288476,
+            "entry_slip_ok": true,
+            "same_side": true,
+            "dt_ms": 1800000
+          },
+          {
+            "live": {
+              "utc": "2026-08-16T21:00:37Z",
+              "bar_ts_ms": 1786913100000,
+              "side": "Buy",
+              "limit_px": 74.59166385435239,
+              "avg_price": 74.59,
+              "status": "Filled",
+              "entry_bar_ms": null,
+              "max_hold_deadline_ms": null
+            },
+            "bt": {
+              "entry_ts_ms": 1786915800000,
+              "entry_utc": "2026-08-16T21:30:00+00:00",
+              "exit_ts_ms": 1786921200000,
+              "exit_utc": "2026-08-16T23:00:00+00:00",
+              "side": 1,
+              "entry_price": 74.64,
+              "exit_price": 74.47,
+              "pnl": -0.022588650000000172,
+              "hold_bars": 6.0,
+              "exit_reason": "max_hold"
+            },
+            "entry_slip_frac": 0.0006698821007502299,
+            "entry_slip_ok": true,
+            "same_side": true,
+            "dt_ms": 2700000
+          },
+          {
+            "live": {
+              "utc": "2026-08-19T14:15:04Z",
+              "bar_ts_ms": 1787148000000,
+              "side": "Sell",
+              "limit_px": 79.14007769662261,
+              "avg_price": 79.14,
+              "status": "Filled",
+              "entry_bar_ms": 1787150700000,
+              "max_hold_deadline_ms": 1787156100000
+            },
+            "bt": {
+              "entry_ts_ms": 1787150700000,
+              "entry_utc": "2026-08-19T14:45:00+00:00",
+              "exit_ts_ms": 1787150700000,
+              "exit_utc": "2026-08-19T14:45:00+00:00",
+              "side": -1,
+              "entry_price": 79.15,
+              "exit_price": 79.94,
+              "pnl": -0.08497969999999921,
+              "hold_bars": 0.0,
+              "exit_reason": "stop_entry_bar"
+            },
+            "entry_slip_frac": 0.00012634238787119538,
+            "entry_slip_ok": true,
+            "same_side": true,
+            "dt_ms": 2700000
+          },
+          {
+            "live": {
+              "utc": "2026-08-19T15:00:06Z",
+              "bar_ts_ms": 1787150700000,
+              "side": "Sell",
+              "limit_px": 81.83668389496982,
+              "avg_price": 81.84,
+              "status": "FilledViaPosition",
+              "entry_bar_ms": 1787151600000,
+              "max_hold_deadline_ms": 1787157000000
+            },
+            "bt": {
+              "entry_ts_ms": 1787151600000,
+              "entry_utc": "2026-08-19T15:00:00+00:00",
+              "exit_ts_ms": 1787151600000,
+              "exit_utc": "2026-08-19T15:00:00+00:00",
+              "side": -1,
+              "entry_price": 81.84,
+              "exit_price": 81.02,
+              "pnl": 0.07590710000000074,
+              "hold_bars": 0.0,
+              "exit_reason": "target_entry_bar"
+            },
+            "entry_slip_frac": 0.0,
+            "entry_slip_ok": true,
+            "same_side": true,
+            "dt_ms": 900000
+          },
+          {
+            "live": {
+              "utc": "2026-08-26T22:15:08Z",
+              "bar_ts_ms": 1787781600000,
+              "side": "Sell",
+              "limit_px": 99.36506568147271,
+              "avg_price": 99.37,
+              "status": "Filled",
+              "entry_bar_ms": 1787782500000,
+              "max_hold_deadline_ms": 1787787900000
+            },
+            "bt": {
+              "entry_ts_ms": 1787782500000,
+              "entry_utc": "2026-08-26T22:15:00+00:00",
+              "exit_ts_ms": 1787782500000,
+              "exit_utc": "2026-08-26T22:15:00+00:00",
+              "side": -1,
+              "entry_price": 99.37,
+              "exit_price": 100.36,
+              "pnl": -0.1065071999999995,
+              "hold_bars": 0.0,
+              "exit_reason": "stop_entry_bar"
+            },
+            "entry_slip_frac": 0.0,
+            "entry_slip_ok": true,
+            "same_side": true,
+            "dt_ms": 900000
+          },
+          {
+            "live": {
+              "utc": "2026-08-26T23:45:05Z",
+              "bar_ts_ms": 1787787000000,
+              "side": "Sell",
+              "limit_px": 102.33973570585836,
+              "avg_price": 102.34,
+              "status": "Filled",
+              "entry_bar_ms": 1787787900000,
+              "max_hold_deadline_ms": 1787793300000
+            },
+            "bt": {
+              "entry_ts_ms": 1787787900000,
+              "entry_utc": "2026-08-26T23:45:00+00:00",
+              "exit_ts_ms": 1787787900000,
+              "exit_utc": "2026-08-26T23:45:00+00:00",
+              "side": -1,
+              "entry_price": 102.34,
+              "exit_price": 101.32,
+              "pnl": 0.09438060000000104,
+              "hold_bars": 0.0,
+              "exit_reason": "target_entry_bar"
+            },
+            "entry_slip_frac": 0.0,
+            "entry_slip_ok": true,
+            "same_side": true,
+            "dt_ms": 900000
+          }
+        ],
+        "extra_bt_trades": [
+          {
+            "entry_ts_ms": 1786893300000,
+            "entry_utc": "2026-08-16T15:15:00+00:00",
+            "exit_ts_ms": 1786898700000,
+            "exit_utc": "2026-08-16T16:45:00+00:00",
+            "side": -1,
+            "entry_price": 75.49,
+            "exit_price": 75.52,
+            "pnl": -0.008663400000000114,
+            "hold_bars": 6.0,
+            "exit_reason": "max_hold"
+          },
+          {
+            "entry_ts_ms": 1787143500000,
+            "entry_utc": "2026-08-19T12:45:00+00:00",
+            "exit_ts_ms": 1787148900000,
+            "exit_utc": "2026-08-19T14:15:00+00:00",
+            "side": -1,
+            "entry_price": 78.75,
+            "exit_price": 78.58,
+            "pnl": 0.011103100000000171,
+            "hold_bars": 6.0,
+            "exit_reason": "max_hold"
+          },
+          {
+            "entry_ts_ms": 1787301900000,
+            "entry_utc": "2026-08-21T08:45:00+00:00",
+            "exit_ts_ms": 1787301900000,
+            "exit_utc": "2026-08-21T08:45:00+00:00",
+            "side": -1,
+            "entry_price": 93.09,
+            "exit_price": 92.16,
+            "pnl": 0.0860694000000007,
+            "hold_bars": 0.0,
+            "exit_reason": "target_entry_bar"
+          },
+          {
+            "entry_ts_ms": 1787368500000,
+            "entry_utc": "2026-08-22T03:15:00+00:00",
+            "exit_ts_ms": 1787372100000,
+            "exit_utc": "2026-08-22T04:15:00+00:00",
+            "side": -1,
+            "entry_price": 96.74,
+            "exit_price": 97.71,
+            "pnl": -0.1043088499999999,
+            "hold_bars": 4.0,
+            "exit_reason": "stop"
+          },
+          {
+            "entry_ts_ms": 1787435100000,
+            "entry_utc": "2026-08-22T21:45:00+00:00",
+            "exit_ts_ms": 1787436000000,
+            "exit_utc": "2026-08-22T22:00:00+00:00",
+            "side": 1,
+            "entry_price": 92.72,
+            "exit_price": 93.65,
+            "pnl": 0.08599485000000069,
+            "hold_bars": 1.0,
+            "exit_reason": "target"
+          }
+        ],
+        "n_extra_bt": 5
+      },
+      "missed": {
+        "n_replay_bt_enter_live_not": 0,
+        "n_replay_live_enter_bt_not": 0,
+        "n_bt_enter_no_live_row": 4,
+        "n_live_enter_unfilled": 45,
+        "n_extra_bt_trades": 5,
+        "n_missed_signals": 4,
+        "n_missed_trades": 50,
+        "replay_bt_enter_live_not": [],
+        "replay_live_enter_bt_not": [],
+        "bt_enter_no_live_row": [
+          "2026-08-12T09:15:00+00:00",
+          "2026-08-12T10:00:00+00:00",
+          "2026-08-12T12:15:00+00:00",
+          "2026-08-12T12:30:00+00:00"
+        ],
+        "unfilled_breakdown": {
+          "cancelled_data_unsafe": 26,
+          "cancelled": 13,
+          "no_result": 5,
+          "place_fail": 1
+        },
+        "extra_bt_trades": [
+          {
+            "entry_ts_ms": 1786893300000,
+            "entry_utc": "2026-08-16T15:15:00+00:00",
+            "exit_ts_ms": 1786898700000,
+            "exit_utc": "2026-08-16T16:45:00+00:00",
+            "side": -1,
+            "entry_price": 75.49,
+            "exit_price": 75.52,
+            "pnl": -0.008663400000000114,
+            "hold_bars": 6.0,
+            "exit_reason": "max_hold"
+          },
+          {
+            "entry_ts_ms": 1787143500000,
+            "entry_utc": "2026-08-19T12:45:00+00:00",
+            "exit_ts_ms": 1787148900000,
+            "exit_utc": "2026-08-19T14:15:00+00:00",
+            "side": -1,
+            "entry_price": 78.75,
+            "exit_price": 78.58,
+            "pnl": 0.011103100000000171,
+            "hold_bars": 6.0,
+            "exit_reason": "max_hold"
+          },
+          {
+            "entry_ts_ms": 1787301900000,
+            "entry_utc": "2026-08-21T08:45:00+00:00",
+            "exit_ts_ms": 1787301900000,
+            "exit_utc": "2026-08-21T08:45:00+00:00",
+            "side": -1,
+            "entry_price": 93.09,
+            "exit_price": 92.16,
+            "pnl": 0.0860694000000007,
+            "hold_bars": 0.0,
+            "exit_reason": "target_entry_bar"
+          },
+          {
+            "entry_ts_ms": 1787368500000,
+            "entry_utc": "2026-08-22T03:15:00+00:00",
+            "exit_ts_ms": 1787372100000,
+            "exit_utc": "2026-08-22T04:15:00+00:00",
+            "side": -1,
+            "entry_price": 96.74,
+            "exit_price": 97.71,
+            "pnl": -0.1043088499999999,
+            "hold_bars": 4.0,
+            "exit_reason": "stop"
+          },
+          {
+            "entry_ts_ms": 1787435100000,
+            "entry_utc": "2026-08-22T21:45:00+00:00",
+            "exit_ts_ms": 1787436000000,
+            "exit_utc": "2026-08-22T22:00:00+00:00",
+            "side": 1,
+            "entry_price": 92.72,
+            "exit_price": 93.65,
+            "pnl": 0.08599485000000069,
+            "hold_bars": 1.0,
+            "exit_reason": "target"
+          }
+        ]
+      },
+      "fill_ledger_n": 4,
+      "fill_ledger_events": [
+        {
+          "event": "entry_filled",
+          "created_utc": "2026-08-26T22:16:10Z"
+        },
+        {
+          "event": "exchange_flat",
+          "created_utc": "2026-08-26T22:30:08Z"
+        },
+        {
+          "event": "entry_filled",
+          "created_utc": "2026-08-26T23:56:07Z"
+        },
+        {
+          "event": "exchange_flat",
+          "created_utc": "2026-08-27T00:15:04Z"
+        }
+      ]
+    },
+    {
+      "name": "eth",
+      "unit": "llm2-pivot-eth-p75-ctrl-atr-w4",
+      "symbol": "ETHUSDT",
+      "candles": {
+        "n_vps_bars": 1257,
+        "warehouse_missing": 0,
+        "ohlc_mismatch": 0,
+        "match_rate": 1.0,
+        "vps_tip_utc": "2026-08-27T02:15:00+00:00",
+        "warehouse_tip_utc": "2026-08-27T02:15:00+00:00",
+        "pass": true,
+        "samples": []
+      },
+      "replay": {
+        "n_live_decisions": 1398,
+        "n_replayed": 1398,
+        "n_tip_bound_recompute": 236,
+        "action_match": 1398,
+        "p_any_match": 1397,
+        "feature_match": 691,
+        "action_match_rate": 1.0,
+        "p_any_match_rate": 0.9992846924177397,
+        "feature_match_rate": 0.49427753934191704,
+        "flips": [
+          {
+            "utc": "2026-08-12T15:15:00+00:00",
+            "live_action": "FLAT",
+            "bt_action": "FLAT",
+            "live_p": 0.16109422492401215,
+            "bt_p": 0.1402439024390244,
+            "live_side": "Buy",
+            "bt_side": "Sell",
+            "tip_bound": false
+          }
+        ],
+        "feature_diffs": [
+          {
+            "utc": "2026-08-19T05:45:00+00:00",
+            "col": "vol_z",
+            "live": -0.26496510705735576,
+            "bt": -0.26161891161130296
+          },
+          {
+            "utc": "2026-08-19T06:45:00+00:00",
+            "col": "vol_z",
+            "live": 3.2692208526955002,
+            "bt": 3.282188715632416
+          },
+          {
+            "utc": "2026-08-19T07:30:00+00:00",
+            "col": "vol_z",
+            "live": 1.346421027124381,
+            "bt": 1.3479387653530166
+          },
+          {
+            "utc": "2026-08-19T08:30:00+00:00",
+            "col": "vol_z",
+            "live": 5.405923812466578,
+            "bt": 5.4064293628915445
+          },
+          {
+            "utc": "2026-08-19T12:45:00+00:00",
+            "col": "vol_z",
+            "live": 5.0695589399511185,
+            "bt": 5.069560334780153
+          },
+          {
+            "utc": "2026-08-19T18:30:00+00:00",
+            "col": "vol_z",
+            "live": -0.48591363417895167,
+            "bt": -0.48576640150590933
+          },
+          {
+            "utc": "2026-08-19T21:15:00+00:00",
+            "col": "vol_z",
+            "live": 0.37584880408683535,
+            "bt": 0.37609372494374527
+          },
+          {
+            "utc": "2026-08-19T23:30:00+00:00",
+            "col": "vol_z",
+            "live": -0.5758279922131623,
+            "bt": -0.5757913446548416
+          }
+        ],
+        "n_feature_compared": 765,
+        "pass": true
+      },
+      "live_counts": {
+        "ENTER_LIMIT": 12,
+        "filled": 1,
+        "cancelled_data_unsafe": 7,
+        "cancelled": 4,
+        "no_result": 0,
+        "place_fail": 0
+      },
+      "materialize": {
+        "n_intent": 12,
+        "n_filled_path": 2,
+        "n_no_touch": 10,
+        "n_adverse_cancel": 0,
+        "n_bad": 0,
+        "fill_rate": 0.16666666666666666,
+        "work_bars_default": 4,
+        "work_bars_mean_used": 4.0,
+        "adverse_mode": null,
+        "adverse_pct": 0.005,
+        "adverse_atr_mult": 1.0
+      },
+      "bt": {
+        "status": "RAN",
+        "n_trades": 2,
+        "profit_factor": Infinity,
+        "win_rate": 1.0,
+        "net_pnl": 0.09932169999774487,
+        "trades": [
+          {
+            "entry_ts_ms": 1786897800000,
+            "entry_utc": "2026-08-16T16:30:00+00:00",
+            "exit_ts_ms": 1786903200000,
+            "exit_utc": "2026-08-16T18:00:00+00:00",
+            "side": -1,
+            "entry_price": 1891.9,
+            "exit_price": 1884.19,
+            "pnl": 0.06295315500000036,
+            "hold_bars": 6.0,
+            "exit_reason": "max_hold"
+          },
+          {
+            "entry_ts_ms": 1787143500000,
+            "entry_utc": "2026-08-19T12:45:00+00:00",
+            "exit_ts_ms": 1787148900000,
+            "exit_utc": "2026-08-19T14:15:00+00:00",
+            "side": -1,
+            "entry_price": 1941.26,
+            "exit_price": 1936.17,
+            "pnl": 0.03636854499999918,
+            "hold_bars": 6.0,
+            "exit_reason": "max_hold"
+          }
+        ]
+      },
+      "fills": {
+        "n_live_fills": 1,
+        "n_bt_trades": 2,
+        "pairs": [
+          {
+            "live": {
+              "utc": "2026-08-19T12:45:05Z",
+              "bar_ts_ms": 1787142600000,
+              "side": "Sell",
+              "limit_px": 1941.2528105436356,
+              "avg_price": 1941.25,
+              "status": "Filled",
+              "entry_bar_ms": 1787143500000,
+              "max_hold_deadline_ms": 1787148900000
+            },
+            "bt": {
+              "entry_ts_ms": 1787143500000,
+              "entry_utc": "2026-08-19T12:45:00+00:00",
+              "exit_ts_ms": 1787148900000,
+              "exit_utc": "2026-08-19T14:15:00+00:00",
+              "side": -1,
+              "entry_price": 1941.26,
+              "exit_price": 1936.17,
+              "pnl": 0.03636854499999918,
+              "hold_bars": 6.0,
+              "exit_reason": "max_hold"
+            },
+            "entry_slip_frac": 5.1512934897906025e-06,
+            "entry_slip_ok": true,
+            "same_side": true,
+            "dt_ms": 900000
+          }
+        ],
+        "extra_bt_trades": [
+          {
+            "entry_ts_ms": 1786897800000,
+            "entry_utc": "2026-08-16T16:30:00+00:00",
+            "exit_ts_ms": 1786903200000,
+            "exit_utc": "2026-08-16T18:00:00+00:00",
+            "side": -1,
+            "entry_price": 1891.9,
+            "exit_price": 1884.19,
+            "pnl": 0.06295315500000036,
+            "hold_bars": 6.0,
+            "exit_reason": "max_hold"
+          }
+        ],
+        "n_extra_bt": 1
+      },
+      "missed": {
+        "n_replay_bt_enter_live_not": 0,
+        "n_replay_live_enter_bt_not": 0,
+        "n_bt_enter_no_live_row": 2,
+        "n_live_enter_unfilled": 11,
+        "n_extra_bt_trades": 1,
+        "n_missed_signals": 2,
+        "n_missed_trades": 12,
+        "replay_bt_enter_live_not": [],
+        "replay_live_enter_bt_not": [],
+        "bt_enter_no_live_row": [
+          "2026-08-12T09:15:00+00:00",
+          "2026-08-12T12:15:00+00:00"
+        ],
+        "unfilled_breakdown": {
+          "cancelled_data_unsafe": 7,
+          "cancelled": 4,
+          "no_result": 0,
+          "place_fail": 0
+        },
+        "extra_bt_trades": [
+          {
+            "entry_ts_ms": 1786897800000,
+            "entry_utc": "2026-08-16T16:30:00+00:00",
+            "exit_ts_ms": 1786903200000,
+            "exit_utc": "2026-08-16T18:00:00+00:00",
+            "side": -1,
+            "entry_price": 1891.9,
+            "exit_price": 1884.19,
+            "pnl": 0.06295315500000036,
+            "hold_bars": 6.0,
+            "exit_reason": "max_hold"
+          }
+        ]
+      },
+      "fill_ledger_n": 0,
+      "fill_ledger_events": []
+    }
+  ],
+  "fix_notes": [
+    "Did not change take-profit, stop, gate, or work/hold. Those are frozen pack values.",
+    "Did not disable the live-data-001 fail-closed gate. Extra backtest trades vs cancelled-data-unsafe lives are expected.",
+    "Refreshed warehouse Last+Mark locally (Binance REST reachable) and also fetched on live-network-1 then merged.",
+    "Mark stored as source=binance_mark so it cannot overwrite Last (same timestamp primary key).",
+    "Live collector still has zero 1-minute rows. Research 1-minute stays in the local warehouse only.",
+    "Deployed pivot_fills + 2-second fill poll on live-network-1 (2026-08-20T21:04:07Z). No fills in the three post-restart flat bars."
+  ]
+}

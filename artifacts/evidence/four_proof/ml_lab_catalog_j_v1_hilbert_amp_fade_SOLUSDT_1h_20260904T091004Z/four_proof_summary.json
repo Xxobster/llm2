@@ -1,0 +1,23 @@
+{
+  "artifact_dir": "D:\\projects\\LLM2\\artifacts\\evidence\\four_proof\\ml_lab_catalog_j_v1_hilbert_amp_fade_SOLUSDT_1h_20260904T091004Z",
+  "artifact_hashes": {
+    "builder_responsiveness": "072c68aafe0c09fc11db35ac0f5858e09d7c745fa86f8dba5a2ff420a35e955c",
+    "layer_a_pred_identity": "70c5782e1b36797e0ef736542653f78fc58c52945c4803bfe2d849846b683311",
+    "no_live_feature_fill": "6c812d39ab1acbeb88b9084c59b7bdb6d51995f7baf865968dcda098910fd864",
+    "recompute_prefix": "c1629a4ae652a5f02a4571e55106741d83d7afe59c3e537198a4604fa64860c0"
+  },
+  "idea": "hilbert_amp_fade",
+  "ok": true,
+  "proofs_ok": {
+    "builder_responsiveness": true,
+    "layer_a_pred_identity": true,
+    "no_live_feature_fill": true,
+    "recompute_prefix": true
+  },
+  "readiness": "RESEARCH_ONLY (gate is causality, not performance)",
+  "rule": "FOUR_PROOF_GATE_V1",
+  "space": "ml_lab_catalog_j_v1",
+  "stamp": "20260904T091004Z",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h"
+}

@@ -1,0 +1,56 @@
+{
+  "experiment_id": "live_window_parity_same_geometry",
+  "evidence_class": "LIVE_WINDOW_PARITY_DIAGNOSTIC_CONTAMINATED",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "principal_blocker": "Live ETH single-book pred_mean/side do not reproduce from current warehouse or VPS indicator slice on the same bar timestamps (model hash identical). Feature path recent_only vs full warehouse matches 100%. Entry geometry: live blocked by open Buy; same-geometry BT uses max 1 position.",
+  "ssh_185": {
+    "solution": "Host alias ln3 in ~/.ssh/config → 185.203.119.52 IdentityFile ~/.ssh/ln3",
+    "units_active": [
+      "llm2-structure-eth-k5-double3h-p75-v1",
+      "llm2-structure-eth-multitrade-p75-v1"
+    ],
+    "k5_p75_decisions": 2,
+    "mt_p75_decisions": 0
+  },
+  "eth_single_live_window": {
+    "start": "2026-08-03T16:00:00+00:00",
+    "end": "2026-08-05T08:00:00+00:00",
+    "n_decisions": 41,
+    "live_entry_ok_bars": 0,
+    "live_position_already_open_bars": 40,
+    "exchange_position": "ETHUSDT Buy 0.01 @ 1867.93 (Xxobster7)"
+  },
+  "indicator_parity": {
+    "full_warehouse_vs_recent_only_on_live_bars": {
+      "bar_match_rate": 1.0,
+      "max_abs_diff": 0.0,
+      "verdict": "PASS"
+    },
+    "local_warehouse_vs_vps_slice_features": {
+      "bars_with_any_column_mismatch": 41,
+      "largest_typical_diff_cols": ["sr_asymmetry", "dist_support_pct_vol", "sr_asymmetry_4h"],
+      "verdict": "DIFF — slice tip vs full warehouse not identical on all columns"
+    },
+    "live_pred_mean_vs_recompute_same_model": {
+      "model_sha256_prefix": "7e826c63aa8537fd0cd358c5f65556e7",
+      "model_match_local_vps": true,
+      "side_match_rate_vs_local_recompute": 0.4146,
+      "side_match_rate_vs_vps_slice_recompute": 0.4878,
+      "pred_mean_abs_diff_median_vs_local": 0.5115,
+      "pred_mean_abs_diff_median_vs_vps_slice": 0.5207,
+      "verdict": "FAIL — live ledger predictions not reproducible from current slice/warehouse features"
+    }
+  },
+  "entry_geometry_same_conditions": {
+    "bt_max_positions_per_symbol": 1,
+    "bt_n_trades_in_window": 6,
+    "bt_skip_position_limit": 27,
+    "note": "Closer than unconstrained 13-trade replay, but BT still starts flat while live began with an already-open Buy, so trade counts still differ."
+  },
+  "artifacts": {
+    "live_window_parity": "artifacts/reports/live_window_parity_ETHUSDT_latest.json",
+    "live_vs_vps_slice": "artifacts/reports/live_vs_vps_slice_vs_local_ETHUSDT.json",
+    "decision_audit_ln1": "artifacts/reports/llm2_live_decision_audit_ln1.json",
+    "decision_audit_ln3": "artifacts/reports/llm2_live_decision_audit_ln3.json"
+  }
+}

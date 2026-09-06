@@ -1,0 +1,1069 @@
+{
+  "generation_id": "pivot_fleet_improve_003",
+  "stamp": "20260813T043855Z",
+  "readiness_max": "RESEARCH_ONLY",
+  "not_live": true,
+  "freeze_path": "D:\\projects\\LLM2\\artifacts\\reports\\pivot_forecast\\fleet_improve_003_freeze_20260813T043855Z.json",
+  "leakage": [
+    {
+      "symbol": "BTCUSDT",
+      "pack": "level_vsa",
+      "tf": "15m",
+      "status": "PASS"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "pack": "level_strong",
+      "tf": "15m",
+      "status": "PASS"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "pack": "level_vsa",
+      "tf": "1h",
+      "status": "PASS"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "pack": "level_vsa",
+      "tf": "15m",
+      "status": "PASS"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "pack": "level_strong",
+      "tf": "15m",
+      "status": "PASS"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "pack": "level_vsa",
+      "tf": "1h",
+      "status": "PASS"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "pack": "level_vsa",
+      "tf": "15m",
+      "status": "PASS"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "pack": "level_strong",
+      "tf": "15m",
+      "status": "PASS"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "pack": "level_vsa",
+      "tf": "1h",
+      "status": "PASS"
+    }
+  ],
+  "fleet": {
+    "BTCUSDT": {
+      "tag": "BTC_p80_w4",
+      "n_intent": 814,
+      "fill_pct": 0.3415233415233415,
+      "fill_stats": {
+        "n_intent": 814,
+        "n_filled_path": 278,
+        "n_no_touch": 536,
+        "n_adverse_cancel": 0,
+        "n_bad": 0,
+        "fill_rate": 0.3415233415233415,
+        "work_bars_default": 4,
+        "work_bars_mean_used": 4.0,
+        "adverse_mode": null,
+        "adverse_pct": 0.005,
+        "adverse_atr_mult": 1.0
+      },
+      "status": "RAN",
+      "n_trades": 234,
+      "profit_factor": 1.2409694105427507,
+      "win_rate": 0.5598290598290598,
+      "net_pnl": 8.656281959996704,
+      "expectancy": 0.036992657948717644,
+      "entry_bar_exit_rate": 0.14957264957264957,
+      "expectancy_intent_all": 0.010634253022108974
+    },
+    "ETHUSDT": {
+      "tag": "ETH_q50_w4",
+      "n_intent": 2696,
+      "fill_pct": 0.3698071216617211,
+      "fill_stats": {
+        "n_intent": 2696,
+        "n_filled_path": 997,
+        "n_no_touch": 1699,
+        "n_adverse_cancel": 0,
+        "n_bad": 0,
+        "fill_rate": 0.3698071216617211,
+        "work_bars_default": 4,
+        "work_bars_mean_used": 4.0,
+        "adverse_mode": null,
+        "adverse_pct": 0.005,
+        "adverse_atr_mult": 1.0
+      },
+      "status": "RAN",
+      "n_trades": 812,
+      "profit_factor": 1.6194070885035619,
+      "win_rate": 0.646551724137931,
+      "net_pnl": 40.88669681500869,
+      "expectancy": 0.05035307489532017,
+      "entry_bar_exit_rate": 0.27586206896551724,
+      "expectancy_intent_all": 0.01516568872960263
+    },
+    "SOLUSDT": {
+      "tag": "SOL_atr_clip_w5",
+      "n_intent": 2512,
+      "fill_pct": 0.4263535031847134,
+      "fill_stats": {
+        "n_intent": 2512,
+        "n_filled_path": 1071,
+        "n_no_touch": 1441,
+        "n_adverse_cancel": 0,
+        "n_bad": 0,
+        "fill_rate": 0.4263535031847134,
+        "work_bars_default": 5,
+        "work_bars_mean_used": 5.0,
+        "adverse_mode": null,
+        "adverse_pct": 0.005,
+        "adverse_atr_mult": 1.0
+      },
+      "status": "RAN",
+      "n_trades": 859,
+      "profit_factor": 1.927755726147096,
+      "win_rate": 0.6647264260768335,
+      "net_pnl": 29.04073225000684,
+      "expectancy": 0.033807604481955786,
+      "entry_bar_exit_rate": 0.4121071012805588,
+      "expectancy_intent_all": 0.011560801054939028
+    }
+  },
+  "symbols": {
+    "BTCUSDT": {
+      "fleet_tag": "BTC_p80_w4",
+      "diagnostics": {
+        "frac_any": 0.1570715407222513,
+        "pr_auc_lift": 0.12288692663650638,
+        "ece": 0.0071178904188459015,
+        "level_p90": 0.014932979791227858
+      },
+      "diagnostics_level_strong": {
+        "frac_any": 0.1570715407222513,
+        "pr_auc_lift": 0.12257581856649488,
+        "ece": 0.006361433510290562,
+        "level_p90": 0.01508607554631157
+      },
+      "diagnostics_1h": {
+        "frac_any": 0.26723070029783086,
+        "pr_auc_lift": 0.08141060326567634,
+        "ece": 0.01031541556736404,
+        "level_p90": 0.018494679458235998
+      },
+      "thr_map": {
+        "BTC_p75_w4": 0.44680851063829785,
+        "BTC_p76_w4": 0.44680851063829785,
+        "BTC_p77_w4": 0.44680851063829785,
+        "BTC_p78_w4": 0.44680851063829785,
+        "BTC_p79_w4": 0.44680851063829785,
+        "BTC_p80_w4": 0.46153846153846156
+      },
+      "arms": [
+        {
+          "tag": "BTC_p75_w4",
+          "n_intent": 1107,
+          "fill_pct": 0.3152664859981933,
+          "fill_stats": {
+            "n_intent": 1107,
+            "n_filled_path": 349,
+            "n_no_touch": 758,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.3152664859981933,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 289,
+          "profit_factor": 1.2485646281988372,
+          "win_rate": 0.5570934256055363,
+          "net_pnl": 11.62538707499698,
+          "expectancy": 0.040226252854671005,
+          "entry_bar_exit_rate": 0.14878892733564014,
+          "expectancy_intent_all": 0.01050170467479402
+        },
+        {
+          "tag": "BTC_p76_w4",
+          "n_intent": 1107,
+          "fill_pct": 0.3152664859981933,
+          "fill_stats": {
+            "n_intent": 1107,
+            "n_filled_path": 349,
+            "n_no_touch": 758,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.3152664859981933,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 289,
+          "profit_factor": 1.2485646281988372,
+          "win_rate": 0.5570934256055363,
+          "net_pnl": 11.62538707499698,
+          "expectancy": 0.040226252854671005,
+          "entry_bar_exit_rate": 0.14878892733564014,
+          "expectancy_intent_all": 0.01050170467479402
+        },
+        {
+          "tag": "BTC_p77_w4",
+          "n_intent": 1107,
+          "fill_pct": 0.3152664859981933,
+          "fill_stats": {
+            "n_intent": 1107,
+            "n_filled_path": 349,
+            "n_no_touch": 758,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.3152664859981933,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 289,
+          "profit_factor": 1.2485646281988372,
+          "win_rate": 0.5570934256055363,
+          "net_pnl": 11.62538707499698,
+          "expectancy": 0.040226252854671005,
+          "entry_bar_exit_rate": 0.14878892733564014,
+          "expectancy_intent_all": 0.01050170467479402
+        },
+        {
+          "tag": "BTC_p78_w4",
+          "n_intent": 1107,
+          "fill_pct": 0.3152664859981933,
+          "fill_stats": {
+            "n_intent": 1107,
+            "n_filled_path": 349,
+            "n_no_touch": 758,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.3152664859981933,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 289,
+          "profit_factor": 1.2485646281988372,
+          "win_rate": 0.5570934256055363,
+          "net_pnl": 11.62538707499698,
+          "expectancy": 0.040226252854671005,
+          "entry_bar_exit_rate": 0.14878892733564014,
+          "expectancy_intent_all": 0.01050170467479402
+        },
+        {
+          "tag": "BTC_p79_w4",
+          "n_intent": 1107,
+          "fill_pct": 0.3152664859981933,
+          "fill_stats": {
+            "n_intent": 1107,
+            "n_filled_path": 349,
+            "n_no_touch": 758,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.3152664859981933,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 289,
+          "profit_factor": 1.2485646281988372,
+          "win_rate": 0.5570934256055363,
+          "net_pnl": 11.62538707499698,
+          "expectancy": 0.040226252854671005,
+          "entry_bar_exit_rate": 0.14878892733564014,
+          "expectancy_intent_all": 0.01050170467479402
+        },
+        {
+          "tag": "BTC_p80_w4",
+          "n_intent": 814,
+          "fill_pct": 0.3415233415233415,
+          "fill_stats": {
+            "n_intent": 814,
+            "n_filled_path": 278,
+            "n_no_touch": 536,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.3415233415233415,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 234,
+          "profit_factor": 1.2409694105427507,
+          "win_rate": 0.5598290598290598,
+          "net_pnl": 8.656281959996704,
+          "expectancy": 0.036992657948717644,
+          "entry_bar_exit_rate": 0.14957264957264957,
+          "expectancy_intent_all": 0.010634253022108974
+        },
+        {
+          "tag": "BTC_level_strong_p80_w4",
+          "n_intent": 1346,
+          "fill_pct": 0.3551263001485884,
+          "fill_stats": {
+            "n_intent": 1346,
+            "n_filled_path": 478,
+            "n_no_touch": 868,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.3551263001485884,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 374,
+          "profit_factor": 0.8812571175016677,
+          "win_rate": 0.5187165775401069,
+          "net_pnl": -8.350583435001681,
+          "expectancy": -0.022327763195187124,
+          "entry_bar_exit_rate": 0.12566844919786097,
+          "expectancy_intent_all": -0.0062039995802389905
+        },
+        {
+          "tag": "BTC_1h_p75_w2",
+          "n_intent": 5348,
+          "fill_pct": 0.34480179506357517,
+          "fill_stats": {
+            "n_intent": 5348,
+            "n_filled_path": 1844,
+            "n_no_touch": 3504,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.34480179506357517,
+            "work_bars_default": 2,
+            "work_bars_mean_used": 2.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 1499,
+          "profit_factor": 1.7343037296149624,
+          "win_rate": 0.6417611741160774,
+          "net_pnl": 173.52947444498022,
+          "expectancy": 0.11576349195797205,
+          "entry_bar_exit_rate": 0.36624416277518346,
+          "expectancy_intent_all": 0.032447545707737516
+        },
+        {
+          "tag": "BTC_1h_p80_w2",
+          "n_intent": 1197,
+          "fill_pct": 0.3283208020050125,
+          "fill_stats": {
+            "n_intent": 1197,
+            "n_filled_path": 393,
+            "n_no_touch": 804,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.3283208020050125,
+            "work_bars_default": 2,
+            "work_bars_mean_used": 2.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 362,
+          "profit_factor": 2.2185577568014256,
+          "win_rate": 0.7154696132596685,
+          "net_pnl": 57.8591999399996,
+          "expectancy": 0.15983204403314893,
+          "entry_bar_exit_rate": 0.48066298342541436,
+          "expectancy_intent_all": 0.04833684205513751
+        }
+      ],
+      "ranking_by_intent_expectancy": [
+        {
+          "rank": 1,
+          "tag": "BTC_1h_p80_w2",
+          "expectancy_intent_all": 0.04833684205513751,
+          "profit_factor": 2.2185577568014256,
+          "n_trades": 362,
+          "fill_pct": 0.3283208020050125,
+          "win_rate": 0.7154696132596685,
+          "net_pnl": 57.8591999399996,
+          "entry_bar_exit_rate": 0.48066298342541436
+        },
+        {
+          "rank": 2,
+          "tag": "BTC_1h_p75_w2",
+          "expectancy_intent_all": 0.032447545707737516,
+          "profit_factor": 1.7343037296149624,
+          "n_trades": 1499,
+          "fill_pct": 0.34480179506357517,
+          "win_rate": 0.6417611741160774,
+          "net_pnl": 173.52947444498022,
+          "entry_bar_exit_rate": 0.36624416277518346
+        },
+        {
+          "rank": 3,
+          "tag": "BTC_p80_w4",
+          "expectancy_intent_all": 0.010634253022108974,
+          "profit_factor": 1.2409694105427507,
+          "n_trades": 234,
+          "fill_pct": 0.3415233415233415,
+          "win_rate": 0.5598290598290598,
+          "net_pnl": 8.656281959996704,
+          "entry_bar_exit_rate": 0.14957264957264957
+        },
+        {
+          "rank": 4,
+          "tag": "BTC_p75_w4",
+          "expectancy_intent_all": 0.01050170467479402,
+          "profit_factor": 1.2485646281988372,
+          "n_trades": 289,
+          "fill_pct": 0.3152664859981933,
+          "win_rate": 0.5570934256055363,
+          "net_pnl": 11.62538707499698,
+          "entry_bar_exit_rate": 0.14878892733564014
+        },
+        {
+          "rank": 5,
+          "tag": "BTC_p76_w4",
+          "expectancy_intent_all": 0.01050170467479402,
+          "profit_factor": 1.2485646281988372,
+          "n_trades": 289,
+          "fill_pct": 0.3152664859981933,
+          "win_rate": 0.5570934256055363,
+          "net_pnl": 11.62538707499698,
+          "entry_bar_exit_rate": 0.14878892733564014
+        },
+        {
+          "rank": 6,
+          "tag": "BTC_p77_w4",
+          "expectancy_intent_all": 0.01050170467479402,
+          "profit_factor": 1.2485646281988372,
+          "n_trades": 289,
+          "fill_pct": 0.3152664859981933,
+          "win_rate": 0.5570934256055363,
+          "net_pnl": 11.62538707499698,
+          "entry_bar_exit_rate": 0.14878892733564014
+        },
+        {
+          "rank": 7,
+          "tag": "BTC_p78_w4",
+          "expectancy_intent_all": 0.01050170467479402,
+          "profit_factor": 1.2485646281988372,
+          "n_trades": 289,
+          "fill_pct": 0.3152664859981933,
+          "win_rate": 0.5570934256055363,
+          "net_pnl": 11.62538707499698,
+          "entry_bar_exit_rate": 0.14878892733564014
+        },
+        {
+          "rank": 8,
+          "tag": "BTC_p79_w4",
+          "expectancy_intent_all": 0.01050170467479402,
+          "profit_factor": 1.2485646281988372,
+          "n_trades": 289,
+          "fill_pct": 0.3152664859981933,
+          "win_rate": 0.5570934256055363,
+          "net_pnl": 11.62538707499698,
+          "entry_bar_exit_rate": 0.14878892733564014
+        },
+        {
+          "rank": 9,
+          "tag": "BTC_level_strong_p80_w4",
+          "expectancy_intent_all": -0.0062039995802389905,
+          "profit_factor": 0.8812571175016677,
+          "n_trades": 374,
+          "fill_pct": 0.3551263001485884,
+          "win_rate": 0.5187165775401069,
+          "net_pnl": -8.350583435001681,
+          "entry_bar_exit_rate": 0.12566844919786097
+        }
+      ],
+      "promotions_vs_fleet": {
+        "BTC_p75_w4": {
+          "intent_exp_improved": false,
+          "pf_not_collapsed": true,
+          "pnl_near_or_better": true,
+          "ece_ok": true,
+          "promote": false,
+          "promote_volume": false
+        },
+        "BTC_p76_w4": {
+          "intent_exp_improved": false,
+          "pf_not_collapsed": true,
+          "pnl_near_or_better": true,
+          "ece_ok": true,
+          "promote": false,
+          "promote_volume": false
+        },
+        "BTC_p77_w4": {
+          "intent_exp_improved": false,
+          "pf_not_collapsed": true,
+          "pnl_near_or_better": true,
+          "ece_ok": true,
+          "promote": false,
+          "promote_volume": false
+        },
+        "BTC_p78_w4": {
+          "intent_exp_improved": false,
+          "pf_not_collapsed": true,
+          "pnl_near_or_better": true,
+          "ece_ok": true,
+          "promote": false,
+          "promote_volume": false
+        },
+        "BTC_p79_w4": {
+          "intent_exp_improved": false,
+          "pf_not_collapsed": true,
+          "pnl_near_or_better": true,
+          "ece_ok": true,
+          "promote": false,
+          "promote_volume": false
+        },
+        "BTC_level_strong_p80_w4": {
+          "intent_exp_improved": false,
+          "pf_not_collapsed": false,
+          "pnl_near_or_better": false,
+          "ece_ok": true,
+          "promote": false,
+          "promote_volume": false
+        },
+        "BTC_1h_p75_w2": {
+          "intent_exp_improved": true,
+          "pf_not_collapsed": true,
+          "pnl_near_or_better": true,
+          "ece_ok": false,
+          "promote": false,
+          "promote_volume": false
+        },
+        "BTC_1h_p80_w2": {
+          "intent_exp_improved": true,
+          "pf_not_collapsed": true,
+          "pnl_near_or_better": true,
+          "ece_ok": false,
+          "promote": false,
+          "promote_volume": false
+        }
+      },
+      "pick": "BTC_p80_w4"
+    },
+    "ETHUSDT": {
+      "fleet_tag": "ETH_q50_w4",
+      "diagnostics": {
+        "frac_any": 0.15617577197149643,
+        "pr_auc_lift": 0.10475683610300221,
+        "ece": 0.006650250869834315,
+        "level_p90": 0.02023346029906864
+      },
+      "diagnostics_level_strong": {
+        "frac_any": 0.15617577197149643,
+        "pr_auc_lift": 0.10679920256627143,
+        "ece": 0.007431250342018074,
+        "level_p90": 0.02031741358780776
+      },
+      "soft_vsa_thr": 0.6666666666666666,
+      "arms": [
+        {
+          "tag": "ETH_q50_w4",
+          "n_intent": 2696,
+          "fill_pct": 0.3698071216617211,
+          "fill_stats": {
+            "n_intent": 2696,
+            "n_filled_path": 997,
+            "n_no_touch": 1699,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.3698071216617211,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 812,
+          "profit_factor": 1.6194070885035619,
+          "win_rate": 0.646551724137931,
+          "net_pnl": 40.88669681500869,
+          "expectancy": 0.05035307489532017,
+          "entry_bar_exit_rate": 0.27586206896551724,
+          "expectancy_intent_all": 0.01516568872960263
+        },
+        {
+          "tag": "ETH_q50_softvsa_w4",
+          "n_intent": 1764,
+          "fill_pct": 0.37811791383219956,
+          "fill_stats": {
+            "n_intent": 1764,
+            "n_filled_path": 667,
+            "n_no_touch": 1097,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.37811791383219956,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 587,
+          "profit_factor": 1.7773541596631535,
+          "win_rate": 0.6609880749574105,
+          "net_pnl": 35.10963709002499,
+          "expectancy": 0.059811988228279274,
+          "entry_bar_exit_rate": 0.29642248722316866,
+          "expectancy_intent_all": 0.01990342238663548
+        },
+        {
+          "tag": "ETH_q50_w5",
+          "n_intent": 2696,
+          "fill_pct": 0.40096439169139464,
+          "fill_stats": {
+            "n_intent": 2696,
+            "n_filled_path": 1081,
+            "n_no_touch": 1615,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.40096439169139464,
+            "work_bars_default": 5,
+            "work_bars_mean_used": 5.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 861,
+          "profit_factor": 1.539522695802024,
+          "win_rate": 0.6353077816492451,
+          "net_pnl": 38.61004001000583,
+          "expectancy": 0.04484325204413466,
+          "entry_bar_exit_rate": 0.2659698025551684,
+          "expectancy_intent_all": 0.014321231457717297
+        },
+        {
+          "tag": "ETH_q50_level_strong_w4",
+          "n_intent": 1591,
+          "fill_pct": 0.3802639849151477,
+          "fill_stats": {
+            "n_intent": 1591,
+            "n_filled_path": 605,
+            "n_no_touch": 986,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.3802639849151477,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 492,
+          "profit_factor": 1.4444913802859136,
+          "win_rate": 0.6341463414634146,
+          "net_pnl": 19.42728647000513,
+          "expectancy": 0.039486354613821065,
+          "entry_bar_exit_rate": 0.2967479674796748,
+          "expectancy_intent_all": 0.012210739453177327
+        },
+        {
+          "tag": "ETH_q50_mid_atr_w4",
+          "n_intent": 934,
+          "fill_pct": 0.4518201284796574,
+          "fill_stats": {
+            "n_intent": 934,
+            "n_filled_path": 422,
+            "n_no_touch": 512,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.4518201284796574,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 384,
+          "profit_factor": 1.5754427201748507,
+          "win_rate": 0.6328125,
+          "net_pnl": 18.063415180000447,
+          "expectancy": 0.047040143697916544,
+          "entry_bar_exit_rate": 0.2526041666666667,
+          "expectancy_intent_all": 0.01933984494646729
+        }
+      ],
+      "ranking_by_intent_expectancy": [
+        {
+          "rank": 1,
+          "tag": "ETH_q50_softvsa_w4",
+          "expectancy_intent_all": 0.01990342238663548,
+          "profit_factor": 1.7773541596631535,
+          "n_trades": 587,
+          "fill_pct": 0.37811791383219956,
+          "win_rate": 0.6609880749574105,
+          "net_pnl": 35.10963709002499,
+          "entry_bar_exit_rate": 0.29642248722316866
+        },
+        {
+          "rank": 2,
+          "tag": "ETH_q50_mid_atr_w4",
+          "expectancy_intent_all": 0.01933984494646729,
+          "profit_factor": 1.5754427201748507,
+          "n_trades": 384,
+          "fill_pct": 0.4518201284796574,
+          "win_rate": 0.6328125,
+          "net_pnl": 18.063415180000447,
+          "entry_bar_exit_rate": 0.2526041666666667
+        },
+        {
+          "rank": 3,
+          "tag": "ETH_q50_w4",
+          "expectancy_intent_all": 0.01516568872960263,
+          "profit_factor": 1.6194070885035619,
+          "n_trades": 812,
+          "fill_pct": 0.3698071216617211,
+          "win_rate": 0.646551724137931,
+          "net_pnl": 40.88669681500869,
+          "entry_bar_exit_rate": 0.27586206896551724
+        },
+        {
+          "rank": 4,
+          "tag": "ETH_q50_w5",
+          "expectancy_intent_all": 0.014321231457717297,
+          "profit_factor": 1.539522695802024,
+          "n_trades": 861,
+          "fill_pct": 0.40096439169139464,
+          "win_rate": 0.6353077816492451,
+          "net_pnl": 38.61004001000583,
+          "entry_bar_exit_rate": 0.2659698025551684
+        },
+        {
+          "rank": 5,
+          "tag": "ETH_q50_level_strong_w4",
+          "expectancy_intent_all": 0.012210739453177327,
+          "profit_factor": 1.4444913802859136,
+          "n_trades": 492,
+          "fill_pct": 0.3802639849151477,
+          "win_rate": 0.6341463414634146,
+          "net_pnl": 19.42728647000513,
+          "entry_bar_exit_rate": 0.2967479674796748
+        }
+      ],
+      "promotions_vs_fleet": {
+        "ETH_q50_softvsa_w4": {
+          "intent_exp_improved": true,
+          "pf_not_collapsed": true,
+          "pnl_near_or_better": false,
+          "ece_ok": true,
+          "promote": true,
+          "promote_volume": false
+        },
+        "ETH_q50_w5": {
+          "intent_exp_improved": false,
+          "pf_not_collapsed": true,
+          "pnl_near_or_better": false,
+          "ece_ok": true,
+          "promote": false,
+          "promote_volume": false
+        },
+        "ETH_q50_level_strong_w4": {
+          "intent_exp_improved": false,
+          "pf_not_collapsed": true,
+          "pnl_near_or_better": false,
+          "ece_ok": false,
+          "promote": false,
+          "promote_volume": false
+        },
+        "ETH_q50_mid_atr_w4": {
+          "intent_exp_improved": true,
+          "pf_not_collapsed": true,
+          "pnl_near_or_better": false,
+          "ece_ok": true,
+          "promote": true,
+          "promote_volume": false
+        }
+      },
+      "pick": "ETH_q50_softvsa_w4"
+    },
+    "SOLUSDT": {
+      "fleet_tag": "SOL_atr_clip_w5",
+      "diagnostics": {
+        "frac_any": 0.14554732477152865,
+        "pr_auc_lift": 0.09821662498584077,
+        "ece": 0.005352879372836751,
+        "level_p90": 0.028145788585235584
+      },
+      "diagnostics_level_strong": {
+        "frac_any": 0.14554732477152865,
+        "pr_auc_lift": 0.09850341161320755,
+        "ece": 0.007404420516472974,
+        "level_p90": 0.028155358547640882
+      },
+      "diagnostics_1h": {
+        "frac_any": 0.2740834453493582,
+        "pr_auc_lift": 0.06767909249733267,
+        "ece": 0.005000417886193759,
+        "level_p90": 0.03315073787930674
+      },
+      "soft_vsa_thr": 0.6666666666666666,
+      "arms": [
+        {
+          "tag": "SOL_atr_clip_w5",
+          "n_intent": 2512,
+          "fill_pct": 0.4263535031847134,
+          "fill_stats": {
+            "n_intent": 2512,
+            "n_filled_path": 1071,
+            "n_no_touch": 1441,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.4263535031847134,
+            "work_bars_default": 5,
+            "work_bars_mean_used": 5.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 859,
+          "profit_factor": 1.927755726147096,
+          "win_rate": 0.6647264260768335,
+          "net_pnl": 29.04073225000684,
+          "expectancy": 0.033807604481955786,
+          "entry_bar_exit_rate": 0.4121071012805588,
+          "expectancy_intent_all": 0.011560801054939028
+        },
+        {
+          "tag": "SOL_atr_clip_w4",
+          "n_intent": 2512,
+          "fill_pct": 0.3877388535031847,
+          "fill_stats": {
+            "n_intent": 2512,
+            "n_filled_path": 974,
+            "n_no_touch": 1538,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.3877388535031847,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 790,
+          "profit_factor": 2.0443066852305116,
+          "win_rate": 0.6759493670886076,
+          "net_pnl": 29.014201600006345,
+          "expectancy": 0.03672683746835445,
+          "entry_bar_exit_rate": 0.42658227848101266,
+          "expectancy_intent_all": 0.011550239490448385
+        },
+        {
+          "tag": "SOL_atr_clip_softvsa_w5",
+          "n_intent": 1306,
+          "fill_pct": 0.442572741194487,
+          "fill_stats": {
+            "n_intent": 1306,
+            "n_filled_path": 578,
+            "n_no_touch": 728,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.442572741194487,
+            "work_bars_default": 5,
+            "work_bars_mean_used": 5.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 530,
+          "profit_factor": 2.216572153483239,
+          "win_rate": 0.6849056603773584,
+          "net_pnl": 22.35389445002329,
+          "expectancy": 0.042177159339622676,
+          "entry_bar_exit_rate": 0.4811320754716981,
+          "expectancy_intent_all": 0.017116305091901447
+        },
+        {
+          "tag": "SOL_atr_clip_level_strong_w5",
+          "n_intent": 3777,
+          "fill_pct": 0.4169976171564734,
+          "fill_stats": {
+            "n_intent": 3777,
+            "n_filled_path": 1575,
+            "n_no_touch": 2202,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.4169976171564734,
+            "work_bars_default": 5,
+            "work_bars_mean_used": 5.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 1184,
+          "profit_factor": 1.812363638252966,
+          "win_rate": 0.65625,
+          "net_pnl": 40.68341650000548,
+          "expectancy": 0.03436099366554053,
+          "entry_bar_exit_rate": 0.40371621621621623,
+          "expectancy_intent_all": 0.010771357294150246
+        },
+        {
+          "tag": "SOL_1h_atr_clip_w2",
+          "n_intent": 3971,
+          "fill_pct": 0.30445731553764793,
+          "fill_stats": {
+            "n_intent": 3971,
+            "n_filled_path": 1209,
+            "n_no_touch": 2762,
+            "n_adverse_cancel": 0,
+            "n_bad": 0,
+            "fill_rate": 0.30445731553764793,
+            "work_bars_default": 2,
+            "work_bars_mean_used": 2.0,
+            "adverse_mode": null,
+            "adverse_pct": 0.005,
+            "adverse_atr_mult": 1.0
+          },
+          "status": "RAN",
+          "n_trades": 1096,
+          "profit_factor": 5.894717173618751,
+          "win_rate": 0.8576642335766423,
+          "net_pnl": 96.36483294999198,
+          "expectancy": 0.0879241176551095,
+          "entry_bar_exit_rate": 0.7947080291970803,
+          "expectancy_intent_all": 0.02426714503903097
+        }
+      ],
+      "ranking_by_intent_expectancy": [
+        {
+          "rank": 1,
+          "tag": "SOL_1h_atr_clip_w2",
+          "expectancy_intent_all": 0.02426714503903097,
+          "profit_factor": 5.894717173618751,
+          "n_trades": 1096,
+          "fill_pct": 0.30445731553764793,
+          "win_rate": 0.8576642335766423,
+          "net_pnl": 96.36483294999198,
+          "entry_bar_exit_rate": 0.7947080291970803
+        },
+        {
+          "rank": 2,
+          "tag": "SOL_atr_clip_softvsa_w5",
+          "expectancy_intent_all": 0.017116305091901447,
+          "profit_factor": 2.216572153483239,
+          "n_trades": 530,
+          "fill_pct": 0.442572741194487,
+          "win_rate": 0.6849056603773584,
+          "net_pnl": 22.35389445002329,
+          "entry_bar_exit_rate": 0.4811320754716981
+        },
+        {
+          "rank": 3,
+          "tag": "SOL_atr_clip_w5",
+          "expectancy_intent_all": 0.011560801054939028,
+          "profit_factor": 1.927755726147096,
+          "n_trades": 859,
+          "fill_pct": 0.4263535031847134,
+          "win_rate": 0.6647264260768335,
+          "net_pnl": 29.04073225000684,
+          "entry_bar_exit_rate": 0.4121071012805588
+        },
+        {
+          "rank": 4,
+          "tag": "SOL_atr_clip_w4",
+          "expectancy_intent_all": 0.011550239490448385,
+          "profit_factor": 2.0443066852305116,
+          "n_trades": 790,
+          "fill_pct": 0.3877388535031847,
+          "win_rate": 0.6759493670886076,
+          "net_pnl": 29.014201600006345,
+          "entry_bar_exit_rate": 0.42658227848101266
+        },
+        {
+          "rank": 5,
+          "tag": "SOL_atr_clip_level_strong_w5",
+          "expectancy_intent_all": 0.010771357294150246,
+          "profit_factor": 1.812363638252966,
+          "n_trades": 1184,
+          "fill_pct": 0.4169976171564734,
+          "win_rate": 0.65625,
+          "net_pnl": 40.68341650000548,
+          "entry_bar_exit_rate": 0.40371621621621623
+        }
+      ],
+      "promotions_vs_fleet": {
+        "SOL_atr_clip_w4": {
+          "intent_exp_improved": false,
+          "pf_not_collapsed": true,
+          "pnl_near_or_better": true,
+          "ece_ok": true,
+          "promote": false,
+          "promote_volume": false
+        },
+        "SOL_atr_clip_softvsa_w5": {
+          "intent_exp_improved": true,
+          "pf_not_collapsed": true,
+          "pnl_near_or_better": false,
+          "ece_ok": true,
+          "promote": true,
+          "promote_volume": false
+        },
+        "SOL_atr_clip_level_strong_w5": {
+          "intent_exp_improved": false,
+          "pf_not_collapsed": true,
+          "pnl_near_or_better": true,
+          "ece_ok": false,
+          "promote": false,
+          "promote_volume": false
+        },
+        "SOL_1h_atr_clip_w2": {
+          "intent_exp_improved": true,
+          "pf_not_collapsed": true,
+          "pnl_near_or_better": true,
+          "ece_ok": true,
+          "promote": true,
+          "promote_volume": true
+        }
+      },
+      "pick": "SOL_1h_atr_clip_w2"
+    }
+  },
+  "updated_fleet_picks": {
+    "BTCUSDT": "BTC_p80_w4",
+    "ETHUSDT": "ETH_q50_softvsa_w4",
+    "SOLUSDT": "SOL_1h_atr_clip_w2"
+  }
+}

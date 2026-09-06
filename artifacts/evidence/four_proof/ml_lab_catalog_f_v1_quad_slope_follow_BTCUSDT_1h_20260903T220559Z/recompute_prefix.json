@@ -1,0 +1,11 @@
+{
+  "hard_findings": [],
+  "idea": "quad_slope_follow",
+  "n_columns": 13,
+  "ok": true,
+  "proof": "recompute_prefix",
+  "space": "ml_lab_catalog_f_v1",
+  "summary": "PASS \u2014 13 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0",
+  "symbol": "BTCUSDT",
+  "timeframe": "1h"
+}

@@ -1,0 +1,27 @@
+{
+  "decision": "D-058",
+  "sealed_utc": "2026-08-08T00:00:00Z",
+  "track": "oracle_leaky_orange_pnl_optimization",
+  "status": "SEALED_CONTAMINATION_FORENSICS_ONLY",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "promotion_allowed": false,
+  "best_causal_proxy": {
+    "source": "artifacts/reports/leaky_proxy_asof_max_001/leaky_proxy_asof_max_001_latest.json",
+    "model": "HistGradientBoosting + as-of run_retrace features",
+    "outer_mae": 0.38055368641227905,
+    "outer_corr": 0.7917525913782538,
+    "trade_note": "pred_leaky loses; oracle_leaky gains = look-ahead not edge"
+  },
+  "forbidden": [
+    "freeze_pack_on_pred_leaky",
+    "freeze_pack_on_oracle_leaky",
+    "optimize_orange_for_pnl_without_forensics_allowlist",
+    "treat_run_retrace_expand_max_as_live_feature_without_causal_publish"
+  ],
+  "redirect": {
+    "feature_space": "structure_v1_no_retrace",
+    "generation": "structure_v1_causal_drop_retrace_001",
+    "runner": "scripts/run_structure_v1_causal_drop_retrace_001.py"
+  },
+  "residual_forensics": "scripts/plot_oracle_pred_residual_forensics.py"
+}

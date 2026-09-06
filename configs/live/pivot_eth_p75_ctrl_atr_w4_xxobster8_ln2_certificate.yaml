@@ -1,0 +1,21 @@
+strategy_id: pivot_eth_p75_ctrl_atr_w4_ETHUSDT_15m
+status: AUTHORIZED
+authorized_by_user: true
+vps_host: '212.73.150.178'
+account_ref: Xxobster8
+intended_vps_host: '212.73.150.178'
+intended_account_ref: Xxobster8
+pack_path: artifacts/live_packs/pivot_eth_p75_ctrl_atr_w4
+pack_hash: 140af4964ea161ee6558dc46fb262f79cc7fbd1237dcd54f8334e8869e84684c
+expires_utc: '2026-09-04T21:00:00Z'
+created_utc: '2026-08-21T21:00:00Z'
+four_proof_ok: true
+four_proof_hashes:
+  builder_responsiveness: 15e3f97010eccceeb6efbeea83e4cf161eeb63c51b8fbdedfdd0769853a0511e
+  recompute_prefix: 2ac66b3b7c0f88019c659a1bd3168deadfd76e70314ba87dff9e8300e3a7bcdd
+  no_live_feature_fill: ef3948c4d17f9b73312186268226732fd6d6ef0d9e5d6c901696cdab59f7e3a8
+  layer_a_pred_identity: 3c4c0849264c3551216db4d29b7f0866bc2b6dd9c55d570ccda778aa5b6f3508
+notes: >-
+  User explicitly authorized 2026-08-21 (UTC+7) real-USDT MIN_EXCHANGE pivot
+  LIMIT micro-live on 212.73.150.178 / Xxobster8 (ETHUSDT 15m 1%/1% control).
+  Same frozen pack as Xxobster7 / 94.156.189.76. Leverage from stop 1% = 29x.

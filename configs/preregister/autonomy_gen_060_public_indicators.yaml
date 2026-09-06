@@ -1,0 +1,24 @@
+# Autonomy gen 060 — ATR position in 100-bar range
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_060_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-22T13:26:00Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  Average True Range position inside its 100-bar min-max above 0.8 or below
+  0.2 at t+H and those level crosses, used as one-head filters, can beat
+  the 15-minute Limit 1%/1% pivot control under frozen entry-bar and
+  trades-per-month caps.
+events: [atrpos_high_at_h, atrpos_low_at_h, atrpos_cross_up_08, atrpos_cross_down_02]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: 72b246b47c8c0dc042fec9edbd8563a443f29c27ee8792a332a1ebca62084883

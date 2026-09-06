@@ -1,0 +1,60 @@
+# ML lab hunt 019 — Crowding–Absorption State Machine A + Hilbert phase router
+# RESEARCH_ONLY. Frozen before any hunt-019 result was viewed.
+# Audit 2026-09-04 P1-A and P4. Not an indicator grid. Not a hunt-013 Hilbert retune.
+generation_id: ml_lab_hunt_019_casm_phase
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-09-04T06:25:00Z"
+fold_geometry: v2
+failure_is_success: true
+
+hypothesis: >
+  Three frozen variants, no threshold search. (1) casm_healthy_follow: causal
+  z(Δ log open interest) ≥ 1, open-interest change aligned with the 8-bar
+  return, price-impact efficiency at or above its rolling mean, Average True
+  Range at or above its rolling median — follow the move. (2) casm_exhaust_fade:
+  |funding z| ≥ 1 with the same sign as the 3-bar return and impact efficiency
+  at or below its mean — fade. (3) phase_router: exact hunt-013 Hilbert envelope
+  trigger (amplitude z ≥ 1.5); fade if exhaustion, continue if healthy, else
+  skip. Inner screen before 2022-01-01. Maker 0.02%. EXEC-021.
+
+do_not:
+  - peep FORWARD_LOCKBOX_START
+  - deploy
+  - stamp Shadow-Ready from this inner screen
+  - widen Average-True-Range to hide entry-bar exits
+  - retune Hilbert length or z-score after seeing nested profit factor
+  - add order-book / liquidation variants in this generation
+  - run another RSI / MACD / EMA / oscillator grid
+  - retune live Exponential Moving Average stack or autonomy 376 / 705 / 013
+
+selection_window: "strictly before 2022-01-01"
+universe:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  event_study_timeframes: [15m, 1h, 4h]
+  tradesim_timeframes: [15m, 1h, 4h]
+
+cost_floor: 0.0011
+max_tradesim_arms: 8
+work_bars: {15m: 4, 1h: 3, 4h: 2}
+max_hold_bars: {15m: 24, 1h: 16, 4h: 8}
+k_sl: 1.5
+tp_ratio: 1.5
+sl_cap: 0.030
+maker_first_costs: true
+
+screen_gates:
+  min_skill_n: 80
+  min_directional_acc: 0.51
+  min_mean_signed: 0.0015
+  min_trades: 80
+  min_trades_per_month: 2.0
+  max_trades_per_month: 90.0
+  min_profit_factor: 1.20
+  max_entry_bar_exit_rate: 0.25
+  min_sharpe_annualised: 0.50
+
+leakage_audit:
+  builder: llm2.ml_lab.idea_catalog_casm.build_features_for_guard
+
+preregister_sha256_at_run: 7b7e1e829121ec51961e644790c0fe5752f007b2ea2031201da9bc5257106109

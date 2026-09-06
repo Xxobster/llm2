@@ -1,6 +1,592 @@
 # LLM2 Current State
 
-Updated: 2026-08-21
+Updated: 2026-09-04
+
+## 2026-09-04 — Bitcoin 5% nearest size; Solana Fair Value Gap stays venue-minimum
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** Nested 2022–2026 settle of these names remains FAIL. Fill-test only. Do not flatten the open Bitcoin long.
+
+User: `llm2-quad-btc-1h` must open at **5% of equity at that bar's stop** (nearest Bybit step), not the 0.001 Bitcoin venue minimum. `llm2-fvg-sol-1h` stays venue-minimum (0.1 Solana) for now.
+
+Host **212.73.150.178** (live-network-2), shared wallet **Xxobster11**.
+
+| Unit | Account | Equity | Idea | Size / leverage | Exchange now |
+|---|---|---|---|---|---|
+| `llm2-quad-btc-1h` | Xxobster11 | ~33.12 USDT | Bitcoin 1h `quad_slope_follow` (two-sided) | **RISK_FRACTION 5%**, `qty_round=nearest` (0.001 step; may sit slightly above/below 5%); skip if below min; **13×** | Still long **0.001** at 80945.8; reduce-only stop **0.001** at 80050.7. New size applies to the **next** entry (expect **0.002** at ~33 USDT / ~1.1% stop). Take-profit still Bybit `110017` `orderQty will be truncated to zero` |
+| `llm2-fvg-sol-1h` | Xxobster11 | same wallet | Solana 1h `fvg_confluence` (long-only) | **MIN_EXCHANGE** 0.1 Solana; **13×** | Flat |
+
+Packs: `artifacts/live_packs/btc_1h_quad_slope_follow` hash `ff0ae48c…103f5`; `artifacts/live_packs/sol_1h_fvg_confluence` hash `c38099cc…b39cf`. Certs match those hashes. Four Proof hashes unchanged (feature path unchanged).
+
+Deploy note: first pack push left both units crash-looping (`ImportError: refuse_venue_min_qty_fallback`) because `llm2/ml_lab/live_guards.py` was not uploaded to the shared `/opt/llm2-structure/llm2` tree. Guard file uploaded; both units `active`, `NRestarts=0` after the fix. Bitcoin position and stop were **not** flattened. Other live-network-2 pivot / autonomy units stayed `active`.
+
+## 2026-09-04 — Hilbert always-fade LIVE on ln1 (Xxobster3)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** Nested 2022–2026 settle is a **subset PASS**, not Frozen Default Gates V2.1 / Shadow-Ready. User-authorized Post-Only fill-test only. Do not retune Hilbert length or z=1.5 after fills.
+
+Host **94.156.189.76** (live-network-1). Free keyed wallet was **Xxobster3** (~26.33 USDT, flat, no working orders). Occupied on this host: Xxobster4 (Exponential Moving Average stack), Xxobster5 (TSM-VPA), Xxobster6 (chandelier), Xxobster7 (pivots). Did not stop those units. Did not use live-network-2.
+
+| Unit | Account | Equity | Idea | Size / leverage | First decide |
+|---|---|---|---|---|---|
+| `llm2-hilbert-sol-1h` | Xxobster3 | ~26.33 USDT | Solana 1h `hilbert_amp_fade` (two-sided) | **5% of equity at that bar's stop**, nearest 0.1 Solana step (not venue min 0.1); skip if below min; **13×** from the 3% stop cap | `ENTER_LIMIT` Sell **0.9** at 105.24 Post-Only (~4.7% equity at the 1.32% stop; venue min would have been 0.1). `LIVE-DATA-001=PASS`. `NRestarts=0` |
+
+Pack locked to `RISK_FRACTION` + `qty_round=nearest` so this unit cannot follow the Fair Value Gap venue-minimum path. Certificate expires **2026-10-04**. Four Proof Gate green. `bots` start **2026-09-04T09:11:19Z**.
+
+
+## 2026-09-04 — Hunt 019 CASM-A + phase router: 0 screens
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** Failure is a valid outcome. Do not retune Hilbert z, open-interest z, or funding z after this inner miss. Do not widen Average True Range.
+
+Hunt 019 (`ml_lab_hunt_019_casm_phase`) inner screen **before 2022-01-01**, maker 0.02%, EXEC-021, 27 arms, 5 skill, **0 screen**. Leakage PASS. Three frozen variants only (audit Crowding–Absorption State Machine A + Hilbert phase router).
+
+- Solana 4-hour `phase_router`: profit factor 1.260 but n=58 (below 80) and entry-bar **0.397**.
+- Ether 4-hour `phase_router`: profit factor 1.356, n=61, entry-bar **0.393**.
+- Solana 1-hour `casm_exhaust_fade`: n=582, profit factor **0.954**, entry-bar 0.186 — enough trades, no post-cost edge.
+- Healthy open-interest continuation never cleared directional accuracy / signed-move floors.
+
+The standing Large Language Model 2 nested survivor remains Solana 1-hour always-fade Hilbert (`hilbert_amp_fade`), not this router. Report: `artifacts/reports/ml_lab/hunt_019_casm_phase_latest.md`.
+
+## 2026-09-04 — Hunt 019 launched (CASM-A + Hilbert phase router)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** Follows the 2026-09-04 audit: stop indicator grids. Three frozen variants only (healthy open-interest follow, funding-absorption fade, Hilbert trigger routed by those states). Inner screen before 2022-01-01. Maker 0.02%. EXEC-021. Not a Hilbert lookback retune.
+
+## 2026-09-04 — Solana Fair Value Gap unit moved onto Xxobster11 (ln2)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** Nested 2022–2026 settle of these names remains FAIL. Shared-wallet fill test only.
+
+User authorized moving `llm2-fvg-sol-1h` from Xxobster3 onto **Xxobster11** so both formula units share that account on **212.73.150.178**. Bitcoin unit was **not** restarted (process id unchanged). Solana on Xxobster3 was flat (no position, no working orders).
+
+| Unit | Account | Equity | Idea | Size / leverage | Exchange now |
+|---|---|---|---|---|---|
+| `llm2-quad-btc-1h` | Xxobster11 | ~33 USDT | Bitcoin 1h `quad_slope_follow` (two-sided) | later changed to nearest 5% stop-risk (see sizing section above); **13×** | Long 0.001 at 80945.8 at this move; reduce-only stop 0.001 at 80050.7 |
+| `llm2-fvg-sol-1h` | **Xxobster11** | same wallet | Solana 1h `fvg_confluence` (long-only) | later locked to venue-minimum 0.1 Solana; **13×** | Flat. Restarted 2026-09-04T03:21:22Z with `--account Xxobster11` |
+
+Xxobster3 left keyed on the host but unused by these units (~26 USDT, flat). Certificate `sol_1h_fvg_confluence_xxobster3_ln2_certificate.yaml` is **SUPERSEDED**. Live cert is `sol_1h_fvg_confluence_xxobster11_ln2_certificate.yaml`.
+
+## 2026-09-04 — Hunt 017 inner: 0 screens (channels / volume oscillators)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** Failure is a valid outcome. Do not retune Keltner / Bollinger / Williams after this inner miss.
+
+Hunt 017 (`ml_lab_hunt_017_channel_vol`) inner screen **before 2022-01-01**, maker 0.02%, EXEC-021, 72 arms, 9 skill, **0 screen**. Watchdog child exit 0 (the Cursor shell later showed aborted; the hunt itself finished).
+
+Nearest misses: Ether 4-hour `keltner_break_follow` profit factor 1.385 but n=52 (below 80). Solana 4-hour `bollinger_pctb_fade` profit factor 1.123 but entry-bar **0.614**. Do not widen Average True Range.
+
+Catalog O for hunt 018 (`ml_lab_hunt_018_more_osc`) is on disk (Ultimate Oscillator fade, TRIX follow, Elder Force Index flip, DeMarker fade, Chande Momentum fade, Ehlers Fisher fade, Awesome Oscillator flip, Dorsey Mass Index revert) but the watchdog was **not** started (session aborted before launch).
+
+## 2026-09-04 — Hunt 016 inner: 1 screen (Solana 1h Relative Strength Index fade)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** Do not deploy. Do not retune Relative Strength Index 70/30 after seeing this inner number.
+
+Hunt 016 (`ml_lab_hunt_016_osc_pivot`) inner screen **before 2022-01-01**, maker 0.02%, EXEC-021, 72 arms, 5 skill, **1 screen**:
+
+- Solana 1-hour `rsi_extreme_fade` (fade Wilder Relative Strength Index at 70 / 30): n=204, 13.1/month, profit factor **1.265**, Sharpe **1.48**, entry-bar **0.230**. Inner window only — not nested, not Shadow-Ready.
+
+Solana 4-hour Relative Strength Index fade: profit factor 1.106 but entry-bar **0.602**. Do not widen Average True Range.
+
+Hunt 017 (`ml_lab_hunt_017_channel_vol`) launched under watchdog: Williams percent-R fade, Keltner first-break follow, Bollinger percent-B fade, Aroon cross follow, Parabolic Stop-and-Reverse flip, Money Flow Index fade, vortex cross, Chaikin oscillator flip.
+
+## 2026-09-04 — Hunt 015 inner: 1 screen (Ether 1h Average True Range trail)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** Do not deploy. Do not retune the 2× Average True Range trail after seeing this inner number.
+
+Hunt 015 (`ml_lab_hunt_015_bar_session`) inner screen **before 2022-01-01**, maker 0.02%, EXEC-021, 72 arms, 6 skill, **1 screen**:
+
+- Ether 1-hour `atr_trail_flip` (close outside the prior bar's 2× Average True Range envelope): n=84, 3.3/month, profit factor **1.682**, Sharpe **1.02**, entry-bar **0.167**. Thin sample (just above 80). Inner window only — not nested, not Shadow-Ready.
+
+Solana 4-hour relative-volume spike fade: profit factor 1.202 but entry-bar **0.696**. Do not widen Average True Range.
+
+## 2026-09-04 — Hunt 014 inner: 2 screens (Solana stack, Ether higher-timeframe follow)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** Do not deploy. Do not retune Fair Value Gap stack window or higher-timeframe factor after seeing these inner numbers.
+
+Hunt 014 (`ml_lab_hunt_014_htf_fvg`) inner screen **before 2022-01-01**, maker 0.02%, EXEC-021, 72 arms, 14 skill, **2 screen**:
+
+- Solana 1-hour `fvg_stack_long` (new bullish Fair Value Gap while two-plus such gaps printed in 30 bars): n=149, 9.9/month, profit factor **1.206**, Sharpe **0.86**, entry-bar **0.114**. Inner window only.
+- Ether 1-hour `htf_fvg_follow` (follow the just-closed 4-hour Fair Value Gap): n=122, 4.9/month, profit factor **1.213**, Sharpe **0.58**, entry-bar **0.033**. Inner window only.
+
+Solana 4-hour `fvg_stack_long` profit factor 1.199 but entry-bar **0.404** — stop inside single-bar noise. Do not widen Average True Range. Not nested-settled, not Shadow-Ready.
+
+## 2026-09-04 — Formula fill-test LIVE on ln2 (nested FAIL acknowledged)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** User-authorized Post-Only fill test only. Nested 2022–2026 settle of these names remains FAIL. Not Shadow-Ready.
+
+Both inner-screen names are now running on **212.73.150.178** (live-network-2). No free keyed wallet existed on that host (only Xxobster2/8/9/10, all occupied). Copied **Xxobster11** and **Xxobster3** API lines from live-network-3 (those Extreme Gradient Boosting / structure units are gone there; wallets were flat). Did not stop any existing ln2 units.
+
+| Unit | Account | Equity | Idea | Size / leverage |
+|---|---|---|---|---|
+| `llm2-quad-btc-1h` | Xxobster11 | ~33 USDT | Bitcoin 1h `quad_slope_follow` (two-sided) | **5% of equity at that bar's stop, nearest 0.001 Bitcoin step** (not venue-min floor); skip if below min; **13×** from the 3% stop cap |
+| `llm2-fvg-sol-1h` | Xxobster11 | same wallet | Solana 1h `fvg_confluence` (long-only) | **venue-minimum 0.1 Solana** (`MIN_EXCHANGE`); **13×** |
+
+Certificates expire **2026-10-04**. Four Proof Gate green on both packs. `bots` start **2026-09-03T22:08:02Z**. First decides: Bitcoin **ENTER_LIMIT** Buy 0.001 at ~80946 (Post-Only, `LIVE-DATA-001=PASS`); Solana **FLAT** / no event (`LIVE-DATA-001=PASS`). Existing pivot / autonomy units still `active`.
+
+Hunt 014 (`ml_lab_hunt_014_htf_fvg`) launched under watchdog: higher-timeframe Fair Value Gap plus Parkinson / displacement / UTC-midnight ideas. Inner screen before 2022-01-01. Not a hunt-013 Hilbert retune.
+
+## 2026-09-03 — Hunt 013 inner 3 screens; nested: Solana 1h Hilbert envelope PASS
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** Nested subset gate pass **1/3**. Do not deploy. Do not retune Hilbert length after seeing nested profit factor. Lockbox still sealed.
+
+Hunt 013 (`ml_lab_hunt_013_predictive_math`) inner before 2022-01-01, maker 0.02%, EXEC-021, 90 arms, 6 skill, **3 screen**. Nested 2022-01-01 .. 2026-05-01:
+
+- Bitcoin 1-hour `kalman_accel_follow`: nested n=1054, 20.3/month, profit factor **1.084**, Sharpe 0.52, 5/6 positive folds. **FAIL** (profit factor and Sharpe).
+- Ether 1-hour `kalman_accel_follow`: nested n=1012, 19.5/month, profit factor **1.163**, Sharpe 0.94, 5/6 positive folds. **FAIL** (profit factor 1.20 / Sharpe 1.00).
+- Solana 1-hour `hilbert_amp_fade` (causal Hilbert envelope fade): nested n=726, 14.0/month, profit factor **1.266**, Sharpe **1.24**, Heteroskedasticity-and-Autocorrelation-Consistent Sharpe **1.32**, entry-bar 0.088, **6/6** positive folds. **Subset PASS.** Still not Shadow-Ready (full V2.1 Deflated Sharpe / bootstrap / stress drawdown not scored; lockbox sealed; no live certificate).
+
+Do not add the Solana 4-hour Volterra row (entry-bar 0.52). Do not widen Average True Range.
+
+Reports: `artifacts/reports/ml_lab/hunt_013_predictive_math_latest.md`, `nested_settle_013_predictive_math_latest.md`.
+
+## 2026-09-03 — Hunt 013 launched (new predictive formulas)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** Do not deploy. Do not retune 009/011/012 after nested failure.
+
+Hunt 013 (`ml_lab_hunt_013_predictive_math`) inner screen **before 2022-01-01**, maker 0.02%, EXEC-021. Ten new causal formulas: Hilbert envelope fade, instantaneous-frequency follow, Hjorth mobility switch, Theil–Sen-style slope follow, Haar energy-ratio fade, kinematic acceleration follow, Fisher-rank fade, quadratic Volterra residual fade, Detrended Fluctuation Analysis switch, delay-embedding divergence fade. Thresholds frozen. Not a 009/011 retune.
+
+## 2026-09-03 — Nested settle 009/012 FAIL (inner skill did not survive)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** Subset gate pass: **0**. Do not deploy. Do not retune Savitzky–Golay, Fair Value Gap size, or quarticity after seeing nested profit factor.
+
+Stitched outer 2022-01-01 .. 2026-05-01, maker 0.02%, EXEC-021, stamp `20260903T161502Z`:
+
+- Bitcoin 1-hour `quad_slope_follow`: n=933, 17.9/month, profit factor **0.977**, Sharpe **−0.13**, entry-bar 0.066, 2/6 positive folds. **FAIL.**
+- Solana 1-hour `fvg_confluence`: n=432, 8.3/month, profit factor **0.865**, Sharpe **−0.64**, entry-bar 0.079, 1/6 positive folds. **FAIL.**
+- Solana 1-hour `quarticity_spike_fade` (failed-screen diagnostic only): n=803, 15.5/month, profit factor **0.994**, Sharpe **−0.04**, entry-bar 0.148. Cannot promote.
+
+Answer A Solana clip 1.0–2.0 work-5 already nested: n=697, 20.5/month, profit factor **1.184** (below 1.20), Sharpe 1.23, entry-bar 0.237. Inner window TOO_FEW. `CONTAMINATED_OOS_VIEWED`.
+
+Report: `artifacts/reports/ml_lab/nested_settle_009_012_screen_latest.md`.
+
+## 2026-09-03 — Hunt 012 FVG inner: 1 screen (Solana 1h confluence)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** Do not deploy.
+
+Hunt 012 (`ml_lab_hunt_012_fvg`) inner screen **before 2022-01-01**, maker 0.02%, EXEC-021, 72 arms, 13 skill, **1 screen**:
+
+- Solana 1-hour `fvg_confluence` (bullish Fair Value Gap + 20-bar low still intact): n=189, 12.3/month, profit factor **1.374**, annualized Sharpe **1.62**, Heteroskedasticity-and-Autocorrelation-Consistent Sharpe **1.64**, entry-bar **0.106**, fill ~37%, win rate 44% (payoff 1.72). Long-only. Inner window only — not Shadow-Ready, not nested-settled, not live.
+- Solana 4-hour `fvg_pullback_long` / `fvg_age_filter`: profit factor 1.559 but entry-bar **0.379** (stop inside single-bar noise). Do not widen Average True Range.
+- Ether 1-hour `fvg_size_break`: profit factor 2.051, entry-bar 0.043, but n=23 (below 80).
+
+Watchdog parent was aborted after ~2.5 minutes; the child finished and wrote the report (`WROTE hunt_012_fvg_latest.md skill=13 screen=1`). No restart needed.
+
+## 2026-09-02 — Hunt 009 inner: 1 screen (Bitcoin 1h slope-follow); 010 contaminated running; 011 launched
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** Do not deploy. Autonomy keep-alive stays up.
+
+Hunt 009 (`ml_lab_hunt_009_causal_math`) inner screen **before 2022-01-01**, maker 0.02%, EXEC-021, 108 arms, 10 skill, **1 screen**:
+
+- Bitcoin 1-hour `quad_slope_follow` (causal Savitzky–Golay last-point slope): n=426, 15.3/month, profit factor **1.505**, annualized Sharpe **2.00**, Heteroskedasticity-and-Autocorrelation-Consistent Sharpe **1.91**, entry-bar **0.063**, fill ~27%. This is an inner-window number only — not Shadow-Ready, not nested-settled, not live.
+- Answer A: Solana 1-hour `value_pullback_er` profit factor 1.051, entry-bar 0.107, n=75 (fails trade count and 1.20 profit-factor). Ether 4-hour same idea profit factor 1.420, n=37, entry-bar 0.243 (too sparse). Lagged-beta residual did not clear the signed-move floor after costs.
+- Solana 4-hour fractional-difference / quadratic-residual fades printed profit factor ~1.03–1.06 with entry-bar **0.55–0.62** (stop inside single-bar noise). Do not widen Average True Range.
+
+Hunt 010 (`ml_lab_hunt_010_contaminated_tune`) pre-lockbox (already-viewed nested out-of-sample) closed **0/90 screen**. Stamp `RESEARCH_ONLY_CONTAMINATED`. Best Exponential Moving Average stack first-on prints had profit factor ~1.9–2.1 but only 20–25 trades (below 80). Solana 1-hour first-on: n=115, profit factor 1.113, entry-bar 0.070 — below 1.20. Ether 4-hour pullback: n=128, profit factor 0.916. Not Shadow-Ready. Do not widen Average True Range.
+
+Hunt 011 (`ml_lab_hunt_011_more_formulas`) inner screen **before 2022-01-01** closed **0/72**. Leakage PASS, maker 0.02%, EXEC-021. Closest: Solana 1-hour `quarticity_spike_fade` profit factor 1.331, entry-bar **0.263** (over the 0.25 cap); Bitcoin 4-hour `ewm_level_resid_fade` profit factor 1.198, entry-bar 0.320. Solana 4-hour exponential-level fade entry-bar **0.556**. Do not widen Average True Range. Report: `artifacts/reports/ml_lab/hunt_011_more_formulas_latest.md`.
+
+User-authorized min-size live later still needs an **explicit** host / account / size instruction. Do not peep the lockbox.
+
+## 2026-09-02 — Still calculating; hunt 009/010 + Answer A launched
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** Autonomy keep-alive is up (generation ~1678+). Drive D: has headroom after completed-generation cache prune.
+
+User authorized fine-tunes of viewed near-misses and live min-size later. Those families are **`CONTAMINATED_OOS_VIEWED`** and cannot stamp Shadow-Ready. Lockbox still sealed.
+
+Launched under watchdog (`scripts/run_research_continue_20260902.py`):
+
+1. **Hunt 009** (`ml_lab_hunt_009_causal_math`) — new causal formulas (fractional difference, Savitzky–Golay residual/slope, rolling Fourier centroid and log-log slope, Teager exhaustion, Yule–Walker one-step, Ornstein–Uhlenbeck half-life, bicoherence proxy, permutation entropy, lagged-beta residual, efficiency-ratio pullback). Inner screen before 2022-01-01. Maker 0.02%, EXEC-021.
+2. **Hunt 010** (`ml_lab_hunt_010_near_miss`) — new *events* on hunt 007/008 near-misses (two-bar failed-break hold, wick fail, Donchian 55, Asia fade only when Efficiency Ratio is low, Tuesday weekend-break hold, five-close stall, New York range hold, quiet break) plus Exponential Moving Average stack pullback / first-on. Not a stop search. Not a live-pack retune.
+3. **Answer A** (`pivot_answer_a_exec021`) — 2026-08-12 recommended trio (`BTC_ctrl_ret_w4`, `ETH_level_q50_w4`, `SOL_level_atr_clip_w5`) re-scored on maker EXEC-021, plus a frozen retune list. Inner and nested (to lockbox). Not a deploy.
+
+## 2026-09-01 — Hunt 007 nested settle FAIL; hunt 008 US-hours inventory closed 0/72
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** Inner screens stay **before 2022-01-01**. Do not peep the lockbox.
+
+Hunt 007 (`ml_lab_hunt_007_confirm_session`) inner: 72 rows, 3 skill, **1 screen** — Bitcoin 1-hour `failed_break_fade` n=107, 3.9/month, profit factor 1.279, Sharpe 0.65, entry-bar 0.084 (maker 0.02%, EXEC-021). Nested outer 2022-01-01 .. 2026-05-01: n=722, 13.9/month, profit factor **0.916**, Sharpe **−0.43**, entry-bar 0.148, 2/6 positive folds. **Subset FAIL.** Inner bull-window skill did not survive. Do not retune Donchian length or the Average-True-Range bracket. Do not add the Solana 4h n=44 / entry-bar 0.52 row.
+
+Hunt 008 (`ml_lab_hunt_008_us_inventory`) stamp `20260901T144332Z`: 72 rows, 4 skill, **0 screen**. Best maker/1-minute tradesim: Ether 15-minute `asia_open_fade_us` profit factor 1.121 (entry-bar 0.069, n=275) — below the frozen 1.20 profit-factor gate. Solana 15-minute `weekend_range_break` had the highest event-study signed move (0.011) but n=47, below the 80-event skill floor. Do not retune session hours or the Average True Range bracket. Report: `artifacts/reports/ml_lab/hunt_008_us_inventory_latest.md`.
+
+Autonomy inner loop keep-alive is up. Truncated `score_oos` pickle on gen 1569 now rebuilds.
+
+## 2026-09-01 — Maker exits: Post-Only take-profit + stop-limit stop
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+
+Bybit Full-mode position take-profit/stop only supports **Market** (taker) when triggered. Limit fields on that API are ignored. Live LLM2 runners now place, after fill:
+
+1. Reduce-only **Post-Only** limit at take-profit (rests on the book immediately — maker when it fills)
+2. Reduce-only **stop-limit** at the stop (Mark trigger, limit at the stop). Taker flatten only if mark is through and the limit did not fill.
+
+Attached Full trading-stop is cancelled after those two orders are accepted so it cannot fire a market close. Pivot heartbeat now reconciles orphans and gap-flattens (same as the Exponential Moving Average unit). Xxobster7 certificates were expired 2026-08-26 (old process kept running); expiry extended to **2026-10-01** so those already-authorized units could load this runner.
+
+## 2026-09-01 — Xxobster10 5% stop-risk + bots datetime since
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+
+Autonomy gen013 on **Xxobster10** / **212.73.150.178** (`llm2-autonomy-013-sol-atrrel`) now sizes **5% of equity at the 1% stop**, floored to Solana step **0.1**. Skip if that is below the venue min. Frozen take-profit/stop **1%/1%** and leverage **29×** unchanged. Other pivot/autonomy packs stay min-lot.
+
+The Xxobster4 `bots` Solana print `n=1 realized=0.1508` was a **retired diagonal-bot close at 2026-09-01 02:00:06 UTC**, not the Exponential Moving Average unit (first decide **11:38:16Z**, still flat). `bots` `since_*` now accepts `YYYY-MM-DDTHH:MM:SSZ`. ln1 Xxobster4 / `llm2_ema_sol_1h` start is **2026-09-01T11:38:16Z**.
+
+## 2026-09-01 — Xxobster4 swapped to Solana 1h EMA stack (5% stop-risk Post-Only)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** User-authorized live test only.
+
+Replaced both diagonal support/resistance units on **Xxobster4** / **94.156.189.76** (`llm2-dsr-eth-bu-1h`, `llm2-dsr-sol-bu-1h` disabled). Flattened a leftover **naked Ethereum short** (0.01 Sell, no stop) before stopping those units. New unit `llm2-ema-sol-1h` is **active** (`NRestarts=0`).
+
+- Pack: `artifacts/live_packs/sol_1h_power_ema_stack_long`
+- Certificate: `configs/live/sol_1h_power_ema_stack_long_xxobster4_ln1_certificate.yaml` (expires 2026-10-01)
+- Leverage **13×** from the 3% stop cap (not 29×)
+- Size: **5% of equity at that bar's stop**, floored to Bybit Solana step **0.1**; skip if below venue min (do not round up past 5%)
+- Bybit Solana lot: **min quantity 0.1** and **min notional 5 USDT**. At ~102 USDT, 0.1 Solana ≈ 10 USDT, so 0.1 is the binding floor
+- Intended product: Post-Only, 3-hour work, cancel and stay flat
+- Four Proof Gate green. First decide: `FLAT` / `no_event`, `LIVE-DATA-001=PASS`
+- `bots` start for Xxobster4 / this unit: **2026-09-01T11:38:16Z** (datetime filter; same-day leftover diagonal close excluded)
+
+Gate C all-taker fail still blocks a Shadow-Ready *stamp*. This is not a promotion.
+
+## 2026-09-01 — EXEC-021 maker-limit retest (38 arms) complete
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** **Do not deploy.**
+
+Engine: `tradesim` 1.1.0 from botsgeneral. Resting limit fills at the first 1-minute touch; take-profit/stop arm after that fill; maker 0.02% on resting legs. Window: pre-lockbox (to 2026-05-01) for live geometry and nested names; hunt 004–006 inner screens stay before 2022-01-01 (not a live vote). Not ~1500 other autonomy gens.
+
+**Min-size Post-Only vote (not Shadow-Ready):** Solana 1-hour `power_ema_stack_long` (not live; n=669, 13.0/month, profit factor 1.231, Sharpe 1.17, Heteroskedasticity-and-Autocorrelation-Consistent Sharpe 1.03, entry-bar 0.063) and already-live `llm2-autonomy-013-sol-atrrel` (n=70, 5.8/month, profit factor 1.436, Sharpe 1.33, entry-bar 0.071). Gate C all-taker stress was **not** re-run here.
+
+Live diagonal support/resistance Solana `bounce_upper` profit factor 1.965 → **0.997** (entry-bar 0.469 → 0.250). Hunt-005 Solana 4-hour `cvd_slope` profit factor 2.24 → **1.095** (entry-bar 0.58 → 0.386). Report: `artifacts/reports/exec021/exec021_maker_limit_retest_latest.md`.
+
+## 2026-09-01 — `EXEC-021` fill clock: tradesim 1.1.0 patched
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Do not deploy.**
+
+`tradesim` 1.1.0 starts the 1-minute (or finer) take-profit/stop path at the first sub-bar that touches a resting limit, not at the decision-bar open. Golden fixture `EXEC-021_tp_before_limit_is_not_a_fill` is green. Path `100 → 103 → 98` is **not** a take-profit at 103. Hunt-005 Solana 4-hour `cvd_slope` profit factor 2.24 is **invalidated** and must be re-scored on 1.1.0 before it is quoted. Do not retune the stop. Do not go live.
+
+## 2026-09-01 — Solana 1h EMA-stack V2.1 remainder: FAIL Gate C (all-taker stress)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** **Do not deploy. Do not retune.**
+
+Frozen `SOLUSDT|1h|power_ema_stack_long` only. Nested-settle now **always** runs Deflated Sharpe Ratio (449 hunt-004 event-study trials), 10,000-sample block bootstrap, and moderate stress.
+
+| Book | n | /month | PF | daily MTM Sharpe | stress PnL | stress PF |
+|---|---:|---:|---:|---:|---:|---:|
+| Baseline working-limit | 683 | 13.26 | 1.357 | 1.336 | — | — |
+| Gate C all-taker + 2× slip | 1145 | 22.18 | — | — | −24.0 | **0.853 FAIL** |
+
+A 2×-slippage rerun on the **same working-limit fills** did not move PnL (zero modeled entry slip). The honest Gate C book is all-taker fills. That book fails profit factor 1.05 and net PnL > 0. Drawdown/margin still look tiny because stake is tiny — not a wallet test. Probability of Backtest Overfitting unavailable (one arm). **Do not retune the bracket to pass stress.**
+
+Hunt 005 closed 0 screen (see full tradesim book). Hunt 005b sparse close-location-volume events (same frozen 1.5 Average-True-Range, no stop search): **0/18 skill pass**. Sparsifying the always-on slope removed the inner skill; that confirms the hunt-005 profit factor was density/noise, not a sparse event.
+
+Live tests: 1-hour plus 1-minute tip freshness, research-bit identity, leverage from 3% stop-cap (13× not 29×). Gate C all-taker fail blocks a Shadow-Ready *stamp* only; it does not require market-entry live. Intended product is Post-Only, cancel, stay flat. User-authorized min-size live is fill evidence, not a promotion.
+
+## 2026-08-31 — Hunt 005 closed 0/72 screen; hunt 006 session/flow launched
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** **Family 005:** closed; `failure_is_success`.
+
+Leakage PASS. 72 event-study arms. Four skill passes went to tradesim. **Zero** screen passes. Solana 4-hour `cvd_slope` printed profit factor 2.24 on 754 trades with entry-bar exit rate 0.58 and average hold ~1 bar — the stop sits inside single-bar noise; the gate held. Ether 4-hour `cvd_slope` profit factor 1.49, entry-bar 0.33 — also fail. Wick-reject profit factor below 1.0. Do not widen Average-True-Range to hide that. Do not nest-settle hunt 005.
+
+Hunt 006 (`ml_lab_hunt_006_session_flow`) is a **new** frozen family: Asia-range London break, UTC-day volume-weighted average price reclaim, engulf, outside-bar, five-close streak follow/fade, Relative Strength Index hook, Moving Average Convergence Divergence histogram cross. Same inner screen (before 2022-01-01) and the same trade gates. Not a retune of hunt-004 Exponential Moving Average stack or hunt-005 `cvd_slope`.
+
+## 2026-08-31 — Nested settle 004: Solana 1h EMA-stack subset pass (not Shadow-Ready)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** **Do not deploy. Do not retune.**
+
+Outer window 2022-01-01 .. 2026-05-01 exclusive. Exactly two frozen hunt-004 names. All-taker/working-limit Average-True-Range 1.5 bracket. 1-minute touch.
+
+| Arm | n | profit factor | Sharpe | HAC Sharpe | entry-bar exit | folds+ | this-script gates |
+|---|---:|---:|---:|---:|---:|---|---|
+| SOLUSDT 1h `power_ema_stack_long` | 683 | 1.357 | 1.608 | 1.396 | 0.091 | 6/6 | PASS |
+| BTCUSDT 4h `power_ema_stack_long` | 188 | 1.010 | 0.026 | 0.027 | 0.133 | 4/6 | FAIL (closed) |
+
+Bitcoin 4-hour is **closed**. Do not add Solana 4-hour or Ether 15-minute vol-expand after seeing this table.
+
+Solana 1-hour passed **this nested-settle subset** (five-plus folds, pooled trades, profit factor 1.20, Sharpe 1.00, HAC 0.75, 80% positive folds, entry-bar 0.25). That is **not** Frozen Default Gates V2.1 `SHADOW_READY`: Deflated Sharpe Ratio, dependence-aware bootstrap, moderate-stress book, and a real wallet drawdown/margin review are still missing. Simulated max drawdown is tiny because stake is tiny — it is not a 20% portfolio test. Fill rate ~33%. Win rate ~51%. Do not retune efficiency ratio, EMA spans, or the bracket.
+
+Hunt 005 later closed 0 screen-pass (see section above). Autonomy inner loop is running. Live diagonal support/resistance units were not touched.
+
+## 2026-08-31 — Research resumed: autonomy + EMA-stack settle + hunt 005
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+
+User asked to resume calculations and keep hunting. `artifacts/autonomy/STOP` was removed; nurse/keep-alive restarted the autonomy inner loop. Hunt 004's two inner names were nested-settled **without retune**. Hunt 005 is a new family (UTC opening-range, swings, wick follow, rising Average Directional Index, NR7, volume spring) — not an improvement of the EMA-stack thresholds after seeing inner profit factor.
+
+## 2026-08-30 — Hunt 004 closed: 2 inner screen passes (not outer, not live)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+
+Event study 449 rows, 22 skill passes (mostly daily, event-study only). Nine went to tradesim. **Two** cleared inner trade gates on pre-2022 data:
+
+| Arm | n | PF | Sharpe | ebr | t/m |
+|---|---:|---:|---:|---:|---:|
+| SOLUSDT 1h `power_ema_stack_long` | 321 | 1.576 | 2.81 | 0.187 | 21.0 |
+| BTCUSDT 4h `power_ema_stack_long` | 136 | 1.686 | 1.31 | 0.235 | 5.4 |
+
+Both are long-only EMA-stack with high Kaufman efficiency ratio. Solana 4-hour same idea had profit factor 2.42 but entry-bar exit rate 0.60 — fail. Ether 15-minute vol-expand profit factor 5.20 on 41 trades — fail sample. Daily skill is **not** a tradesim pass in this generation. Do not retune stops. Do not deploy. A nested outer settle of **exactly these two names** is the next honest step if authorized; do not add the 4-hour high entry-bar rows after seeing them.
+
+## 2026-08-30 — ML lab hunt 004: 30 named ideas (power / surf / mix)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+
+User asked for new stories after hunts 001–003 closed with no tradable edge. Family `ml_lab_hunt_004_idea_catalog` launched then closed in the same day (see section above).
+
+## 2026-08-29
+
+## 2026-08-29 — ML lab hunt 003 funding crowding fade closed (0/18)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** **Family status:** closed; `failure_is_success`.
+
+Leakage PASS. All 18 arms ran. Fade directional accuracy 0.436–0.506 (skill fail). Post-cost fade profit factor mostly below 1.0. Two fade arms printed profit factor above 1.20 with too few trades (Bitcoin 10 basis points n=26; Solana 10 basis points n=48) and directional accuracy ≤ 0.50 — not a screen pass. Ether ride control had directional accuracy 0.53–0.56 (the opposite of unwind) but profit factor still below 1.20. Do not nest-settle. Do not trade. Do not drop the 10 basis-point arm to chase those two rows.
+
+## 2026-08-29 — ML lab hunt 003 funding crowding fade (launched)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+
+Hunt 001 (KReF) and hunt 002 (15-minute one-bar reversal) are closed with no tradable edge. New family `ml_lab_hunt_003_funding_fade`: fade the sign of a completed Binance perpetual funding print on Bitcoin / Ether / Solana 1-hour, hold up to eight hours, Average-True-Range bracket, all-taker stress. Matched control is ride-funding at the same frozen 3 / 5 / 10 basis-point thresholds. Not a retune of funding-hour seasonality (already 0). Screen strictly before 2022-01-01. Ride arms cannot screen-pass.
+
+## 2026-08-28
+
+## 2026-08-28 — Hunt 002 reversal control closed (0/12)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** **Family status:** closed; `failure_is_success`.
+
+Leakage PASS. All 12 arms ran. Directional accuracy 0.514–0.530 (skill pass). Post-cost profit factor 0.279–0.667 (economic fail). Best book: Ether maker conf 0.10, profit factor 0.667, Sharpe −3.14. Taker is worse than maker; higher confidence does not rescue profit factor. KReF directional accuracy stays ~0.50 in every reversal-confidence bin — reversal is not a useful KReF state feature on this screen. Do not nest-settle. Do not trade.
+
+## 2026-08-28 — Crypto ML brief ingested; hunt 002 reversal control
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+
+The 28 August 2026 forecasting brief is treated as a research input, not a promotion.
+
+- **15-minute sign-reversal (22 Aug):** keep as a causal baseline / falsification. Paper gross edge ~1.3 basis points vs ~5 basis-point maker round-trip; authors say not conventionally tradable. Our all-taker stress is stricter. Family `ml_lab_hunt_002_reversal_control` is preregistered (`failure_is_success: true`): Bitcoin and Ether 15-minute perpetuals, one-bar hold, frozen confidence thresholds 0 / 0.05 / 0.10, taker and maker-entry cost books, screen strictly before 2022-01-01. A one-bar hold still flattens taker on max-hold.
+- **Latent-regime audit (3 Aug):** train-only NumPy K-means table on the same screen (calm / mid / stress directional accuracy). Diagnostic only — not a selection input.
+- **Wallet toxicity (Hyperliquid):** skip. Edge is 200 milliseconds–10 seconds; no fees/queue; 15-minute relevance unproven; July Level-4 tape not public.
+- **QLoRA / TinyLlama / Qwen Peak-VRAM paper:** skip for direct price forecasting. No new Bitcoin/Ether QLoRA forecast study met the brief's bar.
+- Screened out with the brief: 1D-CNN–IndRNN (no package), TradingMoE (16×A800), RFX “QLORA” (Wine dataset).
+
+Hunt 001 KReF / MoFE-lite remains closed (0/18 screen pass). Do not retune its 0.03 / 0.51 skill gates. Do not bolt reversal onto KReF as a rescue filter; the hunt-002 KReF table is a frozen diagnostic of KReF skill by reversal-confidence bins.
+
+## 2026-08-27 — ML lab hunt 001 (KReF / MoFE-lite / FinVerse protocol)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+
+Settle 003 closed 0/24. New inner screen (pre-2022 only): training-free retrieval (KReF-style) and a training-free spectral/local mixture (MoFE-inspired). FinVerse is the scoring protocol (Spearman information coefficient + directional accuracy, then tradesim). No warehouse join, no Adaptive Fourier Neural Operator fit, no retune of Ether bounce_upper. Leakage PASS on the Open-High-Low-Close builder. Watchdog runs the hunt at High priority and demotes Ollama / poker.
+
+## 2026-08-27 — Maker-first live on Xxobster4 diagonal S/R (user-authorized)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+
+User authorized Post-Only entry and limit take-profit/stop-loss (taker only when there is no choice). Rule added to `TRADING_BOT_CURSOR_RULES_V2.zip` §9.1.1 and `.cursor/rules/trading-bot-core.mdc`.
+
+Live code: `place_working_limit` `timeInForce=PostOnly`; `ensure_full_position_tpsl` Limit + limit prices; heartbeat `maybe_gap_flatten_taker` if mark is through the stop. The two DSR units now have **private** `llm2` trees so other ln1 bots that still symlink `/opt/llm2-structure/llm2` keep GTC + market trading-stop.
+
+Frozen packs still used all-taker `research_costs_baseline()` (stress). `research_maker_first_costs()` exists for the next settle; do not mix it into settle 003 mid-run.
+
+## 2026-08-27 — `/live-parity` after 26–27 Aug fills (Xxobster4/7/8/9)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+**Evidence class:** `LIVE_BT_PIVOT_RECONCILE_CONTAMINATED`. **Material logic bug:** no.
+
+Official Command Line Interface (CLI) finished 02:44 UTC. Sitrep: `artifacts/reports/live_parity_latest.json`. Signals 100% on all six pivot units. New Solana 15-minute fills on Xxobster7/8/9 match backtest side and fill price (designed slip). Extra backtest fills remain operational (data-unsafe history; Xxobster9 22:00 `place_exception`).
+
+Xxobster4 diagonal support/resistance is **outside** the official CLI. Local `tip_signal` replay 9/9 action and limit price on both 1-hour arms (`artifacts/reports/_ln1_dsr_vs_bt.json`). Ether fill had no take-profit/stop (SSL `place_exception` then authorized flatten). Solana fill 97.97 then stop at 98.97 (1%) matches the frozen stop.
+
+## 2026-08-27 — Diagonal S/R rule-event micros LIVE on ln1 / Xxobster4 (user-authorized)
+
+**Max research readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** These two units run on explicit user authorization at minimum exchange quantity; readiness was **not** earned (no forward shadow reconciliation, and the survivor list was chosen after viewing hunt-001 inner-test metrics).
+
+User instruction (2026-08-27): run the two diagonal support/resistance `bounce_upper` arms on **Xxobster4** / **94.156.189.76** (live-network-1), start date today, respect the rules, compute leverage.
+
+| systemd unit | Symbol | Event | TP / SL | Leverage | Settle PF | n | Entry-bar exit |
+|---|---|---|---|---:|---:|---:|---:|
+| `llm2-dsr-eth-bu-1h` | ETHUSDT 1h | `bounce_upper` (short) | 1.5% / 1% | 29x | 1.352 | 503 | 0.260 |
+| `llm2-dsr-sol-bu-1h` | SOLUSDT 1h | `bounce_upper` (short) | 1.5% / 1% | 29x | 1.965 | 490 | **0.469** |
+
+Solana entry-bar exit rate 0.469 means roughly half its trades resolve inside the entry candle — the stop sits inside single-bar noise. Reported to the user; deployed on their explicit "run these 2 strategies" instruction.
+
+New code (all local files updated, not only the worktree):
+
+- `llm2/diagonal_sr/live_signal.py` — one shared `tip_signal` used by research and live. `llm2/diagonal_sr/events.py` `_occurrence_bits` renamed to public `occurrence_bits`.
+- `llm2/live/diagonal_sr_runner.py` — rule-event working-LIMIT runner. Reuses the pivot runner's LIVE-DATA-001 gate, work-bar cancel, take-profit/stop-loss attach, max-hold flatten and one-decision-per-bar state.
+- `llm2/evidence/four_proof_diagonal_sr.py` — FOUR_PROOF_GATE_V1 restated for a no-warehouse rule arm. Proof 4 replays the live tip path on a growing 3000-bar prefix and requires bit-identical decisions vs `build_event_pack().occurrence`.
+- `scripts/build_diagonal_sr_live_pack.py` — freezes pack + runs the gate + writes the certificate. Refuses any arm not in the frozen survivor list of `configs/preregister/diagonal_sr_nested_settle_001.yaml`.
+- `tests/test_diagonal_sr_live_signal.py` — 7 passed (live vs research occurrence parity, limit-price clip, NaN refusal, short-history refusal).
+
+Four-proof: **green on all four for both arms** (`builder_responsiveness`, `recompute_prefix`, `no_live_feature_fill`, `layer_a_pred_identity` with 0 differing decisions over 24 tip bars).
+
+Leverage 29x is `leverage_from_stop(0.01)` = `floor(1/(0.01+0.005+0.002))=58`, haircut 0.5 → 29 — **the same value the settle backtest used** in `research_margin`, so margin and liquidation distance match.
+
+Certificates: `configs/live/diagonal_sr_{eth,sol}_bounce_upper_1h_certificate.yaml` (`authorized_from 2026-08-27`, expires `2026-09-26`, `MIN_EXCHANGE` only). Pack hashes verified identical on the VPS. Registered in `/opt/botsgeneral/config/bots_registry.yaml` as `llm2_dsr_eth_bu_1h` / `llm2_dsr_sol_bu_1h` (decision timeframe 1h so the collector keeps the 1h tip fresh); both show `[OK]` in `bots`. Xxobster4 equity 19.9989 USDT. First decides `FLAT` / `no_event`, `LIVE-DATA-001 = PASS` with exact tip match.
+
+## 2026-08-26 — Xxobster2 sitrep since-date after leftover Extreme Gradient Boosting closes
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+
+User: move the Profit and Loss (PnL) start date so leftover Ether Market closes are not in the autonomy book. `since` is date-only (UTC midnight). Last leftover close was 2026-08-25 12:26 UTC, so the floor is **2026-08-26**.
+
+On live-network-2 `/etc/botsgeneral/report.yaml`: `since_by_account.Xxobster2` and `llm2_autonomy_376_sol` / `llm2_autonomy_705_eth` set to `2026-08-26`. Local template: `C:\projects\botsgeneral\config\report.yaml`. Test: `tests/test_since_by_symbol.py` (3 passed). `bots report` now shows Xxobster2 n=0 / realized=0 / `since=2026-08-26` on ETHUSDT and SOLUSDT. Trading units were not restarted.
+
+## 2026-08-26 — `/live-parity` + sitrep books (Xxobster2 leftover)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+**Evidence class:** `LIVE_BT_PIVOT_RECONCILE_CONTAMINATED`. **Material logic bug:** no.
+
+Official Command Line Interface (CLI) `scripts/live_parity.py --i-accept-lockbox-contamination` finished 11:30 UTC. Sitrep: `artifacts/reports/live_parity_latest.json`. Signals 100% on all six pivot units (Xxobster7/8/9). Extra backtest fills vs data-unsafe / never-sent / no-touch remain operational, not a frozen-pack bug.
+
+Sitrep Ether (ETH) n=2 realized −1.0499 on **Xxobster2** is **not** `llm2-autonomy-705-eth-ema1320`. Both fills are leftover Market orders from the old Extreme Gradient Boosting (XGB) book: created 2026-08-24 18:00 UTC and 2026-08-25 03:00 UTC, closed 02:20 and 12:26 UTC on 25 Aug — all before autonomy first start 14:24 UTC. Autonomy 705: 0 ENTER, 0 orders, 0 fills; replay 85/85 action and `p_any` (one 11:15 bar missing locally in the warehouse). Autonomy 376 and 013: 83/83 replay; one Solana ENTER each at 26 Aug 10:30 UTC Sell, limits placed (`7cc5dcb4-…`, `b41d3ed6-…`), still in the work window at 11:38 UTC, 0 fills. Report: `artifacts/reports/_ln2_autonomy_vs_bt.json`.
+
+Xxobster4 Market Profile / Crypthor: user asked to delete the bot. Removed systemd units, `/opt/crypthor`, `/etc/crypthor`, and `crypthor2` from the VPS registry + report. No Crypthor process. Autonomy 376 / 705 / 013 left running. Local research tree `C:\projects\crypthor2` was not touched.
+
+## 2026-08-26 — ln2 sitrep: coins + names
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+
+Phone/`bots` on `212.73.150.178` now matches the 2026-08-25 authorized filters (no live unit restart):
+
+| Account | Bots shown | Coins shown |
+|---|---|---|
+| Xxobster10 | `llm2_autonomy_013_sol` only | SOLUSDT |
+| Xxobster2 | `llm2_autonomy_376_sol` + `llm2_autonomy_705_eth` | SOLUSDT + ETHUSDT (not BTCUSDT) |
+| Xxobster4 | *(deleted)* | Crypthor removed from VPS 2026-08-26 (`/opt/crypthor` gone) |
+
+Generic `llm2` is dropped when an `llm2_*` child is present, so leftover Bitcoin (BTC) history on 2/10 is not listed as the new bot. Xxobster4 is no longer a running bot on this host.
+
+## 2026-08-25 — Autonomy filter micros LIVE on ln2 (376/705/013)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+**Authorization:** user 2026-08-25 — real-USDT minimum-exchange, exact hunt arms (pivot control AND predicted filter), host `212.73.150.178`.
+
+| Unit | Account | Arm |
+|---|---|---|
+| `llm2-autonomy-376-sol-sma540` | Xxobster2 | SOL 15m H4 `sma540_below_at_h` |
+| `llm2-autonomy-705-eth-ema1320` | Xxobster2 | ETH 15m H4 `ema1320_below_at_h` |
+| `llm2-autonomy-013-sol-atrrel` | Xxobster10 | SOL 15m H8 `atr_rel_cross_up_1` |
+
+Take-profit / stop 1%/1%. Leverage from stop = 29x. Solana work bars = 5 (hunt). Certificates expire 2026-09-08. Four Proof Gate green on each pack. First decides 14:24 UTC: all `FLAT`, `LIVE-DATA-001=PASS`, no orders. Existing Xxobster8/9 pivot units left running. `bots sitrep` lists all three autonomy bots `[UP]`.
+
+## 2026-08-25 — CancelledDataUnsafe + ln2 never-sent (fixed, gate not loosened)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+**Evidence class:** `LIVE_BT_PIVOT_RECONCILE_CONTAMINATED`. **Material logic bug:** no (signals). **Ops bugs:** yes (now patched).
+
+Solana 24 Aug 11:30 UTC and 25 Aug 00:30 UTC:
+
+- **Xxobster8/9 (live-network-2):** `ENTER_LIMIT` with `LIVE-DATA-001` PASS, then process crash. `order_result={}` — **never sent** (not expired). Cause: `research_instrument` required missing `/root/.trading/legacy/api keys bybit.txt`. Public instrument fallback deployed.
+- **Xxobster7 (live-network-1):** orders **placed** then `CancelledDataUnsafe` / `CLOCK_SKEW` at 11:50:50Z and 00:49:31Z. Collector 15-minute bars were present; decide-time skew ~150 ms. Cause: fill-wait counted Binance time HTTP round-trip (~5.1–5.8 s) as clock skew (`max=5000` ms). `LIVE-DATA-001` 5-second cap **unchanged**. HTTP round-trip now excluded; fill-wait waits 120 s on `CLOCK_SKEW` / `SERVER_TIME_FAIL` / `CANDLE_STALE` before cancel.
+
+Units restarted 2026-08-25 ~12:31–12:34 UTC (ln1 two units, ln2 four). Dump: `artifacts/reports/_sol_order_freshness_root_cause.md`.
+
+`/live-parity` re-run 2026-08-25 12:50 UTC after the fix (no new Solana ENTER yet). Signals 100% all six units. Material logic bug: no. Sitrep: `artifacts/reports/live_parity_latest.json`. Xxobster8/9 still 0 live fills (pre-fix never-sent). Xxobster7 lifetime still 5 fills; later ENTERs remain cancelled-data-unsafe in the historical book. Extra backtest fills are operational, not a pack bug.
+
+## 2026-08-25 — first post-fix Solana ENTER (13:15 UTC Buy)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+**Evidence class:** `LIVE_BT_PIVOT_RECONCILE_CONTAMINATED`. **Material logic bug:** no.
+
+Bar 13:15 UTC, decide ~13:30 UTC, Buy limit 95.72 (close 96.94). All three Solana units **placed** (`LIMIT_PLACED`); live-network-2 did **not** crash; public instrument refresh OK. live-network-2 logged `FILL_WAIT_DATA_UNSAFE wait code=CANDLE_STALE` at 13:45 and **kept** the rest. All three ended `LIMIT_CANCEL_TIMEOUT` at 14:30 UTC (`filled=false`, status `Cancelled`) — clean work-window no-touch, **not** `CancelledDataUnsafe`. `NRestarts=0`.
+
+`/live-parity` 14:43 UTC: signals 100%. Xxobster7 Solana ENTER 48 / filled 4 (lifetime). Xxobster8/9 Solana ENTER 7 / filled 0 (this bar timed out). Extra backtest fills remain operational. Sitrep: `artifacts/reports/live_parity_latest.json`.
+
+## 2026-08-25 — `/live-parity` last few days missed trades
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+**Evidence class:** `LIVE_BT_PIVOT_RECONCILE_CONTAMINATED`. **Material logic bug:** no. Signals 100% on all six units.
+
+Since 2026-08-22 UTC: no new live fills. Xxobster8/9 Solana 4 ENTER / 0 fill (`no_result`); Ether 1 ENTER / 0 fill. Xxobster7 Solana 5 ENTER all `CancelledDataUnsafe`; Ether 1 same. Extra backtest fill 22 Aug 03:15 UTC on Solana 7/8/9. Sitrep: `artifacts/reports/live_parity_latest.json`. Did not deploy.
+
+## 2026-08-25 — xxobster2 XGB bot removed on ln1
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+
+User authorized full removal of bot `xxobster2` on `94.156.189.76`. Stopped screen sessions `xxobster2BTCUSDT` and `xxobster2ETHUSDT` (`vps_run_asset_live.py`). Removed root `@reboot` cron that called `/home/xgb/scripts/vps_start_live.sh`. Replaced that start script with a fail-closed stub; original saved as `vps_start_live.sh.disabled_20260825`. Dropped `xgb` from the live-network-1 host list in `/opt/botsgeneral/config/bots_registry.yaml` so `bots` / `bots sitrep` no longer list Extreme Gradient Boosting / Xxobster2. Leftover Bybit take-profit / stop-loss left on; positions not flattened. `/home/xgb` files kept. Left running: collector, pivot Xxobster7, Time-Series-Momentum Volume-Price-Analysis Xxobster5, chandelier Xxobster6.
+
+## 2026-08-23 — `/live-parity` missed signals vs missed trades
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+**Evidence class:** `LIVE_BT_PIVOT_RECONCILE_CONTAMINATED`. **Material logic bug:** no.
+
+Replay ENTER/FLAT: 0 flips on all six pivot units (Xxobster7/8/9). Xxobster8/9 Ether: 0 ENTER. Xxobster8/9 Solana: 4 ENTER each, 0 live fills (`no_result`); backtest filled 2/4 (2 no-touch). Xxobster7: 45+11 ENTER, 5 live fills; 30 data-unsafe cancels. Sitrep: `artifacts/reports/live_parity_latest.json`. Local Binance REST blocked; 15-minute Last ingested from Virtual Private Server dumps. Did not deploy.
+
+## 2026-08-22 — Autonomy keep-calculating (007 running, 008–013 frozen)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+
+User: keep calculations running until `artifacts/autonomy/STOP`. Generation 007 is scoring. Generations 008–013 (RSI, Donchian, EMA, rate of change, Money Flow Index, relative ATR) are frozen in the queue **before** ranking so the loop does not go idle after 007. Nurse + keep-alive stay up. No Virtual Private Server action.
+
+## 2026-08-22 — Autonomy gen 007 resumed (Stochastic / MACD / ADX)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+
+Gens 004–006 were idle/exhausted. Frozen a new public-formula generation (007: Lane Stochastic, Appel MACD, Wilder +DI/−DI) before ranking. 51 planned arms on 15-minute Limit 1%/1%. Loop picks it up from `configs/autonomy/research_loop_v1.yaml`. No Virtual Private Server action.
+
+## 2026-08-22 — Diagonal S/R nested settle 001 (RUNNING)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+
+Hunt 001 was idle (1080/1080). Resumed Generation C: nested outer-out-of-sample settle of the 11 frozen rule-event inner survivors. Runner `scripts/run_diagonal_sr_nested_settle_001.py` under keep-alive `diagonal_sr_settle_001`. Report: `artifacts/reports/diagonal_sr/nested_settle_001_latest.md`. No Virtual Private Server action.
+
+## 2026-08-21 — `/live-parity` re-run (closeness table)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+**Evidence class:** `LIVE_BT_PIVOT_RECONCILE_CONTAMINATED`. **Material logic bug:** no.
+
+Xxobster7 candles/signals 100%, calculations 99.8–99.9%, five live fills 100% side/slip. Xxobster8/9 candles/calculations/signals 100%, entries/exits n/a (0 ENTER). Sitrep: `artifacts/reports/live_parity_latest.json`. Did not deploy.
+
+## 2026-08-21 — Autonomous research loop v1 (queue exhausted)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none** (one diagnostic gate-candidate only).
+
+Gens 004–006 done. One filter cleared inner gates on the pre-lockbox test window: Solana 15-minute horizon-8 Parabolic SAR flip-up on the 1%/1% Limit control (PF 2.80 vs control 1.67, n=60, entry-bar exit exactly 35%). Not live. Loop idle. Stop file: `artifacts/autonomy/STOP`.
+
+## 2026-08-21 — Autonomous research loop v1 (RUNNING while user away)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **No live deploy from this loop.**
+
+User authorized multi-day unsupervised search for gate-passing packs. Hard rules still bind: no leakage, `tradesim` from botsgeneral, entry-bar exit ≤35%, trades/month ∈ [4, 40], pre-lockbox ranking only, no TradingView scrape / no third-party Pine paste, no VPS deploy without naming host+account.
+
+- Queue: `configs/autonomy/research_loop_v1.yaml` (gens 004 Williams/Keltner/PSAR → 005 Bollinger → 006 Aroon)
+- Loop: `scripts/run_autonomous_research_loop.py`
+- Keep-alive: `scripts/keep_alive_autonomy_loop.ps1` → `artifacts/logs/autonomy_research_loop_v1.keepalive.log`
+- Status: `artifacts/autonomy/STATUS.md`
+- **Stop:** create empty file `artifacts/autonomy/STOP`
+- Tier-2 alerts only when a filter arm clears frozen gates vs control
+
+Prior closed negatives still stand: confluence 001/002, indicator-regime 003, diagonal support/resistance 001 (0 flags under entry-bar cap).
+
+## 2026-08-21 — `/live-parity` wired + pivot fleet run
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+**Evidence class:** `LIVE_BT_PIVOT_RECONCILE_CONTAMINATED` (window after lockbox).
+**Material logic bug:** no. 15-minute Last candles match_rate 1.0. Action replay 830/830 (ln1) and 18/18 (ln2).
+
+CLI: `python scripts/live_parity.py --i-accept-lockbox-contamination`
+Sitrep: `artifacts/reports/live_parity_latest.json`
+
+ln1 (Xxobster7): 25 ENTER cancelled data-unsafe (backtest still fills). Live fills SOL 4 / ETH 1. `pivot_fills` still 0 in the dump.
+ln2 (Xxobster8/9): four units `active`, 0 ENTER, 0 fills. Fill parity cannot run until an ENTER fills.
+
+Did not retune take-profit / stop / work / hold. Did not deploy.
+
+## 2026-08-21 — Indicator-regime hunt 003 (done)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** Not live.
+
+Preregister: `configs/preregister/confluence_indicator_regime_003.yaml`  
+Report: `artifacts/reports/confluence/indicator_regime_003_latest.md`  
+Survivors note: `artifacts/reports/confluence/indicator_regime_003_survivors.md`
+
+Closed Supertrend / Ichimoku Tenkan-Kijun / Commodity Channel Index regime heads as one-head filters on the 15-minute 1%/1% pivot control. Leakage PASS. Watchdog clean exit 0 after **39 / 39** arms. High-looking Profit Factors fail the 35% entry-bar exit gate; flagged arms under that gate do not beat matched controls. Level mean-squared error was diagnostic only. Stop this indicator-forecast family; do not scrape TradingView.
+
+## 2026-08-21 — Diagonal support/resistance autonomous hunt 001 (complete)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.** Not live.
+
+Preregister: `configs/preregister/diagonal_sr_autonomous_hunt_001.yaml`  
+Full grid: **1080 / 1080** arms (168 `RAN`, 900 too-few gated, 12 too-few). Watchdog + keep-alive clean stop.  
+Inner profitable table: `artifacts/reports/diagonal_sr/autonomous_hunt_001_profitable_inner.json`
+
+**Inner chronological test (before lockbox) only — not Frozen V2.1 nested out-of-sample, not a pack:** 11 rule-event arms cleared Profit Factor >= 1.20, n>=50, entry-bar <=35%, trades/month in band. Best intent expectancy: Bitcoin 1-hour `confluence_bounce_long` 1%/1% (PF 1.34) and `channel_walk_long` 1%/1% (PF 1.41, Sharpe 2.03). **Zero** Light Gradient Boosting Machine / Ridge heads produced a `RAN` backtest (all gated too sparse). Do not promote. Do not peep lockbox. No Virtual Private Server action.
+
+## 2026-08-21 — ln2 Xxobster8/9 live-vs-BT (no ENTER yet)
+
+## 2026-08-21 — ln2 Xxobster8/9 live-vs-BT (no ENTER yet)
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. **Promoted: none.**
+
+Four pivot units on `212.73.150.178` are `active`. Collector 1-minute rows = 0. Since deploy: all decides `FLAT` / `below_thr`, `LIVE-DATA-001=PASS`, zero ENTER, zero fills. 15-minute VPS vs warehouse `price_type=last` match_rate 1.0. Action/`p_any` replay 13/13 each arm. Did not retune 0.5%/0.5%. Report: `artifacts/reports/audit_llm2_pivot_ln2_xx89_live_vs_bt_latest.md`. Ether Xxobster8 Finplot: `scripts/plot_xx8_eth_live_vs_bt_finplot.py` (blue backtest / orange live).
 
 ## 2026-08-21 — ln1 live-vs-BT re-check (no new fills)
 

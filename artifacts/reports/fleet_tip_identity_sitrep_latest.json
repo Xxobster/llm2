@@ -1,0 +1,16 @@
+{
+  "utc": "2026-08-12T17:24:26Z",
+  "poll": 1,
+  "pivot_status": "PASS",
+  "pivot_all_match": true,
+  "structure_stopped": "PASS_STOPPED",
+  "xgb_certifiable": false,
+  "tsm_vpa_certifiable": false,
+  "tsm_chandelier_certifiable": false,
+  "judge_research_pf_allowed": true,
+  "note": "Do not judge pivot edge from research stack Profit Factor (PF) until tip identity stays green for a full day.",
+  "polls": 2,
+  "green_polls": 2,
+  "green_ratio": 1.0,
+  "full_day_green": false
+}

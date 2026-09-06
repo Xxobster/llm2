@@ -1,0 +1,27 @@
+{
+  "generated_utc": "2026-08-05T13:08:20.020646+00:00",
+  "candles_ok": true,
+  "strength_n": 3,
+  "strength_target": 168,
+  "model_snapshot_ok_rate": 1.0,
+  "headline": {
+    "structure_first": "PARTIAL_TIP_DRIFT",
+    "side_match_rate_scored": 1.0,
+    "pred_exact_rate_scored": 0.6666666666666666,
+    "pred_close_1e4_rate_scored": 0.6666666666666666,
+    "max_abs_pred_diff_scored": 0.11335751087973134
+  },
+  "gate_skips": {
+    "none": 3,
+    "clarity_mean_strength": 2
+  },
+  "drift_bars": [
+    "2026-08-05T10:00:00+00:00"
+  ],
+  "actions": {
+    "candle_tip": "PASS",
+    "strength_hist": "WARMUP",
+    "structure": "PARTIAL_TIP_DRIFT",
+    "do_not_retune_p75": true
+  }
+}

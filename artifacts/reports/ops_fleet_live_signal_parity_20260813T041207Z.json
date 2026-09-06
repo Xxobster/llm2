@@ -1,0 +1,88 @@
+{
+  "gate_name": "Fleet Live Signal Parity",
+  "evidence_class": "OPS_FLEET_LIVE_SIGNAL_PARITY",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "generated_utc": "2026-08-13T04:11:00.721487+00:00",
+  "target_closed_1h_bar_utc": "2026-08-13T03:00:00+00:00",
+  "target_closed_1h_bar_ts_ms": 1786590000000,
+  "require_target_bar": false,
+  "strict_indicators": false,
+  "pred_eps": 1e-06,
+  "note": "Compares each unit's decision on the target closed 1h bar (or latest if missing and not --require-target-bar) to local warehouse recompute with the matching frozen pack. Does not claim readiness. Single-unit deep tip audit: ops_live_research_parity_gate.py. 1m indicator-only: run_1m_indicator_parity_bot.py.",
+  "results": [
+    {
+      "host": "ln1",
+      "host_class": "94.x",
+      "unit": "llm2-structure-btc-k5-double3h-v1",
+      "pack": "structure_v1_btcusdt_k5_double3h_v1",
+      "symbol": "BTCUSDT",
+      "timeframe": "1h",
+      "local_pack_ok": true,
+      "note": "no_row_for_target_bar_used_latest",
+      "bar_ts_ms": 1785999600000,
+      "bar_utc": "2026-08-06T07:00:00+00:00",
+      "live_pred_mean": 0.005605798040365349,
+      "live_side": 1,
+      "live_decided_utc": "2026-08-06T08:10:32.356808+00:00",
+      "warehouse_pred_mean": null,
+      "warehouse_side": null,
+      "recompute_error": "bar_missing_in_warehouse_ohlcv",
+      "abs_diff": null,
+      "side_match": null,
+      "pred_match": null,
+      "pack_1h_max_ts": null,
+      "indicators_identical": null,
+      "indicators_n_mismatch": null,
+      "blockers": [
+        "bar_missing_in_warehouse_ohlcv",
+        "RECOMPUTE_FAILED"
+      ],
+      "soft_blockers": [],
+      "ok": false
+    },
+    {
+      "host": "ln1",
+      "host_class": "94.x",
+      "unit": "llm2-structure-sol-k5-double3h-v1",
+      "pack": "structure_v1_solusdt_k5_double3h_v1",
+      "symbol": "SOLUSDT",
+      "timeframe": "1h",
+      "local_pack_ok": true,
+      "note": "no_row_for_target_bar_used_latest",
+      "bar_ts_ms": 1785999600000,
+      "bar_utc": "2026-08-06T07:00:00+00:00",
+      "live_pred_mean": 0.3439441715554352,
+      "live_side": 1,
+      "live_decided_utc": "2026-08-06T08:05:31.918696+00:00",
+      "warehouse_pred_mean": null,
+      "warehouse_side": null,
+      "recompute_error": "bar_missing_in_warehouse_ohlcv",
+      "abs_diff": null,
+      "side_match": null,
+      "pred_match": null,
+      "pack_1h_max_ts": 1786536000000,
+      "indicators_identical": null,
+      "indicators_n_mismatch": null,
+      "blockers": [
+        "bar_missing_in_warehouse_ohlcv",
+        "RECOMPUTE_FAILED"
+      ],
+      "soft_blockers": [],
+      "ok": false
+    }
+  ],
+  "summary": {
+    "gate_name": "Fleet Live Signal Parity",
+    "n_units": 2,
+    "n_pass": 0,
+    "n_fail": 2,
+    "all_pred_match": false,
+    "units_with_soft_indicator_mismatch": [],
+    "n_bars_pred_differ": 0,
+    "pred_mismatch_hard_stop": false
+  },
+  "principal_blocker": [
+    "bar_missing_in_warehouse_ohlcv",
+    "RECOMPUTE_FAILED"
+  ]
+}

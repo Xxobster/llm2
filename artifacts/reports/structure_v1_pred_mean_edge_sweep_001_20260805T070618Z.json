@@ -1,0 +1,215 @@
+{
+  "generation_id": "structure_v1_pred_mean_edge_sweep_001",
+  "created_utc": "20260805T070618Z",
+  "evidence_class": "MEASURE_DIAGNOSTIC",
+  "max_readiness": "RESEARCH_ONLY",
+  "promotion_allowed": false,
+  "note": "Multi-edge outer-stitch comparison for charts only. Ranking is exploratory \u2014 do not promote edges selected on outer OOS without a new frozen single-arm prereg and settle.",
+  "hard_end_exclusive": "2026-05-01",
+  "lockbox_used": false,
+  "fold_geometry": "v2",
+  "outer_fold_ranges": [
+    [
+      "2022-01-01",
+      "2022-10-01"
+    ],
+    [
+      "2022-10-01",
+      "2023-07-01"
+    ],
+    [
+      "2023-07-01",
+      "2024-04-01"
+    ],
+    [
+      "2024-04-01",
+      "2025-01-01"
+    ],
+    [
+      "2025-01-01",
+      "2025-10-01"
+    ],
+    [
+      "2025-10-01",
+      "2026-05-01"
+    ]
+  ],
+  "pred_mean_edges": [
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9
+  ],
+  "conformance_passed": true,
+  "n_packs": 22,
+  "packs": [
+    {
+      "pack": "structure_v1_adausdt_direction",
+      "error": "TypeError: float() argument must be a string or a real number, not 'SharpeReport'",
+      "edges": {}
+    },
+    {
+      "pack": "structure_v1_avaxusdt_direction",
+      "error": "TypeError: float() argument must be a string or a real number, not 'SharpeReport'",
+      "edges": {}
+    },
+    {
+      "pack": "structure_v1_bnbusdt_direction",
+      "error": "TypeError: float() argument must be a string or a real number, not 'SharpeReport'",
+      "edges": {}
+    },
+    {
+      "pack": "structure_v1_btcusdt_clarity_hold12_v1",
+      "error": "TypeError: float() argument must be a string or a real number, not 'SharpeReport'",
+      "edges": {}
+    },
+    {
+      "pack": "structure_v1_btcusdt_k5_double3h_v1",
+      "error": "TypeError: float() argument must be a string or a real number, not 'SharpeReport'",
+      "edges": {}
+    },
+    {
+      "pack": "structure_v1_dogeusdt_direction",
+      "error": "TypeError: float() argument must be a string or a real number, not 'SharpeReport'",
+      "edges": {}
+    },
+    {
+      "pack": "structure_v1_dotusdt_direction",
+      "error": "TypeError: float() argument must be a string or a real number, not 'SharpeReport'",
+      "edges": {}
+    },
+    {
+      "pack": "structure_v1_ethusdt_clarity_hold12_v1",
+      "error": "TypeError: float() argument must be a string or a real number, not 'SharpeReport'",
+      "edges": {}
+    },
+    {
+      "pack": "structure_v1_ethusdt_direction",
+      "error": "TypeError: float() argument must be a string or a real number, not 'SharpeReport'",
+      "edges": {}
+    },
+    {
+      "pack": "structure_v1_ethusdt_k5_double3h_v1",
+      "error": "TypeError: float() argument must be a string or a real number, not 'SharpeReport'",
+      "edges": {}
+    },
+    {
+      "pack": "structure_v1_ethusdt_multitrade_v1",
+      "error": "TypeError: float() argument must be a string or a real number, not 'SharpeReport'",
+      "edges": {}
+    },
+    {
+      "pack": "structure_v1_ethusdt_multitrade_v1_1",
+      "error": "TypeError: float() argument must be a string or a real number, not 'SharpeReport'",
+      "edges": {}
+    },
+    {
+      "pack": "structure_v1_ethusdt_multitrade_v1_2",
+      "error": "TypeError: float() argument must be a string or a real number, not 'SharpeReport'",
+      "edges": {}
+    },
+    {
+      "pack": "structure_v1_lgbm",
+      "error": "TypeError: float() argument must be a string or a real number, not 'SharpeReport'",
+      "edges": {}
+    },
+    {
+      "pack": "structure_v1_linkusdt_direction",
+      "error": "TypeError: float() argument must be a string or a real number, not 'SharpeReport'",
+      "edges": {}
+    },
+    {
+      "pack": "structure_v1_solusdt_clarity_hold12_v1",
+      "error": "TypeError: float() argument must be a string or a real number, not 'SharpeReport'",
+      "edges": {}
+    },
+    {
+      "pack": "structure_v1_solusdt_direction",
+      "error": "TypeError: float() argument must be a string or a real number, not 'SharpeReport'",
+      "edges": {}
+    },
+    {
+      "pack": "structure_v1_solusdt_k5_double3h_v1",
+      "error": "TypeError: float() argument must be a string or a real number, not 'SharpeReport'",
+      "edges": {}
+    },
+    {
+      "pack": "structure_v1_trxusdt_direction",
+      "error": "TypeError: float() argument must be a string or a real number, not 'SharpeReport'",
+      "edges": {}
+    },
+    {
+      "pack": "structure_v1_vetusdt_direction",
+      "error": "TypeError: float() argument must be a string or a real number, not 'SharpeReport'",
+      "edges": {}
+    },
+    {
+      "pack": "structure_v1_xlmusdt_direction",
+      "error": "TypeError: float() argument must be a string or a real number, not 'SharpeReport'",
+      "edges": {}
+    },
+    {
+      "pack": "structure_v1_xrpusdt_direction",
+      "error": "TypeError: float() argument must be a string or a real number, not 'SharpeReport'",
+      "edges": {}
+    }
+  ],
+  "rankings": {
+    "top_by_expectancy_return_units": [],
+    "top_by_profit_factor_min50_trades": [],
+    "best_edge_per_pack_by_eru": [],
+    "n_cells_with_trades": 0
+  },
+  "live_active_map": {
+    "btc_k5_double3h_v1": {
+      "account": "Xxobster10",
+      "service": "llm2-structure-btc-k5-double3h-v1"
+    },
+    "eth_k5_double3h_v1": {
+      "account": "Xxobster6",
+      "service": "llm2-structure-eth-k5-double3h-v1"
+    },
+    "sol_k5_double3h_v1": {
+      "account": "Xxobster10",
+      "service": "llm2-structure-sol-k5-double3h-v1"
+    },
+    "eth_multitrade_v1_2": {
+      "account": "Xxobster8",
+      "service": "llm2-structure-eth-multitrade-v1_2"
+    },
+    "structure_v1_lgbm": {
+      "account": "Xxobster7",
+      "service": "llm2-structure-btc",
+      "version_id_aliases": [
+        "lgbm",
+        "structure_v1_lgbm"
+      ]
+    },
+    "ethusdt_direction": {
+      "account": "Xxobster7",
+      "service": "llm2-structure-eth",
+      "version_id_aliases": [
+        "ethusdt_direction",
+        "structure_v1_ethusdt_direction"
+      ]
+    },
+    "solusdt_direction": {
+      "account": "Xxobster7",
+      "service": "llm2-structure-sol",
+      "version_id_aliases": [
+        "solusdt_direction",
+        "structure_v1_solusdt_direction"
+      ]
+    }
+  },
+  "elapsed_sec": 439.9,
+  "min_size_equity_caveat": "Wallet equity / maximum drawdown under research_sizing MIN_EXCHANGE (minimum exchange size) on a large wallet is not tradable-edge evidence. Smooth curves are expected at dust size; do not treat them as deployable sizing.",
+  "equity_leverage_sizing_note": "Research/display only: EQUITY_LEVERAGE_NOTIONAL notional = equity \u00d7 equity_fraction \u00d7 leverage (compound when enabled). wallet_return is valid under that mode. Live micro bots always use MIN_EXCHANGE (venue min qty per pair); never size live from wallet %. Peak concurrent margin utilisation is multi-book research stress. Never scale live size from a min-size research wallet % or equity-leverage study.",
+  "default_equity_fraction": 0.01,
+  "equity_is_tradable_edge": false
+}

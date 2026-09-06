@@ -1,0 +1,24 @@
+# Autonomy gen 113 — three-bar range contraction
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_113_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-22T16:09:00Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  Three consecutive bars each with a smaller high-low range than the
+  prior bar, at t+H and the start of that contraction in the next H bars,
+  used as one-head filters, can beat the 15-minute Limit 1%/1% pivot
+  control under frozen entry-bar and trades-per-month caps.
+events: [nr3_at_h, nr3_start, wr3_at_h, wr3_start]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: 8fa555ccdb4568bfcc11ce675bf27c0e3bded52a3d303e8ba0549ddc192c1247

@@ -163,6 +163,8 @@ def proof_tip_pred_identity(
     short = full.iloc[-1500:].copy()
     d_short = tip_decide(ohlcv=short, strategy=strategy, blob=blob)
     keys = ("action", "p_any", "p_high", "level_ret", "side", "limit_px", "bar_ts_ms")
+    if strategy.get("filter"):
+        keys = keys + ("p_event", "reason")
     diffs = {}
     for k in keys:
         a, b = d_full.get(k), d_short.get(k)
@@ -178,6 +180,69 @@ def proof_tip_pred_identity(
         "full": {k: d_full.get(k) for k in keys},
         "short": {k: d_short.get(k) for k in keys},
         "pack_dir": str(pack_dir),
+    }
+
+
+def proof_autonomy_feature_responsiveness(ohlcv: pd.DataFrame, *, timeframe: str) -> dict[str, Any]:
+    """Tip shape-shock must move autonomy known-now features."""
+    from llm2.autonomy.packs import build_features_for_guard
+
+    frame = ohlcv.iloc[-2500:].copy() if len(ohlcv) > 2500 else ohlcv.copy()
+    base = build_features_for_guard(frame)
+    shocked = frame.copy()
+    n = min(40, len(shocked))
+    shocked.iloc[-n:, shocked.columns.get_loc("close")] = (
+        shocked["close"].iloc[-n:].to_numpy(dtype=float) * 1.01
+    )
+    alt = build_features_for_guard(shocked)
+    cols = [c for c in base.columns if c in alt.columns]
+    moved = 0
+    for ts in base.index[-n:]:
+        for c in cols:
+            a = float(pd.to_numeric(base.loc[ts, c], errors="coerce"))
+            b = float(pd.to_numeric(alt.loc[ts, c], errors="coerce"))
+            if np.isfinite(a) and np.isfinite(b) and abs(a - b) > 1e-12:
+                moved += 1
+                break
+    return {
+        "proof": "builder_responsiveness",
+        "ok": moved > 0,
+        "space": "autonomy_filter",
+        "timeframe": timeframe,
+        "n_rows_moved": moved,
+        "conformance": "CAUS-WAREHOUSE-001",
+    }
+
+
+def proof_autonomy_prefix_features(ohlcv: pd.DataFrame, *, timeframe: str) -> dict[str, Any]:
+    from llm2.autonomy.packs import build_features_for_guard
+
+    frame = ohlcv.iloc[-4000:].copy() if len(ohlcv) > 4000 else ohlcv.copy()
+    full = build_features_for_guard(frame)
+    cut = max(500, len(frame) // 2)
+    pref = build_features_for_guard(frame.iloc[:cut].copy())
+    cols = [c for c in full.columns if c in pref.columns]
+    n_diff = 0
+    first_bad = None
+    overlap = pref.index.intersection(full.index)
+    check = overlap[:-5] if len(overlap) > 5 else overlap
+    for ts in check[-80:]:
+        for c in cols:
+            a = float(pd.to_numeric(full.loc[ts, c], errors="coerce"))
+            b = float(pd.to_numeric(pref.loc[ts, c], errors="coerce"))
+            if np.isnan(a) and np.isnan(b):
+                continue
+            if not (np.isfinite(a) and np.isfinite(b) and abs(a - b) <= 1e-9):
+                n_diff += 1
+                first_bad = first_bad or f"{ts}:{c}"
+                break
+    return {
+        "proof": "recompute_prefix",
+        "ok": n_diff == 0,
+        "space": "autonomy_filter",
+        "timeframe": timeframe,
+        "n_rows_differ": n_diff,
+        "first_bad": first_bad,
     }
 
 
@@ -201,11 +266,34 @@ def run_pivot_four_proof(
 
     proofs: dict[str, Any] = {}
     hashes: dict[str, str] = {}
-    p1 = proof_feature_responsiveness(ohlcv, pack=feature_pack, timeframe=timeframe)
+    has_filter = bool(strategy.get("filter"))
+    p1_pivot = proof_feature_responsiveness(ohlcv, pack=feature_pack, timeframe=timeframe)
+    p1_auto = (
+        proof_autonomy_feature_responsiveness(ohlcv, timeframe=timeframe)
+        if has_filter
+        else {"ok": True, "skipped": True}
+    )
+    p1 = {
+        "proof": "builder_responsiveness",
+        "ok": bool(p1_pivot.get("ok")) and bool(p1_auto.get("ok")),
+        "pivot": p1_pivot,
+        "autonomy": p1_auto,
+    }
     hashes["builder_responsiveness"] = _write_json(dest / "builder_responsiveness.json", p1)
     proofs["builder_responsiveness"] = p1
 
-    p2 = proof_prefix_features(ohlcv, pack=feature_pack, timeframe=timeframe)
+    p2_pivot = proof_prefix_features(ohlcv, pack=feature_pack, timeframe=timeframe)
+    p2_auto = (
+        proof_autonomy_prefix_features(ohlcv, timeframe=timeframe)
+        if has_filter
+        else {"ok": True, "skipped": True}
+    )
+    p2 = {
+        "proof": "recompute_prefix",
+        "ok": bool(p2_pivot.get("ok")) and bool(p2_auto.get("ok")),
+        "pivot": p2_pivot,
+        "autonomy": p2_auto,
+    }
     hashes["recompute_prefix"] = _write_json(dest / "recompute_prefix.json", p2)
     proofs["recompute_prefix"] = p2
 

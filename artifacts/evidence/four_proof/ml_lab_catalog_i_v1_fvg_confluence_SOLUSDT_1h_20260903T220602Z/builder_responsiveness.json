@@ -1,0 +1,11 @@
+{
+  "conformance": "CAUS-WAREHOUSE-001",
+  "findings": [],
+  "idea": "fvg_confluence",
+  "n_findings": 0,
+  "ok": true,
+  "proof": "builder_responsiveness",
+  "space": "ml_lab_catalog_i_v1",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h"
+}

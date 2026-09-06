@@ -1,0 +1,22 @@
+# Autonomy gen 969 — EMA 1980
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_969_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-26T07:16:00Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  Distance and crosses of close versus the 1980-bar exponential moving average at t+H, used as one-head filters, can beat the
+  15-minute Limit 1%/1% pivot control under frozen entry-bar and trades-per-month caps.
+events: [ema1980_above_at_h, ema1980_below_at_h, ema1980_cross_up, ema1980_cross_down]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: 9f8149e3e289227b268e6099c1a906a8950958ff444a46e36145290d862e5728

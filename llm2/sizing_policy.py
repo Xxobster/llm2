@@ -15,14 +15,16 @@ from tradesim.ensure_source import prefer_botsgeneral_tradesim
 prefer_botsgeneral_tradesim()
 
 from tradesim import SizingConfig, SizingMode  # noqa: E402
-from tradesim.contracts import InstrumentSpec  # noqa: E402
+from tradesim.contracts import InstrumentSpec, round_to_step  # noqa: E402
 from tradesim.research.defaults import research_sizing_equity_leverage  # noqa: E402
-from tradesim.sizing import minimum_executable_qty, normalise_order  # noqa: E402
+from tradesim.sizing import desired_qty, minimum_executable_qty, normalise_order  # noqa: E402
 
 # Margin fraction of equity per base book (1%). Notional = this × leverage.
 DEFAULT_EQUITY_FRACTION = 0.01
+DEFAULT_STOP_RISK_FRACTION = 0.05
 SIZING_MODE_EQUITY_LEVERAGE = "EQUITY_LEVERAGE_NOTIONAL"
 SIZING_MODE_MIN_EXCHANGE = "MIN_EXCHANGE"
+SIZING_MODE_RISK_FRACTION = "RISK_FRACTION"
 
 
 def equity_leverage_notional(
@@ -98,18 +100,27 @@ def parse_pack_sizing(strategy: Mapping[str, Any] | None) -> dict[str, Any]:
         mode = str(raw.get("mode") or SIZING_MODE_MIN_EXCHANGE).upper()
         if raw.get("equity_fraction") is not None:
             equity_fraction = float(raw["equity_fraction"])
+        if raw.get("risk_fraction") is not None:
+            risk_fraction = float(raw["risk_fraction"])
+        else:
+            risk_fraction = DEFAULT_STOP_RISK_FRACTION
         compound = bool(raw.get("compound", True))
     elif isinstance(raw, str):
         mode = raw.strip().upper()
         compound = True
+        risk_fraction = DEFAULT_STOP_RISK_FRACTION
     else:
         mode = SIZING_MODE_MIN_EXCHANGE
         compound = True
+        risk_fraction = DEFAULT_STOP_RISK_FRACTION
     if mode in ("EQUITY_LEVERAGE", "EQUITY_LEVERAGE_NOTIONAL", "N_EQ_X_LEV"):
         mode = SIZING_MODE_EQUITY_LEVERAGE
+    if mode in ("RISK_FRACTION", "STOP_RISK_FRACTION", "PCT_EQUITY_AT_SL"):
+        mode = SIZING_MODE_RISK_FRACTION
     return {
         "mode": mode,
         "equity_fraction": equity_fraction,
+        "risk_fraction": float(risk_fraction),
         "compound": compound,
     }
 
@@ -244,3 +255,122 @@ def min_equity_for_n_fraction(
     if denom <= 0:
         return math.inf
     return float(min_notional / denom)
+
+
+def min_equity_for_stop_risk(
+    *,
+    price: float,
+    sl_pct: float,
+    instrument: InstrumentSpec,
+    risk_fraction: float = DEFAULT_STOP_RISK_FRACTION,
+) -> float:
+    """Smallest wallet where one venue-minimum lot risks exactly ``risk_fraction``.
+
+    Below this, the exchange minimum already loses more than ``risk_fraction`` if
+    the stop is hit. Do not round the lot up. Skip, or add equity.
+    """
+    if price <= 0 or sl_pct <= 0 or risk_fraction <= 0:
+        return math.inf
+    min_q = minimum_executable_qty(instrument, price)
+    return float(min_q * float(price) * float(sl_pct)) / float(risk_fraction)
+
+
+def size_by_stop_risk(
+    *,
+    equity: float,
+    price: float,
+    sl_pct: float,
+    instrument: InstrumentSpec,
+    risk_fraction: float = DEFAULT_STOP_RISK_FRACTION,
+    size_mult: float = 1.0,
+    leverage: float | None = None,
+    qty_round: str = "floor",
+) -> dict[str, Any]:
+    """Quantity from stop-loss cash risk, rounded to the venue step.
+
+    Default ``qty_round='floor'``: never exceed the risk cap; skip if that
+    floors below the venue minimum.
+
+    ``qty_round='nearest'``: pick the lot closest to ``equity * risk_fraction``
+    at the bar stop (may sit slightly above 5% because of the discrete step).
+    Skip when the nearest lot is below the venue minimum — do not bump a dust
+    wallet up to min-lot.
+    """
+    px = float(price)
+    sl = float(sl_pct)
+    eq = float(equity)
+    round_mode = str(qty_round or "floor").lower()
+    if round_mode not in {"floor", "nearest"}:
+        raise ValueError(f"qty_round must be floor or nearest, got {qty_round!r}")
+    stop_price = px * (1.0 - sl)
+    cfg = SizingConfig(
+        mode=SizingMode.RISK_FRACTION,
+        risk_fraction=float(risk_fraction),
+        max_risk_fraction=None if round_mode == "nearest" else float(risk_fraction),
+    )
+    raw, _unit = desired_qty(
+        cfg=cfg,
+        price=px,
+        stop_price=stop_price,
+        equity=eq,
+        spec=instrument,
+        leverage=leverage,
+        size_mult=size_mult,
+    )
+    skip = None
+    detail = ""
+    if round_mode == "nearest":
+        qty = float(round_to_step(float(raw), instrument.qty_step, "nearest"))
+        min_q = float(minimum_executable_qty(instrument, px))
+        ok = True
+        if qty <= 0:
+            ok = False
+            skip = "QTY_ROUNDS_TO_ZERO"
+            detail = f"{raw:g} rounds to zero on a step of {instrument.qty_step:g}"
+            qty = 0.0
+        elif qty + 1e-12 < min_q:
+            ok = False
+            skip = "BELOW_MIN_QTY"
+            detail = f"{qty:g} is below the venue minimum quantity {min_q:g}"
+            qty = 0.0
+        elif instrument.min_notional > 0 and qty * px + 1e-12 < float(instrument.min_notional):
+            ok = False
+            skip = "BELOW_MIN_NOTIONAL"
+            detail = f"{qty:g} * {px:g} is below min notional {instrument.min_notional:g}"
+            qty = 0.0
+        else:
+            detail = f"nearest step {instrument.qty_step:g}"
+    else:
+        outcome = normalise_order(
+            raw_qty=float(raw),
+            price=px,
+            stop_price=stop_price,
+            equity=eq,
+            spec=instrument,
+            cfg=cfg,
+        )
+        qty = float(outcome.qty) if outcome.ok else 0.0
+        ok = bool(outcome.ok and qty > 0)
+        if not outcome.ok and outcome.skip_reason is not None:
+            skip = str(outcome.skip_reason.value)
+        detail = str(outcome.detail or "")
+        if not ok and skip is None and qty <= 0:
+            skip = "QTY_ROUNDS_TO_ZERO"
+    notional = qty * px
+    risk_cash = qty * px * sl
+    margin = (notional / float(leverage)) if leverage and float(leverage) > 0 else None
+    return {
+        "ok": bool(ok and qty > 0),
+        "qty": qty,
+        "raw_qty": float(raw),
+        "skip_reason": skip,
+        "detail": detail,
+        "qty_round": round_mode,
+        "notional_usdt": float(notional),
+        "risk_usdt": float(risk_cash),
+        "actual_risk_fraction": (risk_cash / eq) if eq > 0 else float("nan"),
+        "margin_usdt": None if margin is None else float(margin),
+        "margin_utilisation": (
+            None if margin is None or eq <= 0 else float(margin) / eq
+        ),
+    }

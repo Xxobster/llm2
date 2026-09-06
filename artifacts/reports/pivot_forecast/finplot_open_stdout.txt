@@ -1,0 +1,4 @@
+Opening SOL_work4_tp1_sl1-97d5a6060d
+  db=D:\projects\LLM2\artifacts\reports\pivot_forecast\finplot_diag_20260810T154701Z\SOL_work4_tp1_sl1_report
+  max_bars=4000 (full run is ~99k bars / 798 trades — clip keeps Finplot usable)
+reloading run_id=SOL_work4_tp1_sl1-97d5a6060d  fingerprint=182ee0651753  bars=98914 trades=798  wallet=10000.00  (no re-simulation)

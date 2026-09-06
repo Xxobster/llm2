@@ -1,0 +1,22 @@
+# Autonomy gen 589 — 95-bar return
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_589_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-24T23:00:00Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  Sign of the 95-bar close-to-close return at t+H and zero-return crosses, used as one-head filters, can beat the 15-minute
+  Limit 1%/1% pivot control under frozen entry-bar and trades-per-month caps.
+events: [ret95_pos_at_h, ret95_neg_at_h, ret95_cross_up_0, ret95_cross_down_0]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: 4606d8333b3c7f9ca04c31282c23120a0e657c84725d597417bfdff57968f59d

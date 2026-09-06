@@ -1,0 +1,20 @@
+strategy_id: structure_v1_lgbm_ETHUSDT_15m_direction_multitrade_wall_clock_p75_v1
+version_id: eth_15m_multitrade_wall_clock_p75_v1
+status: AUTHORIZED
+authorized_by_user: true
+vps_host: 185.203.119.52
+account_ref: Xxobster11
+intended_vps_host: 185.203.119.52
+intended_account_ref: Xxobster11
+pack_path: artifacts/live_packs/structure_v1_ethusdt_15m_multitrade_wall_clock_p75_v1
+pack_hash: f9881c392aa3cbcd0b61fb9e7a95a37a12a488eb3e35afab84b54f2a8bdacef0
+expires_utc: '2026-08-19T00:00:00Z'
+created_utc: '2026-08-05T14:10:00Z'
+execution_mode: multitrade
+notes: >-
+  User explicitly authorized 2026-08-05 to run ETH 15m multitrade wall-clock p75
+  (K=7 | strength_q=0.75 | base_hold24/addon48 | lookback672 | TP1%/SL2% | fib 1.618 |
+  touch 1m) on Xxobster11 / 185.203.119.52 as a new isolated unit. MIN_EXCHANGE only.
+  Evidence: structure_v1_eth_15m_multitrade_geometry_001 (OUTER_TRANSFER_COMPARE).
+  Candles from botsgeneral shared collector (Binance signal). Distinct from 1h
+  multitrade p75 on Xxobster9. Expires 2026-08-19 unless renewed.

@@ -1,0 +1,45 @@
+{
+  "created_utc": "20260805T134106Z",
+  "symbol": "ETHUSDT",
+  "indicators_file": "C:\\projects\\botsgeneral\\packages\\indicators\\src\\indicators\\__init__.py",
+  "leakage_file": "C:\\projects\\botsgeneral\\packages\\leakage\\src\\leakage\\__init__.py",
+  "refresh": [
+    {
+      "ok": true,
+      "n": 0,
+      "sec": 33.7
+    }
+  ],
+  "update_15m": {
+    "n_bars": 234551,
+    "n_swings": 64882,
+    "counts": {
+      "swings": 64882,
+      "structure_events": 64882,
+      "legs": 52133,
+      "levels": 64882,
+      "bar_features": 234551,
+      "series": 1
+    },
+    "error": "",
+    "sec": 126.6
+  },
+  "update_1h": {
+    "n_bars": 58639,
+    "n_swings": 16598,
+    "error": ""
+  },
+  "update_4h": {
+    "n_bars": 14661,
+    "n_swings": 4146,
+    "error": ""
+  },
+  "leakage": {
+    "passed": true,
+    "ok": true,
+    "leakage_potential": [],
+    "report_text": "====================================================================================\nLEAKAGE AUDIT\n====================================================================================\nPASS \u2014 49 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0\nregistry: D:\\projects\\LLM2\\artifacts\\sqlite\\leakage_registry.json\n====================================================================================",
+    "audit_bars": 8000
+  },
+  "elapsed_sec": 178.6
+}

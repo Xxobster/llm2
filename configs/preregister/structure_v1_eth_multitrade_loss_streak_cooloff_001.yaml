@@ -1,0 +1,71 @@
+# Nested transfer: cooloff after 3 consecutive proxy losses on LIVE
+# eth_multitrade_v1_2 (highest ACTIVE multitrade pain in fleet streak autopsy).
+# ONE candidate vs live control. Written before outer settle. No lockbox.
+#
+# Autopsy: structure_v1_fleet_streak_autopsy_001 ranked eth_multitrade stacks
+# highest for consecutive loss pain. Live control = v1.2 (clarity_scope=all).
+
+generation_id: structure_v1_eth_multitrade_loss_streak_cooloff_001
+created_utc: "2026-08-05T05:50:00Z"
+status: OOS_COMPARE_COMPLETE
+settled_utc: "20260805T055021Z"
+preregister_sha256_at_run: d79ca442de14c0429136f4e2e248dc5ef674f9f94f588cea28024c052d617378
+decision_refs: [D-040, D-042]
+fold_geometry: v2
+parent_pack: structure_v1_ethusdt_multitrade_v1_2
+parent_version_id: eth_multitrade_v1_2
+autopsy_generation: structure_v1_fleet_streak_autopsy_001
+proposal_id: loss_streak_cooloff_3
+
+hypothesis: >
+  After three consecutive closed-trade losses (causal max-hold close proxy),
+  pause new entries for cooloff_pause_bars=6 while keeping eth_multitrade_v1_2
+  geometry (K=7, fib 1.618, hold 6/12, TP1%/SL2%, mean_strength,
+  clarity_scope=all). This reduces stacking during loss runs without retraining.
+
+economic_rationale: >
+  Fleet streak autopsy: eth_multitrade family has the longest consecutive loss
+  streaks and highest pain scores among structure_v1 packs. Cooloff cuts churn.
+
+control_arm:
+  version_id: eth_multitrade_v1_2
+  cooloff_after_consecutive_losses: 0
+  clarity_scope: all
+  k_per_side: 7
+  fib_ext: 1.618
+  base_hold: 6
+  hold_addon: 12
+  tp_pct: 0.01
+  sl_pct: 0.02
+
+frozen_candidate:
+  same_as_control_except:
+    cooloff_after_consecutive_losses: 3
+    cooloff_pause_bars: 6
+
+selection:
+  method: FROZEN_TRANSFER — one candidate; no ranking among alternatives
+  forbidden:
+    - re_search_cooloff_N_on_outer_OOS
+    - select_on_lockbox
+    - combine_with_p75_or_K_change_same_generation
+
+evaluation:
+  symbol: ETHUSDT
+  target: direction
+  outer: fold_geometry_v2_stitched_oos
+  hard_end_exclusive: "2026-05-01"
+  lockbox: DO_NOT_OPEN
+  engine: botsgeneral_tradesim
+  primary_metric: expectancy_return_units
+  secondary: [profit_factor, win_rate, n_trades, n_skipped_loss_cooloff]
+  evidence_class: OUTER_TRANSFER_COMPARE
+  promotion: FORBIDDEN_without_new_pack_hash_certificate_and_explicit_user_auth
+
+success_criteria:
+  - candidate_expectancy_return_units > control_expectancy_return_units
+  - candidate_stitched_pf >= 1.20
+  - no liquidation
+
+failure_is_success: true
+live_deploy: FORBIDDEN_without_certificate_and_explicit_user_auth

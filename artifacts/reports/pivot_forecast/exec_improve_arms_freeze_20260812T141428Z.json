@@ -1,0 +1,26 @@
+{
+  "stamp": "20260812T141428Z",
+  "preregister": "configs/preregister/pivot_exec_improve_001.yaml",
+  "ranking": "expectancy_intent_all",
+  "frozen_arms_before_pf": [
+    "ETH_ctrl_w4",
+    "ETH_adverse_pct_50bps",
+    "ETH_adverse_atr_1x",
+    "ETH_adverse_atr_0p5x",
+    "ETH_level_q50_w4",
+    "ETH_level_atr_clip_w4",
+    "ETH_mid_atr_band_w4",
+    "SOL_ctrl_w4",
+    "SOL_sibling_w5",
+    "SOL_adverse_pct_50bps",
+    "SOL_adverse_atr_1x",
+    "SOL_adverse_atr_0p5x",
+    "SOL_level_q50_w4",
+    "SOL_level_atr_clip_w4",
+    "SOL_mid_atr_band_w4"
+  ],
+  "dropped": [
+    "time_head_adaptive_cancel"
+  ],
+  "sol_w5_sibling_frozen": true
+}

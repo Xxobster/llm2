@@ -1,0 +1,50 @@
+# Preregistered before outer PF peeks — pivot LIMIT improve + BTC
+generation_id: pivot_exec_improve_002
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-12T15:15:00Z"
+inherits: pivot_exec_improve_001
+
+default_research_trio_baseline:
+  - { symbol: BTCUSDT, gate: p75, level_mode: ret, pack: level_vsa, work_bars: 4, tp: 0.01, sl: 0.01 }
+  - { symbol: ETHUSDT, gate: p75, level_mode: atr, pack: level_vsa, work_bars: 4, tp: 0.01, sl: 0.01 }
+  - { symbol: SOLUSDT, gate: p75, level_mode: ret, pack: level_vsa, work_bars: 4, tp: 0.01, sl: 0.01 }
+
+# From 001 (already viewed) — carry as frozen siblings, not re-tuned
+carry_siblings:
+  - ETH_level_q50_w4
+  - SOL_level_atr_clip_w4
+  - SOL_sibling_w5
+
+# New / BTC arms frozen before PF
+arms_frozen_before_pf:
+  BTCUSDT:
+    - ctrl_ret_w4
+    - ctrl_atr_w4
+    - level_q50_w4
+    - level_atr_clip_w4
+    - mid_atr_band_w4
+    - pull85_w4
+    - sibling_w5
+  ETHUSDT:
+    - ctrl_atr_w4
+    - level_q50_w4
+    - level_q50_pull85_w4
+    - mid_atr_band_w4
+  SOLUSDT:
+    - ctrl_ret_w4
+    - level_atr_clip_w4
+    - level_atr_clip_w5
+    - level_q50_w4
+    - mid_atr_band_w4
+
+dropped:
+  - time_head_adaptive_cancel
+  - adverse_path_cancel  # rejected in 001
+
+ranking:
+  primary: expectancy_intent_all
+  secondary: [net_pnl, n_trades, profit_factor]
+  promote_if: [intent_exp_gt_ctrl, pf_ge_0p85_ctrl, ece_not_worse]
+
+pi_star_tight_band: diagnostic_only

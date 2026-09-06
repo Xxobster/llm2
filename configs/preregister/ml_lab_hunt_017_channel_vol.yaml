@@ -1,0 +1,56 @@
+# ML lab hunt 017 — channels and volume oscillators
+# RESEARCH_ONLY. Frozen before any hunt-017 result was viewed.
+generation_id: ml_lab_hunt_017_channel_vol
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-09-04T00:27:00Z"
+fold_geometry: v2
+failure_is_success: true
+
+hypothesis: >
+  New events after hunt 016, not a Relative Strength Index 70/30 retune: fade
+  Larry Williams percent-R at −20/−80; follow the first close outside a
+  Keltner channel; fade Bollinger percent-B outside 0/1; follow an Aroon
+  up−down sign flip; follow a Wilder Parabolic Stop-and-Reverse direction
+  flip; fade Money Flow Index 80/20; follow a vortex +VI/−VI sign flip;
+  follow a Chaikin Accumulation/Distribution oscillator sign flip.
+  Maker 0.02% resting legs. EXEC-021. Inner screen strictly before 2022-01-01.
+
+do_not:
+  - peep FORWARD_LOCKBOX_START
+  - deploy
+  - stamp Shadow-Ready from this inner screen
+  - widen Average-True-Range to hide entry-bar exits
+  - retune hunt 016 Relative Strength Index 70/30 after viewing nested profit factor
+  - search Williams / Money-Flow / Bollinger thresholds on profit factor
+
+selection_window: "strictly before 2022-01-01"
+universe:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  event_study_timeframes: [15m, 1h, 4h]
+  tradesim_timeframes: [15m, 1h, 4h]
+
+cost_floor: 0.0011
+max_tradesim_arms: 8
+work_bars: {15m: 4, 1h: 3, 4h: 2}
+max_hold_bars: {15m: 24, 1h: 16, 4h: 8}
+k_sl: 1.5
+tp_ratio: 1.5
+sl_cap: 0.030
+maker_first_costs: true
+
+screen_gates:
+  min_skill_n: 80
+  min_directional_acc: 0.51
+  min_mean_signed: 0.0015
+  min_trades: 80
+  min_trades_per_month: 2.0
+  max_trades_per_month: 90.0
+  min_profit_factor: 1.20
+  max_entry_bar_exit_rate: 0.25
+  min_sharpe_annualised: 0.50
+
+leakage_audit:
+  builder: llm2.ml_lab.idea_catalog_n.build_features_for_guard
+
+preregister_sha256_at_run: 41144677a121a8fc70137f839c083e068a3b00cbddbed30fb6267371ed91e233

@@ -1,0 +1,24 @@
+{
+  "diffs": {},
+  "full": {
+    "action": "FLAT",
+    "bar_ts_ms": 1785983400000,
+    "level_ret": -0.002923887909784933,
+    "limit_px": 1893.8264257819128,
+    "p_any": 0.17205203524968526,
+    "p_high": 0.3617021276595745,
+    "side": "Buy"
+  },
+  "ok": true,
+  "pack_dir": "artifacts\\live_packs\\pivot_eth_p75_ctrl_atr_w4",
+  "proof": "layer_a_pred_identity",
+  "short": {
+    "action": "FLAT",
+    "bar_ts_ms": 1785983400000,
+    "level_ret": -0.002923887909784933,
+    "limit_px": 1893.8264257819128,
+    "p_any": 0.17205203524968526,
+    "p_high": 0.3617021276595745,
+    "side": "Buy"
+  }
+}

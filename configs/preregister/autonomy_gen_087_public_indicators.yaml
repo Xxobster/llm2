@@ -1,0 +1,23 @@
+# Autonomy gen 087 — close vs typical price (HLC3)
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_087_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-22T14:46:00Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  Close versus same-bar typical price (high+low+close)/3 sign at t+H and
+  zero-distance crosses, used as one-head filters, can beat the 15-minute
+  Limit 1%/1% pivot control under frozen entry-bar and trades-per-month caps.
+events: [hlc3_above_at_h, hlc3_below_at_h, hlc3_cross_up, hlc3_cross_down]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: 882ea97d01ee766ca7c458a615e83300b3bc50912e72aa69d301c7b294a51508

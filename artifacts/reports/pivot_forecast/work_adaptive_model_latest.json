@@ -1,0 +1,645 @@
+{
+  "generation_id": "pivot_work_adaptive_model_001",
+  "stamp": "20260812T132018Z",
+  "readiness_max": "RESEARCH_ONLY",
+  "default_research_pair": [
+    "SOLUSDT TP1/SL1 P75 ret w4",
+    "ETHUSDT TP1/SL1 P75 atr w4"
+  ],
+  "pi_star_tight_diagnostic_only": true,
+  "leakage": [
+    {
+      "symbol": "ETHUSDT",
+      "pack": "level_vsa",
+      "status": "PASS"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "pack": "level_strong",
+      "status": "PASS"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "pack": "level_vsa",
+      "status": "PASS"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "pack": "level_strong",
+      "status": "PASS"
+    }
+  ],
+  "fill_freeze_path": "D:\\projects\\LLM2\\artifacts\\reports\\pivot_forecast\\work_grid_fill_freeze_20260812T132018Z.json",
+  "exec_work_grid": {
+    "ETHUSDT": {
+      "level_mode": "atr",
+      "arms": [
+        {
+          "tag": "ETHUSDT_p75_w2",
+          "n_intent": 2696,
+          "fill_pct": 0.20437685459940652,
+          "fill_stats": {
+            "n_intent": 2696,
+            "n_filled_path": 551,
+            "n_no_touch": 2145,
+            "n_bad": 0,
+            "fill_rate": 0.20437685459940652,
+            "work_bars_default": 2,
+            "work_bars_mean_used": 2.0
+          },
+          "status": "RAN",
+          "n_trades": 475,
+          "profit_factor": 2.0018574688814215,
+          "win_rate": 0.6821052631578948,
+          "net_pnl": 32.988569254999675,
+          "expectancy": 0.06944961948421059,
+          "entry_bar_exit_rate": 0.2926315789473684,
+          "expectancy_intent_all": 0.012236116192507298,
+          "work_bars": 2
+        },
+        {
+          "tag": "ETHUSDT_p75_w3",
+          "n_intent": 2696,
+          "fill_pct": 0.2607566765578635,
+          "fill_stats": {
+            "n_intent": 2696,
+            "n_filled_path": 703,
+            "n_no_touch": 1993,
+            "n_bad": 0,
+            "fill_rate": 0.2607566765578635,
+            "work_bars_default": 3,
+            "work_bars_mean_used": 3.0
+          },
+          "status": "RAN",
+          "n_trades": 589,
+          "profit_factor": 1.840984341186826,
+          "win_rate": 0.6706281833616299,
+          "net_pnl": 36.4987203150049,
+          "expectancy": 0.061967267088285226,
+          "entry_bar_exit_rate": 0.27164685908319186,
+          "expectancy_intent_all": 0.013538101007049295,
+          "work_bars": 3
+        },
+        {
+          "tag": "ETHUSDT_p75_w4",
+          "n_intent": 2696,
+          "fill_pct": 0.30452522255192876,
+          "fill_stats": {
+            "n_intent": 2696,
+            "n_filled_path": 821,
+            "n_no_touch": 1875,
+            "n_bad": 0,
+            "fill_rate": 0.30452522255192876,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0
+          },
+          "status": "RAN",
+          "n_trades": 674,
+          "profit_factor": 1.779732457614695,
+          "win_rate": 0.6661721068249258,
+          "net_pnl": 39.74895840001591,
+          "expectancy": 0.058974715727002976,
+          "entry_bar_exit_rate": 0.271513353115727,
+          "expectancy_intent_all": 0.014743678931756642,
+          "work_bars": 4
+        },
+        {
+          "tag": "ETHUSDT_p75_w5",
+          "n_intent": 2696,
+          "fill_pct": 0.3375370919881306,
+          "fill_stats": {
+            "n_intent": 2696,
+            "n_filled_path": 910,
+            "n_no_touch": 1786,
+            "n_bad": 0,
+            "fill_rate": 0.3375370919881306,
+            "work_bars_default": 5,
+            "work_bars_mean_used": 5.0
+          },
+          "status": "RAN",
+          "n_trades": 731,
+          "profit_factor": 1.6971254779527052,
+          "win_rate": 0.6538987688098495,
+          "net_pnl": 39.34728600001108,
+          "expectancy": 0.05382665663474688,
+          "entry_bar_exit_rate": 0.25991792065663477,
+          "expectancy_intent_all": 0.014594690652823102,
+          "work_bars": 5
+        },
+        {
+          "tag": "ETHUSDT_p75_w6",
+          "n_intent": 2696,
+          "fill_pct": 0.36350148367952523,
+          "fill_stats": {
+            "n_intent": 2696,
+            "n_filled_path": 980,
+            "n_no_touch": 1716,
+            "n_bad": 0,
+            "fill_rate": 0.36350148367952523,
+            "work_bars_default": 6,
+            "work_bars_mean_used": 6.0
+          },
+          "status": "RAN",
+          "n_trades": 781,
+          "profit_factor": 1.6443766999317602,
+          "win_rate": 0.645326504481434,
+          "net_pnl": 39.70181152000441,
+          "expectancy": 0.050834585813060135,
+          "entry_bar_exit_rate": 0.25224071702944945,
+          "expectancy_intent_all": 0.014726191216618847,
+          "work_bars": 6
+        },
+        {
+          "tag": "ETHUSDT_p75_adaptive_time",
+          "n_intent": 2696,
+          "fill_pct": 0.2770771513353116,
+          "fill_stats": {
+            "n_intent": 2696,
+            "n_filled_path": 747,
+            "n_no_touch": 1949,
+            "n_bad": 0,
+            "fill_rate": 0.2770771513353116,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 3.318620178041543
+          },
+          "status": "RAN",
+          "n_trades": 622,
+          "profit_factor": 1.7295151491515526,
+          "win_rate": 0.662379421221865,
+          "net_pnl": 34.8748431050044,
+          "expectancy": 0.056068879590032136,
+          "entry_bar_exit_rate": 0.2717041800643087,
+          "expectancy_intent_all": 0.01293577266506098,
+          "work_bars": null,
+          "adaptive": true
+        }
+      ],
+      "prefer_shorter": {
+        "choice": "ETHUSDT_p75_w4",
+        "work_bars": 4,
+        "fill_pct": 0.30452522255192876,
+        "expectancy_intent_all": 0.014743678931756642,
+        "profit_factor": 1.779732457614695,
+        "rule": "among fill%>=15%, max expectancy_intent, tie -> shorter work"
+      },
+      "adaptive_vs_w4": {
+        "fixed_w4_pf": 1.779732457614695,
+        "fixed_w4_fill_pct": 0.30452522255192876,
+        "fixed_w4_exp_intent": 0.014743678931756642,
+        "adaptive_pf": 1.7295151491515526,
+        "adaptive_fill_pct": 0.2770771513353116,
+        "adaptive_exp_intent": 0.01293577266506098,
+        "adaptive_beats_w4_exp_intent": false
+      }
+    },
+    "SOLUSDT": {
+      "level_mode": "ret",
+      "arms": [
+        {
+          "tag": "SOLUSDT_p75_w2",
+          "n_intent": 2512,
+          "fill_pct": 0.1859076433121019,
+          "fill_stats": {
+            "n_intent": 2512,
+            "n_filled_path": 467,
+            "n_no_touch": 2045,
+            "n_bad": 0,
+            "fill_rate": 0.1859076433121019,
+            "work_bars_default": 2,
+            "work_bars_mean_used": 2.0
+          },
+          "status": "RAN",
+          "n_trades": 423,
+          "profit_factor": 2.234951503327294,
+          "win_rate": 0.706855791962175,
+          "net_pnl": 17.19038654999349,
+          "expectancy": 0.040639211702127656,
+          "entry_bar_exit_rate": 0.4846335697399527,
+          "expectancy_intent_all": 0.006843306747608874,
+          "work_bars": 2
+        },
+        {
+          "tag": "SOLUSDT_p75_w3",
+          "n_intent": 2512,
+          "fill_pct": 0.2559713375796178,
+          "fill_stats": {
+            "n_intent": 2512,
+            "n_filled_path": 643,
+            "n_no_touch": 1869,
+            "n_bad": 0,
+            "fill_rate": 0.2559713375796178,
+            "work_bars_default": 3,
+            "work_bars_mean_used": 3.0
+          },
+          "status": "RAN",
+          "n_trades": 552,
+          "profit_factor": 2.1072025221181647,
+          "win_rate": 0.6920289855072463,
+          "net_pnl": 21.182873650017427,
+          "expectancy": 0.03837477110507245,
+          "entry_bar_exit_rate": 0.4673913043478261,
+          "expectancy_intent_all": 0.008432672631376365,
+          "work_bars": 3
+        },
+        {
+          "tag": "SOLUSDT_p75_w4",
+          "n_intent": 2512,
+          "fill_pct": 0.294984076433121,
+          "fill_stats": {
+            "n_intent": 2512,
+            "n_filled_path": 741,
+            "n_no_touch": 1771,
+            "n_bad": 0,
+            "fill_rate": 0.294984076433121,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0
+          },
+          "status": "RAN",
+          "n_trades": 619,
+          "profit_factor": 2.134745633040173,
+          "win_rate": 0.6962843295638126,
+          "net_pnl": 24.38649460002125,
+          "expectancy": 0.03939659870759286,
+          "entry_bar_exit_rate": 0.4555735056542811,
+          "expectancy_intent_all": 0.009707999442683619,
+          "work_bars": 4
+        },
+        {
+          "tag": "SOLUSDT_p75_w5",
+          "n_intent": 2512,
+          "fill_pct": 0.32404458598726116,
+          "fill_stats": {
+            "n_intent": 2512,
+            "n_filled_path": 814,
+            "n_no_touch": 1698,
+            "n_bad": 0,
+            "fill_rate": 0.32404458598726116,
+            "work_bars_default": 5,
+            "work_bars_mean_used": 5.0
+          },
+          "status": "RAN",
+          "n_trades": 668,
+          "profit_factor": 2.059148398865311,
+          "win_rate": 0.6901197604790419,
+          "net_pnl": 24.87227730002087,
+          "expectancy": 0.037233948053892185,
+          "entry_bar_exit_rate": 0.4416167664670659,
+          "expectancy_intent_all": 0.009901384275486015,
+          "work_bars": 5
+        },
+        {
+          "tag": "SOLUSDT_p75_w6",
+          "n_intent": 2512,
+          "fill_pct": 0.3535031847133758,
+          "fill_stats": {
+            "n_intent": 2512,
+            "n_filled_path": 888,
+            "n_no_touch": 1624,
+            "n_bad": 0,
+            "fill_rate": 0.3535031847133758,
+            "work_bars_default": 6,
+            "work_bars_mean_used": 6.0
+          },
+          "status": "RAN",
+          "n_trades": 715,
+          "profit_factor": 1.9060395004088004,
+          "win_rate": 0.6755244755244755,
+          "net_pnl": 23.87279505002516,
+          "expectancy": 0.033388524545454504,
+          "entry_bar_exit_rate": 0.42657342657342656,
+          "expectancy_intent_all": 0.00950350121418199,
+          "work_bars": 6
+        },
+        {
+          "tag": "SOLUSDT_p75_adaptive_time",
+          "n_intent": 2512,
+          "fill_pct": 0.2726910828025478,
+          "fill_stats": {
+            "n_intent": 2512,
+            "n_filled_path": 685,
+            "n_no_touch": 1827,
+            "n_bad": 0,
+            "fill_rate": 0.2726910828025478,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 3.3921178343949046
+          },
+          "status": "RAN",
+          "n_trades": 585,
+          "profit_factor": 2.1114673419536927,
+          "win_rate": 0.694017094017094,
+          "net_pnl": 22.659292750013265,
+          "expectancy": 0.03873383376068374,
+          "entry_bar_exit_rate": 0.46495726495726497,
+          "expectancy_intent_all": 0.009020419088381077,
+          "work_bars": null,
+          "adaptive": true
+        }
+      ],
+      "prefer_shorter": {
+        "choice": "SOLUSDT_p75_w5",
+        "work_bars": 5,
+        "fill_pct": 0.32404458598726116,
+        "expectancy_intent_all": 0.009901384275486015,
+        "profit_factor": 2.059148398865311,
+        "rule": "among fill%>=15%, max expectancy_intent, tie -> shorter work"
+      },
+      "adaptive_vs_w4": {
+        "fixed_w4_pf": 2.134745633040173,
+        "fixed_w4_fill_pct": 0.294984076433121,
+        "fixed_w4_exp_intent": 0.009707999442683619,
+        "adaptive_pf": 2.1114673419536927,
+        "adaptive_fill_pct": 0.2726910828025478,
+        "adaptive_exp_intent": 0.009020419088381077,
+        "adaptive_beats_w4_exp_intent": false
+      }
+    }
+  },
+  "model_pass": {
+    "ETHUSDT": {
+      "variants": {
+        "baseline_level_vsa": {
+          "diagnostics": {
+            "n": 99356,
+            "frac_any": 0.15617577197149643,
+            "pr_auc": 0.26093260807449864,
+            "pr_auc_baserate": 0.15617577197149643,
+            "pr_auc_lift": 0.10475683610300221,
+            "ece": 0.006650250869834315,
+            "level_mae": 0.00926882414294466,
+            "level_p90": 0.020635256032956812,
+            "ece_folds_mean_outer": 0.011047040947761266
+          },
+          "control_p75_w4": {
+            "tag": "ETHUSDT_baseline_level_vsa_p75_w4",
+            "n_intent": 2696,
+            "fill_pct": 0.30452522255192876,
+            "fill_stats": {
+              "n_intent": 2696,
+              "n_filled_path": 821,
+              "n_no_touch": 1875,
+              "n_bad": 0,
+              "fill_rate": 0.30452522255192876,
+              "work_bars_default": 4,
+              "work_bars_mean_used": 4.0
+            },
+            "status": "RAN",
+            "n_trades": 674,
+            "profit_factor": 1.779732457614695,
+            "win_rate": 0.6661721068249258,
+            "net_pnl": 39.74895840001591,
+            "expectancy": 0.058974715727002976,
+            "entry_bar_exit_rate": 0.271513353115727,
+            "expectancy_intent_all": 0.014743678931756642
+          }
+        },
+        "rare_level_strong": {
+          "diagnostics": {
+            "n": 99356,
+            "frac_any": 0.15617577197149643,
+            "pr_auc": 0.26297497453776786,
+            "pr_auc_baserate": 0.15617577197149643,
+            "pr_auc_lift": 0.10679920256627143,
+            "ece": 0.007431250342018074,
+            "level_mae": 0.009253745084500742,
+            "level_p90": 0.02036993308013541,
+            "ece_folds_mean_outer": 0.011792543497548796
+          },
+          "control_p75_w4": {
+            "tag": "ETHUSDT_rare_level_strong_p75_w4",
+            "n_intent": 1591,
+            "fill_pct": 0.3023255813953488,
+            "fill_stats": {
+              "n_intent": 1591,
+              "n_filled_path": 481,
+              "n_no_touch": 1110,
+              "n_bad": 0,
+              "fill_rate": 0.3023255813953488,
+              "work_bars_default": 4,
+              "work_bars_mean_used": 4.0
+            },
+            "status": "RAN",
+            "n_trades": 400,
+            "profit_factor": 1.7289288840379025,
+            "win_rate": 0.6425,
+            "net_pnl": 23.16539006500716,
+            "expectancy": 0.05791347516249992,
+            "entry_bar_exit_rate": 0.3075,
+            "expectancy_intent_all": 0.014560270311129579
+          }
+        },
+        "rare15_level_strong": {
+          "diagnostics": {
+            "n": 99357,
+            "frac_any": 0.2601930412552714,
+            "pr_auc": 0.36616195864994716,
+            "pr_auc_baserate": 0.2601930412552714,
+            "pr_auc_lift": 0.10596891739467579,
+            "ece": 0.008554734605621417,
+            "level_mae": 0.006575782406079902,
+            "level_p90": 0.014685693451166895,
+            "ece_folds_mean_outer": 0.01211047051406661
+          },
+          "control_p75_w4": {
+            "tag": "ETHUSDT_rare15_level_strong_p75_w4",
+            "n_intent": 18815,
+            "fill_pct": 0.3717246877491363,
+            "fill_stats": {
+              "n_intent": 18815,
+              "n_filled_path": 6994,
+              "n_no_touch": 11821,
+              "n_bad": 0,
+              "fill_rate": 0.3717246877491363,
+              "work_bars_default": 4,
+              "work_bars_mean_used": 4.0
+            },
+            "status": "RAN",
+            "n_trades": 4016,
+            "profit_factor": 1.0347948431121665,
+            "win_rate": 0.5341135458167331,
+            "net_pnl": 10.476033854973139,
+            "expectancy": 0.0026085741670816612,
+            "entry_bar_exit_rate": 0.1449203187250996,
+            "expectancy_intent_all": 0.0005567915947368131
+          }
+        }
+      },
+      "promotion": {
+        "rare_level_strong": {
+          "pr_auc_lift_improved": true,
+          "ece_improved": false,
+          "pf_not_collapsed": true,
+          "promote": false,
+          "base_pf": 1.779732457614695,
+          "new_pf": 1.7289288840379025,
+          "base_lift": 0.10475683610300221,
+          "new_lift": 0.10679920256627143,
+          "base_ece": 0.006650250869834315,
+          "new_ece": 0.007431250342018074,
+          "level_p90": 0.02036993308013541,
+          "rule": "lift>base AND ece<base AND pf>=0.85*base_pf"
+        },
+        "rare15_level_strong": {
+          "pr_auc_lift_improved": true,
+          "ece_improved": false,
+          "pf_not_collapsed": false,
+          "promote": false,
+          "base_pf": 1.779732457614695,
+          "new_pf": 1.0347948431121665,
+          "base_lift": 0.10475683610300221,
+          "new_lift": 0.10596891739467579,
+          "base_ece": 0.006650250869834315,
+          "new_ece": 0.008554734605621417,
+          "level_p90": 0.014685693451166895,
+          "rule": "lift>base AND ece<base AND pf>=0.85*base_pf"
+        }
+      },
+      "baseline": "baseline_level_vsa"
+    },
+    "SOLUSDT": {
+      "variants": {
+        "baseline_level_vsa": {
+          "diagnostics": {
+            "n": 99356,
+            "frac_any": 0.14554732477152865,
+            "pr_auc": 0.24376394975736942,
+            "pr_auc_baserate": 0.14554732477152865,
+            "pr_auc_lift": 0.09821662498584077,
+            "ece": 0.005352879372836751,
+            "level_mae": 0.012793557078404967,
+            "level_p90": 0.028145788585235584,
+            "ece_folds_mean_outer": 0.012105367678499606
+          },
+          "control_p75_w4": {
+            "tag": "SOLUSDT_baseline_level_vsa_p75_w4",
+            "n_intent": 2512,
+            "fill_pct": 0.294984076433121,
+            "fill_stats": {
+              "n_intent": 2512,
+              "n_filled_path": 741,
+              "n_no_touch": 1771,
+              "n_bad": 0,
+              "fill_rate": 0.294984076433121,
+              "work_bars_default": 4,
+              "work_bars_mean_used": 4.0
+            },
+            "status": "RAN",
+            "n_trades": 619,
+            "profit_factor": 2.134745633040173,
+            "win_rate": 0.6962843295638126,
+            "net_pnl": 24.38649460002125,
+            "expectancy": 0.03939659870759286,
+            "entry_bar_exit_rate": 0.4555735056542811,
+            "expectancy_intent_all": 0.009707999442683619
+          }
+        },
+        "rare_level_strong": {
+          "diagnostics": {
+            "n": 99356,
+            "frac_any": 0.14554732477152865,
+            "pr_auc": 0.2440507363847362,
+            "pr_auc_baserate": 0.14554732477152865,
+            "pr_auc_lift": 0.09850341161320755,
+            "ece": 0.007404420516472974,
+            "level_mae": 0.012774714921093387,
+            "level_p90": 0.028155358547640882,
+            "ece_folds_mean_outer": 0.012333981540416011
+          },
+          "control_p75_w4": {
+            "tag": "SOLUSDT_rare_level_strong_p75_w4",
+            "n_intent": 3777,
+            "fill_pct": 0.28038125496425736,
+            "fill_stats": {
+              "n_intent": 3777,
+              "n_filled_path": 1059,
+              "n_no_touch": 2718,
+              "n_bad": 0,
+              "fill_rate": 0.28038125496425736,
+              "work_bars_default": 4,
+              "work_bars_mean_used": 4.0
+            },
+            "status": "RAN",
+            "n_trades": 845,
+            "profit_factor": 2.364790042496392,
+            "win_rate": 0.7112426035502959,
+            "net_pnl": 41.23931705002724,
+            "expectancy": 0.0488039255029586,
+            "entry_bar_exit_rate": 0.4544378698224852,
+            "expectancy_intent_all": 0.01091853774160107
+          }
+        },
+        "rare15_level_strong": {
+          "diagnostics": {
+            "n": 99357,
+            "frac_any": 0.2610787362742434,
+            "pr_auc": 0.3600085432830981,
+            "pr_auc_baserate": 0.2610787362742434,
+            "pr_auc_lift": 0.09892980700885473,
+            "ece": 0.008136822091538957,
+            "level_mae": 0.008694322316197585,
+            "level_p90": 0.019033482241654236,
+            "ece_folds_mean_outer": 0.009945647240523091
+          },
+          "control_p75_w4": {
+            "tag": "SOLUSDT_rare15_level_strong_p75_w4",
+            "n_intent": 15054,
+            "fill_pct": 0.3906602896240202,
+            "fill_stats": {
+              "n_intent": 15054,
+              "n_filled_path": 5881,
+              "n_no_touch": 9173,
+              "n_bad": 0,
+              "fill_rate": 0.3906602896240202,
+              "work_bars_default": 4,
+              "work_bars_mean_used": 4.0
+            },
+            "status": "RAN",
+            "n_trades": 3765,
+            "profit_factor": 1.378950549848718,
+            "win_rate": 0.5899070385126162,
+            "net_pnl": 62.2321559500233,
+            "expectancy": 0.01652912508632138,
+            "entry_bar_exit_rate": 0.2714475431606906,
+            "expectancy_intent_all": 0.004133928254950399
+          }
+        }
+      },
+      "promotion": {
+        "rare_level_strong": {
+          "pr_auc_lift_improved": true,
+          "ece_improved": false,
+          "pf_not_collapsed": true,
+          "promote": false,
+          "base_pf": 2.134745633040173,
+          "new_pf": 2.364790042496392,
+          "base_lift": 0.09821662498584077,
+          "new_lift": 0.09850341161320755,
+          "base_ece": 0.005352879372836751,
+          "new_ece": 0.007404420516472974,
+          "level_p90": 0.028155358547640882,
+          "rule": "lift>base AND ece<base AND pf>=0.85*base_pf"
+        },
+        "rare15_level_strong": {
+          "pr_auc_lift_improved": true,
+          "ece_improved": false,
+          "pf_not_collapsed": false,
+          "promote": false,
+          "base_pf": 2.134745633040173,
+          "new_pf": 1.378950549848718,
+          "base_lift": 0.09821662498584077,
+          "new_lift": 0.09892980700885473,
+          "base_ece": 0.005352879372836751,
+          "new_ece": 0.008136822091538957,
+          "level_p90": 0.019033482241654236,
+          "rule": "lift>base AND ece<base AND pf>=0.85*base_pf"
+        }
+      },
+      "baseline": "baseline_level_vsa"
+    }
+  },
+  "policy": {
+    "score_fill_and_intent_before_pf": true,
+    "prefer_shorter_work_if_fill_usable": true,
+    "level_p90_target": 0.01,
+    "no_post_hoc_work_widen": true
+  }
+}

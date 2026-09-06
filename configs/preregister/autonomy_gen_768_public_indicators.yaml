@@ -1,0 +1,22 @@
+# Autonomy gen 768 — SMA 1520
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_768_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-25T11:02:00Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  Distance and crosses of close versus the 1520-bar simple moving average at t+H, used as one-head filters, can beat the
+  15-minute Limit 1%/1% pivot control under frozen entry-bar and trades-per-month caps.
+events: [sma1520_above_at_h, sma1520_below_at_h, sma1520_cross_up, sma1520_cross_down]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: bc66c15baa785b75c0db624bc56d1c09454e90fa34426183f06577a8e3469792

@@ -1,0 +1,24 @@
+{
+  "artifact_dir": "D:\\projects\\LLM2\\artifacts\\evidence\\four_proof\\diagonal_sr_v1_bounce_upper_ETHUSDT_1h_20260826T175536Z",
+  "artifact_hashes": {
+    "builder_responsiveness": "813c9ca5dd5bf9eac1860eb80e3a7c75a2c6d979e7885fcc70dc4efb408c6641",
+    "layer_a_pred_identity": "f90c3bd253ef680f3952b6dff30b5704d4f734345ff3130f7eb172f4487e4ad0",
+    "no_live_feature_fill": "b66a252f58a792cf3f882aaeb07edf3bdbdb0fd8eb4b6744d07790359d95d80d",
+    "recompute_prefix": "11ad994fbf13f059185535e206ab16a2f17a1fefbb60e0511a4fdb12e183f236"
+  },
+  "event": "bounce_upper",
+  "generation": "A",
+  "ok": true,
+  "proofs_ok": {
+    "builder_responsiveness": true,
+    "layer_a_pred_identity": true,
+    "no_live_feature_fill": true,
+    "recompute_prefix": true
+  },
+  "readiness": "RESEARCH_ONLY (gate is causality, not performance)",
+  "rule": "FOUR_PROOF_GATE_V1",
+  "space": "diagonal_sr_v1",
+  "stamp": "20260826T175536Z",
+  "symbol": "ETHUSDT",
+  "timeframe": "1h"
+}

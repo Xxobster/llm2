@@ -1,0 +1,2856 @@
+{
+  "generation_id": "pivot_limit_strategy_diag_002_tp_sl_grid",
+  "stamp": "20260810T103819Z",
+  "source": "binance",
+  "lockbox_start": "2026-05-01",
+  "setup": {
+    "timeframe": "15m",
+    "horizon_bars": 4,
+    "atr_min": 2.0,
+    "tp_pct_arms": [
+      0.01,
+      0.02,
+      0.03,
+      0.05
+    ],
+    "sl_pct_arms": [
+      0.01,
+      0.02,
+      0.03,
+      0.05
+    ],
+    "entry": "LIMIT at predicted pivot level (clamped) or market control",
+    "gate": "calibrated p_any >= max(0.35, train_cal p75)",
+    "note": "Full TP\u00d7SL diagnostic matrix. Arms are pre-declared; do not promote by picking the single best cell on this outer path without a further pre-registered selection protocol. RESEARCH_ONLY."
+  },
+  "symbols": [
+    {
+      "symbol": "BTCUSDT",
+      "frac_any_label": 0.15782235816740706,
+      "n_rows": 119983,
+      "n_decisions": 3719,
+      "calibration_folds": [
+        {
+          "fold": 2,
+          "ece_inner_raw": 0.24292464599822772,
+          "ece_inner_cal": 2.1622934893043664e-08,
+          "ece_outer_cal": 0.0193636476518163,
+          "pr_note": "outer scores after inner-only calibrator"
+        },
+        {
+          "fold": 3,
+          "ece_inner_raw": 0.24755460244698801,
+          "ece_inner_cal": 5.108556833614129e-09,
+          "ece_outer_cal": 0.00899089835050083,
+          "pr_note": "outer scores after inner-only calibrator"
+        },
+        {
+          "fold": 4,
+          "ece_inner_raw": 0.28237382037810094,
+          "ece_inner_cal": 6.813847203829838e-11,
+          "ece_outer_cal": 0.01382395254010745,
+          "pr_note": "outer scores after inner-only calibrator"
+        },
+        {
+          "fold": 5,
+          "ece_inner_raw": 0.3284421692065994,
+          "ece_inner_cal": 1.7069986954928268e-09,
+          "ece_outer_cal": 0.019611176248185994,
+          "pr_note": "outer scores after inner-only calibrator"
+        }
+      ],
+      "limit_entry": {
+        "tp01_sl01": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 466,
+            "profit_factor": 1.0087814613809132,
+            "net_pnl": 0.8625814949718915,
+            "win_rate": 0.572961373390558,
+            "expectancy": 0.0018510332510729437,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.01,
+          "sl_pct": 0.01
+        },
+        "tp01_sl02": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 455,
+            "profit_factor": 1.0022389179881983,
+            "net_pnl": 0.2200310999796784,
+            "win_rate": 0.589010989010989,
+            "expectancy": 0.0004835848351648804,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.01,
+          "sl_pct": 0.02
+        },
+        "tp01_sl03": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 454,
+            "profit_factor": 0.9828027206680051,
+            "net_pnl": -1.7148616250178748,
+            "win_rate": 0.5881057268722467,
+            "expectancy": -0.0037772282488986357,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.01,
+          "sl_pct": 0.03
+        },
+        "tp01_sl05": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 454,
+            "profit_factor": 0.9835213804896054,
+            "net_pnl": -1.6419983150190092,
+            "win_rate": 0.5881057268722467,
+            "expectancy": -0.0036167363766519333,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.01,
+          "sl_pct": 0.05
+        },
+        "tp02_sl01": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 464,
+            "profit_factor": 0.8817725619954508,
+            "net_pnl": -13.370574965025298,
+            "win_rate": 0.5150862068965517,
+            "expectancy": -0.028815894321120736,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.02,
+          "sl_pct": 0.01
+        },
+        "tp02_sl02": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 450,
+            "profit_factor": 0.8301017600366002,
+            "net_pnl": -19.600358250014324,
+            "win_rate": 0.5355555555555556,
+            "expectancy": -0.04355635166666658,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.02,
+          "sl_pct": 0.02
+        },
+        "tp02_sl03": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 449,
+            "profit_factor": 0.8285217125517006,
+            "net_pnl": -19.982763730016813,
+            "win_rate": 0.5389755011135857,
+            "expectancy": -0.04450504171492198,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.02,
+          "sl_pct": 0.03
+        },
+        "tp02_sl05": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 449,
+            "profit_factor": 0.8266886591956956,
+            "net_pnl": -20.241156015015804,
+            "win_rate": 0.5389755011135857,
+            "expectancy": -0.04508052564587965,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.02,
+          "sl_pct": 0.05
+        },
+        "tp03_sl01": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 464,
+            "profit_factor": 0.8351228875214729,
+            "net_pnl": -19.005503260023033,
+            "win_rate": 0.5086206896551724,
+            "expectancy": -0.04096013633620692,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.03,
+          "sl_pct": 0.01
+        },
+        "tp03_sl02": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 450,
+            "profit_factor": 0.7876381793868547,
+            "net_pnl": -25.023613560011654,
+            "win_rate": 0.5311111111111111,
+            "expectancy": -0.05560803013333324,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.03,
+          "sl_pct": 0.02
+        },
+        "tp03_sl03": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 449,
+            "profit_factor": 0.7853955405208174,
+            "net_pnl": -25.65625214501415,
+            "win_rate": 0.534521158129176,
+            "expectancy": -0.05714087337416472,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.03,
+          "sl_pct": 0.03
+        },
+        "tp03_sl05": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 449,
+            "profit_factor": 0.7765789030400603,
+            "net_pnl": -27.01353970501259,
+            "win_rate": 0.534521158129176,
+            "expectancy": -0.060163785534521064,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.03,
+          "sl_pct": 0.05
+        },
+        "tp05_sl01": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 464,
+            "profit_factor": 0.8271327757747025,
+            "net_pnl": -20.019453720022284,
+            "win_rate": 0.5064655172413793,
+            "expectancy": -0.04314537439655169,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.05,
+          "sl_pct": 0.01
+        },
+        "tp05_sl02": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 450,
+            "profit_factor": 0.7755585832505261,
+            "net_pnl": -26.679884860010134,
+            "win_rate": 0.5288888888888889,
+            "expectancy": -0.059288633022222086,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.05,
+          "sl_pct": 0.02
+        },
+        "tp05_sl03": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 449,
+            "profit_factor": 0.8058263559554303,
+            "net_pnl": -23.21372064501338,
+            "win_rate": 0.534521158129176,
+            "expectancy": -0.05170093684855218,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.05,
+          "sl_pct": 0.03
+        },
+        "tp05_sl05": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 449,
+            "profit_factor": 0.7967803676777437,
+            "net_pnl": -24.57100820501182,
+            "win_rate": 0.534521158129176,
+            "expectancy": -0.054723849008908525,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.05,
+          "sl_pct": 0.05
+        }
+      },
+      "market_entry_control": {
+        "tp01_sl01": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2437,
+            "profit_factor": 0.6726526464456751,
+            "net_pnl": -169.1241317350068,
+            "win_rate": 0.4562987279441937,
+            "expectancy": -0.06939849476200251,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.01,
+          "sl_pct": 0.01
+        },
+        "tp01_sl02": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2269,
+            "profit_factor": 0.7069045656872929,
+            "net_pnl": -139.48560294001254,
+            "win_rate": 0.4715733803437638,
+            "expectancy": -0.06147448344645223,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.01,
+          "sl_pct": 0.02
+        },
+        "tp01_sl03": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2239,
+            "profit_factor": 0.6984945507978577,
+            "net_pnl": -141.8386844700217,
+            "win_rate": 0.4729790084859312,
+            "expectancy": -0.06334912213934794,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.01,
+          "sl_pct": 0.03
+        },
+        "tp01_sl05": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2227,
+            "profit_factor": 0.699756473884948,
+            "net_pnl": -139.93731068501802,
+            "win_rate": 0.4728334081724293,
+            "expectancy": -0.0628366909227661,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.01,
+          "sl_pct": 0.05
+        },
+        "tp02_sl01": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2412,
+            "profit_factor": 0.689097908441151,
+            "net_pnl": -161.04646903502544,
+            "win_rate": 0.44776119402985076,
+            "expectancy": -0.06676885117537316,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.02,
+          "sl_pct": 0.01
+        },
+        "tp02_sl02": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2245,
+            "profit_factor": 0.7220498410385383,
+            "net_pnl": -134.11465261501507,
+            "win_rate": 0.4628062360801782,
+            "expectancy": -0.059739266198218295,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.02,
+          "sl_pct": 0.02
+        },
+        "tp02_sl03": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2216,
+            "profit_factor": 0.7120120140379503,
+            "net_pnl": -138.04279602002316,
+            "win_rate": 0.463898916967509,
+            "expectancy": -0.06229368051444046,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.02,
+          "sl_pct": 0.03
+        },
+        "tp02_sl05": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2203,
+            "profit_factor": 0.7223826188231716,
+            "net_pnl": -130.82754737501818,
+            "win_rate": 0.4643667725828416,
+            "expectancy": -0.05938608596232413,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.02,
+          "sl_pct": 0.05
+        },
+        "tp03_sl01": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2403,
+            "profit_factor": 0.6840880550378938,
+            "net_pnl": -162.72327650002808,
+            "win_rate": 0.4469413233458177,
+            "expectancy": -0.06771671930919688,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.03,
+          "sl_pct": 0.01
+        },
+        "tp03_sl02": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2238,
+            "profit_factor": 0.705585863195117,
+            "net_pnl": -141.9983577750172,
+            "win_rate": 0.46112600536193027,
+            "expectancy": -0.06344877469839147,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.03,
+          "sl_pct": 0.02
+        },
+        "tp03_sl03": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2209,
+            "profit_factor": 0.7006331726761846,
+            "net_pnl": -143.43567675002305,
+            "win_rate": 0.4622000905387053,
+            "expectancy": -0.0649324023313717,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.03,
+          "sl_pct": 0.03
+        },
+        "tp03_sl05": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2196,
+            "profit_factor": 0.7101733511711376,
+            "net_pnl": -136.52173794501869,
+            "win_rate": 0.46265938069216755,
+            "expectancy": -0.06216836882741352,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.03,
+          "sl_pct": 0.05
+        },
+        "tp05_sl01": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2400,
+            "profit_factor": 0.6998169829802503,
+            "net_pnl": -154.04018767002708,
+            "win_rate": 0.4475,
+            "expectancy": -0.0641834115291667,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.05,
+          "sl_pct": 0.01
+        },
+        "tp05_sl02": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2236,
+            "profit_factor": 0.7195319090414373,
+            "net_pnl": -134.92802543001744,
+            "win_rate": 0.46153846153846156,
+            "expectancy": -0.06034348185599289,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.05,
+          "sl_pct": 0.02
+        },
+        "tp05_sl03": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2209,
+            "profit_factor": 0.7173346418237433,
+            "net_pnl": -135.24430601502172,
+            "win_rate": 0.4626527840651879,
+            "expectancy": -0.061224221826618394,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.05,
+          "sl_pct": 0.03
+        },
+        "tp05_sl05": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2196,
+            "profit_factor": 0.7277615490058167,
+            "net_pnl": -128.0546702300162,
+            "win_rate": 0.46311475409836067,
+            "expectancy": -0.05831269136156652,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719,
+          "tp_pct": 0.05,
+          "sl_pct": 0.05
+        }
+      },
+      "grid_summary": {
+        "limit": [
+          {
+            "arm": "tp01_sl01",
+            "tp_pct": 0.01,
+            "sl_pct": 0.01,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 466,
+            "profit_factor": 1.0087814613809132,
+            "net_pnl": 0.8625814949718915,
+            "win_rate": 0.572961373390558,
+            "expectancy": 0.0018510332510729437,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp01_sl02",
+            "tp_pct": 0.01,
+            "sl_pct": 0.02,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 455,
+            "profit_factor": 1.0022389179881983,
+            "net_pnl": 0.2200310999796784,
+            "win_rate": 0.589010989010989,
+            "expectancy": 0.0004835848351648804,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp01_sl03",
+            "tp_pct": 0.01,
+            "sl_pct": 0.03,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 454,
+            "profit_factor": 0.9828027206680051,
+            "net_pnl": -1.7148616250178748,
+            "win_rate": 0.5881057268722467,
+            "expectancy": -0.0037772282488986357,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp01_sl05",
+            "tp_pct": 0.01,
+            "sl_pct": 0.05,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 454,
+            "profit_factor": 0.9835213804896054,
+            "net_pnl": -1.6419983150190092,
+            "win_rate": 0.5881057268722467,
+            "expectancy": -0.0036167363766519333,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp02_sl01",
+            "tp_pct": 0.02,
+            "sl_pct": 0.01,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 464,
+            "profit_factor": 0.8817725619954508,
+            "net_pnl": -13.370574965025298,
+            "win_rate": 0.5150862068965517,
+            "expectancy": -0.028815894321120736,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp02_sl02",
+            "tp_pct": 0.02,
+            "sl_pct": 0.02,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 450,
+            "profit_factor": 0.8301017600366002,
+            "net_pnl": -19.600358250014324,
+            "win_rate": 0.5355555555555556,
+            "expectancy": -0.04355635166666658,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp02_sl03",
+            "tp_pct": 0.02,
+            "sl_pct": 0.03,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 449,
+            "profit_factor": 0.8285217125517006,
+            "net_pnl": -19.982763730016813,
+            "win_rate": 0.5389755011135857,
+            "expectancy": -0.04450504171492198,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp02_sl05",
+            "tp_pct": 0.02,
+            "sl_pct": 0.05,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 449,
+            "profit_factor": 0.8266886591956956,
+            "net_pnl": -20.241156015015804,
+            "win_rate": 0.5389755011135857,
+            "expectancy": -0.04508052564587965,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp03_sl01",
+            "tp_pct": 0.03,
+            "sl_pct": 0.01,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 464,
+            "profit_factor": 0.8351228875214729,
+            "net_pnl": -19.005503260023033,
+            "win_rate": 0.5086206896551724,
+            "expectancy": -0.04096013633620692,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp03_sl02",
+            "tp_pct": 0.03,
+            "sl_pct": 0.02,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 450,
+            "profit_factor": 0.7876381793868547,
+            "net_pnl": -25.023613560011654,
+            "win_rate": 0.5311111111111111,
+            "expectancy": -0.05560803013333324,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp03_sl03",
+            "tp_pct": 0.03,
+            "sl_pct": 0.03,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 449,
+            "profit_factor": 0.7853955405208174,
+            "net_pnl": -25.65625214501415,
+            "win_rate": 0.534521158129176,
+            "expectancy": -0.05714087337416472,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp03_sl05",
+            "tp_pct": 0.03,
+            "sl_pct": 0.05,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 449,
+            "profit_factor": 0.7765789030400603,
+            "net_pnl": -27.01353970501259,
+            "win_rate": 0.534521158129176,
+            "expectancy": -0.060163785534521064,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp05_sl01",
+            "tp_pct": 0.05,
+            "sl_pct": 0.01,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 464,
+            "profit_factor": 0.8271327757747025,
+            "net_pnl": -20.019453720022284,
+            "win_rate": 0.5064655172413793,
+            "expectancy": -0.04314537439655169,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp05_sl02",
+            "tp_pct": 0.05,
+            "sl_pct": 0.02,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 450,
+            "profit_factor": 0.7755585832505261,
+            "net_pnl": -26.679884860010134,
+            "win_rate": 0.5288888888888889,
+            "expectancy": -0.059288633022222086,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp05_sl03",
+            "tp_pct": 0.05,
+            "sl_pct": 0.03,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 449,
+            "profit_factor": 0.8058263559554303,
+            "net_pnl": -23.21372064501338,
+            "win_rate": 0.534521158129176,
+            "expectancy": -0.05170093684855218,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp05_sl05",
+            "tp_pct": 0.05,
+            "sl_pct": 0.05,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 449,
+            "profit_factor": 0.7967803676777437,
+            "net_pnl": -24.57100820501182,
+            "win_rate": 0.534521158129176,
+            "expectancy": -0.054723849008908525,
+            "n_liquidations": 0
+          }
+        ],
+        "market": [
+          {
+            "arm": "tp01_sl01",
+            "tp_pct": 0.01,
+            "sl_pct": 0.01,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 2437,
+            "profit_factor": 0.6726526464456751,
+            "net_pnl": -169.1241317350068,
+            "win_rate": 0.4562987279441937,
+            "expectancy": -0.06939849476200251,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp01_sl02",
+            "tp_pct": 0.01,
+            "sl_pct": 0.02,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 2269,
+            "profit_factor": 0.7069045656872929,
+            "net_pnl": -139.48560294001254,
+            "win_rate": 0.4715733803437638,
+            "expectancy": -0.06147448344645223,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp01_sl03",
+            "tp_pct": 0.01,
+            "sl_pct": 0.03,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 2239,
+            "profit_factor": 0.6984945507978577,
+            "net_pnl": -141.8386844700217,
+            "win_rate": 0.4729790084859312,
+            "expectancy": -0.06334912213934794,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp01_sl05",
+            "tp_pct": 0.01,
+            "sl_pct": 0.05,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 2227,
+            "profit_factor": 0.699756473884948,
+            "net_pnl": -139.93731068501802,
+            "win_rate": 0.4728334081724293,
+            "expectancy": -0.0628366909227661,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp02_sl01",
+            "tp_pct": 0.02,
+            "sl_pct": 0.01,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 2412,
+            "profit_factor": 0.689097908441151,
+            "net_pnl": -161.04646903502544,
+            "win_rate": 0.44776119402985076,
+            "expectancy": -0.06676885117537316,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp02_sl02",
+            "tp_pct": 0.02,
+            "sl_pct": 0.02,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 2245,
+            "profit_factor": 0.7220498410385383,
+            "net_pnl": -134.11465261501507,
+            "win_rate": 0.4628062360801782,
+            "expectancy": -0.059739266198218295,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp02_sl03",
+            "tp_pct": 0.02,
+            "sl_pct": 0.03,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 2216,
+            "profit_factor": 0.7120120140379503,
+            "net_pnl": -138.04279602002316,
+            "win_rate": 0.463898916967509,
+            "expectancy": -0.06229368051444046,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp02_sl05",
+            "tp_pct": 0.02,
+            "sl_pct": 0.05,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 2203,
+            "profit_factor": 0.7223826188231716,
+            "net_pnl": -130.82754737501818,
+            "win_rate": 0.4643667725828416,
+            "expectancy": -0.05938608596232413,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp03_sl01",
+            "tp_pct": 0.03,
+            "sl_pct": 0.01,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 2403,
+            "profit_factor": 0.6840880550378938,
+            "net_pnl": -162.72327650002808,
+            "win_rate": 0.4469413233458177,
+            "expectancy": -0.06771671930919688,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp03_sl02",
+            "tp_pct": 0.03,
+            "sl_pct": 0.02,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 2238,
+            "profit_factor": 0.705585863195117,
+            "net_pnl": -141.9983577750172,
+            "win_rate": 0.46112600536193027,
+            "expectancy": -0.06344877469839147,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp03_sl03",
+            "tp_pct": 0.03,
+            "sl_pct": 0.03,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 2209,
+            "profit_factor": 0.7006331726761846,
+            "net_pnl": -143.43567675002305,
+            "win_rate": 0.4622000905387053,
+            "expectancy": -0.0649324023313717,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp03_sl05",
+            "tp_pct": 0.03,
+            "sl_pct": 0.05,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 2196,
+            "profit_factor": 0.7101733511711376,
+            "net_pnl": -136.52173794501869,
+            "win_rate": 0.46265938069216755,
+            "expectancy": -0.06216836882741352,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp05_sl01",
+            "tp_pct": 0.05,
+            "sl_pct": 0.01,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 2400,
+            "profit_factor": 0.6998169829802503,
+            "net_pnl": -154.04018767002708,
+            "win_rate": 0.4475,
+            "expectancy": -0.0641834115291667,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp05_sl02",
+            "tp_pct": 0.05,
+            "sl_pct": 0.02,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 2236,
+            "profit_factor": 0.7195319090414373,
+            "net_pnl": -134.92802543001744,
+            "win_rate": 0.46153846153846156,
+            "expectancy": -0.06034348185599289,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp05_sl03",
+            "tp_pct": 0.05,
+            "sl_pct": 0.03,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 2209,
+            "profit_factor": 0.7173346418237433,
+            "net_pnl": -135.24430601502172,
+            "win_rate": 0.4626527840651879,
+            "expectancy": -0.061224221826618394,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp05_sl05",
+            "tp_pct": 0.05,
+            "sl_pct": 0.05,
+            "n_decisions": 3719,
+            "status": "RAN",
+            "n_signals": 3719,
+            "n_trades": 2196,
+            "profit_factor": 0.7277615490058167,
+            "net_pnl": -128.0546702300162,
+            "win_rate": 0.46311475409836067,
+            "expectancy": -0.05831269136156652,
+            "n_liquidations": 0
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "frac_any_label": 0.15783902719551937,
+      "n_rows": 119983,
+      "n_decisions": 1808,
+      "calibration_folds": [
+        {
+          "fold": 2,
+          "ece_inner_raw": 0.25721355641997257,
+          "ece_inner_cal": 5.344995140392873e-09,
+          "ece_outer_cal": 0.014072722390797947,
+          "pr_note": "outer scores after inner-only calibrator"
+        },
+        {
+          "fold": 3,
+          "ece_inner_raw": 0.23805852493088098,
+          "ece_inner_cal": 2.4478501748404663e-09,
+          "ece_outer_cal": 0.015842162004656817,
+          "pr_note": "outer scores after inner-only calibrator"
+        },
+        {
+          "fold": 4,
+          "ece_inner_raw": 0.2613533769469304,
+          "ece_inner_cal": 2.1804306419517815e-09,
+          "ece_outer_cal": 0.010291144044872125,
+          "pr_note": "outer scores after inner-only calibrator"
+        },
+        {
+          "fold": 5,
+          "ece_inner_raw": 0.2749139154977739,
+          "ece_inner_cal": 2.1588512944693412e-09,
+          "ece_outer_cal": 0.00609271229861985,
+          "pr_note": "outer scores after inner-only calibrator"
+        }
+      ],
+      "limit_entry": {
+        "tp01_sl01": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 245,
+            "profit_factor": 1.4740518144182988,
+            "net_pnl": 9.542482785001994,
+            "win_rate": 0.5918367346938775,
+            "expectancy": 0.038948909326530556,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.01,
+          "sl_pct": 0.01
+        },
+        "tp01_sl02": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 244,
+            "profit_factor": 1.643937997916543,
+            "net_pnl": 12.038206195000384,
+            "win_rate": 0.6188524590163934,
+            "expectancy": 0.0493369106352459,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.01,
+          "sl_pct": 0.02
+        },
+        "tp01_sl03": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 243,
+            "profit_factor": 1.5451869726955794,
+            "net_pnl": 10.78725268999915,
+            "win_rate": 0.6172839506172839,
+            "expectancy": 0.044391986378600756,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.01,
+          "sl_pct": 0.03
+        },
+        "tp01_sl05": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 243,
+            "profit_factor": 1.5317267350188468,
+            "net_pnl": 10.613377819998277,
+            "win_rate": 0.6172839506172839,
+            "expectancy": 0.04367645193415633,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.01,
+          "sl_pct": 0.05
+        },
+        "tp02_sl01": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 243,
+            "profit_factor": 0.9978496686849241,
+            "net_pnl": -0.056529679994127946,
+            "win_rate": 0.48559670781893005,
+            "expectancy": -0.00023263242798353487,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.02,
+          "sl_pct": 0.01
+        },
+        "tp02_sl02": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 241,
+            "profit_factor": 1.1192979903286793,
+            "net_pnl": 3.0611579900069046,
+            "win_rate": 0.5269709543568465,
+            "expectancy": 0.012701900373444094,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.02,
+          "sl_pct": 0.02
+        },
+        "tp02_sl03": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 240,
+            "profit_factor": 1.03408644031664,
+            "net_pnl": 0.945249345004413,
+            "win_rate": 0.525,
+            "expectancy": 0.003938538937500023,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.02,
+          "sl_pct": 0.03
+        },
+        "tp02_sl05": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 240,
+            "profit_factor": 0.9983707527946863,
+            "net_pnl": -0.04679685999508365,
+            "win_rate": 0.525,
+            "expectancy": -0.0001949869166666109,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.02,
+          "sl_pct": 0.05
+        },
+        "tp03_sl01": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 243,
+            "profit_factor": 0.9370878139902215,
+            "net_pnl": -1.7097251099967252,
+            "win_rate": 0.4732510288065844,
+            "expectancy": -0.007035905802469135,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.03,
+          "sl_pct": 0.01
+        },
+        "tp03_sl02": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 241,
+            "profit_factor": 1.0658679926616739,
+            "net_pnl": 1.7692915500047093,
+            "win_rate": 0.5186721991701245,
+            "expectancy": 0.007341458713693052,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.03,
+          "sl_pct": 0.02
+        },
+        "tp03_sl03": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 240,
+            "profit_factor": 1.0428113903940257,
+            "net_pnl": 1.1949345850025566,
+            "win_rate": 0.5208333333333334,
+            "expectancy": 0.004978894104166693,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.03,
+          "sl_pct": 0.03
+        },
+        "tp03_sl05": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 240,
+            "profit_factor": 1.0070194725227315,
+            "net_pnl": 0.20288838000305986,
+            "win_rate": 0.5208333333333334,
+            "expectancy": 0.0008453682500000586,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.03,
+          "sl_pct": 0.05
+        },
+        "tp05_sl01": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 243,
+            "profit_factor": 0.8192479857925768,
+            "net_pnl": -5.037293939996744,
+            "win_rate": 0.46502057613168724,
+            "expectancy": -0.02072960469135802,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.05,
+          "sl_pct": 0.01
+        },
+        "tp05_sl02": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 241,
+            "profit_factor": 0.9393963576134012,
+            "net_pnl": -1.7088518199961982,
+            "win_rate": 0.5103734439834025,
+            "expectancy": -0.007090671452282051,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.05,
+          "sl_pct": 0.02
+        },
+        "tp05_sl03": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 240,
+            "profit_factor": 1.0251525643005213,
+            "net_pnl": 0.7020484200020292,
+            "win_rate": 0.5208333333333334,
+            "expectancy": 0.002925201750000034,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.05,
+          "sl_pct": 0.03
+        },
+        "tp05_sl05": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 240,
+            "profit_factor": 0.9899667418929554,
+            "net_pnl": -0.28999778499746753,
+            "win_rate": 0.5208333333333334,
+            "expectancy": -0.0012083241041666007,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.05,
+          "sl_pct": 0.05
+        }
+      },
+      "market_entry_control": {
+        "tp01_sl01": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 1473,
+            "profit_factor": 0.7163741860883924,
+            "net_pnl": -42.54971865003063,
+            "win_rate": 0.4881194840461643,
+            "expectancy": -0.02888643492871696,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.01,
+          "sl_pct": 0.01
+        },
+        "tp01_sl02": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 1374,
+            "profit_factor": 0.7457187736286421,
+            "net_pnl": -36.08592798500831,
+            "win_rate": 0.5203784570596798,
+            "expectancy": -0.026263411925036416,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.01,
+          "sl_pct": 0.02
+        },
+        "tp01_sl03": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 1352,
+            "profit_factor": 0.7624248035173292,
+            "net_pnl": -32.74512552000306,
+            "win_rate": 0.5251479289940828,
+            "expectancy": -0.0242197673964497,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.01,
+          "sl_pct": 0.03
+        },
+        "tp01_sl05": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 1340,
+            "profit_factor": 0.7457495761908572,
+            "net_pnl": -35.23852253000223,
+            "win_rate": 0.5238805970149254,
+            "expectancy": -0.026297404873134325,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.01,
+          "sl_pct": 0.05
+        },
+        "tp02_sl01": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 1465,
+            "profit_factor": 0.7257141619015759,
+            "net_pnl": -42.60266820001016,
+            "win_rate": 0.46552901023890786,
+            "expectancy": -0.029080319590443746,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.02,
+          "sl_pct": 0.01
+        },
+        "tp02_sl02": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 1360,
+            "profit_factor": 0.7686678385462565,
+            "net_pnl": -33.60653152998566,
+            "win_rate": 0.49779411764705883,
+            "expectancy": -0.024710684948529446,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.02,
+          "sl_pct": 0.02
+        },
+        "tp02_sl03": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 1339,
+            "profit_factor": 0.7972845742441501,
+            "net_pnl": -28.59258409497488,
+            "win_rate": 0.5033607169529499,
+            "expectancy": -0.02135368491038088,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.02,
+          "sl_pct": 0.03
+        },
+        "tp02_sl05": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 1327,
+            "profit_factor": 0.7830544087207733,
+            "net_pnl": -30.732794644973183,
+            "win_rate": 0.5026375282592314,
+            "expectancy": -0.023159604103240392,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.02,
+          "sl_pct": 0.05
+        },
+        "tp03_sl01": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 1461,
+            "profit_factor": 0.7103169434510737,
+            "net_pnl": -44.98261637502219,
+            "win_rate": 0.4654346338124572,
+            "expectancy": -0.030788922912388855,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.03,
+          "sl_pct": 0.01
+        },
+        "tp03_sl02": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 1356,
+            "profit_factor": 0.7556258334340107,
+            "net_pnl": -35.76476988000104,
+            "win_rate": 0.4963126843657817,
+            "expectancy": -0.026375199026548727,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.03,
+          "sl_pct": 0.02
+        },
+        "tp03_sl03": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 1335,
+            "profit_factor": 0.7781987453794091,
+            "net_pnl": -31.581928149988016,
+            "win_rate": 0.501123595505618,
+            "expectancy": -0.02365687501872662,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.03,
+          "sl_pct": 0.03
+        },
+        "tp03_sl05": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 1323,
+            "profit_factor": 0.7690555992140778,
+            "net_pnl": -32.882200919986644,
+            "win_rate": 0.5011337868480725,
+            "expectancy": -0.02485427129251703,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.03,
+          "sl_pct": 0.05
+        },
+        "tp05_sl01": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 1457,
+            "profit_factor": 0.7093420449367895,
+            "net_pnl": -44.95692004002012,
+            "win_rate": 0.4660260809883322,
+            "expectancy": -0.03085581334248464,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.05,
+          "sl_pct": 0.01
+        },
+        "tp05_sl02": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 1353,
+            "profit_factor": 0.7548125316915032,
+            "net_pnl": -35.84738926999489,
+            "win_rate": 0.49741315594974134,
+            "expectancy": -0.026494744471544762,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.05,
+          "sl_pct": 0.02
+        },
+        "tp05_sl03": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 1331,
+            "profit_factor": 0.7783934958846773,
+            "net_pnl": -31.52080299498266,
+            "win_rate": 0.5018782870022539,
+            "expectancy": -0.023682045826446306,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.05,
+          "sl_pct": 0.03
+        },
+        "tp05_sl05": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 1320,
+            "profit_factor": 0.7710984819913805,
+            "net_pnl": -32.48882303497885,
+            "win_rate": 0.5022727272727273,
+            "expectancy": -0.02461274472348487,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808,
+          "tp_pct": 0.05,
+          "sl_pct": 0.05
+        }
+      },
+      "grid_summary": {
+        "limit": [
+          {
+            "arm": "tp01_sl01",
+            "tp_pct": 0.01,
+            "sl_pct": 0.01,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 245,
+            "profit_factor": 1.4740518144182988,
+            "net_pnl": 9.542482785001994,
+            "win_rate": 0.5918367346938775,
+            "expectancy": 0.038948909326530556,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp01_sl02",
+            "tp_pct": 0.01,
+            "sl_pct": 0.02,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 244,
+            "profit_factor": 1.643937997916543,
+            "net_pnl": 12.038206195000384,
+            "win_rate": 0.6188524590163934,
+            "expectancy": 0.0493369106352459,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp01_sl03",
+            "tp_pct": 0.01,
+            "sl_pct": 0.03,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 243,
+            "profit_factor": 1.5451869726955794,
+            "net_pnl": 10.78725268999915,
+            "win_rate": 0.6172839506172839,
+            "expectancy": 0.044391986378600756,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp01_sl05",
+            "tp_pct": 0.01,
+            "sl_pct": 0.05,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 243,
+            "profit_factor": 1.5317267350188468,
+            "net_pnl": 10.613377819998277,
+            "win_rate": 0.6172839506172839,
+            "expectancy": 0.04367645193415633,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp02_sl01",
+            "tp_pct": 0.02,
+            "sl_pct": 0.01,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 243,
+            "profit_factor": 0.9978496686849241,
+            "net_pnl": -0.056529679994127946,
+            "win_rate": 0.48559670781893005,
+            "expectancy": -0.00023263242798353487,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp02_sl02",
+            "tp_pct": 0.02,
+            "sl_pct": 0.02,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 241,
+            "profit_factor": 1.1192979903286793,
+            "net_pnl": 3.0611579900069046,
+            "win_rate": 0.5269709543568465,
+            "expectancy": 0.012701900373444094,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp02_sl03",
+            "tp_pct": 0.02,
+            "sl_pct": 0.03,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 240,
+            "profit_factor": 1.03408644031664,
+            "net_pnl": 0.945249345004413,
+            "win_rate": 0.525,
+            "expectancy": 0.003938538937500023,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp02_sl05",
+            "tp_pct": 0.02,
+            "sl_pct": 0.05,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 240,
+            "profit_factor": 0.9983707527946863,
+            "net_pnl": -0.04679685999508365,
+            "win_rate": 0.525,
+            "expectancy": -0.0001949869166666109,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp03_sl01",
+            "tp_pct": 0.03,
+            "sl_pct": 0.01,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 243,
+            "profit_factor": 0.9370878139902215,
+            "net_pnl": -1.7097251099967252,
+            "win_rate": 0.4732510288065844,
+            "expectancy": -0.007035905802469135,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp03_sl02",
+            "tp_pct": 0.03,
+            "sl_pct": 0.02,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 241,
+            "profit_factor": 1.0658679926616739,
+            "net_pnl": 1.7692915500047093,
+            "win_rate": 0.5186721991701245,
+            "expectancy": 0.007341458713693052,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp03_sl03",
+            "tp_pct": 0.03,
+            "sl_pct": 0.03,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 240,
+            "profit_factor": 1.0428113903940257,
+            "net_pnl": 1.1949345850025566,
+            "win_rate": 0.5208333333333334,
+            "expectancy": 0.004978894104166693,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp03_sl05",
+            "tp_pct": 0.03,
+            "sl_pct": 0.05,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 240,
+            "profit_factor": 1.0070194725227315,
+            "net_pnl": 0.20288838000305986,
+            "win_rate": 0.5208333333333334,
+            "expectancy": 0.0008453682500000586,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp05_sl01",
+            "tp_pct": 0.05,
+            "sl_pct": 0.01,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 243,
+            "profit_factor": 0.8192479857925768,
+            "net_pnl": -5.037293939996744,
+            "win_rate": 0.46502057613168724,
+            "expectancy": -0.02072960469135802,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp05_sl02",
+            "tp_pct": 0.05,
+            "sl_pct": 0.02,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 241,
+            "profit_factor": 0.9393963576134012,
+            "net_pnl": -1.7088518199961982,
+            "win_rate": 0.5103734439834025,
+            "expectancy": -0.007090671452282051,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp05_sl03",
+            "tp_pct": 0.05,
+            "sl_pct": 0.03,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 240,
+            "profit_factor": 1.0251525643005213,
+            "net_pnl": 0.7020484200020292,
+            "win_rate": 0.5208333333333334,
+            "expectancy": 0.002925201750000034,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp05_sl05",
+            "tp_pct": 0.05,
+            "sl_pct": 0.05,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 240,
+            "profit_factor": 0.9899667418929554,
+            "net_pnl": -0.28999778499746753,
+            "win_rate": 0.5208333333333334,
+            "expectancy": -0.0012083241041666007,
+            "n_liquidations": 0
+          }
+        ],
+        "market": [
+          {
+            "arm": "tp01_sl01",
+            "tp_pct": 0.01,
+            "sl_pct": 0.01,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 1473,
+            "profit_factor": 0.7163741860883924,
+            "net_pnl": -42.54971865003063,
+            "win_rate": 0.4881194840461643,
+            "expectancy": -0.02888643492871696,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp01_sl02",
+            "tp_pct": 0.01,
+            "sl_pct": 0.02,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 1374,
+            "profit_factor": 0.7457187736286421,
+            "net_pnl": -36.08592798500831,
+            "win_rate": 0.5203784570596798,
+            "expectancy": -0.026263411925036416,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp01_sl03",
+            "tp_pct": 0.01,
+            "sl_pct": 0.03,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 1352,
+            "profit_factor": 0.7624248035173292,
+            "net_pnl": -32.74512552000306,
+            "win_rate": 0.5251479289940828,
+            "expectancy": -0.0242197673964497,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp01_sl05",
+            "tp_pct": 0.01,
+            "sl_pct": 0.05,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 1340,
+            "profit_factor": 0.7457495761908572,
+            "net_pnl": -35.23852253000223,
+            "win_rate": 0.5238805970149254,
+            "expectancy": -0.026297404873134325,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp02_sl01",
+            "tp_pct": 0.02,
+            "sl_pct": 0.01,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 1465,
+            "profit_factor": 0.7257141619015759,
+            "net_pnl": -42.60266820001016,
+            "win_rate": 0.46552901023890786,
+            "expectancy": -0.029080319590443746,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp02_sl02",
+            "tp_pct": 0.02,
+            "sl_pct": 0.02,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 1360,
+            "profit_factor": 0.7686678385462565,
+            "net_pnl": -33.60653152998566,
+            "win_rate": 0.49779411764705883,
+            "expectancy": -0.024710684948529446,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp02_sl03",
+            "tp_pct": 0.02,
+            "sl_pct": 0.03,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 1339,
+            "profit_factor": 0.7972845742441501,
+            "net_pnl": -28.59258409497488,
+            "win_rate": 0.5033607169529499,
+            "expectancy": -0.02135368491038088,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp02_sl05",
+            "tp_pct": 0.02,
+            "sl_pct": 0.05,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 1327,
+            "profit_factor": 0.7830544087207733,
+            "net_pnl": -30.732794644973183,
+            "win_rate": 0.5026375282592314,
+            "expectancy": -0.023159604103240392,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp03_sl01",
+            "tp_pct": 0.03,
+            "sl_pct": 0.01,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 1461,
+            "profit_factor": 0.7103169434510737,
+            "net_pnl": -44.98261637502219,
+            "win_rate": 0.4654346338124572,
+            "expectancy": -0.030788922912388855,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp03_sl02",
+            "tp_pct": 0.03,
+            "sl_pct": 0.02,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 1356,
+            "profit_factor": 0.7556258334340107,
+            "net_pnl": -35.76476988000104,
+            "win_rate": 0.4963126843657817,
+            "expectancy": -0.026375199026548727,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp03_sl03",
+            "tp_pct": 0.03,
+            "sl_pct": 0.03,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 1335,
+            "profit_factor": 0.7781987453794091,
+            "net_pnl": -31.581928149988016,
+            "win_rate": 0.501123595505618,
+            "expectancy": -0.02365687501872662,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp03_sl05",
+            "tp_pct": 0.03,
+            "sl_pct": 0.05,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 1323,
+            "profit_factor": 0.7690555992140778,
+            "net_pnl": -32.882200919986644,
+            "win_rate": 0.5011337868480725,
+            "expectancy": -0.02485427129251703,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp05_sl01",
+            "tp_pct": 0.05,
+            "sl_pct": 0.01,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 1457,
+            "profit_factor": 0.7093420449367895,
+            "net_pnl": -44.95692004002012,
+            "win_rate": 0.4660260809883322,
+            "expectancy": -0.03085581334248464,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp05_sl02",
+            "tp_pct": 0.05,
+            "sl_pct": 0.02,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 1353,
+            "profit_factor": 0.7548125316915032,
+            "net_pnl": -35.84738926999489,
+            "win_rate": 0.49741315594974134,
+            "expectancy": -0.026494744471544762,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp05_sl03",
+            "tp_pct": 0.05,
+            "sl_pct": 0.03,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 1331,
+            "profit_factor": 0.7783934958846773,
+            "net_pnl": -31.52080299498266,
+            "win_rate": 0.5018782870022539,
+            "expectancy": -0.023682045826446306,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp05_sl05",
+            "tp_pct": 0.05,
+            "sl_pct": 0.05,
+            "n_decisions": 1808,
+            "status": "RAN",
+            "n_signals": 1808,
+            "n_trades": 1320,
+            "profit_factor": 0.7710984819913805,
+            "net_pnl": -32.48882303497885,
+            "win_rate": 0.5022727272727273,
+            "expectancy": -0.02461274472348487,
+            "n_liquidations": 0
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "SOLUSDT",
+      "frac_any_label": 0.14648741905103224,
+      "n_rows": 119983,
+      "n_decisions": 3445,
+      "calibration_folds": [
+        {
+          "fold": 2,
+          "ece_inner_raw": 0.2615521803132378,
+          "ece_inner_cal": 4.616132194643033e-09,
+          "ece_outer_cal": 0.01124282122627614,
+          "pr_note": "outer scores after inner-only calibrator"
+        },
+        {
+          "fold": 3,
+          "ece_inner_raw": 0.2746638341775017,
+          "ece_inner_cal": 1.0642826748808026e-09,
+          "ece_outer_cal": 0.01744115273963033,
+          "pr_note": "outer scores after inner-only calibrator"
+        },
+        {
+          "fold": 4,
+          "ece_inner_raw": 0.3184071592772395,
+          "ece_inner_cal": 1.5671845224371458e-09,
+          "ece_outer_cal": 0.014217490456995658,
+          "pr_note": "outer scores after inner-only calibrator"
+        },
+        {
+          "fold": 5,
+          "ece_inner_raw": 0.32354095108569003,
+          "ece_inner_cal": 4.66914349124628e-09,
+          "ece_outer_cal": 0.007403840629084424,
+          "pr_note": "outer scores after inner-only calibrator"
+        }
+      ],
+      "limit_entry": {
+        "tp01_sl01": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 352,
+            "profit_factor": 3.4089634170273926,
+            "net_pnl": 22.690756099980717,
+            "win_rate": 0.7613636363636364,
+            "expectancy": 0.06446237528409093,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.01,
+          "sl_pct": 0.01
+        },
+        "tp01_sl02": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 347,
+            "profit_factor": 3.5745468307186066,
+            "net_pnl": 23.714280099982716,
+            "win_rate": 0.7953890489913544,
+            "expectancy": 0.06834086484149852,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.01,
+          "sl_pct": 0.02
+        },
+        "tp01_sl03": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 346,
+            "profit_factor": 4.0606757764961685,
+            "net_pnl": 25.205075149986442,
+            "win_rate": 0.8092485549132948,
+            "expectancy": 0.07284703800578032,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.01,
+          "sl_pct": 0.03
+        },
+        "tp01_sl05": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 346,
+            "profit_factor": 4.279566611857068,
+            "net_pnl": 25.67028029998619,
+            "win_rate": 0.8121387283236994,
+            "expectancy": 0.07419156156069362,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.01,
+          "sl_pct": 0.05
+        },
+        "tp02_sl01": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 336,
+            "profit_factor": 1.2147404391777572,
+            "net_pnl": 4.470399699970585,
+            "win_rate": 0.49404761904761907,
+            "expectancy": 0.013304761011904783,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.02,
+          "sl_pct": 0.01
+        },
+        "tp02_sl02": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 324,
+            "profit_factor": 1.2140150360282986,
+            "net_pnl": 4.800829599975259,
+            "win_rate": 0.5617283950617284,
+            "expectancy": 0.01481737530864197,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.02,
+          "sl_pct": 0.02
+        },
+        "tp02_sl03": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 323,
+            "profit_factor": 1.4750304316194587,
+            "net_pnl": 9.170815049981684,
+            "win_rate": 0.5882352941176471,
+            "expectancy": 0.028392616253869962,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.02,
+          "sl_pct": 0.03
+        },
+        "tp02_sl05": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 323,
+            "profit_factor": 1.492971285862786,
+            "net_pnl": 9.453747099982138,
+            "win_rate": 0.5944272445820433,
+            "expectancy": 0.029268566873065026,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.02,
+          "sl_pct": 0.05
+        },
+        "tp03_sl01": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 334,
+            "profit_factor": 1.0269039778643247,
+            "net_pnl": 0.5953537999703258,
+            "win_rate": 0.45808383233532934,
+            "expectancy": 0.0017824964071856354,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.03,
+          "sl_pct": 0.01
+        },
+        "tp03_sl02": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 322,
+            "profit_factor": 1.0114332197426172,
+            "net_pnl": 0.2789965499796381,
+            "win_rate": 0.5279503105590062,
+            "expectancy": 0.0008664489130434562,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.03,
+          "sl_pct": 0.02
+        },
+        "tp03_sl03": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 320,
+            "profit_factor": 1.1904492186293048,
+            "net_pnl": 4.092778999982329,
+            "win_rate": 0.55625,
+            "expectancy": 0.012789934374999978,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.03,
+          "sl_pct": 0.03
+        },
+        "tp03_sl05": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 320,
+            "profit_factor": 1.2654064003317078,
+            "net_pnl": 5.483133549982085,
+            "win_rate": 0.565625,
+            "expectancy": 0.01713479234374999,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.03,
+          "sl_pct": 0.05
+        },
+        "tp05_sl01": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 332,
+            "profit_factor": 0.9644179719388053,
+            "net_pnl": -0.7998930500289134,
+            "win_rate": 0.44879518072289154,
+            "expectancy": -0.0024093164156626496,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.05,
+          "sl_pct": 0.01
+        },
+        "tp05_sl02": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 320,
+            "profit_factor": 0.9922809274932033,
+            "net_pnl": -0.18957665002380963,
+            "win_rate": 0.521875,
+            "expectancy": -0.0005924270312500062,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.05,
+          "sl_pct": 0.02
+        },
+        "tp05_sl03": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 318,
+            "profit_factor": 1.1492367599339766,
+            "net_pnl": 3.2502717999796005,
+            "win_rate": 0.550314465408805,
+            "expectancy": 0.010220980503144635,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.05,
+          "sl_pct": 0.03
+        },
+        "tp05_sl05": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 318,
+            "profit_factor": 1.2222246042861056,
+            "net_pnl": 4.652618649975921,
+            "win_rate": 0.559748427672956,
+            "expectancy": 0.014630876257861629,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.05,
+          "sl_pct": 0.05
+        }
+      },
+      "market_entry_control": {
+        "tp01_sl01": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2639,
+            "profit_factor": 0.7570209898845269,
+            "net_pnl": -41.94119305003369,
+            "win_rate": 0.4766957180750284,
+            "expectancy": -0.015892835562713144,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.01,
+          "sl_pct": 0.01
+        },
+        "tp01_sl02": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2310,
+            "profit_factor": 0.8053051430507654,
+            "net_pnl": -29.965697300029206,
+            "win_rate": 0.5367965367965368,
+            "expectancy": -0.012972163333333354,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.01,
+          "sl_pct": 0.02
+        },
+        "tp01_sl03": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2225,
+            "profit_factor": 0.8184085779530987,
+            "net_pnl": -26.71714795004118,
+            "win_rate": 0.5420224719101123,
+            "expectancy": -0.01200770694382024,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.01,
+          "sl_pct": 0.03
+        },
+        "tp01_sl05": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2190,
+            "profit_factor": 0.8399302273159074,
+            "net_pnl": -22.436229550046846,
+            "win_rate": 0.54337899543379,
+            "expectancy": -0.010244853675799102,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.01,
+          "sl_pct": 0.05
+        },
+        "tp02_sl01": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2564,
+            "profit_factor": 0.7802196310428594,
+            "net_pnl": -39.76497865005149,
+            "win_rate": 0.4297971918876755,
+            "expectancy": -0.015508962031981289,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.02,
+          "sl_pct": 0.01
+        },
+        "tp02_sl02": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2233,
+            "profit_factor": 0.8234680648591562,
+            "net_pnl": -28.753000650029207,
+            "win_rate": 0.48544558889386474,
+            "expectancy": -0.012876399753694607,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.02,
+          "sl_pct": 0.02
+        },
+        "tp02_sl03": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2154,
+            "profit_factor": 0.8423797254109667,
+            "net_pnl": -24.536272400046073,
+            "win_rate": 0.49396471680594245,
+            "expectancy": -0.011391027112349137,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.02,
+          "sl_pct": 0.03
+        },
+        "tp02_sl05": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2119,
+            "profit_factor": 0.857895705159225,
+            "net_pnl": -21.039138350046414,
+            "win_rate": 0.49598867390278434,
+            "expectancy": -0.009928805261916026,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.02,
+          "sl_pct": 0.05
+        },
+        "tp03_sl01": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2549,
+            "profit_factor": 0.7881234791997571,
+            "net_pnl": -38.21870335005224,
+            "win_rate": 0.42683405256963514,
+            "expectancy": -0.014993606649666553,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.03,
+          "sl_pct": 0.01
+        },
+        "tp03_sl02": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2219,
+            "profit_factor": 0.8488307139778658,
+            "net_pnl": -24.49288550003439,
+            "win_rate": 0.48264984227129337,
+            "expectancy": -0.011037803289770198,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.03,
+          "sl_pct": 0.02
+        },
+        "tp03_sl03": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2139,
+            "profit_factor": 0.8575456226364679,
+            "net_pnl": -22.130697500044334,
+            "win_rate": 0.49181860682561945,
+            "expectancy": -0.010346282141187496,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.03,
+          "sl_pct": 0.03
+        },
+        "tp03_sl05": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2107,
+            "profit_factor": 0.8782513735121492,
+            "net_pnl": -17.998720950045026,
+            "win_rate": 0.49406739439962033,
+            "expectancy": -0.008542345016611325,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.03,
+          "sl_pct": 0.05
+        },
+        "tp05_sl01": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2536,
+            "profit_factor": 0.7691818413183146,
+            "net_pnl": -41.55573645004915,
+            "win_rate": 0.4246845425867508,
+            "expectancy": -0.016386331407728723,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.05,
+          "sl_pct": 0.01
+        },
+        "tp05_sl02": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2205,
+            "profit_factor": 0.8375360913969192,
+            "net_pnl": -26.260757800035208,
+            "win_rate": 0.4798185941043084,
+            "expectancy": -0.011909640725623618,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.05,
+          "sl_pct": 0.02
+        },
+        "tp05_sl03": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2127,
+            "profit_factor": 0.8474272935987783,
+            "net_pnl": -23.756575200048246,
+            "win_rate": 0.4894217207334274,
+            "expectancy": -0.011169052750352635,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.05,
+          "sl_pct": 0.03
+        },
+        "tp05_sl05": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2095,
+            "profit_factor": 0.8679612711291433,
+            "net_pnl": -19.617469400047412,
+            "win_rate": 0.4916467780429594,
+            "expectancy": -0.009363947207637264,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445,
+          "tp_pct": 0.05,
+          "sl_pct": 0.05
+        }
+      },
+      "grid_summary": {
+        "limit": [
+          {
+            "arm": "tp01_sl01",
+            "tp_pct": 0.01,
+            "sl_pct": 0.01,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 352,
+            "profit_factor": 3.4089634170273926,
+            "net_pnl": 22.690756099980717,
+            "win_rate": 0.7613636363636364,
+            "expectancy": 0.06446237528409093,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp01_sl02",
+            "tp_pct": 0.01,
+            "sl_pct": 0.02,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 347,
+            "profit_factor": 3.5745468307186066,
+            "net_pnl": 23.714280099982716,
+            "win_rate": 0.7953890489913544,
+            "expectancy": 0.06834086484149852,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp01_sl03",
+            "tp_pct": 0.01,
+            "sl_pct": 0.03,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 346,
+            "profit_factor": 4.0606757764961685,
+            "net_pnl": 25.205075149986442,
+            "win_rate": 0.8092485549132948,
+            "expectancy": 0.07284703800578032,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp01_sl05",
+            "tp_pct": 0.01,
+            "sl_pct": 0.05,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 346,
+            "profit_factor": 4.279566611857068,
+            "net_pnl": 25.67028029998619,
+            "win_rate": 0.8121387283236994,
+            "expectancy": 0.07419156156069362,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp02_sl01",
+            "tp_pct": 0.02,
+            "sl_pct": 0.01,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 336,
+            "profit_factor": 1.2147404391777572,
+            "net_pnl": 4.470399699970585,
+            "win_rate": 0.49404761904761907,
+            "expectancy": 0.013304761011904783,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp02_sl02",
+            "tp_pct": 0.02,
+            "sl_pct": 0.02,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 324,
+            "profit_factor": 1.2140150360282986,
+            "net_pnl": 4.800829599975259,
+            "win_rate": 0.5617283950617284,
+            "expectancy": 0.01481737530864197,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp02_sl03",
+            "tp_pct": 0.02,
+            "sl_pct": 0.03,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 323,
+            "profit_factor": 1.4750304316194587,
+            "net_pnl": 9.170815049981684,
+            "win_rate": 0.5882352941176471,
+            "expectancy": 0.028392616253869962,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp02_sl05",
+            "tp_pct": 0.02,
+            "sl_pct": 0.05,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 323,
+            "profit_factor": 1.492971285862786,
+            "net_pnl": 9.453747099982138,
+            "win_rate": 0.5944272445820433,
+            "expectancy": 0.029268566873065026,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp03_sl01",
+            "tp_pct": 0.03,
+            "sl_pct": 0.01,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 334,
+            "profit_factor": 1.0269039778643247,
+            "net_pnl": 0.5953537999703258,
+            "win_rate": 0.45808383233532934,
+            "expectancy": 0.0017824964071856354,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp03_sl02",
+            "tp_pct": 0.03,
+            "sl_pct": 0.02,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 322,
+            "profit_factor": 1.0114332197426172,
+            "net_pnl": 0.2789965499796381,
+            "win_rate": 0.5279503105590062,
+            "expectancy": 0.0008664489130434562,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp03_sl03",
+            "tp_pct": 0.03,
+            "sl_pct": 0.03,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 320,
+            "profit_factor": 1.1904492186293048,
+            "net_pnl": 4.092778999982329,
+            "win_rate": 0.55625,
+            "expectancy": 0.012789934374999978,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp03_sl05",
+            "tp_pct": 0.03,
+            "sl_pct": 0.05,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 320,
+            "profit_factor": 1.2654064003317078,
+            "net_pnl": 5.483133549982085,
+            "win_rate": 0.565625,
+            "expectancy": 0.01713479234374999,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp05_sl01",
+            "tp_pct": 0.05,
+            "sl_pct": 0.01,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 332,
+            "profit_factor": 0.9644179719388053,
+            "net_pnl": -0.7998930500289134,
+            "win_rate": 0.44879518072289154,
+            "expectancy": -0.0024093164156626496,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp05_sl02",
+            "tp_pct": 0.05,
+            "sl_pct": 0.02,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 320,
+            "profit_factor": 0.9922809274932033,
+            "net_pnl": -0.18957665002380963,
+            "win_rate": 0.521875,
+            "expectancy": -0.0005924270312500062,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp05_sl03",
+            "tp_pct": 0.05,
+            "sl_pct": 0.03,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 318,
+            "profit_factor": 1.1492367599339766,
+            "net_pnl": 3.2502717999796005,
+            "win_rate": 0.550314465408805,
+            "expectancy": 0.010220980503144635,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp05_sl05",
+            "tp_pct": 0.05,
+            "sl_pct": 0.05,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 318,
+            "profit_factor": 1.2222246042861056,
+            "net_pnl": 4.652618649975921,
+            "win_rate": 0.559748427672956,
+            "expectancy": 0.014630876257861629,
+            "n_liquidations": 0
+          }
+        ],
+        "market": [
+          {
+            "arm": "tp01_sl01",
+            "tp_pct": 0.01,
+            "sl_pct": 0.01,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 2639,
+            "profit_factor": 0.7570209898845269,
+            "net_pnl": -41.94119305003369,
+            "win_rate": 0.4766957180750284,
+            "expectancy": -0.015892835562713144,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp01_sl02",
+            "tp_pct": 0.01,
+            "sl_pct": 0.02,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 2310,
+            "profit_factor": 0.8053051430507654,
+            "net_pnl": -29.965697300029206,
+            "win_rate": 0.5367965367965368,
+            "expectancy": -0.012972163333333354,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp01_sl03",
+            "tp_pct": 0.01,
+            "sl_pct": 0.03,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 2225,
+            "profit_factor": 0.8184085779530987,
+            "net_pnl": -26.71714795004118,
+            "win_rate": 0.5420224719101123,
+            "expectancy": -0.01200770694382024,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp01_sl05",
+            "tp_pct": 0.01,
+            "sl_pct": 0.05,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 2190,
+            "profit_factor": 0.8399302273159074,
+            "net_pnl": -22.436229550046846,
+            "win_rate": 0.54337899543379,
+            "expectancy": -0.010244853675799102,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp02_sl01",
+            "tp_pct": 0.02,
+            "sl_pct": 0.01,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 2564,
+            "profit_factor": 0.7802196310428594,
+            "net_pnl": -39.76497865005149,
+            "win_rate": 0.4297971918876755,
+            "expectancy": -0.015508962031981289,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp02_sl02",
+            "tp_pct": 0.02,
+            "sl_pct": 0.02,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 2233,
+            "profit_factor": 0.8234680648591562,
+            "net_pnl": -28.753000650029207,
+            "win_rate": 0.48544558889386474,
+            "expectancy": -0.012876399753694607,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp02_sl03",
+            "tp_pct": 0.02,
+            "sl_pct": 0.03,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 2154,
+            "profit_factor": 0.8423797254109667,
+            "net_pnl": -24.536272400046073,
+            "win_rate": 0.49396471680594245,
+            "expectancy": -0.011391027112349137,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp02_sl05",
+            "tp_pct": 0.02,
+            "sl_pct": 0.05,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 2119,
+            "profit_factor": 0.857895705159225,
+            "net_pnl": -21.039138350046414,
+            "win_rate": 0.49598867390278434,
+            "expectancy": -0.009928805261916026,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp03_sl01",
+            "tp_pct": 0.03,
+            "sl_pct": 0.01,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 2549,
+            "profit_factor": 0.7881234791997571,
+            "net_pnl": -38.21870335005224,
+            "win_rate": 0.42683405256963514,
+            "expectancy": -0.014993606649666553,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp03_sl02",
+            "tp_pct": 0.03,
+            "sl_pct": 0.02,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 2219,
+            "profit_factor": 0.8488307139778658,
+            "net_pnl": -24.49288550003439,
+            "win_rate": 0.48264984227129337,
+            "expectancy": -0.011037803289770198,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp03_sl03",
+            "tp_pct": 0.03,
+            "sl_pct": 0.03,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 2139,
+            "profit_factor": 0.8575456226364679,
+            "net_pnl": -22.130697500044334,
+            "win_rate": 0.49181860682561945,
+            "expectancy": -0.010346282141187496,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp03_sl05",
+            "tp_pct": 0.03,
+            "sl_pct": 0.05,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 2107,
+            "profit_factor": 0.8782513735121492,
+            "net_pnl": -17.998720950045026,
+            "win_rate": 0.49406739439962033,
+            "expectancy": -0.008542345016611325,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp05_sl01",
+            "tp_pct": 0.05,
+            "sl_pct": 0.01,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 2536,
+            "profit_factor": 0.7691818413183146,
+            "net_pnl": -41.55573645004915,
+            "win_rate": 0.4246845425867508,
+            "expectancy": -0.016386331407728723,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp05_sl02",
+            "tp_pct": 0.05,
+            "sl_pct": 0.02,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 2205,
+            "profit_factor": 0.8375360913969192,
+            "net_pnl": -26.260757800035208,
+            "win_rate": 0.4798185941043084,
+            "expectancy": -0.011909640725623618,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp05_sl03",
+            "tp_pct": 0.05,
+            "sl_pct": 0.03,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 2127,
+            "profit_factor": 0.8474272935987783,
+            "net_pnl": -23.756575200048246,
+            "win_rate": 0.4894217207334274,
+            "expectancy": -0.011169052750352635,
+            "n_liquidations": 0
+          },
+          {
+            "arm": "tp05_sl05",
+            "tp_pct": 0.05,
+            "sl_pct": 0.05,
+            "n_decisions": 3445,
+            "status": "RAN",
+            "n_signals": 3445,
+            "n_trades": 2095,
+            "profit_factor": 0.8679612711291433,
+            "net_pnl": -19.617469400047412,
+            "win_rate": 0.4916467780429594,
+            "expectancy": -0.009363947207637264,
+            "n_liquidations": 0
+          }
+        ]
+      }
+    }
+  ],
+  "readiness_max": "RESEARCH_ONLY",
+  "metric_explain_base_rate": "High base rate means the LABEL 'pivot within horizon' was true on most bars (dense events), NOT that forecast precision was good."
+}

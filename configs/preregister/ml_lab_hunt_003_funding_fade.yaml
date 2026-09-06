@@ -1,0 +1,82 @@
+# ML lab hunt 003 — perpetual funding crowding fade (with ride control)
+# RESEARCH_ONLY. Frozen before any hunt-003 result was viewed.
+generation_id: ml_lab_hunt_003_funding_fade
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-29T06:40:00Z"
+fold_geometry: v2
+failure_is_success: true
+
+hypothesis: >
+  When Binance USDT-perpetual funding is stretched, positioning is crowded.
+  Fading the sign of the last completed settlement (short after positive
+  funding, long after negative) on the next 1-hour bar, holding up to eight
+  1-hour bars (one funding interval), has post-cost profit factor above 1.20
+  on pre-2022 Bitcoin / Ether / Solana. The matched control is the opposite
+  book (ride the funding sign) at the same frozen absolute thresholds.
+  Thresholds are 3 / 5 / 10 basis points per eight-hour print, chosen as
+  multiples of the well-known ~1 basis-point typical rate, not from a
+  profit-factor search. This is not the already-failed funding-hour
+  seasonality test (clock time of settlement); it is the magnitude/sign of
+  the realised rate. Hunt 002 showed a 15-minute one-bar reversal is too
+  small to pay two fills; this family trades sparsely with an eight-bar hold.
+
+do_not:
+  - retune Ether 1-hour bounce_upper or hunt-003 WaveTheory survivors
+  - retune hunt-001 or hunt-002 gates or reversal confidence
+  - nest-settle autonomy inner gate candidates
+  - join warehouse spaces (structure_v1, macro_v1) in this generation
+  - train QLoRA or Adaptive Fourier Neural Operators
+  - rank or select on data on/after 2022-01-01
+  - peep FORWARD_LOCKBOX_START
+  - deploy
+  - promote a ride-control arm even if its profit factor is high
+  - drop the 10 basis-point arm after seeing trade counts
+
+selection_window: "strictly before 2022-01-01 (first outer out-of-sample start)"
+lockbox: do_not_rank_on_or_after_2026-05-01
+
+universe:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  timeframes: [1h]
+
+abs_tau: [0.0003, 0.0005, 0.0010]
+sides: [fade, ride]
+horizon_bars: 8
+work_bars: 3
+max_hold_bars: 8
+bracket_mode: atr_scaled
+k_sl: 1.5
+tp_ratio: 1.5
+sl_cap: 0.030
+market: false
+cost_mode: taker_stress
+
+screen_gates:
+  min_skill_n: 80
+  min_directional_acc: 0.51
+  min_trades: 80
+  min_trades_per_month: 2.0
+  max_trades_per_month: 90.0
+  min_profit_factor: 1.20
+  max_entry_bar_exit_rate: 0.25
+  min_sharpe_annualised: 0.50
+
+regime_audit:
+  k: 3
+  train_frac: 0.70
+  vol_win: 24
+  note: diagnostic only; labels are not a selection input
+
+leakage_audit:
+  builder: llm2.ml_lab.funding_fade.build_features_for_guard
+  note: >
+    Funding is attached onto the handed Open-High-Low-Close frame with prints
+    strictly before bar open. The builder does not read the funding database.
+    bar_return keeps the candle-shock responsiveness proof honest.
+
+papers:
+  hunt002_lesson: "15m one-bar reversal is measurable and not tradable after Bybit costs"
+  seasonality_closed: "funding-hour clock seasonality already 0/45 in diagnostics; this hunt is rate magnitude"
+
+preregister_sha256_at_run: 2390f93a1428e4570755711b492b37ab36442728bccda79750614b6445cdfd92

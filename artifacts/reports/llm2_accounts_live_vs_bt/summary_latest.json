@@ -1,0 +1,439 @@
+[
+  {
+    "evidence_class": "LIVE_VS_BT_DISPLAY_ONLY",
+    "promotion_allowed": false,
+    "account": "Xxobster8",
+    "label": "ETH_multitrade_v1_2",
+    "symbol": "ETHUSDT",
+    "timeframe": "1h",
+    "live_orders": 22,
+    "window": [
+      "2026-08-04T05:00:00+00:00",
+      "2026-08-06T01:00:00+00:00"
+    ],
+    "live_metrics": {
+      "n_trades": 22,
+      "profit_factor": 0.38449776448710904,
+      "profit_factor_raw": 0.38449776448710904,
+      "win_rate": 0.3181818181818182,
+      "expectancy_return_units": -0.0026075597173761855,
+      "expectancy": -0.04870181386363663,
+      "net_pnl": -1.0714399050048087,
+      "total_fees": 0.45293990500000003,
+      "n_liquidations": 0,
+      "entry_bar_exits": 0,
+      "sharpe_annualised": -18.472042893492052,
+      "run_id": "Xxobster8_ETH_multitrade_v1_2_live_forced-9d07909341"
+    },
+    "backtest_metrics": {
+      "n_trades": 16,
+      "profit_factor": 0.7422564166284646,
+      "profit_factor_raw": 0.7422564166284646,
+      "win_rate": 0.5,
+      "expectancy_return_units": -0.0008359667831181672,
+      "expectancy": -0.015916437812500146,
+      "net_pnl": -0.2546630049982923,
+      "total_fees": 0.329763005,
+      "n_liquidations": 0,
+      "entry_bar_exits": 1,
+      "sharpe_annualised": -2.6969893122115325,
+      "run_id": "Xxobster8_ETH_multitrade_v1_2_free_bt-63a8202195"
+    },
+    "entry_comparison": {
+      "n_live_orders": 22,
+      "n_bt_signals": 16,
+      "n_live_entry_bars": 22,
+      "n_bt_entry_bars": 16,
+      "n_live_entries": 22,
+      "n_bt_entries": 16,
+      "intersection": 11,
+      "live_only_n": 11,
+      "bt_only_n": 5,
+      "order_intersection": 2,
+      "live_only_utc": [
+        "2026-08-04T05:00:00+00:00",
+        "2026-08-04T07:00:00+00:00",
+        "2026-08-04T10:00:00+00:00",
+        "2026-08-04T13:00:00+00:00",
+        "2026-08-04T21:00:00+00:00",
+        "2026-08-04T23:00:00+00:00",
+        "2026-08-05T01:00:00+00:00",
+        "2026-08-05T02:00:00+00:00",
+        "2026-08-05T05:00:00+00:00",
+        "2026-08-05T07:00:00+00:00",
+        "2026-08-05T10:00:00+00:00"
+      ],
+      "bt_only_utc": [
+        "2026-08-04T15:00:00+00:00",
+        "2026-08-04T19:00:00+00:00",
+        "2026-08-04T20:00:00+00:00",
+        "2026-08-05T04:00:00+00:00",
+        "2026-08-05T13:00:00+00:00"
+      ]
+    },
+    "signal_stats_free": {
+      "n_emitted": 16,
+      "n_skipped_clarity": 11,
+      "n_skipped_cap": 1,
+      "n_skipped_loss_cooloff": 0,
+      "n_skipped_weak_short_book1": 0,
+      "n_primary": 5,
+      "n_addon": 11
+    },
+    "elapsed_sec": 15.7,
+    "created_utc": "20260806T031259Z"
+  },
+  {
+    "evidence_class": "LIVE_VS_BT_DISPLAY_ONLY",
+    "promotion_allowed": false,
+    "account": "Xxobster7",
+    "label": "BTC_single",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h",
+    "live_orders": 3,
+    "window": [
+      "2026-08-05T10:00:00+00:00",
+      "2026-08-06T01:00:00+00:00"
+    ],
+    "live_metrics": {
+      "n_trades": 1,
+      "profit_factor": 0.0,
+      "profit_factor_raw": 0.0,
+      "win_rate": 0.0,
+      "expectancy_return_units": -0.007136045664982813,
+      "expectancy": -0.45671334499999855,
+      "net_pnl": -0.4567133450000256,
+      "total_fees": 0.07061334500000001,
+      "n_liquidations": 0,
+      "entry_bar_exits": 0,
+      "sharpe_annualised": NaN,
+      "run_id": "Xxobster7_BTC_single_live_forced-5a196e424f"
+    },
+    "backtest_metrics": {
+      "n_trades": 1,
+      "profit_factor": 0.0,
+      "profit_factor_raw": 0.0,
+      "win_rate": 0.0,
+      "expectancy_return_units": -0.007136045664982813,
+      "expectancy": -0.45671334499999855,
+      "net_pnl": -0.4567133450000256,
+      "total_fees": 0.07061334500000001,
+      "n_liquidations": 0,
+      "entry_bar_exits": 0,
+      "sharpe_annualised": NaN,
+      "run_id": "Xxobster7_BTC_single_free_bt-1bcfd137bd"
+    },
+    "entry_comparison": {
+      "n_live_orders": 3,
+      "n_bt_signals": 4,
+      "n_live_entry_bars": 3,
+      "n_bt_entry_bars": 4,
+      "n_live_entries": 3,
+      "n_bt_entries": 4,
+      "intersection": 1,
+      "live_only_n": 2,
+      "bt_only_n": 3,
+      "order_intersection": 0,
+      "live_only_utc": [
+        "2026-08-05T16:00:00+00:00",
+        "2026-08-05T22:00:00+00:00"
+      ],
+      "bt_only_utc": [
+        "2026-08-05T11:00:00+00:00",
+        "2026-08-05T12:00:00+00:00",
+        "2026-08-05T13:00:00+00:00"
+      ]
+    },
+    "signal_stats_free": {
+      "n_emitted": 4
+    },
+    "elapsed_sec": 6.5,
+    "created_utc": "20260806T031306Z"
+  },
+  {
+    "evidence_class": "LIVE_VS_BT_DISPLAY_ONLY",
+    "promotion_allowed": false,
+    "account": "Xxobster7",
+    "label": "ETH_single",
+    "symbol": "ETHUSDT",
+    "timeframe": "1h",
+    "live_orders": 2,
+    "window": [
+      "2026-08-05T15:00:00+00:00",
+      "2026-08-06T01:00:00+00:00"
+    ],
+    "live_metrics": {
+      "n_trades": 2,
+      "profit_factor": 0.12442874461860902,
+      "profit_factor_raw": 0.12442874461860902,
+      "win_rate": 0.5,
+      "expectancy_return_units": -0.009271725350750267,
+      "expectancy": -0.17301182500000037,
+      "net_pnl": -0.3460236499995517,
+      "total_fees": 0.041823650000000004,
+      "n_liquidations": 0,
+      "entry_bar_exits": 0,
+      "sharpe_annualised": NaN,
+      "run_id": "Xxobster7_ETH_single_live_forced-ae5e8f2f61"
+    },
+    "backtest_metrics": {
+      "n_trades": 2,
+      "profit_factor": null,
+      "profit_factor_raw": Infinity,
+      "win_rate": 1.0,
+      "expectancy_return_units": 0.005731585021719579,
+      "expectancy": 0.10792925999999994,
+      "net_pnl": 0.21585852000134764,
+      "total_fees": 0.04174148,
+      "n_liquidations": 0,
+      "entry_bar_exits": 1,
+      "sharpe_annualised": NaN,
+      "run_id": "Xxobster7_ETH_single_free_bt-c886e56203"
+    },
+    "entry_comparison": {
+      "n_live_orders": 2,
+      "n_bt_signals": 4,
+      "n_live_entry_bars": 2,
+      "n_bt_entry_bars": 4,
+      "n_live_entries": 2,
+      "n_bt_entries": 4,
+      "intersection": 2,
+      "live_only_n": 0,
+      "bt_only_n": 2,
+      "order_intersection": 0,
+      "live_only_utc": [],
+      "bt_only_utc": [
+        "2026-08-05T18:00:00+00:00",
+        "2026-08-05T19:00:00+00:00"
+      ]
+    },
+    "signal_stats_free": {
+      "n_emitted": 4
+    },
+    "elapsed_sec": 13.1,
+    "created_utc": "20260806T031319Z"
+  },
+  {
+    "evidence_class": "LIVE_VS_BT_DISPLAY_ONLY",
+    "promotion_allowed": false,
+    "account": "Xxobster7",
+    "label": "SOL_single",
+    "symbol": "SOLUSDT",
+    "timeframe": "1h",
+    "live_orders": 3,
+    "window": [
+      "2026-08-05T10:00:00+00:00",
+      "2026-08-06T02:00:00+00:00"
+    ],
+    "live_metrics": {
+      "n_trades": 1,
+      "profit_factor": 0.0,
+      "profit_factor_raw": 0.0,
+      "win_rate": 0.0,
+      "expectancy_return_units": -0.003269802114394099,
+      "expectancy": -0.024124599999999663,
+      "net_pnl": -0.02412460000050487,
+      "total_fees": 0.008124600000000001,
+      "n_liquidations": 0,
+      "entry_bar_exits": 0,
+      "sharpe_annualised": NaN,
+      "run_id": "Xxobster7_SOL_single_live_forced-5d065fff52"
+    },
+    "backtest_metrics": {
+      "n_trades": 2,
+      "profit_factor": 0.3264468633676732,
+      "profit_factor_raw": 0.3264468633676732,
+      "win_rate": 0.5,
+      "expectancy_return_units": -0.0011011927351585798,
+      "expectancy": -0.008124600000000003,
+      "net_pnl": -0.01624919999994745,
+      "total_fees": 0.016249200000000002,
+      "n_liquidations": 0,
+      "entry_bar_exits": 0,
+      "sharpe_annualised": NaN,
+      "run_id": "Xxobster7_SOL_single_free_bt-62b0896285"
+    },
+    "entry_comparison": {
+      "n_live_orders": 3,
+      "n_bt_signals": 4,
+      "n_live_entry_bars": 3,
+      "n_bt_entry_bars": 4,
+      "n_live_entries": 3,
+      "n_bt_entries": 4,
+      "intersection": 1,
+      "live_only_n": 2,
+      "bt_only_n": 3,
+      "order_intersection": 0,
+      "live_only_utc": [
+        "2026-08-05T16:00:00+00:00",
+        "2026-08-05T22:00:00+00:00"
+      ],
+      "bt_only_utc": [
+        "2026-08-05T11:00:00+00:00",
+        "2026-08-05T12:00:00+00:00",
+        "2026-08-05T13:00:00+00:00"
+      ]
+    },
+    "signal_stats_free": {
+      "n_emitted": 4
+    },
+    "elapsed_sec": 12.9,
+    "created_utc": "20260806T031332Z"
+  },
+  {
+    "evidence_class": "LIVE_VS_BT_DISPLAY_ONLY",
+    "promotion_allowed": false,
+    "account": "Xxobster10",
+    "label": "BTC_k5_double3h",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h",
+    "live_orders": 13,
+    "window": [
+      "2026-08-04T13:00:00+00:00",
+      "2026-08-06T01:00:00+00:00"
+    ],
+    "live_metrics": {
+      "n_trades": 11,
+      "profit_factor": 0.0354141211074364,
+      "profit_factor_raw": 0.0354141211074364,
+      "win_rate": 0.09090909090909091,
+      "expectancy_return_units": -0.004615623352269945,
+      "expectancy": -0.3533217454545456,
+      "net_pnl": -3.8865392000006977,
+      "total_fees": 0.9181392,
+      "n_liquidations": 0,
+      "entry_bar_exits": 1,
+      "sharpe_annualised": NaN,
+      "run_id": "Xxobster10_BTC_k5_double3h_live_forced-140754cce9"
+    },
+    "backtest_metrics": {
+      "n_trades": 7,
+      "profit_factor": 0.0,
+      "profit_factor_raw": 0.0,
+      "win_rate": 0.0,
+      "expectancy_return_units": -0.004622124640797317,
+      "expectancy": -0.2960680507142855,
+      "net_pnl": -2.0724763550024363,
+      "total_fees": 0.49437635500000005,
+      "n_liquidations": 0,
+      "entry_bar_exits": 0,
+      "sharpe_annualised": NaN,
+      "run_id": "Xxobster10_BTC_k5_double3h_free_bt-692c432b2f"
+    },
+    "entry_comparison": {
+      "n_live_orders": 13,
+      "n_bt_signals": 8,
+      "n_live_entry_bars": 13,
+      "n_bt_entry_bars": 8,
+      "n_live_entries": 13,
+      "n_bt_entries": 8,
+      "intersection": 6,
+      "live_only_n": 7,
+      "bt_only_n": 2,
+      "order_intersection": 1,
+      "live_only_utc": [
+        "2026-08-04T13:00:00+00:00",
+        "2026-08-04T14:00:00+00:00",
+        "2026-08-05T03:00:00+00:00",
+        "2026-08-05T04:00:00+00:00",
+        "2026-08-05T05:00:00+00:00",
+        "2026-08-05T12:00:00+00:00",
+        "2026-08-05T17:00:00+00:00"
+      ],
+      "bt_only_utc": [
+        "2026-08-05T01:00:00+00:00",
+        "2026-08-05T02:00:00+00:00"
+      ]
+    },
+    "signal_stats_free": {
+      "n_emitted": 8,
+      "n_skipped_clarity": 0,
+      "n_skipped_cap": 1,
+      "n_skipped_loss_cooloff": 0,
+      "n_skipped_weak_short_book1": 0,
+      "n_primary": 1,
+      "n_addon": 7
+    },
+    "elapsed_sec": 5.7,
+    "created_utc": "20260806T031338Z"
+  },
+  {
+    "evidence_class": "LIVE_VS_BT_DISPLAY_ONLY",
+    "promotion_allowed": false,
+    "account": "Xxobster10",
+    "label": "SOL_k5_double3h",
+    "symbol": "SOLUSDT",
+    "timeframe": "1h",
+    "live_orders": 12,
+    "window": [
+      "2026-08-04T13:00:00+00:00",
+      "2026-08-06T02:00:00+00:00"
+    ],
+    "live_metrics": {
+      "n_trades": 10,
+      "profit_factor": 0.2953123473575475,
+      "profit_factor_raw": 0.2953123473575475,
+      "win_rate": 0.1,
+      "expectancy_return_units": -0.002136176195048747,
+      "expectancy": -0.01572525999999991,
+      "net_pnl": -0.1572526000036305,
+      "total_fees": 0.08125260000000001,
+      "n_liquidations": 0,
+      "entry_bar_exits": 1,
+      "sharpe_annualised": NaN,
+      "run_id": "Xxobster10_SOL_k5_double3h_live_forced-b89150f823"
+    },
+    "backtest_metrics": {
+      "n_trades": 11,
+      "profit_factor": 8.136759981103795,
+      "profit_factor_raw": 8.136759981103795,
+      "win_rate": 0.6363636363636364,
+      "expectancy_return_units": 0.0037253552941972773,
+      "expectancy": 0.02760492272727291,
+      "net_pnl": 0.3036541500023304,
+      "total_fees": 0.08934585,
+      "n_liquidations": 0,
+      "entry_bar_exits": 1,
+      "sharpe_annualised": NaN,
+      "run_id": "Xxobster10_SOL_k5_double3h_free_bt-755673eebf"
+    },
+    "entry_comparison": {
+      "n_live_orders": 12,
+      "n_bt_signals": 13,
+      "n_live_entry_bars": 12,
+      "n_bt_entry_bars": 13,
+      "n_live_entries": 12,
+      "n_bt_entries": 13,
+      "intersection": 7,
+      "live_only_n": 5,
+      "bt_only_n": 6,
+      "order_intersection": 0,
+      "live_only_utc": [
+        "2026-08-04T13:00:00+00:00",
+        "2026-08-04T16:00:00+00:00",
+        "2026-08-04T17:00:00+00:00",
+        "2026-08-05T03:00:00+00:00",
+        "2026-08-05T10:00:00+00:00"
+      ],
+      "bt_only_utc": [
+        "2026-08-04T15:00:00+00:00",
+        "2026-08-04T18:00:00+00:00",
+        "2026-08-04T19:00:00+00:00",
+        "2026-08-04T20:00:00+00:00",
+        "2026-08-05T05:00:00+00:00",
+        "2026-08-05T11:00:00+00:00"
+      ]
+    },
+    "signal_stats_free": {
+      "n_emitted": 13,
+      "n_skipped_clarity": 3,
+      "n_skipped_cap": 3,
+      "n_skipped_loss_cooloff": 0,
+      "n_skipped_weak_short_book1": 0,
+      "n_primary": 2,
+      "n_addon": 11
+    },
+    "elapsed_sec": 12.3,
+    "created_utc": "20260806T031350Z"
+  }
+]

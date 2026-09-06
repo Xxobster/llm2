@@ -1,0 +1,25 @@
+strategy_id: pivot_eth_p75_ctrl_atr_w4_ETHUSDT_15m
+status: AUTHORIZED
+authorized_by_user: true
+vps_host: 94.156.189.76
+account_ref: Xxobster7
+intended_vps_host: 94.156.189.76
+intended_account_ref: Xxobster7
+pack_path: artifacts/live_packs/pivot_eth_p75_ctrl_atr_w4
+pack_hash: 771d1fe66b732bcf3e73d906ddb6fc25453dd113b021c6447b9e273b07683642
+expires_utc: '2026-10-01T13:09:20Z'
+created_utc: '2026-08-12T13:09:20Z'
+four_proof_ok: true
+four_proof_hashes:
+  builder_responsiveness: 15e3f97010eccceeb6efbeea83e4cf161eeb63c51b8fbdedfdd0769853a0511e
+  recompute_prefix: 2ac66b3b7c0f88019c659a1bd3168deadfd76e70314ba87dff9e8300e3a7bcdd
+  no_live_feature_fill: ef3948c4d17f9b73312186268226732fd6d6ef0d9e5d6c901696cdab59f7e3a8
+  layer_a_pred_identity: 3c4c0849264c3551216db4d29b7f0866bc2b6dd9c55d570ccda778aa5b6f3508
+notes: 'User explicitly authorized 2026-08-12 (UTC+7) real-USDT MIN_EXCHANGE pivot
+  LIMIT micro-live on 94.156.189.76 / Xxobster7. Leverage from stop 1% = 29x. work_bars=4.
+  Certificate expires unless renewed.
+
+  sklearn_repack utc=2026-08-12T14:08:13.498971+00:00 sklearn=1.7.2
+
+  2026-09-01: expiry extended to 2026-10-01 so the already-authorized Xxobster7
+  live units can load the maker-exit runner (Post-Only take-profit + stop-limit).'

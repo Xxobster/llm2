@@ -1,0 +1,107 @@
+# Edge lab hunt 003 — multi-timeframe swing structure (wave-trading doctrine)
+# RESEARCH_ONLY. Frozen before any hunt-003 result was viewed.
+generation_id: edge_lab_hunt_003_structure_mtf
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-27T01:40:00Z"
+fold_geometry: v2
+failure_is_success: true
+
+provenance: >
+  Concepts ported from C:\projects\wavetheory, a knowledge-extraction project on
+  a simplified Elliott-wave / cycle-structure method. **No numeric result is
+  inherited**: that project's own rule proxy failed out of sample (profit factor
+  0.65-0.75 on BTC/ETH/XRP, losing more than buy-and-hold) and its backtest
+  contained a ~5-bar pivot look-ahead plus forward-filled forming higher-timeframe
+  bars. Only the vocabulary is inherited, re-implemented causally in
+  llm2/edge_lab/structure_mtf.py with shift(wing) publication lag and a
+  closed-bar merge_asof higher-timeframe join.
+
+hypothesis: >
+  Entries taken on the first close that enters a 25-78% retrace of a confirmed
+  impulse leg (bas to top), while the bas is intact, carry positive post-cost
+  expectancy; and gating that trigger on higher-timeframe structure agreement
+  improves it.
+
+motivation_for_5m: >
+  Hunt 001/002 showed a bracket near one Average True Range is resolved inside
+  the entry bar on 1-hour data. A fixed bracket is several candles wide on
+  5-minute data, so 5m is the timeframe where an entry-bar-clean bracket and a
+  2-3 trade/day rate can coexist. touch_timeframe now maps 5m to 1m so same-bar
+  exits are resolved from data rather than an adverse-sequence assumption.
+
+selection_window: "strictly before 2022-01-01 (first outer out-of-sample start)"
+lockbox: do_not_rank_on_or_after_2026-05-01
+
+universe:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  timeframes: [5m, 15m, 1h, 4h]
+
+higher_timeframe_map: {5m: 1h, 15m: 4h, 1h: 4h, 4h: 1d}
+swing_wing: {5m: 12, 15m: 8, 1h: 5, 4h: 5}
+swing_wing_note: >
+  Wing scaled so the confirmation delay is comparable in wall-clock terms
+  (5m x 12 = 60 min, 15m x 8 = 120 min, 1h x 5 = 5 h).
+
+bracket_mode: atr_scaled
+bracket_formula: >
+  stop_offset = clip(k_sl * atr_frac[t], 0.004, 0.030);
+  target_offset = clip(tp_ratio * stop_offset, 0.004, 0.090)
+k_sl: [1.0, 1.5, 2.0]
+tp_ratio: [1.0, 1.5, 2.0]
+sl_cap: 0.030
+
+work_bars: {5m: 6, 15m: 4, 1h: 3, 4h: 2}
+max_hold_bars: {5m: 36, 15m: 24, 1h: 16, 4h: 10}
+
+session_filters: [all, no_weekend, ny_am_kz_no_weekend, weekday_ny]
+
+entry_style:
+  market_if_name_contains: [break]
+  otherwise: working_limit_atr_offset
+
+events_source: llm2.edge_lab.structure_mtf.STRUCTURE_EVENT_SIDE
+events:
+  - wt_pullback_long
+  - wt_pullback_short
+  - wt_pullback_confirmed_long
+  - wt_pullback_confirmed_short
+  - wt_bas_break_short
+  - wt_top_break_long
+  - wt_htf_bias_pullback_long
+  - wt_htf_bias_pullback_short
+  - wt_hh_hl_continuation_long
+  - wt_lh_ll_continuation_short
+sides_are_frozen: true
+
+event_definition_note: >
+  All state-based events are edge-triggered (fire on the bar the state becomes
+  true). The un-triggered versions produced 320-3400 "events" per month, which is
+  not a trade decision. This was fixed as a specification error before any
+  performance number was computed.
+
+leakage_audit:
+  engine: botsgeneral leakage
+  builder: llm2.edge_lab.structure_mtf.build_features_for_guard
+  results:
+    - {symbol: ETHUSDT, timeframe: 1h, htf: 4h, ok: true, n_columns: 24, hard_findings: 0}
+    - {symbol: BTCUSDT, timeframe: 15m, htf: 4h, ok: true, n_columns: 24, hard_findings: 0}
+    - {symbol: SOLUSDT, timeframe: 5m, htf: 1h, ok: true, n_columns: 24, hard_findings: 0}
+
+screen_gates:
+  min_trades: 50
+  min_trades_per_month: 4
+  max_trades_per_month: 150
+  min_profit_factor: 1.20
+  max_entry_bar_exit_rate: 0.35
+  min_sharpe_annualised: 1.00
+
+do_not:
+  - add events, symbols, timeframes, session filters or bracket knobs after viewing results
+  - flip a frozen event side
+  - score the screen on 2022-01-01 or later
+  - peep lockbox 2026-05-01+
+  - deploy, sync or restart any VPS unit from this hunt
+  - quote any wavetheory numeric result as evidence
+
+preregister_sha256_at_run: d780fb80221d8a29391c4da5120491f2b36a5e3246807d2493fcc1415f5feebf

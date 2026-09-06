@@ -542,6 +542,19 @@ Implement a conservative `taker_next_executable` scenario that:
 
 This is the minimum executable benchmark. A strategy intended to use maker orders should also be evaluated with its actual maker policy, but maker assumptions cannot hide a negative taker baseline unless forward/order-book evidence independently establishes reliable maker execution.
 
+### 9.1.1 Maker-first product preference (fees)
+
+Finding a post-cost edge includes **paying as little fee as the venue allows**. Default live and research-intended-to-match-live behaviour:
+
+1. **Entry:** Post-Only limit (maker or cancel). Do not cross the spread to “get filled”.
+2. **Take-profit:** resting reduce-only limit (maker when it rests).
+3. **Stop-loss:** limit / stop-limit aiming to rest; **not** a stop-market unless the venue cannot attach a limit stop.
+4. **Taker only when there is no choice:** Post-Only cancelled and the work window is over; price gapped through a limit stop that did not fill (heartbeat must then market-flatten); max-hold; data-unsafe flatten; liquidation; or a marketable limit that would otherwise leave the account unprotected.
+
+A buy limit above the ask (or sell limit below the bid) is a **taker** fill even if the order type is Limit. Do not report it as maker.
+
+Still run the §9.1 all-taker scenario as **stress**. The maker path is the product; the taker path proves the strategy is not a fee-model artifact. Live must not be cheaper than the frozen pack’s cost assumptions.
+
 ### 9.2 Maker/PostOnly modelling
 
 A touched OHLC limit is not a guaranteed maker fill. Model or bound:
@@ -606,12 +619,36 @@ The single most damaging and most frequently repeated simulator defect is to ope
 Requirements:
 
 1. Exit resolution MUST be a single shared function applied identically to the entry bar and to every later bar. Do not write a separate entry-bar code path; do not place the entry after the exit check inside a bar loop without then re-running the exit check on that bar.
-2. If the entry fills at the bar open, the whole bar range is post-entry and MUST be used. If the entry fills intrabar (stop/limit trigger), only the portion of the path after the fill may be used, and that requires lower-timeframe data; without it, use the adverse feasible sequence per Section 10.
+2. If the entry fills at the bar open (typical **market** next-open), the whole bar range is post-entry and MUST be used. If the entry fills **intrabar** (resting **limit** / Post-Only / stop trigger), only the portion of the path **after that fill** may be used. That requires lower-timeframe data (normally **1-minute**). Without it, use the adverse feasible sequence per Section 10. **Never treat a resting-limit fill as the decision-bar open.** See §9.6.1.
 3. When a bar closes the position on its entry bar, the round trip MUST still charge both fills' fees, the entry-day/entry-interval funding settlements that fall inside the holding window, and any applicable slippage. A same-bar round trip is not a free round trip.
 4. A trade closed on its entry bar MUST be labelled distinguishably (for example `stop_entry_bar`) so that its frequency is reportable. If that frequency exceeds 25% of trades, the report MUST state it prominently, because it means the stop is inside ordinary single-bar noise and the strategy is paying costs to be shaken out.
 5. Maximum-hold counting MUST be measured from the entry bar index, so that a same-bar exit has a hold of zero and the hold used live matches the hold used in research.
 
-This requirement is verified by conformance identifiers `EXEC-010` through `EXEC-016` in Section 24.0 and cannot be satisfied by inspection or by assertion in a report.
+This requirement is verified by conformance identifiers `EXEC-010` through `EXEC-016` in Section 24.0 and cannot be satisfied by inspection or by assertion in a report. Limit-entry 1-minute chronology is `EXEC-021`.
+
+### 9.6.1 Decision timeframe vs 1-minute fill clock (non-negotiable)
+
+**This is the live sequence. Research must match it. It has been the intended rule since this pack existed; §9.6 item 2 already said it. This subsection exists so no agent can miss it.**
+
+Any **decision timeframe** (1-minute, 5-minute, 15-minute, 1-hour, 4-hour, daily, …) may **place** the entry intent. After that, the **1-minute** (or finer) target-venue path is the only clock that decides **when the entry fills** and **whether take-profit or stop-loss may fire**.
+
+Walk 1-minute bars from the start of the first bar on which the order can fill (usually the next decision bar after a close-based signal):
+
+1. **Entry fill = first 1-minute bar that touches the entry order’s price.** A resting buy limit fills at the **limit** on the first 1-minute whose low ≤ limit. A resting sell limit fills at the limit on the first 1-minute whose high ≥ limit. That fill price is the **limit**, not the 4-hour/1-hour/15-minute **open**. A market order that fills at the next open fills on the first 1-minute of that bar.
+2. **Take-profit and stop-loss are armed only after that fill.** They must not fire on any 1-minute bar **before** the fill. You cannot exit a position that does not exist.
+3. A decision-bar Open-High-Low-Close range that **later** touches the limit is necessary for “a fill exists somewhere in this bar.” It is **not** permission to treat the position as open from that bar’s open, and it is **not** a fill at the moment the 1-minute path is still above (buy) or below (sell) the limit.
+4. If the 1-minute path prints take-profit or stop-loss **before** it prints the limit, that print is **not a trade**. Continue until the limit is touched (that is the fill), then require a **later** take-profit or stop-loss touch (including the remaining range of the same 1-minute bar after the fill, labelled if both occur in that one minute).
+5. Entry and exit on the **same 15-minute / 1-hour / 4-hour** candle is allowed **if** the 1-minute path shows fill first, then take-profit or stop. Entry and exit on the **same 1-minute** (or **same 5-minute**) candle as the fill is inside single-bar noise: label it and report it. That is a different question from (4).
+
+**Illegal (forbidden):** “The 4-hour high/low touched the limit, so the fill is the 4-hour open; walk 1-minute take-profit/stop from minute 0 as if already in.”
+
+**Worked example.** Buy limit 98, take-profit 103, stop 95. Four-hour bar opens at 100. One-minute path: 100 → 103 → … → 98.
+
+- At 103 the limit has not been touched. **Not a fill. Not a win.**
+- At 98 the limit is touched. **That is the entry** (price 98, not 100).
+- After 98, take-profit 103 or stop 95 must print **again**. The earlier 103 does not pay.
+
+Conformance identifier: `EXEC-021`. A profit factor printed by an engine that books the 103 in this example is **not quotable evidence**.
 
 ### 9.7 Mandatory execution stresses
 
@@ -630,9 +667,12 @@ Each scenario reruns the chronological simulation. Do not merely subtract a tota
 
 ## 10. Intrabar chronology
 
-A strategy-timeframe OHLC candle does not reveal whether its high or low occurred first. Whenever one candle can contain more than one relevant event, replay chronological lower-timeframe target-venue data:
+A strategy-timeframe Open-High-Low-Close candle does not reveal whether its high or low occurred first. Whenever one candle can contain more than one relevant event, replay chronological lower-timeframe target-venue data (normally **1-minute**). Decision timeframe **places** the order; 1-minute **sequences** fill vs take-profit vs stop (§9.6.1 / `EXEC-021`).
+
+Replay for:
 
 - entry and exit;
+- **limit/Post-Only fill time vs take-profit/stop** (fill must come first);
 - TP and SL;
 - TP1 and break-even activation;
 - trailing update and stop;
@@ -681,7 +721,7 @@ Rules agents must follow:
 1. Charge **per fill**, at **that fill’s executed price**. Open and close are two separate fees. Do not invent a single blended “0.225% round-trip” as if it were Bybit’s formula.
 2. **Slippage is not a fee.** Slippage changes the executable price; the fee is then `qty × (actual fill price) × rate`. Never add a slip percent into the fee rate.
 3. **Limit ≠ always maker.** A limit that rests on the book is maker; a limit that crosses and fills immediately is **taker**. Only **Post-Only** guarantees maker-or-cancel.
-4. **Conservative BT default:** if live TP/SL are plain trading-stop / limit exits without proven Post-Only maker fills, charge **taker fee on exits** too. Still fill TP/SL at the **limit price when touched** — do **not** apply market exit slippage to those limit prices unless modelling a stop-market.
+4. **Live default is maker-first** (Post-Only entry, limit TP, limit SL). Charge maker 0.02% on legs that rest; charge taker 0.055% on gap-flatten, max-hold, liquidation and any crossing fill. Still fill resting TP/SL at the **limit price when touched**. The all-taker schedule remains the **stress** default when maker fills are not the frozen live spec. Do **not** apply market exit slippage to limit touch prices unless modelling a stop-market or a last-resort flatten.
 5. Market / IOC opens: taker fee + directional entry slippage on price.
 6. Store per fill: role (entry/exit/liq), maker|taker, rate, qty, exec price, notional, fee amount.
 7. Never assume; re-check Bybit Help Center / account fee page when rates or product rules may have changed.
@@ -1599,8 +1639,12 @@ A missing test MUST be a hard failure, exactly like a failing test. This is the 
 | `EXEC-015` | **Entry bar funding:** a position opened and closed on the same bar is still charged the funding settlements falling inside its holding window. |
 | `EXEC-016` | **Same-bar hold count:** a trade closed on its entry bar reports a hold of zero, and maximum-hold arithmetic is identical in research and live. |
 | `EXEC-017` | Retry is idempotent; a retried order never becomes two positions. |
+| `EXEC-018` | Multi-leg take-profit: each leg fills at its own price and quantity; a non-executable leg is refused, not rounded away. |
+| `EXEC-019` | Trailing stop ratchets only in the favourable direction and never uses a future extreme from the bar it is resolving. |
+| `EXEC-020` | Break-even activation happens after the fill that triggers it; it does not rescue a same-bar stop without lower-timeframe evidence. |
+| `EXEC-021` | **Limit fill before take-profit/stop:** with 1-minute (or finer) touch data, a resting limit fills on the first sub-bar that touches the limit price (fill at the limit, not the decision-bar open). Take-profit and stop must not fire on any sub-bar before that fill. A path that prints take-profit at 103 then later the buy limit at 98 is **not** a winning fill at 103. See §9.6.1. |
 
-`EXEC-010` through `EXEC-016` are jointly non-negotiable and no repository may declare execution parity without all seven bound, run and passing. `EXEC-014` MUST be present alongside `EXEC-010`; a suite containing only positive cases is not conformance.
+`EXEC-010` through `EXEC-016` are jointly non-negotiable and no repository may declare execution parity without all seven bound, run and passing. `EXEC-014` MUST be present alongside `EXEC-010`; a suite containing only positive cases is not conformance. Whenever the simulation uses resting **limit / Post-Only** entry **and** lower-timeframe touch bars, `EXEC-021` is jointly non-negotiable with those seven.
 
 ### Data and time
 
@@ -1637,6 +1681,7 @@ A missing test MUST be a hard failure, exactly like a failing test. This is the 
 - TP/SL dual touch (`EXEC-006`);
 - stop versus liquidation ordering within one bar (`EXEC-007`);
 - **entry-bar exit resolution: stop, target, both, liquidation, quiet control, funding, hold count (`EXEC-010` … `EXEC-016`) — all seven mandatory, see Section 9.6**;
+- **limit-entry 1-minute chronology: fill at the limit on first 1-minute touch, take-profit/stop only after that fill (`EXEC-021`, §9.6.1)**;
 - maximum-hold bar and price (`EXEC-008`);
 - break-even/trailing event order;
 - TP-limit non-fill;
@@ -1833,6 +1878,7 @@ These invalidate affected evidence and require a regression test plus rerun:
 - percentage-equity quantity mistaken for coin/contracts;
 - price scaling or synthetic cash used to fake fractional quantity;
 - TP/SL based on signal price when live uses actual fill;
+- **limit fill treated as the decision-bar open, or take-profit/stop applied on 1-minute bars before the 1-minute path has touched the limit (`EXEC-021` / §9.6.1);**
 - maker fill assumed from candle touch or at signal close;
 - limit-order slippage/non-fill ignored;
 - fees charged once per round trip instead of each fill;

@@ -1,0 +1,53 @@
+# ML lab hunt 009 — invented causal time-series formulas
+# RESEARCH_ONLY. Frozen before any hunt-009 result was viewed.
+# Same catalog as ml_lab_hunt_009_formulas (12 ideas including answer A).
+generation_id: ml_lab_hunt_009_causal_math
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-09-02T02:20:00Z"
+fold_geometry: v2
+failure_is_success: true
+
+hypothesis: >
+  Same twelve causal formulas as ml_lab_hunt_009_formulas. Prefer that
+  generation_id for the live hunt. This file is the catalog_hunt_runner
+  twin (inner screen before 2022-01-01). Do not run both in parallel.
+
+do_not:
+  - retune live Exponential Moving Average stack or autonomy 376 / 705 / 013
+  - widen Average-True-Range to hide entry-bar exits
+  - peep FORWARD_LOCKBOX_START
+  - deploy
+  - stamp Shadow-Ready from this inner screen
+  - run in parallel with ml_lab_hunt_009_formulas
+
+selection_window: "strictly before 2022-01-01"
+universe:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  event_study_timeframes: [15m, 1h, 4h]
+  tradesim_timeframes: [15m, 1h, 4h]
+
+cost_floor: 0.0011
+max_tradesim_arms: 8
+work_bars: {15m: 4, 1h: 3, 4h: 2}
+max_hold_bars: {15m: 24, 1h: 16, 4h: 8}
+k_sl: 1.5
+tp_ratio: 1.5
+sl_cap: 0.030
+maker_first_costs: true
+
+screen_gates:
+  min_skill_n: 80
+  min_directional_acc: 0.51
+  min_mean_signed: 0.0015
+  min_trades: 80
+  min_trades_per_month: 2.0
+  max_trades_per_month: 90.0
+  min_profit_factor: 1.20
+  max_entry_bar_exit_rate: 0.25
+  min_sharpe_annualised: 0.50
+
+leakage_audit:
+  builder: llm2.ml_lab.idea_catalog_f.build_features_for_guard
+
+preregister_sha256_at_run: d10e1968df3da01fb1252b5cac413a5364091ff125552d229323724582961476

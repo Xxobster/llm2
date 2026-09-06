@@ -1,0 +1,12 @@
+{
+  "stamp": "20260813T044750Z",
+  "preregister": "configs/preregister/pivot_fleet_improve_003.yaml",
+  "research_fleet": [
+    "ETH_q50_w4",
+    "SOL_atr_clip_w5",
+    "BTC_p80_w4"
+  ],
+  "not_live": true,
+  "no_finplot": true,
+  "ranking": "expectancy_intent_all"
+}

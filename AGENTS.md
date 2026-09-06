@@ -26,6 +26,10 @@ Refuse if `tradesim.__file__` / `leakage.__file__` lack `botsgeneral`.
 
 `LIVE_STOP / RESEARCH_ONLY`. Alert the user only for Tier ≥ 2 gate candidates. Keep hunting.
 
+**Maker-first fees:** prefer Post-Only / resting limit on entry, take-profit and stop-loss so the strategy pays as little fee as the venue allows. Use taker (market / crossing limit / stop-market) only when there is no choice (Post-Only cancelled, gap-through, max-hold, liquidation). Charge maker 0.02% on resting legs and still report the all-taker stress. Live must not run cheaper than the frozen pack.
+
+**1-minute fill clock (`EXEC-021`):** any decision timeframe *places* the order. Then walk 1-minute bars: **entry = first 1-minute that touches the limit, at the limit price** (not the 4-hour/1-hour open). Take-profit/stop arm only after that fill. A 1-minute path that prints take-profit 103 before buy limit 98 is **not a win**. Same 15-minute/1-hour/4-hour candle after a real fill is allowed. See `TRADING_BOT_RESEARCH_STANDARD_V2.md` §9.6.1.
+
 ## Process classes (mandatory)
 
 - **Long batch (finite, local, >~10 min):** run under `scripts/watchdog_run.ps1` with `python -u`. Restart on crash/stall (bounded). Verify process id — do not trust a frozen terminal `status: running`.

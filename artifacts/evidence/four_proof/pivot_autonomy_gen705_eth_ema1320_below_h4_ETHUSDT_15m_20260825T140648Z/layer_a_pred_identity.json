@@ -1,0 +1,28 @@
+{
+  "diffs": {},
+  "full": {
+    "action": "FLAT",
+    "bar_ts_ms": 1787660100000,
+    "level_ret": -0.008077912233361016,
+    "limit_px": 2447.359447925751,
+    "p_any": 0.25934579439252337,
+    "p_event": 0.6728971962616822,
+    "p_high": 0.10614525139664804,
+    "reason": "below_thr",
+    "side": "Buy"
+  },
+  "ok": true,
+  "pack_dir": "D:\\projects\\LLM2\\artifacts\\live_packs\\autonomy_gen705_eth_ema1320_below_h4",
+  "proof": "layer_a_pred_identity",
+  "short": {
+    "action": "FLAT",
+    "bar_ts_ms": 1787660100000,
+    "level_ret": -0.008077912233361016,
+    "limit_px": 2447.359447925751,
+    "p_any": 0.25934579439252337,
+    "p_event": 0.6728971962616822,
+    "p_high": 0.10614525139664804,
+    "reason": "below_thr",
+    "side": "Buy"
+  }
+}

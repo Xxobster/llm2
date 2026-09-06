@@ -1,0 +1,92 @@
+﻿{
+  "units": [
+    {
+      "unit": "llm2-structure-eth-k5-double3h-p75-v1.service",
+      "active": "active",
+      "source": "binance",
+      "shared": "/var/lib/botsgeneral/shared_candles.db",
+      "indicators": "/opt/llm2-structure-eth-k5-double3h-p75-v1/pack/indicators_live_slice.sqlite",
+      "bar_features_binance": [
+        {
+          "symbol": "ETHUSDT",
+          "tf": "1h",
+          "n": 58637,
+          "max_ts": 1785927600000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785927600000,
+            "close": 1867.94
+          }
+        },
+        {
+          "symbol": "ETHUSDT",
+          "tf": "1w",
+          "n": 349,
+          "max_ts": 1785110400000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785110400000,
+            "close": 1884.37
+          }
+        },
+        {
+          "symbol": "ETHUSDT",
+          "tf": "4h",
+          "n": 14660,
+          "max_ts": 1785916800000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785916800000,
+            "close": 1867.93
+          }
+        }
+      ],
+      "recent_bad_log_n": 0,
+      "recent_bad_tail": []
+    },
+    {
+      "unit": "llm2-structure-eth-multitrade-p75-v1.service",
+      "active": "active",
+      "source": "binance",
+      "shared": "/var/lib/botsgeneral/shared_candles.db",
+      "indicators": "/opt/llm2-structure-eth-multitrade-p75-v1/pack/indicators_live_slice.sqlite",
+      "bar_features_binance": [
+        {
+          "symbol": "ETHUSDT",
+          "tf": "1h",
+          "n": 58637,
+          "max_ts": 1785927600000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785927600000,
+            "close": 1867.94
+          }
+        },
+        {
+          "symbol": "ETHUSDT",
+          "tf": "1w",
+          "n": 349,
+          "max_ts": 1785110400000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785110400000,
+            "close": 1884.37
+          }
+        },
+        {
+          "symbol": "ETHUSDT",
+          "tf": "4h",
+          "n": 14660,
+          "max_ts": 1785916800000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785916800000,
+            "close": 1867.93
+          }
+        }
+      ],
+      "recent_bad_log_n": 0,
+      "recent_bad_tail": []
+    }
+  ]
+}

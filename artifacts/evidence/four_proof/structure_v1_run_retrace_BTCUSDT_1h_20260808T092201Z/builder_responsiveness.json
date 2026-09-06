@@ -1,0 +1,10 @@
+{
+  "conformance": "CAUS-WAREHOUSE-001",
+  "findings": [],
+  "n_findings": 0,
+  "ok": true,
+  "proof": "builder_responsiveness",
+  "space": "structure_v1_run_retrace",
+  "symbol": "BTCUSDT",
+  "timeframe": "1h"
+}

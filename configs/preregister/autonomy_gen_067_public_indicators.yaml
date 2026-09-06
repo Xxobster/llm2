@@ -1,0 +1,23 @@
+# Autonomy gen 067 — close vs EMA 21
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_067_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-22T13:53:00Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  Close versus exponential moving average 21 distance sign at t+H and
+  zero-distance crosses, used as one-head filters, can beat the 15-minute
+  Limit 1%/1% pivot control under frozen entry-bar and trades-per-month caps.
+events: [ema21_above_at_h, ema21_below_at_h, ema21_cross_up, ema21_cross_down]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: 33bd6b0f6b2adc71a70f7d562160af30d35b311fb7515f39aff8d9242e268d3c

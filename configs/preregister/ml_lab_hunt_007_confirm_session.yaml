@@ -1,0 +1,60 @@
+# ML lab hunt 007 — failed-break / confirm / NY cash / HTF close-location
+# RESEARCH_ONLY. Frozen before any hunt-007 result was viewed.
+generation_id: ml_lab_hunt_007_confirm_session
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-09-01T14:30:00Z"
+fold_geometry: v2
+failure_is_success: true
+
+hypothesis: >
+  Hunts 004–006 closed with at most the Solana 1-hour Exponential Moving Average
+  stack as a nested name. Hunt 006 outside-bar and five-close streak printed
+  event-study skill then failed the 1-minute fill clock (entry-bar exits).
+  This family does not retune those stops. It tests NEW events: fade a Donchian
+  break that fails on the next bar; follow an inside-bar break of the mother;
+  follow the New York cash first-hour range (not UTC-day opening range);
+  follow an outside bar only if the next close holds beyond it; fade a
+  three-close impulse that stalls as an inside bar; follow a quiet Donchian
+  break; fade the first child bar after a completed parent bar that closed in
+  the outer 20% of its range; follow a UTC-day gap still unfilled after a
+  frozen wait. Event study first (11 basis-point cost floor). Tradesim at most
+  8 skill-passers with maker 0.02% on resting legs and EXEC-021 1-minute fill.
+  Does not retune live Exponential Moving Average stack or autonomy 376 / 705 / 013.
+
+do_not:
+  - retune hunt 001–006, bounce_upper, or live 376 / 705 / 013 / EMA stack
+  - widen Average-True-Range to hide entry-bar exits
+  - peep FORWARD_LOCKBOX_START
+  - deploy
+
+selection_window: "strictly before 2022-01-01"
+universe:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  event_study_timeframes: [15m, 1h, 4h]
+  tradesim_timeframes: [15m, 1h, 4h]
+
+cost_floor: 0.0011
+max_tradesim_arms: 8
+work_bars: {15m: 4, 1h: 3, 4h: 2}
+max_hold_bars: {15m: 24, 1h: 16, 4h: 8}
+k_sl: 1.5
+tp_ratio: 1.5
+sl_cap: 0.030
+maker_first_costs: true
+
+screen_gates:
+  min_skill_n: 80
+  min_directional_acc: 0.51
+  min_mean_signed: 0.0015
+  min_trades: 80
+  min_trades_per_month: 2.0
+  max_trades_per_month: 90.0
+  min_profit_factor: 1.20
+  max_entry_bar_exit_rate: 0.25
+  min_sharpe_annualised: 0.50
+
+leakage_audit:
+  builder: llm2.ml_lab.idea_catalog_d.build_features_for_guard
+
+preregister_sha256_at_run: c7e41aba9419473767985d825ec1311923e853a8fae0717f3122191b35a9ec85

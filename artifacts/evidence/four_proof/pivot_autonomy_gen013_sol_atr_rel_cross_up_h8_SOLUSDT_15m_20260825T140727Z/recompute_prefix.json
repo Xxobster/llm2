@@ -1,0 +1,21 @@
+{
+  "autonomy": {
+    "first_bad": null,
+    "n_rows_differ": 0,
+    "ok": true,
+    "proof": "recompute_prefix",
+    "space": "autonomy_filter",
+    "timeframe": "15m"
+  },
+  "ok": true,
+  "pivot": {
+    "first_bad": null,
+    "n_columns": 39,
+    "n_rows_differ": 0,
+    "ok": true,
+    "pack": "level_vsa",
+    "proof": "recompute_prefix",
+    "timeframe": "15m"
+  },
+  "proof": "recompute_prefix"
+}

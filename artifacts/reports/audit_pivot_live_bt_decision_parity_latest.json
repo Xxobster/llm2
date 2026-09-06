@@ -1,0 +1,203 @@
+{
+  "created_utc": "2026-08-12T16:53:57Z",
+  "n_requested": 8,
+  "arms": [
+    {
+      "arm": "sol",
+      "n": 8,
+      "n_match": 7,
+      "rows": [
+        {
+          "bar_ts_ms": 1786545900000,
+          "match": true,
+          "diffs": {},
+          "live_action": "FLAT",
+          "live_p_any": 0.27422680412371137,
+          "bt_action": "FLAT",
+          "bt_p_any": 0.27422680412371137
+        },
+        {
+          "bar_ts_ms": 1786546800000,
+          "match": true,
+          "diffs": {},
+          "live_action": "FLAT",
+          "live_p_any": 0.2028301886792453,
+          "bt_action": "FLAT",
+          "bt_p_any": 0.2028301886792453
+        },
+        {
+          "bar_ts_ms": 1786547700000,
+          "match": false,
+          "diffs": {
+            "p_any": {
+              "live": 0.17058165548098433,
+              "bt": 0.13043478260869565
+            },
+            "p_any_raw": {
+              "live": 0.5296603161935216,
+              "bt": 0.4836318608786418
+            },
+            "limit_px": {
+              "live": 75.40179283037617,
+              "bt": 75.44263956671558
+            },
+            "close": {
+              "live": 75.67,
+              "bt": 75.69
+            }
+          },
+          "live_action": "FLAT",
+          "live_p_any": 0.17058165548098433,
+          "bt_action": "FLAT",
+          "bt_p_any": 0.13043478260869565
+        },
+        {
+          "bar_ts_ms": 1786548600000,
+          "match": true,
+          "diffs": {},
+          "live_action": "FLAT",
+          "live_p_any": 0.09514331210191083,
+          "bt_action": "FLAT",
+          "bt_p_any": 0.09514331210191083
+        },
+        {
+          "bar_ts_ms": 1786549500000,
+          "match": true,
+          "diffs": {},
+          "live_action": "FLAT",
+          "live_p_any": 0.08409090909090909,
+          "bt_action": "FLAT",
+          "bt_p_any": 0.08409090909090909
+        },
+        {
+          "bar_ts_ms": 1786550400000,
+          "match": true,
+          "diffs": {},
+          "live_action": "FLAT",
+          "live_p_any": 0.12917454316320104,
+          "bt_action": "FLAT",
+          "bt_p_any": 0.12917454316320104
+        },
+        {
+          "bar_ts_ms": 1786551300000,
+          "match": true,
+          "diffs": {},
+          "live_action": "FLAT",
+          "live_p_any": 0.09514331210191083,
+          "bt_action": "FLAT",
+          "bt_p_any": 0.09514331210191083
+        },
+        {
+          "bar_ts_ms": 1786552200000,
+          "match": true,
+          "diffs": {},
+          "live_action": "FLAT",
+          "live_p_any": 0.06926406926406926,
+          "bt_action": "FLAT",
+          "bt_p_any": 0.06926406926406926
+        }
+      ]
+    },
+    {
+      "arm": "eth",
+      "n": 8,
+      "n_match": 7,
+      "rows": [
+        {
+          "bar_ts_ms": 1786545900000,
+          "match": true,
+          "diffs": {},
+          "live_action": "FLAT",
+          "live_p_any": 0.31693989071038253,
+          "bt_action": "FLAT",
+          "bt_p_any": 0.31693989071038253
+        },
+        {
+          "bar_ts_ms": 1786546800000,
+          "match": true,
+          "diffs": {},
+          "live_action": "FLAT",
+          "live_p_any": 0.12568306010928965,
+          "bt_action": "FLAT",
+          "bt_p_any": 0.12568306010928965
+        },
+        {
+          "bar_ts_ms": 1786547700000,
+          "match": false,
+          "diffs": {
+            "side": {
+              "live": "Buy",
+              "bt": "Sell"
+            },
+            "p_any": {
+              "live": 0.16109422492401215,
+              "bt": 0.1402439024390244
+            },
+            "p_any_raw": {
+              "live": 0.45721745222843235,
+              "bt": 0.44742711419820114
+            },
+            "limit_px": {
+              "live": 1875.9523418487215,
+              "bt": 1896.3402500000002
+            },
+            "close": {
+              "live": 1892.88,
+              "bt": 1893.5
+            }
+          },
+          "live_action": "FLAT",
+          "live_p_any": 0.16109422492401215,
+          "bt_action": "FLAT",
+          "bt_p_any": 0.1402439024390244
+        },
+        {
+          "bar_ts_ms": 1786548600000,
+          "match": true,
+          "diffs": {},
+          "live_action": "FLAT",
+          "live_p_any": 0.16109422492401215,
+          "bt_action": "FLAT",
+          "bt_p_any": 0.16109422492401215
+        },
+        {
+          "bar_ts_ms": 1786549500000,
+          "match": true,
+          "diffs": {},
+          "live_action": "FLAT",
+          "live_p_any": 0.1402439024390244,
+          "bt_action": "FLAT",
+          "bt_p_any": 0.1402439024390244
+        },
+        {
+          "bar_ts_ms": 1786550400000,
+          "match": true,
+          "diffs": {},
+          "live_action": "FLAT",
+          "live_p_any": 0.17205203524968526,
+          "bt_action": "FLAT",
+          "bt_p_any": 0.17205203524968526
+        },
+        {
+          "bar_ts_ms": 1786551300000,
+          "match": true,
+          "diffs": {},
+          "live_action": "FLAT",
+          "live_p_any": 0.10707964601769913,
+          "bt_action": "FLAT",
+          "bt_p_any": 0.10707964601769913
+        },
+        {
+          "bar_ts_ms": 1786552200000,
+          "match": true,
+          "diffs": {},
+          "live_action": "FLAT",
+          "live_p_any": 0.12568306010928965,
+          "bt_action": "FLAT",
+          "bt_p_any": 0.12568306010928965
+        }
+      ]
+    }
+  ],
+  "all_match": false
+}

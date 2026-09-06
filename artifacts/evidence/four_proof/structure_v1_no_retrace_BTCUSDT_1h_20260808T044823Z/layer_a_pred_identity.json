@@ -1,0 +1,13 @@
+{
+  "first_bad": "2026-04-30 00:00:00+00:00:leg_impulse",
+  "max_abs_feature_diff": 1.0,
+  "n_columns_compared": 46,
+  "n_feature_rows_differ": 24,
+  "ok": false,
+  "pred_mean_max_abs_diff": null,
+  "proof": "layer_a_pred_identity",
+  "space": "structure_v1_no_retrace",
+  "symbol": "BTCUSDT",
+  "timeframe": "1h",
+  "tip_bars": 24
+}

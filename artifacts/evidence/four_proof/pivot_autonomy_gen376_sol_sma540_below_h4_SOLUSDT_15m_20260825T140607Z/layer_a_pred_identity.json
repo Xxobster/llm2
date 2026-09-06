@@ -1,0 +1,28 @@
+{
+  "diffs": {},
+  "full": {
+    "action": "FLAT",
+    "bar_ts_ms": 1787661000000,
+    "level_ret": -0.0061628486397923695,
+    "limit_px": 97.68425360719482,
+    "p_any": 0.09514331210191083,
+    "p_event": 0.44921190893169877,
+    "p_high": 0.3023255813953488,
+    "reason": "filter_below_pi_star",
+    "side": "Buy"
+  },
+  "ok": true,
+  "pack_dir": "D:\\projects\\LLM2\\artifacts\\live_packs\\autonomy_gen376_sol_sma540_below_h4",
+  "proof": "layer_a_pred_identity",
+  "short": {
+    "action": "FLAT",
+    "bar_ts_ms": 1787661000000,
+    "level_ret": -0.0061628486397923695,
+    "limit_px": 97.68425360719482,
+    "p_any": 0.09514331210191083,
+    "p_event": 0.44921190893169877,
+    "p_high": 0.3023255813953488,
+    "reason": "filter_below_pi_star",
+    "side": "Buy"
+  }
+}

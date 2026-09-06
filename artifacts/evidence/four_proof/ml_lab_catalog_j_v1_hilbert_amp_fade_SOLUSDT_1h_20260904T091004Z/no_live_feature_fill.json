@@ -1,0 +1,21 @@
+{
+  "hits": [],
+  "idea": "hilbert_amp_fade",
+  "ok": true,
+  "proof": "no_live_feature_fill",
+  "required_guards": {
+    "catalog_dispatch": true,
+    "no_taker_fallback": true,
+    "pack_fail_loud": true,
+    "risk_fraction_sizing": true,
+    "runner_nan_refuse": true,
+    "signal_isfinite_check": true,
+    "signal_nan_cols": true,
+    "signed_short": true
+  },
+  "sources_sha256": {
+    "llm2\\live\\ema_stack_runner.py": "ffb17246fc26092174aa56412e0cca65b68f064d44a42ba35993d937b1d95b6e",
+    "llm2\\ml_lab\\live_signal.py": "b8eadf89a140a229e4dae3fc4d358eaddf045ba4e64d425b807a648692ccd351"
+  },
+  "space": "ml_lab_catalog_j_v1"
+}

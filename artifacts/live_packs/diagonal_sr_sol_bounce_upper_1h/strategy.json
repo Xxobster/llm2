@@ -1,0 +1,40 @@
+{
+  "arm_id": "SOLUSDT|1h|A|bounce_upper|tp0.015|sl0.01",
+  "entry": "working_limit_atr_offset",
+  "event": "bounce_upper",
+  "family": "diagonal_sr_rule_event",
+  "frozen_at_utc": "20260826T175632Z",
+  "generation": "A",
+  "htf_context_used": false,
+  "leverage": 29.0,
+  "leverage_derivation": {
+    "ceiling_floor_1_over_denom": 58,
+    "haircut": 0.5,
+    "leverage_used_live_and_backtest": 29.0,
+    "mark_buffer": 0.002,
+    "mm_buffer": 0.005,
+    "note": "Backtest margin used research_margin(leverage=leverage_from_stop(sl)) \u2014 identical value.",
+    "sl_pct": 0.01
+  },
+  "limit_move_clip": [
+    0.0015,
+    0.03
+  ],
+  "limit_move_fallback": 0.005,
+  "max_hold_bars": 8,
+  "runner": "llm2.live.diagonal_sr_runner",
+  "session_filter": null,
+  "side": "short",
+  "signal_module": "llm2.diagonal_sr.live_signal:tip_signal",
+  "sizing": {
+    "mode": "MIN_EXCHANGE",
+    "size_mult": 1.0
+  },
+  "sl_pct": 0.01,
+  "space": "diagonal_sr_v1",
+  "strategy_id": "diagonal-sr-sol-bounce-upper-1h",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h",
+  "tp_pct": 0.015,
+  "work_bars": 3
+}

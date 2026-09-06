@@ -1,0 +1,22 @@
+# Autonomy gen 756 — EMA 705
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_756_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-25T10:27:00Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  Distance and crosses of close versus the 705-bar exponential moving average at t+H, used as one-head filters, can beat
+  the 15-minute Limit 1%/1% pivot control under frozen entry-bar and trades-per-month caps.
+events: [ema705_above_at_h, ema705_below_at_h, ema705_cross_up, ema705_cross_down]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: eff4f043fd2c2f83fb268b1065353ac1d639b724343d4ab9cc73e2f03d6c5159

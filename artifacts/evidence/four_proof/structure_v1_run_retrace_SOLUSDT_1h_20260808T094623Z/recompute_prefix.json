@@ -1,0 +1,10 @@
+{
+  "hard_findings": [],
+  "n_columns": 68,
+  "ok": true,
+  "proof": "recompute_prefix",
+  "space": "structure_v1_run_retrace",
+  "summary": "PASS \u2014 68 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h"
+}

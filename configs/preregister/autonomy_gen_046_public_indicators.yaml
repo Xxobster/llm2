@@ -1,0 +1,23 @@
+# Autonomy gen 046 — rolling linear-regression slope
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_046_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-22T12:20:00Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  Causal 20-bar ordinary-least-squares slope of close versus bar index,
+  used as one-head sign and zero-line-cross filters, can beat the 15-minute
+  Limit 1%/1% pivot control under frozen entry-bar and trades-per-month caps.
+events: [lrs_pos_at_h, lrs_neg_at_h, lrs_cross_up_0, lrs_cross_down_0]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: 9c7cfa74da31ffe6878b40340ba6fbb3b2a2ce8e8d6895b5d4d974a109f50981

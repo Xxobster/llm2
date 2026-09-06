@@ -1,0 +1,553 @@
+{
+  "evidence_class": "LIVE_WAREHOUSE_FULL_PARITY_BUNDLE_XXOBSTER9",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "generated_utc": "2026-08-05T13:07:59.343726+00:00",
+  "account": "Xxobster9",
+  "host": "185.203.119.52",
+  "service": "llm2-structure-eth-multitrade-p75-v1",
+  "n_decisions_total": 5,
+  "n_scored_decisions": 3,
+  "candles_shared_vs_warehouse": {
+    "ok": true,
+    "shared": {
+      "source": "shared_candles",
+      "tip_ts_ms": 1785931200000,
+      "tip_ohlc": [
+        1867.93,
+        1884.68,
+        1866.48,
+        1875.22
+      ],
+      "tip50_sha256": "df73a8ddf8b56616e0440c4b6a91e3c804f3b5d1a24304e7fbc2786941ab77ef",
+      "n_closed": 58638,
+      "max_raw_ts": 1785931200000
+    },
+    "warehouse": {
+      "source": "research_market_ohlcv",
+      "tip_ts_ms": 1785931200000,
+      "tip_ohlc": [
+        1867.93,
+        1884.68,
+        1866.48,
+        1875.22
+      ],
+      "tip50_sha256": "df73a8ddf8b56616e0440c4b6a91e3c804f3b5d1a24304e7fbc2786941ab77ef",
+      "n_closed": 57805
+    },
+    "tip_ts_match": true,
+    "tip_ohlc_match": true,
+    "tip50_sha_match": true,
+    "ohlc_abs_diffs": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "strength_hist": {
+    "n": 3,
+    "target_lookback": 168,
+    "fraction_of_target": 0.017857142857142856,
+    "min": 0.26046579158340305,
+    "max": 0.5639850696288478,
+    "mean": 0.4250261399871224,
+    "values": [
+      0.5639850696288478,
+      0.4506275587491164,
+      0.26046579158340305
+    ],
+    "error": null,
+    "note": "Score buffer only; warm-up until n\u2248168 (~1 week of eligible candidates)."
+  },
+  "model_from_snapshot_integrity": {
+    "n": 3,
+    "exact_match": 3,
+    "ok_rate": 1.0,
+    "note": "Live pred is fully determined by stored feature_snapshot + frozen model."
+  },
+  "headline": {
+    "structure_first": "PARTIAL_TIP_DRIFT",
+    "side_match_rate_scored": 1.0,
+    "pred_exact_rate_scored": 0.6666666666666666,
+    "pred_close_1e4_rate_scored": 0.6666666666666666,
+    "max_abs_pred_diff_scored": 0.11335751087973134
+  },
+  "gate_skip_counts_live": {
+    "none": 3,
+    "clarity_mean_strength": 2
+  },
+  "feature_column_diffs_on_drift_bars": {
+    "2026-08-05T10:00:00+00:00": [
+      {
+        "col": "last_retrace_pct_4h",
+        "live": 1.2015449438202248,
+        "warehouse": 0.6259497369959105,
+        "abs": 0.5755952068243143,
+        "rel": 0.9195549942823521
+      },
+      {
+        "col": "sr_asymmetry",
+        "live": 0.29999999999972715,
+        "warehouse": 0.48598130841112364,
+        "abs": 0.18598130841139648,
+        "rel": 0.38269230769275314
+      },
+      {
+        "col": "dist_resistance_pct_vol",
+        "live": 0.020824727465104408,
+        "warehouse": 0.07219038516095627,
+        "abs": 0.051365657695851864,
+        "rel": 0.7115304563249881
+      },
+      {
+        "col": "dist_last_sh_pct_vol",
+        "live": -1.3633254913833996,
+        "warehouse": -1.3355221254777228,
+        "abs": 0.02780336590567689,
+        "rel": 0.020818349149948744
+      },
+      {
+        "col": "dist_fib_0786_pct_vol",
+        "live": 0.9325312958882056,
+        "warehouse": 0.904739884796069,
+        "abs": 0.027791411092136564,
+        "rel": 0.03071757038588039
+      },
+      {
+        "col": "dist_fib_0618_pct_vol",
+        "live": 0.5943377218546133,
+        "warehouse": 0.5665556958497421,
+        "abs": 0.02778202600487123,
+        "rel": 0.04903670761477859
+      },
+      {
+        "col": "dist_fib_0500_pct_vol",
+        "live": 0.3567969972357712,
+        "warehouse": 0.3290215631374317,
+        "abs": 0.02777543409833949,
+        "rel": 0.0844182789525492
+      },
+      {
+        "col": "dist_fib_0382_pct_vol",
+        "live": 0.1192562726169291,
+        "warehouse": 0.09148743042512125,
+        "abs": 0.02776884219180785,
+        "rel": 0.30352631025674637
+      },
+      {
+        "col": "dist_support_pct_vol",
+        "live": 0.04859103075197342,
+        "warehouse": 0.0763552150741163,
+        "abs": 0.02776418432214288,
+        "rel": 0.3636187036496827
+      },
+      {
+        "col": "dist_fib_0236_pct_vol",
+        "live": -0.1746500476741731,
+        "warehouse": -0.2024107337782384,
+        "abs": 0.02776068610406529,
+        "rel": 0.1371502666181723
+      },
+      {
+        "col": "dist_last_sl_pct_vol",
+        "live": 0.6497314969118573,
+        "warehouse": 0.6774789992028594,
+        "abs": 0.02774750229100209,
+        "rel": 0.040956992502572884
+      },
+      {
+        "col": "fib_position",
+        "live": 0.32275862068965955,
+        "warehouse": 0.33655172413793855,
+        "abs": 0.013793103448278998,
+        "rel": 0.040983606557385456
+      },
+      {
+        "col": "dist_resistance_pct",
+        "live": 8.033505071812228e-05,
+        "warehouse": 0.00027846501515491317,
+        "abs": 0.00019812996443679089,
+        "rel": 0.7115075634422837
+      },
+      {
+        "col": "last_leg_len_pct_vol",
+        "live": 2.0102900106458823,
+        "warehouse": 2.010449546841035,
+        "abs": 0.00015953619515274298,
+        "rel": 7.935349355243353e-05
+      },
+      {
+        "col": "dist_last_sh_pct",
+        "live": -0.005259267987017821,
+        "warehouse": -0.005151602780366016,
+        "abs": 0.00010766520665180575,
+        "rel": 0.020899361080816147
+      },
+      {
+        "col": "dist_fib_0786_pct",
+        "live": 0.0035974035711607184,
+        "warehouse": 0.003489916353393431,
+        "abs": 0.00010748721776728757,
+        "rel": 0.0307993679168763
+      },
+      {
+        "col": "dist_fib_0618_pct",
+        "live": 0.002292762347497268,
+        "warehouse": 0.0021854148593215645,
+        "abs": 0.00010734748817570368,
+        "rel": 0.049119958948676865
+      },
+      {
+        "col": "dist_fib_0500_pct",
+        "live": 0.0013764072023050463,
+        "warehouse": 0.0012691578575329556,
+        "abs": 0.00010724934477209067,
+        "rel": 0.08450433816055523
+      },
+      {
+        "col": "dist_fib_0382_pct",
+        "live": 0.00046005205711282447,
+        "warehouse": 0.00035290085574434665,
+        "abs": 0.00010715120136847782,
+        "rel": 0.3036297578323295
+      },
+      {
+        "col": "dist_support_pct",
+        "live": 0.0001874484516758622,
+        "warehouse": 0.0002945303044908813,
+        "abs": 0.00010708185281501907,
+        "rel": 0.36356820056298944
+      },
+      {
+        "col": "dist_fib_0236_pct",
+        "live": -0.0006737432920232854,
+        "warehouse": -0.0007807730617228864,
+        "abs": 0.00010702976969960095,
+        "rel": 0.13708179104364154
+      },
+      {
+        "col": "dist_last_sl_pct",
+        "live": 0.002506453582407729,
+        "warehouse": 0.0026132870653001045,
+        "abs": 0.00010683348289237558,
+        "rel": 0.040880883049909805
+      }
+    ]
+  },
+  "comparisons": [
+    {
+      "bar_ts_ms": 1785916800000,
+      "bar_utc": "2026-08-05T08:00:00+00:00",
+      "decided_utc": "2026-08-05T09:59:55.541461+00:00",
+      "live_pred_mean": null,
+      "live_side": 0,
+      "warehouse_pred_mean": -0.07097792560060254,
+      "warehouse_side": 0,
+      "abs_diff": null,
+      "pred_match_1e6": false,
+      "pred_close_1e4": false,
+      "side_match": true,
+      "mark": 1870.99,
+      "mode": "LIVE",
+      "skip_reason": null,
+      "gate_allow": null,
+      "snapshot_model_replay": null,
+      "feature_snapshot": {
+        "present": false,
+        "n_mismatch": 0,
+        "max_abs": 0.0,
+        "top": [],
+        "ok": true
+      }
+    },
+    {
+      "bar_ts_ms": 1785920400000,
+      "bar_utc": "2026-08-05T09:00:00+00:00",
+      "decided_utc": "2026-08-05T10:00:02.044006+00:00",
+      "live_pred_mean": null,
+      "live_side": 0,
+      "warehouse_pred_mean": -0.3767434604163257,
+      "warehouse_side": -1,
+      "abs_diff": null,
+      "pred_match_1e6": false,
+      "pred_close_1e4": false,
+      "side_match": false,
+      "mark": 1871.0,
+      "mode": "LIVE",
+      "skip_reason": null,
+      "gate_allow": null,
+      "snapshot_model_replay": null,
+      "feature_snapshot": {
+        "present": false,
+        "n_mismatch": 0,
+        "max_abs": 0.0,
+        "top": [],
+        "ok": true
+      }
+    },
+    {
+      "bar_ts_ms": 1785924000000,
+      "bar_utc": "2026-08-05T10:00:00+00:00",
+      "decided_utc": "2026-08-05T11:01:09.182713+00:00",
+      "live_pred_mean": -0.5639850696288478,
+      "live_side": -1,
+      "warehouse_pred_mean": -0.4506275587491164,
+      "warehouse_side": -1,
+      "abs_diff": 0.11335751087973134,
+      "pred_match_1e6": false,
+      "pred_close_1e4": false,
+      "side_match": true,
+      "mark": 1867.41,
+      "mode": "LIVE",
+      "skip_reason": null,
+      "gate_allow": true,
+      "snapshot_model_replay": {
+        "pred_from_snapshot": -0.5639850696288478,
+        "abs_diff_vs_live": 0.0,
+        "ok": true
+      },
+      "feature_snapshot": {
+        "present": true,
+        "n_mismatch": 22,
+        "max_abs": 0.5755952068243143,
+        "top": [
+          {
+            "col": "last_retrace_pct_4h",
+            "live": 1.2015449438202248,
+            "warehouse": 0.6259497369959105,
+            "abs": 0.5755952068243143,
+            "rel": 0.9195549942823521
+          },
+          {
+            "col": "sr_asymmetry",
+            "live": 0.29999999999972715,
+            "warehouse": 0.48598130841112364,
+            "abs": 0.18598130841139648,
+            "rel": 0.38269230769275314
+          },
+          {
+            "col": "dist_resistance_pct_vol",
+            "live": 0.020824727465104408,
+            "warehouse": 0.07219038516095627,
+            "abs": 0.051365657695851864,
+            "rel": 0.7115304563249881
+          },
+          {
+            "col": "dist_last_sh_pct_vol",
+            "live": -1.3633254913833996,
+            "warehouse": -1.3355221254777228,
+            "abs": 0.02780336590567689,
+            "rel": 0.020818349149948744
+          },
+          {
+            "col": "dist_fib_0786_pct_vol",
+            "live": 0.9325312958882056,
+            "warehouse": 0.904739884796069,
+            "abs": 0.027791411092136564,
+            "rel": 0.03071757038588039
+          },
+          {
+            "col": "dist_fib_0618_pct_vol",
+            "live": 0.5943377218546133,
+            "warehouse": 0.5665556958497421,
+            "abs": 0.02778202600487123,
+            "rel": 0.04903670761477859
+          },
+          {
+            "col": "dist_fib_0500_pct_vol",
+            "live": 0.3567969972357712,
+            "warehouse": 0.3290215631374317,
+            "abs": 0.02777543409833949,
+            "rel": 0.0844182789525492
+          },
+          {
+            "col": "dist_fib_0382_pct_vol",
+            "live": 0.1192562726169291,
+            "warehouse": 0.09148743042512125,
+            "abs": 0.02776884219180785,
+            "rel": 0.30352631025674637
+          },
+          {
+            "col": "dist_support_pct_vol",
+            "live": 0.04859103075197342,
+            "warehouse": 0.0763552150741163,
+            "abs": 0.02776418432214288,
+            "rel": 0.3636187036496827
+          },
+          {
+            "col": "dist_fib_0236_pct_vol",
+            "live": -0.1746500476741731,
+            "warehouse": -0.2024107337782384,
+            "abs": 0.02776068610406529,
+            "rel": 0.1371502666181723
+          },
+          {
+            "col": "dist_last_sl_pct_vol",
+            "live": 0.6497314969118573,
+            "warehouse": 0.6774789992028594,
+            "abs": 0.02774750229100209,
+            "rel": 0.040956992502572884
+          },
+          {
+            "col": "fib_position",
+            "live": 0.32275862068965955,
+            "warehouse": 0.33655172413793855,
+            "abs": 0.013793103448278998,
+            "rel": 0.040983606557385456
+          }
+        ],
+        "ok": false
+      }
+    },
+    {
+      "bar_ts_ms": 1785927600000,
+      "bar_utc": "2026-08-05T11:00:00+00:00",
+      "decided_utc": "2026-08-05T12:01:10.218829+00:00",
+      "live_pred_mean": -0.4506275587491164,
+      "live_side": -1,
+      "warehouse_pred_mean": -0.4506275587491164,
+      "warehouse_side": -1,
+      "abs_diff": 0.0,
+      "pred_match_1e6": true,
+      "pred_close_1e4": true,
+      "side_match": true,
+      "mark": 1867.77,
+      "mode": "LIVE",
+      "skip_reason": "clarity_mean_strength",
+      "gate_allow": false,
+      "snapshot_model_replay": {
+        "pred_from_snapshot": -0.4506275587491164,
+        "abs_diff_vs_live": 0.0,
+        "ok": true
+      },
+      "feature_snapshot": {
+        "present": true,
+        "n_mismatch": 21,
+        "max_abs": 0.014285714285700357,
+        "top": [
+          {
+            "col": "sr_asymmetry",
+            "live": 0.8571428571426716,
+            "warehouse": 0.8714285714283719,
+            "abs": 0.014285714285700357,
+            "rel": 0.01639344262293859
+          },
+          {
+            "col": "dist_last_sh_pct_vol",
+            "live": -1.2581530392429328,
+            "warehouse": -1.259549676159592,
+            "abs": 0.0013966369166591441,
+            "rel": 0.0011088382960150773
+          },
+          {
+            "col": "dist_fib_0786_pct_vol",
+            "live": 0.8272425667516605,
+            "warehouse": 0.8286364848560283,
+            "abs": 0.0013939181043677307,
+            "rel": 0.0016821828749308781
+          },
+          {
+            "col": "dist_fib_0618_pct_vol",
+            "live": 0.4889577098426424,
+            "warehouse": 0.49034949355231383,
+            "abs": 0.0013917837096714125,
+            "rel": 0.0028383504581369116
+          },
+          {
+            "col": "dist_fib_0500_pct_vol",
+            "live": 0.25135286987082267,
+            "warehouse": 0.2527431544223146,
+            "abs": 0.001390284551491927,
+            "rel": 0.005500780247321228
+          },
+          {
+            "col": "dist_resistance_pct_vol",
+            "live": 0.08332139332733442,
+            "warehouse": 0.08471061769098462,
+            "abs": 0.0013892243636502016,
+            "rel": 0.016399648609787564
+          },
+          {
+            "col": "dist_fib_0382_pct_vol",
+            "live": 0.013748029899002916,
+            "warehouse": 0.015136815292315356,
+            "abs": 0.00138878539331244,
+            "rel": 0.09174884984013099
+          },
+          {
+            "col": "dist_support_pct_vol",
+            "live": 0.013886898887910119,
+            "warehouse": 0.012498287856069169,
+            "abs": 0.0013886110318409497,
+            "rel": 0.11110410064420465
+          },
+          {
+            "col": "dist_fib_0236_pct_vol",
+            "live": -0.2802376195576479,
+            "warehouse": -0.27885068905496435,
+            "abs": 0.0013869305026835699,
+            "rel": 0.0049737388398928845
+          },
+          {
+            "col": "dist_last_sl_pct_vol",
+            "live": 0.7554472995012874,
+            "warehouse": 0.7540633673149628,
+            "abs": 0.001383932186324599,
+            "rel": 0.0018352995866281723
+          },
+          {
+            "col": "fib_position",
+            "live": 0.37517241379310723,
+            "warehouse": 0.374482758620694,
+            "abs": 0.0006896551724132061,
+            "rel": 0.0018416206261494237
+          },
+          {
+            "col": "dist_last_sh_pct",
+            "live": -0.004850262856408635,
+            "warehouse": -0.004855642342057751,
+            "abs": 5.3794856491162085e-06,
+            "rel": 0.0011078834210092295
+          }
+        ],
+        "ok": false
+      }
+    },
+    {
+      "bar_ts_ms": 1785931200000,
+      "bar_utc": "2026-08-05T12:00:00+00:00",
+      "decided_utc": "2026-08-05T13:01:41.470752+00:00",
+      "live_pred_mean": -0.26046579158340305,
+      "live_side": -1,
+      "warehouse_pred_mean": -0.26046579158340305,
+      "warehouse_side": -1,
+      "abs_diff": 0.0,
+      "pred_match_1e6": true,
+      "pred_close_1e4": true,
+      "side_match": true,
+      "mark": 1876.36,
+      "mode": "LIVE",
+      "skip_reason": "clarity_mean_strength",
+      "gate_allow": false,
+      "snapshot_model_replay": {
+        "pred_from_snapshot": -0.26046579158340305,
+        "abs_diff_vs_live": 0.0,
+        "ok": true
+      },
+      "feature_snapshot": {
+        "present": true,
+        "n_mismatch": 0,
+        "max_abs": 0.0,
+        "top": [],
+        "ok": true
+      }
+    }
+  ],
+  "actions": {
+    "candle_tip": "PASS",
+    "strength_hist": "WARMUP",
+    "structure": "PARTIAL_TIP_DRIFT",
+    "do_not_retune_p75": true
+  },
+  "note": "Diagnostic only. Prefer warehouse gold. 800-bar rebuild forbidden. Do not retune strength_quantile from this window."
+}

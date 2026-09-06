@@ -1,0 +1,32 @@
+strategy_id: sol_1h_fvg_confluence
+arm_id: SOLUSDT|1h|fvg_confluence|atr1.5|slcap0.03
+status: SUPERSEDED
+authorized_by_user: false
+authorized_scope: superseded — Solana unit moved to Xxobster11
+authorization_source: >-
+  user chat 2026-09-04: move Solana 1h Fair Value Gap confluence from Xxobster3
+  onto Xxobster11. This certificate must not deploy.
+vps_host: 212.73.150.178
+account_ref: Xxobster3
+pack_path: artifacts/live_packs/sol_1h_fvg_confluence
+pack_hash: dcaa6c826913593d655e2bc0a56b765ff428c212f1643ca822ca5c42344e7aa7
+authorized_from_utc: '2026-09-04T00:00:00Z'
+expires_utc: '2026-10-04T00:00:00Z'
+created_utc: '2026-09-03T22:06:05Z'
+superseded_utc: '2026-09-04T03:05:00Z'
+superseded_by: sol_1h_fvg_confluence_xxobster11_ln2_certificate.yaml
+symbol: SOLUSDT
+timeframe: 1h
+idea: fvg_confluence
+leverage: 13.0
+risk_fraction: 0.05
+sizing_mode: RISK_FRACTION
+four_proof_ok: true
+four_proof_hashes:
+  builder_responsiveness: ee17f80b7cc8c5a74af94fbde734c090d1bd739d3362808f06a9545ec6a0e823
+  recompute_prefix: b3bb6dd7d2227fc68f98e999d7401f5dae7974009b330b303ba651f644f93372
+  no_live_feature_fill: 013f2ac08266ec0317628fae96982eba37cf976c1c9a3822840fa5c1a610b56c
+  layer_a_pred_identity: 02e97fd13bb099c8a98d58b3d4e85d84f0b1281a43024c89cf54f5a6fa07116f
+research_readiness: RESEARCH_ONLY (not SHADOW_READY)
+blockers_acknowledged:
+- superseded: do not deploy this certificate

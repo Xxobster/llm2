@@ -1,0 +1,24 @@
+# Autonomy gen 038 — Know Sure Thing
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_038_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-22T11:41:00Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  Martin Pring Know Sure Thing (weighted rate-of-change sum, then SMA)
+  sign at t+H and zero-line crosses, used as one-head filters, can beat the
+  15-minute Limit 1%/1% pivot control under frozen entry-bar and
+  trades-per-month caps.
+events: [kst_pos_at_h, kst_neg_at_h, kst_cross_up_0, kst_cross_down_0]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: 48e919c594b2ea3519b9e2857b128d0798b49a5d28fb925c5fa051ebb64228ca

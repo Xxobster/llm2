@@ -1,0 +1,34 @@
+# Autonomy public-indicator hunt gen 1609
+
+**Max readiness:** `LIVE_STOP / RESEARCH_ONLY`. Stamp `20260901T190031Z`. Arms: 27.
+Gates: ebr≤0.35, tpm∈[4.0,40.0], n≥50, PF≥max(1.20, control).
+
+| Symbol | H | Event | Mode | n | /mo | PF | WR | Sharpe | exp_i | ebr | flag | status |
+|---|---:|---|---|---:|---:|---:|---:|---:|---:|---:|---|---|
+| SOLUSDT | 8 | `ema3580_above_at_h` | one_head_filter_pi_star | 77 | 6.3298 | 1.5475 | 0.6494 | 1.4883 | 0.0077 | 0.1299 | GATE_CAND | RAN |
+| SOLUSDT | 4 | `ema3580_above_at_h` | one_head_filter_pi_star | 70 | 5.7544 | 1.5121 | 0.6571 | 1.3599 | 0.0072 | 0.1000 | GATE_CAND | RAN |
+| SOLUSDT | 4 | `ema3580_below_at_h` | one_head_filter_pi_star | 303 | 24.7766 | 1.0597 | 0.5479 | 0.4316 | 0.0012 | 0.1254 | ok | RAN |
+| SOLUSDT | 8 | `ema3580_below_at_h` | one_head_filter_pi_star | 275 | 22.4870 | 1.0154 | 0.5418 | 0.1074 | 0.0003 | 0.1309 | ok | RAN |
+| SOLUSDT | 4 | `control` | control | 376 | 30.5314 | 1.0041 | 0.5479 | 0.0341 | 0.0001 | 0.1330 | ok | RAN |
+| ETHUSDT | 8 | `ema3580_below_at_h` | one_head_filter_pi_star | 335 | 27.2529 | 0.9957 | 0.5612 | -0.0336 | -0.0001 | 0.1343 | ok | RAN |
+| ETHUSDT | 4 | `ema3580_below_at_h` | one_head_filter_pi_star | 342 | 27.8224 | 0.9895 | 0.5585 | -0.0821 | -0.0003 | 0.1345 | ok | RAN |
+| ETHUSDT | 4 | `control` | control | 373 | 30.3443 | 0.9511 | 0.5576 | -0.4157 | -0.0017 | 0.1421 | ok | RAN |
+| BTCUSDT | 4 | `control` | control | 28 | 2.3723 | 0.8377 | 0.3929 | -0.3856 | -0.0166 | 0.0357 | TPM<MIN | RAN |
+| ETHUSDT | 4 | `ema3580_above_at_h` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| ETHUSDT | 4 | `ema3580_cross_up` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| ETHUSDT | 4 | `ema3580_cross_down` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| ETHUSDT | 8 | `ema3580_above_at_h` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW |
+| ETHUSDT | 8 | `ema3580_cross_up` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| ETHUSDT | 8 | `ema3580_cross_down` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| SOLUSDT | 4 | `ema3580_cross_up` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| SOLUSDT | 4 | `ema3580_cross_down` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| SOLUSDT | 8 | `ema3580_cross_up` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| SOLUSDT | 8 | `ema3580_cross_down` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| BTCUSDT | 4 | `ema3580_above_at_h` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| BTCUSDT | 4 | `ema3580_below_at_h` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW |
+| BTCUSDT | 4 | `ema3580_cross_up` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| BTCUSDT | 4 | `ema3580_cross_down` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| BTCUSDT | 8 | `ema3580_above_at_h` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| BTCUSDT | 8 | `ema3580_below_at_h` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW |
+| BTCUSDT | 8 | `ema3580_cross_up` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |
+| BTCUSDT | 8 | `ema3580_cross_down` | one_head_filter_pi_star | 0 |  |  |  |  |  |  |  | TOO_FEW_GATED |

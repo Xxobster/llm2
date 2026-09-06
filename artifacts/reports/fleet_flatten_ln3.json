@@ -1,0 +1,68 @@
+{
+  "utc": "2026-08-06T08:50:47.635287+00:00",
+  "host": "vps-LIVENET",
+  "execute": true,
+  "accounts": [
+    {
+      "account": "Xxobster3",
+      "execute": true,
+      "before": {
+        "positions": [],
+        "n_orders": 0
+      },
+      "cancels": [],
+      "closes": [],
+      "after": {
+        "positions": [],
+        "n_orders": 0
+      },
+      "flat": true
+    },
+    {
+      "account": "Xxobster6",
+      "error": "NO_CREDS"
+    },
+    {
+      "account": "Xxobster7",
+      "error": "NO_CREDS"
+    },
+    {
+      "account": "Xxobster8",
+      "error": "NO_CREDS"
+    },
+    {
+      "account": "Xxobster9",
+      "execute": true,
+      "before": {
+        "positions": [],
+        "n_orders": 0
+      },
+      "cancels": [],
+      "closes": [],
+      "after": {
+        "positions": [],
+        "n_orders": 0
+      },
+      "flat": true
+    },
+    {
+      "account": "Xxobster10",
+      "error": "NO_CREDS"
+    },
+    {
+      "account": "Xxobster11",
+      "execute": true,
+      "before": {
+        "positions": [],
+        "n_orders": 0
+      },
+      "cancels": [],
+      "closes": [],
+      "after": {
+        "positions": [],
+        "n_orders": 0
+      },
+      "flat": true
+    }
+  ]
+}

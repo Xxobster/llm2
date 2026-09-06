@@ -1,0 +1,198 @@
+{
+  "created_utc": "2026-08-13T04:15:17Z",
+  "host": "94.156.189.76",
+  "policy": "structure_v1 LIVE_STOP / RESEARCH_ONLY after CAUS-STRUCT-001",
+  "registry": {
+    "backup": "/opt/botsgeneral/config/bots_registry.yaml.bak_2026-08-13T041517Z",
+    "host_bots_before": [
+      "llm2_pivot_sol_geo",
+      "llm2_pivot_eth_ctrl",
+      "llm2",
+      "xgb",
+      "tsm_vpa",
+      "tsm_chandelier"
+    ],
+    "host_bots_after": [
+      "llm2_pivot_sol_geo",
+      "llm2_pivot_eth_ctrl",
+      "xgb",
+      "tsm_vpa",
+      "tsm_chandelier"
+    ],
+    "llm2_accounts_before": [
+      "Xxobster6",
+      "Xxobster7",
+      "Xxobster8",
+      "Xxobster10"
+    ],
+    "llm2_accounts_after": [],
+    "llm2_status": "LIVE_STOP"
+  },
+  "structure_units": {
+    "units": [
+      {
+        "unit": "llm2-structure-refresh.timer",
+        "stop_disable": true
+      },
+      {
+        "unit": "llm2-structure-refresh.service",
+        "stop_disable": true
+      },
+      {
+        "unit": "llm2-structure-micro.service",
+        "active": "inactive",
+        "enabled": "disabled"
+      },
+      {
+        "unit": "llm2-structure-eth.service",
+        "active": "inactive",
+        "enabled": "disabled"
+      },
+      {
+        "unit": "llm2-structure-sol.service",
+        "active": "inactive",
+        "enabled": "disabled"
+      },
+      {
+        "unit": "llm2-structure-eth-k5-double3h-v1.service",
+        "active": "inactive",
+        "enabled": "disabled"
+      },
+      {
+        "unit": "llm2-structure-btc-k5-double3h-v1.service",
+        "active": "inactive",
+        "enabled": "disabled"
+      },
+      {
+        "unit": "llm2-structure-sol-k5-double3h-v1.service",
+        "active": "inactive",
+        "enabled": "disabled"
+      },
+      {
+        "unit": "llm2-structure-eth-multitrade-v1.service",
+        "active": "inactive",
+        "enabled": "disabled"
+      },
+      {
+        "unit": "llm2-structure-eth-multitrade-v1_1.service",
+        "active": "inactive",
+        "enabled": "disabled"
+      },
+      {
+        "unit": "llm2-structure-eth-multitrade-v1_2.service",
+        "active": "inactive",
+        "enabled": "disabled"
+      },
+      {
+        "unit": "llm2-structure-eth-multitrade-p75-v1.service",
+        "active": "inactive",
+        "enabled": "masked"
+      }
+    ]
+  },
+  "chandelier": {
+    "killed_manual": [],
+    "kept": [
+      {
+        "symbol": "BTCUSDT",
+        "pid": 433777,
+        "cmd": "/opt/tsm-chandelier/venv/bin/python scripts/run_live_bot.py --symbol BTCUSDT --account Xxobster6 --keys /opt/tsm-chandelier/config/api_keys.json --pack /opt/tsm"
+      },
+      {
+        "symbol": "SOLUSDT",
+        "pid": 433778,
+        "cmd": "/opt/tsm-chandelier/venv/bin/python scripts/run_live_bot.py --symbol SOLUSDT --account Xxobster6 --keys /opt/tsm-chandelier/config/api_keys.json --pack /opt/tsm"
+      },
+      {
+        "symbol": "ETHUSDT",
+        "pid": 433837,
+        "cmd": "/opt/tsm-chandelier/venv/bin/python scripts/run_live_bot.py --symbol ETHUSDT --account Xxobster6 --keys /opt/tsm-chandelier/config/api_keys.json --pack /opt/tsm"
+      }
+    ],
+    "systemd": {
+      "BTCUSDT": "active",
+      "ETHUSDT": "active",
+      "SOLUSDT": "active"
+    }
+  },
+  "bybit_audit": [
+    {
+      "account": "Xxobster8",
+      "open_positions_n": 0,
+      "open_positions": [],
+      "open_orders_n": 0,
+      "stop_orders_n": 0,
+      "tpsl_orders_n": 0,
+      "open_orders": [],
+      "stop_orders": [],
+      "tpsl_orders": [],
+      "pos_ret": {
+        "retCode": 0,
+        "retMsg": "OK"
+      },
+      "clean": true
+    },
+    {
+      "account": "Xxobster10",
+      "open_positions_n": 0,
+      "open_positions": [],
+      "open_orders_n": 0,
+      "stop_orders_n": 0,
+      "tpsl_orders_n": 0,
+      "open_orders": [],
+      "stop_orders": [],
+      "tpsl_orders": [],
+      "pos_ret": {
+        "retCode": 0,
+        "retMsg": "OK"
+      },
+      "clean": true
+    },
+    {
+      "account": "Xxobster6",
+      "open_positions_n": 0,
+      "open_positions": [],
+      "open_orders_n": 0,
+      "stop_orders_n": 0,
+      "tpsl_orders_n": 0,
+      "open_orders": [],
+      "stop_orders": [],
+      "tpsl_orders": [],
+      "pos_ret": {
+        "retCode": 0,
+        "retMsg": "OK"
+      },
+      "clean": true
+    },
+    {
+      "account": "Xxobster7",
+      "open_positions_n": 0,
+      "open_positions": [],
+      "open_orders_n": 0,
+      "stop_orders_n": 0,
+      "tpsl_orders_n": 0,
+      "open_orders": [],
+      "stop_orders": [],
+      "tpsl_orders": [],
+      "pos_ret": {
+        "retCode": 0,
+        "retMsg": "OK"
+      },
+      "clean": true
+    }
+  ],
+  "live_processes": [
+    "425440 /opt/llm2-pivot-eth-p75-ctrl-atr-w4/venv/bin/python -m llm2.live.pivot_runner --pack /opt/llm2-pivot-eth-p75-ctrl-atr-w4/pack --state /opt/llm2-pivot-eth-p75-ctrl-atr-w4/state/pivot_live_state.sqlite --mode LIVE --live-orders --account Xxobster7 --cert /opt/llm2-pivot-eth-p75-ctrl-atr-w4/certificate.yaml --vps-host 94.156.189.76",
+    "425441 /opt/llm2-pivot-sol-geo-p75-w4/venv/bin/python -m llm2.live.pivot_runner --pack /opt/llm2-pivot-sol-geo-p75-w4/pack --state /opt/llm2-pivot-sol-geo-p75-w4/state/pivot_live_state.sqlite --mode LIVE --live-orders --account Xxobster7 --cert /opt/llm2-pivot-sol-geo-p75-w4/certificate.yaml --vps-host 94.156.189.76",
+    "428586 /opt/tsm-vpa/venv/bin/python scripts/run_live_bot.py --symbol VETUSDT --account Xxobster5 --keys /opt/tsm-vpa/config/api_keys.json --pack /opt/tsm-vpa/configs/live_top4_stack2_rr15_v1.json --state-db /opt/tsm-vpa/data/live/tsm_vpa_live.sqlite",
+    "433374 SCREEN -dmS xxobster2BTCUSDT bash -lc cd /home/xgb && python3 scripts/vps_run_asset_live.py btcusdt >> log/btcusdt/restart.log 2>&1",
+    "433376 SCREEN -dmS xxobster2ETHUSDT bash -lc cd /home/xgb && python3 scripts/vps_run_asset_live.py ethusdt >> log/ethusdt/restart.log 2>&1",
+    "433377 bash -lc cd /home/xgb && python3 scripts/vps_run_asset_live.py btcusdt >> log/btcusdt/restart.log 2>&1",
+    "433378 bash -lc cd /home/xgb && python3 scripts/vps_run_asset_live.py ethusdt >> log/ethusdt/restart.log 2>&1",
+    "433387 python3 scripts/vps_run_asset_live.py btcusdt",
+    "433388 python3 scripts/vps_run_asset_live.py ethusdt",
+    "433777 /opt/tsm-chandelier/venv/bin/python scripts/run_live_bot.py --symbol BTCUSDT --account Xxobster6 --keys /opt/tsm-chandelier/config/api_keys.json --pack /opt/tsm-chandelier/configs/live_btc_eth_sol_1h_xxobster6.json --state-db /opt/tsm-chandelier/data/live/tsm_chandelier_live.sqlite",
+    "433778 /opt/tsm-chandelier/venv/bin/python scripts/run_live_bot.py --symbol SOLUSDT --account Xxobster6 --keys /opt/tsm-chandelier/config/api_keys.json --pack /opt/tsm-chandelier/configs/live_btc_eth_sol_1h_xxobster6.json --state-db /opt/tsm-chandelier/data/live/tsm_chandelier_live.sqlite",
+    "433837 /opt/tsm-chandelier/venv/bin/python scripts/run_live_bot.py --symbol ETHUSDT --account Xxobster6 --keys /opt/tsm-chandelier/config/api_keys.json --pack /opt/tsm-chandelier/configs/live_btc_eth_sol_1h_xxobster6.json --state-db /opt/tsm-chandelier/data/live/tsm_chandelier_live.sqlite"
+  ]
+}

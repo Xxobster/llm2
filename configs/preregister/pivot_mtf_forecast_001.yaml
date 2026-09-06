@@ -1,0 +1,45 @@
+# Pivot multi-timeframe forecast — research generation (OPEN)
+
+# Registered BEFORE any outer-OOS evaluation of pivot models.
+# Forecast product only — no live trading authorization (D-060 family of research isolation).
+
+generation_id: pivot_mtf_forecast_001
+created_utc: "2026-08-10T04:30:00Z"
+status: OPEN
+fold_geometry: v2
+product_target: Bybit_USDT_perpetual
+research_price_source: binance_last_in_market_ohlcv  # Binance candles only for this generation
+symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+decision_timeframe: 5m
+target_timeframes: [5m, 15m, 1h, 4h, 1d]
+
+hypothesis: >
+  At each closed 5-minute candle, competing-risk hazard models can forecast calibrated
+  probabilities that the next qualified pivot origin is a high, a low, or none within
+  each configured horizon, plus conditional reversal magnitude quantiles — without using
+  unconfirmed pivots as features.
+
+forbidden:
+  - manufacture_5m_from_15m_or_1h
+  - use_pivot_as_feature_before_confirmed_at_ts
+  - select_label_family_on_outer_oos
+  - fit_calibrator_on_outer_oos
+  - place_live_orders
+  - restore_leaked_last_retrace_pct
+
+label_families:
+  - fractal_prominence_atr  # family A
+  - directional_change       # family B
+  selection: inner_only
+
+evaluation:
+  primary: outer_pr_auc_and_brier_vs_baserate_and_lgbm
+  lockbox: DO_NOT_OPEN_FOR_SELECTION
+  four_proof: if_warehouse_joined_features
+
+success_note: >
+  Code running is not success. Outer calibrated probabilities must track frequency;
+  neural nets must beat GBT on outer Brier and PR-AUC or be rejected.
+
+live_deploy: FORBIDDEN
+promotion: FORBIDDEN

@@ -1,0 +1,225 @@
+{
+  "evidence_class": "MEASURE_DIAGNOSTIC",
+  "maximum_earned_readiness": "RESEARCH_ONLY",
+  "gate_name": "ETH K5 |pred_mean| strength met / not-met frequencies",
+  "generated_utc": "2026-08-05T14:30:35.771659+00:00",
+  "symbol": "ETHUSDT",
+  "timeframe": "1h",
+  "geometry": "k5 double3h path + mean_strength median clarity",
+  "definitions": {
+    "edge_met": "|pred_mean| >= 0.1 and directional side != 0 (live min_edge)",
+    "clarity_met": "among edge_met: |m| >= median of prior 168 strength history",
+    "strength_scale_lift_met": "|pred_mean| >= 0.5 \u2192 strength_mult > 1",
+    "strength_scale_lift_not_met": "0.1 <= |pred_mean| < 0.5 \u2192 strength_mult stays floor 1",
+    "trade_emitted": "edge + clarity + concurrent K=5 slot available"
+  },
+  "population": {
+    "n_oos_bars": 37851,
+    "n_side_nonzero_raw": 26949,
+    "n_edge_met": 26949,
+    "pct_oos_bars_edge_met": 0.7119759055242926,
+    "n_clarity_met_among_edge": 13406,
+    "n_edge_met_clarity_fail": 13543,
+    "pct_clarity_pass_given_edge": 0.49745816171286505,
+    "pct_clarity_fail_given_edge": 0.502541838287135,
+    "n_signals_emitted_with_size_scale": 10886
+  },
+  "among_edge_met_abs_mean_strength": {
+    "n": 26949,
+    "floor_below_ref": {
+      "rule": "|pred_mean| < 0.5 \u2192 strength_mult=1 (floor)",
+      "n": 24518,
+      "pct": 0.9097925711529185
+    },
+    "proportional": {
+      "rule": "0.5 <= |pred_mean| < 1.0 \u2192 mult in (1,2)",
+      "n": 2425,
+      "pct": 0.08998478607740547
+    },
+    "cap_2x": {
+      "rule": "|pred_mean| >= 1.0 \u2192 strength_mult=2 (cap)",
+      "n": 6,
+      "pct": 0.00022264276967605477
+    },
+    "stronger_than_ref_met": {
+      "rule": "|pred_mean| >= 0.5 (strength scale actually lifts size)",
+      "n": 2431,
+      "pct": 0.09020742884708152
+    },
+    "stronger_than_ref_not_met": {
+      "rule": "|pred_mean| < 0.5 (no strength uplift; floor)",
+      "n": 24518,
+      "pct": 0.9097925711529185
+    },
+    "quantiles_abs_mean": {
+      "p10": 0.12531653444211413,
+      "p25": 0.16667665537984216,
+      "p50": 0.24662041857017042,
+      "p75": 0.35960804797100976,
+      "p90": 0.48484579872642924,
+      "p95": 0.5733533010865643
+    }
+  },
+  "among_clarity_passed_would_trade_pre_cap": {
+    "n": 13406,
+    "floor_below_ref": {
+      "rule": "|pred_mean| < 0.5 \u2192 strength_mult=1 (floor)",
+      "n": 10975,
+      "pct": 0.8186632850962255
+    },
+    "proportional": {
+      "rule": "0.5 <= |pred_mean| < 1.0 \u2192 mult in (1,2)",
+      "n": 2425,
+      "pct": 0.18088915411009995
+    },
+    "cap_2x": {
+      "rule": "|pred_mean| >= 1.0 \u2192 strength_mult=2 (cap)",
+      "n": 6,
+      "pct": 0.00044756079367447413
+    },
+    "stronger_than_ref_met": {
+      "rule": "|pred_mean| >= 0.5 (strength scale actually lifts size)",
+      "n": 2431,
+      "pct": 0.18133671490377443
+    },
+    "stronger_than_ref_not_met": {
+      "rule": "|pred_mean| < 0.5 (no strength uplift; floor)",
+      "n": 10975,
+      "pct": 0.8186632850962255
+    },
+    "quantiles_abs_mean": {
+      "p10": 0.26172422227674563,
+      "p25": 0.29866086926661256,
+      "p50": 0.3605660796691249,
+      "p75": 0.4567866860903574,
+      "p90": 0.5738088886821189,
+      "p95": 0.6503178301604393
+    }
+  },
+  "among_emitted_actual_trades": {
+    "n": 10886,
+    "floor_below_ref": {
+      "rule": "|pred_mean| < 0.5 \u2192 strength_mult=1 (floor)",
+      "n": 9178,
+      "pct": 0.8431012309388205
+    },
+    "proportional": {
+      "rule": "0.5 <= |pred_mean| < 1.0 \u2192 mult in (1,2)",
+      "n": 1704,
+      "pct": 0.15653132463714864
+    },
+    "cap_2x": {
+      "rule": "|pred_mean| >= 1.0 \u2192 strength_mult=2 (cap)",
+      "n": 4,
+      "pct": 0.00036744442403086535
+    },
+    "stronger_than_ref_met": {
+      "rule": "|pred_mean| >= 0.5 (strength scale actually lifts size)",
+      "n": 1708,
+      "pct": 0.1568987690611795
+    },
+    "stronger_than_ref_not_met": {
+      "rule": "|pred_mean| < 0.5 (no strength uplift; floor)",
+      "n": 9178,
+      "pct": 0.8431012309388205
+    },
+    "quantiles_abs_mean": {
+      "p10": 0.25883443581307497,
+      "p25": 0.2941922190621802,
+      "p50": 0.35316060730587623,
+      "p75": 0.44204625792660523,
+      "p90": 0.5530532862607477,
+      "p95": 0.622361842755382
+    }
+  },
+  "edge_threshold_ladder_among_edge_ge_01": [
+    {
+      "threshold": 0.1,
+      "n_edge_met_abs_ge": 26949,
+      "pct_of_edge_ge_01": 1.0,
+      "n_not_met": 0,
+      "pct_not_met": 0.0
+    },
+    {
+      "threshold": 0.2,
+      "n_edge_met_abs_ge": 17237,
+      "pct_of_edge_ge_01": 0.639615570151026,
+      "n_not_met": 9712,
+      "pct_not_met": 0.360384429848974
+    },
+    {
+      "threshold": 0.3,
+      "n_edge_met_abs_ge": 9982,
+      "pct_of_edge_ge_01": 0.37040335448439643,
+      "n_not_met": 16967,
+      "pct_not_met": 0.6295966455156036
+    },
+    {
+      "threshold": 0.4,
+      "n_edge_met_abs_ge": 5107,
+      "pct_of_edge_ge_01": 0.18950610412260196,
+      "n_not_met": 21842,
+      "pct_not_met": 0.8104938958773981
+    },
+    {
+      "threshold": 0.5,
+      "n_edge_met_abs_ge": 2431,
+      "pct_of_edge_ge_01": 0.09020742884708152,
+      "n_not_met": 24518,
+      "pct_not_met": 0.9097925711529185
+    },
+    {
+      "threshold": 0.6,
+      "n_edge_met_abs_ge": 1040,
+      "pct_of_edge_ge_01": 0.03859141341051616,
+      "n_not_met": 25909,
+      "pct_not_met": 0.9614085865894838
+    },
+    {
+      "threshold": 0.7,
+      "n_edge_met_abs_ge": 411,
+      "pct_of_edge_ge_01": 0.015251029722809752,
+      "n_not_met": 26538,
+      "pct_not_met": 0.9847489702771902
+    },
+    {
+      "threshold": 0.8,
+      "n_edge_met_abs_ge": 133,
+      "pct_of_edge_ge_01": 0.004935248061152547,
+      "n_not_met": 26816,
+      "pct_not_met": 0.9950647519388475
+    },
+    {
+      "threshold": 0.9,
+      "n_edge_met_abs_ge": 25,
+      "pct_of_edge_ge_01": 0.0009276782069835615,
+      "n_not_met": 26924,
+      "pct_not_met": 0.9990723217930164
+    }
+  ],
+  "clarity_fails_but_edge_met": {
+    "n": 13543,
+    "n_strong_abs_ge_ref": 0,
+    "pct_of_clarity_fails_that_are_strong": 0.0,
+    "n_weak_abs_lt_ref": 13543,
+    "mean_abs_when_fail": 0.17105092426286786,
+    "mean_abs_when_pass": 0.39312658084666074,
+    "note": "Strong but not met = |pred| high but rolling median clarity blocked entry (history stricter than raw strength)."
+  },
+  "emitted_strength_mult_summary": {
+    "mean": 1.0327196496975282,
+    "pct_exactly_1": 0.8431012309388205,
+    "pct_strictly_gt_1": 0.1568987690611795,
+    "pct_exactly_2": 0.00036744442403086535
+  },
+  "headline": {
+    "of_edge_met_pct_strong_enough_for_size_lift": 0.09020742884708152,
+    "of_edge_met_pct_too_weak_for_size_lift": 0.9097925711529185,
+    "of_clarity_passed_pct_strong_size_lift": 0.18133671490377443,
+    "of_clarity_passed_pct_size_floor": 0.8186632850962255,
+    "of_emitted_trades_pct_strong_size_lift": 0.1568987690611795,
+    "of_emitted_trades_pct_size_floor": 0.8431012309388205,
+    "pct_edge_met_that_fail_clarity": 0.502541838287135,
+    "pct_clarity_fails_that_were_strong_ge_ref": 0.0
+  }
+}

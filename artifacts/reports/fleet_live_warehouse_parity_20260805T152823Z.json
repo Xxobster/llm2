@@ -1,0 +1,630 @@
+{
+  "evidence_class": "FLEET_LIVE_WAREHOUSE_PARITY",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "generated_utc": "2026-08-05T15:28:23.658635+00:00",
+  "hosts": [
+    "185.203.119.52"
+  ],
+  "indicator_refresh": [
+    {
+      "step": "refresh_candles",
+      "symbols": [
+        "ETHUSDT"
+      ],
+      "ok": true
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "1h",
+      "n_bars": 58641,
+      "error": null
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "4h",
+      "n_bars": 14661,
+      "error": null
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "1w",
+      "n_bars": 350,
+      "error": null
+    }
+  ],
+  "summary": {
+    "n_units": 3,
+    "by_status": {
+      "PARTIAL_TIP_DRIFT": 3
+    },
+    "pass": [],
+    "partial": [
+      "185.203.119.52:llm2-structure-eth-15m-multitrade-wall-clock-p75-v1",
+      "185.203.119.52:llm2-structure-eth-k5-double3h-p75-v1",
+      "185.203.119.52:llm2-structure-eth-multitrade-p75-v1"
+    ],
+    "fail": []
+  },
+  "units": [
+    {
+      "host": "185.203.119.52",
+      "unit": "llm2-structure-eth-15m-multitrade-wall-clock-p75-v1",
+      "working_directory": "/opt/llm2-structure-eth-15m-multitrade-wall-clock-p75-v1",
+      "remote_meta": {
+        "root": "/opt/llm2-structure-eth-15m-multitrade-wall-clock-p75-v1",
+        "symbol": "ETHUSDT",
+        "timeframe": "15m",
+        "version_id": "eth_15m_multitrade_wall_clock_p75_v1",
+        "execution_mode": "multitrade",
+        "binance_1h_n": 58640,
+        "binance_decision_tf_n": 234542,
+        "pack_ok": true,
+        "series": {
+          "15m": 234542,
+          "1h": 58640,
+          "1w": 0,
+          "4h": 14660
+        },
+        "binance_decision_tf_max_ts": 1785942000000,
+        "binance_1h_max_ts": 1785938400000
+      },
+      "local_pack": "D:\\projects\\LLM2\\artifacts\\live_packs\\structure_v1_ethusdt_15m_multitrade_wall_clock_p75_v1",
+      "symbol": "ETHUSDT",
+      "timeframe": "15m",
+      "candles": {
+        "shared": {
+          "timeframe": "15m",
+          "tip_ts_ms": 1785942000000,
+          "tip_ohlc": [
+            1875.06,
+            1882.07,
+            1874.1,
+            1876.55
+          ],
+          "tip50_sha256": "cdd06440d35c26f0f3839bce0f6acefb87c368114af0f3433885165ede1e7f7e",
+          "n_closed": 234542
+        },
+        "warehouse": {
+          "timeframe": "15m",
+          "tip_ts_ms": 1785942000000,
+          "tip_ohlc": [
+            1875.06,
+            1882.07,
+            1874.1,
+            1876.55
+          ],
+          "tip50_sha256": "cdd06440d35c26f0f3839bce0f6acefb87c368114af0f3433885165ede1e7f7e",
+          "n_closed": 234558
+        },
+        "ok": true
+      },
+      "pack_depth": {
+        "decision_tf": "15m",
+        "binance_decision_tf_n": 234542,
+        "binance_1h_n": 58640,
+        "series": {
+          "15m": 234542,
+          "1h": 58640,
+          "1w": 0,
+          "4h": 14660
+        },
+        "deep_ok": true,
+        "htf_ok": true
+      },
+      "ledger_remote": "\\opt\\llm2-structure-eth-15m-multitrade-wall-clock-p75-v1\\state\\micro_live_state.sqlite",
+      "side_gate": {
+        "target": "direction",
+        "family": "directional",
+        "edge": 0.1,
+        "proxy_band": 0.1
+      },
+      "strength_hist": {
+        "n": 3,
+        "target": 672
+      },
+      "comparisons": [
+        {
+          "bar_ts_ms": 1785937500000,
+          "bar_utc": "2026-08-05T13:45:00+00:00",
+          "live_pred_mean": null,
+          "live_side": 0,
+          "skip_reason": null,
+          "snapshot_model_ok": null,
+          "warehouse_pred_mean": -0.18478028791070156,
+          "warehouse_side": -1,
+          "live_side_from_pred": null,
+          "live_side_matches_proxy": false,
+          "abs_diff": null,
+          "pred_match": false,
+          "side_match": false
+        },
+        {
+          "bar_ts_ms": 1785938400000,
+          "bar_utc": "2026-08-05T14:00:00+00:00",
+          "live_pred_mean": -0.2659234567260125,
+          "live_side": -1,
+          "skip_reason": null,
+          "snapshot_model_ok": true,
+          "warehouse_pred_mean": -0.08873610480724757,
+          "warehouse_side": 0,
+          "live_side_from_pred": -1,
+          "live_side_matches_proxy": true,
+          "abs_diff": 0.1771873519187649,
+          "pred_match": false,
+          "side_match": false
+        },
+        {
+          "bar_ts_ms": 1785939300000,
+          "bar_utc": "2026-08-05T14:15:00+00:00",
+          "live_pred_mean": -0.28065009031483523,
+          "live_side": -1,
+          "skip_reason": null,
+          "snapshot_model_ok": true,
+          "warehouse_pred_mean": -0.012758163194834096,
+          "warehouse_side": 0,
+          "live_side_from_pred": -1,
+          "live_side_matches_proxy": true,
+          "abs_diff": 0.26789192712000115,
+          "pred_match": false,
+          "side_match": false
+        },
+        {
+          "bar_ts_ms": 1785940200000,
+          "bar_utc": "2026-08-05T14:30:00+00:00",
+          "live_pred_mean": 0.07154248876910234,
+          "live_side": 0,
+          "skip_reason": null,
+          "snapshot_model_ok": true,
+          "warehouse_pred_mean": -0.0988153284644974,
+          "warehouse_side": 0,
+          "live_side_from_pred": 0,
+          "live_side_matches_proxy": true,
+          "abs_diff": 0.17035781723359975,
+          "pred_match": false,
+          "side_match": true
+        },
+        {
+          "bar_ts_ms": 1785941100000,
+          "bar_utc": "2026-08-05T14:45:00+00:00",
+          "live_pred_mean": 0.06886357066901684,
+          "live_side": 0,
+          "skip_reason": null,
+          "snapshot_model_ok": true,
+          "warehouse_pred_mean": -0.11683900554763754,
+          "warehouse_side": -1,
+          "live_side_from_pred": 0,
+          "live_side_matches_proxy": true,
+          "abs_diff": 0.18570257621665437,
+          "pred_match": false,
+          "side_match": false
+        },
+        {
+          "bar_ts_ms": 1785942000000,
+          "bar_utc": "2026-08-05T15:00:00+00:00",
+          "live_pred_mean": -0.3316497205047034,
+          "live_side": -1,
+          "skip_reason": null,
+          "snapshot_model_ok": true,
+          "warehouse_pred_mean": -0.3316497205047034,
+          "warehouse_side": -1,
+          "live_side_from_pred": -1,
+          "live_side_matches_proxy": true,
+          "abs_diff": 0.0,
+          "pred_match": true,
+          "side_match": true
+        }
+      ],
+      "headline": {
+        "n_decisions": 6,
+        "n_scored": 5,
+        "side_match_rate": 0.4,
+        "pred_exact_rate": 0.2,
+        "snapshot_model_ok_rate": 1.0,
+        "max_abs_pred_diff": 0.26789192712000115
+      },
+      "status": "PARTIAL_TIP_DRIFT"
+    },
+    {
+      "host": "185.203.119.52",
+      "unit": "llm2-structure-eth-k5-double3h-p75-v1",
+      "working_directory": "/opt/llm2-structure-eth-k5-double3h-p75-v1",
+      "remote_meta": {
+        "root": "/opt/llm2-structure-eth-k5-double3h-p75-v1",
+        "symbol": "ETHUSDT",
+        "timeframe": "1h",
+        "version_id": "eth_k5_double3h_p75_v1",
+        "execution_mode": "multitrade",
+        "binance_1h_n": 58640,
+        "binance_decision_tf_n": 58640,
+        "pack_ok": true,
+        "series": {
+          "15m": 0,
+          "1h": 58640,
+          "1w": 349,
+          "4h": 14660
+        },
+        "binance_decision_tf_max_ts": 1785938400000,
+        "binance_1h_max_ts": 1785938400000
+      },
+      "local_pack": "D:\\projects\\LLM2\\artifacts\\live_packs\\structure_v1_ethusdt_k5_double3h_p75_v1",
+      "symbol": "ETHUSDT",
+      "timeframe": "1h",
+      "candles": {
+        "shared": {
+          "timeframe": "1h",
+          "tip_ts_ms": 1785938400000,
+          "tip_ohlc": [
+            1877.84,
+            1882.0,
+            1868.25,
+            1875.06
+          ],
+          "tip50_sha256": "e553fbb1751f0fcb6c06f47f12ff0937ee692377bf5a8880a6e14b3fcf7be5c3",
+          "n_closed": 58640
+        },
+        "warehouse": {
+          "timeframe": "1h",
+          "tip_ts_ms": 1785938400000,
+          "tip_ohlc": [
+            1877.84,
+            1882.0,
+            1868.25,
+            1875.06
+          ],
+          "tip50_sha256": "e553fbb1751f0fcb6c06f47f12ff0937ee692377bf5a8880a6e14b3fcf7be5c3",
+          "n_closed": 49927
+        },
+        "ok": true
+      },
+      "pack_depth": {
+        "decision_tf": "1h",
+        "binance_decision_tf_n": 58640,
+        "binance_1h_n": 58640,
+        "series": {
+          "15m": 0,
+          "1h": 58640,
+          "1w": 349,
+          "4h": 14660
+        },
+        "deep_ok": true,
+        "htf_ok": true
+      },
+      "ledger_remote": "\\opt\\llm2-structure-eth-k5-double3h-p75-v1\\state\\micro_live_state.sqlite",
+      "side_gate": {
+        "target": "direction",
+        "family": "directional",
+        "edge": 0.1,
+        "proxy_band": 0.1
+      },
+      "strength_hist": {
+        "n": 5,
+        "target": 168
+      },
+      "comparisons": [
+        {
+          "bar_ts_ms": 1785913200000,
+          "bar_utc": "2026-08-05T07:00:00+00:00",
+          "live_pred_mean": null,
+          "live_side": 0,
+          "skip_reason": null,
+          "snapshot_model_ok": null,
+          "warehouse_pred_mean": 0.18331857236688853,
+          "warehouse_side": 1,
+          "live_side_from_pred": null,
+          "live_side_matches_proxy": false,
+          "abs_diff": null,
+          "pred_match": false,
+          "side_match": false
+        },
+        {
+          "bar_ts_ms": 1785916800000,
+          "bar_utc": "2026-08-05T08:00:00+00:00",
+          "live_pred_mean": null,
+          "live_side": 0,
+          "skip_reason": null,
+          "snapshot_model_ok": null,
+          "warehouse_pred_mean": 0.004138746598629091,
+          "warehouse_side": 0,
+          "live_side_from_pred": null,
+          "live_side_matches_proxy": false,
+          "abs_diff": null,
+          "pred_match": false,
+          "side_match": true
+        },
+        {
+          "bar_ts_ms": 1785920400000,
+          "bar_utc": "2026-08-05T09:00:00+00:00",
+          "live_pred_mean": null,
+          "live_side": 0,
+          "skip_reason": null,
+          "snapshot_model_ok": null,
+          "warehouse_pred_mean": -0.11642313642445565,
+          "warehouse_side": -1,
+          "live_side_from_pred": null,
+          "live_side_matches_proxy": false,
+          "abs_diff": null,
+          "pred_match": false,
+          "side_match": false
+        },
+        {
+          "bar_ts_ms": 1785924000000,
+          "bar_utc": "2026-08-05T10:00:00+00:00",
+          "live_pred_mean": -0.5639850696288478,
+          "live_side": -1,
+          "skip_reason": null,
+          "snapshot_model_ok": true,
+          "warehouse_pred_mean": -0.09267785925958659,
+          "warehouse_side": 0,
+          "live_side_from_pred": -1,
+          "live_side_matches_proxy": true,
+          "abs_diff": 0.47130721036926115,
+          "pred_match": false,
+          "side_match": false
+        },
+        {
+          "bar_ts_ms": 1785927600000,
+          "bar_utc": "2026-08-05T11:00:00+00:00",
+          "live_pred_mean": -0.4506275587491164,
+          "live_side": -1,
+          "skip_reason": "clarity_mean_strength",
+          "snapshot_model_ok": true,
+          "warehouse_pred_mean": -0.10279632378757592,
+          "warehouse_side": -1,
+          "live_side_from_pred": -1,
+          "live_side_matches_proxy": true,
+          "abs_diff": 0.3478312349615405,
+          "pred_match": false,
+          "side_match": true
+        },
+        {
+          "bar_ts_ms": 1785931200000,
+          "bar_utc": "2026-08-05T12:00:00+00:00",
+          "live_pred_mean": -0.26046579158340305,
+          "live_side": -1,
+          "skip_reason": "clarity_mean_strength",
+          "snapshot_model_ok": true,
+          "warehouse_pred_mean": -0.20299907210944126,
+          "warehouse_side": -1,
+          "live_side_from_pred": -1,
+          "live_side_matches_proxy": true,
+          "abs_diff": 0.057466719473961786,
+          "pred_match": false,
+          "side_match": true
+        },
+        {
+          "bar_ts_ms": 1785934800000,
+          "bar_utc": "2026-08-05T13:00:00+00:00",
+          "live_pred_mean": -0.1598363030756337,
+          "live_side": -1,
+          "skip_reason": "clarity_mean_strength",
+          "snapshot_model_ok": true,
+          "warehouse_pred_mean": -0.31397444115115125,
+          "warehouse_side": -1,
+          "live_side_from_pred": -1,
+          "live_side_matches_proxy": true,
+          "abs_diff": 0.15413813807551754,
+          "pred_match": false,
+          "side_match": true
+        },
+        {
+          "bar_ts_ms": 1785938400000,
+          "bar_utc": "2026-08-05T14:00:00+00:00",
+          "live_pred_mean": 0.5200446257965878,
+          "live_side": 1,
+          "skip_reason": null,
+          "snapshot_model_ok": true,
+          "warehouse_pred_mean": -0.17760283971213783,
+          "warehouse_side": -1,
+          "live_side_from_pred": 1,
+          "live_side_matches_proxy": true,
+          "abs_diff": 0.6976474655087257,
+          "pred_match": false,
+          "side_match": false
+        }
+      ],
+      "headline": {
+        "n_decisions": 8,
+        "n_scored": 5,
+        "side_match_rate": 0.6,
+        "pred_exact_rate": 0.0,
+        "snapshot_model_ok_rate": 1.0,
+        "max_abs_pred_diff": 0.6976474655087257
+      },
+      "status": "PARTIAL_TIP_DRIFT"
+    },
+    {
+      "host": "185.203.119.52",
+      "unit": "llm2-structure-eth-multitrade-p75-v1",
+      "working_directory": "/opt/llm2-structure-eth-multitrade-p75-v1",
+      "remote_meta": {
+        "root": "/opt/llm2-structure-eth-multitrade-p75-v1",
+        "symbol": "ETHUSDT",
+        "timeframe": "1h",
+        "version_id": "eth_multitrade_p75_v1",
+        "execution_mode": "multitrade",
+        "binance_1h_n": 58640,
+        "binance_decision_tf_n": 58640,
+        "pack_ok": true,
+        "series": {
+          "15m": 0,
+          "1h": 58640,
+          "1w": 349,
+          "4h": 14660
+        },
+        "binance_decision_tf_max_ts": 1785938400000,
+        "binance_1h_max_ts": 1785938400000
+      },
+      "local_pack": "D:\\projects\\LLM2\\artifacts\\live_packs\\structure_v1_ethusdt_multitrade_p75_v1",
+      "symbol": "ETHUSDT",
+      "timeframe": "1h",
+      "candles": {
+        "shared": {
+          "timeframe": "1h",
+          "tip_ts_ms": 1785938400000,
+          "tip_ohlc": [
+            1877.84,
+            1882.0,
+            1868.25,
+            1875.06
+          ],
+          "tip50_sha256": "e553fbb1751f0fcb6c06f47f12ff0937ee692377bf5a8880a6e14b3fcf7be5c3",
+          "n_closed": 58640
+        },
+        "warehouse": {
+          "timeframe": "1h",
+          "tip_ts_ms": 1785938400000,
+          "tip_ohlc": [
+            1877.84,
+            1882.0,
+            1868.25,
+            1875.06
+          ],
+          "tip50_sha256": "e553fbb1751f0fcb6c06f47f12ff0937ee692377bf5a8880a6e14b3fcf7be5c3",
+          "n_closed": 49927
+        },
+        "ok": true
+      },
+      "pack_depth": {
+        "decision_tf": "1h",
+        "binance_decision_tf_n": 58640,
+        "binance_1h_n": 58640,
+        "series": {
+          "15m": 0,
+          "1h": 58640,
+          "1w": 349,
+          "4h": 14660
+        },
+        "deep_ok": true,
+        "htf_ok": true
+      },
+      "ledger_remote": "\\opt\\llm2-structure-eth-multitrade-p75-v1\\state\\micro_live_state.sqlite",
+      "side_gate": {
+        "target": "direction",
+        "family": "directional",
+        "edge": 0.1,
+        "proxy_band": 0.1
+      },
+      "strength_hist": {
+        "n": 5,
+        "target": 168
+      },
+      "comparisons": [
+        {
+          "bar_ts_ms": 1785916800000,
+          "bar_utc": "2026-08-05T08:00:00+00:00",
+          "live_pred_mean": null,
+          "live_side": 0,
+          "skip_reason": null,
+          "snapshot_model_ok": null,
+          "warehouse_pred_mean": 0.004138746598629091,
+          "warehouse_side": 0,
+          "live_side_from_pred": null,
+          "live_side_matches_proxy": false,
+          "abs_diff": null,
+          "pred_match": false,
+          "side_match": true
+        },
+        {
+          "bar_ts_ms": 1785920400000,
+          "bar_utc": "2026-08-05T09:00:00+00:00",
+          "live_pred_mean": null,
+          "live_side": 0,
+          "skip_reason": null,
+          "snapshot_model_ok": null,
+          "warehouse_pred_mean": -0.11642313642445565,
+          "warehouse_side": -1,
+          "live_side_from_pred": null,
+          "live_side_matches_proxy": false,
+          "abs_diff": null,
+          "pred_match": false,
+          "side_match": false
+        },
+        {
+          "bar_ts_ms": 1785924000000,
+          "bar_utc": "2026-08-05T10:00:00+00:00",
+          "live_pred_mean": -0.5639850696288478,
+          "live_side": -1,
+          "skip_reason": null,
+          "snapshot_model_ok": true,
+          "warehouse_pred_mean": -0.09267785925958659,
+          "warehouse_side": 0,
+          "live_side_from_pred": -1,
+          "live_side_matches_proxy": true,
+          "abs_diff": 0.47130721036926115,
+          "pred_match": false,
+          "side_match": false
+        },
+        {
+          "bar_ts_ms": 1785927600000,
+          "bar_utc": "2026-08-05T11:00:00+00:00",
+          "live_pred_mean": -0.4506275587491164,
+          "live_side": -1,
+          "skip_reason": "clarity_mean_strength",
+          "snapshot_model_ok": true,
+          "warehouse_pred_mean": -0.10279632378757592,
+          "warehouse_side": -1,
+          "live_side_from_pred": -1,
+          "live_side_matches_proxy": true,
+          "abs_diff": 0.3478312349615405,
+          "pred_match": false,
+          "side_match": true
+        },
+        {
+          "bar_ts_ms": 1785931200000,
+          "bar_utc": "2026-08-05T12:00:00+00:00",
+          "live_pred_mean": -0.26046579158340305,
+          "live_side": -1,
+          "skip_reason": "clarity_mean_strength",
+          "snapshot_model_ok": true,
+          "warehouse_pred_mean": -0.20299907210944126,
+          "warehouse_side": -1,
+          "live_side_from_pred": -1,
+          "live_side_matches_proxy": true,
+          "abs_diff": 0.057466719473961786,
+          "pred_match": false,
+          "side_match": true
+        },
+        {
+          "bar_ts_ms": 1785934800000,
+          "bar_utc": "2026-08-05T13:00:00+00:00",
+          "live_pred_mean": -0.1598363030756337,
+          "live_side": -1,
+          "skip_reason": "clarity_mean_strength",
+          "snapshot_model_ok": true,
+          "warehouse_pred_mean": -0.31397444115115125,
+          "warehouse_side": -1,
+          "live_side_from_pred": -1,
+          "live_side_matches_proxy": true,
+          "abs_diff": 0.15413813807551754,
+          "pred_match": false,
+          "side_match": true
+        },
+        {
+          "bar_ts_ms": 1785938400000,
+          "bar_utc": "2026-08-05T14:00:00+00:00",
+          "live_pred_mean": 0.5200446257965878,
+          "live_side": 1,
+          "skip_reason": null,
+          "snapshot_model_ok": true,
+          "warehouse_pred_mean": -0.17760283971213783,
+          "warehouse_side": -1,
+          "live_side_from_pred": 1,
+          "live_side_matches_proxy": true,
+          "abs_diff": 0.6976474655087257,
+          "pred_match": false,
+          "side_match": false
+        }
+      ],
+      "headline": {
+        "n_decisions": 7,
+        "n_scored": 5,
+        "side_match_rate": 0.6,
+        "pred_exact_rate": 0.0,
+        "snapshot_model_ok_rate": 1.0,
+        "max_abs_pred_diff": 0.6976474655087257
+      },
+      "status": "PARTIAL_TIP_DRIFT"
+    }
+  ],
+  "note": "Diagnostic. Model snapshot exactness is the hard model integrity check. Warehouse tip pred residual can remain after full_history live structure if research indicators lag; tip candes compared shared vs research OHLCV. Do not retune knobs from fleet partials."
+}

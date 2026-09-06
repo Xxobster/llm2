@@ -64,12 +64,24 @@ Walk-forward, train/test splits and feature building stay in the strategy / rese
 | Entry | Fill at the **next candle’s open** after `decision_ts_ms`, with **entry slippage**, **taker** fee. |
 | Take-profit | **Limit** order. When price **touches** the TP level → fill **exactly at the TP price**. **No exit slippage.** |
 | Stop-loss | **Limit** order. When price **touches** the SL level → fill **exactly at the SL price**. **No exit slippage.** |
-| Fees | **Taker** rate on every fill by default (Bybit non-VIP **0.055%** = `0.00055`), so research is not cheaper than live. Entry is a market-style fill; TP/SL are limit *prices* but still charged taker unless a project later freezes proven maker fills. |
+| Fees | **Taker** rate on every fill by default (Bybit non-VIP **0.055%** = `0.00055`) — this is the **stress / feasibility** baseline. **Live product default is maker-first:** Post-Only entry, resting limit take-profit, resting limit stop; charge maker **0.02%** = `0.0002` on legs that rest. Taker only when there is no choice (Post-Only cancelled, gap-through flatten, max-hold, liquidation). A crossing limit is taker, not maker. |
 | Sizing | **Smallest exchange-legal quantity** (`SizingMode.MIN_EXCHANGE`) unless `Signal.qty` is set |
 | Starting funds | **100 USDT**; if equity hits ≤ 0 → **WALLET BLOWN**, trading stops, timestamp recorded |
 | Funding | Actual historical funding rates at each settlement while the position is open (not a flat average). |
 | Same candle hits both TP and SL | Resolve on a **lower timeframe**. If both still hit on one lower bar → **SL wins**. |
-| Entry bar | SL and TP are active from the fill instant on that same bar. **No free bar of immunity.** |
+| Entry bar | SL and TP are active from the **fill instant** on that same bar. **No free bar of immunity.** |
+| **Limit / Post-Only entry (`EXEC-021`)** | Decision timeframe **places** the rest. Walk **1-minute** from the start of the fillable bar. **Fill = first 1-minute that touches the limit, at the limit price** (not the 4-hour/1-hour open). Take-profit and stop arm **only after that 1-minute fill**. If 1-minute prints take-profit 103 before buy limit 98: **not a fill, not a win**. After 98, 103 must print again. |
+
+### 3.0 Limit-entry 1-minute movie (mandatory)
+
+This is the same rule as `TRADING_BOT_RESEARCH_STANDARD_V2.md` §9.6.1. Repeat here because this file is the engine contract.
+
+1. Any decision timeframe (15-minute, 1-hour, 4-hour, …) may emit the limit.
+2. A decision-bar high/low that *eventually* includes the limit only means “a fill can exist in this bar.” It does **not** put you in at that bar’s **open**.
+3. Walk 1-minute bars from minute 0 of that bar to **find the fill**, then continue the same 1-minute walk for take-profit/stop **after** the fill.
+4. Worked example: buy limit 98, take-profit 103, stop 95, 4-hour open 100. Path 100 → 103 → 98. At 103 you are **not** in. Fill is 98. Then need take-profit/stop after 98.
+
+An engine that books the 103 in that example is **illegal**. Do not quote its profit factor.
 
 ### Entry slippage only
 
@@ -78,7 +90,7 @@ Walk-forward, train/test splits and feature building stay in the strategy / rese
 
 ### Gaps and limit TP/SL
 
-If a bar opens beyond the TP or SL level, the engine still assumes the resting limit **fills at the limit price** (your policy: small size, orders fill). That is optimistic versus a stop-market, and is intentional under this contract.
+If a bar opens beyond the TP or SL level, the engine still assumes the resting limit **fills at the limit price** (your policy: small size, orders fill). That is optimistic versus a stop-market. Live maker-first must flatten at market on the next heartbeat if mark is through the stop and the limit did not fill.
 
 ---
 
@@ -88,10 +100,10 @@ When the decision candle’s high/low contains **both** TP and SL, the engine wa
 
 | Decision timeframe | Preferred touch timeframe |
 |---|---|
-| 4h / 1d | 15m, else 5m, else 1m |
-| 1h | 5m, else 1m |
-| 15m | 1m |
-| 5m | 1m |
+| 4h / 1d | **1m** (required for `EXEC-021` limit chronology) |
+| 1h | **1m** |
+| 15m | **1m** |
+| 5m | **1m** |
 | 1m | none → SL first if both touched |
 
 If touch data does not fully cover that decision bar → fall back to **SL first**.
@@ -250,18 +262,34 @@ Absolute USDT PnL is recorded but secondary — with min size it is small by des
 
 ## 6. Mental model (one trade)
 
+**Market next-open (stress / default when the live order is market):**
+
 ```text
 1h candle closes at T → strategy emits:
    long, qty=0.01, stop=95, target=110
 
 Engine:
   fill entry at open of next 1h bar ± entry slip, taker fee
-  from that bar onward (including that bar):
-      walk 5m/1m if available to see whether 95 or 110 was touched first
-      if both on same lower bar → stop at 95 (limit, no slip)
+  from that fill onward (including the rest of that bar):
+      walk 1m to see whether 95 or 110 was touched first
+      if both on same 1m bar → stop at 95 (limit, no slip)
       if only target → exit at 110 (limit, no slip)
   while open: apply each historical funding settlement
-  on exit: taker fee on the exit fill (no TP/SL slip)
+  on exit: fee on the exit fill (no TP/SL slip for resting limits)
+```
+
+**Resting limit / Post-Only (`EXEC-021`) — this is the live product default:**
+
+```text
+4h (or 1h / 15m) candle closes → strategy rests a buy limit at 98
+   take-profit 103, stop 95
+
+Engine:
+  walk 1m from the open of the next 4h bar
+  first 1m whose low <= 98 → FILL AT 98 (not at the 4h open)
+  ignore any 1m that printed 103 or 95 BEFORE that fill (you were not in)
+  AFTER the fill, walk remaining 1m for 103 then 95
+  same 4h candle after a real fill is allowed
 ```
 
 ---
@@ -270,6 +298,7 @@ Engine:
 
 - Fill the entry at the signal candle’s close  
 - Start SL/TP checks only on the bar **after** entry  
+- **Treat a resting-limit fill as the decision-bar open, or fire take-profit/stop on 1-minute bars before the 1-minute path has touched the limit (`EXEC-021`)**  
 - Assume TP always wins when both levels sit in one candle  
 - Ignore funding on perpetuals when a history series exists  
 - Quote full-history optimised results as if they were walk-forward out-of-sample  

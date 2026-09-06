@@ -1,0 +1,23 @@
+{
+  "artifact_dir": "D:\\projects\\LLM2\\artifacts\\evidence\\four_proof\\pivot_autonomy_gen376_sol_sma540_below_h4_SOLUSDT_15m_20260825T140607Z",
+  "artifact_hashes": {
+    "builder_responsiveness": "4951e15a49159ef78ab43b9571dbdee57b61ee3eb16b34dca128c17aed47596b",
+    "layer_a_pred_identity": "f0091e06cb91714cad9b918ec64de10400fac6cc97893fabe2ed7960c2b1ff3c",
+    "no_live_feature_fill": "36e4f0d59e810e84c431b74e3fc5fc39516345d79a12e1235d2af2d2215f8b57",
+    "recompute_prefix": "d46286c4cca5127dc6b198f52983537e33bb14c168f8f9d4376dcffca1d020f7"
+  },
+  "ok": true,
+  "pack_dir": "D:\\projects\\LLM2\\artifacts\\live_packs\\autonomy_gen376_sol_sma540_below_h4",
+  "proofs_ok": {
+    "builder_responsiveness": true,
+    "layer_a_pred_identity": true,
+    "no_live_feature_fill": true,
+    "recompute_prefix": true
+  },
+  "rule": "PIVOT_FOUR_PROOF_V1",
+  "space": "pivot:level_vsa",
+  "stamp": "20260825T140607Z",
+  "summary_sha256": "6a68e34514fc968021111c8b0a2b5f1ac545579e289284a55aaf34eee63beb59",
+  "symbol": "SOLUSDT",
+  "timeframe": "15m"
+}

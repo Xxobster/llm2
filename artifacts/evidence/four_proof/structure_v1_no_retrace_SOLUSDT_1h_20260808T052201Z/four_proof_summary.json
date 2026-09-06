@@ -1,0 +1,23 @@
+{
+  "artifact_dir": "D:\\projects\\LLM2\\artifacts\\evidence\\four_proof\\structure_v1_no_retrace_SOLUSDT_1h_20260808T052201Z",
+  "artifact_hashes": {
+    "builder_responsiveness": "488aaa187e9dfd9c2f140a07b58e595e7f527c265b1e67c7dad963b67df95243",
+    "layer_a_pred_identity": "e9a9dab8830569fe750863d712f40b1f8b491252c463464febb44046b5670b00",
+    "no_live_feature_fill": "19e467820bb38cf07e322d5f9cd992836b8a33d15db59c56184403b9d6f6c14f",
+    "recompute_prefix": "f373bfac79239c83e4795c7c8cf467e305173de65988b43e8831cd2d7600a8ee"
+  },
+  "note": "Warehouse-backed spaces may not treat a lone shared leakage PASS as evidence.",
+  "ok": true,
+  "proofs_ok": {
+    "builder_responsiveness": true,
+    "layer_a_pred_identity": true,
+    "no_live_feature_fill": true,
+    "recompute_prefix": true
+  },
+  "rule": "FOUR_PROOF_GATE_V1",
+  "space": "structure_v1_no_retrace",
+  "stamp": "20260808T052201Z",
+  "summary_sha256": "9f0ceac42c075863484924b18a3ac7d7b2926f086b5ed65c6dc4ef90f76ab812",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h"
+}

@@ -1,0 +1,136 @@
+{
+  "promotion_blocked": true,
+  "source": "offline_template_after_controller_stub",
+  "primary_control": {
+    "version_id": "eth_multitrade_v1_1",
+    "symbol": "ETHUSDT",
+    "pain_score": 132.84801993181222,
+    "max_loss_streak": 17,
+    "n_loss_streaks_ge_n": 229,
+    "n_trades": 15252,
+    "geometry": {
+      "version_id": "eth_multitrade_v1_1",
+      "symbol": "ETHUSDT",
+      "target": "direction",
+      "mode": "multitrade_fib",
+      "min_edge": 0.1,
+      "hold": 6,
+      "hold_addon": 12,
+      "tp": 0.01,
+      "sl": 0.02,
+      "k": 7,
+      "clarity": "mean_strength",
+      "clarity_scope": "addon",
+      "fib_ext": 1.618,
+      "strength_quantile": 0.5,
+      "size_double_within_bars": 0,
+      "uniform_books": false,
+      "mean_lookback": 168
+    }
+  },
+  "geometry_hint": {
+    "version_id": "eth_multitrade_v1_1",
+    "symbol": "ETHUSDT",
+    "target": "direction",
+    "mode": "multitrade_fib",
+    "min_edge": 0.1,
+    "hold": 6,
+    "hold_addon": 12,
+    "tp": 0.01,
+    "sl": 0.02,
+    "k": 7,
+    "clarity": "mean_strength",
+    "clarity_scope": "addon",
+    "fib_ext": 1.618,
+    "strength_quantile": 0.5,
+    "size_double_within_bars": 0,
+    "uniform_books": false,
+    "mean_lookback": 168
+  },
+  "proposals": [
+    {
+      "id": 1,
+      "type": "execution_gate",
+      "name": "loss_streak_cooloff_3",
+      "control_version_id": "eth_multitrade_v1_1",
+      "candidate_knobs": {
+        "cooloff_after_consecutive_losses": 3,
+        "cooloff_scope": "all_sides_pooled"
+      },
+      "rationale": "Pause new entries after 3 closed consecutive losses (causal: only trades with exit before decision). Cuts churn during loss runs that hurt eth_multitrade_v1_1.",
+      "economic": "Avoid stacking books while the model is in a temporary failure mode.",
+      "forbidden": [
+        "tune N on outer OOS",
+        "use lockbox",
+        "size up after wins"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "execution_gate",
+      "name": "strength_quantile_p75",
+      "control_version_id": "eth_multitrade_v1_1",
+      "candidate_knobs": {
+        "strength_quantile": 0.75
+      },
+      "rationale": "Raise mean_strength threshold to 75th percentile of lookback |mean|; prior p75 transfer on ETH K5 increased expectancy_return_units.",
+      "economic": "Trade only higher-conviction signals to raise edge per unit.",
+      "forbidden": [
+        "combine with cooloff in same generation"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "execution_gate",
+      "name": "skip_high_vol_low_strength",
+      "control_version_id": "eth_multitrade_v1_1",
+      "candidate_knobs": {
+        "skip_vol_tercile": "high",
+        "require_strength_tercile": [
+          "mid",
+          "high"
+        ]
+      },
+      "rationale": "Shared elevated buckets often pair high vol with weak signal; shared_examples=['str=mid|vol=low|side=-1|book=1|ex=max_hold|ww1=True', 'str=low|vol=low|side=-1|book=1|ex=max_hold|ww1=True'].",
+      "economic": "Avoid noisy high-vol entries with low absolute model score.",
+      "forbidden": [
+        "fit vol cutoffs on outer OOS"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "execution_gate",
+      "name": "book1_extra_strength",
+      "control_version_id": "eth_multitrade_v1_1",
+      "candidate_knobs": {
+        "clarity_scope": "all",
+        "book1_strength_quantile": 0.75,
+        "addon_strength_quantile": 0.5
+      },
+      "rationale": "Historically book1 is noisier; require stronger |mean| only on primary.",
+      "economic": "Improve first-entry quality without starving add-ons.",
+      "forbidden": [
+        "grid many quantiles on outer"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "feature_retrain_later",
+      "name": "causal_recent_hit_rate_feature",
+      "control_version_id": "eth_multitrade_v1_1",
+      "candidate_knobs": {
+        "new_feature": "recent_hit_rate_10",
+        "fit_window": "train_only"
+      },
+      "rationale": "Only if gate arms fail: add causal rolling hit-rate of prior closed trades as a LightGBM feature (train-fold fit only).",
+      "economic": "Let the model learn temporary cold spells without OOS labels.",
+      "forbidden": [
+        "label future losses",
+        "weight by outer-fold outcomes"
+      ]
+    }
+  ],
+  "note": "LLM analyst template. Does not retrain Live packs. Pick ONE arm, preregister, outer transfer settle only.",
+  "controller_note": "[stub] Acknowledged under RESEARCH_ONLY \u2014 LLM output cannot change frozen params, relax gates, or enable live trading. Promotion requires frozen eval suite + human authorization. retrieved=0 verified=0.",
+  "interaction_id": "0a03a5e4-9e75-49ac-b3b9-17dd7f351c05"
+}

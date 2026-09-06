@@ -1,0 +1,506 @@
+{
+  "xgb": {
+    "scripts": [
+      "/home/xgb/scripts/_dump_eth_feature_row.py",
+      "/home/xgb/scripts/_export_live_trades.py",
+      "/home/xgb/scripts/_probe_boosters.py",
+      "/home/xgb/scripts/analyze_tune_db.py",
+      "/home/xgb/scripts/apply_wf_live_params.py",
+      "/home/xgb/scripts/gen_coin_settings.py",
+      "/home/xgb/scripts/local_multi_coin_optimize.py",
+      "/home/xgb/scripts/local_strategy_pipeline.py",
+      "/home/xgb/scripts/local_walk_forward.py",
+      "/home/xgb/scripts/pull_from_vps.py",
+      "/home/xgb/scripts/refresh_cross_pair_macro_panel.py",
+      "/home/xgb/scripts/vps_apply_strategy_winners.py",
+      "/home/xgb/scripts/vps_apply_thresholds.py",
+      "/home/xgb/scripts/vps_autonomous_loop.py",
+      "/home/xgb/scripts/vps_cleanup_training.py",
+      "/home/xgb/scripts/vps_diag_bktest.py",
+      "/home/xgb/scripts/vps_fetch_pnl.py",
+      "/home/xgb/scripts/vps_fetch_position_pnl.py",
+      "/home/xgb/scripts/vps_mine_tune_db.py",
+      "/home/xgb/scripts/vps_orchestrate_retrain.py",
+      "/home/xgb/scripts/vps_print_settings_params.py",
+      "/home/xgb/scripts/vps_query_tune.py",
+      "/home/xgb/scripts/vps_rebuild_eth_indicators.py",
+      "/home/xgb/scripts/vps_remote.py",
+      "/home/xgb/scripts/vps_retrain_models.py",
+      "/home/xgb/scripts/vps_retrain_validate_one_asset.py",
+      "/home/xgb/scripts/vps_run_asset_live.py",
+      "/home/xgb/scripts/vps_run_btc_live.py",
+      "/home/xgb/scripts/vps_run_eth_live.py",
+      "/home/xgb/scripts/vps_run_tune_train_validate.py",
+      "/home/xgb/scripts/vps_strategy_search.py",
+      "/home/xgb/scripts/vps_wait_ssh_then_retrain.py"
+    ],
+    "logs": [
+      "/home/xgb/log/adausdt/error.log",
+      "/home/xgb/log/adausdt/restart.log",
+      "/home/xgb/log/adausdt/trading.log",
+      "/home/xgb/log/bnbusdt/error.log",
+      "/home/xgb/log/bnbusdt/restart.log",
+      "/home/xgb/log/bnbusdt/trading.log",
+      "/home/xgb/log/btcusdt/error.log",
+      "/home/xgb/log/btcusdt/restart.log",
+      "/home/xgb/log/btcusdt/trading.log",
+      "/home/xgb/log/btcusdt7/error.log",
+      "/home/xgb/log/btcusdt7/restart.log",
+      "/home/xgb/log/btcusdt7/trading.log",
+      "/home/xgb/log/btcusdt8/error.log",
+      "/home/xgb/log/btcusdt8/restart.log",
+      "/home/xgb/log/btcusdt8/trading.log",
+      "/home/xgb/log/dogeusdt/error.log",
+      "/home/xgb/log/dogeusdt/restart.log",
+      "/home/xgb/log/dogeusdt/trading.log",
+      "/home/xgb/log/error.log",
+      "/home/xgb/log/ethusdt/error.log",
+      "/home/xgb/log/ethusdt/restart.log",
+      "/home/xgb/log/ethusdt/trading.log",
+      "/home/xgb/log/ethusdt7/error.log",
+      "/home/xgb/log/ethusdt7/restart.log",
+      "/home/xgb/log/ethusdt7/trading.log",
+      "/home/xgb/log/ethusdt8/error.log",
+      "/home/xgb/log/ethusdt8/restart.log",
+      "/home/xgb/log/ethusdt8/trading.log",
+      "/home/xgb/log/reboot_start.log",
+      "/home/xgb/log/solusdt/error.log",
+      "/home/xgb/log/solusdt/restart.log",
+      "/home/xgb/log/solusdt/trading.log",
+      "/home/xgb/log/trading.log",
+      "/home/xgb/log/trxusdt/error.log",
+      "/home/xgb/log/trxusdt/restart.log",
+      "/home/xgb/log/trxusdt/trading.log",
+      "/home/xgb/log/vetusdt/error.log",
+      "/home/xgb/log/vetusdt/restart.log",
+      "/home/xgb/log/vetusdt/trading.log",
+      "/home/xgb/log/xlmusdt/error.log"
+    ],
+    "btcusdt": [
+      "/home/xgb/log/btcusdt/error.log",
+      "/home/xgb/log/btcusdt/restart.log",
+      "/home/xgb/log/btcusdt/trading.log"
+    ],
+    "btcusdt_tail_error.log": [
+      "  File \"/usr/local/lib/python3.10/dist-packages/pybit/_http_manager.py\", line 241, in _submit_request",
+      "    response = self.client.send(request, timeout=self.timeout)",
+      "  File \"/usr/local/lib/python3.10/dist-packages/requests/sessions.py\", line 703, in send",
+      "    r = adapter.send(request, **kwargs)",
+      "  File \"/usr/local/lib/python3.10/dist-packages/requests/adapters.py\", line 517, in send",
+      "    raise SSLError(e, request=request)",
+      "requests.exceptions.SSLError: HTTPSConnectionPool(host='api.bybit.com', port=443): Max retries exceeded with url: /v5/position/list?category=linear&symbol=BTCUSDT (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))",
+      "2026-08-12 21:06:27,516 [INFO] Appended 1 new candle(s) to persistent DB",
+      "2026-08-12 21:06:30,099 [INFO] Refreshing candles from 2026-08-10 (today - 2 days) ...",
+      "2026-08-12 21:09:05,256 [INFO] Fetched 63 fresh candle(s) from Binance for indicators",
+      "2026-08-12 21:09:27,841 [INFO] Dropped 1 incomplete candle(s) from live OHLCV (score completed bar only)",
+      "2026-08-12 21:25:03,619 [INFO] Prediction at 2026-08-12 13:00:00: close=63840.00 P(UP)=23.13% P(DOWN)=43.25% P(FLAT)=33.62% (2% in 24h)",
+      "2026-08-12 21:25:03,622 [INFO] CYCLE_TIMING symbol=btcusdt indicator_max_bars=5548 calc_indicators_s=935.39 fetch_fresh_s=157.74 predict_model_infer_s=0.01 predict_s=0.38 predict_total_s=0.37 purge_incomplete_s=22.54 time_exit_s=179.98 total_s=1498.36 update_candles_s=202.27",
+      "2026-08-12 21:25:04,304 [INFO] Binance server time 2026-08-12 14:25:04.170000; sleeping 2095.8s until next candle close.",
+      "2026-08-12 22:00:00,225 [INFO] Waiting 5s for Binance candle close price to settle...",
+      "2026-08-12 22:08:56,438 [INFO] Appended 1 new candle(s) to persistent DB",
+      "2026-08-12 22:12:10,674 [INFO] Refreshing candles from 2026-08-10 (today - 2 days) ...",
+      "2026-08-12 22:14:19,076 [INFO] Fetched 64 fresh candle(s) from Binance for indicators",
+      "2026-08-12 22:14:19,394 [INFO] Dropped 1 incomplete candle(s) from live OHLCV (score completed bar only)",
+      "2026-08-12 22:29:07,301 [INFO] Prediction at 2026-08-12 14:00:00: close=63363.39 P(UP)=28.15% P(DOWN)=37.72% P(FLAT)=34.14% (2% in 24h)",
+      "2026-08-12 22:29:07,303 [INFO] CYCLE_TIMING symbol=btcusdt indicator_max_bars=5548 calc_indicators_s=887.56 fetch_fresh_s=277.54 predict_model_infer_s=0.03 predict_s=0.35 predict_total_s=0.35 purge_incomplete_s=0.32 time_exit_s=0.65 total_s=1742.06 update_candles_s=530.55",
+      "2026-08-12 22:29:07,672 [INFO] Binance server time 2026-08-12 15:29:07.550000; sleeping 1852.5s until next candle close.",
+      "2026-08-12 23:00:00,240 [INFO] Waiting 5s for Binance candle close price to settle...",
+      "2026-08-12 23:09:53,539 [INFO] Appended 1 new candle(s) to persistent DB",
+      "2026-08-12 23:10:23,585 [INFO] Refreshing candles from 2026-08-10 (today - 2 days) ...",
+      "2026-08-12 23:12:05,000 [INFO] Fetched 65 fresh candle(s) from Binance for indicators",
+      "2026-08-12 23:12:28,623 [INFO] Dropped 1 incomplete candle(s) from live OHLCV (score completed bar only)",
+      "2026-08-12 23:38:04,448 [INFO] Prediction at 2026-08-12 15:00:00: close=63441.47 P(UP)=29.26% P(DOWN)=36.92% P(FLAT)=33.82% (2% in 24h)",
+      "2026-08-12 23:38:04,453 [INFO] CYCLE_TIMING symbol=btcusdt indicator_max_bars=5548 calc_indicators_s=1481.34 fetch_fresh_s=131.46 predict_model_infer_s=9.55 predict_s=54.48 predict_total_s=54.48 purge_incomplete_s=23.63 time_exit_s=0.47 total_s=2261.04 update_candles_s=569.66",
+      "2026-08-12 23:38:09,738 [INFO] Binance server time 2026-08-12 16:38:09.614000; sleeping 1310.4s until next candle close."
+    ],
+    "btcusdt_tail_restart.log": [
+      "Total feature columns: 319 (derived:22, dynamic:91, wave:10, liq:15, qho:1, extra:60, vsa:40, htf:17, funding:3, time:6, pivots_vwap:24, fib_ob:30)",
+      "Final data saved in `/home/xgb/database/ind/btcusdt_1h_indicators.db` (5548 live/window rows).",
+      "2026-08-12 21:25:03,621 PREDICTION ts=2026-08-12 13:00:00 close=63840.00 prob_up=23.13% prob_down=43.25% prob_flat=33.62% th_long=99.00 th_short=99.00",
+      "2026-08-12 21:25:03,622 No trade: first-touch EV flat (P_up=23.13% P_down=43.25% P_nt=33.62% evL=-0.00674 evS=-0.00070)",
+      "/usr/local/lib/python3.10/dist-packages/sklearn/base.py:442: InconsistentVersionWarning: Trying to unpickle estimator StandardScaler from version 1.9.0 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:",
+      "https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations",
+      "  warnings.warn(",
+      "  FEATURE_PACKS: ['core', 'extra_ta', 'fib_ob', 'funding', 'htf', 'liq', 'pivots_vwap', 'qho', 'time', 'vsa', 'wave']",
+      "  LIVE/max_bars: using last 5548 of 78651 OHLCV rows",
+      "Calculated 91 indicators dynamically.",
+      "Calculated 60 extra TA indicators.",
+      "Calculated 40 VSA indicators.",
+      "Calculated funding rate indicators.",
+      "Total feature columns: 319 (derived:22, dynamic:91, wave:10, liq:15, qho:1, extra:60, vsa:40, htf:17, funding:3, time:6, pivots_vwap:24, fib_ob:30)",
+      "Final data saved in `/home/xgb/database/ind/btcusdt_1h_indicators.db` (5548 live/window rows).",
+      "2026-08-12 22:29:07,302 PREDICTION ts=2026-08-12 14:00:00 close=63363.39 prob_up=28.15% prob_down=37.72% prob_flat=34.14% th_long=99.00 th_short=99.00",
+      "2026-08-12 22:29:07,303 No trade: first-touch EV flat (P_up=28.15% P_down=37.72% P_nt=34.14% evL=-0.00513 evS=-0.00226)",
+      "/usr/local/lib/python3.10/dist-packages/sklearn/base.py:442: InconsistentVersionWarning: Trying to unpickle estimator StandardScaler from version 1.9.0 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:",
+      "https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations",
+      "  warnings.warn(",
+      "  FEATURE_PACKS: ['core', 'extra_ta', 'fib_ob', 'funding', 'htf', 'liq', 'pivots_vwap', 'qho', 'time', 'vsa', 'wave']",
+      "  LIVE/max_bars: using last 5548 of 78652 OHLCV rows",
+      "Calculated 91 indicators dynamically.",
+      "Calculated 60 extra TA indicators.",
+      "Calculated 40 VSA indicators.",
+      "Calculated funding rate indicators.",
+      "Total feature columns: 319 (derived:22, dynamic:91, wave:10, liq:15, qho:1, extra:60, vsa:40, htf:17, funding:3, time:6, pivots_vwap:24, fib_ob:30)",
+      "Final data saved in `/home/xgb/database/ind/btcusdt_1h_indicators.db` (5548 live/window rows).",
+      "2026-08-12 23:38:04,452 PREDICTION ts=2026-08-12 15:00:00 close=63441.47 prob_up=29.26% prob_down=36.92% prob_flat=33.82% th_long=99.00 th_short=99.00",
+      "2026-08-12 23:38:04,454 No trade: first-touch EV flat (P_up=29.26% P_down=36.92% P_nt=33.82% evL=-0.00486 evS=-0.00256)"
+    ],
+    "btcusdt_tail_trading.log": [
+      "2026-08-12 09:02:27,457 PREDICTION ts=2026-08-12 01:00:00 close=63813.80 prob_up=23.93% prob_down=42.79% prob_flat=33.28% th_long=99.00 th_short=99.00",
+      "2026-08-12 09:02:27,458 No trade: first-touch EV flat (P_up=23.93% P_down=42.79% P_nt=33.28% evL=-0.00656 evS=-0.00091)",
+      "2026-08-12 10:02:17,562 PREDICTION ts=2026-08-12 02:00:00 close=63749.76 prob_up=26.90% prob_down=39.29% prob_flat=33.81% th_long=99.00 th_short=99.00",
+      "2026-08-12 10:02:17,562 No trade: first-touch EV flat (P_up=26.90% P_down=39.29% P_nt=33.81% evL=-0.00557 evS=-0.00185)",
+      "2026-08-12 11:03:05,380 PREDICTION ts=2026-08-12 03:00:00 close=63835.59 prob_up=28.14% prob_down=37.06% prob_flat=34.80% th_long=99.00 th_short=99.00",
+      "2026-08-12 11:03:05,381 No trade: first-touch EV flat (P_up=28.14% P_down=37.06% P_nt=34.80% evL=-0.00500 evS=-0.00232)",
+      "2026-08-12 12:02:31,020 PREDICTION ts=2026-08-12 04:00:00 close=63769.58 prob_up=28.63% prob_down=37.83% prob_flat=33.54% th_long=99.00 th_short=99.00",
+      "2026-08-12 12:02:31,020 No trade: first-touch EV flat (P_up=28.63% P_down=37.83% P_nt=33.54% evL=-0.00510 evS=-0.00234)",
+      "2026-08-12 13:03:33,803 PREDICTION ts=2026-08-12 05:00:00 close=63849.94 prob_up=26.40% prob_down=38.69% prob_flat=34.91% th_long=99.00 th_short=99.00",
+      "2026-08-12 13:03:33,816 No trade: first-touch EV flat (P_up=26.40% P_down=38.69% P_nt=34.91% evL=-0.00550 evS=-0.00181)",
+      "2026-08-12 14:01:40,506 PREDICTION ts=2026-08-12 06:00:00 close=63711.97 prob_up=26.69% prob_down=39.39% prob_flat=33.92% th_long=99.00 th_short=99.00",
+      "2026-08-12 14:01:40,507 No trade: first-touch EV flat (P_up=26.69% P_down=39.39% P_nt=33.92% evL=-0.00561 evS=-0.00180)",
+      "2026-08-12 15:01:53,011 PREDICTION ts=2026-08-12 07:00:00 close=63837.99 prob_up=22.90% prob_down=43.77% prob_flat=33.33% th_long=99.00 th_short=99.00",
+      "2026-08-12 15:01:53,011 No trade: first-touch EV flat (P_up=22.90% P_down=43.77% P_nt=33.33% evL=-0.00686 evS=-0.00060)",
+      "2026-08-12 16:03:31,556 PREDICTION ts=2026-08-12 08:00:00 close=63794.94 prob_up=24.78% prob_down=41.99% prob_flat=33.24% th_long=99.00 th_short=99.00",
+      "2026-08-12 16:03:31,556 No trade: first-touch EV flat (P_up=24.78% P_down=41.99% P_nt=33.24% evL=-0.00632 evS=-0.00116)",
+      "2026-08-12 17:02:45,965 PREDICTION ts=2026-08-12 09:00:00 close=64108.81 prob_up=19.66% prob_down=47.69% prob_flat=32.65% th_long=99.00 th_short=99.00",
+      "2026-08-12 17:02:45,965 No trade: first-touch EV flat (P_up=19.66% P_down=47.69% P_nt=32.65% evL=-0.00797 evS=0.00044)",
+      "2026-08-12 18:03:03,493 PREDICTION ts=2026-08-12 10:00:00 close=64143.36 prob_up=37.48% prob_down=28.96% prob_flat=33.56% th_long=99.00 th_short=99.00",
+      "2026-08-12 18:03:03,493 No trade: first-touch EV flat (P_up=37.48% P_down=28.96% P_nt=33.56% evL=-0.00244 evS=-0.00500)",
+      "2026-08-12 19:03:40,927 PREDICTION ts=2026-08-12 11:00:00 close=64240.04 prob_up=19.58% prob_down=47.71% prob_flat=32.71% th_long=99.00 th_short=99.00",
+      "2026-08-12 19:03:40,936 No trade: first-touch EV flat (P_up=19.58% P_down=47.71% P_nt=32.71% evL=-0.00798 evS=0.00045)",
+      "2026-08-12 20:02:11,640 PREDICTION ts=2026-08-12 12:00:00 close=64119.71 prob_up=19.65% prob_down=48.06% prob_flat=32.29% th_long=99.00 th_short=99.00",
+      "2026-08-12 20:02:11,640 No trade: first-touch EV flat (P_up=19.65% P_down=48.06% P_nt=32.29% evL=-0.00805 evS=0.00048)",
+      "2026-08-12 21:25:03,621 PREDICTION ts=2026-08-12 13:00:00 close=63840.00 prob_up=23.13% prob_down=43.25% prob_flat=33.62% th_long=99.00 th_short=99.00",
+      "2026-08-12 21:25:03,622 No trade: first-touch EV flat (P_up=23.13% P_down=43.25% P_nt=33.62% evL=-0.00674 evS=-0.00070)",
+      "2026-08-12 22:29:07,302 PREDICTION ts=2026-08-12 14:00:00 close=63363.39 prob_up=28.15% prob_down=37.72% prob_flat=34.14% th_long=99.00 th_short=99.00",
+      "2026-08-12 22:29:07,303 No trade: first-touch EV flat (P_up=28.15% P_down=37.72% P_nt=34.14% evL=-0.00513 evS=-0.00226)",
+      "2026-08-12 23:38:04,452 PREDICTION ts=2026-08-12 15:00:00 close=63441.47 prob_up=29.26% prob_down=36.92% prob_flat=33.82% th_long=99.00 th_short=99.00",
+      "2026-08-12 23:38:04,454 No trade: first-touch EV flat (P_up=29.26% P_down=36.92% P_nt=33.82% evL=-0.00486 evS=-0.00256)"
+    ],
+    "ethusdt": [
+      "/home/xgb/log/ethusdt/error.log",
+      "/home/xgb/log/ethusdt/restart.log",
+      "/home/xgb/log/ethusdt/trading.log"
+    ],
+    "ethusdt_tail_error.log": [
+      "  File \"/usr/local/lib/python3.10/dist-packages/requests/sessions.py\", line 703, in send",
+      "    r = adapter.send(request, **kwargs)",
+      "  File \"/usr/local/lib/python3.10/dist-packages/requests/adapters.py\", line 517, in send",
+      "    raise SSLError(e, request=request)",
+      "requests.exceptions.SSLError: HTTPSConnectionPool(host='api.bybit.com', port=443): Max retries exceeded with url: /v5/position/list?category=linear&symbol=ETHUSDT (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))",
+      "2026-08-12 21:06:27,316 [INFO] Appended 1 new candle(s) to persistent DB",
+      "2026-08-12 21:06:27,630 [INFO] Refreshing candles from 2026-08-10 (today - 2 days) ...",
+      "2026-08-12 21:08:19,260 [INFO] Fetched 63 fresh candle(s) from Binance for indicators",
+      "2026-08-12 21:09:14,196 [INFO] Dropped 1 incomplete candle(s) from live OHLCV (score completed bar only)",
+      "2026-08-12 21:23:07,879 [INFO] Prediction at 2026-08-12 13:00:00: close=1901.32 P(UP)=2.46% P(DOWN)=0.54% P(FLAT)=97.00% (2% in 24h)",
+      "2026-08-12 21:23:07,882 [INFO] CYCLE_TIMING symbol=ethusdt indicator_max_bars=600 calc_indicators_s=821.43 fetch_fresh_s=111.94 predict_model_infer_s=0.04 predict_s=12.25 predict_total_s=12.25 purge_incomplete_s=53.14 time_exit_s=179.98 total_s=1382.61 update_candles_s=202.06",
+      "2026-08-12 21:23:08,444 [INFO] Binance server time 2026-08-12 14:23:08.287000; sleeping 2211.7s until next candle close.",
+      "2026-08-12 22:00:29,247 [INFO] Waiting 5s for Binance candle close price to settle...",
+      "2026-08-12 22:01:08,640 [INFO] time_exit hold ok: symbol=ethusdt side=Buy size=0.01 age_bars\u22482.97 max_hold=18",
+      "2026-08-12 22:07:25,085 [INFO] Appended 1 new candle(s) to persistent DB",
+      "2026-08-12 22:13:16,560 [INFO] Refreshing candles from 2026-08-10 (today - 2 days) ...",
+      "2026-08-12 22:14:18,977 [INFO] Fetched 64 fresh candle(s) from Binance for indicators",
+      "2026-08-12 22:14:19,314 [INFO] Dropped 1 incomplete candle(s) from live OHLCV (score completed bar only)",
+      "2026-08-12 22:28:54,948 [INFO] Prediction at 2026-08-12 14:00:00: close=1887.79 P(UP)=0.12% P(DOWN)=7.12% P(FLAT)=92.77% (2% in 24h)",
+      "2026-08-12 22:28:54,959 [INFO] CYCLE_TIMING symbol=ethusdt indicator_max_bars=600 calc_indicators_s=873.49 fetch_fresh_s=413.80 predict_model_infer_s=0.09 predict_s=2.14 predict_total_s=2.11 purge_incomplete_s=0.34 time_exit_s=12.82 total_s=1679.13 update_candles_s=376.44",
+      "2026-08-12 22:28:55,477 [INFO] Binance server time 2026-08-12 15:28:55.355000; sleeping 1864.6s until next candle close.",
+      "2026-08-12 23:00:00,232 [INFO] Waiting 5s for Binance candle close price to settle...",
+      "2026-08-12 23:00:52,581 [INFO] time_exit hold ok: symbol=ethusdt side=Buy size=0.01 age_bars\u22483.96 max_hold=18",
+      "2026-08-12 23:06:38,134 [INFO] Appended 1 new candle(s) to persistent DB",
+      "2026-08-12 23:06:38,621 [INFO] Refreshing candles from 2026-08-10 (today - 2 days) ...",
+      "2026-08-12 23:11:45,982 [INFO] Fetched 65 fresh candle(s) from Binance for indicators",
+      "2026-08-12 23:11:58,826 [INFO] Dropped 1 incomplete candle(s) from live OHLCV (score completed bar only)",
+      "2026-08-12 23:18:10,707 [INFO] Prediction at 2026-08-12 15:00:00: close=1892.75 P(UP)=0.28% P(DOWN)=7.12% P(FLAT)=92.61% (2% in 24h)",
+      "2026-08-12 23:18:10,709 [INFO] CYCLE_TIMING symbol=ethusdt indicator_max_bars=600 calc_indicators_s=262.98 fetch_fresh_s=307.84 predict_model_infer_s=0.05 predict_s=108.90 predict_total_s=108.87 purge_incomplete_s=12.84 time_exit_s=29.18 total_s=1067.30 update_candles_s=345.55",
+      "2026-08-12 23:18:11,058 [INFO] Binance server time 2026-08-12 16:18:10.938000; sleeping 2509.1s until next candle close."
+    ],
+    "ethusdt_tail_restart.log": [
+      "  warnings.warn(",
+      "/usr/local/lib/python3.10/dist-packages/sklearn/base.py:442: InconsistentVersionWarning: Trying to unpickle estimator IsotonicRegression from version 1.9.0 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:",
+      "https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations",
+      "  warnings.warn(",
+      "  FEATURE_PACKS: ['core', 'extra_ta', 'fib_ob', 'funding', 'htf', 'liq', 'pivots_vwap', 'qho', 'time', 'vsa', 'wave']",
+      "  LIVE/max_bars: using last 600 of 76733 OHLCV rows",
+      "Calculated 91 indicators dynamically.",
+      "Calculated 60 extra TA indicators.",
+      "Calculated 40 VSA indicators.",
+      "Calculated funding rate indicators.",
+      "Total feature columns: 319 (derived:22, dynamic:91, wave:10, liq:15, qho:1, extra:60, vsa:40, htf:17, funding:3, time:6, pivots_vwap:24, fib_ob:30)",
+      "Final data saved in `/home/xgb/database/ind/ethusdt_1h_indicators.db` (600 live/window rows).",
+      "2026-08-12 22:28:54,949 PREDICTION ts=2026-08-12 14:00:00 close=1887.79 prob_up=0.12% prob_down=7.12% prob_flat=92.77% th_long=99.00 th_short=99.00",
+      "2026-08-12 22:28:54,959 No trade: first-touch EV flat (P_up=0.12% P_down=7.12% P_nt=92.77% evL=-0.00401 evS=-0.00156)",
+      "/usr/local/lib/python3.10/dist-packages/sklearn/base.py:442: InconsistentVersionWarning: Trying to unpickle estimator StandardScaler from version 1.9.0 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:",
+      "https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations",
+      "  warnings.warn(",
+      "/usr/local/lib/python3.10/dist-packages/sklearn/base.py:442: InconsistentVersionWarning: Trying to unpickle estimator IsotonicRegression from version 1.9.0 when using version 1.7.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:",
+      "https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations",
+      "  warnings.warn(",
+      "  FEATURE_PACKS: ['core', 'extra_ta', 'fib_ob', 'funding', 'htf', 'liq', 'pivots_vwap', 'qho', 'time', 'vsa', 'wave']",
+      "  LIVE/max_bars: using last 600 of 76734 OHLCV rows",
+      "Calculated 91 indicators dynamically.",
+      "Calculated 60 extra TA indicators.",
+      "Calculated 40 VSA indicators.",
+      "Calculated funding rate indicators.",
+      "Total feature columns: 319 (derived:22, dynamic:91, wave:10, liq:15, qho:1, extra:60, vsa:40, htf:17, funding:3, time:6, pivots_vwap:24, fib_ob:30)",
+      "Final data saved in `/home/xgb/database/ind/ethusdt_1h_indicators.db` (600 live/window rows).",
+      "2026-08-12 23:18:10,708 PREDICTION ts=2026-08-12 15:00:00 close=1892.75 prob_up=0.28% prob_down=7.12% prob_flat=92.61% th_long=99.00 th_short=99.00",
+      "2026-08-12 23:18:10,709 No trade: first-touch EV flat (P_up=0.28% P_down=7.12% P_nt=92.61% evL=-0.00398 evS=-0.00159)"
+    ],
+    "ethusdt_tail_trading.log": [
+      "2026-08-12 10:01:48,498 PREDICTION ts=2026-08-12 02:00:00 close=1884.47 prob_up=0.92% prob_down=0.85% prob_flat=98.23% th_long=99.00 th_short=99.00",
+      "2026-08-12 10:01:48,498 No trade: first-touch EV flat (P_up=0.92% P_down=0.85% P_nt=98.23% evL=-0.00263 evS=-0.00266)",
+      "2026-08-12 11:02:32,525 PREDICTION ts=2026-08-12 03:00:00 close=1886.62 prob_up=2.45% prob_down=0.83% prob_flat=96.71% th_long=99.00 th_short=99.00",
+      "2026-08-12 11:02:32,525 No trade: first-touch EV flat (P_up=2.45% P_down=0.83% P_nt=96.71% evL=-0.00240 evS=-0.00296)",
+      "2026-08-12 12:02:26,099 PREDICTION ts=2026-08-12 04:00:00 close=1889.42 prob_up=4.65% prob_down=0.53% prob_flat=94.82% th_long=99.00 th_short=99.00",
+      "2026-08-12 12:02:26,104 No trade: first-touch EV flat (P_up=4.65% P_down=0.53% P_nt=94.82% evL=-0.00201 evS=-0.00345)",
+      "2026-08-12 13:02:39,704 PREDICTION ts=2026-08-12 05:00:00 close=1891.71 prob_up=2.46% prob_down=0.54% prob_flat=97.00% th_long=99.00 th_short=99.00",
+      "2026-08-12 13:02:39,704 No trade: first-touch EV flat (P_up=2.46% P_down=0.54% P_nt=97.00% evL=-0.00234 evS=-0.00301)",
+      "2026-08-12 14:02:37,392 PREDICTION ts=2026-08-12 06:00:00 close=1887.73 prob_up=2.45% prob_down=0.83% prob_flat=96.71% th_long=99.00 th_short=99.00",
+      "2026-08-12 14:02:37,393 No trade: first-touch EV flat (P_up=2.45% P_down=0.83% P_nt=96.71% evL=-0.00240 evS=-0.00296)",
+      "2026-08-12 15:02:38,130 PREDICTION ts=2026-08-12 07:00:00 close=1891.69 prob_up=2.46% prob_down=0.54% prob_flat=97.00% th_long=99.00 th_short=99.00",
+      "2026-08-12 15:02:38,131 No trade: first-touch EV flat (P_up=2.46% P_down=0.54% P_nt=97.00% evL=-0.00234 evS=-0.00301)",
+      "2026-08-12 16:02:31,019 PREDICTION ts=2026-08-12 08:00:00 close=1890.95 prob_up=2.46% prob_down=0.54% prob_flat=97.00% th_long=99.00 th_short=99.00",
+      "2026-08-12 16:02:31,019 No trade: first-touch EV flat (P_up=2.46% P_down=0.54% P_nt=97.00% evL=-0.00234 evS=-0.00301)",
+      "2026-08-12 17:02:34,189 PREDICTION ts=2026-08-12 09:00:00 close=1905.84 prob_up=36.33% prob_down=0.05% prob_flat=63.62% th_long=99.00 th_short=99.00",
+      "2026-08-12 17:02:34,189 No trade: first-touch EV flat (P_up=36.33% P_down=0.05% P_nt=63.62% evL=0.00284 evS=-0.00985)",
+      "2026-08-12 18:02:01,149 PREDICTION ts=2026-08-12 10:00:00 close=1909.17 prob_up=29.79% prob_down=0.05% prob_flat=70.16% th_long=99.00 th_short=99.00",
+      "2026-08-12 18:02:01,149 No trade: first-touch EV flat (P_up=29.79% P_down=0.05% P_nt=70.16% evL=0.00186 evS=-0.00855)",
+      "2026-08-12 19:02:44,379 PREDICTION ts=2026-08-12 11:00:00 close=1915.57 prob_up=51.86% prob_down=0.00% prob_flat=48.14% th_long=99.00 th_short=99.00",
+      "2026-08-12 19:02:44,915 Placing order: side=Buy qty=0.01 close=1915.57 tp=0.0150 sl=0.0200 lev=37",
+      "2026-08-12 19:03:08,024 Trade placed: symbol=ETHUSDT side=Buy signal_close=1915.57 fill_entry=1914.81 size=0.01 tp_pct=0.015 sl_pct=0.02 | bar_ts=2026-08-12 11:00:00 P(UP)=51.86% P(DOWN)=0.00% P(FLAT)=48.14%",
+      "2026-08-12 19:03:08,026 Live proba at bar: bar_ts=2026-08-12 11:00:00 P(UP)=51.86% P(DOWN)=0.00% P(FLAT)=48.14%",
+      "2026-08-12 20:01:35,405 PREDICTION ts=2026-08-12 12:00:00 close=1911.32 prob_up=24.61% prob_down=0.21% prob_flat=75.17% th_long=99.00 th_short=99.00",
+      "2026-08-12 20:01:35,405 No trade: first-touch EV flat (P_up=24.61% P_down=0.21% P_nt=75.17% evL=0.00105 evS=-0.00749)",
+      "2026-08-12 21:23:07,881 PREDICTION ts=2026-08-12 13:00:00 close=1901.32 prob_up=2.46% prob_down=0.54% prob_flat=97.00% th_long=99.00 th_short=99.00",
+      "2026-08-12 21:23:07,882 No trade: first-touch EV flat (P_up=2.46% P_down=0.54% P_nt=97.00% evL=-0.00234 evS=-0.00301)",
+      "2026-08-12 22:28:54,949 PREDICTION ts=2026-08-12 14:00:00 close=1887.79 prob_up=0.12% prob_down=7.12% prob_flat=92.77% th_long=99.00 th_short=99.00",
+      "2026-08-12 22:28:54,959 No trade: first-touch EV flat (P_up=0.12% P_down=7.12% P_nt=92.77% evL=-0.00401 evS=-0.00156)",
+      "2026-08-12 23:18:10,708 PREDICTION ts=2026-08-12 15:00:00 close=1892.75 prob_up=0.28% prob_down=7.12% prob_flat=92.61% th_long=99.00 th_short=99.00",
+      "2026-08-12 23:18:10,709 No trade: first-touch EV flat (P_up=0.28% P_down=7.12% P_nt=92.61% evL=-0.00398 evS=-0.00159)"
+    ]
+  },
+  "tsm": {
+    "tsm-vpa": {
+      "scripts": [
+        "/opt/tsm-vpa/scripts/fetch_binance_funding.py",
+        "/opt/tsm-vpa/scripts/report_live.py",
+        "/opt/tsm-vpa/scripts/run_backtest.py",
+        "/opt/tsm-vpa/scripts/run_gen3_campaign.py",
+        "/opt/tsm-vpa/scripts/run_isolated_contract_backtest.py",
+        "/opt/tsm-vpa/scripts/run_live_bot.py",
+        "/opt/tsm-vpa/scripts/run_oos_stack2_per_pair.py",
+        "/opt/tsm-vpa/scripts/run_oos_stack2_xrp_sol.py",
+        "/opt/tsm-vpa/scripts/run_research_campaign.py",
+        "/opt/tsm-vpa/scripts/run_shadow.py"
+      ],
+      "events": [
+        {
+          "db": "/opt/tsm-vpa/data/live/XRPUSDT_state.sqlite",
+          "tables": [
+            "handled_entries",
+            "open_trades",
+            "events",
+            "sqlite_sequence"
+          ],
+          "events_cols": [
+            "id",
+            "ts_utc",
+            "symbol",
+            "kind",
+            "detail_json"
+          ],
+          "events_sample": [
+            {
+              "id": 6,
+              "ts_utc": "2026-07-25T07:12:49Z",
+              "symbol": "XRPUSDT",
+              "kind": "bootstrap",
+              "detail_json": "{\"bars\": 1900, \"candles_ok\": true, \"reason\": \"ok\"}"
+            },
+            {
+              "id": 5,
+              "ts_utc": "2026-07-25T07:04:55Z",
+              "symbol": "XRPUSDT",
+              "kind": "bootstrap",
+              "detail_json": "{\"bars\": 1900, \"candles_ok\": true, \"reason\": \"ok\"}"
+            }
+          ]
+        },
+        {
+          "db": "/opt/tsm-vpa/data/live/XLMUSDT_state.sqlite",
+          "tables": [
+            "handled_entries",
+            "open_trades",
+            "events",
+            "sqlite_sequence"
+          ],
+          "events_cols": [
+            "id",
+            "ts_utc",
+            "symbol",
+            "kind",
+            "detail_json"
+          ],
+          "events_sample": [
+            {
+              "id": 6,
+              "ts_utc": "2026-07-25T07:12:49Z",
+              "symbol": "XLMUSDT",
+              "kind": "bootstrap",
+              "detail_json": "{\"bars\": 1790, \"candles_ok\": true, \"reason\": \"ok\"}"
+            },
+            {
+              "id": 5,
+              "ts_utc": "2026-07-25T07:04:55Z",
+              "symbol": "XLMUSDT",
+              "kind": "bootstrap",
+              "detail_json": "{\"bars\": 1790, \"candles_ok\": true, \"reason\": \"ok\"}"
+            }
+          ]
+        },
+        {
+          "db": "/opt/tsm-vpa/data/live/SOLUSDT_state.sqlite",
+          "tables": [
+            "handled_entries",
+            "open_trades",
+            "events",
+            "sqlite_sequence"
+          ],
+          "events_cols": [
+            "id",
+            "ts_utc",
+            "symbol",
+            "kind",
+            "detail_json"
+          ],
+          "events_sample": [
+            {
+              "id": 6,
+              "ts_utc": "2026-07-25T07:12:49Z",
+              "symbol": "SOLUSDT",
+              "kind": "bootstrap",
+              "detail_json": "{\"bars\": 1745, \"candles_ok\": true, \"reason\": \"ok\"}"
+            },
+            {
+              "id": 5,
+              "ts_utc": "2026-07-25T07:04:55Z",
+              "symbol": "SOLUSDT",
+              "kind": "bootstrap",
+              "detail_json": "{\"bars\": 1745, \"candles_ok\": true, \"reason\": \"ok\"}"
+            }
+          ]
+        },
+        {
+          "db": "/opt/tsm-vpa/data/live/tsm_vpa_live.sqlite",
+          "tables": [
+            "handled_entries",
+            "open_trades",
+            "events",
+            "sqlite_sequence",
+            "closed_trades",
+            "equity_snapshots",
+            "funding_events"
+          ],
+          "events_cols": [
+            "id",
+            "ts_utc",
+            "symbol",
+            "kind",
+            "detail_json"
+          ],
+          "events_sample": [
+            {
+              "id": 9,
+              "ts_utc": "2026-08-01T22:08:50Z",
+              "symbol": "VETUSDT",
+              "kind": "bootstrap",
+              "detail_json": "{\"bars\": 1742, \"candles_ok\": true, \"reason\": \"ok\", \"account_margin_mode\": \"REGULAR_MARGIN\", \"use_min_size\": true, \"instrument\": {\"min_qty\": 1.0, \"qty_step\": 1.0, \"min_notional\": 5.0, \"tick_size\": 1e-06, \"max_leverage\": 25.0}, \"pack_id\": \"live_top4_stack2_rr15_v1\"}"
+            },
+            {
+              "id": 8,
+              "ts_utc": "2026-07-25T07:30:24Z",
+              "symbol": "SOLUSDT",
+              "kind": "bootstrap",
+              "detail_json": "{\"bars\": 1745, \"candles_ok\": true, \"reason\": \"ok\", \"account_margin_mode\": \"REGULAR_MARGIN\", \"use_min_size\": true, \"instrument\": {\"min_qty\": 0.1, \"qty_step\": 0.1, \"min_notional\": 5.0, \"tick_size\": 0.01, \"max_leverage\": 100.0}, \"pack_id\": \"live_top4_stack2_rr15_v1\"}"
+            }
+          ]
+        },
+        {
+          "db": "/opt/tsm-vpa/data/live/VETUSDT_state.sqlite",
+          "tables": [
+            "handled_entries",
+            "open_trades",
+            "events",
+            "sqlite_sequence"
+          ],
+          "events_cols": [
+            "id",
+            "ts_utc",
+            "symbol",
+            "kind",
+            "detail_json"
+          ],
+          "events_sample": [
+            {
+              "id": 6,
+              "ts_utc": "2026-07-25T07:12:49Z",
+              "symbol": "VETUSDT",
+              "kind": "bootstrap",
+              "detail_json": "{\"bars\": 1735, \"candles_ok\": true, \"reason\": \"ok\"}"
+            },
+            {
+              "id": 5,
+              "ts_utc": "2026-07-25T07:04:55Z",
+              "symbol": "VETUSDT",
+              "kind": "bootstrap",
+              "detail_json": "{\"bars\": 1735, \"candles_ok\": true, \"reason\": \"ok\"}"
+            }
+          ]
+        }
+      ]
+    },
+    "tsm-chandelier": {
+      "scripts": [
+        "/opt/tsm-chandelier/scripts/make_api_keys_from_botsgeneral.py",
+        "/opt/tsm-chandelier/scripts/run_live_bot.py"
+      ],
+      "events": [
+        {
+          "db": "/opt/tsm-chandelier/data/live/tsm_chandelier_live.sqlite",
+          "tables": [
+            "handled_entries",
+            "open_trades",
+            "events",
+            "sqlite_sequence",
+            "closed_trades",
+            "equity_snapshots",
+            "funding_events"
+          ],
+          "events_cols": [
+            "id",
+            "ts_utc",
+            "symbol",
+            "kind",
+            "detail_json"
+          ],
+          "events_sample": [
+            {
+              "id": 13,
+              "ts_utc": "2026-08-12T12:05:17Z",
+              "symbol": "BTCUSDT",
+              "kind": "position_closed",
+              "detail_json": "{\"symbol\": \"BTCUSDT\", \"side\": \"short\", \"entry_ts_ms\": 1786460400000, \"entry_price\": 63766.7, \"stop_price\": 64240.614285714284, \"target_price\": 62266.15714285715, \"qty\": 0.001, \"leverage\": 55, \"position_idx\": 2, \"pattern\": \"chand_atr_band\", \"detail\": {\"side\": \"short\", \"entry_ts_ms\": 1786460400000, \"signal_ts_ms\": 1786456800000, \"last_closed_ts_ms\": 1786456800000, \"decision_ts_ms\": 1786460420000, \"decision_delay_sec\": 20.0, \"entry_est\": 63766.7, \"qty\": 0.001, \"leverage\": 55, \"equity_base\": 13.10336746, \"wallet_margin_mode\": \"REGULAR_MARGIN\", \"stop\": \"64240.6\", \"target\": \"62266.2\", \"pattern\": \"chand_atr_band\", \"min_size_mode\": true, \"dry_run\": false, \"fill\": {\"size\": 0.001, \"avgPrice\": 63766.7}, \"signal\": {\"side\": \"short\", \"signal_ts_ms\": 1786456800000, \"entry_ts_ms\": 1786460400000, \"entry_ref_price\": 63747.0, \"stop_price\": 64240.614285714284, \"target_price\": 62266.15714285715, \"pattern\": \"chand_atr_band\", \"stack_score\": 1.0}, \"lev_after_fill\": 55}}"
+            },
+            {
+              "id": 12,
+              "ts_utc": "2026-08-12T05:49:13Z",
+              "symbol": "ETHUSDT",
+              "kind": "bootstrap",
+              "detail_json": "{\"bars\": 58798, \"candles_ok\": true, \"reason\": \"ok\", \"account_margin_mode\": \"REGULAR_MARGIN\", \"use_min_size\": true, \"instrument\": {\"min_qty\": 0.01, \"qty_step\": 0.01, \"min_notional\": 5.0, \"tick_size\": 0.01, \"max_leverage\": 100.0}, \"pack_id\": \"tsm_chandelier_1h_btc_eth_sol_xxobster6_v1\"}"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

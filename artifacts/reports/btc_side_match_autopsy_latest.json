@@ -1,0 +1,527 @@
+{
+  "evidence_class": "BTC_SIDE_MATCH_AUTOPSY",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "generated_utc": "2026-08-05T14:03:33.020818+00:00",
+  "packs": [
+    {
+      "pack": "D:\\projects\\LLM2\\artifacts\\live_packs\\structure_v1_btcusdt_k5_double3h_v1",
+      "target": "fwd_return",
+      "min_edge": 0.0016,
+      "family": "return"
+    },
+    {
+      "pack": "D:\\projects\\LLM2\\artifacts\\live_packs\\structure_v1_lgbm",
+      "target": "fwd_return",
+      "min_edge": 0.0016,
+      "family": "return"
+    }
+  ],
+  "verdict": {
+    "live_decide_ok": true,
+    "root_cause": "PARITY_HARNESS_EDGE_REMAP",
+    "explanation": "BTC packs use target=fwd_return (family=return). Live decide applies proxy_side with ROUND_TRIP_COST=0.0016, so |pred|\u22480.005..0.009 correctly yields side \u00b11. The fleet parity script previously remapped min_edge when min_edge\u2248ROUND_TRIP_COST to DIRECTION_BAND=0.10 (directional-only guard), then zeroed warehouse_side when |wh_mean|<0.10 \u2014 producing side_match=0 even when warehouse pred_mean matched live exactly.",
+    "sample_bar": {
+      "bar_ts_ms": 1785891600000,
+      "bar_utc": "2026-08-05T01:00:00+00:00",
+      "live_side": 1,
+      "pred_mean": 0.00433995995075726,
+      "proxy_side_correct": 1,
+      "live_matches_proxy": true,
+      "pre_fix_parity_wh_side": 0,
+      "pre_fix_would_side_match": false,
+      "bands": {
+        "pred": 0.00433995995075726,
+        "return_family_side_ROUND_TRIP_COST": 1,
+        "direction_family_side_DIRECTION_BAND": 0,
+        "abs_pred": 0.00433995995075726,
+        "exceeds_round_trip_0_0016": true,
+        "exceeds_direction_band_0_10": false
+      },
+      "skip_reason": "clarity_mean_strength"
+    },
+    "fix": "run_fleet_live_warehouse_parity.py: only remap min_edge for family==directional; warehouse_side = proxy_side(wh_mean, family) only",
+    "do_not": "retune TP/SL/strength/fleet composition from the false side_match=0"
+  },
+  "ledgers": [
+    {
+      "ledger": "D:\\projects\\LLM2\\artifacts\\reports\\_fleet_ledgers\\94_156_189_76_llm2-structure-btc-k5-double3h-v1_state.sqlite",
+      "target": "fwd_return",
+      "family": "return",
+      "min_edge": 0.0016,
+      "ROUND_TRIP_COST": 0.0016,
+      "DIRECTION_BAND": 0.1,
+      "n_bars": 12,
+      "live_vs_proxy_match_rate": 1.0,
+      "bars": [
+        {
+          "bar_ts_ms": 1785891600000,
+          "bar_utc": "2026-08-05T01:00:00+00:00",
+          "live_side": 1,
+          "pred_mean": 0.00433995995075726,
+          "proxy_side_correct": 1,
+          "live_matches_proxy": true,
+          "pre_fix_parity_wh_side": 0,
+          "pre_fix_would_side_match": false,
+          "bands": {
+            "pred": 0.00433995995075726,
+            "return_family_side_ROUND_TRIP_COST": 1,
+            "direction_family_side_DIRECTION_BAND": 0,
+            "abs_pred": 0.00433995995075726,
+            "exceeds_round_trip_0_0016": true,
+            "exceeds_direction_band_0_10": false
+          },
+          "skip_reason": "clarity_mean_strength"
+        },
+        {
+          "bar_ts_ms": 1785895200000,
+          "bar_utc": "2026-08-05T02:00:00+00:00",
+          "live_side": 1,
+          "pred_mean": 0.004013457054611425,
+          "proxy_side_correct": 1,
+          "live_matches_proxy": true,
+          "pre_fix_parity_wh_side": 0,
+          "pre_fix_would_side_match": false,
+          "bands": {
+            "pred": 0.004013457054611425,
+            "return_family_side_ROUND_TRIP_COST": 1,
+            "direction_family_side_DIRECTION_BAND": 0,
+            "abs_pred": 0.004013457054611425,
+            "exceeds_round_trip_0_0016": true,
+            "exceeds_direction_band_0_10": false
+          },
+          "skip_reason": "clarity_mean_strength"
+        },
+        {
+          "bar_ts_ms": 1785898800000,
+          "bar_utc": "2026-08-05T03:00:00+00:00",
+          "live_side": -1,
+          "pred_mean": -0.008692085392881181,
+          "proxy_side_correct": -1,
+          "live_matches_proxy": true,
+          "pre_fix_parity_wh_side": 0,
+          "pre_fix_would_side_match": false,
+          "bands": {
+            "pred": -0.008692085392881181,
+            "return_family_side_ROUND_TRIP_COST": -1,
+            "direction_family_side_DIRECTION_BAND": 0,
+            "abs_pred": 0.008692085392881181,
+            "exceeds_round_trip_0_0016": true,
+            "exceeds_direction_band_0_10": false
+          },
+          "skip_reason": null
+        },
+        {
+          "bar_ts_ms": 1785902400000,
+          "bar_utc": "2026-08-05T04:00:00+00:00",
+          "live_side": 1,
+          "pred_mean": 0.005309525607883476,
+          "proxy_side_correct": 1,
+          "live_matches_proxy": true,
+          "pre_fix_parity_wh_side": 0,
+          "pre_fix_would_side_match": false,
+          "bands": {
+            "pred": 0.005309525607883476,
+            "return_family_side_ROUND_TRIP_COST": 1,
+            "direction_family_side_DIRECTION_BAND": 0,
+            "abs_pred": 0.005309525607883476,
+            "exceeds_round_trip_0_0016": true,
+            "exceeds_direction_band_0_10": false
+          },
+          "skip_reason": null
+        },
+        {
+          "bar_ts_ms": 1785906000000,
+          "bar_utc": "2026-08-05T05:00:00+00:00",
+          "live_side": 1,
+          "pred_mean": 0.005288560267012826,
+          "proxy_side_correct": 1,
+          "live_matches_proxy": true,
+          "pre_fix_parity_wh_side": 0,
+          "pre_fix_would_side_match": false,
+          "bands": {
+            "pred": 0.005288560267012826,
+            "return_family_side_ROUND_TRIP_COST": 1,
+            "direction_family_side_DIRECTION_BAND": 0,
+            "abs_pred": 0.005288560267012826,
+            "exceeds_round_trip_0_0016": true,
+            "exceeds_direction_band_0_10": false
+          },
+          "skip_reason": null
+        },
+        {
+          "bar_ts_ms": 1785909600000,
+          "bar_utc": "2026-08-05T06:00:00+00:00",
+          "live_side": 1,
+          "pred_mean": 0.005112737514842838,
+          "proxy_side_correct": 1,
+          "live_matches_proxy": true,
+          "pre_fix_parity_wh_side": 0,
+          "pre_fix_would_side_match": false,
+          "bands": {
+            "pred": 0.005112737514842838,
+            "return_family_side_ROUND_TRIP_COST": 1,
+            "direction_family_side_DIRECTION_BAND": 0,
+            "abs_pred": 0.005112737514842838,
+            "exceeds_round_trip_0_0016": true,
+            "exceeds_direction_band_0_10": false
+          },
+          "skip_reason": "clarity_mean_strength"
+        },
+        {
+          "bar_ts_ms": 1785913200000,
+          "bar_utc": "2026-08-05T07:00:00+00:00",
+          "live_side": 1,
+          "pred_mean": 0.004618536012392771,
+          "proxy_side_correct": 1,
+          "live_matches_proxy": true,
+          "pre_fix_parity_wh_side": 0,
+          "pre_fix_would_side_match": false,
+          "bands": {
+            "pred": 0.004618536012392771,
+            "return_family_side_ROUND_TRIP_COST": 1,
+            "direction_family_side_DIRECTION_BAND": 0,
+            "abs_pred": 0.004618536012392771,
+            "exceeds_round_trip_0_0016": true,
+            "exceeds_direction_band_0_10": false
+          },
+          "skip_reason": "clarity_mean_strength"
+        },
+        {
+          "bar_ts_ms": 1785916800000,
+          "bar_utc": "2026-08-05T08:00:00+00:00",
+          "live_side": 1,
+          "pred_mean": 0.005103646271097131,
+          "proxy_side_correct": 1,
+          "live_matches_proxy": true,
+          "pre_fix_parity_wh_side": 0,
+          "pre_fix_would_side_match": false,
+          "bands": {
+            "pred": 0.005103646271097131,
+            "return_family_side_ROUND_TRIP_COST": 1,
+            "direction_family_side_DIRECTION_BAND": 0,
+            "abs_pred": 0.005103646271097131,
+            "exceeds_round_trip_0_0016": true,
+            "exceeds_direction_band_0_10": false
+          },
+          "skip_reason": "clarity_mean_strength"
+        },
+        {
+          "bar_ts_ms": 1785920400000,
+          "bar_utc": "2026-08-05T09:00:00+00:00",
+          "live_side": -1,
+          "pred_mean": -0.008744962534835473,
+          "proxy_side_correct": -1,
+          "live_matches_proxy": true,
+          "pre_fix_parity_wh_side": 0,
+          "pre_fix_would_side_match": false,
+          "bands": {
+            "pred": -0.008744962534835473,
+            "return_family_side_ROUND_TRIP_COST": -1,
+            "direction_family_side_DIRECTION_BAND": 0,
+            "abs_pred": 0.008744962534835473,
+            "exceeds_round_trip_0_0016": true,
+            "exceeds_direction_band_0_10": false
+          },
+          "skip_reason": null
+        },
+        {
+          "bar_ts_ms": 1785924000000,
+          "bar_utc": "2026-08-05T10:00:00+00:00",
+          "live_side": -1,
+          "pred_mean": -0.008538187867598322,
+          "proxy_side_correct": -1,
+          "live_matches_proxy": true,
+          "pre_fix_parity_wh_side": 0,
+          "pre_fix_would_side_match": false,
+          "bands": {
+            "pred": -0.008538187867598322,
+            "return_family_side_ROUND_TRIP_COST": -1,
+            "direction_family_side_DIRECTION_BAND": 0,
+            "abs_pred": 0.008538187867598322,
+            "exceeds_round_trip_0_0016": true,
+            "exceeds_direction_band_0_10": false
+          },
+          "skip_reason": null
+        },
+        {
+          "bar_ts_ms": 1785927600000,
+          "bar_utc": "2026-08-05T11:00:00+00:00",
+          "live_side": -1,
+          "pred_mean": -0.008538187867598322,
+          "proxy_side_correct": -1,
+          "live_matches_proxy": true,
+          "pre_fix_parity_wh_side": 0,
+          "pre_fix_would_side_match": false,
+          "bands": {
+            "pred": -0.008538187867598322,
+            "return_family_side_ROUND_TRIP_COST": -1,
+            "direction_family_side_DIRECTION_BAND": 0,
+            "abs_pred": 0.008538187867598322,
+            "exceeds_round_trip_0_0016": true,
+            "exceeds_direction_band_0_10": false
+          },
+          "skip_reason": null
+        },
+        {
+          "bar_ts_ms": 1785931200000,
+          "bar_utc": "2026-08-05T12:00:00+00:00",
+          "live_side": -1,
+          "pred_mean": -0.009104897779548078,
+          "proxy_side_correct": -1,
+          "live_matches_proxy": true,
+          "pre_fix_parity_wh_side": 0,
+          "pre_fix_would_side_match": false,
+          "bands": {
+            "pred": -0.009104897779548078,
+            "return_family_side_ROUND_TRIP_COST": -1,
+            "direction_family_side_DIRECTION_BAND": 0,
+            "abs_pred": 0.009104897779548078,
+            "exceeds_round_trip_0_0016": true,
+            "exceeds_direction_band_0_10": false
+          },
+          "skip_reason": null
+        }
+      ]
+    },
+    {
+      "ledger": "D:\\projects\\LLM2\\artifacts\\reports\\_fleet_ledgers\\94_156_189_76_llm2-structure-micro_state.sqlite",
+      "target": "fwd_return",
+      "family": "return",
+      "min_edge": 0.0016,
+      "ROUND_TRIP_COST": 0.0016,
+      "DIRECTION_BAND": 0.1,
+      "n_bars": 12,
+      "live_vs_proxy_match_rate": 1.0,
+      "bars": [
+        {
+          "bar_ts_ms": 1785891600000,
+          "bar_utc": "2026-08-05T01:00:00+00:00",
+          "live_side": 1,
+          "pred_mean": 0.00433995995075726,
+          "proxy_side_correct": 1,
+          "live_matches_proxy": true,
+          "pre_fix_parity_wh_side": 0,
+          "pre_fix_would_side_match": false,
+          "bands": {
+            "pred": 0.00433995995075726,
+            "return_family_side_ROUND_TRIP_COST": 1,
+            "direction_family_side_DIRECTION_BAND": 0,
+            "abs_pred": 0.00433995995075726,
+            "exceeds_round_trip_0_0016": true,
+            "exceeds_direction_band_0_10": false
+          },
+          "skip_reason": "position_already_open:Sell"
+        },
+        {
+          "bar_ts_ms": 1785895200000,
+          "bar_utc": "2026-08-05T02:00:00+00:00",
+          "live_side": 1,
+          "pred_mean": 0.004013457054611425,
+          "proxy_side_correct": 1,
+          "live_matches_proxy": true,
+          "pre_fix_parity_wh_side": 0,
+          "pre_fix_would_side_match": false,
+          "bands": {
+            "pred": 0.004013457054611425,
+            "return_family_side_ROUND_TRIP_COST": 1,
+            "direction_family_side_DIRECTION_BAND": 0,
+            "abs_pred": 0.004013457054611425,
+            "exceeds_round_trip_0_0016": true,
+            "exceeds_direction_band_0_10": false
+          },
+          "skip_reason": "position_already_open:Sell"
+        },
+        {
+          "bar_ts_ms": 1785898800000,
+          "bar_utc": "2026-08-05T03:00:00+00:00",
+          "live_side": -1,
+          "pred_mean": -0.008692085392881181,
+          "proxy_side_correct": -1,
+          "live_matches_proxy": true,
+          "pre_fix_parity_wh_side": 0,
+          "pre_fix_would_side_match": false,
+          "bands": {
+            "pred": -0.008692085392881181,
+            "return_family_side_ROUND_TRIP_COST": -1,
+            "direction_family_side_DIRECTION_BAND": 0,
+            "abs_pred": 0.008692085392881181,
+            "exceeds_round_trip_0_0016": true,
+            "exceeds_direction_band_0_10": false
+          },
+          "skip_reason": "position_already_open:Sell"
+        },
+        {
+          "bar_ts_ms": 1785902400000,
+          "bar_utc": "2026-08-05T04:00:00+00:00",
+          "live_side": 1,
+          "pred_mean": 0.005309525607883476,
+          "proxy_side_correct": 1,
+          "live_matches_proxy": true,
+          "pre_fix_parity_wh_side": 0,
+          "pre_fix_would_side_match": false,
+          "bands": {
+            "pred": 0.005309525607883476,
+            "return_family_side_ROUND_TRIP_COST": 1,
+            "direction_family_side_DIRECTION_BAND": 0,
+            "abs_pred": 0.005309525607883476,
+            "exceeds_round_trip_0_0016": true,
+            "exceeds_direction_band_0_10": false
+          },
+          "skip_reason": "position_already_open:Sell"
+        },
+        {
+          "bar_ts_ms": 1785906000000,
+          "bar_utc": "2026-08-05T05:00:00+00:00",
+          "live_side": 1,
+          "pred_mean": 0.005288560267012826,
+          "proxy_side_correct": 1,
+          "live_matches_proxy": true,
+          "pre_fix_parity_wh_side": 0,
+          "pre_fix_would_side_match": false,
+          "bands": {
+            "pred": 0.005288560267012826,
+            "return_family_side_ROUND_TRIP_COST": 1,
+            "direction_family_side_DIRECTION_BAND": 0,
+            "abs_pred": 0.005288560267012826,
+            "exceeds_round_trip_0_0016": true,
+            "exceeds_direction_band_0_10": false
+          },
+          "skip_reason": "position_already_open:Sell"
+        },
+        {
+          "bar_ts_ms": 1785909600000,
+          "bar_utc": "2026-08-05T06:00:00+00:00",
+          "live_side": 1,
+          "pred_mean": 0.005112737514842838,
+          "proxy_side_correct": 1,
+          "live_matches_proxy": true,
+          "pre_fix_parity_wh_side": 0,
+          "pre_fix_would_side_match": false,
+          "bands": {
+            "pred": 0.005112737514842838,
+            "return_family_side_ROUND_TRIP_COST": 1,
+            "direction_family_side_DIRECTION_BAND": 0,
+            "abs_pred": 0.005112737514842838,
+            "exceeds_round_trip_0_0016": true,
+            "exceeds_direction_band_0_10": false
+          },
+          "skip_reason": "position_already_open:Sell"
+        },
+        {
+          "bar_ts_ms": 1785913200000,
+          "bar_utc": "2026-08-05T07:00:00+00:00",
+          "live_side": 1,
+          "pred_mean": 0.004618536012392771,
+          "proxy_side_correct": 1,
+          "live_matches_proxy": true,
+          "pre_fix_parity_wh_side": 0,
+          "pre_fix_would_side_match": false,
+          "bands": {
+            "pred": 0.004618536012392771,
+            "return_family_side_ROUND_TRIP_COST": 1,
+            "direction_family_side_DIRECTION_BAND": 0,
+            "abs_pred": 0.004618536012392771,
+            "exceeds_round_trip_0_0016": true,
+            "exceeds_direction_band_0_10": false
+          },
+          "skip_reason": "position_already_open:Sell"
+        },
+        {
+          "bar_ts_ms": 1785916800000,
+          "bar_utc": "2026-08-05T08:00:00+00:00",
+          "live_side": 1,
+          "pred_mean": 0.005103646271097131,
+          "proxy_side_correct": 1,
+          "live_matches_proxy": true,
+          "pre_fix_parity_wh_side": 0,
+          "pre_fix_would_side_match": false,
+          "bands": {
+            "pred": 0.005103646271097131,
+            "return_family_side_ROUND_TRIP_COST": 1,
+            "direction_family_side_DIRECTION_BAND": 0,
+            "abs_pred": 0.005103646271097131,
+            "exceeds_round_trip_0_0016": true,
+            "exceeds_direction_band_0_10": false
+          },
+          "skip_reason": "position_already_open:Sell"
+        },
+        {
+          "bar_ts_ms": 1785920400000,
+          "bar_utc": "2026-08-05T09:00:00+00:00",
+          "live_side": -1,
+          "pred_mean": -0.008744962534835473,
+          "proxy_side_correct": -1,
+          "live_matches_proxy": true,
+          "pre_fix_parity_wh_side": 0,
+          "pre_fix_would_side_match": false,
+          "bands": {
+            "pred": -0.008744962534835473,
+            "return_family_side_ROUND_TRIP_COST": -1,
+            "direction_family_side_DIRECTION_BAND": 0,
+            "abs_pred": 0.008744962534835473,
+            "exceeds_round_trip_0_0016": true,
+            "exceeds_direction_band_0_10": false
+          },
+          "skip_reason": "position_already_open:Sell"
+        },
+        {
+          "bar_ts_ms": 1785924000000,
+          "bar_utc": "2026-08-05T10:00:00+00:00",
+          "live_side": -1,
+          "pred_mean": -0.008538187867598322,
+          "proxy_side_correct": -1,
+          "live_matches_proxy": true,
+          "pre_fix_parity_wh_side": 0,
+          "pre_fix_would_side_match": false,
+          "bands": {
+            "pred": -0.008538187867598322,
+            "return_family_side_ROUND_TRIP_COST": -1,
+            "direction_family_side_DIRECTION_BAND": 0,
+            "abs_pred": 0.008538187867598322,
+            "exceeds_round_trip_0_0016": true,
+            "exceeds_direction_band_0_10": false
+          },
+          "skip_reason": null
+        },
+        {
+          "bar_ts_ms": 1785927600000,
+          "bar_utc": "2026-08-05T11:00:00+00:00",
+          "live_side": -1,
+          "pred_mean": -0.008538187867598322,
+          "proxy_side_correct": -1,
+          "live_matches_proxy": true,
+          "pre_fix_parity_wh_side": 0,
+          "pre_fix_would_side_match": false,
+          "bands": {
+            "pred": -0.008538187867598322,
+            "return_family_side_ROUND_TRIP_COST": -1,
+            "direction_family_side_DIRECTION_BAND": 0,
+            "abs_pred": 0.008538187867598322,
+            "exceeds_round_trip_0_0016": true,
+            "exceeds_direction_band_0_10": false
+          },
+          "skip_reason": "position_already_open:Sell"
+        },
+        {
+          "bar_ts_ms": 1785931200000,
+          "bar_utc": "2026-08-05T12:00:00+00:00",
+          "live_side": -1,
+          "pred_mean": -0.009104897779548078,
+          "proxy_side_correct": -1,
+          "live_matches_proxy": true,
+          "pre_fix_parity_wh_side": 0,
+          "pre_fix_would_side_match": false,
+          "bands": {
+            "pred": -0.009104897779548078,
+            "return_family_side_ROUND_TRIP_COST": -1,
+            "direction_family_side_DIRECTION_BAND": 0,
+            "abs_pred": 0.009104897779548078,
+            "exceeds_round_trip_0_0016": true,
+            "exceeds_direction_band_0_10": false
+          },
+          "skip_reason": "position_already_open:Sell"
+        }
+      ]
+    }
+  ]
+}

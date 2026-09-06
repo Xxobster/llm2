@@ -1,0 +1,10 @@
+{
+  "hard_findings": [],
+  "n_columns": 49,
+  "ok": true,
+  "proof": "recompute_prefix",
+  "space": "structure_v1",
+  "summary": "PASS \u2014 49 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0",
+  "symbol": "BTCUSDT",
+  "timeframe": "1h"
+}

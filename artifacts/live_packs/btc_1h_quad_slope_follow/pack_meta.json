@@ -1,0 +1,32 @@
+{
+  "arm_id": "BTCUSDT|1h|quad_slope_follow|atr1.5|slcap0.03",
+  "evidence": {
+    "four_proof_artifact_dir": "D:\\projects\\LLM2\\artifacts\\evidence\\four_proof\\ml_lab_catalog_f_v1_quad_slope_follow_BTCUSDT_1h_20260903T220559Z",
+    "four_proof_hashes": {
+      "builder_responsiveness": "c14adc17ac839eaf8b05dd1b72357937318eeeaf944a295de3586aceea2f2465",
+      "layer_a_pred_identity": "9fcd85203f4522684b5531f96b4046664c33341be6dd1e2f874e9bf91cefe85f",
+      "no_live_feature_fill": "7b247ef54afaa2825f21885b4cec1b85d61ab3fd3e0d92f9bacef5095fcb2768",
+      "recompute_prefix": "146c023abc5aefea70dde367e046a759b3cae7d44411ac37ce7a7b69d3e2f310"
+    },
+    "four_proof_ok": true,
+    "four_proof_stamp": "20260903T220559Z",
+    "four_proof_summary_sha256": "acbd668e06ad4da80a9a07b850d355a6e5ec61ef3acc15254258fcb0e635479b"
+  },
+  "evidence_class": "inner_screen_before_2022_plus_nested_fail_2022_2026",
+  "evidence_window_end": "2026-05-01",
+  "four_proof_hashes": {
+    "builder_responsiveness": "c14adc17ac839eaf8b05dd1b72357937318eeeaf944a295de3586aceea2f2465",
+    "layer_a_pred_identity": "9fcd85203f4522684b5531f96b4046664c33341be6dd1e2f874e9bf91cefe85f",
+    "no_live_feature_fill": "7b247ef54afaa2825f21885b4cec1b85d61ab3fd3e0d92f9bacef5095fcb2768",
+    "recompute_prefix": "146c023abc5aefea70dde367e046a759b3cae7d44411ac37ce7a7b69d3e2f310"
+  },
+  "four_proof_ok": true,
+  "frozen_at_utc": "20260903T220559Z",
+  "min_size_equity_caveat": "Wallet equity / maximum drawdown under research_sizing MIN_EXCHANGE (minimum exchange size) on a large wallet is not tradable-edge evidence. Smooth curves are expected at dust size; do not treat them as deployable sizing.",
+  "pack_hash": "ff0ae48c7ecb345c5b0fa402169f57456756203217310580829f68503f0103f5",
+  "readiness": "RESEARCH_ONLY",
+  "readiness_note": "Hunt 009 inner screen n=426 profit factor 1.505 Sharpe 2.00 entry-bar 0.063. Nested 2022\u20132026 profit factor 0.977 FAIL. User-authorized 5% equity stop-risk Post-Only live test only.",
+  "space": "ml_lab_catalog_f_v1",
+  "status": "FROZEN_LIVE_PACK",
+  "strategy_id": "btc_1h_quad_slope_follow"
+}

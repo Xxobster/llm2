@@ -1,0 +1,19 @@
+strategy_id: autonomy_gen013_sol_atr_rel_cross_up_h8_SOLUSDT_15m
+status: AUTHORIZED
+authorized_by_user: true
+vps_host: '212.73.150.178'
+account_ref: Xxobster10
+intended_vps_host: '212.73.150.178'
+intended_account_ref: Xxobster10
+pack_path: artifacts/live_packs/autonomy_gen013_sol_atr_rel_cross_up_h8
+pack_hash: 5a671a2c5571a1367b9614cb1298675c1e14bf83edab2a0fb6c8b1ba23358bbc
+expires_utc: '2026-09-08T21:00:00Z'
+created_utc: '2026-08-25T14:05:17Z'
+four_proof_ok: true
+four_proof_hashes:
+  builder_responsiveness: 4951e15a49159ef78ab43b9571dbdee57b61ee3eb16b34dca128c17aed47596b
+  recompute_prefix: d46286c4cca5127dc6b198f52983537e33bb14c168f8f9d4376dcffca1d020f7
+  no_live_feature_fill: 36e4f0d59e810e84c431b74e3fc5fc39516345d79a12e1235d2af2d2215f8b57
+  layer_a_pred_identity: 91188567e65c1a4797fc1a51f85437608ab25535ed9df04eff5a0d42b2dccfe8
+notes: >-
+  User authorized 2026-08-25 real-USDT on 212.73.150.178 / Xxobster10 (SOLUSDT 15m 1%/1% pivot control AND predicted atr_rel_cross_up_1 H8). 2026-09-01: same 5% equity-at-stop size as Xxobster4 (RISK_FRACTION 0.05, floor to 0.1 Solana, skip if below venue min). Leverage from stop 1% = 29x. Research readiness remains LIVE_STOP / RESEARCH_ONLY.

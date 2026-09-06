@@ -1,0 +1,558 @@
+{
+  "evidence_class": "LLM2_LIVE_VS_WAREHOUSE_AFTER_BAKE",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "generated_utc": "2026-08-05T12:24:07.536727+00:00",
+  "series": {
+    "BTCUSDT:1h": {
+      "ln3": {
+        "tip_ohlc": [
+          64033.0,
+          64116.0,
+          64013.1,
+          64044.6
+        ],
+        "tip_ts_ms": 1785927600000,
+        "tip50": "5125481864684e8d124ebdb022af649ac3f6996000e8798ab807d16863bfe8cd",
+        "n_closed": 60547
+      },
+      "ln1": {
+        "tip_ohlc": [
+          64033.0,
+          64116.0,
+          64013.1,
+          64044.6
+        ],
+        "tip_ts_ms": 1785927600000,
+        "tip50": "5125481864684e8d124ebdb022af649ac3f6996000e8798ab807d16863bfe8cd"
+      },
+      "warehouse": {
+        "price_type": "last_price",
+        "n_closed": 57804,
+        "tip_ts_ms": 1785927600000,
+        "tip_utc": "2026-08-05T11:00:00+00:00",
+        "tip_ohlc": [
+          64033.0,
+          64116.0,
+          64013.1,
+          64044.6
+        ],
+        "tip_volume": 2057.405,
+        "tip50_ohlc_sha256": "5125481864684e8d124ebdb022af649ac3f6996000e8798ab807d16863bfe8cd"
+      },
+      "ln1_eq_ln3": true,
+      "ln3_eq_warehouse_ohlc": true,
+      "ln3_eq_warehouse_tip50": true,
+      "research_indicators": {
+        "n": 60503,
+        "max_ts": 1785769200000,
+        "tip": {
+          "ts_ms": 1785769200000,
+          "close": 63739.8
+        }
+      }
+    },
+    "BTCUSDT:4h": {
+      "ln3": {
+        "tip_ohlc": [
+          64141.0,
+          64257.1,
+          63982.2,
+          64044.6
+        ],
+        "tip_ts_ms": 1785916800000,
+        "tip50": "6b70993e5d6d77c81d85d9a5be1ac55e0e59d4f013c1087b15583a874b87d37a",
+        "n_closed": 15137
+      },
+      "ln1": {
+        "tip_ohlc": [
+          64141.0,
+          64257.1,
+          63982.2,
+          64044.6
+        ],
+        "tip_ts_ms": 1785916800000,
+        "tip50": "6b70993e5d6d77c81d85d9a5be1ac55e0e59d4f013c1087b15583a874b87d37a"
+      },
+      "warehouse": {
+        "price_type": "last_price",
+        "n_closed": 14451,
+        "tip_ts_ms": 1785916800000,
+        "tip_utc": "2026-08-05T08:00:00+00:00",
+        "tip_ohlc": [
+          64141.0,
+          64257.1,
+          63982.2,
+          64044.6
+        ],
+        "tip_volume": 11496.742,
+        "tip50_ohlc_sha256": "6b70993e5d6d77c81d85d9a5be1ac55e0e59d4f013c1087b15583a874b87d37a"
+      },
+      "ln1_eq_ln3": true,
+      "ln3_eq_warehouse_ohlc": true,
+      "ln3_eq_warehouse_tip50": true
+    },
+    "BTCUSDT:1w": {
+      "ln3": {
+        "tip_ohlc": [
+          65375.2,
+          65722.5,
+          62228.8,
+          63550.0
+        ],
+        "tip_ts_ms": 1785110400000,
+        "tip50": "c3f70a214e26ca4d40cbf4741a6a8665448519029d07607d55936efec0775037",
+        "n_closed": 361
+      },
+      "ln1": {
+        "tip_ohlc": [
+          65375.2,
+          65722.5,
+          62228.8,
+          63550.0
+        ],
+        "tip_ts_ms": 1785110400000,
+        "tip50": "c3f70a214e26ca4d40cbf4741a6a8665448519029d07607d55936efec0775037"
+      },
+      "warehouse": {
+        "price_type": "last_price",
+        "n_closed": 344,
+        "tip_ts_ms": 1785110400000,
+        "tip_utc": "2026-07-27T00:00:00+00:00",
+        "tip_ohlc": [
+          65375.2,
+          65722.5,
+          62228.8,
+          63550.0
+        ],
+        "tip_volume": 898681.111,
+        "tip50_ohlc_sha256": "c3f70a214e26ca4d40cbf4741a6a8665448519029d07607d55936efec0775037"
+      },
+      "ln1_eq_ln3": true,
+      "ln3_eq_warehouse_ohlc": true,
+      "ln3_eq_warehouse_tip50": true
+    },
+    "ETHUSDT:1h": {
+      "ln3": {
+        "tip_ohlc": [
+          1867.39,
+          1870.26,
+          1866.22,
+          1867.93
+        ],
+        "tip_ts_ms": 1785927600000,
+        "tip50": "3e5da740ae76f9ac152eb5e610b7bea378cf7e662019c141fad4093d3342c731",
+        "n_closed": 58637
+      },
+      "ln1": {
+        "tip_ohlc": [
+          1867.39,
+          1870.26,
+          1866.22,
+          1867.93
+        ],
+        "tip_ts_ms": 1785927600000,
+        "tip50": "3e5da740ae76f9ac152eb5e610b7bea378cf7e662019c141fad4093d3342c731"
+      },
+      "warehouse": {
+        "price_type": "last_price",
+        "n_closed": 57804,
+        "tip_ts_ms": 1785927600000,
+        "tip_utc": "2026-08-05T11:00:00+00:00",
+        "tip_ohlc": [
+          1867.39,
+          1870.26,
+          1866.22,
+          1867.93
+        ],
+        "tip_volume": 45906.476,
+        "tip50_ohlc_sha256": "3e5da740ae76f9ac152eb5e610b7bea378cf7e662019c141fad4093d3342c731"
+      },
+      "ln1_eq_ln3": true,
+      "ln3_eq_warehouse_ohlc": true,
+      "ln3_eq_warehouse_tip50": true,
+      "research_indicators": {
+        "n": 57802,
+        "max_ts": 1785920400000,
+        "tip": {
+          "ts_ms": 1785920400000,
+          "close": 1871.46
+        }
+      }
+    },
+    "ETHUSDT:4h": {
+      "ln3": {
+        "tip_ohlc": [
+          1871.86,
+          1875.38,
+          1865.0,
+          1867.93
+        ],
+        "tip_ts_ms": 1785916800000,
+        "tip50": "df799d3fe3dba850c48d98fb6672e1391dcf0ae965bb7781c0d7e8e066ec17a1",
+        "n_closed": 14660
+      },
+      "ln1": {
+        "tip_ohlc": [
+          1871.86,
+          1875.38,
+          1865.0,
+          1867.93
+        ],
+        "tip_ts_ms": 1785916800000,
+        "tip50": "df799d3fe3dba850c48d98fb6672e1391dcf0ae965bb7781c0d7e8e066ec17a1"
+      },
+      "warehouse": {
+        "price_type": "last_price",
+        "n_closed": 14451,
+        "tip_ts_ms": 1785916800000,
+        "tip_utc": "2026-08-05T08:00:00+00:00",
+        "tip_ohlc": [
+          1871.86,
+          1875.38,
+          1865.0,
+          1867.93
+        ],
+        "tip_volume": 310442.508,
+        "tip50_ohlc_sha256": "df799d3fe3dba850c48d98fb6672e1391dcf0ae965bb7781c0d7e8e066ec17a1"
+      },
+      "ln1_eq_ln3": true,
+      "ln3_eq_warehouse_ohlc": true,
+      "ln3_eq_warehouse_tip50": true
+    },
+    "ETHUSDT:1w": {
+      "ln3": {
+        "tip_ohlc": [
+          1953.8,
+          1982.0,
+          1820.61,
+          1884.37
+        ],
+        "tip_ts_ms": 1785110400000,
+        "tip50": "0aa87d30ab1d98a1ea41e04cc1463bfc33343ea55b4791e74ac4be32086d9ffe",
+        "n_closed": 349
+      },
+      "ln1": {
+        "tip_ohlc": [
+          1953.8,
+          1982.0,
+          1820.61,
+          1884.37
+        ],
+        "tip_ts_ms": 1785110400000,
+        "tip50": "0aa87d30ab1d98a1ea41e04cc1463bfc33343ea55b4791e74ac4be32086d9ffe"
+      },
+      "warehouse": {
+        "price_type": "last_price",
+        "n_closed": 344,
+        "tip_ts_ms": 1785110400000,
+        "tip_utc": "2026-07-27T00:00:00+00:00",
+        "tip_ohlc": [
+          1953.8,
+          1982.0,
+          1820.61,
+          1884.37
+        ],
+        "tip_volume": 25805233.92,
+        "tip50_ohlc_sha256": "0aa87d30ab1d98a1ea41e04cc1463bfc33343ea55b4791e74ac4be32086d9ffe"
+      },
+      "ln1_eq_ln3": true,
+      "ln3_eq_warehouse_ohlc": true,
+      "ln3_eq_warehouse_tip50": true
+    },
+    "SOLUSDT:1h": {
+      "ln3": {
+        "tip_ohlc": [
+          73.82,
+          73.97,
+          73.69,
+          73.73
+        ],
+        "tip_ts_ms": 1785927600000,
+        "tip50": "435a10ceb03c317ee9345ec59bff345e59d85350a0ec03350b7faa043cc0ec75",
+        "n_closed": 51629
+      },
+      "ln1": {
+        "tip_ohlc": [
+          73.82,
+          73.97,
+          73.69,
+          73.73
+        ],
+        "tip_ts_ms": 1785927600000,
+        "tip50": "435a10ceb03c317ee9345ec59bff345e59d85350a0ec03350b7faa043cc0ec75"
+      },
+      "warehouse": {
+        "price_type": "last_price",
+        "n_closed": 51509,
+        "tip_ts_ms": 1785927600000,
+        "tip_utc": "2026-08-05T11:00:00+00:00",
+        "tip_ohlc": [
+          73.82,
+          73.97,
+          73.69,
+          73.73
+        ],
+        "tip_volume": 285034.98,
+        "tip50_ohlc_sha256": "435a10ceb03c317ee9345ec59bff345e59d85350a0ec03350b7faa043cc0ec75"
+      },
+      "ln1_eq_ln3": true,
+      "ln3_eq_warehouse_ohlc": true,
+      "ln3_eq_warehouse_tip50": true,
+      "research_indicators": {
+        "n": 51554,
+        "max_ts": 1785657600000,
+        "tip": {
+          "ts_ms": 1785657600000,
+          "close": 73.36
+        }
+      }
+    },
+    "SOLUSDT:4h": {
+      "ln3": {
+        "tip_ohlc": [
+          73.94,
+          74.17,
+          73.69,
+          73.73
+        ],
+        "tip_ts_ms": 1785916800000,
+        "tip50": "8b8cf7562918e0760500e50df3100184c069ff1fde0dcac16122495460676d12",
+        "n_closed": 12908
+      },
+      "ln1": {
+        "tip_ohlc": [
+          73.94,
+          74.17,
+          73.69,
+          73.73
+        ],
+        "tip_ts_ms": 1785916800000,
+        "tip50": "8b8cf7562918e0760500e50df3100184c069ff1fde0dcac16122495460676d12"
+      },
+      "warehouse": {
+        "price_type": "last_price",
+        "n_closed": 12878,
+        "tip_ts_ms": 1785916800000,
+        "tip_utc": "2026-08-05T08:00:00+00:00",
+        "tip_ohlc": [
+          73.94,
+          74.17,
+          73.69,
+          73.73
+        ],
+        "tip_volume": 1340847.67,
+        "tip50_ohlc_sha256": "8b8cf7562918e0760500e50df3100184c069ff1fde0dcac16122495460676d12"
+      },
+      "ln1_eq_ln3": true,
+      "ln3_eq_warehouse_ohlc": true,
+      "ln3_eq_warehouse_tip50": true
+    },
+    "SOLUSDT:1w": {
+      "ln3": {
+        "tip_ohlc": [
+          76.75,
+          77.48,
+          70.51,
+          73.61
+        ],
+        "tip_ts_ms": 1785110400000,
+        "tip50": "9140f1db6a5dbc80217f650d8fbd4a175d1cde7306facd5d9e043704c0b579da",
+        "n_closed": 307
+      },
+      "ln1": {
+        "tip_ohlc": [
+          76.75,
+          77.48,
+          70.51,
+          73.61
+        ],
+        "tip_ts_ms": 1785110400000,
+        "tip50": "9140f1db6a5dbc80217f650d8fbd4a175d1cde7306facd5d9e043704c0b579da"
+      },
+      "warehouse": {
+        "price_type": "last_price",
+        "n_closed": 307,
+        "tip_ts_ms": 1785110400000,
+        "tip_utc": "2026-07-27T00:00:00+00:00",
+        "tip_ohlc": [
+          76.75,
+          77.48,
+          70.51,
+          73.61
+        ],
+        "tip_volume": 103431743.13,
+        "tip50_ohlc_sha256": "9140f1db6a5dbc80217f650d8fbd4a175d1cde7306facd5d9e043704c0b579da"
+      },
+      "ln1_eq_ln3": true,
+      "ln3_eq_warehouse_ohlc": true,
+      "ln3_eq_warehouse_tip50": true
+    }
+  },
+  "units": {
+    "ln1": [
+      {
+        "unit": "llm2-structure-btc-k5-double3h-v1.service",
+        "active": "active",
+        "source": "binance",
+        "depth_ok": true,
+        "recent_bad_log_n": 0,
+        "tip_align": [
+          {
+            "symbol": "BTCUSDT",
+            "pack_max_ts": 1785927600000,
+            "shared_closed_tip_ts": 1785927600000,
+            "pack_at_or_before_shared": true,
+            "n": 60547
+          }
+        ],
+        "ok": true
+      },
+      {
+        "unit": "llm2-structure-eth-k5-double3h-v1.service",
+        "active": "active",
+        "source": "binance",
+        "depth_ok": true,
+        "recent_bad_log_n": 0,
+        "tip_align": [
+          {
+            "symbol": "ETHUSDT",
+            "pack_max_ts": 1785927600000,
+            "shared_closed_tip_ts": 1785927600000,
+            "pack_at_or_before_shared": true,
+            "n": 58637
+          }
+        ],
+        "ok": true
+      },
+      {
+        "unit": "llm2-structure-eth-multitrade-v1_2.service",
+        "active": "active",
+        "source": "binance",
+        "depth_ok": true,
+        "recent_bad_log_n": 0,
+        "tip_align": [
+          {
+            "symbol": "ETHUSDT",
+            "pack_max_ts": 1785927600000,
+            "shared_closed_tip_ts": 1785927600000,
+            "pack_at_or_before_shared": true,
+            "n": 58637
+          }
+        ],
+        "ok": true
+      },
+      {
+        "unit": "llm2-structure-eth.service",
+        "active": "active",
+        "source": "binance",
+        "depth_ok": true,
+        "recent_bad_log_n": 0,
+        "tip_align": [
+          {
+            "symbol": "ETHUSDT",
+            "pack_max_ts": 1785927600000,
+            "shared_closed_tip_ts": 1785927600000,
+            "pack_at_or_before_shared": true,
+            "n": 58637
+          }
+        ],
+        "ok": true
+      },
+      {
+        "unit": "llm2-structure-micro.service",
+        "active": "active",
+        "source": "binance",
+        "depth_ok": true,
+        "recent_bad_log_n": 0,
+        "tip_align": [
+          {
+            "symbol": "BTCUSDT",
+            "pack_max_ts": 1785927600000,
+            "shared_closed_tip_ts": 1785927600000,
+            "pack_at_or_before_shared": true,
+            "n": 60547
+          }
+        ],
+        "ok": true
+      },
+      {
+        "unit": "llm2-structure-sol-k5-double3h-v1.service",
+        "active": "active",
+        "source": "binance",
+        "depth_ok": true,
+        "recent_bad_log_n": 0,
+        "tip_align": [
+          {
+            "symbol": "SOLUSDT",
+            "pack_max_ts": 1785927600000,
+            "shared_closed_tip_ts": 1785927600000,
+            "pack_at_or_before_shared": true,
+            "n": 51629
+          }
+        ],
+        "ok": true
+      },
+      {
+        "unit": "llm2-structure-sol.service",
+        "active": "active",
+        "source": "binance",
+        "depth_ok": true,
+        "recent_bad_log_n": 0,
+        "tip_align": [
+          {
+            "symbol": "SOLUSDT",
+            "pack_max_ts": 1785927600000,
+            "shared_closed_tip_ts": 1785927600000,
+            "pack_at_or_before_shared": true,
+            "n": 51629
+          }
+        ],
+        "ok": true
+      }
+    ],
+    "ln3": [
+      {
+        "unit": "llm2-structure-eth-k5-double3h-p75-v1.service",
+        "active": "active",
+        "source": "binance",
+        "depth_ok": true,
+        "recent_bad_log_n": 0,
+        "tip_align": [
+          {
+            "symbol": "ETHUSDT",
+            "pack_max_ts": 1785927600000,
+            "shared_closed_tip_ts": 1785927600000,
+            "pack_at_or_before_shared": true,
+            "n": 58637
+          }
+        ],
+        "ok": true
+      },
+      {
+        "unit": "llm2-structure-eth-multitrade-p75-v1.service",
+        "active": "active",
+        "source": "binance",
+        "depth_ok": true,
+        "recent_bad_log_n": 0,
+        "tip_align": [
+          {
+            "symbol": "ETHUSDT",
+            "pack_max_ts": 1785927600000,
+            "shared_closed_tip_ts": 1785927600000,
+            "pack_at_or_before_shared": true,
+            "n": 58637
+          }
+        ],
+        "ok": true
+      }
+    ]
+  },
+  "principal_blocker": null,
+  "blockers": [],
+  "all_ok": true,
+  "notes": [
+    "Candle identity gate: closed-bar OHLC tip + tip50 hash vs market_ohlcv.",
+    "Live packs still compute/store structure in indicators_live_slice; exact feature identity also needs same compute_structure code + full history left edge.",
+    "Pack bar_features tip may lag shared closed tip by 0\u20131 bars until next decide refresh."
+  ]
+}

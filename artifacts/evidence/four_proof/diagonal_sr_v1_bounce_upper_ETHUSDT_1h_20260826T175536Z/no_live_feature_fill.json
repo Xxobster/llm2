@@ -1,0 +1,16 @@
+{
+  "hits": [],
+  "ok": true,
+  "proof": "no_live_feature_fill",
+  "required_guards": {
+    "pack_fail_loud": true,
+    "runner_nan_refuse": true,
+    "signal_isfinite_check": true,
+    "signal_nan_cols": true
+  },
+  "sources_sha256": {
+    "llm2\\diagonal_sr\\live_signal.py": "f0a153cc15e2ddef0536521483b4e2cdf56387d1ac8695ad6f543a643803a7ef",
+    "llm2\\live\\diagonal_sr_runner.py": "36fe6607e362874a400cab0f5d21ef5c6cc6c8ed734efba62231ed85dbaa1c31"
+  },
+  "space": "diagonal_sr_v1"
+}

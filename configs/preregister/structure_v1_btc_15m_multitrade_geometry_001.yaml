@@ -1,0 +1,97 @@
+# BTCUSDT 15m Phase 2 — same frozen geometry as ETH D-047 winner family.
+# Separate generation so ETH OOS cannot contaminate symbol selection.
+# ALL arms preregistered before OOS. Touch = 1m.
+
+generation_id: structure_v1_btc_15m_multitrade_geometry_001
+created_utc: "2026-08-05T14:00:00Z"
+status: OOS_COMPARE_COMPLETE
+settled_utc: "20260805T140315Z"
+preregister_sha256_at_run: 33e091f0439df8b06e957202c8c23438f8a5da5404ffa31e405eca892a3ac372
+decision_refs: [D-047, D-048]
+fold_geometry: v2
+eth_parent_generation: structure_v1_eth_15m_multitrade_geometry_001
+phase: BTC_PHASE2
+geometry_source: eth_15m_wall_clock_transfer_same_knobs
+
+hypothesis: >
+  The same ETH 15m multitrade geometry (wall-clock q50 / wall-clock q75 /
+  bar-count q75) transferred to BTCUSDT 15m with 1m touch, after a fresh
+  BTC structure warehouse + leakage PASS and a BTC-only retrain, can produce
+  a stitched outer-fold expectancy_return_units edge with PF>=1.20 without
+  reopening K×hold×TP or mixing ETH OOS into symbol selection.
+
+economic_rationale: >
+  Phase 2 isolates Bitcoin as its own generation. Knobs match ETH D-047 a
+  priori (not re-tuned on BTC). Wall-clock preserves ~6h/12h holds and ~1-week
+  strength history; bar-count keeps literal 1h bar knobs. Primary remains E[r].
+
+shared:
+  symbol: BTCUSDT
+  timeframe: 15m
+  touch_timeframe: 1m
+  space: structure_v1
+  target: direction
+  min_edge: 0.10
+  k_per_side: 7
+  fib_ext: 1.618
+  base_tp: 0.01
+  base_sl: 0.02
+  clarity: mean_strength
+  clarity_scope: all
+  uniform_books: false
+  bar_ms: 900000
+
+arms:
+  wall_clock_q50:
+    geometry: wall_clock
+    strength_quantile: 0.5
+    base_hold: 24
+    hold_addon: 48
+    mean_lookback: 672
+    label_horizon: 24
+  wall_clock_q75:
+    geometry: wall_clock
+    strength_quantile: 0.75
+    base_hold: 24
+    hold_addon: 48
+    mean_lookback: 672
+    label_horizon: 24
+  bar_count_q75:
+    geometry: bar_count
+    strength_quantile: 0.75
+    base_hold: 6
+    hold_addon: 12
+    mean_lookback: 168
+    label_horizon: 6
+
+selection:
+  method: FROZEN_MULTI_ARM — all arms listed before OOS; no post-hoc add
+  ranking_primary: expectancy_return_units
+  forbidden:
+    - re_search_K_hold_tp_grid_after_oos
+    - select_on_lockbox
+    - reopen_clarity_hold_tp_from_1h_oos
+    - use_eth_oos_to_choose_btc_arm
+    - promote_without_new_pack_hash_certificate_and_explicit_user_auth
+
+evaluation:
+  outer: fold_geometry_v2_stitched_oos
+  hard_end_exclusive: "2026-05-01"
+  lockbox: DO_NOT_OPEN
+  engine: botsgeneral_tradesim
+  costs: research_costs_baseline
+  sizing: MIN_EXCHANGE
+  leverage: leverage_from_stop(0.02)
+  primary_metric: expectancy_return_units
+  secondary: [profit_factor, sharpe_annualised_fold_mean, win_rate, n_trades]
+  evidence_class: OUTER_TRANSFER_COMPARE
+  promotion: FORBIDDEN_without_new_pack_hash_certificate_and_explicit_user_auth
+
+success_criteria:
+  - best_arm_expectancy_return_units > 0
+  - best_arm_stitched_pf >= 1.20
+  - no liquidation on best arm
+  - report all three arms (full outer stitch)
+
+failure_is_success: true
+live_deploy: FORBIDDEN_without_certificate_and_explicit_user_auth

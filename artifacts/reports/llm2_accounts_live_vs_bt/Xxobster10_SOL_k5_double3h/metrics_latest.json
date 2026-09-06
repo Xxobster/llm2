@@ -1,0 +1,79 @@
+{
+  "evidence_class": "LIVE_VS_BT_DISPLAY_ONLY",
+  "promotion_allowed": false,
+  "account": "Xxobster10",
+  "label": "SOL_k5_double3h",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h",
+  "live_orders": 12,
+  "window": [
+    "2026-08-04T13:00:00+00:00",
+    "2026-08-06T02:00:00+00:00"
+  ],
+  "live_metrics": {
+    "n_trades": 10,
+    "profit_factor": 0.2953123473575475,
+    "profit_factor_raw": 0.2953123473575475,
+    "win_rate": 0.1,
+    "expectancy_return_units": -0.002136176195048747,
+    "expectancy": -0.01572525999999991,
+    "net_pnl": -0.1572526000036305,
+    "total_fees": 0.08125260000000001,
+    "n_liquidations": 0,
+    "entry_bar_exits": 1,
+    "sharpe_annualised": NaN,
+    "run_id": "Xxobster10_SOL_k5_double3h_live_forced-b89150f823"
+  },
+  "backtest_metrics": {
+    "n_trades": 11,
+    "profit_factor": 8.136759981103795,
+    "profit_factor_raw": 8.136759981103795,
+    "win_rate": 0.6363636363636364,
+    "expectancy_return_units": 0.0037253552941972773,
+    "expectancy": 0.02760492272727291,
+    "net_pnl": 0.3036541500023304,
+    "total_fees": 0.08934585,
+    "n_liquidations": 0,
+    "entry_bar_exits": 1,
+    "sharpe_annualised": NaN,
+    "run_id": "Xxobster10_SOL_k5_double3h_free_bt-755673eebf"
+  },
+  "entry_comparison": {
+    "n_live_orders": 12,
+    "n_bt_signals": 13,
+    "n_live_entry_bars": 12,
+    "n_bt_entry_bars": 13,
+    "n_live_entries": 12,
+    "n_bt_entries": 13,
+    "intersection": 7,
+    "live_only_n": 5,
+    "bt_only_n": 6,
+    "order_intersection": 0,
+    "live_only_utc": [
+      "2026-08-04T13:00:00+00:00",
+      "2026-08-04T16:00:00+00:00",
+      "2026-08-04T17:00:00+00:00",
+      "2026-08-05T03:00:00+00:00",
+      "2026-08-05T10:00:00+00:00"
+    ],
+    "bt_only_utc": [
+      "2026-08-04T15:00:00+00:00",
+      "2026-08-04T18:00:00+00:00",
+      "2026-08-04T19:00:00+00:00",
+      "2026-08-04T20:00:00+00:00",
+      "2026-08-05T05:00:00+00:00",
+      "2026-08-05T11:00:00+00:00"
+    ]
+  },
+  "signal_stats_free": {
+    "n_emitted": 13,
+    "n_skipped_clarity": 3,
+    "n_skipped_cap": 3,
+    "n_skipped_loss_cooloff": 0,
+    "n_skipped_weak_short_book1": 0,
+    "n_primary": 2,
+    "n_addon": 11
+  },
+  "elapsed_sec": 12.3,
+  "created_utc": "20260806T031350Z"
+}

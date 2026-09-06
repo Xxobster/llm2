@@ -25,7 +25,12 @@ param(
 
     [int]$MaxRestarts = 3,
 
-    [int]$StartupGraceSec = 120
+    [int]$StartupGraceSec = 120,
+
+    [ValidateSet("Normal", "AboveNormal", "High")]
+    [string]$ChildPriority = "High",
+
+    [switch]$DemoteOllamaAndPoker
 )
 
 $ErrorActionPreference = "Stop"
@@ -45,6 +50,33 @@ if (-not [System.IO.Path]::IsPathRooted($LogPath)) {
 $logDir = Split-Path -Parent $LogPath
 if ($logDir -and -not (Test-Path $logDir)) {
     New-Item -ItemType Directory -Path $logDir -Force | Out-Null
+}
+
+function Set-ProcessTreePriority {
+    param([int]$RootPid, [string]$Class)
+    $q = New-Object System.Collections.Queue
+    $q.Enqueue([int]$RootPid)
+    while ($q.Count -gt 0) {
+        $id = [int]$q.Dequeue()
+        try {
+            $p = Get-Process -Id $id -ErrorAction SilentlyContinue
+            if ($p) { $p.PriorityClass = $Class }
+        } catch { }
+        Get-CimInstance Win32_Process -Filter "ParentProcessId=$id" -ErrorAction SilentlyContinue |
+            ForEach-Object { $q.Enqueue([int]$_.ProcessId) }
+    }
+}
+
+function Demote-OllamaAndPoker {
+    Get-CimInstance Win32_Process -ErrorAction SilentlyContinue | ForEach-Object {
+        $blob = ("{0} {1}" -f $_.Name, $_.CommandLine).ToLowerInvariant()
+        if ($blob -match "ollama\.exe|llama-server|deskframe\.solver\.train|arena_eval_sim_loop|arena_free_watch|deskframe\.platforms") {
+            try {
+                $p = Get-Process -Id $_.ProcessId -ErrorAction Stop
+                $p.PriorityClass = "BelowNormal"
+            } catch { }
+        }
+    }
 }
 
 function Write-Watch([string]$msg) {
@@ -86,6 +118,17 @@ while ($attempt -lt $maxAttempts) {
 
     $pidChild = $proc.Id
     Write-Watch "started pid=$pidChild"
+    try {
+        Set-ProcessTreePriority -RootPid $pidChild -Class $ChildPriority
+        Start-Sleep -Seconds 2
+        Set-ProcessTreePriority -RootPid $pidChild -Class $ChildPriority
+        Write-Watch "child_priority=$ChildPriority"
+    } catch {
+        Write-Watch "child_priority_failed: $_"
+    }
+    if ($DemoteOllamaAndPoker) {
+        try { Demote-OllamaAndPoker; Write-Watch "demoted ollama/poker to BelowNormal" } catch { }
+    }
 
     $lastBytes = Get-LogSize $childLog
     $lastGrowUtc = [DateTime]::UtcNow

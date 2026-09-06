@@ -1,0 +1,15 @@
+{
+  "idea": "fvg_confluence",
+  "live_prefix_bars": 3000,
+  "max_abs_limit_px_diff": 0.0,
+  "max_abs_sl_diff": 0.0,
+  "mismatches": [],
+  "n_decisions_differ": 0,
+  "n_research_fires_in_window": 0,
+  "ok": true,
+  "proof": "layer_a_pred_identity",
+  "space": "ml_lab_catalog_i_v1",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h",
+  "tip_bars": 24
+}

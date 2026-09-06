@@ -1,0 +1,24 @@
+{
+  "artifact_dir": "D:\\projects\\LLM2\\artifacts\\evidence\\four_proof\\ml_lab_catalog_i_v1_fvg_confluence_SOLUSDT_1h_20260903T220602Z",
+  "artifact_hashes": {
+    "builder_responsiveness": "ee17f80b7cc8c5a74af94fbde734c090d1bd739d3362808f06a9545ec6a0e823",
+    "layer_a_pred_identity": "02e97fd13bb099c8a98d58b3d4e85d84f0b1281a43024c89cf54f5a6fa07116f",
+    "no_live_feature_fill": "013f2ac08266ec0317628fae96982eba37cf976c1c9a3822840fa5c1a610b56c",
+    "recompute_prefix": "b3bb6dd7d2227fc68f98e999d7401f5dae7974009b330b303ba651f644f93372"
+  },
+  "idea": "fvg_confluence",
+  "ok": true,
+  "proofs_ok": {
+    "builder_responsiveness": true,
+    "layer_a_pred_identity": true,
+    "no_live_feature_fill": true,
+    "recompute_prefix": true
+  },
+  "readiness": "RESEARCH_ONLY (gate is causality, not performance)",
+  "rule": "FOUR_PROOF_GATE_V1",
+  "space": "ml_lab_catalog_i_v1",
+  "stamp": "20260903T220602Z",
+  "summary_sha256": "1ddb98509eff08c797eab4a510fd4919c10b0fa2a386356cfda7d0d2177d280e",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h"
+}

@@ -1,0 +1,77 @@
+{
+  "evidence_class": "LIVE_VS_BT_DISPLAY_ONLY",
+  "promotion_allowed": false,
+  "created_utc": "20260806T025901Z",
+  "elapsed_sec": 23.3,
+  "live_metrics": {
+    "label": "LIVE_ORDERS_FORCED_THROUGH_TRADESIM",
+    "n_trades": 11,
+    "profit_factor": 0.3264776420598775,
+    "win_rate": 0.6363636363636364,
+    "expectancy_return_units": -0.005215925145577473,
+    "expectancy": -0.09692013181818254,
+    "net_pnl": -1.0661214499959897,
+    "payoff_ratio": 0.1865586526056443,
+    "total_fees": 0.22992145000000003,
+    "n_liquidations": 0,
+    "entry_bar_exits": 0,
+    "sharpe_annualised": NaN,
+    "run_id": "eth_15m_live_orders_forced-81be7de9aa",
+    "n_live_ledger_orders": 11,
+    "signal_stats": null
+  },
+  "backtest_metrics": {
+    "label": "FREE_BACKTEST_PACK_MODEL",
+    "n_trades": 11,
+    "profit_factor": Infinity,
+    "win_rate": 1.0,
+    "expectancy_return_units": 0.004368660532405534,
+    "expectancy": 0.08304329636363629,
+    "net_pnl": 0.913476260002426,
+    "payoff_ratio": NaN,
+    "total_fees": 0.23012374000000002,
+    "n_liquidations": 0,
+    "entry_bar_exits": 0,
+    "sharpe_annualised": NaN,
+    "run_id": "eth_15m_free_bt_live_window-3775be122d",
+    "signal_stats": {
+      "n_emitted": 11,
+      "n_skipped_clarity": 5,
+      "n_skipped_cap": 12,
+      "n_skipped_loss_cooloff": 0,
+      "n_skipped_weak_short_book1": 0,
+      "n_primary": 2,
+      "n_addon": 9
+    }
+  },
+  "entry_comparison": {
+    "n_live_entries": 11,
+    "n_bt_entries": 11,
+    "intersection": 7,
+    "live_only": [
+      1785938400000,
+      1785939300000,
+      1785942000000,
+      1785942900000
+    ],
+    "bt_only": [
+      1785945600000,
+      1785946500000,
+      1785947400000,
+      1785948300000
+    ],
+    "live_only_utc": [
+      "2026-08-05T14:00:00+00:00",
+      "2026-08-05T14:15:00+00:00",
+      "2026-08-05T15:00:00+00:00",
+      "2026-08-05T15:15:00+00:00"
+    ],
+    "bt_only_utc": [
+      "2026-08-05T16:00:00+00:00",
+      "2026-08-05T16:15:00+00:00",
+      "2026-08-05T16:30:00+00:00",
+      "2026-08-05T16:45:00+00:00"
+    ]
+  },
+  "note": "LIVE chart uses ledger order entries (order_retCode=0) forced into tradesim with live TP/hold/qty; FREE BT uses frozen pack model + multitrade gate on the same candle window. Display-only."
+}

@@ -1,0 +1,33 @@
+# Fleet 004: ETH dual arms + BTC 1h entry-bar attack (RESEARCH_ONLY, not live)
+generation_id: pivot_fleet_004_eth_dual_btc1h
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-13T09:25:00Z"
+
+research_fleet:
+  ETHUSDT:
+    volume_arm: { id: ETH_q50_w4, level_mode: q50, work_bars: 4, gate: p75, pack: level_vsa }
+    quality_arm: { id: ETH_q50_softvsa_w4, level_mode: q50, work_bars: 4, gate: p75_softvsa, pack: level_vsa }
+    rank_quality_by: expectancy_intent_all
+  SOLUSDT:
+    hold: { id: SOL_atr_clip_w5, work_bars: 5, placement: atr_clip_0p8_1p5 }
+    revisit_1h_only_if: entry_bar_exit_rate_lt_0.35
+  BTCUSDT:
+    fleet_15m: { id: BTC_p80_w4, gate: p80, work_bars: 4 }
+    pending_1h: attack_entry_bar_then_retest_p80
+
+btc_1h_entry_bar_attack_frozen_before_pf:
+  - BTC_1h_p80_tp1_sl1_w2          # baseline (known high ebr)
+  - BTC_1h_p80_tp15_sl15_w2         # wider 1:1
+  - BTC_1h_p80_tp2_sl2_w2
+  - BTC_1h_p80_tp2_sl15_w2
+  - BTC_1h_p80_sl_atr1p0_tp_eq_w2   # per-bar SL = 1.0*ATR
+  - BTC_1h_p80_sl_atr1p5_tp_eq_w2
+  - BTC_1h_p80_atr_min2_tp15_sl15_w2
+  - BTC_1h_p80_filter_atr_ge_sl_w2  # skip when ATR < SL (noise > stop)
+
+promotion_gates:
+  max_entry_bar_exit_rate: 0.35
+  prefer_entry_bar_lt: 0.25
+  rank_by: expectancy_intent_all
+  require_pf_ge_0p85_of_btc_15m_p80: true

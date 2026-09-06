@@ -1,0 +1,11 @@
+{
+  "hard_findings": [],
+  "idea": "fvg_confluence",
+  "n_columns": 6,
+  "ok": true,
+  "proof": "recompute_prefix",
+  "space": "ml_lab_catalog_i_v1",
+  "summary": "PASS \u2014 6 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h"
+}

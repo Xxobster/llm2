@@ -1,0 +1,38 @@
+strategy_id: sol_1h_fvg_confluence
+arm_id: SOLUSDT|1h|fvg_confluence|atr1.5|slcap0.03
+status: AUTHORIZED
+authorized_by_user: true
+authorized_scope: venue-minimum Post-Only (0.1 Solana); not 5% stop-risk
+authorization_source: >-
+  user chat 2026-09-04: move Solana 1h Fair Value Gap confluence from Xxobster3
+  user chat 2026-09-04 later: Solana Fair Value Gap stays venue-minimum size; Bitcoin on the same account uses 5% stop-risk.
+vps_host: 212.73.150.178
+account_ref: Xxobster11
+intended_account_ref: Xxobster11
+pack_path: artifacts/live_packs/sol_1h_fvg_confluence
+pack_hash: c38099cc7be8ee5612696950990337be369297b6ec8756c47dcc728fb10b39cf
+authorized_from_utc: '2026-09-04T00:00:00Z'
+expires_utc: '2026-10-04T00:00:00Z'
+created_utc: '2026-09-04T03:05:00Z'
+symbol: SOLUSDT
+timeframe: 1h
+idea: fvg_confluence
+leverage: 13.0
+risk_fraction: 0.05
+sizing_mode: MIN_EXCHANGE
+four_proof_ok: true
+four_proof_hashes:
+  builder_responsiveness: ee17f80b7cc8c5a74af94fbde734c090d1bd739d3362808f06a9545ec6a0e823
+  recompute_prefix: b3bb6dd7d2227fc68f98e999d7401f5dae7974009b330b303ba651f644f93372
+  no_live_feature_fill: 013f2ac08266ec0317628fae96982eba37cf976c1c9a3822840fa5c1a610b56c
+  layer_a_pred_identity: 02e97fd13bb099c8a98d58b3d4e85d84f0b1281a43024c89cf54f5a6fa07116f
+research_readiness: RESEARCH_ONLY (not SHADOW_READY)
+blockers_acknowledged:
+- nested stitched 2022-01-01..2026-05-01 FAIL (Bitcoin profit factor 0.977; Solana profit factor 0.865) — operational fill test only
+- no Gate C all-taker stress on these packs
+- inner screen before 2022-01-01 is not Shadow-Ready
+- unfilled Post-Only cancels and stays flat
+- venue-minimum lot (0.1 Solana); not 5% stop-risk
+- fill rate ~37% on working limit
+- long-only
+- shared wallet with Bitcoin 1h quad_slope_follow on the same Xxobster11 account (per-symbol exposure)

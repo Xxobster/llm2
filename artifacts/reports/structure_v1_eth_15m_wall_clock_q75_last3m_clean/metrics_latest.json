@@ -1,0 +1,32 @@
+{
+  "evidence_class": "DISPLAY_ONLY_CLEAN_OOS_SLICE",
+  "promotion_allowed": false,
+  "lockbox_used": false,
+  "selection_on_slice": false,
+  "window": [
+    "2026-02-01",
+    "2026-05-01"
+  ],
+  "arm": "wall_clock_q75",
+  "timeframe": "15m",
+  "touch_timeframe": "1m",
+  "n_trades": 880,
+  "profit_factor": 6.342259052507265,
+  "win_rate": 0.8227272727272728,
+  "expectancy_return_units": 0.011427409665731079,
+  "net_pnl": 210.9038506499819,
+  "n_liquidations": 0,
+  "signal_stats": {
+    "n_emitted": 890,
+    "n_skipped_clarity": 4188,
+    "n_skipped_cap": 594,
+    "n_skipped_loss_cooloff": 0,
+    "n_skipped_weak_short_book1": 0,
+    "n_primary": 119,
+    "n_addon": 771
+  },
+  "run_id": "eth_15m_wall_clock_q75_last3m_clean-b5d3db5d0d",
+  "created_utc": "20260805T143359Z",
+  "elapsed_sec": 21.1,
+  "note": "Last ~3 months of pre-lockbox outer OOS only. Calendar May\u2013Aug 2026 is lockbox/contaminated and was NOT used. Not a promotion gate."
+}

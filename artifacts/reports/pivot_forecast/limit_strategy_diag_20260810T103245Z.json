@@ -1,0 +1,284 @@
+{
+  "generation_id": "pivot_limit_strategy_diag_001",
+  "stamp": "20260810T103245Z",
+  "source": "binance",
+  "lockbox_start": "2026-05-01",
+  "setup": {
+    "timeframe": "15m",
+    "horizon_bars": 4,
+    "atr_min": 2.0,
+    "tp_pct": 0.01,
+    "sl_pct_arms": [
+      0.02,
+      0.05
+    ],
+    "entry": "LIMIT at predicted pivot level (clamped) or market control",
+    "gate": "calibrated p_any >= max(0.35, train_cal p75)",
+    "note": "TP 1% vs SL 2\u20135% is adverse reward:risk; diagnostic only"
+  },
+  "symbols": [
+    {
+      "symbol": "BTCUSDT",
+      "frac_any_label": 0.15782235816740706,
+      "n_rows": 119983,
+      "calibration_folds": [
+        {
+          "fold": 2,
+          "ece_inner_raw": 0.24292464599822772,
+          "ece_inner_cal": 2.1622934893043664e-08,
+          "ece_outer_cal": 0.0193636476518163,
+          "pr_note": "outer scores after inner-only calibrator"
+        },
+        {
+          "fold": 3,
+          "ece_inner_raw": 0.24755460244698801,
+          "ece_inner_cal": 5.108556833614129e-09,
+          "ece_outer_cal": 0.00899089835050083,
+          "pr_note": "outer scores after inner-only calibrator"
+        },
+        {
+          "fold": 4,
+          "ece_inner_raw": 0.28237382037810094,
+          "ece_inner_cal": 6.813847203829838e-11,
+          "ece_outer_cal": 0.01382395254010745,
+          "pr_note": "outer scores after inner-only calibrator"
+        },
+        {
+          "fold": 5,
+          "ece_inner_raw": 0.3284421692065994,
+          "ece_inner_cal": 1.7069986954928268e-09,
+          "ece_outer_cal": 0.019611176248185994,
+          "pr_note": "outer scores after inner-only calibrator"
+        }
+      ],
+      "limit_entry": {
+        "sl2": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 455,
+            "profit_factor": 1.0022389179881983,
+            "net_pnl": 0.2200310999796784,
+            "win_rate": 0.589010989010989,
+            "expectancy": 0.0004835848351648804,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719
+        },
+        "sl5": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 454,
+            "profit_factor": 0.9835213804896054,
+            "net_pnl": -1.6419983150190092,
+            "win_rate": 0.5881057268722467,
+            "expectancy": -0.0036167363766519333,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719
+        }
+      },
+      "market_entry_control": {
+        "sl2": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2269,
+            "profit_factor": 0.7069045656872929,
+            "net_pnl": -139.48560294001254,
+            "win_rate": 0.4715733803437638,
+            "expectancy": -0.06147448344645223,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719
+        },
+        "sl5": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2227,
+            "profit_factor": 0.699756473884948,
+            "net_pnl": -139.93731068501802,
+            "win_rate": 0.4728334081724293,
+            "expectancy": -0.0628366909227661,
+            "n_liquidations": 0
+          },
+          "n_signals": 3719
+        }
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "frac_any_label": 0.15783902719551937,
+      "n_rows": 119983,
+      "calibration_folds": [
+        {
+          "fold": 2,
+          "ece_inner_raw": 0.25721355641997257,
+          "ece_inner_cal": 5.344995140392873e-09,
+          "ece_outer_cal": 0.014072722390797947,
+          "pr_note": "outer scores after inner-only calibrator"
+        },
+        {
+          "fold": 3,
+          "ece_inner_raw": 0.23805852493088098,
+          "ece_inner_cal": 2.4478501748404663e-09,
+          "ece_outer_cal": 0.015842162004656817,
+          "pr_note": "outer scores after inner-only calibrator"
+        },
+        {
+          "fold": 4,
+          "ece_inner_raw": 0.2613533769469304,
+          "ece_inner_cal": 2.1804306419517815e-09,
+          "ece_outer_cal": 0.010291144044872125,
+          "pr_note": "outer scores after inner-only calibrator"
+        },
+        {
+          "fold": 5,
+          "ece_inner_raw": 0.2749139154977739,
+          "ece_inner_cal": 2.1588512944693412e-09,
+          "ece_outer_cal": 0.00609271229861985,
+          "pr_note": "outer scores after inner-only calibrator"
+        }
+      ],
+      "limit_entry": {
+        "sl2": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 244,
+            "profit_factor": 1.643937997916543,
+            "net_pnl": 12.038206195000384,
+            "win_rate": 0.6188524590163934,
+            "expectancy": 0.0493369106352459,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808
+        },
+        "sl5": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 243,
+            "profit_factor": 1.5317267350188468,
+            "net_pnl": 10.613377819998277,
+            "win_rate": 0.6172839506172839,
+            "expectancy": 0.04367645193415633,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808
+        }
+      },
+      "market_entry_control": {
+        "sl2": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 1374,
+            "profit_factor": 0.7457187736286421,
+            "net_pnl": -36.08592798500831,
+            "win_rate": 0.5203784570596798,
+            "expectancy": -0.026263411925036416,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808
+        },
+        "sl5": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 1340,
+            "profit_factor": 0.7457495761908572,
+            "net_pnl": -35.23852253000223,
+            "win_rate": 0.5238805970149254,
+            "expectancy": -0.026297404873134325,
+            "n_liquidations": 0
+          },
+          "n_signals": 1808
+        }
+      }
+    },
+    {
+      "symbol": "SOLUSDT",
+      "frac_any_label": 0.14648741905103224,
+      "n_rows": 119983,
+      "calibration_folds": [
+        {
+          "fold": 2,
+          "ece_inner_raw": 0.2615521803132378,
+          "ece_inner_cal": 4.616132194643033e-09,
+          "ece_outer_cal": 0.01124282122627614,
+          "pr_note": "outer scores after inner-only calibrator"
+        },
+        {
+          "fold": 3,
+          "ece_inner_raw": 0.2746638341775017,
+          "ece_inner_cal": 1.0642826748808026e-09,
+          "ece_outer_cal": 0.01744115273963033,
+          "pr_note": "outer scores after inner-only calibrator"
+        },
+        {
+          "fold": 4,
+          "ece_inner_raw": 0.3184071592772395,
+          "ece_inner_cal": 1.5671845224371458e-09,
+          "ece_outer_cal": 0.014217490456995658,
+          "pr_note": "outer scores after inner-only calibrator"
+        },
+        {
+          "fold": 5,
+          "ece_inner_raw": 0.32354095108569003,
+          "ece_inner_cal": 4.66914349124628e-09,
+          "ece_outer_cal": 0.007403840629084424,
+          "pr_note": "outer scores after inner-only calibrator"
+        }
+      ],
+      "limit_entry": {
+        "sl2": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 347,
+            "profit_factor": 3.5745468307186066,
+            "net_pnl": 23.714280099982716,
+            "win_rate": 0.7953890489913544,
+            "expectancy": 0.06834086484149852,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445
+        },
+        "sl5": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 346,
+            "profit_factor": 4.279566611857068,
+            "net_pnl": 25.67028029998619,
+            "win_rate": 0.8121387283236994,
+            "expectancy": 0.07419156156069362,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445
+        }
+      },
+      "market_entry_control": {
+        "sl2": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2310,
+            "profit_factor": 0.8053051430507654,
+            "net_pnl": -29.965697300029206,
+            "win_rate": 0.5367965367965368,
+            "expectancy": -0.012972163333333354,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445
+        },
+        "sl5": {
+          "status": "RAN",
+          "metrics": {
+            "n_trades": 2190,
+            "profit_factor": 0.8399302273159074,
+            "net_pnl": -22.436229550046846,
+            "win_rate": 0.54337899543379,
+            "expectancy": -0.010244853675799102,
+            "n_liquidations": 0
+          },
+          "n_signals": 3445
+        }
+      }
+    }
+  ],
+  "readiness_max": "RESEARCH_ONLY",
+  "metric_explain_base_rate": "High base rate means the LABEL 'pivot within horizon' was true on most bars (dense events), NOT that forecast precision was good."
+}

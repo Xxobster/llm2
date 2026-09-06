@@ -1,0 +1,24 @@
+# Autonomy gen 101 — pin bar (long wick)
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_101_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-22T15:45:00Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  Lower-wick or upper-wick pin (wick at least 60% of the bar range) at
+  t+H and those events first appearing in the next H bars, used as
+  one-head filters, can beat the 15-minute Limit 1%/1% pivot control
+  under frozen entry-bar and trades-per-month caps.
+events: [lpin_at_h, upin_at_h, lpin_start, upin_start]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: 2e9a76b5d0c1a96cf3d544e229fe89367b4a465306880be765dec5a08397e9d2

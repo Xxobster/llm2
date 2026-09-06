@@ -1,0 +1,24 @@
+{
+  "artifact_dir": "D:\\projects\\LLM2\\artifacts\\evidence\\four_proof\\ml_lab_ema_stack_v1_power_ema_stack_long_SOLUSDT_1h_20260901T113253Z",
+  "artifact_hashes": {
+    "builder_responsiveness": "0cdfa336365926090cecbd0cf7fb2ab89d7e9625dc371246f60f90de582fec92",
+    "layer_a_pred_identity": "df1f782a86d50a6fd5c1dceee7fe09357810ab296f165953f8b546f398eea3f5",
+    "no_live_feature_fill": "3446790d47c95653a2d49da8df5873582bd56fcbb1c193f27497cef09bd8795e",
+    "recompute_prefix": "c81aa6e35188b8f993d52b21f7d120fd167e436deb665cb5ed8ef6a92a17f494"
+  },
+  "idea": "power_ema_stack_long",
+  "ok": true,
+  "proofs_ok": {
+    "builder_responsiveness": true,
+    "layer_a_pred_identity": true,
+    "no_live_feature_fill": true,
+    "recompute_prefix": true
+  },
+  "readiness": "RESEARCH_ONLY (gate is causality, not performance)",
+  "rule": "FOUR_PROOF_GATE_V1",
+  "space": "ml_lab_ema_stack_v1",
+  "stamp": "20260901T113253Z",
+  "summary_sha256": "29d7dddd01937147682a8f50e858450b4224ba38a08565cf32f876e86fdfb22a",
+  "symbol": "SOLUSDT",
+  "timeframe": "1h"
+}

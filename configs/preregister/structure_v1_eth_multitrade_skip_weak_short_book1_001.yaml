@@ -1,0 +1,79 @@
+# Nested transfer: skip mid/low-strength SHORT book1 (causal autopsy filter).
+# ONE candidate vs live eth_multitrade_v1_2 control. No lockbox.
+#
+# Economic map from fleet streak autopsy: loss runs concentrate on book1
+# short entries with mid/low |mean| strength when exits are max_hold + wrong@1h.
+# Filter uses only decision-time side, book index, and strength history tercile.
+
+generation_id: structure_v1_eth_multitrade_skip_weak_short_book1_001
+created_utc: "2026-08-05T08:05:00Z"
+status: OOS_COMPARE_COMPLETE
+settled_utc: "20260805T080706Z"
+preregister_sha256_at_run: c7d46c7de2e8cfd1cddd1c9e17e4104e80785004fa960b422c1480e71b14987b
+decision_refs: [D-042]
+fold_geometry: v2
+parent_pack: structure_v1_ethusdt_multitrade_v1_2
+parent_version_id: eth_multitrade_v1_2
+autopsy_generation: structure_v1_fleet_streak_autopsy_001
+
+hypothesis: >
+  Skipping SHORT primary (book_idx=1) entries when |pred| is below the high
+  tercile of the prior 168-bar strength history (i.e. mid/low strength short
+  book1) raises stitched outer-fold expectancy_return_units versus live
+  eth_multitrade_v1_2 without changing TP/SL/hold/K or using exit labels.
+
+economic_rationale: >
+  Fleet streak autopsy shared buckets paired short book1 + mid/low strength
+  with max_hold / wrong-way@1h pain. High-tercile short book1 and all long
+  / addon entries stay unchanged so the filter is a pure pre-trade skip.
+
+control_arm:
+  version_id: eth_multitrade_v1_2
+  clarity: mean_strength
+  clarity_scope: all
+  strength_quantile: 0.5
+  skip_weak_short_book1: false
+  k_per_side: 7
+  fib_ext: 1.618
+  base_hold: 6
+  hold_addon: 12
+  tp_pct: 0.01
+  sl_pct: 0.02
+
+frozen_candidate:
+  same_as_control_except:
+    skip_weak_short_book1: true
+    weak_short_book1_min_tercile: high
+    # high = require |mean| >= p66.7 of strength history before short book1
+
+selection:
+  method: FROZEN_TRANSFER — one candidate; no ranking among alternatives
+  forbidden:
+    - use exit_reason or wrong_way labels at decision time
+    - re_search tercile cutoffs on outer OOS
+    - select_on_lockbox
+    - combine_with_cooloff_or_p75_in_same_generation
+
+evaluation:
+  symbol: ETHUSDT
+  target: direction
+  min_edge: 0.10
+  outer: fold_geometry_v2_stitched_oos
+  hard_end_exclusive: "2026-05-01"
+  lockbox: DO_NOT_OPEN
+  engine: botsgeneral_tradesim
+  costs: research_costs_baseline
+  sizing: MIN_EXCHANGE
+  leverage: leverage_from_stop(0.02)
+  primary_metric: expectancy_return_units
+  secondary: [profit_factor, win_rate, n_trades, net_pnl, n_skipped_weak_short_book1]
+  evidence_class: OUTER_TRANSFER_COMPARE
+  promotion: FORBIDDEN_without_new_pack_hash_certificate_and_explicit_user_auth
+
+success_criteria:
+  - candidate_expectancy_return_units > control_expectancy_return_units
+  - candidate_stitched_pf >= 1.20
+  - no liquidation
+
+failure_is_success: true
+live_deploy: FORBIDDEN_without_certificate_and_explicit_user_auth

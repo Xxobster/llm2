@@ -1,0 +1,65 @@
+# Frozen research fleet + improve pass (NO live). No Finplot.
+generation_id: pivot_fleet_improve_003
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-13T04:40:00Z"
+
+research_fleet_frozen:
+  - id: ETH_level_q50_w4
+    symbol: ETHUSDT
+    gate: p75
+    level_mode: q50
+    pack: level_vsa
+    work_bars: 4
+    tp: 0.01
+    sl: 0.01
+  - id: SOL_level_atr_clip_w5
+    symbol: SOLUSDT
+    gate: p75
+    level_mode: ret
+    placement: atr_clip_0p8_1p5
+    pack: level_vsa
+    work_bars: 5
+    tp: 0.01
+    sl: 0.01
+  - id: BTC_p80_w4
+    symbol: BTCUSDT
+    gate: p75_and_train_p80
+    level_mode: ret
+    pack: level_vsa
+    work_bars: 4
+    tp: 0.01
+    sl: 0.01
+
+policy:
+  not_live: true
+  no_finplot: true
+  no_copy_eth_sol_placement_to_btc: true
+  rank_by: expectancy_intent_all
+  btc_next_levers: [mid_density_p76_p79, structure_tf_1h]
+  promote_if: [intent_exp_gt_fleet, pf_ge_0p85_fleet, ece_not_worse]
+
+btc_arms_frozen_before_pf:
+  - BTC_p80_w4
+  - BTC_p76_w4
+  - BTC_p77_w4
+  - BTC_p78_w4
+  - BTC_p79_w4
+  - BTC_p75_w4
+  - BTC_1h_p75_w2
+  - BTC_1h_p80_w2
+  - BTC_level_strong_p80_w4
+
+eth_arms_frozen_before_pf:
+  - ETH_q50_w4
+  - ETH_q50_softvsa_w4
+  - ETH_q50_w5
+  - ETH_q50_level_strong_w4
+  - ETH_q50_mid_atr_w4
+
+sol_arms_frozen_before_pf:
+  - SOL_atr_clip_w5
+  - SOL_atr_clip_w4
+  - SOL_atr_clip_softvsa_w5
+  - SOL_atr_clip_level_strong_w5
+  - SOL_1h_atr_clip_w2

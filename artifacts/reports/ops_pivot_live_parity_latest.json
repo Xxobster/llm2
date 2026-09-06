@@ -1,0 +1,26 @@
+{
+  "created_utc": "2026-08-12T14:50:28Z",
+  "all_match": true,
+  "rows": [
+    {
+      "arm": "sol",
+      "match": true,
+      "live_bar_ts_ms": 1786545000000,
+      "local_bar_ts_ms": 1786545000000,
+      "live_p_any": 0.2733812949640287,
+      "local_p_any": 0.2733812949640287,
+      "live_action": "FLAT",
+      "local_action": "FLAT"
+    },
+    {
+      "arm": "eth",
+      "match": true,
+      "live_bar_ts_ms": 1786545000000,
+      "local_bar_ts_ms": 1786545000000,
+      "live_p_any": 0.19335604770017037,
+      "local_p_any": 0.19335604770017037,
+      "live_action": "FLAT",
+      "local_action": "FLAT"
+    }
+  ]
+}

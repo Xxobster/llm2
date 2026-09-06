@@ -1,0 +1,312 @@
+﻿{
+  "units": [
+    {
+      "unit": "llm2-structure-btc-k5-double3h-v1.service",
+      "active": "active",
+      "source": "binance",
+      "shared": "/var/lib/botsgeneral/shared_candles.db",
+      "indicators": "/opt/llm2-structure-btc-k5-double3h-v1/pack/indicators_live_slice.sqlite",
+      "bar_features_binance": [
+        {
+          "symbol": "BTCUSDT",
+          "tf": "1h",
+          "n": 60547,
+          "max_ts": 1785927600000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785927600000,
+            "close": 64044.7
+          }
+        },
+        {
+          "symbol": "BTCUSDT",
+          "tf": "1w",
+          "n": 361,
+          "max_ts": 1785110400000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785110400000,
+            "close": 63550.0
+          }
+        },
+        {
+          "symbol": "BTCUSDT",
+          "tf": "4h",
+          "n": 15137,
+          "max_ts": 1785916800000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785916800000,
+            "close": 64044.6
+          }
+        }
+      ],
+      "recent_bad_log_n": 0,
+      "recent_bad_tail": []
+    },
+    {
+      "unit": "llm2-structure-eth-k5-double3h-v1.service",
+      "active": "active",
+      "source": "binance",
+      "shared": "/var/lib/botsgeneral/shared_candles.db",
+      "indicators": "/opt/llm2-structure-eth-k5-double3h-v1/pack/indicators_live_slice.sqlite",
+      "bar_features_binance": [
+        {
+          "symbol": "ETHUSDT",
+          "tf": "1h",
+          "n": 58637,
+          "max_ts": 1785927600000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785927600000,
+            "close": 1868.0
+          }
+        },
+        {
+          "symbol": "ETHUSDT",
+          "tf": "1w",
+          "n": 349,
+          "max_ts": 1785110400000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785110400000,
+            "close": 1884.37
+          }
+        },
+        {
+          "symbol": "ETHUSDT",
+          "tf": "4h",
+          "n": 14660,
+          "max_ts": 1785916800000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785916800000,
+            "close": 1867.93
+          }
+        }
+      ],
+      "recent_bad_log_n": 0,
+      "recent_bad_tail": []
+    },
+    {
+      "unit": "llm2-structure-eth-multitrade-v1_2.service",
+      "active": "active",
+      "source": "binance",
+      "shared": "/var/lib/botsgeneral/shared_candles.db",
+      "indicators": "/opt/llm2-structure-eth-multitrade-v1_2/pack/indicators_live_slice.sqlite",
+      "bar_features_binance": [
+        {
+          "symbol": "ETHUSDT",
+          "tf": "1h",
+          "n": 58637,
+          "max_ts": 1785927600000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785927600000,
+            "close": 1868.0
+          }
+        },
+        {
+          "symbol": "ETHUSDT",
+          "tf": "1w",
+          "n": 349,
+          "max_ts": 1785110400000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785110400000,
+            "close": 1884.37
+          }
+        },
+        {
+          "symbol": "ETHUSDT",
+          "tf": "4h",
+          "n": 14660,
+          "max_ts": 1785916800000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785916800000,
+            "close": 1867.93
+          }
+        }
+      ],
+      "recent_bad_log_n": 0,
+      "recent_bad_tail": []
+    },
+    {
+      "unit": "llm2-structure-eth.service",
+      "active": "active",
+      "source": "binance",
+      "shared": "/var/lib/botsgeneral/shared_candles.db",
+      "indicators": "/opt/llm2-structure-eth/pack/indicators_live_slice.sqlite",
+      "bar_features_binance": [
+        {
+          "symbol": "ETHUSDT",
+          "tf": "1h",
+          "n": 58637,
+          "max_ts": 1785927600000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785927600000,
+            "close": 1868.0
+          }
+        },
+        {
+          "symbol": "ETHUSDT",
+          "tf": "1w",
+          "n": 349,
+          "max_ts": 1785110400000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785110400000,
+            "close": 1884.37
+          }
+        },
+        {
+          "symbol": "ETHUSDT",
+          "tf": "4h",
+          "n": 14660,
+          "max_ts": 1785916800000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785916800000,
+            "close": 1867.93
+          }
+        }
+      ],
+      "recent_bad_log_n": 0,
+      "recent_bad_tail": []
+    },
+    {
+      "unit": "llm2-structure-micro.service",
+      "active": "active",
+      "source": "binance",
+      "shared": "/var/lib/botsgeneral/shared_candles.db",
+      "indicators": "/opt/llm2-structure/pack/indicators_live_slice.sqlite",
+      "bar_features_binance": [
+        {
+          "symbol": "BTCUSDT",
+          "tf": "1h",
+          "n": 60547,
+          "max_ts": 1785927600000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785927600000,
+            "close": 64044.7
+          }
+        },
+        {
+          "symbol": "BTCUSDT",
+          "tf": "1w",
+          "n": 361,
+          "max_ts": 1785110400000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785110400000,
+            "close": 63550.0
+          }
+        },
+        {
+          "symbol": "BTCUSDT",
+          "tf": "4h",
+          "n": 15137,
+          "max_ts": 1785916800000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785916800000,
+            "close": 64044.6
+          }
+        }
+      ],
+      "recent_bad_log_n": 0,
+      "recent_bad_tail": []
+    },
+    {
+      "unit": "llm2-structure-sol-k5-double3h-v1.service",
+      "active": "active",
+      "source": "binance",
+      "shared": "/var/lib/botsgeneral/shared_candles.db",
+      "indicators": "/opt/llm2-structure-sol-k5-double3h-v1/pack/indicators_live_slice.sqlite",
+      "bar_features_binance": [
+        {
+          "symbol": "SOLUSDT",
+          "tf": "1h",
+          "n": 51629,
+          "max_ts": 1785927600000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785927600000,
+            "close": 73.73
+          }
+        },
+        {
+          "symbol": "SOLUSDT",
+          "tf": "1w",
+          "n": 307,
+          "max_ts": 1785110400000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785110400000,
+            "close": 73.61
+          }
+        },
+        {
+          "symbol": "SOLUSDT",
+          "tf": "4h",
+          "n": 12908,
+          "max_ts": 1785916800000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785916800000,
+            "close": 73.73
+          }
+        }
+      ],
+      "recent_bad_log_n": 0,
+      "recent_bad_tail": []
+    },
+    {
+      "unit": "llm2-structure-sol.service",
+      "active": "active",
+      "source": "binance",
+      "shared": "/var/lib/botsgeneral/shared_candles.db",
+      "indicators": "/opt/llm2-structure-sol/pack/indicators_live_slice.sqlite",
+      "bar_features_binance": [
+        {
+          "symbol": "SOLUSDT",
+          "tf": "1h",
+          "n": 51629,
+          "max_ts": 1785927600000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785927600000,
+            "close": 73.73
+          }
+        },
+        {
+          "symbol": "SOLUSDT",
+          "tf": "1w",
+          "n": 307,
+          "max_ts": 1785110400000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785110400000,
+            "close": 73.61
+          }
+        },
+        {
+          "symbol": "SOLUSDT",
+          "tf": "4h",
+          "n": 12908,
+          "max_ts": 1785916800000,
+          "depth_ok_1h": true,
+          "tip": {
+            "ts_ms": 1785916800000,
+            "close": 73.73
+          }
+        }
+      ],
+      "recent_bad_log_n": 0,
+      "recent_bad_tail": []
+    }
+  ]
+}

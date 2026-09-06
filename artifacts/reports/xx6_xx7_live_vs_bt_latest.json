@@ -1,0 +1,1694 @@
+{
+  "generated_utc": "2026-08-13T04:44:03.298479+00:00",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "chandelier": {
+    "since_utc": "2026-08-10T00:00:00+00:00",
+    "until_utc": "2026-08-13T04:43:42.680000+00:00",
+    "live_closed_n": 2,
+    "live_handled_n": 2,
+    "live_filled_n": 2,
+    "live_tip_decide_n": 3,
+    "closed": [
+      {
+        "symbol": "ETHUSDT",
+        "side_close_record": "Buy",
+        "qty": 0.01,
+        "avg_entry": 1872.33,
+        "avg_exit": 1890.98,
+        "closed_pnl": -0.20505348,
+        "planned_stop": 1890.1749999999997,
+        "planned_target": 1820.155000000001,
+        "planned_entry_ts_ms": 1786460400000,
+        "planned_entry_utc": "2026-08-11T15:00:00+00:00",
+        "created_utc": "2026-08-11T15:00:30.726000+00:00",
+        "updated_utc": "2026-08-12T04:21:03.663000+00:00",
+        "leverage": 48.0,
+        "pattern": "chand_atr_band"
+      },
+      {
+        "symbol": "BTCUSDT",
+        "side_close_record": "Buy",
+        "qty": 0.001,
+        "avg_entry": 63766.7,
+        "avg_exit": 64243.3,
+        "closed_pnl": -0.53846109,
+        "planned_stop": 64240.614285714284,
+        "planned_target": 62266.15714285715,
+        "planned_entry_ts_ms": 1786460400000,
+        "planned_entry_utc": "2026-08-11T15:00:00+00:00",
+        "created_utc": "2026-08-11T15:00:25.618000+00:00",
+        "updated_utc": "2026-08-12T12:04:30.825000+00:00",
+        "leverage": 55.0,
+        "pattern": "chand_atr_band"
+      }
+    ],
+    "symbols": {
+      "BTCUSDT": {
+        "n_expected_signals": 1,
+        "n_live_fills": 1,
+        "n_matched_entries": 1,
+        "n_missed_bt_signals": 0,
+        "n_extra_live": 0,
+        "stop_price_match": 1,
+        "target_price_match": 1,
+        "ohlc_bars": 157,
+        "ohlc_first": "2026-08-06T16:00:00+00:00",
+        "ohlc_last": "2026-08-13T04:00:00+00:00",
+        "expected": [
+          {
+            "signal_ts_ms": 1786456800000,
+            "signal_utc": "2026-08-11T14:00:00+00:00",
+            "entry_ts_ms": 1786460400000,
+            "entry_utc": "2026-08-11T15:00:00+00:00",
+            "side": "short",
+            "close": 63747.0,
+            "stop": 64240.614285714284,
+            "target": 62266.15714285715
+          }
+        ],
+        "matches": [
+          {
+            "expected": {
+              "signal_ts_ms": 1786456800000,
+              "signal_utc": "2026-08-11T14:00:00+00:00",
+              "entry_ts_ms": 1786460400000,
+              "entry_utc": "2026-08-11T15:00:00+00:00",
+              "side": "short",
+              "close": 63747.0,
+              "stop": 64240.614285714284,
+              "target": 62266.15714285715
+            },
+            "live_hit": true,
+            "stop_ok": true,
+            "target_ok": true,
+            "live_entry_price": 63766.7,
+            "live_fill_vs_signal_close_bps": -3.090341506266505
+          }
+        ],
+        "extra_live": [],
+        "latest_tip_decide": {
+          "ts_utc": "2026-08-13T04:31:47Z",
+          "bar_ts_ms": 1786590000000,
+          "tip_ohlc": {
+            "open": 63522.4,
+            "high": 63670.1,
+            "low": 63474.0,
+            "close": 63623.5,
+            "volume": 4781.724
+          },
+          "action": "FLAT",
+          "side": null,
+          "signal": null,
+          "n_signals": 655
+        }
+      },
+      "ETHUSDT": {
+        "n_expected_signals": 1,
+        "n_live_fills": 1,
+        "n_matched_entries": 1,
+        "n_missed_bt_signals": 0,
+        "n_extra_live": 0,
+        "stop_price_match": 1,
+        "target_price_match": 1,
+        "ohlc_bars": 157,
+        "ohlc_first": "2026-08-06T16:00:00+00:00",
+        "ohlc_last": "2026-08-13T04:00:00+00:00",
+        "expected": [
+          {
+            "signal_ts_ms": 1786456800000,
+            "signal_utc": "2026-08-11T14:00:00+00:00",
+            "entry_ts_ms": 1786460400000,
+            "entry_utc": "2026-08-11T15:00:00+00:00",
+            "side": "short",
+            "close": 1872.67,
+            "stop": 1890.1749999999997,
+            "target": 1820.155000000001
+          }
+        ],
+        "matches": [
+          {
+            "expected": {
+              "signal_ts_ms": 1786456800000,
+              "signal_utc": "2026-08-11T14:00:00+00:00",
+              "entry_ts_ms": 1786460400000,
+              "entry_utc": "2026-08-11T15:00:00+00:00",
+              "side": "short",
+              "close": 1872.67,
+              "stop": 1890.1749999999997,
+              "target": 1820.155000000001
+            },
+            "live_hit": true,
+            "stop_ok": true,
+            "target_ok": true,
+            "live_entry_price": 1872.33,
+            "live_fill_vs_signal_close_bps": 1.815589505893433
+          }
+        ],
+        "extra_live": [],
+        "latest_tip_decide": {
+          "ts_utc": "2026-08-13T04:32:51Z",
+          "bar_ts_ms": 1786590000000,
+          "tip_ohlc": {
+            "open": 1881.26,
+            "high": 1888.33,
+            "low": 1881.0,
+            "close": 1886.7,
+            "volume": 115594.848
+          },
+          "action": "FLAT",
+          "side": null,
+          "signal": null,
+          "n_signals": 573
+        }
+      },
+      "SOLUSDT": {
+        "n_expected_signals": 0,
+        "n_live_fills": 0,
+        "n_matched_entries": 0,
+        "n_missed_bt_signals": 0,
+        "n_extra_live": 0,
+        "stop_price_match": 0,
+        "target_price_match": 0,
+        "ohlc_bars": 157,
+        "ohlc_first": "2026-08-06T16:00:00+00:00",
+        "ohlc_last": "2026-08-13T04:00:00+00:00",
+        "expected": [],
+        "matches": [],
+        "extra_live": [],
+        "latest_tip_decide": {
+          "ts_utc": "2026-08-13T04:33:07Z",
+          "bar_ts_ms": 1786590000000,
+          "tip_ohlc": {
+            "open": 75.94,
+            "high": 76.29,
+            "low": 75.92,
+            "close": 76.23,
+            "volume": 800815.29
+          },
+          "action": "FLAT",
+          "side": null,
+          "signal": null,
+          "n_signals": 362
+        }
+      }
+    }
+  },
+  "pivot": {
+    "arms": [
+      {
+        "arm": "sol",
+        "n_decisions": 62,
+        "n_bound_match": 59,
+        "n_fresh_match": 49,
+        "n_missing": 0,
+        "n_action_flip_vs_fresh": 0,
+        "n_enter_limit": 3,
+        "orders": [
+          {
+            "order_id": "1b8d70fd-3034-4829-ae3b-c2c1af7d4482",
+            "bar_ts_ms": 1786589100000,
+            "payload": {
+              "side": "Sell",
+              "qty": 0.1,
+              "price": 76.40915849478482
+            },
+            "created_utc": "2026-08-13T03:00:36Z"
+          },
+          {
+            "order_id": "e068fe67-e54b-40e4-a7c0-ba793f935f60",
+            "bar_ts_ms": 1786590000000,
+            "payload": {
+              "side": "Sell",
+              "qty": 0.1,
+              "price": 76.64160641588978
+            },
+            "created_utc": "2026-08-13T04:00:33Z"
+          },
+          {
+            "order_id": "8237a658-2560-432a-8a35-837f3ae02c2d",
+            "bar_ts_ms": 1786590900000,
+            "payload": {
+              "side": "Sell",
+              "qty": 0.1,
+              "price": 76.44163989008501
+            },
+            "created_utc": "2026-08-13T04:15:42Z"
+          }
+        ],
+        "enter_rows": [
+          {
+            "bar_ts_ms": 1786589100000,
+            "bar_utc": "2026-08-13T02:45:00+00:00",
+            "live_action": "ENTER_LIMIT",
+            "live_p_any": 0.46464646464646464,
+            "live_reason": "p75_gate",
+            "live_side": "Sell",
+            "has_tip_ohlc": true,
+            "status": "ok",
+            "bound_match": true,
+            "bound_diffs": {},
+            "fresh_match": true,
+            "fresh_diffs": {},
+            "bt_bound_action": "ENTER_LIMIT",
+            "bt_bound_p_any": 0.46464646464646464,
+            "bt_fresh_action": "ENTER_LIMIT",
+            "bt_fresh_p_any": 0.46464646464646464,
+            "order_result": {
+              "ok": true,
+              "order_id": "1b8d70fd-3034-4829-ae3b-c2c1af7d4482",
+              "filled": false,
+              "status": "Cancelled",
+              "avg_price": 76.40915849478482,
+              "placed": {
+                "request": {
+                  "category": "linear",
+                  "symbol": "SOLUSDT",
+                  "side": "Sell",
+                  "orderType": "Limit",
+                  "qty": "0.1",
+                  "price": "76.41",
+                  "timeInForce": "GTC",
+                  "positionIdx": 2
+                },
+                "response": {
+                  "retCode": 0,
+                  "retMsg": "OK",
+                  "result": {
+                    "orderId": "1b8d70fd-3034-4829-ae3b-c2c1af7d4482",
+                    "orderLinkId": ""
+                  },
+                  "retExtInfo": {},
+                  "time": 1786590027362
+                }
+              },
+              "stage": "not_filled"
+            }
+          },
+          {
+            "bar_ts_ms": 1786590000000,
+            "bar_utc": "2026-08-13T03:00:00+00:00",
+            "live_action": "ENTER_LIMIT",
+            "live_p_any": 0.3504043126684636,
+            "live_reason": "p75_gate",
+            "live_side": "Sell",
+            "has_tip_ohlc": true,
+            "status": "ok",
+            "bound_match": true,
+            "bound_diffs": {},
+            "fresh_match": true,
+            "fresh_diffs": {},
+            "bt_bound_action": "ENTER_LIMIT",
+            "bt_bound_p_any": 0.3504043126684636,
+            "bt_fresh_action": "ENTER_LIMIT",
+            "bt_fresh_p_any": 0.3504043126684636,
+            "order_result": {
+              "ok": true,
+              "order_id": "e068fe67-e54b-40e4-a7c0-ba793f935f60",
+              "filled": false,
+              "status": "Cancelled",
+              "avg_price": 76.64160641588978,
+              "placed": {
+                "request": {
+                  "category": "linear",
+                  "symbol": "SOLUSDT",
+                  "side": "Sell",
+                  "orderType": "Limit",
+                  "qty": "0.1",
+                  "price": "76.64",
+                  "timeInForce": "GTC",
+                  "positionIdx": 2
+                },
+                "response": {
+                  "retCode": 0,
+                  "retMsg": "OK",
+                  "result": {
+                    "orderId": "e068fe67-e54b-40e4-a7c0-ba793f935f60",
+                    "orderLinkId": ""
+                  },
+                  "retExtInfo": {},
+                  "time": 1786593625113
+                }
+              },
+              "stage": "not_filled"
+            }
+          },
+          {
+            "bar_ts_ms": 1786590900000,
+            "bar_utc": "2026-08-13T03:15:00+00:00",
+            "live_action": "ENTER_LIMIT",
+            "live_p_any": 0.3504043126684636,
+            "live_reason": "p75_gate",
+            "live_side": "Sell",
+            "has_tip_ohlc": true,
+            "status": "ok",
+            "bound_match": true,
+            "bound_diffs": {},
+            "fresh_match": true,
+            "fresh_diffs": {},
+            "bt_bound_action": "ENTER_LIMIT",
+            "bt_bound_p_any": 0.3504043126684636,
+            "bt_fresh_action": "ENTER_LIMIT",
+            "bt_fresh_p_any": 0.3504043126684636,
+            "order_result": {
+              "ok": true,
+              "order_id": "8237a658-2560-432a-8a35-837f3ae02c2d",
+              "filled": false,
+              "status": "Cancelled",
+              "avg_price": 76.44163989008501,
+              "placed": {
+                "request": {
+                  "category": "linear",
+                  "symbol": "SOLUSDT",
+                  "side": "Sell",
+                  "orderType": "Limit",
+                  "qty": "0.1",
+                  "price": "76.44",
+                  "timeInForce": "GTC",
+                  "positionIdx": 2
+                },
+                "response": {
+                  "retCode": 0,
+                  "retMsg": "OK",
+                  "result": {
+                    "orderId": "8237a658-2560-432a-8a35-837f3ae02c2d",
+                    "orderLinkId": ""
+                  },
+                  "retExtInfo": {},
+                  "time": 1786594529626
+                }
+              },
+              "stage": "not_filled"
+            }
+          }
+        ],
+        "mismatches_bound": [
+          {
+            "bar_ts_ms": 1786542300000,
+            "bar_utc": "2026-08-12T13:45:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.2028301886792453,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": false,
+            "status": "ok",
+            "bound_match": false,
+            "bound_diffs": {
+              "p_any": {
+                "live": 0.2028301886792453,
+                "bt": 0.20695652173913043
+              },
+              "p_any_raw": {
+                "live": 0.6103611968264835,
+                "bt": 0.6460076718912611
+              },
+              "limit_px": {
+                "live": 75.6183498726546,
+                "bt": 75.64048892357339
+              },
+              "close": {
+                "live": 76.22,
+                "bt": 76.19
+              }
+            },
+            "fresh_match": false,
+            "fresh_diffs": {
+              "p_any": {
+                "live": 0.2028301886792453,
+                "bt": 0.20695652173913043
+              },
+              "p_any_raw": {
+                "live": 0.6103611968264835,
+                "bt": 0.6460076718912611
+              },
+              "limit_px": {
+                "live": 75.6183498726546,
+                "bt": 75.64048892357339
+              },
+              "close": {
+                "live": 76.22,
+                "bt": 76.19
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.20695652173913043,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.20695652173913043,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786545000000,
+            "bar_utc": "2026-08-12T14:30:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.2733812949640287,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": false,
+            "status": "ok",
+            "bound_match": false,
+            "bound_diffs": {
+              "p_any_raw": {
+                "live": 0.7023911275685183,
+                "bt": 0.6947216843361528
+              },
+              "limit_px": {
+                "live": 74.84622512461279,
+                "bt": 74.8561345943764
+              },
+              "close": {
+                "live": 75.53,
+                "bt": 75.54
+              }
+            },
+            "fresh_match": false,
+            "fresh_diffs": {
+              "p_any_raw": {
+                "live": 0.7023911275685183,
+                "bt": 0.6947216843361528
+              },
+              "limit_px": {
+                "live": 74.84622512461279,
+                "bt": 74.8561345943764
+              },
+              "close": {
+                "live": 75.53,
+                "bt": 75.54
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.2733812949640287,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.2733812949640287,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786547700000,
+            "bar_utc": "2026-08-12T15:15:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.17058165548098433,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": false,
+            "status": "ok",
+            "bound_match": false,
+            "bound_diffs": {
+              "p_any": {
+                "live": 0.17058165548098433,
+                "bt": 0.13043478260869565
+              },
+              "p_any_raw": {
+                "live": 0.5296603161935216,
+                "bt": 0.4836318608786418
+              },
+              "limit_px": {
+                "live": 75.40179283037617,
+                "bt": 75.44263956671558
+              },
+              "close": {
+                "live": 75.67,
+                "bt": 75.69
+              }
+            },
+            "fresh_match": false,
+            "fresh_diffs": {
+              "p_any": {
+                "live": 0.17058165548098433,
+                "bt": 0.13043478260869565
+              },
+              "p_any_raw": {
+                "live": 0.5296603161935216,
+                "bt": 0.4836318608786418
+              },
+              "limit_px": {
+                "live": 75.40179283037617,
+                "bt": 75.44263956671558
+              },
+              "close": {
+                "live": 75.67,
+                "bt": 75.69
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.13043478260869565,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.13043478260869565,
+            "order_result": null
+          }
+        ],
+        "mismatches_fresh": [
+          {
+            "bar_ts_ms": 1786542300000,
+            "bar_utc": "2026-08-12T13:45:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.2028301886792453,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": false,
+            "status": "ok",
+            "bound_match": false,
+            "bound_diffs": {
+              "p_any": {
+                "live": 0.2028301886792453,
+                "bt": 0.20695652173913043
+              },
+              "p_any_raw": {
+                "live": 0.6103611968264835,
+                "bt": 0.6460076718912611
+              },
+              "limit_px": {
+                "live": 75.6183498726546,
+                "bt": 75.64048892357339
+              },
+              "close": {
+                "live": 76.22,
+                "bt": 76.19
+              }
+            },
+            "fresh_match": false,
+            "fresh_diffs": {
+              "p_any": {
+                "live": 0.2028301886792453,
+                "bt": 0.20695652173913043
+              },
+              "p_any_raw": {
+                "live": 0.6103611968264835,
+                "bt": 0.6460076718912611
+              },
+              "limit_px": {
+                "live": 75.6183498726546,
+                "bt": 75.64048892357339
+              },
+              "close": {
+                "live": 76.22,
+                "bt": 76.19
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.20695652173913043,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.20695652173913043,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786545000000,
+            "bar_utc": "2026-08-12T14:30:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.2733812949640287,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": false,
+            "status": "ok",
+            "bound_match": false,
+            "bound_diffs": {
+              "p_any_raw": {
+                "live": 0.7023911275685183,
+                "bt": 0.6947216843361528
+              },
+              "limit_px": {
+                "live": 74.84622512461279,
+                "bt": 74.8561345943764
+              },
+              "close": {
+                "live": 75.53,
+                "bt": 75.54
+              }
+            },
+            "fresh_match": false,
+            "fresh_diffs": {
+              "p_any_raw": {
+                "live": 0.7023911275685183,
+                "bt": 0.6947216843361528
+              },
+              "limit_px": {
+                "live": 74.84622512461279,
+                "bt": 74.8561345943764
+              },
+              "close": {
+                "live": 75.53,
+                "bt": 75.54
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.2733812949640287,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.2733812949640287,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786547700000,
+            "bar_utc": "2026-08-12T15:15:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.17058165548098433,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": false,
+            "status": "ok",
+            "bound_match": false,
+            "bound_diffs": {
+              "p_any": {
+                "live": 0.17058165548098433,
+                "bt": 0.13043478260869565
+              },
+              "p_any_raw": {
+                "live": 0.5296603161935216,
+                "bt": 0.4836318608786418
+              },
+              "limit_px": {
+                "live": 75.40179283037617,
+                "bt": 75.44263956671558
+              },
+              "close": {
+                "live": 75.67,
+                "bt": 75.69
+              }
+            },
+            "fresh_match": false,
+            "fresh_diffs": {
+              "p_any": {
+                "live": 0.17058165548098433,
+                "bt": 0.13043478260869565
+              },
+              "p_any_raw": {
+                "live": 0.5296603161935216,
+                "bt": 0.4836318608786418
+              },
+              "limit_px": {
+                "live": 75.40179283037617,
+                "bt": 75.44263956671558
+              },
+              "close": {
+                "live": 75.67,
+                "bt": 75.69
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.13043478260869565,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.13043478260869565,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786548600000,
+            "bar_utc": "2026-08-12T15:30:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.09514331210191083,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": true,
+            "status": "ok",
+            "bound_match": true,
+            "bound_diffs": {},
+            "fresh_match": false,
+            "fresh_diffs": {
+              "p_any": {
+                "live": 0.09514331210191083,
+                "bt": 0.08409090909090909
+              },
+              "p_any_raw": {
+                "live": 0.3626418124391342,
+                "bt": 0.33486999586450983
+              },
+              "limit_px": {
+                "live": 75.24378405256542,
+                "bt": 75.32700186310944
+              },
+              "close": {
+                "live": 75.75,
+                "bt": 75.77
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.09514331210191083,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.08409090909090909,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786553100000,
+            "bar_utc": "2026-08-12T16:45:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.0975609756097561,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": true,
+            "status": "ok",
+            "bound_match": true,
+            "bound_diffs": {},
+            "fresh_match": false,
+            "fresh_diffs": {
+              "p_any": {
+                "live": 0.0975609756097561,
+                "bt": 0.12917454316320104
+              },
+              "p_any_raw": {
+                "live": 0.39883926807427317,
+                "bt": 0.4213106988074176
+              },
+              "limit_px": {
+                "live": 74.9945148695148,
+                "bt": 75.02962513588946
+              },
+              "close": {
+                "live": 75.65,
+                "bt": 75.66
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.0975609756097561,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.12917454316320104,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786559400000,
+            "bar_utc": "2026-08-12T18:30:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.12917454316320104,
+            "live_reason": "below_thr",
+            "live_side": "Sell",
+            "has_tip_ohlc": true,
+            "status": "ok",
+            "bound_match": true,
+            "bound_diffs": {},
+            "fresh_match": false,
+            "fresh_diffs": {
+              "p_any_raw": {
+                "live": 0.4472804584009556,
+                "bt": 0.4401130219869
+              },
+              "limit_px": {
+                "live": 76.09397000000001,
+                "bt": 76.103985
+              },
+              "close": {
+                "live": 75.98,
+                "bt": 75.99
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.12917454316320104,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.12917454316320104,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786567500000,
+            "bar_utc": "2026-08-12T20:45:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.12917454316320104,
+            "live_reason": "below_thr",
+            "live_side": "Sell",
+            "has_tip_ohlc": true,
+            "status": "ok",
+            "bound_match": true,
+            "bound_diffs": {},
+            "fresh_match": false,
+            "fresh_diffs": {
+              "p_any": {
+                "live": 0.12917454316320104,
+                "bt": 0.13043478260869565
+              },
+              "p_any_raw": {
+                "live": 0.4688971698742294,
+                "bt": 0.48587163919117765
+              },
+              "limit_px": {
+                "live": 76.00383500000001,
+                "bt": 76.01385
+              },
+              "close": {
+                "live": 75.89,
+                "bt": 75.9
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.12917454316320104,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.13043478260869565,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786572900000,
+            "bar_utc": "2026-08-12T22:15:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.09514331210191083,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": true,
+            "status": "ok",
+            "bound_match": true,
+            "bound_diffs": {},
+            "fresh_match": false,
+            "fresh_diffs": {
+              "p_any": {
+                "live": 0.09514331210191083,
+                "bt": 0.12917454316320104
+              },
+              "p_any_raw": {
+                "live": 0.35341021498504605,
+                "bt": 0.46734402025782934
+              },
+              "limit_px": {
+                "live": 75.00367286574611,
+                "bt": 74.9846141036269
+              },
+              "close": {
+                "live": 75.54,
+                "bt": 75.53
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.09514331210191083,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.12917454316320104,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786574700000,
+            "bar_utc": "2026-08-12T22:45:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.17058165548098433,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": true,
+            "status": "ok",
+            "bound_match": true,
+            "bound_diffs": {},
+            "fresh_match": false,
+            "fresh_diffs": {
+              "p_any_raw": {
+                "live": 0.5418639924966205,
+                "bt": 0.5403146865753318
+              },
+              "limit_px": {
+                "live": 74.67503076861166,
+                "bt": 74.67969164856456
+              },
+              "close": {
+                "live": 75.49,
+                "bt": 75.48
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.17058165548098433,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.17058165548098433,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786576500000,
+            "bar_utc": "2026-08-12T23:15:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.17058165548098433,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": true,
+            "status": "ok",
+            "bound_match": true,
+            "bound_diffs": {},
+            "fresh_match": false,
+            "fresh_diffs": {
+              "p_any": {
+                "live": 0.17058165548098433,
+                "bt": 0.14521452145214522
+              },
+              "p_any_raw": {
+                "live": 0.542648284283199,
+                "bt": 0.506675943841746
+              },
+              "limit_px": {
+                "live": 74.85022306832785,
+                "bt": 74.88420104515211
+              },
+              "close": {
+                "live": 75.44,
+                "bt": 75.45
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.17058165548098433,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.14521452145214522,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786583700000,
+            "bar_utc": "2026-08-13T01:15:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.2028301886792453,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": true,
+            "status": "ok",
+            "bound_match": true,
+            "bound_diffs": {},
+            "fresh_match": false,
+            "fresh_diffs": {
+              "p_any_raw": {
+                "live": 0.6117836695216989,
+                "bt": 0.6023348511840583
+              },
+              "limit_px": {
+                "live": 75.0458110460206,
+                "bt": 75.05575088854326
+              },
+              "close": {
+                "live": 75.5,
+                "bt": 75.51
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.2028301886792453,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.2028301886792453,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786584600000,
+            "bar_utc": "2026-08-13T01:30:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.17058165548098433,
+            "live_reason": "below_thr",
+            "live_side": "Sell",
+            "has_tip_ohlc": true,
+            "status": "ok",
+            "bound_match": true,
+            "bound_diffs": {},
+            "fresh_match": false,
+            "fresh_diffs": {
+              "side": {
+                "live": "Sell",
+                "bt": "Buy"
+              },
+              "p_any_raw": {
+                "live": 0.5617340488285174,
+                "bt": 0.5650564728339723
+              },
+              "limit_px": {
+                "live": 75.70338500000001,
+                "bt": 75.31553047398339
+              },
+              "close": {
+                "live": 75.59,
+                "bt": 75.58
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.17058165548098433,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.17058165548098433,
+            "order_result": null
+          }
+        ],
+        "last": {
+          "bar_ts_ms": 1786594500000,
+          "bar_utc": "2026-08-13T04:15:00+00:00",
+          "live_action": "FLAT",
+          "live_p_any": 0.2028301886792453,
+          "live_reason": "below_thr",
+          "live_side": "Sell",
+          "has_tip_ohlc": true,
+          "status": "ok",
+          "bound_match": true,
+          "bound_diffs": {},
+          "fresh_match": true,
+          "fresh_diffs": {},
+          "bt_bound_action": "FLAT",
+          "bt_bound_p_any": 0.2028301886792453,
+          "bt_fresh_action": "FLAT",
+          "bt_fresh_p_any": 0.2028301886792453,
+          "order_result": null
+        }
+      },
+      {
+        "arm": "eth",
+        "n_decisions": 62,
+        "n_bound_match": 58,
+        "n_fresh_match": 49,
+        "n_missing": 0,
+        "n_action_flip_vs_fresh": 0,
+        "n_enter_limit": 0,
+        "orders": [],
+        "enter_rows": [],
+        "mismatches_bound": [
+          {
+            "bar_ts_ms": 1786541400000,
+            "bar_utc": "2026-08-12T13:30:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.17205203524968526,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": false,
+            "status": "ok",
+            "bound_match": false,
+            "bound_diffs": {
+              "p_any_raw": {
+                "live": 0.5100275704800272,
+                "bt": 0.4979560276797603
+              },
+              "limit_px": {
+                "live": 1894.1855801236522,
+                "bt": 1893.5207601397603
+              },
+              "close": {
+                "live": 1903.53,
+                "bt": 1903.99
+              }
+            },
+            "fresh_match": false,
+            "fresh_diffs": {
+              "p_any_raw": {
+                "live": 0.5100275704800272,
+                "bt": 0.4979560276797603
+              },
+              "limit_px": {
+                "live": 1894.1855801236522,
+                "bt": 1893.5207601397603
+              },
+              "close": {
+                "live": 1903.53,
+                "bt": 1903.99
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.17205203524968526,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.17205203524968526,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786542300000,
+            "bar_utc": "2026-08-12T13:45:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.21438263229308005,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": false,
+            "status": "ok",
+            "bound_match": false,
+            "bound_diffs": {
+              "p_any_raw": {
+                "live": 0.6006706833914256,
+                "bt": 0.5968267193860013
+              },
+              "limit_px": {
+                "live": 1887.8556041176028,
+                "bt": 1886.6900791612122
+              },
+              "close": {
+                "live": 1900.62,
+                "bt": 1900.38
+              }
+            },
+            "fresh_match": false,
+            "fresh_diffs": {
+              "p_any_raw": {
+                "live": 0.6006706833914256,
+                "bt": 0.5968267193860013
+              },
+              "limit_px": {
+                "live": 1887.8556041176028,
+                "bt": 1886.6900791612122
+              },
+              "close": {
+                "live": 1900.62,
+                "bt": 1900.38
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.21438263229308005,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.21438263229308005,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786543200000,
+            "bar_utc": "2026-08-12T14:00:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.12568306010928965,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": false,
+            "status": "ok",
+            "bound_match": false,
+            "bound_diffs": {
+              "p_any_raw": {
+                "live": 0.4025967961056563,
+                "bt": 0.40334775866713685
+              },
+              "limit_px": {
+                "live": 1885.364929766907,
+                "bt": 1886.9920479792656
+              },
+              "close": {
+                "live": 1898.48,
+                "bt": 1898.83
+              }
+            },
+            "fresh_match": false,
+            "fresh_diffs": {
+              "p_any_raw": {
+                "live": 0.4025967961056563,
+                "bt": 0.40334775866713685
+              },
+              "limit_px": {
+                "live": 1885.364929766907,
+                "bt": 1886.9920479792656
+              },
+              "close": {
+                "live": 1898.48,
+                "bt": 1898.83
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.12568306010928965,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.12568306010928965,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786547700000,
+            "bar_utc": "2026-08-12T15:15:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.16109422492401215,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": false,
+            "status": "ok",
+            "bound_match": false,
+            "bound_diffs": {
+              "side": {
+                "live": "Buy",
+                "bt": "Sell"
+              },
+              "p_any": {
+                "live": 0.16109422492401215,
+                "bt": 0.1402439024390244
+              },
+              "p_any_raw": {
+                "live": 0.45721745222843235,
+                "bt": 0.44742711419820114
+              },
+              "limit_px": {
+                "live": 1875.9523418487215,
+                "bt": 1896.3402500000002
+              },
+              "close": {
+                "live": 1892.88,
+                "bt": 1893.5
+              }
+            },
+            "fresh_match": false,
+            "fresh_diffs": {
+              "side": {
+                "live": "Buy",
+                "bt": "Sell"
+              },
+              "p_any": {
+                "live": 0.16109422492401215,
+                "bt": 0.1402439024390244
+              },
+              "p_any_raw": {
+                "live": 0.45721745222843235,
+                "bt": 0.44742711419820114
+              },
+              "limit_px": {
+                "live": 1875.9523418487215,
+                "bt": 1896.3402500000002
+              },
+              "close": {
+                "live": 1892.88,
+                "bt": 1893.5
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.1402439024390244,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.1402439024390244,
+            "order_result": null
+          }
+        ],
+        "mismatches_fresh": [
+          {
+            "bar_ts_ms": 1786541400000,
+            "bar_utc": "2026-08-12T13:30:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.17205203524968526,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": false,
+            "status": "ok",
+            "bound_match": false,
+            "bound_diffs": {
+              "p_any_raw": {
+                "live": 0.5100275704800272,
+                "bt": 0.4979560276797603
+              },
+              "limit_px": {
+                "live": 1894.1855801236522,
+                "bt": 1893.5207601397603
+              },
+              "close": {
+                "live": 1903.53,
+                "bt": 1903.99
+              }
+            },
+            "fresh_match": false,
+            "fresh_diffs": {
+              "p_any_raw": {
+                "live": 0.5100275704800272,
+                "bt": 0.4979560276797603
+              },
+              "limit_px": {
+                "live": 1894.1855801236522,
+                "bt": 1893.5207601397603
+              },
+              "close": {
+                "live": 1903.53,
+                "bt": 1903.99
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.17205203524968526,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.17205203524968526,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786542300000,
+            "bar_utc": "2026-08-12T13:45:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.21438263229308005,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": false,
+            "status": "ok",
+            "bound_match": false,
+            "bound_diffs": {
+              "p_any_raw": {
+                "live": 0.6006706833914256,
+                "bt": 0.5968267193860013
+              },
+              "limit_px": {
+                "live": 1887.8556041176028,
+                "bt": 1886.6900791612122
+              },
+              "close": {
+                "live": 1900.62,
+                "bt": 1900.38
+              }
+            },
+            "fresh_match": false,
+            "fresh_diffs": {
+              "p_any_raw": {
+                "live": 0.6006706833914256,
+                "bt": 0.5968267193860013
+              },
+              "limit_px": {
+                "live": 1887.8556041176028,
+                "bt": 1886.6900791612122
+              },
+              "close": {
+                "live": 1900.62,
+                "bt": 1900.38
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.21438263229308005,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.21438263229308005,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786543200000,
+            "bar_utc": "2026-08-12T14:00:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.12568306010928965,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": false,
+            "status": "ok",
+            "bound_match": false,
+            "bound_diffs": {
+              "p_any_raw": {
+                "live": 0.4025967961056563,
+                "bt": 0.40334775866713685
+              },
+              "limit_px": {
+                "live": 1885.364929766907,
+                "bt": 1886.9920479792656
+              },
+              "close": {
+                "live": 1898.48,
+                "bt": 1898.83
+              }
+            },
+            "fresh_match": false,
+            "fresh_diffs": {
+              "p_any_raw": {
+                "live": 0.4025967961056563,
+                "bt": 0.40334775866713685
+              },
+              "limit_px": {
+                "live": 1885.364929766907,
+                "bt": 1886.9920479792656
+              },
+              "close": {
+                "live": 1898.48,
+                "bt": 1898.83
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.12568306010928965,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.12568306010928965,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786547700000,
+            "bar_utc": "2026-08-12T15:15:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.16109422492401215,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": false,
+            "status": "ok",
+            "bound_match": false,
+            "bound_diffs": {
+              "side": {
+                "live": "Buy",
+                "bt": "Sell"
+              },
+              "p_any": {
+                "live": 0.16109422492401215,
+                "bt": 0.1402439024390244
+              },
+              "p_any_raw": {
+                "live": 0.45721745222843235,
+                "bt": 0.44742711419820114
+              },
+              "limit_px": {
+                "live": 1875.9523418487215,
+                "bt": 1896.3402500000002
+              },
+              "close": {
+                "live": 1892.88,
+                "bt": 1893.5
+              }
+            },
+            "fresh_match": false,
+            "fresh_diffs": {
+              "side": {
+                "live": "Buy",
+                "bt": "Sell"
+              },
+              "p_any": {
+                "live": 0.16109422492401215,
+                "bt": 0.1402439024390244
+              },
+              "p_any_raw": {
+                "live": 0.45721745222843235,
+                "bt": 0.44742711419820114
+              },
+              "limit_px": {
+                "live": 1875.9523418487215,
+                "bt": 1896.3402500000002
+              },
+              "close": {
+                "live": 1892.88,
+                "bt": 1893.5
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.1402439024390244,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.1402439024390244,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786548600000,
+            "bar_utc": "2026-08-12T15:30:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.16109422492401215,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": true,
+            "status": "ok",
+            "bound_match": true,
+            "bound_diffs": {},
+            "fresh_match": false,
+            "fresh_diffs": {
+              "p_any_raw": {
+                "live": 0.4592642215995503,
+                "bt": 0.46296447401929364
+              },
+              "limit_px": {
+                "live": 1881.051788985146,
+                "bt": 1880.3281950287862
+              },
+              "close": {
+                "live": 1893.52,
+                "bt": 1893.73
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.16109422492401215,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.16109422492401215,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786569300000,
+            "bar_utc": "2026-08-12T21:15:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.31693989071038253,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": true,
+            "status": "ok",
+            "bound_match": true,
+            "bound_diffs": {},
+            "fresh_match": false,
+            "fresh_diffs": {
+              "limit_px": {
+                "live": 1868.1454623476604,
+                "bt": 1868.1554623476604
+              },
+              "close": {
+                "live": 1877.54,
+                "bt": 1877.55
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.31693989071038253,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.31693989071038253,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786573800000,
+            "bar_utc": "2026-08-12T22:30:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.1402439024390244,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": true,
+            "status": "ok",
+            "bound_match": true,
+            "bound_diffs": {},
+            "fresh_match": false,
+            "fresh_diffs": {
+              "p_any_raw": {
+                "live": 0.4411547000124774,
+                "bt": 0.438265749861064
+              },
+              "limit_px": {
+                "live": 1860.9015891644888,
+                "bt": 1861.7234403742523
+              },
+              "close": {
+                "live": 1877.22,
+                "bt": 1877.02
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.1402439024390244,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.1402439024390244,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786575600000,
+            "bar_utc": "2026-08-12T23:00:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.19335604770017037,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": true,
+            "status": "ok",
+            "bound_match": true,
+            "bound_diffs": {},
+            "fresh_match": false,
+            "fresh_diffs": {
+              "limit_px": {
+                "live": 1863.3829246157761,
+                "bt": 1863.3729246157757
+              },
+              "close": {
+                "live": 1875.63,
+                "bt": 1875.62
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.19335604770017037,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.19335604770017037,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786580100000,
+            "bar_utc": "2026-08-13T00:15:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.17205203524968526,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": true,
+            "status": "ok",
+            "bound_match": true,
+            "bound_diffs": {},
+            "fresh_match": false,
+            "fresh_diffs": {
+              "p_any": {
+                "live": 0.17205203524968526,
+                "bt": 0.16109422492401215
+              },
+              "p_any_raw": {
+                "live": 0.4745043284583542,
+                "bt": 0.472632209026197
+              },
+              "limit_px": {
+                "live": 1867.75592822388,
+                "bt": 1870.440858149605
+              },
+              "close": {
+                "live": 1881.72,
+                "bt": 1881.59
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.17205203524968526,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.16109422492401215,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786583700000,
+            "bar_utc": "2026-08-13T01:15:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.31693989071038253,
+            "live_reason": "below_thr",
+            "live_side": "Buy",
+            "has_tip_ohlc": true,
+            "status": "ok",
+            "bound_match": true,
+            "bound_diffs": {},
+            "fresh_match": false,
+            "fresh_diffs": {
+              "limit_px": {
+                "live": 1867.5439238477359,
+                "bt": 1867.533923847736
+              },
+              "close": {
+                "live": 1875.6,
+                "bt": 1875.59
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.31693989071038253,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.31693989071038253,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786589100000,
+            "bar_utc": "2026-08-13T02:45:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.2671232876712329,
+            "live_reason": "below_thr",
+            "live_side": "Sell",
+            "has_tip_ohlc": true,
+            "status": "ok",
+            "bound_match": true,
+            "bound_diffs": {},
+            "fresh_match": false,
+            "fresh_diffs": {
+              "limit_px": {
+                "live": 1885.9371826325323,
+                "bt": 1885.9271826325323
+              },
+              "close": {
+                "live": 1881.27,
+                "bt": 1881.26
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.2671232876712329,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.2671232876712329,
+            "order_result": null
+          },
+          {
+            "bar_ts_ms": 1786590900000,
+            "bar_utc": "2026-08-13T03:15:00+00:00",
+            "live_action": "FLAT",
+            "live_p_any": 0.1402439024390244,
+            "live_reason": "below_thr",
+            "live_side": "Sell",
+            "has_tip_ohlc": true,
+            "status": "ok",
+            "bound_match": true,
+            "bound_diffs": {},
+            "fresh_match": false,
+            "fresh_diffs": {
+              "p_any_raw": {
+                "live": 0.43953591976876355,
+                "bt": 0.4399478693742254
+              },
+              "limit_px": {
+                "live": 1885.153495,
+                "bt": 1885.2135850000002
+              },
+              "close": {
+                "live": 1882.33,
+                "bt": 1882.39
+              }
+            },
+            "bt_bound_action": "FLAT",
+            "bt_bound_p_any": 0.1402439024390244,
+            "bt_fresh_action": "FLAT",
+            "bt_fresh_p_any": 0.1402439024390244,
+            "order_result": null
+          }
+        ],
+        "last": {
+          "bar_ts_ms": 1786594500000,
+          "bar_utc": "2026-08-13T04:15:00+00:00",
+          "live_action": "FLAT",
+          "live_p_any": 0.12568306010928965,
+          "live_reason": "below_thr",
+          "live_side": "Sell",
+          "has_tip_ohlc": true,
+          "status": "ok",
+          "bound_match": true,
+          "bound_diffs": {},
+          "fresh_match": true,
+          "fresh_diffs": {},
+          "bt_bound_action": "FLAT",
+          "bt_bound_p_any": 0.12568306010928965,
+          "bt_fresh_action": "FLAT",
+          "bt_fresh_p_any": 0.12568306010928965,
+          "order_result": null
+        }
+      }
+    ]
+  }
+}

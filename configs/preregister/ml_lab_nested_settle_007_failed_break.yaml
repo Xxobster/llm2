@@ -1,0 +1,48 @@
+# Nested settle of the single hunt-007 inner screen pass
+# RESEARCH_ONLY. Frozen from inner screen BEFORE any 2022+ bar was used to pick it.
+# Do not add Solana 4h failed_break (n=44, entry-bar 0.52) or impulse_stall (PF 0.99).
+generation_id: ml_lab_nested_settle_007_failed_break
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-09-01T14:40:00Z"
+parent_generation: ml_lab_hunt_007_confirm_session
+fold_geometry: v2
+failure_is_success: true
+
+hypothesis: >
+  Bitcoin 1-hour failed_break_fade (Donchian break that fails on the next bar,
+  then fade) cleared the hunt-007 inner screen (before 2022-01-01) with maker
+  0.02% and EXEC-021. This settle scores it once per outer fold and once on
+  the stitched 2022-01-01 .. 2026-05-01 union. No retune of Donchian length,
+  wait, or the Average-True-Range bracket.
+
+do_not:
+  - add failed hunt-007 arms after seeing this settle
+  - retune live Exponential Moving Average stack or 376 / 705 / 013
+  - peep FORWARD_LOCKBOX_START
+  - deploy
+
+lockbox: do_not_score_on_or_after_2026-05-01
+outer_window: "2022-01-01 .. 2026-05-01 exclusive"
+
+work_bars: {1h: 3}
+max_hold_bars: {1h: 16}
+k_sl: 1.5
+tp_ratio: 1.5
+sl_cap: 0.030
+maker_first_costs: true
+
+gates_for_shadow_ready:
+  min_eligible_folds: 5
+  min_trades_per_gating_fold: 10
+  min_pooled_oos_trades: 50
+  min_pooled_profit_factor: 1.20
+  min_sharpe_annualised: 1.00
+  min_sharpe_hac_annualised: 0.75
+  min_fraction_positive_folds: 0.80
+  max_entry_bar_exit_rate: 0.25
+
+survivors:
+  - {symbol: BTCUSDT, timeframe: 1h, idea: failed_break_fade}
+
+preregister_sha256_at_run: ae5e2432e8df0500cd5fe7aca10c3a12adb27e8dee50bec2dae28c1c61c6c9ac

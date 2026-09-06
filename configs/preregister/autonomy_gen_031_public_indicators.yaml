@@ -1,0 +1,24 @@
+# Autonomy gen 031 — Lambert Commodity Channel Index
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_031_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-22T11:21:00Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  Donald Lambert Commodity Channel Index (typical-price deviation from its
+  20-bar SMA, scaled by 0.015) oversold/overbought at t+H and ±100 crosses,
+  used as one-head filters, can beat the 15-minute Limit 1%/1% pivot control
+  under frozen entry-bar and trades-per-month caps.
+events: [cci_oversold_at_h, cci_overbought_at_h, cci_cross_up_neg100, cci_cross_down_100]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: 5ccd685dacd603b5ec4b48169dea43341196da10761d6e359bf4bc548e0bee32

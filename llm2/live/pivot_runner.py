@@ -32,9 +32,12 @@ from llm2.live.micro_runner import (
     ensure_exchange_leverage,
     ensure_full_position_tpsl,
     ensure_hedge_mode,
+    fetch_wallet_equity_usdt,
     latest_closed_bar_open_ms,
+    maker_exit_bracket_present,
     resolve_order_qty,
     sleep_until_next_close,
+    stop_trigger_px_from_open_orders,
 )
 from llm2.live.refresh_structure import (
     DEFAULT_SIGNAL_SOURCE,
@@ -48,6 +51,7 @@ from llm2.pivot.features.packs import build_feature_frame
 from llm2.pivot.strategy.score_oos import _atr_frac
 from llm2.pivot.train.calibration import apply_calibrator
 from llm2.research_policy import PolicyError
+from llm2.sizing_policy import SIZING_MODE_RISK_FRACTION
 from llm2.validation.folds import index_to_ms
 from tradesim.ensure_source import prefer_botsgeneral_tradesim
 
@@ -59,10 +63,90 @@ LEAD_SEC = 25.0
 CLOSE_POLL_SEC = 2.0
 FILL_POLL_SEC = 2.0
 CONFIRM_TIMEOUT_SEC = 120.0
+# Instant cancel only for collector-down / invented tip. Transient HTTP and
+# bar-boundary lag wait the same confirm window as decide (LIVE-DATA-001
+# thresholds stay 5s / exact tip).
+FILL_WAIT_INSTANT_CANCEL_CODES = frozenset({"COLLECTOR_ERROR", "CANDLE_AHEAD"})
+FILL_WAIT_CONFIRM_CODES = frozenset(
+    {"CANDLE_STALE", "CANDLE_MISSING", "CLOCK_SKEW", "SERVER_TIME_FAIL"}
+)
+_RISK_FRACTION_MODES = frozenset(
+    {SIZING_MODE_RISK_FRACTION, "STOP_RISK_FRACTION", "PCT_EQUITY_AT_SL"}
+)
+
+
+def pack_uses_stop_risk_sizing(strategy: dict[str, Any]) -> bool:
+    mode = str((strategy.get("sizing") or {}).get("mode") or "MIN_EXCHANGE").upper()
+    return mode in _RISK_FRACTION_MODES
+
+
+def resolve_pivot_live_qty(
+    *,
+    strategy: dict[str, Any],
+    decide: dict[str, Any],
+    instrument: Any,
+    equity: float | None,
+) -> tuple[float, dict[str, Any]]:
+    """Pack ``MIN_EXCHANGE`` stays min-lot. ``RISK_FRACTION`` uses 5% equity at stop."""
+    risk = pack_uses_stop_risk_sizing(strategy)
+    sizing = dict(strategy.get("sizing") or {"mode": "MIN_EXCHANGE"})
+    return resolve_order_qty(
+        sizing=sizing,
+        equity=float(equity) if risk else None,
+        leverage=float(decide["leverage"]),
+        price=float(decide["limit_px"]),
+        size_mult=float(sizing.get("size_mult") or 1.0),
+        instrument=instrument,
+        min_qty_fallback=float(getattr(instrument, "min_qty", 0.001) or 0.001),
+        force_min_exchange=not risk,
+        sl_pct=float(decide["sl_pct"]) if risk else None,
+    )
 
 
 def _log(msg: str) -> None:
     print(f"{datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')} {msg}", flush=True)
+
+
+def fill_wait_gate_action(
+    tip_code: str,
+    *,
+    first_fail_mono: float | None,
+    now_mono: float,
+    confirm_timeout_sec: float = CONFIRM_TIMEOUT_SEC,
+) -> str:
+    """Return ``wait`` or ``cancel`` when LIVE-DATA-001 fails during fill-wait.
+
+    Does not change gate thresholds. A single 2-second poll must not cancel a
+    resting LIMIT on CLOCK_SKEW / SERVER_TIME_FAIL / CANDLE_STALE (HTTP RTT
+    and collector close lag). Cancel immediately on COLLECTOR_ERROR / CANDLE_AHEAD,
+    or if a confirm-class code lasts longer than ``confirm_timeout_sec``.
+    """
+    code = str(tip_code or "DATA_UNSAFE")
+    if code in FILL_WAIT_INSTANT_CANCEL_CODES:
+        return "cancel"
+    if code in FILL_WAIT_CONFIRM_CODES:
+        if first_fail_mono is None:
+            return "wait"
+        if (float(now_mono) - float(first_fail_mono)) < float(confirm_timeout_sec):
+            return "wait"
+        return "cancel"
+    return "cancel"
+
+
+def _persist_decision_order_result(
+    con: sqlite3.Connection,
+    *,
+    bar_ms: int,
+    decide: dict[str, Any],
+    result: dict[str, Any],
+) -> None:
+    created = str(decide.get("created_utc") or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
+    payload = {**decide, "order_result": result}
+    con.execute(
+        "INSERT OR REPLACE INTO pivot_decisions(bar_ts_ms, payload_json, created_utc) VALUES (?,?,?)",
+        (int(bar_ms), json.dumps(payload, default=str), created),
+    )
+    con.commit()
 
 
 class TipCandleUnstableError(RuntimeError):
@@ -101,10 +185,19 @@ def load_pivot_ohlcv(symbol: str, timeframe: str, *, limit: int = LIVE_OHLCV_BAR
     )
     if ts_a != ts_b:
         raise TipCandleUnstableError(f"REST tip bar moved {ts_a} -> {ts_b}")
+    # Tolerance must catch a still-forming tip without rejecting normal venue
+    # rounding jitter. A 1e-8 *relative* tolerance is effectively zero: it
+    # rejected Ethereum reads of 2495.88 vs 2495.89 (one tick), which fired
+    # TIP_UNSTABLE on most bars and pushed each decide minutes past the close.
+    # A forming bar moves far more than a couple of ticks, so allow two.
+    try:
+        tick = float(getattr(research_instrument(symbol), "tick_size", 0.0) or 0.0)
+    except Exception:  # noqa: BLE001
+        tick = 0.0
     for col in ("open", "high", "low", "close"):
         a = float(tip_rest_a[col].iloc[-1])
         b = float(tip_rest_b[col].iloc[-1])
-        tol = max(abs(b) * 1e-8, 1e-8)
+        tol = max(2.0 * tick, abs(b) * 1e-6, 1e-8)
         if abs(a - b) > tol:
             raise TipCandleUnstableError(
                 f"REST tip {col} unstable {a} -> {b} (tol={tol})"
@@ -213,6 +306,8 @@ _OPEN_STATE_KEYS = (
     "open_side",
     "open_qty",
     "open_max_hold_bars",
+    "open_sl_px",
+    "open_tp_px",
 )
 
 
@@ -223,11 +318,15 @@ def _read_open_pos(con: sqlite3.Connection) -> dict[str, Any] | None:
     side = _state_get(con, "open_side") or ""
     qty_raw = _state_get(con, "open_qty") or "0"
     hold_raw = _state_get(con, "open_max_hold_bars") or "0"
+    sl_raw = _state_get(con, "open_sl_px") or ""
+    tp_raw = _state_get(con, "open_tp_px") or ""
     return {
         "entry_bar_ms": int(raw),
         "side": str(side),
         "qty": float(qty_raw),
         "max_hold_bars": int(hold_raw),
+        "sl_px": float(sl_raw) if sl_raw not in {"", None} else 0.0,
+        "tp_px": float(tp_raw) if tp_raw not in {"", None} else 0.0,
     }
 
 
@@ -243,11 +342,17 @@ def _record_open_pos(
     side: str,
     qty: float,
     max_hold_bars: int,
+    sl_px: float | None = None,
+    tp_px: float | None = None,
 ) -> None:
     _state_set(con, "open_entry_bar_ms", str(int(entry_bar_ms)))
     _state_set(con, "open_side", str(side))
     _state_set(con, "open_qty", str(float(qty)))
     _state_set(con, "open_max_hold_bars", str(int(max_hold_bars)))
+    if sl_px is not None:
+        _state_set(con, "open_sl_px", str(float(sl_px)))
+    if tp_px is not None:
+        _state_set(con, "open_tp_px", str(float(tp_px)))
 
 
 def _max_hold_due(con: sqlite3.Connection, timeframe: str, *, now_ms: int | None = None) -> bool:
@@ -261,6 +366,183 @@ def _max_hold_due(con: sqlite3.Connection, timeframe: str, *, now_ms: int | None
         max_hold_bars=int(pos["max_hold_bars"]),
         tf_ms=int(TF_MS[timeframe]),
     )
+
+
+def reconcile_exchange_position(
+    *,
+    account: str,
+    symbol: str,
+    timeframe: str,
+    con: sqlite3.Connection,
+    tp_pct: float,
+    sl_pct: float,
+    max_hold_bars: int,
+) -> dict[str, Any]:
+    """Heal a position the exchange has but local state does not know about.
+
+    Why this exists: ``manage_working_limit`` places the entry LIMIT and only
+    then waits for the fill and attaches Take-Profit / Stop-Loss. If the process
+    raises between those steps — a network timeout is enough — the order can fill
+    on the exchange while local state still calls it a *working* order. Nothing
+    else notices: ``maybe_max_hold_flatten`` starts from ``_read_open_pos`` and
+    returns ``no_local_open``, so the position is invisible to the bot and holds
+    **no protective orders**.
+
+    That happened live on 2026-08-26: an Ethereum entry filled after
+    ``URLError: handshake operation timed out``, leaving a naked short with
+    ``to_TP/SL = -`` and no max-hold deadline.
+
+    So on every heartbeat: if the exchange reports exposure and either local
+    state has no open position or the maker exit bracket is missing, attach the
+    frozen Post-Only take-profit and stop-limit, then record the fill so
+    max-hold can fire. Fail closed and loud.
+    """
+    out: dict[str, Any] = {"action": "none"}
+    rows = [p for p in _position_list(account=account, symbol=symbol) if float(p.get("size") or 0) > 0]
+    if not rows:
+        return {"action": "none", "reason": "exchange_flat"}
+    pos = rows[0]
+    size = float(pos.get("size") or 0)
+    avg_px = float(pos.get("avgPrice") or pos.get("avg_price") or 0)
+    side = str(pos.get("side") or "")
+    side_i = -1 if side == "Sell" else 1
+    has_maker = False
+    if avg_px > 0 and side in ("Buy", "Sell"):
+        try:
+            has_maker = maker_exit_bracket_present(
+                account=account,
+                symbol=symbol,
+                side=side_i,
+                avg_price=avg_px,
+                tp_pct=float(tp_pct),
+                sl_pct=float(sl_pct),
+            )
+        except Exception as exc:  # noqa: BLE001
+            _log(f"RECONCILE_EXIT_SCAN_FAIL {type(exc).__name__}: {exc}")
+    local = _read_open_pos(con)
+    out.update(
+        {"size": size, "avg_price": avg_px, "side": side, "has_maker_exits": has_maker,
+         "local_known": local is not None}
+    )
+    if local is not None and has_maker:
+        return {**out, "action": "none", "reason": "tracked_and_protected"}
+    if avg_px <= 0 or side not in ("Buy", "Sell"):
+        _log(f"RECONCILE_UNKNOWN_POSITION {json.dumps(out, default=str)[:300]}")
+        return {**out, "action": "unknown_position"}
+
+    if not has_maker:
+        tpsl = ensure_full_position_tpsl(
+            account=account,
+            symbol=symbol,
+            side=side_i,
+            avg_price=avg_px,
+            tp_pct=float(tp_pct),
+            sl_pct=float(sl_pct),
+            qty=size,
+        )
+        out["tpsl"] = tpsl
+        if _bybit_retcode(tpsl) not in (0, 34040):
+            _log(f"RECONCILE_TPSL_FAIL ret={tpsl.get('retCode')} msg={tpsl.get('retMsg')}")
+            return {**out, "action": "tpsl_failed"}
+        _log(
+            f"RECONCILE_TPSL_ATTACHED symbol={symbol} side={side} avg={avg_px} "
+            f"tp={tpsl.get('tp_price')} sl={tpsl.get('sl_price')} mode={tpsl.get('mode')}"
+        )
+        if local is not None:
+            _state_set(con, "open_sl_px", str(float(tpsl.get("sl_price") or 0)))
+            _state_set(con, "open_tp_px", str(float(tpsl.get("tp_price") or 0)))
+
+    if local is None:
+        entry_bar_ms = entry_bar_open_ms_from_fill(int(time.time() * 1000), timeframe)
+        tpsl_info = out.get("tpsl") if isinstance(out.get("tpsl"), dict) else {}
+        _record_open_pos(
+            con,
+            entry_bar_ms=entry_bar_ms,
+            side=side,
+            qty=size,
+            max_hold_bars=int(max_hold_bars),
+            sl_px=float((tpsl_info or {}).get("sl_price") or 0) or None,
+            tp_px=float((tpsl_info or {}).get("tp_price") or 0) or None,
+        )
+        # The entry LIMIT is gone: it became this position.
+        _state_set(con, "working_order_id", "")
+        _state_set(con, "working_deadline_ms", "")
+        record_pivot_fill(
+            con,
+            "reconciled_orphan_entry",
+            {
+                "side": side,
+                "qty": size,
+                "avg_price": avg_px,
+                "entry_bar_ms": entry_bar_ms,
+                "note": "position found on exchange with no local record",
+            },
+        )
+        out["entry_bar_ms"] = entry_bar_ms
+        _log(
+            f"RECONCILE_ADOPTED symbol={symbol} side={side} qty={size} avg={avg_px} "
+            f"entry_bar_ms={entry_bar_ms} max_hold_bars={max_hold_bars}"
+        )
+    return {**out, "action": "reconciled"}
+
+
+def maybe_gap_flatten_taker(
+    *,
+    account: str,
+    symbol: str,
+    con: sqlite3.Connection,
+) -> dict[str, Any]:
+    """Market-flatten if mark is through the attached stop (maker limit skipped the gap).
+
+    A limit stop on the far side of a gap does not fill. Taker flatten is the
+    last-resort required by the maker-first fee rule.
+    """
+    rows = [p for p in _position_list(account=account, symbol=symbol) if float(p.get("size") or 0) > 0]
+    if not rows:
+        return {"action": "none", "reason": "exchange_flat"}
+    pos = rows[0]
+    size = float(pos.get("size") or 0)
+    side = str(pos.get("side") or "")
+    sl = float(pos.get("stopLoss") or 0)
+    mark = float(pos.get("markPrice") or pos.get("mark_price") or 0)
+    side_i = -1 if side == "Sell" else 1
+    if sl <= 0:
+        try:
+            sl = float(
+                stop_trigger_px_from_open_orders(
+                    account=account, symbol=symbol, side=side_i
+                )
+                or 0
+            )
+        except Exception:  # noqa: BLE001
+            sl = 0.0
+    if sl <= 0:
+        local = _read_open_pos(con)
+        if local is not None:
+            sl = float(local.get("sl_px") or 0)
+    if sl <= 0 or mark <= 0 or side not in ("Buy", "Sell") or size <= 0:
+        return {
+            "action": "none",
+            "reason": "no_stop_or_mark",
+            "side": side,
+            "sl": sl,
+            "mark": mark,
+        }
+    through = (side == "Sell" and mark >= sl) or (side == "Buy" and mark <= sl)
+    if not through:
+        return {"action": "none", "reason": "mark_inside_stop", "mark": mark, "sl": sl}
+    resp = close_reduce_only(account=account, symbol=symbol, side=side_i, qty=size)
+    record_pivot_fill(
+        con,
+        "gap_flatten_taker",
+        {"side": side, "qty": size, "mark": mark, "sl": sl, "response": resp},
+    )
+    _clear_open_pos(con)
+    _log(
+        f"GAP_FLATTEN_TAKER symbol={symbol} side={side} qty={size} mark={mark} sl={sl} "
+        f"ret={resp.get('retCode')} msg={resp.get('retMsg')}"
+    )
+    return {"action": "flattened", "mark": mark, "sl": sl, "side": side, "response": resp}
 
 
 def maybe_max_hold_flatten(
@@ -332,6 +614,10 @@ def maybe_max_hold_flatten(
 def load_pack(pack_dir: Path) -> tuple[dict[str, Any], dict[str, Any]]:
     strat = json.loads((pack_dir / "strategy.json").read_text(encoding="utf-8"))
     blob = joblib.load(pack_dir / "model.joblib")
+    filt = pack_dir / "filter_head.joblib"
+    if filt.is_file():
+        blob = dict(blob)
+        blob["filter_head"] = joblib.load(filt)
     return strat, blob
 
 
@@ -379,7 +665,54 @@ def tip_decide(
         else:
             level_ret = lv
 
+    if str(strategy.get("limit_level") or "") == "atr_clip" and np.isfinite(level_ret) and np.isfinite(atr) and atr > 0:
+        # Hunt SOL control: clip |level_ret| into [0.8, 1.5] × ATR fraction.
+        level_ret = float(np.sign(level_ret) * np.clip(abs(level_ret), 0.8 * atr, 1.5 * atr))
+
     gated = p_any >= thr
+    filter_payload: dict[str, Any] | None = None
+    filt_cfg = strategy.get("filter") if isinstance(strategy.get("filter"), dict) else None
+    if filt_cfg:
+        head = blob.get("filter_head")
+        if not isinstance(head, dict) or head.get("model") is None:
+            return {
+                "action": "SKIP",
+                "reason": "filter_head_missing",
+                "bar_ts_ms": bar_ts,
+            }
+        from llm2.autonomy.filter_head import score_filter_tip
+
+        scored = score_filter_tip(
+            ohlcv,
+            feature_columns=list(head.get("feature_columns") or filt_cfg.get("feature_columns") or []),
+            model=head["model"],
+            iso=head.get("iso"),
+        )
+        pi_star = float(filt_cfg.get("pi_star") or head.get("pi_star") or 0.0)
+        filter_payload = {
+            "generation": str(filt_cfg.get("generation") or ""),
+            "event": str(filt_cfg.get("event") or ""),
+            "horizon_bars": int(filt_cfg.get("horizon_bars") or 0),
+            "pi_star": pi_star,
+            "p_event": scored.get("p_event"),
+            "ok": bool(scored.get("ok")),
+            "reason": str(scored.get("reason") or ""),
+        }
+        if not scored.get("ok"):
+            return {
+                "action": "SKIP",
+                "reason": "nan_features",
+                "nan_cols": list(scored.get("nan_cols") or []),
+                "bar_ts_ms": bar_ts,
+                "filter": filter_payload,
+            }
+        p_evt = float(scored["p_event"])
+        if not (np.isfinite(p_evt) and p_evt >= pi_star):
+            gated = False
+            filter_payload["passed"] = False
+        else:
+            filter_payload["passed"] = True
+
     is_short = p_high >= 0.5
     if is_short:
         move = float(np.clip(level_ret if np.isfinite(level_ret) else 0.005, 0.0015, 0.03))
@@ -395,9 +728,15 @@ def tip_decide(
     feat_sha = hashlib.sha256(
         json.dumps(feat_vals, separators=(",", ":")).encode("utf-8")
     ).hexdigest()
-    return {
+    if gated:
+        reason = "p75_and_filter" if filter_payload and filter_payload.get("passed") else "p75_gate"
+    elif filter_payload is not None and filter_payload.get("passed") is False:
+        reason = "filter_below_pi_star"
+    else:
+        reason = "below_thr"
+    out = {
         "action": "ENTER_LIMIT" if gated else "FLAT",
-        "reason": "p75_gate" if gated else "below_thr",
+        "reason": reason,
         "bar_ts_ms": bar_ts,
         "close": close,
         "n_prefix_bars": int(len(ohlcv)),
@@ -431,6 +770,11 @@ def tip_decide(
         "timeframe": str(strategy["timeframe"]),
         "arm_id": str(strategy.get("arm_id")),
     }
+    if filter_payload is not None:
+        out["filter"] = filter_payload
+        out["p_event"] = filter_payload.get("p_event")
+        out["pi_star"] = filter_payload.get("pi_star")
+    return out
 
 
 def _round_price(price: float, tick: float) -> float:
@@ -448,7 +792,7 @@ def place_working_limit(
     price: float,
     leverage: float,
 ) -> dict[str, Any]:
-    """Place Bybit GTC LIMIT. TP/SL attached only after fill."""
+    """Place Bybit Post-Only LIMIT (maker or cancel). TP/SL attached only after fill."""
     ensure_hedge_mode(account=account, symbol=symbol)
     ensure_exchange_leverage(account=account, symbol=symbol, leverage=leverage)
     api_key, api_secret = _load_account_keys(account)
@@ -462,7 +806,7 @@ def place_working_limit(
         "orderType": "Limit",
         "qty": _qty_str(qty),
         "price": str(px),
-        "timeInForce": "GTC",
+        "timeInForce": "PostOnly",
         "positionIdx": 2 if side == "Sell" else 1,
     }
     resp = _bybit_signed_request(
@@ -544,12 +888,13 @@ def _live_data_gate(
     symbol: str,
     timeframe: str,
     local_tip_ms: int | None,
+    persist_flag: bool = True,
 ) -> tuple[bool, dict[str, Any]]:
     allow, tip_res, flagged = signal_entry_gate(
         symbol=symbol,
         timeframe=timeframe,
         local_tip_ms=local_tip_ms,
-        persist_flag=True,
+        persist_flag=persist_flag,
     )
     payload = {
         "conformance": LIVE_DATA_001,
@@ -576,7 +921,7 @@ def manage_working_limit(
     con: sqlite3.Connection,
     max_hold_bars: int,
 ) -> dict[str, Any]:
-    """Place LIMIT → wait fill or cancel after work_bars → attach Full TP/SL on fill."""
+    """Place LIMIT → wait fill or cancel after work_bars → attach maker exits on fill."""
     placed = place_working_limit(
         account=account,
         symbol=symbol,
@@ -612,23 +957,42 @@ def manage_working_limit(
     avg_px = float(price)
     last_status = "New"
     st_row: dict[str, Any] = {}
+    unsafe_since: float | None = None
     while int(time.time() * 1000) < deadline:
         time.sleep(FILL_POLL_SEC)
         # Heartbeat: if tip/collector goes unsafe, cancel resting entry only.
+        # Do not persist a 2-second flap into the shared DATA_UNSAFE flag.
         allow_hb, gate_hb = _live_data_gate(
-            symbol=symbol, timeframe=timeframe, local_tip_ms=None
+            symbol=symbol,
+            timeframe=timeframe,
+            local_tip_ms=None,
+            persist_flag=False,
         )
-        if not allow_hb:
-            try:
-                cancel_order(account=account, symbol=symbol, order_id=order_id)
-                _log(
-                    f"LIMIT_CANCEL_DATA_UNSAFE orderId={order_id} "
-                    f"code={(gate_hb.get('tip') or {}).get('code')}"
-                )
-            except Exception as exc:  # noqa: BLE001
-                _log(f"CANCEL_FAIL_DATA_UNSAFE orderId={order_id} err={exc}")
-            last_status = "CancelledDataUnsafe"
-            break
+        if allow_hb:
+            unsafe_since = None
+        else:
+            tip_code = str((gate_hb.get("tip") or {}).get("code") or "DATA_UNSAFE")
+            now_mono = time.monotonic()
+            if unsafe_since is None:
+                unsafe_since = now_mono
+                _log(f"FILL_WAIT_DATA_UNSAFE wait code={tip_code} orderId={order_id}")
+            action = fill_wait_gate_action(
+                tip_code,
+                first_fail_mono=unsafe_since,
+                now_mono=now_mono,
+                confirm_timeout_sec=CONFIRM_TIMEOUT_SEC,
+            )
+            if action == "cancel":
+                try:
+                    cancel_order(account=account, symbol=symbol, order_id=order_id)
+                    _log(
+                        f"LIMIT_CANCEL_DATA_UNSAFE orderId={order_id} "
+                        f"code={tip_code}"
+                    )
+                except Exception as exc:  # noqa: BLE001
+                    _log(f"CANCEL_FAIL_DATA_UNSAFE orderId={order_id} err={exc}")
+                last_status = "CancelledDataUnsafe"
+                break
         st_row = _order_status(account=account, symbol=symbol, order_id=order_id)
         last_status = str(st_row.get("orderStatus") or "Unknown")
         if last_status == "Filled":
@@ -694,6 +1058,7 @@ def manage_working_limit(
         avg_price=float(avg_px),
         tp_pct=float(tp_pct),
         sl_pct=float(sl_pct),
+        qty=float(qty),
     )
     fill_ms = int(time.time() * 1000)
     for key in ("updatedTime", "updated_time", "createdTime"):
@@ -711,6 +1076,8 @@ def manage_working_limit(
         side=side,
         qty=float(qty),
         max_hold_bars=int(max_hold_bars),
+        sl_px=float(tpsl.get("sl_price") or 0) or None,
+        tp_px=float(tpsl.get("tp_price") or 0) or None,
     )
     out["tpsl"] = tpsl
     out["stage"] = "filled_tpsl"
@@ -718,10 +1085,24 @@ def manage_working_limit(
     out["max_hold_deadline_ms"] = max_hold_deadline_ms(
         entry_bar_ms, int(max_hold_bars), int(TF_MS[timeframe])
     )
-    if _bybit_retcode(tpsl) not in (0, 34040):  # 34040 often already set
-        _log(f"TPSL_ATTACH_WARN ret={tpsl.get('retCode')} msg={tpsl.get('retMsg')}")
-    else:
-        _log(f"TPSL_ATTACHED orderId={order_id} avg={avg_px}")
+    if _bybit_retcode(tpsl) not in (0, 34040):
+        _log(f"TPSL_ATTACH_FAIL ret={tpsl.get('retCode')} msg={tpsl.get('retMsg')} — flatten")
+        try:
+            flat = close_reduce_only(
+                account=account, symbol=symbol, side=side_i, qty=float(qty)
+            )
+        except Exception as exc:  # noqa: BLE001
+            flat = {"error": f"{type(exc).__name__}: {exc}"}
+        _clear_open_pos(con)
+        out["tpsl"] = tpsl
+        out["fail_closed_flatten"] = flat
+        out["stage"] = "tpsl_attach_failed"
+        out["ok"] = False
+        return out
+    _log(
+        f"TPSL_ATTACHED orderId={order_id} avg={avg_px} mode={tpsl.get('mode')} "
+        f"tp={tpsl.get('tp_price')} sl={tpsl.get('sl_price')} tp_ok={tpsl.get('tp_ok')}"
+    )
     record_pivot_fill(
         con,
         "entry_filled",
@@ -783,8 +1164,29 @@ def run_loop(
             _log(f"MODE_OR_LEVERAGE_WARN {type(exc).__name__}: {exc}")
 
     while True:
-        # Max-hold is an exit: run even when DATA_UNSAFE blocks new entries.
+        # Heartbeat exits: protect orphans, gap-flatten, then max-hold.
+        # These run even when DATA_UNSAFE blocks new entries.
         if live_orders and account:
+            try:
+                rc = reconcile_exchange_position(
+                    account=account,
+                    symbol=symbol,
+                    timeframe=timeframe,
+                    con=con,
+                    tp_pct=float(strategy.get("tp_pct") or 0.01),
+                    sl_pct=float(strategy.get("sl_pct") or 0.01),
+                    max_hold_bars=int(strategy.get("max_hold_bars") or 6),
+                )
+                if rc.get("action") not in {"none"}:
+                    _log(f"RECONCILE_TICK {json.dumps(rc, default=str)[:500]}")
+            except Exception as exc:  # noqa: BLE001
+                _log(f"RECONCILE_WARN {type(exc).__name__}: {exc}")
+            try:
+                gf = maybe_gap_flatten_taker(account=account, symbol=symbol, con=con)
+                if gf.get("action") not in {"none"}:
+                    _log(f"GAP_FLATTEN_TICK {json.dumps(gf, default=str)[:500]}")
+            except Exception as exc:  # noqa: BLE001
+                _log(f"GAP_FLATTEN_WARN {type(exc).__name__}: {exc}")
             try:
                 mh = maybe_max_hold_flatten(
                     account=account, symbol=symbol, timeframe=timeframe, con=con
@@ -935,6 +1337,13 @@ def run_loop(
             continue
 
         if not live_orders or decide.get("action") != "ENTER_LIMIT":
+            if (not live_orders) and decide.get("action") == "ENTER_LIMIT":
+                _persist_decision_order_result(
+                    con,
+                    bar_ms=bar_ms,
+                    decide=decide,
+                    result={"ok": False, "stage": "skip_live_orders_off"},
+                )
             continue
         assert account is not None
 
@@ -942,9 +1351,21 @@ def run_loop(
         working = _state_get(con, "working_order_id") or ""
         if working:
             _log(f"SKIP_ALREADY_WORKING orderId={working}")
+            _persist_decision_order_result(
+                con,
+                bar_ms=bar_ms,
+                decide=decide,
+                result={"ok": False, "stage": "skip_already_working", "order_id": working},
+            )
             continue
         if has_open_exposure(account=account, symbol=symbol):
             _log("SKIP_OPEN_POSITION")
+            _persist_decision_order_result(
+                con,
+                bar_ms=bar_ms,
+                decide=decide,
+                result={"ok": False, "stage": "skip_open_position"},
+            )
             continue
 
         # Re-check immediately before placing entry.
@@ -952,49 +1373,70 @@ def run_loop(
             symbol=symbol, timeframe=timeframe, local_tip_ms=tip_decide_ms
         )
         if not allow_pl:
-            _log(
-                f"DATA_UNSAFE pre_place block code={(gate_pl.get('tip') or {}).get('code')}"
+            pre_code = str((gate_pl.get("tip") or {}).get("code") or "DATA_UNSAFE")
+            _log(f"DATA_UNSAFE pre_place block code={pre_code}")
+            _persist_decision_order_result(
+                con,
+                bar_ms=bar_ms,
+                decide=decide,
+                result={"ok": False, "stage": "pre_place_data_unsafe", "code": pre_code},
             )
             continue
 
-        inst = research_instrument(symbol)
-        qty, qty_detail = resolve_order_qty(
-            sizing={"mode": "MIN_EXCHANGE"},
-            equity=None,
-            leverage=float(decide["leverage"]),
-            price=float(decide["limit_px"]),
-            size_mult=1.0,
-            instrument=inst,
-            min_qty_fallback=float(getattr(inst, "min_qty", 0.001) or 0.001),
-            force_min_exchange=True,
-        )
-        decide["qty"] = float(qty)
-        decide["qty_detail"] = qty_detail
-        result = manage_working_limit(
-            account=account,
-            symbol=symbol,
-            side=str(decide["side"]),
-            qty=float(qty),
-            price=float(decide["limit_px"]),
-            tp_pct=float(decide["tp_pct"]),
-            sl_pct=float(decide["sl_pct"]),
-            leverage=float(decide["leverage"]),
-            work_bars=int(decide["work_bars"]),
-            timeframe=timeframe,
-            bar_ts_ms=bar_ms,
-            con=con,
-            max_hold_bars=int(decide["max_hold_bars"]),
-        )
+        try:
+            inst = research_instrument(symbol)
+            equity = None
+            if pack_uses_stop_risk_sizing(strategy):
+                equity = float(fetch_wallet_equity_usdt(account=account))
+            qty, qty_detail = resolve_pivot_live_qty(
+                strategy=strategy,
+                decide=decide,
+                instrument=inst,
+                equity=equity,
+            )
+            decide["qty"] = float(qty)
+            decide["qty_detail"] = qty_detail
+            if equity is not None:
+                decide["wallet_equity_usdt"] = equity
+            if qty <= 0:
+                _log(f"SKIP_QTY_BELOW_VENUE_OR_RISK_CAP {json.dumps(qty_detail, default=str)[:600]}")
+                _persist_decision_order_result(
+                    con,
+                    bar_ms=bar_ms,
+                    decide=decide,
+                    result={
+                        "ok": False,
+                        "stage": "skip_qty_below_min_or_risk_cap",
+                        "qty_detail": qty_detail,
+                    },
+                )
+                continue
+            result = manage_working_limit(
+                account=account,
+                symbol=symbol,
+                side=str(decide["side"]),
+                qty=float(qty),
+                price=float(decide["limit_px"]),
+                tp_pct=float(decide["tp_pct"]),
+                sl_pct=float(decide["sl_pct"]),
+                leverage=float(decide["leverage"]),
+                work_bars=int(decide["work_bars"]),
+                timeframe=timeframe,
+                bar_ts_ms=bar_ms,
+                con=con,
+                max_hold_bars=int(decide["max_hold_bars"]),
+            )
+        except Exception as exc:  # noqa: BLE001
+            _log(f"PLACE_FAIL {type(exc).__name__}: {exc}")
+            result = {
+                "ok": False,
+                "stage": "place_exception",
+                "error": f"{type(exc).__name__}: {exc}",
+            }
         _log(f"ORDER_RESULT {json.dumps(result, default=str)[:1200]}")
-        con.execute(
-            "INSERT OR REPLACE INTO pivot_decisions(bar_ts_ms, payload_json, created_utc) VALUES (?,?,?)",
-            (
-                bar_ms,
-                json.dumps({**decide, "order_result": result}, default=str),
-                datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-            ),
+        _persist_decision_order_result(
+            con, bar_ms=bar_ms, decide=decide, result=result
         )
-        con.commit()
 
 
 def main(argv: list[str] | None = None) -> int:

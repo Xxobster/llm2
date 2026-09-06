@@ -1,0 +1,125 @@
+# Registered BEFORE any outer-OOS view of this generation.
+# Parent: structure_v1_next_retrace_forecast_001 Stage-1 skill cleared; naive every-leg
+# Stage-2 failed PF. This gen nests filters on a frozen baseline book geometry only.
+# CAUS-STRUCT-001: never restore leaked last_retrace_pct; packs are geometry templates.
+
+generation_id: structure_v1_forecast_filter_on_direction_001
+created_utc: "2026-08-06T21:30:00Z"
+status: CLOSED_TRADING_FAIL
+fold_geometry: v2
+related:
+  - structure_v1_next_retrace_forecast_001  # Stage-1 skill PASS; standalone Stage-2 FAIL
+  - CAUS-STRUCT-001
+  - structure_v1_caus_retrain_001
+  - volfilter_001  # skip-from-vol template (filter never sets side)
+
+hypothesis: >
+  Causal next_retrace_pct and next_vol forecasts (Stage-1 skill already evidenced)
+  improve a frozen tp1/sl2/hold6 MIN_EXCHANGE direction baseline when used only as
+  skip filters — never as side inventors. Forecast Information Coefficient and
+  trading Profit Factor remain hard-separated gates.
+
+economic_rationale: >
+  The leak taught that future swing depth / regime mattered. Forecasting those
+  causally cleared skill hurdles, but forcing retrace→direction every leg lost money.
+  Nesting as agree/skip on a separately justified direction book tests whether the
+  forecast is a noise gate. next_vol (IC~0.30) is the preferred regime skip;
+  next_retrace agree-filter is a parallel arm, not a kitchen-sink.
+
+baseline_book:
+  name: frozen_tp1_sl2_hold6_min_exchange_direction
+  geometry_template_packs:
+    - structure_v1_ethusdt_direction
+    - structure_v1_solusdt_direction
+  note: >
+    Pre-CAUS pack model.joblib files are READYNESS-VOID. Retrain causal OOS
+    direction heads per outer fold; use packs only for frozen geometry.
+  symbol_set: [ETHUSDT, BTCUSDT, SOLUSDT]
+  timeframe: 1h
+  feature_space: structure_v1
+  target: direction
+  horizon_bars: 6
+  model: lgbm_regressor
+  tp_pct: 0.01
+  sl_pct: 0.02
+  max_hold_bars: 6
+  min_edge: 0.1
+  sizing: MIN_EXCHANGE
+
+arms:
+  control:
+    name: always_on_baseline
+    description: causal OOS direction book, no forecast filter
+  next_retrace_agree_skip:
+    forecast_target: next_retrace_pct
+    forecast_models_candidate: [ridge, lgbm_regressor]
+    model_selection: inner_fold_spearman_ic_only
+    filter: >
+      As-of sparse next_retrace at last leg confirm. score = leg_dir*(0.5 - pred).
+      Keep baseline signal only if sign(side)==sign(score) and |score|>=0.05; else skip.
+    action_forbidden:
+      - emit_long_or_short_from_retrace_forecast
+      - restore_leaked_last_retrace_pct_as_feature
+  next_vol_skip_p75:
+    forecast_target: next_vol
+    forecast_horizon_bars: 24
+    forecast_models_candidate: [ridge, lgbm_regressor, torch_mlp]
+    model_selection: inner_fold_spearman_ic_only
+    filter_rule:
+      name: skip_top_quartile_predicted_vol
+      percentile: 75
+      fit_scope: train_fold_only
+      action_on_trigger: skip_entry
+    action_forbidden:
+      - increase_leverage
+      - widen_size
+      - emit_long_or_short_from_vol_forecast
+      - change_percentile_from_75
+
+multitask_reporting:
+  targets: [fwd_return, next_retrace_pct, next_vol]
+  models: [lgbm_regressor, torch_mlp]
+  selection: inner_fold_spearman_ic_only
+  forbidden:
+    - select_or_rank_filter_arm_on_outer_pf
+    - promote_on_forecast_ic_alone
+
+selection:
+  method: nested_outer_folds_v2
+  trade_comparison: all_preregistered_arms_vs_control_on_outer
+  forecast_model_pick: inner_folds_only
+  forbidden:
+    - select_or_rank_on_lockbox
+    - restore_leaked_last_retrace_pct_as_feature
+    - promote_on_forecast_r2_or_ic_alone
+    - load_pre_caus_pack_model_joblib_for_baseline
+  seed_root: 20260806
+
+evaluation:
+  outer: fold_geometry_v2
+  lockbox: DO_NOT_OPEN_FOR_SELECTION
+  four_proof: FOUR_PROOF_GATE_V1_required
+  forecast_skill_reported_separately: true
+  trade_gates: frozen_v2_1_diagnostic_only_until_pf_clears
+  costs: research_costs_baseline
+  success_vs_control:
+    - filtered_pooled_pf > control_pooled_pf
+    - filtered_pooled_pnl > control_pooled_pnl
+    - filtered uses fewer or equal signals (skip-more)
+  success_note: >
+    Beating control while both lose is a methodology win, not SHADOW_READY.
+    Good forecast IC does not authorize live.
+
+live_deploy: FORBIDDEN_without_certificate_and_explicit_user_auth
+promotion: FORBIDDEN_without_new_pack_hash_certificate_and_explicit_user_auth
+
+preregister_sha256_at_run: d962852a62603ba6b8bb1fe5bced1fd94d6bc09e0e4875d5deb882176ac025c0
+run_started_utc: "2026-08-06T21:37:41Z"
+frozen_utc: "2026-08-06T21:47:53Z"
+frozen_reason: outer-OOS of forecast_filter_on_direction_001 viewed.
+closed_trading_fail_utc: "2026-08-08T09:00:00Z"
+closed_trading_fail_decision: D-060
+closed_trading_fail_reason: >
+  Outer mean_fold Profit Factor < 1 on control and both filters on ETH/BTC/SOL.
+  Thresholds frozen — no retune of agree score, vol p75, TP/SL/hold, or arm list.
+  next_retrace forecast IC is not a trading authorization.

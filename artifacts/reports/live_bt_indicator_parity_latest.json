@@ -1,0 +1,476 @@
+{
+  "experiment_id": "live_bt_indicator_parity_layer_a",
+  "evidence_class": "LIVE_BT_INDICATOR_PARITY",
+  "maximum_earned_readiness": "LIVE_STOP / RESEARCH_ONLY",
+  "principal_blocker": "Indicator parity is a calculation check only; does not authorize live.",
+  "generated_utc": "2026-08-05T09:11:39.029065+00:00",
+  "pack": "D:\\projects\\LLM2\\artifacts\\live_packs\\structure_v1_ethusdt_direction",
+  "symbol": "ETHUSDT",
+  "timeframe": "1h",
+  "live_feature_source": "D:\\projectsdata\\indicators\\indicators.sqlite (recent_only=True)",
+  "warehouse_db": "D:\\projectsdata\\indicators\\indicators.sqlite",
+  "pack_slice_tip": {
+    "slice_db": "D:\\projects\\LLM2\\artifacts\\live_packs\\structure_v1_ethusdt_direction\\indicators_live_slice.sqlite",
+    "error": "ValueError: No structure for ETHUSDT 1h source=binance"
+  },
+  "window_start": "2025-10-01T00:00:00+00:00",
+  "window_end_exclusive": "2026-05-01T00:00:00+00:00",
+  "n_bars": 5088,
+  "n_mismatch_bars": 0,
+  "bar_match_rate": 1.0,
+  "abs_eps": 1e-09,
+  "rel_eps_pct": 0.0001,
+  "worst_columns": [],
+  "n_columns_with_mismatch": 0,
+  "n_columns": 49,
+  "signal": {
+    "n_bars": 5071,
+    "pred_mean_max_abs_diff": 0.0,
+    "pred_mean_max_rel_pct": 0.0,
+    "side_match_rate": 1.0,
+    "n_side_mismatch": 0
+  },
+  "per_column": [
+    {
+      "column": "dist_last_sh_pct",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "dist_last_sl_pct",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "dist_fib_0236_pct",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "dist_fib_0382_pct",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "dist_fib_0500_pct",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "dist_fib_0618_pct",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "dist_fib_0786_pct",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "dist_support_pct",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "dist_resistance_pct",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "last_leg_len_pct",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "last_retrace_pct",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "bars_since_sh",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "bars_since_sl",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "fib_position",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "sr_asymmetry",
+      "n_overlap": 5071,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "structure_bias",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "struct_dir",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "leg_dir_up",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "leg_impulse",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "struct_HH",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "struct_HL",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "struct_LH",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "struct_LL",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "dist_last_sh_pct_vol",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "dist_last_sl_pct_vol",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "dist_fib_0236_pct_vol",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "dist_fib_0382_pct_vol",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "dist_fib_0500_pct_vol",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "dist_fib_0618_pct_vol",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "dist_fib_0786_pct_vol",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "dist_support_pct_vol",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "dist_resistance_pct_vol",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "last_leg_len_pct_vol",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "struct_dir_4h",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "leg_dir_up_4h",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "leg_impulse_4h",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "fib_position_4h",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "sr_asymmetry_4h",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "dist_last_sh_pct_4h",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "dist_last_sl_pct_4h",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "last_retrace_pct_4h",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "struct_dir_1w",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "leg_dir_up_1w",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "leg_impulse_1w",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "fib_position_1w",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "sr_asymmetry_1w",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "dist_last_sh_pct_1w",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "dist_last_sl_pct_1w",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    },
+    {
+      "column": "last_retrace_pct_1w",
+      "n_overlap": 5088,
+      "n_mismatch": 0,
+      "mismatch_rate": 0.0,
+      "max_abs_diff": 0.0,
+      "max_rel_pct": 0.0,
+      "median_abs_diff": 0.0
+    }
+  ]
+}

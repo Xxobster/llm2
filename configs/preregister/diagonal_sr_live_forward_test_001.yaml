@@ -1,0 +1,118 @@
+# Live forward test of the diagonal S/R bounce_upper arms.
+#
+# Registered BEFORE forward trades accumulate, so the verdict cannot be chosen
+# after seeing the outcome. The two live units keep running at minimum exchange
+# size by explicit user decision, and this file states exactly what would count as
+# confirming or refuting their frozen evidence.
+
+generation_id: diagonal_sr_live_forward_test_001
+registered_utc: "2026-08-27T02:20:00Z"
+posture: LIVE_STOP / RESEARCH_ONLY
+readiness_effect: >
+  This test can only invalidate or, at most, permit a later SHADOW_READY review.
+  It cannot by itself promote either arm. Passing does not authorise size increase.
+
+context: >
+  Both arms were frozen on stitched outer out-of-sample evidence with fixed
+  TP 1.5% / SL 1.0% brackets: Ethereum profit factor 1.352 on 503 trades, Solana
+  1.965 on 490. Entry-bar exit rates were 0.260 and 0.469, the latter breaching the
+  settle's own preregistered 0.35 cap. Entry-bar outcomes were resolved from
+  1-minute data (resolution rate 1.000 and 0.998), so the simulation is faithful.
+  However re-scoring the same events on the same folds with a stop scaled by
+  Average True Range collapses profit factor to at or below 1.03 for every bracket
+  that brings the entry-bar rate under 0.25. See
+  artifacts/reports/diagonal_sr/FINDING_live_arms_entry_bar_artifact.md
+
+units:
+  - unit: llm2-dsr-eth-bu-1h
+    account: Xxobster4
+    host: 94.156.189.76
+    symbol: ETHUSDT
+    timeframe: 1h
+    event: bounce_upper
+    tp_pct: 0.015
+    sl_pct: 0.01
+    leverage: 29
+    qty: 0.01
+    started_utc: "2026-08-26T18:04:57Z"
+  - unit: llm2-dsr-sol-bu-1h
+    account: Xxobster4
+    host: 94.156.189.76
+    symbol: SOLUSDT
+    timeframe: 1h
+    event: bounce_upper
+    tp_pct: 0.015
+    sl_pct: 0.01
+    leverage: 29
+    qty: 0.1
+    started_utc: "2026-08-26T18:04:57Z"
+
+# Two competing predictions. The frozen bracket is unchanged live, so H0 predicts
+# the frozen numbers reproduce forward; H1 predicts they do not, because they
+# describe a bracket tuned to historical noise amplitude rather than a signal.
+hypotheses:
+  H0_frozen_evidence_holds:
+    ETHUSDT: {profit_factor: 1.352, win_rate: 0.533, entry_bar_exit_rate: 0.260, avg_hold_bars: 3.46}
+    SOLUSDT: {profit_factor: 1.965, win_rate: 0.624, entry_bar_exit_rate: 0.469, avg_hold_bars: 1.85}
+  H1_bracket_fragility:
+    statement: >
+      Forward profit factor lands near or below 1.0 for both symbols, because the
+      historical edge came from a stop distance matched to the noise amplitude of
+      the 2022-2026 sample and that amplitude is not stationary.
+    ETHUSDT: {profit_factor_upper_bound: 1.10}
+    SOLUSDT: {profit_factor_upper_bound: 1.10}
+
+# Parity is checked before profitability: if live does not reproduce the backtest's
+# execution behaviour, profitability is not interpretable either way.
+parity_checks:
+  entry_bar_exit_rate_tolerance: 0.15   # absolute, live vs frozen
+  win_rate_tolerance: 0.15
+  avg_hold_bars_tolerance_pct: 0.50
+  fill_rate_frozen: {ETHUSDT: 0.3225, SOLUSDT: 0.3271}
+  fill_rate_tolerance: 0.15
+  note: >
+    A live fill rate far above the frozen 0.32 would mean the backtest's queue
+    model was pessimistic; far below means the strategy rarely trades live at all.
+
+# Sample size. At the frozen 9.4-9.7 trades per month per arm, 40 resolved trades
+# is about four months. Stated up front so the test is not called early.
+sample:
+  min_resolved_trades_per_arm_for_verdict: 40
+  expected_months_to_verdict: 4.2
+  interim_review_every_n_trades: 10
+
+# Pre-committed stop rules. Any one firing is an immediate escalation to the user
+# with a recommendation to halt that unit. Stopping still requires authorisation.
+early_stop_rules:
+  - id: FWD-001
+    rule: "realised net PnL on the account falls below -5% of starting wallet (19.8388 USDT)"
+    threshold_usdt: -0.99
+  - id: FWD-002
+    rule: "after 20 resolved trades on an arm, its realised profit factor is below 0.80"
+  - id: FWD-003
+    rule: "live entry-bar exit rate deviates from frozen by more than the parity tolerance"
+  - id: FWD-004
+    rule: "any unprotected position is detected, or reconciliation fires more than twice in 24h"
+  - id: FWD-005
+    rule: "LIVE-DATA-001 fails on more than 20% of decisions in any 24h window"
+
+verdict_rules:
+  refute_H0_if: >
+    After 40 resolved trades on an arm, its realised profit factor is below 1.10
+    and the 95% bootstrap interval excludes the frozen value. Conclusion: the
+    frozen evidence does not describe forward behaviour; halt and do not reuse the
+    bounce_upper family with a fixed percentage bracket.
+  support_H0_if: >
+    After 40 resolved trades, realised profit factor is at or above 1.20 and all
+    parity checks pass. Conclusion: permits a SHADOW_READY review. Does NOT permit
+    a size increase without a separate portfolio and risk review.
+  inconclusive_if: >
+    Profit factor lands between 1.10 and 1.20, or parity fails. Conclusion: extend
+    to 80 trades or halt; do not reinterpret the gates.
+
+quotable_metrics: >
+  Realised profit factor, win rate, payoff, entry-bar exit rate, average hold and
+  fill rate are quotable. Return and drawdown percentages are not meaningful at
+  minimum exchange size against a 19.84 USDT wallet.
+
+tracker: scripts/track_diagonal_sr_live_forward_test.py

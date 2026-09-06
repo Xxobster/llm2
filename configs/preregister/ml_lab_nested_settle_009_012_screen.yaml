@@ -1,0 +1,55 @@
+# Nested settle of hunt-009 and hunt-012 inner screen passers.
+# RESEARCH_ONLY. Frozen from inner screens BEFORE any 2022+ bar was used to pick them.
+# Also scores hunt-011 Solana 1h quarticity_spike_fade as a FAILED-SCREEN diagnostic
+# (entry-bar already 0.263). That arm cannot promote and is not a Shadow-Ready candidate.
+generation_id: ml_lab_nested_settle_009_012_screen
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-09-03T16:15:00Z"
+parent_generations:
+  - ml_lab_hunt_009_causal_math
+  - ml_lab_hunt_012_fvg
+  - ml_lab_hunt_011_more_formulas
+fold_geometry: v2
+failure_is_success: true
+
+hypothesis: >
+  Two inner-screen passers and one failed-screen near-miss are scored once per
+  outer fold and once on the stitched 2022-01-01 .. 2026-05-01 union. Same
+  Average-True-Range bracket, work bars, and maker 0.02% / EXEC-021 path as the
+  inner hunts. No retune of Savitzky–Golay window, Fair Value Gap size, or
+  quarticity threshold.
+
+do_not:
+  - add other hunt arms after seeing this settle
+  - retune live Exponential Moving Average stack or 376 / 705 / 013
+  - peep FORWARD_LOCKBOX_START
+  - deploy
+  - promote quarticity_spike_fade (failed inner entry-bar gate)
+
+lockbox: do_not_score_on_or_after_2026-05-01
+outer_window: "2022-01-01 .. 2026-05-01 exclusive"
+
+work_bars: {1h: 3}
+max_hold_bars: {1h: 16}
+k_sl: 1.5
+tp_ratio: 1.5
+sl_cap: 0.030
+maker_first_costs: true
+
+gates_for_shadow_ready:
+  min_eligible_folds: 5
+  min_trades_per_gating_fold: 10
+  min_pooled_oos_trades: 50
+  min_pooled_profit_factor: 1.20
+  min_sharpe_annualised: 1.00
+  min_sharpe_hac_annualised: 0.75
+  min_fraction_positive_folds: 0.80
+  max_entry_bar_exit_rate: 0.25
+
+survivors:
+  - {symbol: BTCUSDT, timeframe: 1h, idea: quad_slope_follow, catalog: f, evidence_class: inner_screen_pass}
+  - {symbol: SOLUSDT, timeframe: 1h, idea: fvg_confluence, catalog: i, evidence_class: inner_screen_pass}
+  - {symbol: SOLUSDT, timeframe: 1h, idea: quarticity_spike_fade, catalog: h, evidence_class: failed_screen_diagnostic}
+
+preregister_sha256_at_run: 5eec5f3e3d4406fe14b0fafb125aef4a692084e9ccf1e3ea058cf0c3f0dd515b

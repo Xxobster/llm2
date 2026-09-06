@@ -1,0 +1,24 @@
+{
+  "diffs": {},
+  "full": {
+    "action": "FLAT",
+    "bar_ts_ms": 1785930300000,
+    "level_ret": -0.005360032841342436,
+    "limit_px": 73.33480477860782,
+    "p_any": 0.17058165548098433,
+    "p_high": 0.15060240963855423,
+    "side": "Buy"
+  },
+  "ok": true,
+  "pack_dir": "D:\\projects\\LLM2\\artifacts\\live_packs\\pivot_sol_geo_tp1_sl1_p75_w4",
+  "proof": "layer_a_pred_identity",
+  "short": {
+    "action": "FLAT",
+    "bar_ts_ms": 1785930300000,
+    "level_ret": -0.005360032841342436,
+    "limit_px": 73.33480477860782,
+    "p_any": 0.17058165548098433,
+    "p_high": 0.15060240963855423,
+    "side": "Buy"
+  }
+}

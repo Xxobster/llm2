@@ -82,6 +82,7 @@ def refuse_vps_deploy_without_live_certificate(
     *,
     path: Path = DEFAULT_CERT,
     host: str | None = None,
+    account: str | None = None,
 ) -> LiveCertificate:
     """Hard stop for VPS sync/restart/enable unless a valid certificate is present."""
     cert = load_certificate(path)
@@ -103,6 +104,10 @@ def refuse_vps_deploy_without_live_certificate(
     if host and cert.vps_host and host != cert.vps_host:
         raise PolicyError(
             f"VPS host mismatch: certificate allows {cert.vps_host!r}, requested {host!r}"
+        )
+    if account and cert.account_ref and account != cert.account_ref:
+        raise PolicyError(
+            f"VPS account mismatch: certificate allows {cert.account_ref!r}, requested {account!r}"
         )
     return cert
 

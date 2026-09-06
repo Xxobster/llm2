@@ -1,0 +1,31 @@
+strategy_id: sol_1h_power_ema_stack_long
+arm_id: SOLUSDT|1h|power_ema_stack_long|atr1.5|slcap0.03
+status: AUTHORIZED
+authorized_by_user: true
+authorized_scope: 5% equity stop-risk Post-Only (floor to Bybit qty step; skip if below min)
+authorization_source: >-
+  user chat 2026-09-01: replace Xxobster4 diagonal bots with Solana 1h EMA stack,
+  min Post-Only, 5% of equity as risk based on stop-loss, do not treat as taker.
+vps_host: 94.156.189.76
+account_ref: Xxobster4
+pack_path: artifacts/live_packs/sol_1h_power_ema_stack_long
+pack_hash: b925fce29d16bc129e83efe68073a99b51ccd9bd580d108bc98c0c9f39a30a2c
+authorized_from_utc: '2026-09-01T00:00:00Z'
+expires_utc: '2026-10-01T00:00:00Z'
+created_utc: '2026-09-01T11:32:55Z'
+symbol: SOLUSDT
+timeframe: 1h
+idea: power_ema_stack_long
+leverage: 13.0
+risk_fraction: 0.05
+sizing_mode: RISK_FRACTION
+four_proof_ok: true
+four_proof_hashes:
+  builder_responsiveness: 0cdfa336365926090cecbd0cf7fb2ab89d7e9625dc371246f60f90de582fec92
+  recompute_prefix: c81aa6e35188b8f993d52b21f7d120fd167e436deb665cb5ed8ef6a92a17f494
+  no_live_feature_fill: 3446790d47c95653a2d49da8df5873582bd56fcbb1c193f27497cef09bd8795e
+  layer_a_pred_identity: df1f782a86d50a6fd5c1dceee7fe09357810ab296f165953f8b546f398eea3f5
+research_readiness: RESEARCH_ONLY (not SHADOW_READY)
+blockers_acknowledged:
+- Gate C all-taker stress Profit Factor 0.853 FAIL (does not require market-entry live)
+- fill rate ~33% on working limit; unfilled Post-Only cancels and stays flat

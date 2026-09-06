@@ -1,0 +1,680 @@
+{
+  "generation_id": "confluence_event_pack_001_train",
+  "stamp": "20260819T044925Z",
+  "readiness_max": "RESEARCH_ONLY",
+  "not_live": 1,
+  "preregister_sha256": "3b851be2c646e931b4d97cded23c98af49be4a8f6a9eb198e642d451a2fd6bbf",
+  "importance_stamp": "20260819T035915Z",
+  "survivors_in": [
+    {
+      "symbol": "ETHUSDT",
+      "event": "macd_hist_flip_down",
+      "horizon": 8,
+      "family": "reversal",
+      "and_control": {
+        "tag": "macd_hist_flip_down_H8_and_ctrl",
+        "n_intent": 379,
+        "fill_pct": 0.22163588390501318,
+        "status": "RAN",
+        "n_trades": 75,
+        "profit_factor": 24.298238860649533,
+        "win_rate": 0.9733333333333334,
+        "net_pnl": 15.919593769995117,
+        "expectancy": 0.21226125026666684,
+        "entry_bar_exit_rate": 0.16,
+        "trades_per_month": 1.8264152201268344,
+        "expectancy_intent_all": 0.0420042051978763
+      },
+      "promotion": {
+        "intent_exp_improved": 1,
+        "pf_not_collapsed": 1,
+        "entry_bar_ok": 1,
+        "fdr_ok": 1,
+        "not_duplicate": 1,
+        "ran": 1,
+        "promote": 1,
+        "q_value": 0.0,
+        "entry_bar_exit_rate": 0.16
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "event": "failed_swing_ll",
+      "horizon": 8,
+      "family": "reversal",
+      "and_control": {
+        "tag": "failed_swing_ll_H8_and_ctrl",
+        "n_intent": 682,
+        "fill_pct": 0.20381231671554254,
+        "status": "RAN",
+        "n_trades": 133,
+        "profit_factor": 3.1916913965798,
+        "win_rate": 0.7669172932330827,
+        "net_pnl": 15.376557164989208,
+        "expectancy": 0.11561321176691738,
+        "entry_bar_exit_rate": 0.2932330827067669,
+        "trades_per_month": 3.238842990358253,
+        "expectancy_intent_all": 0.02254627150291673
+      },
+      "promotion": {
+        "intent_exp_improved": 1,
+        "pf_not_collapsed": 1,
+        "entry_bar_ok": 1,
+        "fdr_ok": 1,
+        "not_duplicate": 1,
+        "ran": 1,
+        "promote": 1,
+        "q_value": 7.850054893059743e-47,
+        "entry_bar_exit_rate": 0.2932330827067669
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "event": "failed_swing_hh",
+      "horizon": 8,
+      "family": "reversal",
+      "and_control": {
+        "tag": "failed_swing_hh_H8_and_ctrl",
+        "n_intent": 431,
+        "fill_pct": 0.25754060324825984,
+        "status": "RAN",
+        "n_trades": 103,
+        "profit_factor": 4.799666535238902,
+        "win_rate": 0.8349514563106796,
+        "net_pnl": 13.911918150000929,
+        "expectancy": 0.13506716650485437,
+        "entry_bar_exit_rate": 0.1650485436893204,
+        "trades_per_month": 2.5082769023075193,
+        "expectancy_intent_all": 0.03227823236659148
+      },
+      "promotion": {
+        "intent_exp_improved": 1,
+        "pf_not_collapsed": 1,
+        "entry_bar_ok": 1,
+        "fdr_ok": 1,
+        "not_duplicate": 1,
+        "ran": 1,
+        "promote": 1,
+        "q_value": 2.0845689800446315e-32,
+        "entry_bar_exit_rate": 0.1650485436893204
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "event": "stoch_cross_down_80",
+      "horizon": 4,
+      "family": "reversal",
+      "and_control": {
+        "tag": "stoch_cross_down_80_H4_and_ctrl",
+        "n_intent": 812,
+        "fill_pct": 0.3669950738916256,
+        "status": "RAN",
+        "n_trades": 254,
+        "profit_factor": 2.1459848741172323,
+        "win_rate": 0.7165354330708661,
+        "net_pnl": 17.82990968500235,
+        "expectancy": 0.07019649482283459,
+        "entry_bar_exit_rate": 0.15354330708661418,
+        "trades_per_month": 6.1854595454962125,
+        "expectancy_intent_all": 0.021958016853451168
+      },
+      "promotion": {
+        "intent_exp_improved": 1,
+        "pf_not_collapsed": 1,
+        "entry_bar_ok": 1,
+        "fdr_ok": 1,
+        "not_duplicate": 1,
+        "ran": 1,
+        "promote": 1,
+        "q_value": 3.60310599998365e-19,
+        "entry_bar_exit_rate": 0.15354330708661418
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "event": "rsi_cross_down_70",
+      "horizon": 8,
+      "family": "reversal",
+      "and_control": {
+        "tag": "rsi_cross_down_70_H8_and_ctrl",
+        "n_intent": 528,
+        "fill_pct": 0.4962121212121212,
+        "status": "RAN",
+        "n_trades": 217,
+        "profit_factor": 1.8379149957593284,
+        "win_rate": 0.6728110599078341,
+        "net_pnl": 12.173312564998923,
+        "expectancy": 0.05609821458525348,
+        "entry_bar_exit_rate": 0.16129032258064516,
+        "trades_per_month": 5.284428036900308,
+        "expectancy_intent_all": 0.02305551622158887
+      },
+      "promotion": {
+        "intent_exp_improved": 1,
+        "pf_not_collapsed": 1,
+        "entry_bar_ok": 1,
+        "fdr_ok": 1,
+        "not_duplicate": 1,
+        "ran": 1,
+        "promote": 1,
+        "q_value": 9.209433696578811e-92,
+        "entry_bar_exit_rate": 0.16129032258064516
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "event": "adx_fade",
+      "horizon": 8,
+      "family": "reversal",
+      "and_control": {
+        "tag": "adx_fade_H8_and_ctrl",
+        "n_intent": 270,
+        "fill_pct": 0.1111111111111111,
+        "status": "RAN",
+        "n_trades": 28,
+        "profit_factor": 8.017839536709074,
+        "win_rate": 0.9285714285714286,
+        "net_pnl": 5.470060184998147,
+        "expectancy": 0.19535929232142785,
+        "entry_bar_exit_rate": 0.25,
+        "trades_per_month": 0.6818616821806849,
+        "expectancy_intent_all": 0.020259482166659803
+      },
+      "promotion": {
+        "intent_exp_improved": 1,
+        "pf_not_collapsed": 1,
+        "entry_bar_ok": 1,
+        "fdr_ok": 1,
+        "not_duplicate": 1,
+        "ran": 1,
+        "promote": 1,
+        "q_value": 0.0,
+        "entry_bar_exit_rate": 0.25
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "event": "rsi_cross_up_30",
+      "horizon": 4,
+      "family": "reversal",
+      "and_control": {
+        "tag": "rsi_cross_up_30_H4_and_ctrl",
+        "n_intent": 153,
+        "fill_pct": 0.24183006535947713,
+        "status": "RAN",
+        "n_trades": 34,
+        "profit_factor": 4.990322623305168,
+        "win_rate": 0.7647058823529411,
+        "net_pnl": 7.75759527000082,
+        "expectancy": 0.2281645667647054,
+        "entry_bar_exit_rate": 0.3235294117647059,
+        "trades_per_month": 0.8279748997908316,
+        "expectancy_intent_all": 0.05070323705882889
+      },
+      "promotion": {
+        "intent_exp_improved": 1,
+        "pf_not_collapsed": 1,
+        "entry_bar_ok": 1,
+        "fdr_ok": 1,
+        "not_duplicate": 1,
+        "ran": 1,
+        "promote": 1,
+        "q_value": 0.01037834261728024,
+        "entry_bar_exit_rate": 0.3235294117647059
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "event": "failed_swing_ll",
+      "horizon": 4,
+      "family": "reversal",
+      "and_control": {
+        "tag": "failed_swing_ll_H4_and_ctrl",
+        "n_intent": 101,
+        "fill_pct": 0.26732673267326734,
+        "status": "RAN",
+        "n_trades": 23,
+        "profit_factor": 4.16739987008792,
+        "win_rate": 0.6086956521739131,
+        "net_pnl": 3.543501270003617,
+        "expectancy": 0.15406527260869513,
+        "entry_bar_exit_rate": 0.21739130434782608,
+        "trades_per_month": 0.5601006675055625,
+        "expectancy_intent_all": 0.03508417099013482
+      },
+      "promotion": {
+        "intent_exp_improved": 1,
+        "pf_not_collapsed": 1,
+        "entry_bar_ok": 1,
+        "fdr_ok": 1,
+        "not_duplicate": 1,
+        "ran": 1,
+        "promote": 1,
+        "q_value": 9.52383969246444e-07,
+        "entry_bar_exit_rate": 0.21739130434782608
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "event": "failed_swing_hh",
+      "horizon": 4,
+      "family": "reversal",
+      "and_control": {
+        "tag": "failed_swing_hh_H4_and_ctrl",
+        "n_intent": 114,
+        "fill_pct": 0.18421052631578946,
+        "status": "RAN",
+        "n_trades": 21,
+        "profit_factor": 12.233885978318856,
+        "win_rate": 0.9523809523809523,
+        "net_pnl": 8.065135335002196,
+        "expectancy": 0.38405406357142724,
+        "entry_bar_exit_rate": 0.09523809523809523,
+        "trades_per_month": 0.5113962616355137,
+        "expectancy_intent_all": 0.0707468011842298
+      },
+      "promotion": {
+        "intent_exp_improved": 1,
+        "pf_not_collapsed": 1,
+        "entry_bar_ok": 1,
+        "fdr_ok": 1,
+        "not_duplicate": 1,
+        "ran": 1,
+        "promote": 1,
+        "q_value": 0.02382743108064941,
+        "entry_bar_exit_rate": 0.09523809523809523
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "event": "stoch_cross_up_20",
+      "horizon": 4,
+      "family": "reversal",
+      "and_control": {
+        "tag": "stoch_cross_up_20_H4_and_ctrl",
+        "n_intent": 296,
+        "fill_pct": 0.2668918918918919,
+        "status": "RAN",
+        "n_trades": 64,
+        "profit_factor": 2.616583140378592,
+        "win_rate": 0.65625,
+        "net_pnl": 8.95256808000704,
+        "expectancy": 0.1398838762499991,
+        "entry_bar_exit_rate": 0.265625,
+        "trades_per_month": 1.5585409878415655,
+        "expectancy_intent_all": 0.03024516243245622
+      },
+      "promotion": {
+        "intent_exp_improved": 1,
+        "pf_not_collapsed": 1,
+        "entry_bar_ok": 1,
+        "fdr_ok": 1,
+        "not_duplicate": 1,
+        "ran": 1,
+        "promote": 1,
+        "q_value": 3.173135813673068e-37,
+        "entry_bar_exit_rate": 0.265625
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "event": "stoch_cross_down_80",
+      "horizon": 4,
+      "family": "reversal",
+      "and_control": {
+        "tag": "stoch_cross_down_80_H4_and_ctrl",
+        "n_intent": 351,
+        "fill_pct": 0.3247863247863248,
+        "status": "RAN",
+        "n_trades": 102,
+        "profit_factor": 1.669789621642018,
+        "win_rate": 0.6176470588235294,
+        "net_pnl": 9.161410365000847,
+        "expectancy": 0.08981774867646984,
+        "entry_bar_exit_rate": 0.10784313725490197,
+        "trades_per_month": 2.483924699372495,
+        "expectancy_intent_all": 0.026100884230771646
+      },
+      "promotion": {
+        "intent_exp_improved": 1,
+        "pf_not_collapsed": 1,
+        "entry_bar_ok": 1,
+        "fdr_ok": 1,
+        "not_duplicate": 1,
+        "ran": 1,
+        "promote": 1,
+        "q_value": 4.806388941267817e-09,
+        "entry_bar_exit_rate": 0.10784313725490197
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "event": "rsi_cross_down_70",
+      "horizon": 8,
+      "family": "reversal",
+      "and_control": {
+        "tag": "rsi_cross_down_70_H8_and_ctrl",
+        "n_intent": 276,
+        "fill_pct": 0.42028985507246375,
+        "status": "RAN",
+        "n_trades": 101,
+        "profit_factor": 1.3832110291144182,
+        "win_rate": 0.5445544554455446,
+        "net_pnl": 5.453206414998931,
+        "expectancy": 0.05399214272277185,
+        "entry_bar_exit_rate": 0.0891089108910891,
+        "trades_per_month": 2.4595724964374703,
+        "expectancy_intent_all": 0.019757994257242503
+      },
+      "promotion": {
+        "intent_exp_improved": 1,
+        "pf_not_collapsed": 1,
+        "entry_bar_ok": 1,
+        "fdr_ok": 1,
+        "not_duplicate": 1,
+        "ran": 1,
+        "promote": 1,
+        "q_value": 1.8301938740166567e-69,
+        "entry_bar_exit_rate": 0.0891089108910891
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "event": "macd_hist_flip_up",
+      "horizon": 8,
+      "family": "reversal",
+      "and_control": {
+        "tag": "macd_hist_flip_up_H8_and_ctrl",
+        "n_intent": 135,
+        "fill_pct": 0.1259259259259259,
+        "status": "RAN",
+        "n_trades": 16,
+        "profit_factor": 11.742124190034984,
+        "win_rate": 0.875,
+        "net_pnl": 4.875169709999682,
+        "expectancy": 0.304698106875,
+        "entry_bar_exit_rate": 0.1875,
+        "trades_per_month": 0.38963524696039137,
+        "expectancy_intent_all": 0.036112368222219866
+      },
+      "promotion": {
+        "intent_exp_improved": 1,
+        "pf_not_collapsed": 1,
+        "entry_bar_ok": 1,
+        "fdr_ok": 1,
+        "not_duplicate": 1,
+        "ran": 1,
+        "promote": 1,
+        "q_value": 0.0,
+        "entry_bar_exit_rate": 0.1875
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "event": "macd_hist_flip_down",
+      "horizon": 8,
+      "family": "reversal",
+      "and_control": {
+        "tag": "macd_hist_flip_down_H8_and_ctrl",
+        "n_intent": 152,
+        "fill_pct": 0.20394736842105263,
+        "status": "RAN",
+        "n_trades": 31,
+        "profit_factor": 9.51805800227118,
+        "win_rate": 0.9354838709677419,
+        "net_pnl": 12.437803000004351,
+        "expectancy": 0.4012194516129014,
+        "entry_bar_exit_rate": 0.0967741935483871,
+        "trades_per_month": 0.7549182909857582,
+        "expectancy_intent_all": 0.0818276513158181
+      },
+      "promotion": {
+        "intent_exp_improved": 1,
+        "pf_not_collapsed": 1,
+        "entry_bar_ok": 1,
+        "fdr_ok": 1,
+        "not_duplicate": 1,
+        "ran": 1,
+        "promote": 1,
+        "q_value": 0.0,
+        "entry_bar_exit_rate": 0.0967741935483871
+      }
+    }
+  ],
+  "gate": "all_heads_ge_pi_star_same_side",
+  "skipped": 0,
+  "symbols": {
+    "ETHUSDT": {
+      "train_sqlite": "D:\\projects\\LLM2\\artifacts\\sqlite\\confluence_event_pack_001\\ETHUSDT_15m_train.sqlite",
+      "test_sqlite": "D:\\projects\\LLM2\\artifacts\\sqlite\\confluence_event_pack_001\\ETHUSDT_15m_test.sqlite",
+      "n_train_bars": 84000,
+      "n_test_bars": 36000,
+      "events": [
+        "adx_fade",
+        "failed_swing_hh",
+        "failed_swing_ll",
+        "macd_hist_flip_down",
+        "rsi_cross_down_70",
+        "stoch_cross_down_80"
+      ],
+      "horizons": {
+        "macd_hist_flip_down": 8,
+        "failed_swing_ll": 8,
+        "failed_swing_hh": 8,
+        "stoch_cross_down_80": 4,
+        "rsi_cross_down_70": 8,
+        "adx_fade": 8
+      },
+      "heads": {
+        "macd_hist_flip_down": {
+          "fitted": 1,
+          "n_train": 83959,
+          "n_test": 35959,
+          "ece_inner": 3.2158170772747823e-09,
+          "train_rate": 0.30008694720041923,
+          "test_rate": 0.3028449066992964
+        },
+        "failed_swing_ll": {
+          "fitted": 1,
+          "n_train": 83959,
+          "n_test": 35959,
+          "ece_inner": 6.788947143613468e-09,
+          "train_rate": 0.2890815755309139,
+          "test_rate": 0.27870630440223587
+        },
+        "failed_swing_hh": {
+          "fitted": 1,
+          "n_train": 83959,
+          "n_test": 35959,
+          "ece_inner": 1.983087184368263e-08,
+          "train_rate": 0.2924284472182851,
+          "test_rate": 0.2950582607970188
+        },
+        "stoch_cross_down_80": {
+          "fitted": 1,
+          "n_train": 83963,
+          "n_test": 35963,
+          "ece_inner": 6.848091472668835e-09,
+          "train_rate": 0.2537308099996427,
+          "test_rate": 0.26365987264688706
+        },
+        "rsi_cross_down_70": {
+          "fitted": 1,
+          "n_train": 83959,
+          "n_test": 35959,
+          "ece_inner": 7.223677942775183e-08,
+          "train_rate": 0.08614919186745912,
+          "test_rate": 0.09132623265385578
+        },
+        "adx_fade": {
+          "fitted": 1,
+          "n_train": 83959,
+          "n_test": 35959,
+          "ece_inner": 5.166746069663305e-07,
+          "train_rate": 0.26726140139830157,
+          "test_rate": 0.2636335826913985
+        }
+      },
+      "n_test_gated_long_pack": 1093,
+      "n_test_gated_short_pack": 10,
+      "cut_index": 84000,
+      "arms": {
+        "control_test": {
+          "tag": "ETHUSDT_control_test",
+          "n_intent": 1232,
+          "fill_pct": 0.38392857142857145,
+          "status": "RAN",
+          "n_trades": 384,
+          "profit_factor": 1.5469160791082581,
+          "win_rate": 0.6432291666666666,
+          "net_pnl": 18.813034259999768,
+          "expectancy": 0.04899227671874986,
+          "entry_bar_exit_rate": 0.3020833333333333,
+          "trades_per_month": 9.351245927049392,
+          "expectancy_intent_all": 0.015270320016233577
+        },
+        "long_pack_and_ctrl": {
+          "tag": "ETHUSDT_long_pack_and_ctrl",
+          "n_intent": 24,
+          "fill_pct": 0.5,
+          "status": "RAN",
+          "n_trades": 12,
+          "profit_factor": 1.8313896037799018,
+          "win_rate": 0.5833333333333334,
+          "net_pnl": 0.7609973550024733,
+          "expectancy": 0.06341644624999931,
+          "entry_bar_exit_rate": 0.08333333333333333,
+          "trades_per_month": 0.2922264352202935,
+          "expectancy_intent_all": 0.031708223125103054
+        },
+        "short_pack_and_ctrl": {
+          "tag": "ETHUSDT_short_pack_and_ctrl",
+          "status": "TOO_FEW_GATED",
+          "n_intent": 0
+        }
+      }
+    },
+    "BTCUSDT": {
+      "train_sqlite": "D:\\projects\\LLM2\\artifacts\\sqlite\\confluence_event_pack_001\\BTCUSDT_15m_train.sqlite",
+      "test_sqlite": "D:\\projects\\LLM2\\artifacts\\sqlite\\confluence_event_pack_001\\BTCUSDT_15m_test.sqlite",
+      "n_train_bars": 84000,
+      "n_test_bars": 36000,
+      "events": [
+        "failed_swing_hh",
+        "failed_swing_ll",
+        "macd_hist_flip_down",
+        "macd_hist_flip_up",
+        "rsi_cross_down_70",
+        "rsi_cross_up_30",
+        "stoch_cross_down_80",
+        "stoch_cross_up_20"
+      ],
+      "horizons": {
+        "rsi_cross_up_30": 4,
+        "failed_swing_ll": 4,
+        "failed_swing_hh": 4,
+        "stoch_cross_up_20": 4,
+        "stoch_cross_down_80": 4,
+        "rsi_cross_down_70": 8,
+        "macd_hist_flip_up": 8,
+        "macd_hist_flip_down": 8
+      },
+      "heads": {
+        "rsi_cross_up_30": {
+          "fitted": 1,
+          "n_train": 83963,
+          "n_test": 35963,
+          "ece_inner": 9.646876675008583e-08,
+          "train_rate": 0.04311422888653335,
+          "test_rate": 0.04738203153240831
+        },
+        "failed_swing_ll": {
+          "fitted": 1,
+          "n_train": 83963,
+          "n_test": 35963,
+          "ece_inner": 3.054844280216939e-08,
+          "train_rate": 0.18623679477865251,
+          "test_rate": 0.18883296721630566
+        },
+        "failed_swing_hh": {
+          "fitted": 1,
+          "n_train": 83963,
+          "n_test": 35963,
+          "ece_inner": 5.823855178519908e-08,
+          "train_rate": 0.19368054976596835,
+          "test_rate": 0.18869393543364013
+        },
+        "stoch_cross_up_20": {
+          "fitted": 1,
+          "n_train": 83963,
+          "n_test": 35963,
+          "ece_inner": 7.264931836129739e-09,
+          "train_rate": 0.2378904993866346,
+          "test_rate": 0.2601840780802491
+        },
+        "stoch_cross_down_80": {
+          "fitted": 1,
+          "n_train": 83963,
+          "n_test": 35963,
+          "ece_inner": 1.5482641654354802e-09,
+          "train_rate": 0.2673320391124662,
+          "test_rate": 0.2671078608569919
+        },
+        "rsi_cross_down_70": {
+          "fitted": 1,
+          "n_train": 83959,
+          "n_test": 35959,
+          "ece_inner": 5.460933777981881e-08,
+          "train_rate": 0.08414821520027632,
+          "test_rate": 0.08634834116632832
+        },
+        "macd_hist_flip_up": {
+          "fitted": 1,
+          "n_train": 83959,
+          "n_test": 35959,
+          "ece_inner": 1.0957598894570773e-08,
+          "train_rate": 0.3042318274395836,
+          "test_rate": 0.29363997886481824
+        },
+        "macd_hist_flip_down": {
+          "fitted": 1,
+          "n_train": 83959,
+          "n_test": 35959,
+          "ece_inner": 4.1090995833885086e-09,
+          "train_rate": 0.3053395109517741,
+          "test_rate": 0.2929169331738925
+        }
+      },
+      "n_test_gated_long_pack": 117,
+      "n_test_gated_short_pack": 98,
+      "cut_index": 84000,
+      "arms": {
+        "control_test": {
+          "tag": "BTCUSDT_control_test",
+          "n_intent": 77,
+          "fill_pct": 0.42857142857142855,
+          "status": "RAN",
+          "n_trades": 28,
+          "profit_factor": 1.0150260176127397,
+          "win_rate": 0.42857142857142855,
+          "net_pnl": 0.1069577099988237,
+          "expectancy": 0.0038199182142871733,
+          "entry_bar_exit_rate": 0.14285714285714285,
+          "trades_per_month": 0.6818616821806849,
+          "expectancy_intent_all": 0.0013890611688158923
+        },
+        "long_pack_and_ctrl": {
+          "tag": "BTCUSDT_long_pack_and_ctrl",
+          "status": "TOO_FEW_GATED",
+          "n_intent": 0
+        },
+        "short_pack_and_ctrl": {
+          "tag": "BTCUSDT_short_pack_and_ctrl",
+          "status": "TOO_FEW_GATED",
+          "n_intent": 0
+        }
+      }
+    }
+  },
+  "pi_star": 0.5375
+}

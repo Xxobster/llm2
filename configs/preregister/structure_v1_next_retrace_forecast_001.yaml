@@ -1,0 +1,79 @@
+# Fresh hypothesis after CAUS-STRUCT-001. Registered BEFORE any outer-OOS view.
+# The leaked last_retrace_pct taught us the model wanted *future* swing depth.
+# This generation forecasts that depth causally — never restores the leaked column.
+
+generation_id: structure_v1_next_retrace_forecast_001
+created_utc: "2026-08-06T17:20:00Z"
+status: FROZEN_OOS_VIEWED
+trading_stage2_claim: CLOSED_FAIL
+trading_stage2_note: >
+  Naive every-leg Stage-2 FAIL (PF ~0.70–0.74). Nested filter branch closed D-060.
+  Stage-1 forecast skill remains a separate non-promotable claim. Do not retune
+  Stage-2 on outer OOS.
+fold_geometry: v2
+related:
+  - CAUS-STRUCT-001
+  - structure_v1_caus_retrain_001  # parent causal structure hunt FAILED; this is a new family
+
+hypothesis: >
+  The next-leg Fibonacci retracement depth (retrace_pct of leg i, knowable only when
+  leg i+1 confirms) is forecastable from causal structure_v1 + trailing volatility
+  features available at leg-i confirmation. A usable forecast is a separate claim from
+  a tradable edge: Stage-1 reports forecast skill only; Stage-2 may use the forecast as
+  a filter on a frozen baseline book only if Stage-1 clears its cost-aware skill hurdle.
+
+economic_rationale: >
+  Look-ahead last_retrace_pct moved live tip scores by ~0.8 and flipped ~half of sides.
+  Causal completed retraces alone failed V2.1 gates (caus_retrain_001). Forecasting the
+  *next* retracement recovers the information content of the leak without peeking.
+  After an impulse, shallow predicted retrace favours continuation; deep favours fade.
+
+candidate_space:
+  symbols: [ETHUSDT, BTCUSDT, SOLUSDT]
+  timeframes: [1h]
+  feature_space: [structure_v1]  # causal warehouse; audit via four_proof recompute path
+  stage1_target: next_retrace_pct   # label at successor-leg confirm only
+  stage1_models: [hist_mean, ridge, lgbm_regressor]
+  stage1_sample: sparse_at_leg_confirm  # one forecast per leg
+  stage2_enabled_only_if_stage1_pass: true
+  stage2_filter: predicted_retrace_continuation_fade
+  stage2_baseline: frozen_tp1_sl2_hold6_min_exchange
+  multitask_arm:
+    targets: [fwd_return, next_retrace_pct, next_vol]
+    models: [lgbm_regressor, torch_mlp]
+    note: parallel; does not select on stage1/2 trading PF
+
+selection:
+  method: nested_outer_folds_v2
+  stage1_objective: mean_outer_spearman_ic
+  stage1_tie_breakers: [higher_deep_shallow_acc, lower_mae]
+  forbidden:
+    - select_or_rank_on_lockbox
+    - restore_leaked_last_retrace_pct_as_feature
+    - promote_on_forecast_r2_alone
+  seed_root: 20260806
+
+evaluation:
+  outer: fold_geometry_v2
+  lockbox: DO_NOT_OPEN_FOR_SELECTION
+  four_proof: FOUR_PROOF_GATE_V1_required
+  stage1_skill_hurdle:
+    mean_spearman_ic: 0.05
+    frac_folds_ic_positive: 0.66
+    deep_shallow_acc: 0.55
+  stage2_trade_gates: frozen_v2_1_if_entered
+  costs: research_costs_baseline
+
+success_criteria:
+  - four_proof_ok
+  - stage1_forecast_skill_reported_separately_from_trade_pf
+  - stage2_runs_only_if_stage1_hurdle_pass
+  - quote_no_pre_caus_structure_number
+
+live_deploy: FORBIDDEN_without_certificate_and_explicit_user_auth
+promotion: FORBIDDEN_without_new_pack_hash_certificate_and_explicit_user_auth
+
+preregister_sha256_at_run: 36bf1127d2382c81f31d64bfebe5f953352d772cfbfe041f75f7fd78e1f5fbb5
+run_started_utc: "2026-08-06T17:23:44Z"
+frozen_utc: "2026-08-06T17:27:21Z"
+frozen_reason: outer-OOS of next_retrace_forecast_001 viewed.

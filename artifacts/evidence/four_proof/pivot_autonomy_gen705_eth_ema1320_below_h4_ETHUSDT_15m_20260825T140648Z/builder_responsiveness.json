@@ -1,0 +1,21 @@
+{
+  "autonomy": {
+    "conformance": "CAUS-WAREHOUSE-001",
+    "n_rows_moved": 40,
+    "ok": true,
+    "proof": "builder_responsiveness",
+    "space": "autonomy_filter",
+    "timeframe": "15m"
+  },
+  "ok": true,
+  "pivot": {
+    "conformance": "CAUS-PIVOT-OHLCV-001",
+    "n_rows_moved": 40,
+    "ok": true,
+    "pack": "level_vsa",
+    "proof": "builder_responsiveness",
+    "timeframe": "15m",
+    "tip_bars": 40
+  },
+  "proof": "builder_responsiveness"
+}

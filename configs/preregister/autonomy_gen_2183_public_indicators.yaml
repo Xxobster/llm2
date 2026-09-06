@@ -1,0 +1,21 @@
+# Autonomy gen 2183 — Prior519_high_low
+# RESEARCH_ONLY. Frozen before profit-factor ranking.
+generation_id: autonomy_gen_2183_public_indicators
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-09-04T07:42:57Z"
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+trades_per_month_min: 4
+trades_per_month_max: 40
+failure_is_success: true
+lockbox: do_not_rank_on_or_after_2026-05-01
+hypothesis: >
+  Distance and crosses of close versus the prior 519-bar high and low at t+H, used as one-head filters, can beat the 15-minute Limit 1%/1% pivot control under frozen entry-bar and trades-per-month caps.
+events: [xh519_at_h, xl519_at_h, xh519_cross_up, xl519_cross_down]
+brackets: [{tp: 0.01, sl: 0.01}]
+horizons_bars: [4, 8]
+modes: [control, one_head_filter_pi_star]
+do_not: [scrape TradingView / paste Pine, peep lockbox for ranking, deploy]
+
+preregister_sha256_at_run: 075ff490826b84790a25c67405419679a627d529ca764eb63272f2e409f5d5b2

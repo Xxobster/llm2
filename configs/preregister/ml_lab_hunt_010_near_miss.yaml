@@ -1,0 +1,57 @@
+# ML lab hunt 010 — contaminated near-miss retunes (hunts 007/008 already viewed)
+# RESEARCH_ONLY. User-authorized fine-tune. Not Shadow-Ready.
+generation_id: ml_lab_hunt_010_near_miss
+status: OPEN
+readiness_max: RESEARCH_ONLY
+evidence_class: CONTAMINATED_PARENT_007_008
+frozen_at_utc: "2026-09-02T02:00:00Z"
+fold_geometry: v2
+failure_is_success: true
+
+hypothesis: >
+  User asked to fine-tune near-misses after viewing hunt 007 nested fail
+  (Bitcoin 1-hour failed_break_fade profit factor 0.916) and hunt 008
+  (Ether 15-minute asia_open_fade_us profit factor 1.121). This family
+  freezes NEW event definitions, not a Donchian/Average-True-Range grid:
+  two-bar failed-break hold; same-bar wick fail; Donchian 55 failed-break;
+  Asia fade only when Efficiency Ratio is low; Tuesday hold of a Monday
+  weekend-range break; five-close impulse stall; New York opening-range
+  next-bar hold; quiet Efficiency-Ratio Donchian break. Inner screen still
+  before 2022-01-01 so this hunt's own numbers are not ranked on 2022–2026.
+  Maker 0.02%. EXEC-021. Do not stamp Shadow-Ready.
+
+do_not:
+  - deploy
+  - peep FORWARD_LOCKBOX_START
+  - change live 376 / 705 / 013 / Exponential Moving Average pack
+  - widen Average-True-Range after seeing this hunt's profit factor
+  - claim an uncontaminated outer settle
+
+selection_window: "strictly before 2022-01-01"
+universe:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  event_study_timeframes: [15m, 1h, 4h]
+  tradesim_timeframes: [15m, 1h, 4h]
+
+cost_floor: 0.0011
+max_tradesim_arms: 8
+work_bars: {15m: 4, 1h: 3, 4h: 2}
+max_hold_bars: {15m: 24, 1h: 16, 4h: 8}
+k_sl: 1.5
+tp_ratio: 1.5
+sl_cap: 0.030
+maker_first_costs: true
+
+screen_gates:
+  min_skill_n: 80
+  min_directional_acc: 0.51
+  min_mean_signed: 0.0015
+  min_trades: 80
+  min_trades_per_month: 2.0
+  max_trades_per_month: 90.0
+  min_profit_factor: 1.20
+  max_entry_bar_exit_rate: 0.25
+  min_sharpe_annualised: 0.50
+
+leakage_audit:
+  builder: llm2.ml_lab.idea_catalog_g.build_features_for_guard

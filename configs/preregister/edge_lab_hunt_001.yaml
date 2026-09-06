@@ -1,0 +1,154 @@
+# Edge lab hunt 001 — session x Smart Money Concepts x momentum rule events
+# RESEARCH_ONLY. Frozen before any result was viewed.
+generation_id: edge_lab_hunt_001
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-27T00:00:00Z"
+fold_geometry: v2
+failure_is_success: true
+
+hypothesis: >
+  Three published discretionary frameworks contain a causal, mechanically
+  testable core. (1) Inner Circle Trader / Smart Money Concepts: price returns to
+  three-bar fair value gaps, order blocks and inverted gaps, and reverses after
+  sweeping the liquidity resting beyond a completed session or previous-day
+  extreme. (2) Session structure: the New York window carries the scheduled
+  United States macro releases and the cash open, so sweep-and-reverse should be
+  concentrated there, and weekend bars should be worse than weekday bars.
+  (3) Kristjan Kullamagi momentum: a large prior move plus a contracting range
+  plus a volume-expansion breakout continues.
+  Each is scored as a standalone rule event with a fixed bracket, so a negative
+  result is a clean refutation rather than a tuning failure.
+
+selection_window: "strictly before 2022-01-01 (first outer out-of-sample start)"
+selection_window_reason: >
+  Outer folds begin 2022-01-01. Scoring the screen only on earlier bars keeps
+  every outer fold genuinely unseen during selection, which diagonal S/R hunt
+  001 did not achieve.
+lockbox: do_not_rank_on_or_after_2026-05-01
+
+universe:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  timeframes: [1h, 15m, 4h]
+  timeframe_note: >
+    5m is deliberately excluded from this hunt: llm2.paths.touch_timeframe
+    resolves 5m to 5m, so same-bar take-profit/stop-loss ambiguity could not be
+    resolved on a finer series. Add 5m only after a 1m touch series is wired.
+
+brackets:
+  - {tp: 0.010, sl: 0.010}
+  - {tp: 0.015, sl: 0.010}
+  - {tp: 0.020, sl: 0.010}
+  - {tp: 0.010, sl: 0.0075}
+
+work_bars: {5m: 6, 15m: 4, 1h: 3, 4h: 2}
+max_hold_bars: {5m: 24, 15m: 16, 1h: 12, 4h: 8}
+
+session_filters:
+  - all
+  - no_weekend
+  - ny_am_kz_no_weekend
+  - weekday_ny
+  - silver_bullet
+  - london_kz
+
+entry_style:
+  market_if_name_contains: [breakout, ignition, choch]
+  otherwise: working_limit_atr_offset
+  limit_move_clip: [0.0015, 0.03]
+
+leverage: derived from stop by llm2.gates.evidence.leverage_from_stop
+
+event_families:
+  liquidity_sweep:
+    - sweep_prev_day_high
+    - sweep_prev_day_low
+    - sweep_prev_week_high
+    - sweep_prev_week_low
+    - sweep_asia_high
+    - sweep_asia_low
+    - sweep_london_high
+    - sweep_london_low
+  fair_value_gap:
+    - fvg_bull_ce_tag
+    - fvg_bear_ce_tag
+    - fvg_bull_ce_discount
+    - fvg_bear_ce_premium
+    - fvg_bull_with_structure
+    - fvg_bear_with_structure
+    - ifvg_bull_reclaim
+    - ifvg_bear_reject
+  order_block_structure:
+    - ob_bull_tap
+    - ob_bear_tap
+    - choch_up_fvg
+    - choch_down_fvg
+  momentum_breakout:
+    - momo_breakout_long
+    - momo_breakout_short
+    - flag_breakout_long
+    - flag_breakout_short
+    - base_breakout_long
+    - base_breakout_short
+    - ignition_long
+    - ignition_short
+    - ignition_with_trend_long
+    - ignition_with_trend_short
+  confluence:
+    - sweep_pdh_fvg_bear_short
+    - sweep_pdl_fvg_bull_long
+    - sweep_asia_high_bear_struct_short
+    - sweep_asia_low_bull_struct_long
+    - sweep_pdh_choch_down_short
+    - sweep_pdl_choch_up_long
+    - fvg_bull_ob_bull_long
+    - fvg_bear_ob_bear_short
+    - momo_breakout_fvg_bull_long
+    - momo_breakout_fvg_bear_short
+    - ignition_fvg_bull_long
+    - ignition_fvg_bear_short
+
+sides_are_frozen: true
+sides_source: llm2.edge_lab.events.EVENT_SIDE
+
+screen_gates:
+  min_trades: 50
+  min_trades_per_month: 4
+  max_trades_per_month: 150
+  min_profit_factor: 1.20
+  max_entry_bar_exit_rate: 0.35
+  min_sharpe_annualised: 1.00
+
+reported_metrics:
+  - profit_factor
+  - sharpe_annualised
+  - sharpe_hac_annualised
+  - sortino_annualised
+  - recovery_factor
+  - trades_per_month
+  - win_rate
+  - expectancy
+  - max_drawdown_pct
+  - entry_bar_exit_rate
+  - total_fees
+  - total_funding
+  - n_liquidations
+
+causality_evidence:
+  shared_leakage_engine: botsgeneral/packages/leakage
+  builder: llm2.edge_lab.events:build_features_for_guard
+  audited_symbols_timeframes:
+    - {symbol: ETHUSDT, timeframe: 1h, ok: true, n_columns: 131, hard_findings: 0}
+    - {symbol: SOLUSDT, timeframe: 15m, ok: true, n_columns: 131, hard_findings: 0}
+    - {symbol: BTCUSDT, timeframe: 1h, ok: true, n_columns: 131, hard_findings: 0}
+  audited_at_utc: "2026-08-27T00:00:00Z"
+
+do_not:
+  - add events, brackets, session filters or symbols after viewing results
+  - flip a frozen event side
+  - score the screen on 2022-01-01 or later
+  - peep lockbox 2026-05-01+
+  - deploy, sync or restart any VPS unit from this hunt
+  - treat screen numbers as nested out-of-sample evidence
+
+preregister_sha256_at_run: 0a2ce9a8de2ad91c0e0533db8378530a5a3d50bca9876387c2adb587c24fc32a

@@ -7,7 +7,12 @@ from typing import Any, Literal
 import numpy as np
 import pandas as pd
 
-from llm2.gates.bootstrap import block_bootstrap_mean
+from llm2.gates.bootstrap import (
+    DEFAULT_BLOCK_SIZE,
+    DEFAULT_N_SAMPLES,
+    DEFAULT_SEED,
+    block_bootstrap_mean,
+)
 from llm2.gates.dsr import deflated_sharpe_ratio
 from llm2.gates.hac import newey_west_sharpe
 from llm2.gates.pbo import pbo_cscv
@@ -56,6 +61,9 @@ def evaluate_v21_gates(
     stress_mdd: float | None = None,
     margin_util: float | None = None,
     n_trials: int = 1,
+    n_bootstrap: int = DEFAULT_N_SAMPLES,
+    bootstrap_block_size: int = DEFAULT_BLOCK_SIZE,
+    bootstrap_seed: int = DEFAULT_SEED,
     candidate_matrix: pd.DataFrame | None = None,
     liquidation: bool = False,
 ) -> dict[str, GateStatus | float | Any]:
@@ -112,8 +120,16 @@ def evaluate_v21_gates(
             sr = float(np.mean(r) / (np.std(r, ddof=1) + 1e-12) * np.sqrt(252))
             hac = float(newey_west_sharpe(r))
             dsr = float(deflated_sharpe_ratio(r, sr, n_trials=n_trials))
-            boot = block_bootstrap_mean(r)
+            boot = block_bootstrap_mean(
+                r,
+                n_samples=int(n_bootstrap),
+                block_size=int(bootstrap_block_size),
+                seed=int(bootstrap_seed),
+            )
             boot_frac = float(boot["positive_frac"])
+            gates["n_trials_dsr"] = int(n_trials)
+            gates["n_bootstrap"] = int(n_bootstrap)
+            gates["bootstrap_block_size"] = int(bootstrap_block_size)
             gates["daily_mtm_sharpe"] = _status(sr, V21_THRESHOLDS["daily_mtm_sharpe"])
             gates["daily_mtm_sharpe_value"] = sr
             gates["hac_sharpe"] = _status(hac, V21_THRESHOLDS["hac_sharpe"])

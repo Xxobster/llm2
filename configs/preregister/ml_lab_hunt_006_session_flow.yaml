@@ -1,0 +1,55 @@
+# ML lab hunt 006 — session / flow stories not in hunts 004–005
+# RESEARCH_ONLY. Frozen before any hunt-006 result was viewed.
+generation_id: ml_lab_hunt_006_session_flow
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-31T16:35:00Z"
+fold_geometry: v2
+failure_is_success: true
+
+hypothesis: >
+  After hunt 005 closed 0 screen-pass (cumulative-volume-delta slope printed
+  a high profit factor with entry-bar exit rate above 0.25 — stop inside
+  single-bar noise), new named stories: UTC Asia-range London break, UTC-day
+  volume-weighted average price reclaim, engulf, outside-bar follow,
+  five-close streak follow and its frozen fade, Relative Strength Index hook,
+  Moving Average Convergence Divergence histogram zero-cross. Event study
+  first (11 basis-point cost floor). Tradesim at most 8 skill-passers.
+  Does not retune hunt-004 Exponential Moving Average stack, hunt-005
+  cumulative-volume-delta slope, or live filter micros 376 / 705 / 013.
+
+do_not:
+  - retune hunt 001–005 or bounce_upper
+  - widen Average-True-Range stop to hide hunt-005 entry-bar exits
+  - peep FORWARD_LOCKBOX_START
+  - deploy
+
+selection_window: "strictly before 2022-01-01"
+universe:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  event_study_timeframes: [15m, 1h, 4h]
+  tradesim_timeframes: [15m, 1h, 4h]
+
+cost_floor: 0.0011
+max_tradesim_arms: 8
+work_bars: {15m: 4, 1h: 3, 4h: 2}
+max_hold_bars: {15m: 24, 1h: 16, 4h: 8}
+k_sl: 1.5
+tp_ratio: 1.5
+sl_cap: 0.030
+
+screen_gates:
+  min_skill_n: 80
+  min_directional_acc: 0.51
+  min_mean_signed: 0.0015
+  min_trades: 80
+  min_trades_per_month: 2.0
+  max_trades_per_month: 90.0
+  min_profit_factor: 1.20
+  max_entry_bar_exit_rate: 0.25
+  min_sharpe_annualised: 0.50
+
+leakage_audit:
+  builder: llm2.ml_lab.idea_catalog_c.build_features_for_guard
+
+preregister_sha256_at_run: 9da603ac7e7aec66f239f2891f86ca752c61bf34be4d5fe48c35426742516304

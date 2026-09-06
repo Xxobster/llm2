@@ -1,0 +1,216 @@
+{
+  "inventory_id": "post_caus_parent_pf_inventory_001",
+  "created_utc": "2026-08-08T00:00:00Z",
+  "decision": "D-060",
+  "question": "Any post-CAUS-STRUCT-001 parent with causal outer Profit Factor (PF) >= 1.0 suitable for nesting filters?",
+  "answer": "NO",
+  "min_pooled_pf_observed": 0.7470972167426891,
+  "max_pooled_pf_observed": 0.8586008420913896,
+  "max_nest_mean_fold_pf": 0.7903661177422769,
+  "parents_hunt_rows": [
+    {
+      "parent_generation": "structure_v1_caus_retrain_001",
+      "symbol": "BTCUSDT",
+      "target": "fwd_return",
+      "timeframe": "1h",
+      "pooled_pf": 0.8086441875851403,
+      "overall": "FAIL",
+      "feature_space": "structure_v1",
+      "daily_mtm_sharpe": -1.5711066355347951
+    },
+    {
+      "parent_generation": "structure_v1_caus_retrain_001",
+      "symbol": "ETHUSDT",
+      "target": "direction",
+      "timeframe": "1h",
+      "pooled_pf": 0.7825617731303304,
+      "overall": "FAIL",
+      "feature_space": "structure_v1",
+      "daily_mtm_sharpe": -3.3312075535990933
+    },
+    {
+      "parent_generation": "structure_v1_caus_retrain_001",
+      "symbol": "SOLUSDT",
+      "target": "direction",
+      "timeframe": "1h",
+      "pooled_pf": 0.8051598151360074,
+      "overall": "FAIL",
+      "feature_space": "structure_v1",
+      "daily_mtm_sharpe": -3.579155699872087
+    },
+    {
+      "parent_generation": "structure_v1_caus_retrain_001",
+      "symbol": "ETHUSDT",
+      "target": "fwd_return",
+      "timeframe": "1h",
+      "pooled_pf": 0.8510637592601036,
+      "overall": "FAIL",
+      "feature_space": "structure_v1",
+      "daily_mtm_sharpe": -1.7305306190822984
+    },
+    {
+      "parent_generation": "structure_v1_caus_retrain_001",
+      "symbol": "SOLUSDT",
+      "target": "fwd_return",
+      "timeframe": "1h",
+      "pooled_pf": 0.8051598151360074,
+      "overall": "FAIL",
+      "feature_space": "structure_v1",
+      "daily_mtm_sharpe": -3.579155699872087
+    },
+    {
+      "parent_generation": "structure_v1_caus_retrain_001",
+      "symbol": "BTCUSDT",
+      "target": "direction",
+      "timeframe": "1h",
+      "pooled_pf": 0.7470972167426891,
+      "overall": "FAIL",
+      "feature_space": "structure_v1",
+      "daily_mtm_sharpe": -2.9215542484008896
+    },
+    {
+      "parent_generation": "structure_v1_causal_drop_retrace_001",
+      "symbol": "BTCUSDT",
+      "target": "fwd_return",
+      "timeframe": "1h",
+      "pooled_pf": 0.8118255163414607,
+      "overall": "FAIL",
+      "feature_space": "structure_v1_no_retrace",
+      "daily_mtm_sharpe": -1.5479682607635394
+    },
+    {
+      "parent_generation": "structure_v1_causal_drop_retrace_001",
+      "symbol": "ETHUSDT",
+      "target": "direction",
+      "timeframe": "1h",
+      "pooled_pf": 0.7712425684036337,
+      "overall": "FAIL",
+      "feature_space": "structure_v1_no_retrace",
+      "daily_mtm_sharpe": -2.084802501743625
+    },
+    {
+      "parent_generation": "structure_v1_causal_drop_retrace_001",
+      "symbol": "SOLUSDT",
+      "target": "direction",
+      "timeframe": "1h",
+      "pooled_pf": 0.8106415851949572,
+      "overall": "FAIL",
+      "feature_space": "structure_v1_no_retrace",
+      "daily_mtm_sharpe": -2.4018422450418697
+    },
+    {
+      "parent_generation": "structure_v1_causal_drop_retrace_001",
+      "symbol": "ETHUSDT",
+      "target": "fwd_return",
+      "timeframe": "1h",
+      "pooled_pf": 0.8586008420913896,
+      "overall": "FAIL",
+      "feature_space": "structure_v1_no_retrace",
+      "daily_mtm_sharpe": -1.606141251025522
+    },
+    {
+      "parent_generation": "structure_v1_causal_drop_retrace_001",
+      "symbol": "SOLUSDT",
+      "target": "fwd_return",
+      "timeframe": "1h",
+      "pooled_pf": 0.8100561300062512,
+      "overall": "FAIL",
+      "feature_space": "structure_v1_no_retrace",
+      "daily_mtm_sharpe": -3.1965611066729074
+    },
+    {
+      "parent_generation": "structure_v1_causal_drop_retrace_001",
+      "symbol": "BTCUSDT",
+      "target": "direction",
+      "timeframe": "1h",
+      "pooled_pf": 0.7868317380413454,
+      "overall": "FAIL",
+      "feature_space": "structure_v1_no_retrace",
+      "daily_mtm_sharpe": -2.423483051180768
+    }
+  ],
+  "forecast_stage2_naive": [
+    {
+      "symbol": "ETHUSDT",
+      "status": "RAN",
+      "profit_factor": 0.7413777382002571
+    },
+    {
+      "symbol": "BTCUSDT",
+      "status": "RAN",
+      "profit_factor": 0.6950199461856902
+    },
+    {
+      "symbol": "SOLUSDT",
+      "status": "RAN",
+      "profit_factor": 0.7301938477717226
+    }
+  ],
+  "forecast_filter_nest_arms": [
+    {
+      "symbol": "ETHUSDT",
+      "arm": "control",
+      "mean_fold_pf": 0.7240178617864234,
+      "sum_net_pnl": -242.31867599995167,
+      "n_signals": 16620
+    },
+    {
+      "symbol": "ETHUSDT",
+      "arm": "next_retrace_agree_skip",
+      "mean_fold_pf": 0.7211667593790919,
+      "sum_net_pnl": -107.81524429996898,
+      "n_signals": 6210
+    },
+    {
+      "symbol": "ETHUSDT",
+      "arm": "next_vol_skip_p75",
+      "mean_fold_pf": 0.7233714388894347,
+      "sum_net_pnl": -203.02847076997568,
+      "n_signals": 14393
+    },
+    {
+      "symbol": "BTCUSDT",
+      "arm": "control",
+      "mean_fold_pf": 0.6510772529283649,
+      "sum_net_pnl": -490.7923643249851,
+      "n_signals": 16386
+    },
+    {
+      "symbol": "BTCUSDT",
+      "arm": "next_retrace_agree_skip",
+      "mean_fold_pf": 0.6619664069489243,
+      "sum_net_pnl": -233.93638652496702,
+      "n_signals": 5845
+    },
+    {
+      "symbol": "BTCUSDT",
+      "arm": "next_vol_skip_p75",
+      "mean_fold_pf": 0.6427594623505383,
+      "sum_net_pnl": -380.7285783100342,
+      "n_signals": 12775
+    },
+    {
+      "symbol": "SOLUSDT",
+      "arm": "control",
+      "mean_fold_pf": 0.7903661177422769,
+      "sum_net_pnl": -118.70566614995369,
+      "n_signals": 16188
+    },
+    {
+      "symbol": "SOLUSDT",
+      "arm": "next_retrace_agree_skip",
+      "mean_fold_pf": 0.7433609917034815,
+      "sum_net_pnl": -74.87609294999311,
+      "n_signals": 7006
+    },
+    {
+      "symbol": "SOLUSDT",
+      "arm": "next_vol_skip_p75",
+      "mean_fold_pf": 0.7864399715999749,
+      "sum_net_pnl": -103.32225409992316,
+      "n_signals": 14048
+    }
+  ],
+  "conclusion": "No positive outer PF parent post-CAUS for structure_v1 / structure_v1_no_retrace direction@1h or fwd_return@1h. Nesting filters cannot create readyability. Shift research off structure_v1 direction@1h parent family for trading; forecast skill of next_retrace remains a separate non-promotable claim.",
+  "readiness_max": "RESEARCH_ONLY"
+}

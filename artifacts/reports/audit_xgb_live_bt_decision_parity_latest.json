@@ -1,0 +1,55 @@
+{
+  "created_utc": "2026-08-12T17:24:26Z",
+  "family": "xgb",
+  "root": "/home/xgb",
+  "pairs": [
+    {
+      "symbol": "BTCUSDT",
+      "audit_path": "/home/xgb/models/btcusdt_first_touch_live_audit.json",
+      "verdict": "RESEARCH_ONLY_BACKTEST",
+      "live_ready": false,
+      "fee_model": "bybit_maker_0.02pct",
+      "tp_pct": 0.01,
+      "sl_pct": 0.02,
+      "leverage_audit": null,
+      "screen_pf": 5.570054766700948,
+      "lockbox_pf": null,
+      "status": "FAIL_LIVE_READY_FALSE",
+      "tip_ledger_db": "/home/xgb/database/live_tip_decisions.sqlite",
+      "tip_identity": "LEDGER_WIRED_WAITING_NEXT_CYCLE"
+    },
+    {
+      "symbol": "ETHUSDT",
+      "audit_path": "/home/xgb/models/ethusdt_first_touch_live_audit.json",
+      "verdict": "RESEARCH_ONLY_BACKTEST",
+      "live_ready": false,
+      "fee_model": "bybit_taker_entry_taker_tpsl_no_exit_slip",
+      "tp_pct": 0.04,
+      "sl_pct": 0.04,
+      "leverage_audit": 21.0,
+      "screen_pf": null,
+      "lockbox_pf": 1.345849685107442,
+      "status": "FAIL_LIVE_READY_FALSE",
+      "tip_ledger_db": "/home/xgb/database/live_tip_decisions.sqlite",
+      "tip_identity": "LEDGER_WIRED_WAITING_NEXT_CYCLE"
+    }
+  ],
+  "blockers": [
+    "BTCUSDT: live_ready=false verdict=RESEARCH_ONLY_BACKTEST",
+    "BTCUSDT: no rows in live_tip_decisions.sqlite yet",
+    "ETHUSDT: live_ready=false verdict=RESEARCH_ONLY_BACKTEST",
+    "ETHUSDT: no rows in live_tip_decisions.sqlite yet"
+  ],
+  "parity_certifiable": false,
+  "processes": [
+    "430299 SCREEN -dmS xxobster2BTCUSDT bash -lc cd /home/xgb && python3 scripts/vps_run_asset_live.py btcusdt >> log/btcusdt/restart.log 2>&1",
+    "430301 bash -lc cd /home/xgb && python3 scripts/vps_run_asset_live.py btcusdt >> log/btcusdt/restart.log 2>&1",
+    "430302 SCREEN -dmS xxobster2ETHUSDT bash -lc cd /home/xgb && python3 scripts/vps_run_asset_live.py ethusdt >> log/ethusdt/restart.log 2>&1",
+    "430304 bash -lc cd /home/xgb && python3 scripts/vps_run_asset_live.py ethusdt >> log/ethusdt/restart.log 2>&1",
+    "430311 python3 scripts/vps_run_asset_live.py btcusdt",
+    "430313 python3 scripts/vps_run_asset_live.py ethusdt",
+    "432427 bash -lc pgrep -af vps_run_asset_live || true"
+  ],
+  "status": "FAIL",
+  "why": "XGB cannot be certified live\u2261BT from LLM2 without (1) live_ready=true audits, (2) bar tip ledger with tip OHLC, (3) freeze candles + same decide function replay. Current host evidence fails those gates."
+}

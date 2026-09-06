@@ -1,0 +1,5257 @@
+{
+  "generation_id": "pivot_mtf_forecast_001_train_matrix",
+  "stamp": "20260810T081309Z",
+  "source": "binance",
+  "product_note": "Binance last OHLCV only (RESEARCH). Not a live authorization.",
+  "fold_geometry": "v2",
+  "lockbox_start": "2026-05-01",
+  "metrics_primary": "outer_pooled_pr_auc_any (first pivot within horizon)",
+  "models_note": "Numerical classifiers only. Chat/general LLMs are not the forecasting core.",
+  "n_rows": 64,
+  "leaderboard_top20": [
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "5m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "model": "lgbm_m",
+      "pr_auc_any": 0.8152117787872133,
+      "brier_mc": 0.6081687708565304,
+      "log_loss": 1.0185059679488988,
+      "precision_top5pct_any": 0.833224115334207,
+      "acc_side_argmax": 0.512022932022932,
+      "frac_any": 0.784995904995905
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "5m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "model": "hist_gb",
+      "pr_auc_any": 0.8140280447726438,
+      "brier_mc": 0.6055685872326114,
+      "log_loss": 1.0157418776137577,
+      "precision_top5pct_any": 0.8256880733944955,
+      "acc_side_argmax": 0.5176904176904177,
+      "frac_any": 0.784995904995905
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "5m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "model": "mlp_sklearn",
+      "pr_auc_any": 0.8132970097130489,
+      "brier_mc": 0.5977629473429937,
+      "log_loss": 1.0086776830887196,
+      "precision_top5pct_any": 0.8197903014416776,
+      "acc_side_argmax": 0.5286486486486487,
+      "frac_any": 0.784995904995905
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "5m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "model": "baserate",
+      "pr_auc_any": 0.784995904995905,
+      "brier_mc": 0.6514449416892387,
+      "log_loss": 1.074760353552919,
+      "precision_top5pct_any": 0.7719528178243774,
+      "acc_side_argmax": 0.38545454545454544,
+      "frac_any": 0.784995904995905
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "1h",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "model": "lgbm_m",
+      "pr_auc_any": 0.6898584699192433,
+      "brier_mc": 0.6317716030172744,
+      "log_loss": 1.0427129014034242,
+      "precision_top5pct_any": 0.7325949367088608,
+      "acc_side_argmax": 0.4438704235746857,
+      "frac_any": 0.6474340388518411
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "1h",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "model": "hist_gb",
+      "pr_auc_any": 0.6866891170922761,
+      "brier_mc": 0.6315724395060747,
+      "log_loss": 1.04264819040301,
+      "precision_top5pct_any": 0.7362869198312236,
+      "acc_side_argmax": 0.4451883286328053,
+      "frac_any": 0.6474340388518411
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "1h",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "model": "mlp_sklearn",
+      "pr_auc_any": 0.6844441147101781,
+      "brier_mc": 0.6302002263957404,
+      "log_loss": 1.039844810909336,
+      "precision_top5pct_any": 0.7167721518987342,
+      "acc_side_argmax": 0.4443975855979335,
+      "frac_any": 0.6474340388518411
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "1h",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "model": "lgbm_m",
+      "pr_auc_any": 0.6831763461595453,
+      "brier_mc": 0.6303004559270989,
+      "log_loss": 1.040070121049144,
+      "precision_top5pct_any": 0.7178270042194093,
+      "acc_side_argmax": 0.4477187063443949,
+      "frac_any": 0.645747120377448
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "1h",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "model": "mlp_sklearn",
+      "pr_auc_any": 0.6818018040470355,
+      "brier_mc": 0.6296502680401845,
+      "log_loss": 1.0387879972516454,
+      "precision_top5pct_any": 0.7141350210970464,
+      "acc_side_argmax": 0.44592635546535225,
+      "frac_any": 0.645747120377448
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "1h",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "model": "hist_gb",
+      "pr_auc_any": 0.6817086682785085,
+      "brier_mc": 0.6294911628646457,
+      "log_loss": 1.0387504941478443,
+      "precision_top5pct_any": 0.7114978902953587,
+      "acc_side_argmax": 0.4505917393710957,
+      "frac_any": 0.645747120377448
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "full",
+      "label": "frac_std",
+      "model": "lgbm_m",
+      "pr_auc_any": 0.6780319649713743,
+      "brier_mc": 0.6126517845735461,
+      "log_loss": 1.0109256654347145,
+      "precision_top5pct_any": 0.7245822428024965,
+      "acc_side_argmax": 0.4758545029993156,
+      "frac_any": 0.6239683562140182
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "full",
+      "label": "frac_std",
+      "model": "hist_gb",
+      "pr_auc_any": 0.6759682879276702,
+      "brier_mc": 0.6095025427947864,
+      "log_loss": 1.0063869241778578,
+      "precision_top5pct_any": 0.7118985302999798,
+      "acc_side_argmax": 0.4819135230886912,
+      "frac_any": 0.6239683562140182
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "model": "lgbm_m",
+      "pr_auc_any": 0.6731543123806889,
+      "brier_mc": 0.624928632769376,
+      "log_loss": 1.0310062106091247,
+      "precision_top5pct_any": 0.6957922287094825,
+      "acc_side_argmax": 0.4530677563508998,
+      "frac_any": 0.6398607029268489
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom_phys",
+      "label": "frac_std",
+      "model": "lgbm_m",
+      "pr_auc_any": 0.6726527680332247,
+      "brier_mc": 0.615079408869154,
+      "log_loss": 1.0146230930446747,
+      "precision_top5pct_any": 0.7219649687940407,
+      "acc_side_argmax": 0.4717178630379645,
+      "frac_any": 0.6239683562140182
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "model": "mlp_sklearn",
+      "pr_auc_any": 0.6718037201571508,
+      "brier_mc": 0.6251255171203415,
+      "log_loss": 1.0313521344902783,
+      "precision_top5pct_any": 0.7038453795047313,
+      "acc_side_argmax": 0.45084343170014896,
+      "frac_any": 0.6398607029268489
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom_phys",
+      "label": "frac_std",
+      "model": "hist_gb",
+      "pr_auc_any": 0.670701256219356,
+      "brier_mc": 0.6131746578261345,
+      "log_loss": 1.0117683244583033,
+      "precision_top5pct_any": 0.7076706261324743,
+      "acc_side_argmax": 0.47351946535689843,
+      "frac_any": 0.6239683562140182
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "model": "hist_gb",
+      "pr_auc_any": 0.670412483103122,
+      "brier_mc": 0.6248716672524567,
+      "log_loss": 1.030864932607042,
+      "precision_top5pct_any": 0.6879404066841152,
+      "acc_side_argmax": 0.45203108015620597,
+      "frac_any": 0.6398607029268489
+    },
+    {
+      "symbol": "SOLUSDT",
+      "timeframe": "1h",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "model": "mlp_sklearn",
+      "pr_auc_any": 0.6703902775526142,
+      "brier_mc": 0.6254608904182941,
+      "log_loss": 1.0301796303791366,
+      "precision_top5pct_any": 0.7078059071729957,
+      "acc_side_argmax": 0.4461899364769762,
+      "frac_any": 0.6378396900287303
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "model": "lgbm_s",
+      "pr_auc_any": 0.6703402162228862,
+      "brier_mc": 0.6207655610921574,
+      "log_loss": 1.0238879765665514,
+      "precision_top5pct_any": 0.7169317495470102,
+      "acc_side_argmax": 0.45758685937437094,
+      "frac_any": 0.6239683562140182
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "model": "lgbm_deep",
+      "pr_auc_any": 0.6686984972525722,
+      "brier_mc": 0.6221146895988089,
+      "log_loss": 1.0258751514230522,
+      "precision_top5pct_any": 0.7197503523253473,
+      "acc_side_argmax": 0.45774789645315833,
+      "frac_any": 0.6239683562140182
+    }
+  ],
+  "all_results": [
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "baserate",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45039,
+        "high": 37851,
+        "low": 37093
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6640888778979497,
+          "log_loss": 1.0948122877528499,
+          "pr_auc_any": 0.6156472562906872,
+          "roc_auc_any": 0.4841431343613508,
+          "brier_any": 0.23474191249541948,
+          "frac_any": 0.6239683562140182,
+          "acc_side_argmax": 0.3760316437859817,
+          "precision_top5pct_any": 0.6392188443728609
+        },
+        "mean_fold": {
+          "brier_mc": 0.6641400054192264,
+          "log_loss": 1.0948875764213237,
+          "pr_auc_any": 0.6244059851807543,
+          "roc_auc_any": 0.5,
+          "brier_any": 0.23462796702161012,
+          "frac_any": 0.6244059851807543,
+          "acc_side_argmax": 0.3755940148192458,
+          "precision_top5pct_any": 0.634594535164521
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6625961358969693,
+            "log_loss": 1.092626722722911,
+            "pr_auc_any": 0.6129924242424243,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23744830716282528,
+            "frac_any": 0.6129924242424243,
+            "acc_side_argmax": 0.3870075757575758,
+            "precision_top5pct_any": 0.6287878787878788,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6666689817989038,
+            "log_loss": 1.0985804681749334,
+            "pr_auc_any": 0.6427272727272727,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.230166810691663,
+            "frac_any": 0.6427272727272727,
+            "acc_side_argmax": 0.3572727272727273,
+            "precision_top5pct_any": 0.6636363636363637,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.662255757517333,
+            "log_loss": 1.0921321028283306,
+            "pr_auc_any": 0.6098519536019537,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23825448341581004,
+            "frac_any": 0.6098519536019537,
+            "acc_side_argmax": 0.3901480463980464,
+            "precision_top5pct_any": 0.6343511450381679,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6650391464636998,
+            "log_loss": 1.09621101195912,
+            "pr_auc_any": 0.6320522901513662,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23264226681614222,
+            "frac_any": 0.6320522901513662,
+            "acc_side_argmax": 0.3679477098486338,
+            "precision_top5pct_any": 0.6116027531956736,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "logistic",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45039,
+        "high": 37851,
+        "low": 37093
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "MODEL_FAIL",
+        "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "lgbm_m",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45039,
+        "high": 37851,
+        "low": 37093
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6265978667863765,
+          "log_loss": 1.032081303316107,
+          "pr_auc_any": 0.65518144400381,
+          "roc_auc_any": 0.5501410747896832,
+          "brier_any": 0.23472082782081138,
+          "frac_any": 0.6239683562140182,
+          "acc_side_argmax": 0.44938403317363823,
+          "precision_top5pct_any": 0.6631769679887256
+        },
+        "mean_fold": {
+          "brier_mc": 0.6266354855349953,
+          "log_loss": 1.0321576186189274,
+          "pr_auc_any": 0.6560022272755576,
+          "roc_auc_any": 0.5493992296181255,
+          "brier_any": 0.23458492990005084,
+          "frac_any": 0.6244059851807543,
+          "acc_side_argmax": 0.4490984713826025,
+          "precision_top5pct_any": 0.6717049574308238
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6259075912682581,
+            "log_loss": 1.032393317747218,
+            "pr_auc_any": 0.6501199746597264,
+            "roc_auc_any": 0.5629495390911976,
+            "brier_any": 0.2352937553887634,
+            "frac_any": 0.6129924242424243,
+            "acc_side_argmax": 0.4533333333333333,
+            "precision_top5pct_any": 0.6522727272727272,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6246734723708696,
+            "log_loss": 1.0298454441394282,
+            "pr_auc_any": 0.666872689678359,
+            "roc_auc_any": 0.539061415910766,
+            "brier_any": 0.2304703047786788,
+            "frac_any": 0.6427272727272727,
+            "acc_side_argmax": 0.45575757575757575,
+            "precision_top5pct_any": 0.671969696969697,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6287757024946912,
+            "log_loss": 1.0330082066050164,
+            "pr_auc_any": 0.6403809814199452,
+            "roc_auc_any": 0.5447697530704614,
+            "brier_any": 0.24040646116147393,
+            "frac_any": 0.6098519536019537,
+            "acc_side_argmax": 0.44268925518925517,
+            "precision_top5pct_any": 0.666412213740458,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6271851760061621,
+            "log_loss": 1.033383505984047,
+            "pr_auc_any": 0.6666352633441995,
+            "roc_auc_any": 0.5508162104000769,
+            "brier_any": 0.23216919827128724,
+            "frac_any": 0.6320522901513662,
+            "acc_side_argmax": 0.44461372125024573,
+            "precision_top5pct_any": 0.696165191740413,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "hist_gb",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45039,
+        "high": 37851,
+        "low": 37093
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6220360763796725,
+          "log_loss": 1.0254223153305444,
+          "pr_auc_any": 0.6577595737731888,
+          "roc_auc_any": 0.5522171103113785,
+          "brier_any": 0.23219900210733513,
+          "frac_any": 0.6239683562140182,
+          "acc_side_argmax": 0.45431579371150205,
+          "precision_top5pct_any": 0.6800885846587478
+        },
+        "mean_fold": {
+          "brier_mc": 0.622200874552554,
+          "log_loss": 1.0257066494015494,
+          "pr_auc_any": 0.6582105676571905,
+          "roc_auc_any": 0.5518446873499412,
+          "brier_any": 0.23212420137779055,
+          "frac_any": 0.6244059851807543,
+          "acc_side_argmax": 0.45407598178392605,
+          "precision_top5pct_any": 0.6767041658904795
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.61859772863916,
+            "log_loss": 1.0214986676444036,
+            "pr_auc_any": 0.6574298157918959,
+            "roc_auc_any": 0.5714449029743015,
+            "brier_any": 0.2317163249583528,
+            "frac_any": 0.6129924242424243,
+            "acc_side_argmax": 0.4615151515151515,
+            "precision_top5pct_any": 0.6712121212121213,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6218955961360215,
+            "log_loss": 1.025516003646589,
+            "pr_auc_any": 0.6686038514422183,
+            "roc_auc_any": 0.5396878507825337,
+            "brier_any": 0.22878247966138732,
+            "frac_any": 0.6427272727272727,
+            "acc_side_argmax": 0.45443181818181816,
+            "precision_top5pct_any": 0.6893939393939394,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6234432118870116,
+            "log_loss": 1.0254285261497582,
+            "pr_auc_any": 0.6404386496404495,
+            "roc_auc_any": 0.5454519785462764,
+            "brier_any": 0.23726489578098822,
+            "frac_any": 0.6098519536019537,
+            "acc_side_argmax": 0.4500915750915751,
+            "precision_top5pct_any": 0.6549618320610687,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6248669615480228,
+            "log_loss": 1.0303834001654468,
+            "pr_auc_any": 0.6663699537541986,
+            "roc_auc_any": 0.5507940170966533,
+            "brier_any": 0.23073310511043388,
+            "frac_any": 0.6320522901513662,
+            "acc_side_argmax": 0.4502653823471594,
+            "precision_top5pct_any": 0.6912487708947886,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "baserate",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45039,
+        "high": 37851,
+        "low": 37093
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6640888778979497,
+          "log_loss": 1.0948122877528499,
+          "pr_auc_any": 0.6156472562906872,
+          "roc_auc_any": 0.4841431343613508,
+          "brier_any": 0.23474191249541948,
+          "frac_any": 0.6239683562140182,
+          "acc_side_argmax": 0.3760316437859817,
+          "precision_top5pct_any": 0.6392188443728609
+        },
+        "mean_fold": {
+          "brier_mc": 0.6641400054192264,
+          "log_loss": 1.0948875764213237,
+          "pr_auc_any": 0.6244059851807543,
+          "roc_auc_any": 0.5,
+          "brier_any": 0.23462796702161012,
+          "frac_any": 0.6244059851807543,
+          "acc_side_argmax": 0.3755940148192458,
+          "precision_top5pct_any": 0.634594535164521
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6625961358969693,
+            "log_loss": 1.092626722722911,
+            "pr_auc_any": 0.6129924242424243,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23744830716282528,
+            "frac_any": 0.6129924242424243,
+            "acc_side_argmax": 0.3870075757575758,
+            "precision_top5pct_any": 0.6287878787878788,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6666689817989038,
+            "log_loss": 1.0985804681749334,
+            "pr_auc_any": 0.6427272727272727,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.230166810691663,
+            "frac_any": 0.6427272727272727,
+            "acc_side_argmax": 0.3572727272727273,
+            "precision_top5pct_any": 0.6636363636363637,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.662255757517333,
+            "log_loss": 1.0921321028283306,
+            "pr_auc_any": 0.6098519536019537,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23825448341581004,
+            "frac_any": 0.6098519536019537,
+            "acc_side_argmax": 0.3901480463980464,
+            "precision_top5pct_any": 0.6343511450381679,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6650391464636998,
+            "log_loss": 1.09621101195912,
+            "pr_auc_any": 0.6320522901513662,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23264226681614222,
+            "frac_any": 0.6320522901513662,
+            "acc_side_argmax": 0.3679477098486338,
+            "precision_top5pct_any": 0.6116027531956736,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "logistic",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45039,
+        "high": 37851,
+        "low": 37093
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "MODEL_FAIL",
+        "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "lgbm_s",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45039,
+        "high": 37851,
+        "low": 37093
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6207655610921574,
+          "log_loss": 1.0238879765665514,
+          "pr_auc_any": 0.6703402162228862,
+          "roc_auc_any": 0.5650313787564869,
+          "brier_any": 0.23334933354848283,
+          "frac_any": 0.6239683562140182,
+          "acc_side_argmax": 0.45758685937437094,
+          "precision_top5pct_any": 0.7169317495470102
+        },
+        "mean_fold": {
+          "brier_mc": 0.6209510070435802,
+          "log_loss": 1.024190763427823,
+          "pr_auc_any": 0.6705184378442939,
+          "roc_auc_any": 0.5639422440977865,
+          "brier_any": 0.233259420242494,
+          "frac_any": 0.6244059851807543,
+          "acc_side_argmax": 0.4573656771553371,
+          "precision_top5pct_any": 0.7214679004801784
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6161759778743471,
+            "log_loss": 1.018624939450676,
+            "pr_auc_any": 0.6717138867562109,
+            "roc_auc_any": 0.5869841518695788,
+            "brier_any": 0.23204736870008194,
+            "frac_any": 0.6129924242424243,
+            "acc_side_argmax": 0.4627272727272727,
+            "precision_top5pct_any": 0.7128787878787879,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6187481417078998,
+            "log_loss": 1.0214848425029435,
+            "pr_auc_any": 0.6860825412560033,
+            "roc_auc_any": 0.5559974859377068,
+            "brier_any": 0.22904251098163578,
+            "frac_any": 0.6427272727272727,
+            "acc_side_argmax": 0.46375,
+            "precision_top5pct_any": 0.7439393939393939,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6250133021961706,
+            "log_loss": 1.0275997922262141,
+            "pr_auc_any": 0.6511352061615968,
+            "roc_auc_any": 0.5557138628496934,
+            "brier_any": 0.2403907337597671,
+            "frac_any": 0.6098519536019537,
+            "acc_side_argmax": 0.44898504273504275,
+            "precision_top5pct_any": 0.6984732824427481,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6238666063959034,
+            "log_loss": 1.0290534795314583,
+            "pr_auc_any": 0.6731421172033649,
+            "roc_auc_any": 0.5570734757341671,
+            "brier_any": 0.23155706752849112,
+            "frac_any": 0.6320522901513662,
+            "acc_side_argmax": 0.45400039315903284,
+            "precision_top5pct_any": 0.7305801376597837,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "lgbm_m",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45039,
+        "high": 37851,
+        "low": 37093
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.623417344520708,
+          "log_loss": 1.0277866999602696,
+          "pr_auc_any": 0.6671686501468043,
+          "roc_auc_any": 0.5611309693611553,
+          "brier_any": 0.2342632729109687,
+          "frac_any": 0.6239683562140182,
+          "acc_side_argmax": 0.45508071983574216,
+          "precision_top5pct_any": 0.7096839138312865
+        },
+        "mean_fold": {
+          "brier_mc": 0.6234599680853569,
+          "log_loss": 1.0278687897487855,
+          "pr_auc_any": 0.6674742560208696,
+          "roc_auc_any": 0.5602776044047082,
+          "brier_any": 0.23413405712164642,
+          "frac_any": 0.6244059851807543,
+          "acc_side_argmax": 0.45492922051164875,
+          "precision_top5pct_any": 0.7097466081472702
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6223368851099974,
+            "log_loss": 1.028343527621408,
+            "pr_auc_any": 0.6637927411029593,
+            "roc_auc_any": 0.5780571364717522,
+            "brier_any": 0.23430704502254326,
+            "frac_any": 0.6129924242424243,
+            "acc_side_argmax": 0.4602272727272727,
+            "precision_top5pct_any": 0.6916666666666667,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6213406984565656,
+            "log_loss": 1.0251079759694226,
+            "pr_auc_any": 0.6838698451801365,
+            "roc_auc_any": 0.553512544093377,
+            "brier_any": 0.2297420679303385,
+            "frac_any": 0.6427272727272727,
+            "acc_side_argmax": 0.4606818181818182,
+            "precision_top5pct_any": 0.7325757575757575,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6260858744114751,
+            "log_loss": 1.0288379396395357,
+            "pr_auc_any": 0.6519064348129752,
+            "roc_auc_any": 0.5545837256485995,
+            "brier_any": 0.24068213899425253,
+            "frac_any": 0.6098519536019537,
+            "acc_side_argmax": 0.44608516483516486,
+            "precision_top5pct_any": 0.6969465648854962,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6240764143633896,
+            "log_loss": 1.029185715764776,
+            "pr_auc_any": 0.6703280029874076,
+            "roc_auc_any": 0.5549570114051043,
+            "brier_any": 0.23180497653945142,
+            "frac_any": 0.6320522901513662,
+            "acc_side_argmax": 0.4527226263023393,
+            "precision_top5pct_any": 0.7177974434611603,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "lgbm_deep",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45039,
+        "high": 37851,
+        "low": 37093
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6221146895988089,
+          "log_loss": 1.0258751514230522,
+          "pr_auc_any": 0.6686984972525722,
+          "roc_auc_any": 0.5629857582016096,
+          "brier_any": 0.2337954908796748,
+          "frac_any": 0.6239683562140182,
+          "acc_side_argmax": 0.45774789645315833,
+          "precision_top5pct_any": 0.7197503523253473
+        },
+        "mean_fold": {
+          "brier_mc": 0.6222051112771864,
+          "log_loss": 1.0260400053415186,
+          "pr_auc_any": 0.6690884394209962,
+          "roc_auc_any": 0.5621745576395307,
+          "brier_any": 0.23367968852012386,
+          "frac_any": 0.6244059851807543,
+          "acc_side_argmax": 0.4575936546730359,
+          "precision_top5pct_any": 0.7178691170981585
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6199192021574458,
+            "log_loss": 1.0243123480355323,
+            "pr_auc_any": 0.6666223287958695,
+            "roc_auc_any": 0.5805004945182888,
+            "brier_any": 0.2333532860317364,
+            "frac_any": 0.6129924242424243,
+            "acc_side_argmax": 0.4615151515151515,
+            "precision_top5pct_any": 0.6946969696969697,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6200355458497728,
+            "log_loss": 1.0233380076177376,
+            "pr_auc_any": 0.6835027720366129,
+            "roc_auc_any": 0.5540089882307024,
+            "brier_any": 0.22940940704347448,
+            "frac_any": 0.6427272727272727,
+            "acc_side_argmax": 0.4643181818181818,
+            "precision_top5pct_any": 0.7462121212121212,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6252734723151578,
+            "log_loss": 1.0278197060782106,
+            "pr_auc_any": 0.6525916895965955,
+            "roc_auc_any": 0.5561081509739796,
+            "brier_any": 0.2403904036382036,
+            "frac_any": 0.6098519536019537,
+            "acc_side_argmax": 0.4492139804639805,
+            "precision_top5pct_any": 0.7068702290076336,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6235922247863689,
+            "log_loss": 1.0286899596345942,
+            "pr_auc_any": 0.6736369672549067,
+            "roc_auc_any": 0.5580805968351519,
+            "brier_any": 0.23156565736708093,
+            "frac_any": 0.6320522901513662,
+            "acc_side_argmax": 0.45532730489483,
+            "precision_top5pct_any": 0.7236971484759095,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "hist_gb",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45039,
+        "high": 37851,
+        "low": 37093
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6197427323981434,
+          "log_loss": 1.0224468176702026,
+          "pr_auc_any": 0.6667490998597354,
+          "roc_auc_any": 0.5610415420968007,
+          "brier_any": 0.23208112347618765,
+          "frac_any": 0.6239683562140182,
+          "acc_side_argmax": 0.45968034139860703,
+          "precision_top5pct_any": 0.7159251056976041
+        },
+        "mean_fold": {
+          "brier_mc": 0.6199004944868612,
+          "log_loss": 1.0227019311190093,
+          "pr_auc_any": 0.6672652289339014,
+          "roc_auc_any": 0.5605663103686347,
+          "brier_any": 0.2320104154664028,
+          "frac_any": 0.6244059851807543,
+          "acc_side_argmax": 0.4593981427976169,
+          "precision_top5pct_any": 0.715719957120349
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6173666287653069,
+            "log_loss": 1.020817975736888,
+            "pr_auc_any": 0.6675189994161603,
+            "roc_auc_any": 0.5817285270502615,
+            "brier_any": 0.23159849798968077,
+            "frac_any": 0.6129924242424243,
+            "acc_side_argmax": 0.4659469696969697,
+            "precision_top5pct_any": 0.7083333333333334,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6178356083624189,
+            "log_loss": 1.0198234982505694,
+            "pr_auc_any": 0.6830618184061585,
+            "roc_auc_any": 0.5543132705218905,
+            "brier_any": 0.2279439377426385,
+            "frac_any": 0.6427272727272727,
+            "acc_side_argmax": 0.4611363636363636,
+            "precision_top5pct_any": 0.7401515151515151,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6219750740236062,
+            "log_loss": 1.0232949211996782,
+            "pr_auc_any": 0.6504554906742597,
+            "roc_auc_any": 0.5527015302169314,
+            "brier_any": 0.23783439375540052,
+            "frac_any": 0.6098519536019537,
+            "acc_side_argmax": 0.45562423687423687,
+            "precision_top5pct_any": 0.7083969465648855,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.622424666796113,
+            "log_loss": 1.0268713292889016,
+            "pr_auc_any": 0.6680246072390269,
+            "roc_auc_any": 0.5535219136854553,
+            "brier_any": 0.23066483237789148,
+            "frac_any": 0.6320522901513662,
+            "acc_side_argmax": 0.4548850009828976,
+            "precision_top5pct_any": 0.7059980334316618,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "mlp_sklearn",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45039,
+        "high": 37851,
+        "low": 37093
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6221137280078889,
+          "log_loss": 1.0263504358924187,
+          "pr_auc_any": 0.6606753470577178,
+          "roc_auc_any": 0.5557762393164796,
+          "brier_any": 0.23308046748253253,
+          "frac_any": 0.6239683562140182,
+          "acc_side_argmax": 0.45748621120012883,
+          "precision_top5pct_any": 0.6949869136299577
+        },
+        "mean_fold": {
+          "brier_mc": 0.6222221969927371,
+          "log_loss": 1.026534125881956,
+          "pr_auc_any": 0.6614430411587093,
+          "roc_auc_any": 0.5554018333496238,
+          "brier_any": 0.23298251520068397,
+          "frac_any": 0.6244059851807543,
+          "acc_side_argmax": 0.45731167444622084,
+          "precision_top5pct_any": 0.6964955788036413
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6212724778275823,
+            "log_loss": 1.0279598645305956,
+            "pr_auc_any": 0.6595454421245195,
+            "roc_auc_any": 0.5729881372765037,
+            "brier_any": 0.2339081382014777,
+            "frac_any": 0.6129924242424243,
+            "acc_side_argmax": 0.4606818181818182,
+            "precision_top5pct_any": 0.693939393939394,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6189461804734813,
+            "log_loss": 1.0210237860986178,
+            "pr_auc_any": 0.674489547583037,
+            "roc_auc_any": 0.5473944255794172,
+            "brier_any": 0.22876610330800323,
+            "frac_any": 0.6427272727272727,
+            "acc_side_argmax": 0.4596969696969697,
+            "precision_top5pct_any": 0.7128787878787879,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6247473007305316,
+            "log_loss": 1.0276381025827608,
+            "pr_auc_any": 0.6444936711002143,
+            "roc_auc_any": 0.5503934911283337,
+            "brier_any": 0.23804190108618586,
+            "frac_any": 0.6098519536019537,
+            "acc_side_argmax": 0.4543269230769231,
+            "precision_top5pct_any": 0.6770992366412214,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6239228289393529,
+            "log_loss": 1.0295147503158504,
+            "pr_auc_any": 0.6672435038270663,
+            "roc_auc_any": 0.5508312794142405,
+            "brier_any": 0.23121391820706905,
+            "frac_any": 0.6320522901513662,
+            "acc_side_argmax": 0.4545409868291724,
+            "precision_top5pct_any": 0.7020648967551623,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom_phys",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "baserate",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45039,
+        "high": 37851,
+        "low": 37093
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6640888778979497,
+          "log_loss": 1.0948122877528499,
+          "pr_auc_any": 0.6156472562906872,
+          "roc_auc_any": 0.4841431343613508,
+          "brier_any": 0.23474191249541948,
+          "frac_any": 0.6239683562140182,
+          "acc_side_argmax": 0.3760316437859817,
+          "precision_top5pct_any": 0.6392188443728609
+        },
+        "mean_fold": {
+          "brier_mc": 0.6641400054192264,
+          "log_loss": 1.0948875764213237,
+          "pr_auc_any": 0.6244059851807543,
+          "roc_auc_any": 0.5,
+          "brier_any": 0.23462796702161012,
+          "frac_any": 0.6244059851807543,
+          "acc_side_argmax": 0.3755940148192458,
+          "precision_top5pct_any": 0.634594535164521
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6625961358969693,
+            "log_loss": 1.092626722722911,
+            "pr_auc_any": 0.6129924242424243,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23744830716282528,
+            "frac_any": 0.6129924242424243,
+            "acc_side_argmax": 0.3870075757575758,
+            "precision_top5pct_any": 0.6287878787878788,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6666689817989038,
+            "log_loss": 1.0985804681749334,
+            "pr_auc_any": 0.6427272727272727,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.230166810691663,
+            "frac_any": 0.6427272727272727,
+            "acc_side_argmax": 0.3572727272727273,
+            "precision_top5pct_any": 0.6636363636363637,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.662255757517333,
+            "log_loss": 1.0921321028283306,
+            "pr_auc_any": 0.6098519536019537,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23825448341581004,
+            "frac_any": 0.6098519536019537,
+            "acc_side_argmax": 0.3901480463980464,
+            "precision_top5pct_any": 0.6343511450381679,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6650391464636998,
+            "log_loss": 1.09621101195912,
+            "pr_auc_any": 0.6320522901513662,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23264226681614222,
+            "frac_any": 0.6320522901513662,
+            "acc_side_argmax": 0.3679477098486338,
+            "precision_top5pct_any": 0.6116027531956736,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom_phys",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "logistic",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45039,
+        "high": 37851,
+        "low": 37093
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "MODEL_FAIL",
+        "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom_phys",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "lgbm_m",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45039,
+        "high": 37851,
+        "low": 37093
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.615079408869154,
+          "log_loss": 1.0146230930446747,
+          "pr_auc_any": 0.6726527680332247,
+          "roc_auc_any": 0.569716091220887,
+          "brier_any": 0.23333603238036976,
+          "frac_any": 0.6239683562140182,
+          "acc_side_argmax": 0.4717178630379645,
+          "precision_top5pct_any": 0.7219649687940407
+        },
+        "mean_fold": {
+          "brier_mc": 0.6150418799734455,
+          "log_loss": 1.0145711314118966,
+          "pr_auc_any": 0.6737352784276909,
+          "roc_auc_any": 0.5694322925438412,
+          "brier_any": 0.2331793959093782,
+          "frac_any": 0.6244059851807543,
+          "acc_side_argmax": 0.4717208805967529,
+          "precision_top5pct_any": 0.725176902443335
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6145562785405461,
+            "log_loss": 1.0163866880907075,
+            "pr_auc_any": 0.6682549970481637,
+            "roc_auc_any": 0.5857837409218537,
+            "brier_any": 0.23318826691237174,
+            "frac_any": 0.6129924242424243,
+            "acc_side_argmax": 0.47848484848484846,
+            "precision_top5pct_any": 0.6924242424242424,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6128314860650039,
+            "log_loss": 1.011863865132591,
+            "pr_auc_any": 0.6874475180327957,
+            "roc_auc_any": 0.5584123087654094,
+            "brier_any": 0.22941248993170185,
+            "frac_any": 0.6427272727272727,
+            "acc_side_argmax": 0.473030303030303,
+            "precision_top5pct_any": 0.753030303030303,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6184625087734141,
+            "log_loss": 1.0163730642597588,
+            "pr_auc_any": 0.6576899156782032,
+            "roc_auc_any": 0.5644560793275619,
+            "brier_any": 0.23971632438695842,
+            "frac_any": 0.6098519536019537,
+            "acc_side_argmax": 0.4633318070818071,
+            "precision_top5pct_any": 0.7099236641221374,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6143172465148178,
+            "log_loss": 1.0136609081645296,
+            "pr_auc_any": 0.6815486829516006,
+            "roc_auc_any": 0.5690770411605397,
+            "brier_any": 0.2304005024064808,
+            "frac_any": 0.6320522901513662,
+            "acc_side_argmax": 0.4720365637900531,
+            "precision_top5pct_any": 0.7453294001966568,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom_phys",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "hist_gb",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45039,
+        "high": 37851,
+        "low": 37093
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6131746578261345,
+          "log_loss": 1.0117683244583033,
+          "pr_auc_any": 0.670701256219356,
+          "roc_auc_any": 0.5674809255443602,
+          "brier_any": 0.23197777687316154,
+          "frac_any": 0.6239683562140182,
+          "acc_side_argmax": 0.47351946535689843,
+          "precision_top5pct_any": 0.7076706261324743
+        },
+        "mean_fold": {
+          "brier_mc": 0.6131634214745014,
+          "log_loss": 1.0117642742297823,
+          "pr_auc_any": 0.6721470513855203,
+          "roc_auc_any": 0.5676604556585761,
+          "brier_any": 0.23184009383423893,
+          "frac_any": 0.6244059851807543,
+          "acc_side_argmax": 0.4736465648741425,
+          "precision_top5pct_any": 0.7169544231410914
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.614688484403712,
+            "log_loss": 1.016302935629931,
+            "pr_auc_any": 0.66665204061621,
+            "roc_auc_any": 0.5825186724963793,
+            "brier_any": 0.23278082726314822,
+            "frac_any": 0.6129924242424243,
+            "acc_side_argmax": 0.4746590909090909,
+            "precision_top5pct_any": 0.7,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6111650482074233,
+            "log_loss": 1.0087876761745473,
+            "pr_auc_any": 0.6868760635175589,
+            "roc_auc_any": 0.5589230678793071,
+            "brier_any": 0.22817649488856975,
+            "frac_any": 0.6427272727272727,
+            "acc_side_argmax": 0.47321969696969696,
+            "precision_top5pct_any": 0.7371212121212121,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6138427513580555,
+            "log_loss": 1.0102197020696297,
+            "pr_auc_any": 0.6547999980838005,
+            "roc_auc_any": 0.5615767180502145,
+            "brier_any": 0.23698658156847577,
+            "frac_any": 0.6098519536019537,
+            "acc_side_argmax": 0.47088675213675213,
+            "precision_top5pct_any": 0.6961832061068702,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6129574019288149,
+            "log_loss": 1.0117467830450209,
+            "pr_auc_any": 0.6802601033245115,
+            "roc_auc_any": 0.5676233642084036,
+            "brier_any": 0.22941647161676199,
+            "frac_any": 0.6320522901513662,
+            "acc_side_argmax": 0.47582071948103005,
+            "precision_top5pct_any": 0.7345132743362832,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "full",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "baserate",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45039,
+        "high": 37851,
+        "low": 37093
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6640888778979497,
+          "log_loss": 1.0948122877528499,
+          "pr_auc_any": 0.6156472562906872,
+          "roc_auc_any": 0.4841431343613508,
+          "brier_any": 0.23474191249541948,
+          "frac_any": 0.6239683562140182,
+          "acc_side_argmax": 0.3760316437859817,
+          "precision_top5pct_any": 0.6392188443728609
+        },
+        "mean_fold": {
+          "brier_mc": 0.6641400054192264,
+          "log_loss": 1.0948875764213237,
+          "pr_auc_any": 0.6244059851807543,
+          "roc_auc_any": 0.5,
+          "brier_any": 0.23462796702161012,
+          "frac_any": 0.6244059851807543,
+          "acc_side_argmax": 0.3755940148192458,
+          "precision_top5pct_any": 0.634594535164521
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6625961358969693,
+            "log_loss": 1.092626722722911,
+            "pr_auc_any": 0.6129924242424243,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23744830716282528,
+            "frac_any": 0.6129924242424243,
+            "acc_side_argmax": 0.3870075757575758,
+            "precision_top5pct_any": 0.6287878787878788,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6666689817989038,
+            "log_loss": 1.0985804681749334,
+            "pr_auc_any": 0.6427272727272727,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.230166810691663,
+            "frac_any": 0.6427272727272727,
+            "acc_side_argmax": 0.3572727272727273,
+            "precision_top5pct_any": 0.6636363636363637,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.662255757517333,
+            "log_loss": 1.0921321028283306,
+            "pr_auc_any": 0.6098519536019537,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23825448341581004,
+            "frac_any": 0.6098519536019537,
+            "acc_side_argmax": 0.3901480463980464,
+            "precision_top5pct_any": 0.6343511450381679,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6650391464636998,
+            "log_loss": 1.09621101195912,
+            "pr_auc_any": 0.6320522901513662,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23264226681614222,
+            "frac_any": 0.6320522901513662,
+            "acc_side_argmax": 0.3679477098486338,
+            "precision_top5pct_any": 0.6116027531956736,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "full",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "logistic",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45039,
+        "high": 37851,
+        "low": 37093
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "MODEL_FAIL",
+        "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "full",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "lgbm_m",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45039,
+        "high": 37851,
+        "low": 37093
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6126517845735461,
+          "log_loss": 1.0109256654347145,
+          "pr_auc_any": 0.6780319649713743,
+          "roc_auc_any": 0.5759285149540256,
+          "brier_any": 0.23271116120777957,
+          "frac_any": 0.6239683562140182,
+          "acc_side_argmax": 0.4758545029993156,
+          "precision_top5pct_any": 0.7245822428024965
+        },
+        "mean_fold": {
+          "brier_mc": 0.6126685094309554,
+          "log_loss": 1.0109568661941297,
+          "pr_auc_any": 0.6783777311560146,
+          "roc_auc_any": 0.5753657665066806,
+          "brier_any": 0.2325810967325057,
+          "frac_any": 0.6244059851807543,
+          "acc_side_argmax": 0.47576895899679467,
+          "precision_top5pct_any": 0.7297327758091624
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6111758768136081,
+            "log_loss": 1.01122613213469,
+            "pr_auc_any": 0.6771941178643289,
+            "roc_auc_any": 0.5928255937789346,
+            "brier_any": 0.23210961619504591,
+            "frac_any": 0.6129924242424243,
+            "acc_side_argmax": 0.4818181818181818,
+            "precision_top5pct_any": 0.718939393939394,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6108998176317768,
+            "log_loss": 1.0085854550513442,
+            "pr_auc_any": 0.6918741613984036,
+            "roc_auc_any": 0.5657823535216117,
+            "brier_any": 0.22896477002354457,
+            "frac_any": 0.6427272727272727,
+            "acc_side_argmax": 0.47806818181818184,
+            "precision_top5pct_any": 0.740909090909091,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.61575312042687,
+            "log_loss": 1.0125988798650178,
+            "pr_auc_any": 0.6613312000956195,
+            "roc_auc_any": 0.5712563180286144,
+            "brier_any": 0.23900807548005634,
+            "frac_any": 0.6098519536019537,
+            "acc_side_argmax": 0.46859737484737485,
+            "precision_top5pct_any": 0.7068702290076336,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6128452228515664,
+            "log_loss": 1.0114169977254666,
+            "pr_auc_any": 0.6831114452657062,
+            "roc_auc_any": 0.5715988006975614,
+            "brier_any": 0.230241925231376,
+            "frac_any": 0.6320522901513662,
+            "acc_side_argmax": 0.47459209750344017,
+            "precision_top5pct_any": 0.7522123893805309,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "full",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "hist_gb",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45039,
+        "high": 37851,
+        "low": 37093
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6095025427947864,
+          "log_loss": 1.0063869241778578,
+          "pr_auc_any": 0.6759682879276702,
+          "roc_auc_any": 0.5747349946471156,
+          "brier_any": 0.230797596341323,
+          "frac_any": 0.6239683562140182,
+          "acc_side_argmax": 0.4819135230886912,
+          "precision_top5pct_any": 0.7118985302999798
+        },
+        "mean_fold": {
+          "brier_mc": 0.6095888387354027,
+          "log_loss": 1.0065275895856376,
+          "pr_auc_any": 0.6764230610134911,
+          "roc_auc_any": 0.57452040159037,
+          "brier_any": 0.23071454088978754,
+          "frac_any": 0.6244059851807543,
+          "acc_side_argmax": 0.4818390841706401,
+          "precision_top5pct_any": 0.7158593040449759
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6066175078760686,
+            "log_loss": 1.003857853407808,
+            "pr_auc_any": 0.6770501282906112,
+            "roc_auc_any": 0.5937233043390968,
+            "brier_any": 0.2296784414421456,
+            "frac_any": 0.6129924242424243,
+            "acc_side_argmax": 0.4859469696969697,
+            "precision_top5pct_any": 0.718939393939394,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6100131991627096,
+            "log_loss": 1.0074728863841982,
+            "pr_auc_any": 0.6891678501724249,
+            "roc_auc_any": 0.564650601851352,
+            "brier_any": 0.2280730935618697,
+            "frac_any": 0.6427272727272727,
+            "acc_side_argmax": 0.4810606060606061,
+            "precision_top5pct_any": 0.7310606060606061,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6107561161379205,
+            "log_loss": 1.00592355458017,
+            "pr_auc_any": 0.6587121444603284,
+            "roc_auc_any": 0.5695445787677524,
+            "brier_any": 0.2359207815942993,
+            "frac_any": 0.6098519536019537,
+            "acc_side_argmax": 0.47966269841269843,
+            "precision_top5pct_any": 0.6946564885496184,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6109685317649125,
+            "log_loss": 1.0088560639703743,
+            "pr_auc_any": 0.6807621211306001,
+            "roc_auc_any": 0.570163121403279,
+            "brier_any": 0.22918584696083558,
+            "frac_any": 0.6320522901513662,
+            "acc_side_argmax": 0.48068606251228624,
+            "precision_top5pct_any": 0.7187807276302851,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_strict",
+      "horizon_bars": 4,
+      "model": "baserate",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 47425,
+        "high": 36497,
+        "low": 36061
+      },
+      "label_config_version": "94b7d8c91c807939",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6611965630443649,
+          "log_loss": 1.0906168635214044,
+          "pr_auc_any": 0.6015378519304839,
+          "roc_auc_any": 0.4922098527003841,
+          "brier_any": 0.23897968878137638,
+          "frac_any": 0.6054490921534683,
+          "acc_side_argmax": 0.3945509078465317,
+          "precision_top5pct_any": 0.6243205154016509
+        },
+        "mean_fold": {
+          "brier_mc": 0.6612584898722248,
+          "log_loss": 1.0907070636252798,
+          "pr_auc_any": 0.605805184634185,
+          "roc_auc_any": 0.5,
+          "brier_any": 0.23890060330319418,
+          "frac_any": 0.605805184634185,
+          "acc_side_argmax": 0.394194815365815,
+          "precision_top5pct_any": 0.617239049278163
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6581318642938069,
+            "log_loss": 1.0862071909674897,
+            "pr_auc_any": 0.5905303030303031,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.24192173579113782,
+            "frac_any": 0.5905303030303031,
+            "acc_side_argmax": 0.409469696969697,
+            "precision_top5pct_any": 0.6060606060606061,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6649584609688609,
+            "log_loss": 1.0960198893198987,
+            "pr_auc_any": 0.6229166666666667,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23565403926005385,
+            "frac_any": 0.6229166666666667,
+            "acc_side_argmax": 0.3770833333333333,
+            "precision_top5pct_any": 0.6484848484848484,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.659616392775791,
+            "log_loss": 1.0883381364410558,
+            "pr_auc_any": 0.5978708791208791,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.2404743112455698,
+            "frac_any": 0.5978708791208791,
+            "acc_side_argmax": 0.4021291208791209,
+            "precision_top5pct_any": 0.6175572519083969,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6623272414504403,
+            "log_loss": 1.0922630377726752,
+            "pr_auc_any": 0.6119028897188913,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23755232691601527,
+            "frac_any": 0.6119028897188913,
+            "acc_side_argmax": 0.3880971102811087,
+            "precision_top5pct_any": 0.5968534906588004,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_strict",
+      "horizon_bars": 4,
+      "model": "logistic",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 47425,
+        "high": 36497,
+        "low": 36061
+      },
+      "label_config_version": "94b7d8c91c807939",
+      "result": {
+        "status": "MODEL_FAIL",
+        "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_strict",
+      "horizon_bars": 4,
+      "model": "lgbm_m",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 47425,
+        "high": 36497,
+        "low": 36061
+      },
+      "label_config_version": "94b7d8c91c807939",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6263553259304374,
+          "log_loss": 1.0307683107411374,
+          "pr_auc_any": 0.6485140466826298,
+          "roc_auc_any": 0.5553723571996207,
+          "brier_any": 0.2411189880516466,
+          "frac_any": 0.6054490921534683,
+          "acc_side_argmax": 0.44676718064334314,
+          "precision_top5pct_any": 0.7076706261324743
+        },
+        "mean_fold": {
+          "brier_mc": 0.6263527051280348,
+          "log_loss": 1.0307834433436782,
+          "pr_auc_any": 0.649118432515655,
+          "roc_auc_any": 0.5551494496954056,
+          "brier_any": 0.24099453112269886,
+          "frac_any": 0.605805184634185,
+          "acc_side_argmax": 0.44650631816090336,
+          "precision_top5pct_any": 0.7114034010305036
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6254697827222996,
+            "log_loss": 1.0315639070402924,
+            "pr_auc_any": 0.6398729297497276,
+            "roc_auc_any": 0.5674462982093766,
+            "brier_any": 0.2426758272777448,
+            "frac_any": 0.5905303030303031,
+            "acc_side_argmax": 0.4506060606060606,
+            "precision_top5pct_any": 0.6962121212121212,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6238430095802746,
+            "log_loss": 1.0274317273456093,
+            "pr_auc_any": 0.6672718403400716,
+            "roc_auc_any": 0.5533296184303981,
+            "brier_any": 0.23660292810061204,
+            "frac_any": 0.6229166666666667,
+            "acc_side_argmax": 0.4536363636363636,
+            "precision_top5pct_any": 0.7310606060606061,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6299009161004028,
+            "log_loss": 1.033182368952952,
+            "pr_auc_any": 0.6376553576952537,
+            "roc_auc_any": 0.5487394355829689,
+            "brier_any": 0.2459038007117536,
+            "frac_any": 0.5978708791208791,
+            "acc_side_argmax": 0.4393315018315018,
+            "precision_top5pct_any": 0.7015267175572519,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6261971121091622,
+            "log_loss": 1.0309557700358598,
+            "pr_auc_any": 0.6516736022775672,
+            "roc_auc_any": 0.5510824465588785,
+            "brier_any": 0.2387955684006851,
+            "frac_any": 0.6119028897188913,
+            "acc_side_argmax": 0.44245134656968743,
+            "precision_top5pct_any": 0.7168141592920354,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_strict",
+      "horizon_bars": 4,
+      "model": "hist_gb",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 47425,
+        "high": 36497,
+        "low": 36061
+      },
+      "label_config_version": "94b7d8c91c807939",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6189341155125277,
+          "log_loss": 1.0200604880483923,
+          "pr_auc_any": 0.648835109548037,
+          "roc_auc_any": 0.5555990124751724,
+          "brier_any": 0.2368023022484707,
+          "frac_any": 0.6054490921534683,
+          "acc_side_argmax": 0.45927774870163857,
+          "precision_top5pct_any": 0.7120998590698611
+        },
+        "mean_fold": {
+          "brier_mc": 0.619090293842066,
+          "log_loss": 1.0203284996823148,
+          "pr_auc_any": 0.6492509669488782,
+          "roc_auc_any": 0.5553677591447572,
+          "brier_any": 0.23675690038153002,
+          "frac_any": 0.605805184634185,
+          "acc_side_argmax": 0.4589114530313297,
+          "precision_top5pct_any": 0.7122051128388527
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6166779065791802,
+            "log_loss": 1.0182826031064722,
+            "pr_auc_any": 0.6442008144992083,
+            "roc_auc_any": 0.5709259653742793,
+            "brier_any": 0.23768504855504202,
+            "frac_any": 0.5905303030303031,
+            "acc_side_argmax": 0.4646590909090909,
+            "precision_top5pct_any": 0.7106060606060606,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6176085055069997,
+            "log_loss": 1.0182826843788324,
+            "pr_auc_any": 0.6676208271150165,
+            "roc_auc_any": 0.5546486645056296,
+            "brier_any": 0.23323660238429123,
+            "frac_any": 0.6229166666666667,
+            "acc_side_argmax": 0.46132575757575756,
+            "precision_top5pct_any": 0.7356060606060606,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6204640645944897,
+            "log_loss": 1.0200101509440342,
+            "pr_auc_any": 0.6349312453978333,
+            "roc_auc_any": 0.5462005885817794,
+            "brier_any": 0.24020376704107946,
+            "frac_any": 0.5978708791208791,
+            "acc_side_argmax": 0.45669261294261293,
+            "precision_top5pct_any": 0.7015267175572519,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6216106986875947,
+            "log_loss": 1.0247385602999206,
+            "pr_auc_any": 0.6502509807834544,
+            "roc_auc_any": 0.5496958181173404,
+            "brier_any": 0.23590218354570738,
+            "frac_any": 0.6119028897188913,
+            "acc_side_argmax": 0.4529683506978573,
+            "precision_top5pct_any": 0.7010816125860374,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_strict",
+      "horizon_bars": 4,
+      "model": "mlp_sklearn",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 47425,
+        "high": 36497,
+        "low": 36061
+      },
+      "label_config_version": "94b7d8c91c807939",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6221709246124912,
+          "log_loss": 1.0249962804164123,
+          "pr_auc_any": 0.6417364558289567,
+          "roc_auc_any": 0.5506208673519108,
+          "brier_any": 0.2383852321231185,
+          "frac_any": 0.6054490921534683,
+          "acc_side_argmax": 0.4550505253834695,
+          "precision_top5pct_any": 0.6736460640225488
+        },
+        "mean_fold": {
+          "brier_mc": 0.6221567886041155,
+          "log_loss": 1.0250017666169522,
+          "pr_auc_any": 0.6467906304505258,
+          "roc_auc_any": 0.55386766127316,
+          "brier_any": 0.23824329959216595,
+          "frac_any": 0.605805184634185,
+          "acc_side_argmax": 0.45490021490015353,
+          "precision_top5pct_any": 0.6919993225847613
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6199142330221671,
+            "log_loss": 1.0247878707527605,
+            "pr_auc_any": 0.6370011646990285,
+            "roc_auc_any": 0.5666542513138775,
+            "brier_any": 0.23965191676693529,
+            "frac_any": 0.5905303030303031,
+            "acc_side_argmax": 0.46261363636363634,
+            "precision_top5pct_any": 0.6727272727272727,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6199179005712149,
+            "log_loss": 1.0208041163496537,
+            "pr_auc_any": 0.6631784030911496,
+            "roc_auc_any": 0.5521923450296783,
+            "brier_any": 0.23490702499348096,
+            "frac_any": 0.6229166666666667,
+            "acc_side_argmax": 0.4570075757575758,
+            "precision_top5pct_any": 0.718939393939394,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6270247397995511,
+            "log_loss": 1.0294648366249637,
+            "pr_auc_any": 0.6331022451104519,
+            "roc_auc_any": 0.5468261411920583,
+            "brier_any": 0.2426405745537459,
+            "frac_any": 0.5978708791208791,
+            "acc_side_argmax": 0.4473061660561661,
+            "precision_top5pct_any": 0.6732824427480916,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6217702810235293,
+            "log_loss": 1.0249502427404307,
+            "pr_auc_any": 0.6538807089014731,
+            "roc_auc_any": 0.5497979075570258,
+            "brier_any": 0.2357736820545017,
+            "frac_any": 0.6119028897188913,
+            "acc_side_argmax": 0.4526734814232357,
+            "precision_top5pct_any": 0.7030481809242871,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "1h",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "baserate",
+      "n_rows": 58213,
+      "class_counts": {
+        "none": 20593,
+        "high": 19369,
+        "low": 18251
+      },
+      "label_config_version": "4df50082d0440fe0",
+      "result": {
+        "status": "OK",
+        "n_folds": 6,
+        "pooled": {
+          "n": 37939.0,
+          "brier_mc": 0.6658517911405815,
+          "log_loss": 1.097388128266146,
+          "pr_auc_any": 0.6442583865541911,
+          "roc_auc_any": 0.4972413915947006,
+          "brier_any": 0.22878751220059776,
+          "frac_any": 0.645747120377448,
+          "acc_side_argmax": 0.354252879622552,
+          "precision_top5pct_any": 0.645042194092827
+        },
+        "mean_fold": {
+          "brier_mc": 0.6658235540862326,
+          "log_loss": 1.0973466741596232,
+          "pr_auc_any": 0.6450890569334051,
+          "roc_auc_any": 0.5,
+          "brier_any": 0.22898131069293037,
+          "frac_any": 0.6450890569334051,
+          "acc_side_argmax": 0.3549109430665949,
+          "precision_top5pct_any": 0.6595929908482838
+        },
+        "folds": [
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6661036798799435,
+            "log_loss": 1.0977571966809523,
+            "pr_auc_any": 0.6526251526251526,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.22673382807163872,
+            "frac_any": 0.6526251526251526,
+            "acc_side_argmax": 0.34737484737484736,
+            "precision_top5pct_any": 0.6605504587155964,
+            "fold": 0
+          },
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6670700208754928,
+            "log_loss": 1.0992035291917024,
+            "pr_auc_any": 0.6683455433455433,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.22205673519562114,
+            "frac_any": 0.6683455433455433,
+            "acc_side_argmax": 0.33165445665445664,
+            "precision_top5pct_any": 0.6788990825688074,
+            "fold": 1
+          },
+          {
+            "n": 6600.0,
+            "brier_mc": 0.6657243050102736,
+            "log_loss": 1.0971969458360702,
+            "pr_auc_any": 0.6427272727272727,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.22972182168803854,
+            "frac_any": 0.6427272727272727,
+            "acc_side_argmax": 0.3572727272727273,
+            "precision_top5pct_any": 0.6757575757575758,
+            "fold": 2
+          },
+          {
+            "n": 6599.0,
+            "brier_mc": 0.6656530023770302,
+            "log_loss": 1.0970819186039478,
+            "pr_auc_any": 0.6464615850886498,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.2285667424190418,
+            "frac_any": 0.6464615850886498,
+            "acc_side_argmax": 0.3535384149113502,
+            "precision_top5pct_any": 0.7051671732522796,
+            "fold": 3
+          },
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6653052265192939,
+            "log_loss": 1.0965784928955327,
+            "pr_auc_any": 0.6323260073260073,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23280795686721972,
+            "frac_any": 0.6323260073260073,
+            "acc_side_argmax": 0.3676739926739927,
+            "precision_top5pct_any": 0.599388379204893,
+            "fold": 4
+          },
+          {
+            "n": 5084.0,
+            "brier_mc": 0.6650850898553613,
+            "log_loss": 1.0962619617495348,
+            "pr_auc_any": 0.6280487804878049,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23400077991602236,
+            "frac_any": 0.6280487804878049,
+            "acc_side_argmax": 0.3719512195121951,
+            "precision_top5pct_any": 0.6377952755905512,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "1h",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "logistic",
+      "n_rows": 58213,
+      "class_counts": {
+        "none": 20593,
+        "high": 19369,
+        "low": 18251
+      },
+      "label_config_version": "4df50082d0440fe0",
+      "result": {
+        "status": "MODEL_FAIL",
+        "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "1h",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "lgbm_m",
+      "n_rows": 58213,
+      "class_counts": {
+        "none": 20593,
+        "high": 19369,
+        "low": 18251
+      },
+      "label_config_version": "4df50082d0440fe0",
+      "result": {
+        "status": "OK",
+        "n_folds": 6,
+        "pooled": {
+          "n": 37939.0,
+          "brier_mc": 0.6303004559270989,
+          "log_loss": 1.040070121049144,
+          "pr_auc_any": 0.6831763461595453,
+          "roc_auc_any": 0.5545328805937657,
+          "brier_any": 0.2285373954494443,
+          "frac_any": 0.645747120377448,
+          "acc_side_argmax": 0.4477187063443949,
+          "precision_top5pct_any": 0.7178270042194093
+        },
+        "mean_fold": {
+          "brier_mc": 0.6301997699614538,
+          "log_loss": 1.0399177906102433,
+          "pr_auc_any": 0.683031133186429,
+          "roc_auc_any": 0.5555198810430176,
+          "brier_any": 0.22870478642239486,
+          "frac_any": 0.6450890569334051,
+          "acc_side_argmax": 0.44766904239746214,
+          "precision_top5pct_any": 0.719561120020681
+        },
+        "folds": [
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6303296437277897,
+            "log_loss": 1.0389126215339073,
+            "pr_auc_any": 0.693784683969684,
+            "roc_auc_any": 0.5549482459010194,
+            "brier_any": 0.22648624008633966,
+            "frac_any": 0.6526251526251526,
+            "acc_side_argmax": 0.44429181929181927,
+            "precision_top5pct_any": 0.7675840978593272,
+            "fold": 0
+          },
+          {
+            "n": 6552.0,
+            "brier_mc": 0.631970334404451,
+            "log_loss": 1.0458431350041424,
+            "pr_auc_any": 0.7080686927197446,
+            "roc_auc_any": 0.5683193655196795,
+            "brier_any": 0.2195934620793993,
+            "frac_any": 0.6683455433455433,
+            "acc_side_argmax": 0.45573870573870573,
+            "precision_top5pct_any": 0.746177370030581,
+            "fold": 1
+          },
+          {
+            "n": 6600.0,
+            "brier_mc": 0.6353062778715461,
+            "log_loss": 1.0481156989120035,
+            "pr_auc_any": 0.6725260327979965,
+            "roc_auc_any": 0.5453327502870243,
+            "brier_any": 0.23092481998590247,
+            "frac_any": 0.6427272727272727,
+            "acc_side_argmax": 0.4486363636363636,
+            "precision_top5pct_any": 0.706060606060606,
+            "fold": 2
+          },
+          {
+            "n": 6599.0,
+            "brier_mc": 0.6276251405987495,
+            "log_loss": 1.0358867581515812,
+            "pr_auc_any": 0.6830183908817625,
+            "roc_auc_any": 0.5538423311025545,
+            "brier_any": 0.22762027440379456,
+            "frac_any": 0.6464615850886498,
+            "acc_side_argmax": 0.45021973026216094,
+            "precision_top5pct_any": 0.6990881458966566,
+            "fold": 3
+          },
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6282850417953145,
+            "log_loss": 1.034628575586181,
+            "pr_auc_any": 0.6713374385446951,
+            "roc_auc_any": 0.5526099077129203,
+            "brier_any": 0.23453521480112421,
+            "frac_any": 0.6323260073260073,
+            "acc_side_argmax": 0.4406288156288156,
+            "precision_top5pct_any": 0.709480122324159,
+            "fold": 4
+          },
+          {
+            "n": 5084.0,
+            "brier_mc": 0.6276821813708718,
+            "log_loss": 1.0361199544736444,
+            "pr_auc_any": 0.6694515602046918,
+            "roc_auc_any": 0.5580666857349076,
+            "brier_any": 0.23306870717780914,
+            "frac_any": 0.6280487804878049,
+            "acc_side_argmax": 0.4464988198269079,
+            "precision_top5pct_any": 0.6889763779527559,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "1h",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "hist_gb",
+      "n_rows": 58213,
+      "class_counts": {
+        "none": 20593,
+        "high": 19369,
+        "low": 18251
+      },
+      "label_config_version": "4df50082d0440fe0",
+      "result": {
+        "status": "OK",
+        "n_folds": 6,
+        "pooled": {
+          "n": 37939.0,
+          "brier_mc": 0.6294911628646457,
+          "log_loss": 1.0387504941478443,
+          "pr_auc_any": 0.6817086682785085,
+          "roc_auc_any": 0.5539371656812037,
+          "brier_any": 0.22794930358208726,
+          "frac_any": 0.645747120377448,
+          "acc_side_argmax": 0.4505917393710957,
+          "precision_top5pct_any": 0.7114978902953587
+        },
+        "mean_fold": {
+          "brier_mc": 0.6294152252006059,
+          "log_loss": 1.0386565337730365,
+          "pr_auc_any": 0.6825209642244999,
+          "roc_auc_any": 0.555188758100194,
+          "brier_any": 0.22811857726238446,
+          "frac_any": 0.6450890569334051,
+          "acc_side_argmax": 0.4503652160507317,
+          "precision_top5pct_any": 0.7219001739248551
+        },
+        "folds": [
+          {
+            "n": 6552.0,
+            "brier_mc": 0.628152954583347,
+            "log_loss": 1.0356882510144758,
+            "pr_auc_any": 0.6899481672074583,
+            "roc_auc_any": 0.5535441405909635,
+            "brier_any": 0.22607411035938896,
+            "frac_any": 0.6526251526251526,
+            "acc_side_argmax": 0.4488705738705739,
+            "precision_top5pct_any": 0.7186544342507645,
+            "fold": 0
+          },
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6301814114587382,
+            "log_loss": 1.0419229633590565,
+            "pr_auc_any": 0.7097512255638612,
+            "roc_auc_any": 0.5713080471189999,
+            "brier_any": 0.21882173997215373,
+            "frac_any": 0.6683455433455433,
+            "acc_side_argmax": 0.4532967032967033,
+            "precision_top5pct_any": 0.7339449541284404,
+            "fold": 1
+          },
+          {
+            "n": 6600.0,
+            "brier_mc": 0.6343027841433059,
+            "log_loss": 1.0465527687720109,
+            "pr_auc_any": 0.6697223401339328,
+            "roc_auc_any": 0.5444074941845329,
+            "brier_any": 0.230185225779653,
+            "frac_any": 0.6427272727272727,
+            "acc_side_argmax": 0.45196969696969697,
+            "precision_top5pct_any": 0.696969696969697,
+            "fold": 2
+          },
+          {
+            "n": 6599.0,
+            "brier_mc": 0.625581659077458,
+            "log_loss": 1.0328278337973322,
+            "pr_auc_any": 0.6872433415018675,
+            "roc_auc_any": 0.5603015620676371,
+            "brier_any": 0.22664532647090493,
+            "frac_any": 0.6464615850886498,
+            "acc_side_argmax": 0.45552356417639034,
+            "precision_top5pct_any": 0.7173252279635258,
+            "fold": 3
+          },
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6307827757419133,
+            "log_loss": 1.0386475905318113,
+            "pr_auc_any": 0.6688999557909467,
+            "roc_auc_any": 0.5444804446917271,
+            "brier_any": 0.23447136758648,
+            "frac_any": 0.6323260073260073,
+            "acc_side_argmax": 0.4478021978021978,
+            "precision_top5pct_any": 0.7125382262996942,
+            "fold": 4
+          },
+          {
+            "n": 5084.0,
+            "brier_mc": 0.627489766198873,
+            "log_loss": 1.036299795163532,
+            "pr_auc_any": 0.6695607551489335,
+            "roc_auc_any": 0.5570908599473035,
+            "brier_any": 0.23251369340572617,
+            "frac_any": 0.6280487804878049,
+            "acc_side_argmax": 0.44472856018882767,
+            "precision_top5pct_any": 0.7519685039370079,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "1h",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "mlp_sklearn",
+      "n_rows": 58213,
+      "class_counts": {
+        "none": 20593,
+        "high": 19369,
+        "low": 18251
+      },
+      "label_config_version": "4df50082d0440fe0",
+      "result": {
+        "status": "OK",
+        "n_folds": 6,
+        "pooled": {
+          "n": 37939.0,
+          "brier_mc": 0.6296502680401845,
+          "log_loss": 1.0387879972516454,
+          "pr_auc_any": 0.6818018040470355,
+          "roc_auc_any": 0.5529874214982536,
+          "brier_any": 0.227230326698369,
+          "frac_any": 0.645747120377448,
+          "acc_side_argmax": 0.44592635546535225,
+          "precision_top5pct_any": 0.7141350210970464
+        },
+        "mean_fold": {
+          "brier_mc": 0.6296375497470285,
+          "log_loss": 1.0387623208749714,
+          "pr_auc_any": 0.6823267696786582,
+          "roc_auc_any": 0.5548243897472651,
+          "brier_any": 0.2274297926197774,
+          "frac_any": 0.6450890569334051,
+          "acc_side_argmax": 0.44604385294282256,
+          "precision_top5pct_any": 0.7122695959431171
+        },
+        "folds": [
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6274427516055099,
+            "log_loss": 1.0346118498924346,
+            "pr_auc_any": 0.6940828997935257,
+            "roc_auc_any": 0.5560231339836024,
+            "brier_any": 0.22525982834595887,
+            "frac_any": 0.6526251526251526,
+            "acc_side_argmax": 0.4491758241758242,
+            "precision_top5pct_any": 0.72782874617737,
+            "fold": 0
+          },
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6344358549149215,
+            "log_loss": 1.048599391271592,
+            "pr_auc_any": 0.7087497977084675,
+            "roc_auc_any": 0.5669571765928398,
+            "brier_any": 0.2199103795722966,
+            "frac_any": 0.6683455433455433,
+            "acc_side_argmax": 0.4362026862026862,
+            "precision_top5pct_any": 0.7400611620795107,
+            "fold": 1
+          },
+          {
+            "n": 6600.0,
+            "brier_mc": 0.6335210097149764,
+            "log_loss": 1.044860599936896,
+            "pr_auc_any": 0.6671827301588367,
+            "roc_auc_any": 0.544722311198768,
+            "brier_any": 0.2291038508820117,
+            "frac_any": 0.6427272727272727,
+            "acc_side_argmax": 0.44075757575757574,
+            "precision_top5pct_any": 0.6696969696969697,
+            "fold": 2
+          },
+          {
+            "n": 6599.0,
+            "brier_mc": 0.6270066996309538,
+            "log_loss": 1.0344560122211324,
+            "pr_auc_any": 0.6935350673539081,
+            "roc_auc_any": 0.5626274920930034,
+            "brier_any": 0.2261122638485996,
+            "frac_any": 0.6464615850886498,
+            "acc_side_argmax": 0.4506743445976663,
+            "precision_top5pct_any": 0.7629179331306991,
+            "fold": 3
+          },
+          {
+            "n": 6552.0,
+            "brier_mc": 0.626067375103826,
+            "log_loss": 1.0318858049808615,
+            "pr_auc_any": 0.6696672783905553,
+            "roc_auc_any": 0.5551172001927361,
+            "brier_any": 0.23159508695093656,
+            "frac_any": 0.6323260073260073,
+            "acc_side_argmax": 0.4503968253968254,
+            "precision_top5pct_any": 0.6880733944954128,
+            "fold": 4
+          },
+          {
+            "n": 5084.0,
+            "brier_mc": 0.6293516075119828,
+            "log_loss": 1.038160266946911,
+            "pr_auc_any": 0.6607428446666553,
+            "roc_auc_any": 0.5434990244226405,
+            "brier_any": 0.23259734611886101,
+            "frac_any": 0.6280487804878049,
+            "acc_side_argmax": 0.4490558615263572,
+            "precision_top5pct_any": 0.6850393700787402,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "5m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 6,
+      "model": "baserate",
+      "n_rows": 79978,
+      "class_counts": {
+        "none": 18367,
+        "high": 31228,
+        "low": 30383
+      },
+      "label_config_version": "db9bf4e9198254f1",
+      "result": {
+        "status": "OK",
+        "n_folds": 1,
+        "pooled": {
+          "n": 61050.0,
+          "brier_mc": 0.6514449416892387,
+          "log_loss": 1.074760353552919,
+          "pr_auc_any": 0.784995904995905,
+          "roc_auc_any": 0.5,
+          "brier_any": 0.17262471029536955,
+          "frac_any": 0.784995904995905,
+          "acc_side_argmax": 0.38545454545454544,
+          "precision_top5pct_any": 0.7719528178243774
+        },
+        "mean_fold": {
+          "brier_mc": 0.6514449416892387,
+          "log_loss": 1.074760353552919,
+          "pr_auc_any": 0.784995904995905,
+          "roc_auc_any": 0.5,
+          "brier_any": 0.17262471029536955,
+          "frac_any": 0.784995904995905,
+          "acc_side_argmax": 0.38545454545454544,
+          "precision_top5pct_any": 0.7719528178243774
+        },
+        "folds": [
+          {
+            "n": 61050.0,
+            "brier_mc": 0.6514449416892387,
+            "log_loss": 1.074760353552919,
+            "pr_auc_any": 0.784995904995905,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.17262471029536955,
+            "frac_any": 0.784995904995905,
+            "acc_side_argmax": 0.38545454545454544,
+            "precision_top5pct_any": 0.7719528178243774,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "5m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 6,
+      "model": "logistic",
+      "n_rows": 79978,
+      "class_counts": {
+        "none": 18367,
+        "high": 31228,
+        "low": 30383
+      },
+      "label_config_version": "db9bf4e9198254f1",
+      "result": {
+        "status": "MODEL_FAIL",
+        "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "5m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 6,
+      "model": "lgbm_m",
+      "n_rows": 79978,
+      "class_counts": {
+        "none": 18367,
+        "high": 31228,
+        "low": 30383
+      },
+      "label_config_version": "db9bf4e9198254f1",
+      "result": {
+        "status": "OK",
+        "n_folds": 1,
+        "pooled": {
+          "n": 61050.0,
+          "brier_mc": 0.6081687708565304,
+          "log_loss": 1.0185059679488988,
+          "pr_auc_any": 0.8152117787872133,
+          "roc_auc_any": 0.5719256028988862,
+          "brier_any": 0.17252392687171134,
+          "frac_any": 0.784995904995905,
+          "acc_side_argmax": 0.512022932022932,
+          "precision_top5pct_any": 0.833224115334207
+        },
+        "mean_fold": {
+          "brier_mc": 0.6081687708565304,
+          "log_loss": 1.0185059679488988,
+          "pr_auc_any": 0.8152117787872133,
+          "roc_auc_any": 0.5719256028988862,
+          "brier_any": 0.17252392687171134,
+          "frac_any": 0.784995904995905,
+          "acc_side_argmax": 0.512022932022932,
+          "precision_top5pct_any": 0.833224115334207
+        },
+        "folds": [
+          {
+            "n": 61050.0,
+            "brier_mc": 0.6081687708565304,
+            "log_loss": 1.0185059679488988,
+            "pr_auc_any": 0.8152117787872133,
+            "roc_auc_any": 0.5719256028988862,
+            "brier_any": 0.17252392687171134,
+            "frac_any": 0.784995904995905,
+            "acc_side_argmax": 0.512022932022932,
+            "precision_top5pct_any": 0.833224115334207,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "5m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 6,
+      "model": "hist_gb",
+      "n_rows": 79978,
+      "class_counts": {
+        "none": 18367,
+        "high": 31228,
+        "low": 30383
+      },
+      "label_config_version": "db9bf4e9198254f1",
+      "result": {
+        "status": "OK",
+        "n_folds": 1,
+        "pooled": {
+          "n": 61050.0,
+          "brier_mc": 0.6055685872326114,
+          "log_loss": 1.0157418776137577,
+          "pr_auc_any": 0.8140280447726438,
+          "roc_auc_any": 0.5690122657003408,
+          "brier_any": 0.1689422939581146,
+          "frac_any": 0.784995904995905,
+          "acc_side_argmax": 0.5176904176904177,
+          "precision_top5pct_any": 0.8256880733944955
+        },
+        "mean_fold": {
+          "brier_mc": 0.6055685872326114,
+          "log_loss": 1.0157418776137577,
+          "pr_auc_any": 0.8140280447726438,
+          "roc_auc_any": 0.5690122657003408,
+          "brier_any": 0.1689422939581146,
+          "frac_any": 0.784995904995905,
+          "acc_side_argmax": 0.5176904176904177,
+          "precision_top5pct_any": 0.8256880733944955
+        },
+        "folds": [
+          {
+            "n": 61050.0,
+            "brier_mc": 0.6055685872326114,
+            "log_loss": 1.0157418776137577,
+            "pr_auc_any": 0.8140280447726438,
+            "roc_auc_any": 0.5690122657003408,
+            "brier_any": 0.1689422939581146,
+            "frac_any": 0.784995904995905,
+            "acc_side_argmax": 0.5176904176904177,
+            "precision_top5pct_any": 0.8256880733944955,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "BTCUSDT",
+      "timeframe": "5m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 6,
+      "model": "mlp_sklearn",
+      "n_rows": 79978,
+      "class_counts": {
+        "none": 18367,
+        "high": 31228,
+        "low": 30383
+      },
+      "label_config_version": "db9bf4e9198254f1",
+      "result": {
+        "status": "OK",
+        "n_folds": 1,
+        "pooled": {
+          "n": 61050.0,
+          "brier_mc": 0.5977629473429937,
+          "log_loss": 1.0086776830887196,
+          "pr_auc_any": 0.8132970097130489,
+          "roc_auc_any": 0.5735296619083114,
+          "brier_any": 0.166898779894804,
+          "frac_any": 0.784995904995905,
+          "acc_side_argmax": 0.5286486486486487,
+          "precision_top5pct_any": 0.8197903014416776
+        },
+        "mean_fold": {
+          "brier_mc": 0.5977629473429937,
+          "log_loss": 1.0086776830887196,
+          "pr_auc_any": 0.8132970097130489,
+          "roc_auc_any": 0.5735296619083114,
+          "brier_any": 0.166898779894804,
+          "frac_any": 0.784995904995905,
+          "acc_side_argmax": 0.5286486486486487,
+          "precision_top5pct_any": 0.8197903014416776
+        },
+        "folds": [
+          {
+            "n": 61050.0,
+            "brier_mc": 0.5977629473429937,
+            "log_loss": 1.0086776830887196,
+            "pr_auc_any": 0.8132970097130489,
+            "roc_auc_any": 0.5735296619083114,
+            "brier_any": 0.166898779894804,
+            "frac_any": 0.784995904995905,
+            "acc_side_argmax": 0.5286486486486487,
+            "precision_top5pct_any": 0.8197903014416776,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "baserate",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 43015,
+        "high": 38925,
+        "low": 38043
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.665718959779431,
+          "log_loss": 1.0972042919045826,
+          "pr_auc_any": 0.6351161219620469,
+          "roc_auc_any": 0.4917490716394932,
+          "brier_any": 0.2305220886529169,
+          "frac_any": 0.6398607029268489,
+          "acc_side_argmax": 0.36013929707315107,
+          "precision_top5pct_any": 0.6017716931749547
+        },
+        "mean_fold": {
+          "brier_mc": 0.6657286792600874,
+          "log_loss": 1.0972188183164546,
+          "pr_auc_any": 0.640085412575215,
+          "roc_auc_any": 0.5,
+          "brier_any": 0.23045388384414775,
+          "frac_any": 0.640085412575215,
+          "acc_side_argmax": 0.359914587424785,
+          "precision_top5pct_any": 0.6429080544006572
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6652354358732533,
+            "log_loss": 1.0964881046333332,
+            "pr_auc_any": 0.629469696969697,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23362982293818874,
+            "frac_any": 0.629469696969697,
+            "acc_side_argmax": 0.37053030303030304,
+            "precision_top5pct_any": 0.6424242424242425,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6661672658739332,
+            "log_loss": 1.097857632126774,
+            "pr_auc_any": 0.6477272727272727,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.22826795552608872,
+            "frac_any": 0.6477272727272727,
+            "acc_side_argmax": 0.3522727272727273,
+            "precision_top5pct_any": 0.6818181818181818,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.665620333538248,
+            "log_loss": 1.0970674346734937,
+            "pr_auc_any": 0.6393467643467643,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.2305878448959937,
+            "frac_any": 0.6393467643467643,
+            "acc_side_argmax": 0.36065323565323565,
+            "precision_top5pct_any": 0.6259541984732825,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6658916817549153,
+            "log_loss": 1.0974621018322175,
+            "pr_auc_any": 0.643797916257126,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.22932991201631983,
+            "frac_any": 0.643797916257126,
+            "acc_side_argmax": 0.356202083742874,
+            "precision_top5pct_any": 0.6214355948869223,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "logistic",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 43015,
+        "high": 38925,
+        "low": 38043
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "MODEL_FAIL",
+        "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "lgbm_m",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 43015,
+        "high": 38925,
+        "low": 38043
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.624928632769376,
+          "log_loss": 1.0310062106091247,
+          "pr_auc_any": 0.6731543123806889,
+          "roc_auc_any": 0.549500936358995,
+          "brier_any": 0.23020630243284407,
+          "frac_any": 0.6398607029268489,
+          "acc_side_argmax": 0.4530677563508998,
+          "precision_top5pct_any": 0.6957922287094825
+        },
+        "mean_fold": {
+          "brier_mc": 0.624874262740368,
+          "log_loss": 1.0309099691688368,
+          "pr_auc_any": 0.6765886540367286,
+          "roc_auc_any": 0.5508578031382414,
+          "brier_any": 0.23002930251730191,
+          "frac_any": 0.640085412575215,
+          "acc_side_argmax": 0.452989246026891,
+          "precision_top5pct_any": 0.7075383897067001
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6313661825786213,
+            "log_loss": 1.0415210465804998,
+            "pr_auc_any": 0.6551107150008063,
+            "roc_auc_any": 0.5432001887137922,
+            "brier_any": 0.235957027364239,
+            "frac_any": 0.629469696969697,
+            "acc_side_argmax": 0.4484848484848485,
+            "precision_top5pct_any": 0.6492424242424243,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6202225703967831,
+            "log_loss": 1.024207634837239,
+            "pr_auc_any": 0.6882141789428365,
+            "roc_auc_any": 0.5507888826007672,
+            "brier_any": 0.22723813959072306,
+            "frac_any": 0.6477272727272727,
+            "acc_side_argmax": 0.4584848484848485,
+            "precision_top5pct_any": 0.7371212121212121,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6238955821609153,
+            "log_loss": 1.028504926749158,
+            "pr_auc_any": 0.6749162165945336,
+            "roc_auc_any": 0.547914096650165,
+            "brier_any": 0.22979099720443477,
+            "frac_any": 0.6393467643467643,
+            "acc_side_argmax": 0.4532967032967033,
+            "precision_top5pct_any": 0.7053435114503817,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.624012715825152,
+            "log_loss": 1.0294062685084497,
+            "pr_auc_any": 0.688113505608738,
+            "roc_auc_any": 0.5615280445882412,
+            "brier_any": 0.22713104590981084,
+            "frac_any": 0.643797916257126,
+            "acc_side_argmax": 0.45169058384116373,
+            "precision_top5pct_any": 0.7384464110127827,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "hist_gb",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 43015,
+        "high": 38925,
+        "low": 38043
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6248716672524567,
+          "log_loss": 1.030864932607042,
+          "pr_auc_any": 0.670412483103122,
+          "roc_auc_any": 0.5465028796483128,
+          "brier_any": 0.22994310826517952,
+          "frac_any": 0.6398607029268489,
+          "acc_side_argmax": 0.45203108015620597,
+          "precision_top5pct_any": 0.6879404066841152
+        },
+        "mean_fold": {
+          "brier_mc": 0.6248301848971358,
+          "log_loss": 1.03080025175728,
+          "pr_auc_any": 0.6738473766392066,
+          "roc_auc_any": 0.5481222805891638,
+          "brier_any": 0.22978259117646907,
+          "frac_any": 0.640085412575215,
+          "acc_side_argmax": 0.45191030812584526,
+          "precision_top5pct_any": 0.7086246594158842
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6317139863715766,
+            "log_loss": 1.0414746441293385,
+            "pr_auc_any": 0.651266977606445,
+            "roc_auc_any": 0.537980668426063,
+            "brier_any": 0.23559504433617184,
+            "frac_any": 0.629469696969697,
+            "acc_side_argmax": 0.44549242424242425,
+            "precision_top5pct_any": 0.6606060606060606,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6210756723043391,
+            "log_loss": 1.0255612523881956,
+            "pr_auc_any": 0.6850274058763329,
+            "roc_auc_any": 0.5482573853989814,
+            "brier_any": 0.2275699078171589,
+            "frac_any": 0.6477272727272727,
+            "acc_side_argmax": 0.4571212121212121,
+            "precision_top5pct_any": 0.7227272727272728,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6223016976247042,
+            "log_loss": 1.0262834312888398,
+            "pr_auc_any": 0.6765037125220921,
+            "roc_auc_any": 0.5507167700465327,
+            "brier_any": 0.22878643572150992,
+            "frac_any": 0.6393467643467643,
+            "acc_side_argmax": 0.4552045177045177,
+            "precision_top5pct_any": 0.7343511450381679,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6242293832879234,
+            "log_loss": 1.0298816792227456,
+            "pr_auc_any": 0.6825914105519565,
+            "roc_auc_any": 0.5555342984850782,
+            "brier_any": 0.22717897683103563,
+            "frac_any": 0.643797916257126,
+            "acc_side_argmax": 0.44982307843522706,
+            "precision_top5pct_any": 0.7168141592920354,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "mlp_sklearn",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 43015,
+        "high": 38925,
+        "low": 38043
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6251255171203415,
+          "log_loss": 1.0313521344902783,
+          "pr_auc_any": 0.6718037201571508,
+          "roc_auc_any": 0.5456157534475612,
+          "brier_any": 0.2296877315579736,
+          "frac_any": 0.6398607029268489,
+          "acc_side_argmax": 0.45084343170014896,
+          "precision_top5pct_any": 0.7038453795047313
+        },
+        "mean_fold": {
+          "brier_mc": 0.62516815465831,
+          "log_loss": 1.0314288513941188,
+          "pr_auc_any": 0.6732369356183139,
+          "roc_auc_any": 0.5467845204948069,
+          "brier_any": 0.22956414185672053,
+          "frac_any": 0.640085412575215,
+          "acc_side_argmax": 0.45089751095261466,
+          "precision_top5pct_any": 0.7052269213106545
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6262990729948301,
+            "log_loss": 1.0332651244711224,
+            "pr_auc_any": 0.6614045939037814,
+            "roc_auc_any": 0.543782180503566,
+            "brier_any": 0.23271037001172523,
+            "frac_any": 0.629469696969697,
+            "acc_side_argmax": 0.4474621212121212,
+            "precision_top5pct_any": 0.696969696969697,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.621081219464335,
+            "log_loss": 1.0254432218394522,
+            "pr_auc_any": 0.682263662990197,
+            "roc_auc_any": 0.5464770169150475,
+            "brier_any": 0.22717624984749793,
+            "frac_any": 0.6477272727272727,
+            "acc_side_argmax": 0.4565530303030303,
+            "precision_top5pct_any": 0.7227272727272728,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6274981066717756,
+            "log_loss": 1.0344134283062092,
+            "pr_auc_any": 0.6683651146309819,
+            "roc_auc_any": 0.542280406222815,
+            "brier_any": 0.23087641626003605,
+            "frac_any": 0.6393467643467643,
+            "acc_side_argmax": 0.44768772893772896,
+            "precision_top5pct_any": 0.6893129770992367,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6257942195022993,
+            "log_loss": 1.0325936309596906,
+            "pr_auc_any": 0.680914370948295,
+            "roc_auc_any": 0.5545984783377989,
+            "brier_any": 0.22749353130762284,
+            "frac_any": 0.643797916257126,
+            "acc_side_argmax": 0.4518871633575781,
+            "precision_top5pct_any": 0.711897738446411,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_strict",
+      "horizon_bars": 4,
+      "model": "baserate",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45573,
+        "high": 37427,
+        "low": 36983
+      },
+      "label_config_version": "94b7d8c91c807939",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6636754242859508,
+          "log_loss": 1.09421912368508,
+          "pr_auc_any": 0.6220045255406702,
+          "roc_auc_any": 0.5007299169271602,
+          "brier_any": 0.23539722825996234,
+          "frac_any": 0.6210696887958452,
+          "acc_side_argmax": 0.37893031120415477,
+          "precision_top5pct_any": 0.6345882826655929
+        },
+        "mean_fold": {
+          "brier_mc": 0.6636852394931803,
+          "log_loss": 1.0942333928812857,
+          "pr_auc_any": 0.6211817430734523,
+          "roc_auc_any": 0.5,
+          "brier_any": 0.23536738554494382,
+          "frac_any": 0.6211817430734523,
+          "acc_side_argmax": 0.3788182569265477,
+          "precision_top5pct_any": 0.6307605201511841
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6614868148340368,
+            "log_loss": 1.0910589984975563,
+            "pr_auc_any": 0.6064015151515152,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23876766379747302,
+            "frac_any": 0.6064015151515152,
+            "acc_side_argmax": 0.39359848484848486,
+            "precision_top5pct_any": 0.621969696969697,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6647944346033462,
+            "log_loss": 1.0958185676221612,
+            "pr_auc_any": 0.6277651515151516,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23397366061031913,
+            "frac_any": 0.6277651515151516,
+            "acc_side_argmax": 0.3722348484848485,
+            "precision_top5pct_any": 0.6659090909090909,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6646437407732025,
+            "log_loss": 1.0956327490280993,
+            "pr_auc_any": 0.6277472527472527,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.2338010702059378,
+            "frac_any": 0.6277472527472527,
+            "acc_side_argmax": 0.37225274725274726,
+            "precision_top5pct_any": 0.6206106870229008,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6638159677621354,
+            "log_loss": 1.0944232563773266,
+            "pr_auc_any": 0.6228130528798899,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23492714756604538,
+            "frac_any": 0.6228130528798899,
+            "acc_side_argmax": 0.3771869471201101,
+            "precision_top5pct_any": 0.6145526057030481,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_strict",
+      "horizon_bars": 4,
+      "model": "logistic",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45573,
+        "high": 37427,
+        "low": 36983
+      },
+      "label_config_version": "94b7d8c91c807939",
+      "result": {
+        "status": "MODEL_FAIL",
+        "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_strict",
+      "horizon_bars": 4,
+      "model": "lgbm_m",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45573,
+        "high": 37427,
+        "low": 36983
+      },
+      "label_config_version": "94b7d8c91c807939",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6267072861573999,
+          "log_loss": 1.0326654246841187,
+          "pr_auc_any": 0.6576916814246795,
+          "roc_auc_any": 0.5495002177040333,
+          "brier_any": 0.23636719265886114,
+          "frac_any": 0.6210696887958452,
+          "acc_side_argmax": 0.4443818189138049,
+          "precision_top5pct_any": 0.6913629957720958
+        },
+        "mean_fold": {
+          "brier_mc": 0.6266567948379143,
+          "log_loss": 1.0325649217853177,
+          "pr_auc_any": 0.6606902275217325,
+          "roc_auc_any": 0.5510776007329474,
+          "brier_any": 0.236233295642426,
+          "frac_any": 0.6211817430734523,
+          "acc_side_argmax": 0.44422069605797737,
+          "precision_top5pct_any": 0.7022518555138632
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6332561365330902,
+            "log_loss": 1.043295120401823,
+            "pr_auc_any": 0.6395750346341601,
+            "roc_auc_any": 0.5485210329943906,
+            "brier_any": 0.24316437006071462,
+            "frac_any": 0.6064015151515152,
+            "acc_side_argmax": 0.43950757575757576,
+            "precision_top5pct_any": 0.6477272727272727,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6215557611418574,
+            "log_loss": 1.0253963837452096,
+            "pr_auc_any": 0.6714295795250375,
+            "roc_auc_any": 0.5507444971911369,
+            "brier_any": 0.23371878232062596,
+            "frac_any": 0.6277651515151516,
+            "acc_side_argmax": 0.4498106060606061,
+            "precision_top5pct_any": 0.7325757575757575,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6259654732556856,
+            "log_loss": 1.030590586666703,
+            "pr_auc_any": 0.6657034476327461,
+            "roc_auc_any": 0.5469399992443883,
+            "brier_any": 0.23394224516614265,
+            "frac_any": 0.6277472527472527,
+            "acc_side_argmax": 0.44604700854700857,
+            "precision_top5pct_any": 0.7099236641221374,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6258498084210238,
+            "log_loss": 1.030977596327535,
+            "pr_auc_any": 0.6660528482949861,
+            "roc_auc_any": 0.5581048735018742,
+            "brier_any": 0.2341077850222208,
+            "frac_any": 0.6228130528798899,
+            "acc_side_argmax": 0.44151759386671907,
+            "precision_top5pct_any": 0.7187807276302851,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_strict",
+      "horizon_bars": 4,
+      "model": "hist_gb",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45573,
+        "high": 37427,
+        "low": 36983
+      },
+      "label_config_version": "94b7d8c91c807939",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6236169233956385,
+          "log_loss": 1.0279140371109685,
+          "pr_auc_any": 0.6576160627776569,
+          "roc_auc_any": 0.5482656870772655,
+          "brier_any": 0.23451649495786447,
+          "frac_any": 0.6210696887958452,
+          "acc_side_argmax": 0.4502798019243931,
+          "precision_top5pct_any": 0.694382927320314
+        },
+        "mean_fold": {
+          "brier_mc": 0.6237109057756367,
+          "log_loss": 1.0280498168902432,
+          "pr_auc_any": 0.6595263268617507,
+          "roc_auc_any": 0.5495642538097468,
+          "brier_any": 0.2344552353154782,
+          "frac_any": 0.6211817430734523,
+          "acc_side_argmax": 0.4499870745735819,
+          "precision_top5pct_any": 0.6981183516581747
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6259117132726411,
+            "log_loss": 1.0315037678870624,
+            "pr_auc_any": 0.639268668440079,
+            "roc_auc_any": 0.5440955678387023,
+            "brier_any": 0.23918013700055635,
+            "frac_any": 0.6064015151515152,
+            "acc_side_argmax": 0.4484848484848485,
+            "precision_top5pct_any": 0.6666666666666666,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6186752314559059,
+            "log_loss": 1.020716070618256,
+            "pr_auc_any": 0.6746441304221968,
+            "roc_auc_any": 0.5555266675852717,
+            "brier_any": 0.23202869737899395,
+            "frac_any": 0.6277651515151516,
+            "acc_side_argmax": 0.45696969696969697,
+            "precision_top5pct_any": 0.7424242424242424,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6250451891654021,
+            "log_loss": 1.0297545925311473,
+            "pr_auc_any": 0.6650333999794883,
+            "roc_auc_any": 0.5477893521945187,
+            "brier_any": 0.23312022091657617,
+            "frac_any": 0.6277472527472527,
+            "acc_side_argmax": 0.44929029304029305,
+            "precision_top5pct_any": 0.7,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6252114892085979,
+            "log_loss": 1.030224836524507,
+            "pr_auc_any": 0.6591591086052389,
+            "roc_auc_any": 0.5508454276204946,
+            "brier_any": 0.23349188596578643,
+            "frac_any": 0.6228130528798899,
+            "acc_side_argmax": 0.4452034597994889,
+            "precision_top5pct_any": 0.6833824975417896,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_strict",
+      "horizon_bars": 4,
+      "model": "mlp_sklearn",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45573,
+        "high": 37427,
+        "low": 36983
+      },
+      "label_config_version": "94b7d8c91c807939",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6272820155213138,
+          "log_loss": 1.0347518650085992,
+          "pr_auc_any": 0.6481619386302163,
+          "roc_auc_any": 0.5399985166107742,
+          "brier_any": 0.236081492432193,
+          "frac_any": 0.6210696887958452,
+          "acc_side_argmax": 0.44635452312895046,
+          "precision_top5pct_any": 0.6730420777129051
+        },
+        "mean_fold": {
+          "brier_mc": 0.6272433663298815,
+          "log_loss": 1.034628611918129,
+          "pr_auc_any": 0.6525437360818125,
+          "roc_auc_any": 0.5434834578028791,
+          "brier_any": 0.23595530852976818,
+          "frac_any": 0.6211817430734523,
+          "acc_side_argmax": 0.44628862025012755,
+          "precision_top5pct_any": 0.6869513806578929
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6327037472007506,
+            "log_loss": 1.0462571773219833,
+            "pr_auc_any": 0.6272011543656192,
+            "roc_auc_any": 0.5317177562743659,
+            "brier_any": 0.2422967956243031,
+            "frac_any": 0.6064015151515152,
+            "acc_side_argmax": 0.4383712121212121,
+            "precision_top5pct_any": 0.6636363636363637,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6211733058917149,
+            "log_loss": 1.024570281663806,
+            "pr_auc_any": 0.6672818900558789,
+            "roc_auc_any": 0.5494858800567257,
+            "brier_any": 0.23277362852143102,
+            "frac_any": 0.6277651515151516,
+            "acc_side_argmax": 0.45518939393939395,
+            "precision_top5pct_any": 0.7257575757575757,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6285283168085903,
+            "log_loss": 1.0350966786300388,
+            "pr_auc_any": 0.6568318751615977,
+            "roc_auc_any": 0.5415687449179378,
+            "brier_any": 0.23483141353380482,
+            "frac_any": 0.6277472527472527,
+            "acc_side_argmax": 0.44639041514041516,
+            "precision_top5pct_any": 0.6740458015267176,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6265680954184701,
+            "log_loss": 1.0325903100566876,
+            "pr_auc_any": 0.6588600247441541,
+            "roc_auc_any": 0.5511614499624866,
+            "brier_any": 0.23391939643953372,
+            "frac_any": 0.6228130528798899,
+            "acc_side_argmax": 0.4452034597994889,
+            "precision_top5pct_any": 0.6843657817109144,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "1h",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "baserate",
+      "n_rows": 56303,
+      "class_counts": {
+        "none": 19848,
+        "high": 18688,
+        "low": 17767
+      },
+      "label_config_version": "4df50082d0440fe0",
+      "result": {
+        "status": "OK",
+        "n_folds": 6,
+        "pooled": {
+          "n": 37939.0,
+          "brier_mc": 0.6660561026718179,
+          "log_loss": 1.097698617087485,
+          "pr_auc_any": 0.6435831250475238,
+          "roc_auc_any": 0.49348512263504823,
+          "brier_any": 0.22829290513425138,
+          "frac_any": 0.6474340388518411,
+          "acc_side_argmax": 0.3525659611481589,
+          "precision_top5pct_any": 0.6392405063291139
+        },
+        "mean_fold": {
+          "brier_mc": 0.6660442643966102,
+          "log_loss": 1.0976812755442398,
+          "pr_auc_any": 0.6471729627622657,
+          "roc_auc_any": 0.5,
+          "brier_any": 0.22836908266842024,
+          "frac_any": 0.6471729627622657,
+          "acc_side_argmax": 0.3528270372377343,
+          "precision_top5pct_any": 0.6536680588076101
+        },
+        "folds": [
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6667454995457442,
+            "log_loss": 1.0987444323135185,
+            "pr_auc_any": 0.653998778998779,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.22632392576830548,
+            "frac_any": 0.653998778998779,
+            "acc_side_argmax": 0.346001221001221,
+            "precision_top5pct_any": 0.6574923547400612,
+            "fold": 0
+          },
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6672551227831163,
+            "log_loss": 1.0994809104362095,
+            "pr_auc_any": 0.6701770451770451,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.2214813049654435,
+            "frac_any": 0.6701770451770451,
+            "acc_side_argmax": 0.3298229548229548,
+            "precision_top5pct_any": 0.6697247706422018,
+            "fold": 1
+          },
+          {
+            "n": 6600.0,
+            "brier_mc": 0.6655426957443471,
+            "log_loss": 1.0969243266347781,
+            "pr_auc_any": 0.6401515151515151,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.2305377322445928,
+            "frac_any": 0.6401515151515151,
+            "acc_side_argmax": 0.35984848484848486,
+            "precision_top5pct_any": 0.6848484848484848,
+            "fold": 2
+          },
+          {
+            "n": 6599.0,
+            "brier_mc": 0.6656478212552533,
+            "log_loss": 1.097083045916102,
+            "pr_auc_any": 0.6425215941809365,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.22976370915380323,
+            "frac_any": 0.6425215941809365,
+            "acc_side_argmax": 0.3574784058190635,
+            "precision_top5pct_any": 0.6534954407294833,
+            "fold": 3
+          },
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6653652238303758,
+            "log_loss": 1.0966657408602059,
+            "pr_auc_any": 0.6361416361416361,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23165444823086992,
+            "frac_any": 0.6361416361416361,
+            "acc_side_argmax": 0.36385836385836384,
+            "precision_top5pct_any": 0.5871559633027523,
+            "fold": 4
+          },
+          {
+            "n": 5084.0,
+            "brier_mc": 0.6657092232208248,
+            "log_loss": 1.0971891971046248,
+            "pr_auc_any": 0.6400472069236821,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23045337564750612,
+            "frac_any": 0.6400472069236821,
+            "acc_side_argmax": 0.35995279307631783,
+            "precision_top5pct_any": 0.6692913385826772,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "1h",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "logistic",
+      "n_rows": 56303,
+      "class_counts": {
+        "none": 19848,
+        "high": 18688,
+        "low": 17767
+      },
+      "label_config_version": "4df50082d0440fe0",
+      "result": {
+        "status": "MODEL_FAIL",
+        "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "1h",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "lgbm_m",
+      "n_rows": 56303,
+      "class_counts": {
+        "none": 19848,
+        "high": 18688,
+        "low": 17767
+      },
+      "label_config_version": "4df50082d0440fe0",
+      "result": {
+        "status": "OK",
+        "n_folds": 6,
+        "pooled": {
+          "n": 37939.0,
+          "brier_mc": 0.6317716030172744,
+          "log_loss": 1.0427129014034242,
+          "pr_auc_any": 0.6898584699192433,
+          "roc_auc_any": 0.5570798034085577,
+          "brier_any": 0.22800606090660358,
+          "frac_any": 0.6474340388518411,
+          "acc_side_argmax": 0.4438704235746857,
+          "precision_top5pct_any": 0.7325949367088608
+        },
+        "mean_fold": {
+          "brier_mc": 0.6317050586391312,
+          "log_loss": 1.042623258278626,
+          "pr_auc_any": 0.689555766944301,
+          "roc_auc_any": 0.557164222016433,
+          "brier_any": 0.22804040093571218,
+          "frac_any": 0.6471729627622657,
+          "acc_side_argmax": 0.44384545756376226,
+          "precision_top5pct_any": 0.7328056685140149
+        },
+        "folds": [
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6297043924606102,
+            "log_loss": 1.0383741927503194,
+            "pr_auc_any": 0.692427313083736,
+            "roc_auc_any": 0.5427794354492106,
+            "brier_any": 0.22849988792887768,
+            "frac_any": 0.653998778998779,
+            "acc_side_argmax": 0.45024420024420025,
+            "precision_top5pct_any": 0.7584097859327217,
+            "fold": 0
+          },
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6365834990600185,
+            "log_loss": 1.0526150209691432,
+            "pr_auc_any": 0.7157662447596844,
+            "roc_auc_any": 0.569672875326261,
+            "brier_any": 0.22021590087262577,
+            "frac_any": 0.6701770451770451,
+            "acc_side_argmax": 0.4416971916971917,
+            "precision_top5pct_any": 0.72782874617737,
+            "fold": 1
+          },
+          {
+            "n": 6600.0,
+            "brier_mc": 0.6396919629720287,
+            "log_loss": 1.0555889908848632,
+            "pr_auc_any": 0.6802532700987212,
+            "roc_auc_any": 0.553192899408284,
+            "brier_any": 0.23211663838157148,
+            "frac_any": 0.6401515151515151,
+            "acc_side_argmax": 0.43272727272727274,
+            "precision_top5pct_any": 0.7424242424242424,
+            "fold": 2
+          },
+          {
+            "n": 6599.0,
+            "brier_mc": 0.6281806342312838,
+            "log_loss": 1.036012697082492,
+            "pr_auc_any": 0.6828920065622319,
+            "roc_auc_any": 0.5575918601582058,
+            "brier_any": 0.22830059826960264,
+            "frac_any": 0.6425215941809365,
+            "acc_side_argmax": 0.4476435823609638,
+            "precision_top5pct_any": 0.7264437689969605,
+            "fold": 3
+          },
+          {
+            "n": 6552.0,
+            "brier_mc": 0.625936264758883,
+            "log_loss": 1.0326298254848156,
+            "pr_auc_any": 0.6839404044833326,
+            "roc_auc_any": 0.5613014909054606,
+            "brier_any": 0.23003988178961424,
+            "frac_any": 0.6361416361416361,
+            "acc_side_argmax": 0.4478021978021978,
+            "precision_top5pct_any": 0.7370030581039755,
+            "fold": 4
+          },
+          {
+            "n": 5084.0,
+            "brier_mc": 0.6301335983519629,
+            "log_loss": 1.0405188225001223,
+            "pr_auc_any": 0.6820553626780999,
+            "roc_auc_any": 0.558446770851176,
+            "brier_any": 0.22906949837198115,
+            "frac_any": 0.6400472069236821,
+            "acc_side_argmax": 0.4429583005507474,
+            "precision_top5pct_any": 0.7047244094488189,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "1h",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "hist_gb",
+      "n_rows": 56303,
+      "class_counts": {
+        "none": 19848,
+        "high": 18688,
+        "low": 17767
+      },
+      "label_config_version": "4df50082d0440fe0",
+      "result": {
+        "status": "OK",
+        "n_folds": 6,
+        "pooled": {
+          "n": 37939.0,
+          "brier_mc": 0.6315724395060747,
+          "log_loss": 1.04264819040301,
+          "pr_auc_any": 0.6866891170922761,
+          "roc_auc_any": 0.555544497359295,
+          "brier_any": 0.22795335029637828,
+          "frac_any": 0.6474340388518411,
+          "acc_side_argmax": 0.4451883286328053,
+          "precision_top5pct_any": 0.7362869198312236
+        },
+        "mean_fold": {
+          "brier_mc": 0.6315325590775829,
+          "log_loss": 1.0425913770677324,
+          "pr_auc_any": 0.6874049309669753,
+          "roc_auc_any": 0.5556919974494506,
+          "brier_any": 0.22800126739488366,
+          "frac_any": 0.6471729627622657,
+          "acc_side_argmax": 0.44516469318875124,
+          "precision_top5pct_any": 0.7399441096294564
+        },
+        "folds": [
+          {
+            "n": 6552.0,
+            "brier_mc": 0.629648556611799,
+            "log_loss": 1.0382800085900667,
+            "pr_auc_any": 0.6838668061564881,
+            "roc_auc_any": 0.5388771676620416,
+            "brier_any": 0.228943778177843,
+            "frac_any": 0.653998778998779,
+            "acc_side_argmax": 0.44429181929181927,
+            "precision_top5pct_any": 0.7370030581039755,
+            "fold": 0
+          },
+          {
+            "n": 6552.0,
+            "brier_mc": 0.635616564433429,
+            "log_loss": 1.0510893053236179,
+            "pr_auc_any": 0.7139878402484706,
+            "roc_auc_any": 0.5688694145432935,
+            "brier_any": 0.22011384835965142,
+            "frac_any": 0.6701770451770451,
+            "acc_side_argmax": 0.44276556776556775,
+            "precision_top5pct_any": 0.7431192660550459,
+            "fold": 1
+          },
+          {
+            "n": 6600.0,
+            "brier_mc": 0.6420967882557937,
+            "log_loss": 1.0610308463023896,
+            "pr_auc_any": 0.682047635962346,
+            "roc_auc_any": 0.5571635502958581,
+            "brier_any": 0.23276877508125648,
+            "frac_any": 0.6401515151515151,
+            "acc_side_argmax": 0.4393939393939394,
+            "precision_top5pct_any": 0.7303030303030303,
+            "fold": 2
+          },
+          {
+            "n": 6599.0,
+            "brier_mc": 0.6257490116700011,
+            "log_loss": 1.0327296472861776,
+            "pr_auc_any": 0.6854556078978036,
+            "roc_auc_any": 0.5608296607932686,
+            "brier_any": 0.22716428237223116,
+            "frac_any": 0.6425215941809365,
+            "acc_side_argmax": 0.45037126837399605,
+            "precision_top5pct_any": 0.7477203647416414,
+            "fold": 3
+          },
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6254222881118193,
+            "log_loss": 1.0310081731385752,
+            "pr_auc_any": 0.680424675437974,
+            "roc_auc_any": 0.5559761815816253,
+            "brier_any": 0.2296481946230309,
+            "frac_any": 0.6361416361416361,
+            "acc_side_argmax": 0.44963369963369965,
+            "precision_top5pct_any": 0.7492354740061162,
+            "fold": 4
+          },
+          {
+            "n": 5084.0,
+            "brier_mc": 0.6306621453826551,
+            "log_loss": 1.0414102817655668,
+            "pr_auc_any": 0.6786470200987699,
+            "roc_auc_any": 0.5524360098206159,
+            "brier_any": 0.22936872575528877,
+            "frac_any": 0.6400472069236821,
+            "acc_side_argmax": 0.44453186467348543,
+            "precision_top5pct_any": 0.7322834645669292,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "ETHUSDT",
+      "timeframe": "1h",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "mlp_sklearn",
+      "n_rows": 56303,
+      "class_counts": {
+        "none": 19848,
+        "high": 18688,
+        "low": 17767
+      },
+      "label_config_version": "4df50082d0440fe0",
+      "result": {
+        "status": "OK",
+        "n_folds": 6,
+        "pooled": {
+          "n": 37939.0,
+          "brier_mc": 0.6302002263957404,
+          "log_loss": 1.039844810909336,
+          "pr_auc_any": 0.6844441147101781,
+          "roc_auc_any": 0.5555621869562244,
+          "brier_any": 0.22718171840929244,
+          "frac_any": 0.6474340388518411,
+          "acc_side_argmax": 0.4443975855979335,
+          "precision_top5pct_any": 0.7167721518987342
+        },
+        "mean_fold": {
+          "brier_mc": 0.6301251157868862,
+          "log_loss": 1.039717734323882,
+          "pr_auc_any": 0.6866891990455312,
+          "roc_auc_any": 0.5584628003975466,
+          "brier_any": 0.22723436147949838,
+          "frac_any": 0.6471729627622657,
+          "acc_side_argmax": 0.44439366736461766,
+          "precision_top5pct_any": 0.7134323698287203
+        },
+        "folds": [
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6260470486644265,
+            "log_loss": 1.0324233283130648,
+            "pr_auc_any": 0.6848219500043108,
+            "roc_auc_any": 0.5435664361940047,
+            "brier_any": 0.22743664742859065,
+            "frac_any": 0.653998778998779,
+            "acc_side_argmax": 0.4478021978021978,
+            "precision_top5pct_any": 0.7308868501529052,
+            "fold": 0
+          },
+          {
+            "n": 6552.0,
+            "brier_mc": 0.635681123032821,
+            "log_loss": 1.0506170857257477,
+            "pr_auc_any": 0.7158423279635463,
+            "roc_auc_any": 0.574634962284029,
+            "brier_any": 0.21888949806933525,
+            "frac_any": 0.6701770451770451,
+            "acc_side_argmax": 0.4305555555555556,
+            "precision_top5pct_any": 0.7125382262996942,
+            "fold": 1
+          },
+          {
+            "n": 6600.0,
+            "brier_mc": 0.6349360149237079,
+            "log_loss": 1.048158165163639,
+            "pr_auc_any": 0.6808077496282365,
+            "roc_auc_any": 0.5578231828090937,
+            "brier_any": 0.2299701948000414,
+            "frac_any": 0.6401515151515151,
+            "acc_side_argmax": 0.4398484848484848,
+            "precision_top5pct_any": 0.7121212121212122,
+            "fold": 2
+          },
+          {
+            "n": 6599.0,
+            "brier_mc": 0.6290253966886472,
+            "log_loss": 1.0366927190683206,
+            "pr_auc_any": 0.6840492613358864,
+            "roc_auc_any": 0.5626703632015484,
+            "brier_any": 0.22811599413334427,
+            "frac_any": 0.6425215941809365,
+            "acc_side_argmax": 0.45037126837399605,
+            "precision_top5pct_any": 0.7082066869300911,
+            "fold": 3
+          },
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6267550589956477,
+            "log_loss": 1.0338024098692373,
+            "pr_auc_any": 0.6739423075074669,
+            "roc_auc_any": 0.5560321368303083,
+            "brier_any": 0.2302812834739052,
+            "frac_any": 0.6361416361416361,
+            "acc_side_argmax": 0.45344932844932845,
+            "precision_top5pct_any": 0.7003058103975535,
+            "fold": 4
+          },
+          {
+            "n": 5084.0,
+            "brier_mc": 0.6283060524160672,
+            "log_loss": 1.0366126978032828,
+            "pr_auc_any": 0.6806715978337404,
+            "roc_auc_any": 0.5560497210662959,
+            "brier_any": 0.22871255097177356,
+            "frac_any": 0.6400472069236821,
+            "acc_side_argmax": 0.4443351691581432,
+            "precision_top5pct_any": 0.7165354330708661,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "SOLUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "baserate",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 43596,
+        "high": 38282,
+        "low": 38105
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6652215682104418,
+          "log_loss": 1.096475164167925,
+          "pr_auc_any": 0.6377603608521537,
+          "roc_auc_any": 0.5045723853504657,
+          "brier_any": 0.23181509594738892,
+          "frac_any": 0.6349893312935303,
+          "acc_side_argmax": 0.36501066870646964,
+          "precision_top5pct_any": 0.6529092007247835
+        },
+        "mean_fold": {
+          "brier_mc": 0.6652162662737832,
+          "log_loss": 1.096467411842752,
+          "pr_auc_any": 0.6349620967937879,
+          "roc_auc_any": 0.5,
+          "brier_any": 0.23182080726796617,
+          "frac_any": 0.6349620967937879,
+          "acc_side_argmax": 0.3650379032062121,
+          "precision_top5pct_any": 0.6377427546763998
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6656953570968155,
+            "log_loss": 1.0971733583197771,
+            "pr_auc_any": 0.6406818181818181,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23022688285356144,
+            "frac_any": 0.6406818181818181,
+            "acc_side_argmax": 0.3593181818181818,
+            "precision_top5pct_any": 0.6515151515151515,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.665506194044239,
+            "log_loss": 1.0968941804455514,
+            "pr_auc_any": 0.6385227272727273,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23082686457695675,
+            "frac_any": 0.6385227272727273,
+            "acc_side_argmax": 0.3614772727272727,
+            "precision_top5pct_any": 0.6386363636363637,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6645119452312701,
+            "log_loss": 1.095429024190327,
+            "pr_auc_any": 0.6258394383394383,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.2343966294104056,
+            "frac_any": 0.6258394383394383,
+            "acc_side_argmax": 0.37416056166056166,
+            "precision_top5pct_any": 0.6305343511450382,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6651515687228078,
+            "log_loss": 1.0963730844153519,
+            "pr_auc_any": 0.6348044033811677,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.2318328522309408,
+            "frac_any": 0.6348044033811677,
+            "acc_side_argmax": 0.36519559661883233,
+            "precision_top5pct_any": 0.6302851524090463,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "SOLUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "logistic",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 43596,
+        "high": 38282,
+        "low": 38105
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "MODEL_FAIL",
+        "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+      }
+    },
+    {
+      "symbol": "SOLUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "lgbm_m",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 43596,
+        "high": 38282,
+        "low": 38105
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6230866597734501,
+          "log_loss": 1.026701738708769,
+          "pr_auc_any": 0.6682552266608053,
+          "roc_auc_any": 0.5428765442695012,
+          "brier_any": 0.2324013746788334,
+          "frac_any": 0.6349893312935303,
+          "acc_side_argmax": 0.4539232658319578,
+          "precision_top5pct_any": 0.7171330783168914
+        },
+        "mean_fold": {
+          "brier_mc": 0.6232757434460583,
+          "log_loss": 1.0269666022179915,
+          "pr_auc_any": 0.6681983853011622,
+          "roc_auc_any": 0.5434939272666389,
+          "brier_any": 0.23236584606073526,
+          "frac_any": 0.6349620967937879,
+          "acc_side_argmax": 0.4534263573028439,
+          "precision_top5pct_any": 0.7185147299858001
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6244449859962569,
+            "log_loss": 1.030651977842858,
+            "pr_auc_any": 0.6716937806002461,
+            "roc_auc_any": 0.5411326652514633,
+            "brier_any": 0.23125172825270882,
+            "frac_any": 0.6406818181818181,
+            "acc_side_argmax": 0.45579545454545456,
+            "precision_top5pct_any": 0.7257575757575757,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6199532559564297,
+            "log_loss": 1.0223133830571256,
+            "pr_auc_any": 0.6781415598016726,
+            "roc_auc_any": 0.5479327121680033,
+            "brier_any": 0.23070594521783208,
+            "frac_any": 0.6385227272727273,
+            "acc_side_argmax": 0.4602272727272727,
+            "precision_top5pct_any": 0.7446969696969697,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6222936344013118,
+            "log_loss": 1.02347540942918,
+            "pr_auc_any": 0.6566880423507053,
+            "roc_auc_any": 0.5396750240857242,
+            "brier_any": 0.23583313996093735,
+            "frac_any": 0.6258394383394383,
+            "acc_side_argmax": 0.4523809523809524,
+            "precision_top5pct_any": 0.6946564885496184,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6264110974302346,
+            "log_loss": 1.0314256385428022,
+            "pr_auc_any": 0.6662701584520245,
+            "roc_auc_any": 0.545235307561365,
+            "brier_any": 0.23167257081146278,
+            "frac_any": 0.6348044033811677,
+            "acc_side_argmax": 0.4453017495576961,
+            "precision_top5pct_any": 0.7089478859390363,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "SOLUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "hist_gb",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 43596,
+        "high": 38282,
+        "low": 38105
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.621149004956858,
+          "log_loss": 1.0237051706296227,
+          "pr_auc_any": 0.6668294553757051,
+          "roc_auc_any": 0.5417737681309123,
+          "brier_any": 0.23128918277391056,
+          "frac_any": 0.6349893312935303,
+          "acc_side_argmax": 0.45480896976528845,
+          "precision_top5pct_any": 0.7137104892289108
+        },
+        "mean_fold": {
+          "brier_mc": 0.6214376062562704,
+          "log_loss": 1.0241338357161691,
+          "pr_auc_any": 0.6665789831098372,
+          "roc_auc_any": 0.5420372028336208,
+          "brier_any": 0.23129051307515233,
+          "frac_any": 0.6349620967937879,
+          "acc_side_argmax": 0.4542634368899235,
+          "precision_top5pct_any": 0.7111128852532621
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6220333221081955,
+            "log_loss": 1.0262564146828588,
+            "pr_auc_any": 0.670438462884626,
+            "roc_auc_any": 0.539631888081316,
+            "brier_any": 0.23008567876290004,
+            "frac_any": 0.6406818181818181,
+            "acc_side_argmax": 0.45662878787878786,
+            "precision_top5pct_any": 0.7181818181818181,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6183010286545167,
+            "log_loss": 1.020027821616316,
+            "pr_auc_any": 0.6765842608038319,
+            "roc_auc_any": 0.546742357573586,
+            "brier_any": 0.2297454437148397,
+            "frac_any": 0.6385227272727273,
+            "acc_side_argmax": 0.4606818181818182,
+            "precision_top5pct_any": 0.7393939393939394,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6191684978271822,
+            "log_loss": 1.0189142625228236,
+            "pr_auc_any": 0.6572037352181226,
+            "roc_auc_any": 0.5406180412127949,
+            "brier_any": 0.23410796079122465,
+            "frac_any": 0.6258394383394383,
+            "acc_side_argmax": 0.45444139194139194,
+            "precision_top5pct_any": 0.7015267175572519,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6262475764351872,
+            "log_loss": 1.0313368440426782,
+            "pr_auc_any": 0.6620894735327685,
+            "roc_auc_any": 0.5411565244667863,
+            "brier_any": 0.23122296903164496,
+            "frac_any": 0.6348044033811677,
+            "acc_side_argmax": 0.4453017495576961,
+            "precision_top5pct_any": 0.6853490658800393,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "SOLUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "mlp_sklearn",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 43596,
+        "high": 38282,
+        "low": 38105
+      },
+      "label_config_version": "b56ac26a3ea48bbc",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6216845562822446,
+          "log_loss": 1.0243505663779617,
+          "pr_auc_any": 0.6652450874762773,
+          "roc_auc_any": 0.5423977700143907,
+          "brier_any": 0.23102978507622707,
+          "frac_any": 0.6349893312935303,
+          "acc_side_argmax": 0.4533395064213535,
+          "precision_top5pct_any": 0.7006241191866318
+        },
+        "mean_fold": {
+          "brier_mc": 0.6218597365134757,
+          "log_loss": 1.024618438060352,
+          "pr_auc_any": 0.6675276341915055,
+          "roc_auc_any": 0.5450651724047499,
+          "brier_any": 0.2309849246202523,
+          "frac_any": 0.6349620967937879,
+          "acc_side_argmax": 0.45290049322687664,
+          "precision_top5pct_any": 0.7032444496645166
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6212822177449139,
+            "log_loss": 1.0249703422612642,
+            "pr_auc_any": 0.6706488987436264,
+            "roc_auc_any": 0.5440047431723595,
+            "brier_any": 0.22907484189737487,
+            "frac_any": 0.6406818181818181,
+            "acc_side_argmax": 0.4567424242424242,
+            "precision_top5pct_any": 0.696969696969697,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6185601466012876,
+            "log_loss": 1.0201539372620267,
+            "pr_auc_any": 0.6795589090499915,
+            "roc_auc_any": 0.5539427260334885,
+            "brier_any": 0.2292062734686133,
+            "frac_any": 0.6385227272727273,
+            "acc_side_argmax": 0.4593181818181818,
+            "precision_top5pct_any": 0.7310606060606061,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6228937048891927,
+            "log_loss": 1.0243240311886754,
+            "pr_auc_any": 0.6522461969825613,
+            "roc_auc_any": 0.5336568074467372,
+            "brier_any": 0.2355551247691257,
+            "frac_any": 0.6258394383394383,
+            "acc_side_argmax": 0.4497481684981685,
+            "precision_top5pct_any": 0.6809160305343511,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6247028768185084,
+            "log_loss": 1.0290254415294415,
+            "pr_auc_any": 0.6676565319898426,
+            "roc_auc_any": 0.5486564129664144,
+            "brier_any": 0.2301034583458953,
+            "frac_any": 0.6348044033811677,
+            "acc_side_argmax": 0.44579319834873204,
+            "precision_top5pct_any": 0.704031465093412,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "SOLUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_strict",
+      "horizon_bars": 4,
+      "model": "baserate",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45202,
+        "high": 37376,
+        "low": 37405
+      },
+      "label_config_version": "94b7d8c91c807939",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6638554371556998,
+          "log_loss": 1.0944790130124913,
+          "pr_auc_any": 0.6209268505462909,
+          "roc_auc_any": 0.497146408821632,
+          "brier_any": 0.23483370406432671,
+          "frac_any": 0.6231933652723539,
+          "acc_side_argmax": 0.37680663472764603,
+          "precision_top5pct_any": 0.6202939400040266
+        },
+        "mean_fold": {
+          "brier_mc": 0.6638417228600844,
+          "log_loss": 1.0944589978887527,
+          "pr_auc_any": 0.6230959631103994,
+          "roc_auc_any": 0.5,
+          "brier_any": 0.23485727990938976,
+          "frac_any": 0.6230959631103994,
+          "acc_side_argmax": 0.3769040368896006,
+          "precision_top5pct_any": 0.6265145501833167
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6643906668726046,
+            "log_loss": 1.0952614617005925,
+            "pr_auc_any": 0.6273863636363637,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23378494084267465,
+            "frac_any": 0.6273863636363637,
+            "acc_side_argmax": 0.37261363636363637,
+            "precision_top5pct_any": 0.6265151515151515,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6643855734625683,
+            "log_loss": 1.0952524736935105,
+            "pr_auc_any": 0.6275757575757576,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.2337277693626784,
+            "frac_any": 0.6275757575757576,
+            "acc_side_argmax": 0.37242424242424244,
+            "precision_top5pct_any": 0.6303030303030303,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6629456485503886,
+            "log_loss": 1.0931501234987344,
+            "pr_auc_any": 0.6156898656898657,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.2367315447896578,
+            "frac_any": 0.6156898656898657,
+            "acc_side_argmax": 0.38431013431013433,
+            "precision_top5pct_any": 0.6297709923664122,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6636450025547755,
+            "log_loss": 1.0941719326621737,
+            "pr_auc_any": 0.6217318655396108,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23518486464254826,
+            "frac_any": 0.6217318655396108,
+            "acc_side_argmax": 0.3782681344603892,
+            "precision_top5pct_any": 0.6194690265486725,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "SOLUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_strict",
+      "horizon_bars": 4,
+      "model": "logistic",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45202,
+        "high": 37376,
+        "low": 37405
+      },
+      "label_config_version": "94b7d8c91c807939",
+      "result": {
+        "status": "MODEL_FAIL",
+        "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+      }
+    },
+    {
+      "symbol": "SOLUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_strict",
+      "horizon_bars": 4,
+      "model": "lgbm_m",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45202,
+        "high": 37376,
+        "low": 37405
+      },
+      "label_config_version": "94b7d8c91c807939",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6247673632390549,
+          "log_loss": 1.0283984855847834,
+          "pr_auc_any": 0.6577568027268202,
+          "roc_auc_any": 0.5435238430946898,
+          "brier_any": 0.23649712694918723,
+          "frac_any": 0.6231933652723539,
+          "acc_side_argmax": 0.44886066266757924,
+          "precision_top5pct_any": 0.7046506945842561
+        },
+        "mean_fold": {
+          "brier_mc": 0.6248947567135001,
+          "log_loss": 1.0285776334444539,
+          "pr_auc_any": 0.6578630148071605,
+          "roc_auc_any": 0.5443574275479859,
+          "brier_any": 0.23646386151334062,
+          "frac_any": 0.6230959631103994,
+          "acc_side_argmax": 0.4484099175047917,
+          "precision_top5pct_any": 0.7043240876644579
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6265295412421925,
+            "log_loss": 1.0327810293719089,
+            "pr_auc_any": 0.6609340316321367,
+            "roc_auc_any": 0.5425552609693409,
+            "brier_any": 0.2358591589317508,
+            "frac_any": 0.6273863636363637,
+            "acc_side_argmax": 0.45079545454545455,
+            "precision_top5pct_any": 0.706060606060606,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6218327625712136,
+            "log_loss": 1.0243181006339874,
+            "pr_auc_any": 0.6676254979955522,
+            "roc_auc_any": 0.5474485295504308,
+            "brier_any": 0.23463289274551064,
+            "frac_any": 0.6275757575757576,
+            "acc_side_argmax": 0.4554166666666667,
+            "precision_top5pct_any": 0.7257575757575757,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6242087783064169,
+            "log_loss": 1.0255981668353307,
+            "pr_auc_any": 0.6451535109998927,
+            "roc_auc_any": 0.5373148112961983,
+            "brier_any": 0.23954335019092893,
+            "frac_any": 0.6156898656898657,
+            "acc_side_argmax": 0.4463522588522589,
+            "precision_top5pct_any": 0.6893129770992367,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6270079447341776,
+            "log_loss": 1.031613236936589,
+            "pr_auc_any": 0.6577390186010603,
+            "roc_auc_any": 0.5501111083759734,
+            "brier_any": 0.23582004418517213,
+            "frac_any": 0.6217318655396108,
+            "acc_side_argmax": 0.44107528995478673,
+            "precision_top5pct_any": 0.696165191740413,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "SOLUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_strict",
+      "horizon_bars": 4,
+      "model": "hist_gb",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45202,
+        "high": 37376,
+        "low": 37405
+      },
+      "label_config_version": "94b7d8c91c807939",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6213460589352994,
+          "log_loss": 1.0233427776727189,
+          "pr_auc_any": 0.656125557359704,
+          "roc_auc_any": 0.5420409840137758,
+          "brier_any": 0.23454835274856892,
+          "frac_any": 0.6231933652723539,
+          "acc_side_argmax": 0.4524034784009018,
+          "precision_top5pct_any": 0.7040467082746125
+        },
+        "mean_fold": {
+          "brier_mc": 0.6215106953291571,
+          "log_loss": 1.023588408961936,
+          "pr_auc_any": 0.6561292335271964,
+          "roc_auc_any": 0.5426498269183276,
+          "brier_any": 0.23452946065862051,
+          "frac_any": 0.6230959631103994,
+          "acc_side_argmax": 0.4520203248892186,
+          "precision_top5pct_any": 0.6986293813634555
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6246752984362631,
+            "log_loss": 1.0300330210995052,
+            "pr_auc_any": 0.657411614756917,
+            "roc_auc_any": 0.5391844193727313,
+            "brier_any": 0.23494207669591857,
+            "frac_any": 0.6273863636363637,
+            "acc_side_argmax": 0.4506060606060606,
+            "precision_top5pct_any": 0.7,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6179285893100535,
+            "log_loss": 1.0186323579229086,
+            "pr_auc_any": 0.6672647193316495,
+            "roc_auc_any": 0.5479321677086694,
+            "brier_any": 0.23244546696527682,
+            "frac_any": 0.6275757575757576,
+            "acc_side_argmax": 0.46015151515151514,
+            "precision_top5pct_any": 0.7227272727272728,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6191504758880796,
+            "log_loss": 1.0178864099619638,
+            "pr_auc_any": 0.6471970471240714,
+            "roc_auc_any": 0.538474465012052,
+            "brier_any": 0.23657591459433722,
+            "frac_any": 0.6156898656898657,
+            "acc_side_argmax": 0.45157967032967034,
+            "precision_top5pct_any": 0.7061068702290076,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6242884176822324,
+            "log_loss": 1.0278018468633665,
+            "pr_auc_any": 0.6526435528961476,
+            "roc_auc_any": 0.5450082555798579,
+            "brier_any": 0.23415438437894945,
+            "frac_any": 0.6217318655396108,
+            "acc_side_argmax": 0.4457440534696285,
+            "precision_top5pct_any": 0.6656833824975418,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "SOLUSDT",
+      "timeframe": "15m",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_strict",
+      "horizon_bars": 4,
+      "model": "mlp_sklearn",
+      "n_rows": 119983,
+      "class_counts": {
+        "none": 45202,
+        "high": 37376,
+        "low": 37405
+      },
+      "label_config_version": "94b7d8c91c807939",
+      "result": {
+        "status": "OK",
+        "n_folds": 4,
+        "pooled": {
+          "n": 99356.0,
+          "brier_mc": 0.6205162369691222,
+          "log_loss": 1.0219433181757707,
+          "pr_auc_any": 0.6592758681630105,
+          "roc_auc_any": 0.5436741748715834,
+          "brier_any": 0.2337772422587095,
+          "frac_any": 0.6231933652723539,
+          "acc_side_argmax": 0.45283626555014295,
+          "precision_top5pct_any": 0.711093215220455
+        },
+        "mean_fold": {
+          "brier_mc": 0.6206633712748124,
+          "log_loss": 1.022167935161248,
+          "pr_auc_any": 0.658809484498625,
+          "roc_auc_any": 0.5444681688152442,
+          "brier_any": 0.23375250907767345,
+          "frac_any": 0.6230959631103994,
+          "acc_side_argmax": 0.45234242965414334,
+          "precision_top5pct_any": 0.7087422304515124
+        },
+        "folds": [
+          {
+            "n": 26400.0,
+            "brier_mc": 0.621080245950015,
+            "log_loss": 1.0241465396574447,
+            "pr_auc_any": 0.6632008930528617,
+            "roc_auc_any": 0.5457137785559268,
+            "brier_any": 0.23282703786449704,
+            "frac_any": 0.6273863636363637,
+            "acc_side_argmax": 0.4531439393939394,
+            "precision_top5pct_any": 0.7113636363636363,
+            "fold": 2
+          },
+          {
+            "n": 26400.0,
+            "brier_mc": 0.6186901270958732,
+            "log_loss": 1.0195466378697786,
+            "pr_auc_any": 0.6718613726985275,
+            "roc_auc_any": 0.5510577705451587,
+            "brier_any": 0.23235895159045614,
+            "frac_any": 0.6275757575757576,
+            "acc_side_argmax": 0.4592045454545455,
+            "precision_top5pct_any": 0.7477272727272727,
+            "fold": 3
+          },
+          {
+            "n": 26208.0,
+            "brier_mc": 0.6197760798346139,
+            "log_loss": 1.0190233159782949,
+            "pr_auc_any": 0.6427180136224524,
+            "roc_auc_any": 0.5317885923876596,
+            "brier_any": 0.23656686942405591,
+            "frac_any": 0.6156898656898657,
+            "acc_side_argmax": 0.45280067155067155,
+            "precision_top5pct_any": 0.6816793893129771,
+            "fold": 4
+          },
+          {
+            "n": 20348.0,
+            "brier_mc": 0.6231070322187477,
+            "log_loss": 1.0259552471394742,
+            "pr_auc_any": 0.6574576586206584,
+            "roc_auc_any": 0.5493125337722315,
+            "brier_any": 0.23325717743168473,
+            "frac_any": 0.6217318655396108,
+            "acc_side_argmax": 0.44422056221741696,
+            "precision_top5pct_any": 0.6941986234021632,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "SOLUSDT",
+      "timeframe": "1h",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "baserate",
+      "n_rows": 49295,
+      "class_counts": {
+        "none": 17953,
+        "high": 15838,
+        "low": 15504
+      },
+      "label_config_version": "4df50082d0440fe0",
+      "result": {
+        "status": "OK",
+        "n_folds": 6,
+        "pooled": {
+          "n": 37939.0,
+          "brier_mc": 0.6654683400824506,
+          "log_loss": 1.0968358878352173,
+          "pr_auc_any": 0.6348031105976967,
+          "roc_auc_any": 0.49520478789618805,
+          "brier_any": 0.23103819870846,
+          "frac_any": 0.6378396900287303,
+          "acc_side_argmax": 0.3621603099712697,
+          "precision_top5pct_any": 0.6529535864978903
+        },
+        "mean_fold": {
+          "brier_mc": 0.6654731716326653,
+          "log_loss": 1.0968433001825442,
+          "pr_auc_any": 0.6378832082971374,
+          "roc_auc_any": 0.5,
+          "brier_any": 0.2310252911956615,
+          "frac_any": 0.6378832082971374,
+          "acc_side_argmax": 0.36211679170286254,
+          "precision_top5pct_any": 0.6497624467349546
+        },
+        "folds": [
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6657154223340428,
+            "log_loss": 1.097196926770314,
+            "pr_auc_any": 0.6393467643467643,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23069105216012872,
+            "frac_any": 0.6393467643467643,
+            "acc_side_argmax": 0.36065323565323565,
+            "precision_top5pct_any": 0.6146788990825688,
+            "fold": 0
+          },
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6661294432803847,
+            "log_loss": 1.0978085295701028,
+            "pr_auc_any": 0.6442307692307693,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.2293294229765548,
+            "frac_any": 0.6442307692307693,
+            "acc_side_argmax": 0.3557692307692308,
+            "precision_top5pct_any": 0.6605504587155964,
+            "fold": 1
+          },
+          {
+            "n": 6600.0,
+            "brier_mc": 0.6660603895865,
+            "log_loss": 1.097708563357796,
+            "pr_auc_any": 0.6445454545454545,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.22918555397152432,
+            "frac_any": 0.6445454545454545,
+            "acc_side_argmax": 0.35545454545454547,
+            "precision_top5pct_any": 0.7,
+            "fold": 2
+          },
+          {
+            "n": 6599.0,
+            "brier_mc": 0.6649270226075062,
+            "log_loss": 1.0960373350179708,
+            "pr_auc_any": 0.6328231550234884,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23238035200475451,
+            "frac_any": 0.6328231550234884,
+            "acc_side_argmax": 0.3671768449765116,
+            "precision_top5pct_any": 0.6747720364741642,
+            "fold": 3
+          },
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6644069988554405,
+            "log_loss": 1.0952710935297045,
+            "pr_auc_any": 0.6272893772893773,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.23389042749258918,
+            "frac_any": 0.6272893772893773,
+            "acc_side_argmax": 0.3727106227106227,
+            "precision_top5pct_any": 0.5871559633027523,
+            "fold": 4
+          },
+          {
+            "n": 5084.0,
+            "brier_mc": 0.6655997531321167,
+            "log_loss": 1.0970373528493769,
+            "pr_auc_any": 0.6390637293469709,
+            "roc_auc_any": 0.5,
+            "brier_any": 0.2306749385684175,
+            "frac_any": 0.6390637293469709,
+            "acc_side_argmax": 0.36093627065302913,
+            "precision_top5pct_any": 0.6614173228346457,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "SOLUSDT",
+      "timeframe": "1h",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "logistic",
+      "n_rows": 49295,
+      "class_counts": {
+        "none": 17953,
+        "high": 15838,
+        "low": 15504
+      },
+      "label_config_version": "4df50082d0440fe0",
+      "result": {
+        "status": "MODEL_FAIL",
+        "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+      }
+    },
+    {
+      "symbol": "SOLUSDT",
+      "timeframe": "1h",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "lgbm_m",
+      "n_rows": 49295,
+      "class_counts": {
+        "none": 17953,
+        "high": 15838,
+        "low": 15504
+      },
+      "label_config_version": "4df50082d0440fe0",
+      "result": {
+        "status": "OK",
+        "n_folds": 6,
+        "pooled": {
+          "n": 37939.0,
+          "brier_mc": 0.6316360851714268,
+          "log_loss": 1.0399573170730718,
+          "pr_auc_any": 0.6649193611697923,
+          "roc_auc_any": 0.5402253741162328,
+          "brier_any": 0.233513512602351,
+          "frac_any": 0.6378396900287303,
+          "acc_side_argmax": 0.4431060386409763,
+          "precision_top5pct_any": 0.679324894514768
+        },
+        "mean_fold": {
+          "brier_mc": 0.6315505624197923,
+          "log_loss": 1.0398829857386713,
+          "pr_auc_any": 0.6662032509668266,
+          "roc_auc_any": 0.5414028183694232,
+          "brier_any": 0.2333924898368065,
+          "frac_any": 0.6378832082971374,
+          "acc_side_argmax": 0.44305704906398974,
+          "precision_top5pct_any": 0.6746706148892677
+        },
+        "folds": [
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6424658164668093,
+            "log_loss": 1.0552293888209274,
+            "pr_auc_any": 0.6546278225925771,
+            "roc_auc_any": 0.5237304602556703,
+            "brier_any": 0.24049601160430023,
+            "frac_any": 0.6393467643467643,
+            "acc_side_argmax": 0.43574481074481075,
+            "precision_top5pct_any": 0.6238532110091743,
+            "fold": 0
+          },
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6377446742233763,
+            "log_loss": 1.0502002934188697,
+            "pr_auc_any": 0.6743102171900038,
+            "roc_auc_any": 0.5477955364238236,
+            "brier_any": 0.23228960773680732,
+            "frac_any": 0.6442307692307693,
+            "acc_side_argmax": 0.4365079365079365,
+            "precision_top5pct_any": 0.6636085626911316,
+            "fold": 1
+          },
+          {
+            "n": 6600.0,
+            "brier_mc": 0.6289347992316527,
+            "log_loss": 1.0362681195600092,
+            "pr_auc_any": 0.6817812440473512,
+            "roc_auc_any": 0.5432147307523816,
+            "brier_any": 0.22895629928052688,
+            "frac_any": 0.6445454545454545,
+            "acc_side_argmax": 0.44166666666666665,
+            "precision_top5pct_any": 0.7575757575757576,
+            "fold": 2
+          },
+          {
+            "n": 6599.0,
+            "brier_mc": 0.6236039614627364,
+            "log_loss": 1.0269365000439572,
+            "pr_auc_any": 0.6555901274054388,
+            "roc_auc_any": 0.5347417904405893,
+            "brier_any": 0.23398749944853464,
+            "frac_any": 0.6328231550234884,
+            "acc_side_argmax": 0.45021973026216094,
+            "precision_top5pct_any": 0.6534954407294833,
+            "fold": 3
+          },
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6275537613630748,
+            "log_loss": 1.033234342721566,
+            "pr_auc_any": 0.6615097697209776,
+            "roc_auc_any": 0.5485848821615245,
+            "brier_any": 0.2344867466431163,
+            "frac_any": 0.6272893772893773,
+            "acc_side_argmax": 0.45222832722832723,
+            "precision_top5pct_any": 0.6880733944954128,
+            "fold": 4
+          },
+          {
+            "n": 5084.0,
+            "brier_mc": 0.6290003617711044,
+            "log_loss": 1.037429269866698,
+            "pr_auc_any": 0.6694003248446113,
+            "roc_auc_any": 0.5503495101825504,
+            "brier_any": 0.23013877430755386,
+            "frac_any": 0.6390637293469709,
+            "acc_side_argmax": 0.4419748229740362,
+            "precision_top5pct_any": 0.6614173228346457,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "SOLUSDT",
+      "timeframe": "1h",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "hist_gb",
+      "n_rows": 49295,
+      "class_counts": {
+        "none": 17953,
+        "high": 15838,
+        "low": 15504
+      },
+      "label_config_version": "4df50082d0440fe0",
+      "result": {
+        "status": "OK",
+        "n_folds": 6,
+        "pooled": {
+          "n": 37939.0,
+          "brier_mc": 0.6306582243487069,
+          "log_loss": 1.038297708695259,
+          "pr_auc_any": 0.6636206562759746,
+          "roc_auc_any": 0.5387009808830986,
+          "brier_any": 0.23276604852547494,
+          "frac_any": 0.6378396900287303,
+          "acc_side_argmax": 0.4432378291467883,
+          "precision_top5pct_any": 0.6861814345991561
+        },
+        "mean_fold": {
+          "brier_mc": 0.6307272737532773,
+          "log_loss": 1.0385008981557835,
+          "pr_auc_any": 0.6645621834622025,
+          "roc_auc_any": 0.539833590215943,
+          "brier_any": 0.2326973475193501,
+          "frac_any": 0.6378832082971374,
+          "acc_side_argmax": 0.44317673204471225,
+          "precision_top5pct_any": 0.6847855730364901
+        },
+        "folds": [
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6428667096317803,
+            "log_loss": 1.0541178335877912,
+            "pr_auc_any": 0.6543536905823726,
+            "roc_auc_any": 0.5207724682877095,
+            "brier_any": 0.24011494394058444,
+            "frac_any": 0.6393467643467643,
+            "acc_side_argmax": 0.4337606837606838,
+            "precision_top5pct_any": 0.6574923547400612,
+            "fold": 0
+          },
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6342550837504178,
+            "log_loss": 1.0445382967524384,
+            "pr_auc_any": 0.6778859308382834,
+            "roc_auc_any": 0.5534475484724241,
+            "brier_any": 0.23018209263582912,
+            "frac_any": 0.6442307692307693,
+            "acc_side_argmax": 0.43894993894993894,
+            "precision_top5pct_any": 0.7064220183486238,
+            "fold": 1
+          },
+          {
+            "n": 6600.0,
+            "brier_mc": 0.6275843873254752,
+            "log_loss": 1.0335831309639743,
+            "pr_auc_any": 0.6721595268772619,
+            "roc_auc_any": 0.5373312956342979,
+            "brier_any": 0.22906924065639095,
+            "frac_any": 0.6445454545454545,
+            "acc_side_argmax": 0.4446969696969697,
+            "precision_top5pct_any": 0.7090909090909091,
+            "fold": 2
+          },
+          {
+            "n": 6599.0,
+            "brier_mc": 0.6212324158673205,
+            "log_loss": 1.023775613574055,
+            "pr_auc_any": 0.657771674954819,
+            "roc_auc_any": 0.5402143688439176,
+            "brier_any": 0.23226336846334972,
+            "frac_any": 0.6328231550234884,
+            "acc_side_argmax": 0.4534020306106986,
+            "precision_top5pct_any": 0.6656534954407295,
+            "fold": 3
+          },
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6263200143638562,
+            "log_loss": 1.0318706351497762,
+            "pr_auc_any": 0.6595145158630302,
+            "roc_auc_any": 0.5419654226223569,
+            "brier_any": 0.23376512569925054,
+            "frac_any": 0.6272893772893773,
+            "acc_side_argmax": 0.4462759462759463,
+            "precision_top5pct_any": 0.6850152905198776,
+            "fold": 4
+          },
+          {
+            "n": 5084.0,
+            "brier_mc": 0.6321050315808138,
+            "log_loss": 1.043119878906666,
+            "pr_auc_any": 0.6656877616574479,
+            "roc_auc_any": 0.5452704374349517,
+            "brier_any": 0.23078931372069586,
+            "frac_any": 0.6390637293469709,
+            "acc_side_argmax": 0.4419748229740362,
+            "precision_top5pct_any": 0.6850393700787402,
+            "fold": 5
+          }
+        ]
+      }
+    },
+    {
+      "symbol": "SOLUSDT",
+      "timeframe": "1h",
+      "feature_pack": "price_vol_mom",
+      "label": "frac_std",
+      "horizon_bars": 4,
+      "model": "mlp_sklearn",
+      "n_rows": 49295,
+      "class_counts": {
+        "none": 17953,
+        "high": 15838,
+        "low": 15504
+      },
+      "label_config_version": "4df50082d0440fe0",
+      "result": {
+        "status": "OK",
+        "n_folds": 6,
+        "pooled": {
+          "n": 37939.0,
+          "brier_mc": 0.6254608904182941,
+          "log_loss": 1.0301796303791366,
+          "pr_auc_any": 0.6703902775526142,
+          "roc_auc_any": 0.5456514948558812,
+          "brier_any": 0.22988167683093477,
+          "frac_any": 0.6378396900287303,
+          "acc_side_argmax": 0.4461899364769762,
+          "precision_top5pct_any": 0.7078059071729957
+        },
+        "mean_fold": {
+          "brier_mc": 0.6256984861438758,
+          "log_loss": 1.0305473810623325,
+          "pr_auc_any": 0.6724773219024924,
+          "roc_auc_any": 0.5485618830297099,
+          "brier_any": 0.22987313409219498,
+          "frac_any": 0.6378832082971374,
+          "acc_side_argmax": 0.4456776029701111,
+          "precision_top5pct_any": 0.7096772863820039
+        },
+        "folds": [
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6261303102746828,
+            "log_loss": 1.0288359650032795,
+            "pr_auc_any": 0.6644758981854013,
+            "roc_auc_any": 0.5371025438225803,
+            "brier_any": 0.23171868450797004,
+            "frac_any": 0.6393467643467643,
+            "acc_side_argmax": 0.4352869352869353,
+            "precision_top5pct_any": 0.691131498470948,
+            "fold": 0
+          },
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6269162605193292,
+            "log_loss": 1.0344313078299263,
+            "pr_auc_any": 0.6905231875935464,
+            "roc_auc_any": 0.5679238991250363,
+            "brier_any": 0.2265295622868092,
+            "frac_any": 0.6442307692307693,
+            "acc_side_argmax": 0.4513125763125763,
+            "precision_top5pct_any": 0.7370030581039755,
+            "fold": 1
+          },
+          {
+            "n": 6600.0,
+            "brier_mc": 0.625657236177959,
+            "log_loss": 1.0318316386655046,
+            "pr_auc_any": 0.6758105753403132,
+            "roc_auc_any": 0.5464349084618618,
+            "brier_any": 0.22762760829623221,
+            "frac_any": 0.6445454545454545,
+            "acc_side_argmax": 0.4453030303030303,
+            "precision_top5pct_any": 0.7090909090909091,
+            "fold": 2
+          },
+          {
+            "n": 6599.0,
+            "brier_mc": 0.6199045586043755,
+            "log_loss": 1.0211469679473997,
+            "pr_auc_any": 0.6659089707887424,
+            "roc_auc_any": 0.5476491058707817,
+            "brier_any": 0.23096041975256762,
+            "frac_any": 0.6328231550234884,
+            "acc_side_argmax": 0.45522048795272013,
+            "precision_top5pct_any": 0.6838905775075987,
+            "fold": 3
+          },
+          {
+            "n": 6552.0,
+            "brier_mc": 0.6239304890939013,
+            "log_loss": 1.0272458500356336,
+            "pr_auc_any": 0.666279144865745,
+            "roc_auc_any": 0.5487171976223071,
+            "brier_any": 0.2327887864738107,
+            "frac_any": 0.6272893772893773,
+            "acc_side_argmax": 0.4542124542124542,
+            "precision_top5pct_any": 0.7125382262996942,
+            "fold": 4
+          },
+          {
+            "n": 5084.0,
+            "brier_mc": 0.6316520621930067,
+            "log_loss": 1.039792556892252,
+            "pr_auc_any": 0.6718661546412057,
+            "roc_auc_any": 0.5435436432756924,
+            "brier_any": 0.22961374323578015,
+            "frac_any": 0.6390637293469709,
+            "acc_side_argmax": 0.43273013375295044,
+            "precision_top5pct_any": 0.7244094488188977,
+            "fold": 5
+          }
+        ]
+      }
+    }
+  ],
+  "readiness_max": "RESEARCH_ONLY"
+}

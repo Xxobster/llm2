@@ -1,0 +1,64 @@
+{
+  "retrieved_utc": "2026-08-05T09:29:25.647458+00:00",
+  "accounts": [
+    {
+      "account": "Xxobster7",
+      "error": "NO_CREDS"
+    },
+    {
+      "account": "Xxobster8",
+      "error": "NO_CREDS"
+    },
+    {
+      "account": "Xxobster6",
+      "error": "NO_CREDS"
+    },
+    {
+      "account": "Xxobster10",
+      "error": "NO_CREDS"
+    },
+    {
+      "account": "Xxobster3",
+      "retCode": 0,
+      "n_open": 0,
+      "n_missing_tpsl": 0,
+      "positions": []
+    },
+    {
+      "account": "Xxobster9",
+      "retCode": 0,
+      "n_open": 1,
+      "n_missing_tpsl": 0,
+      "positions": [
+        {
+          "symbol": "BTCUSDT",
+          "side": "Buy",
+          "size": 0.001,
+          "avgPrice": 63914.5,
+          "markPrice": 64130.7,
+          "takeProfit": "64553.6",
+          "stopLoss": "63275.3",
+          "tpTriggerBy": null,
+          "slTriggerBy": null,
+          "tpslMode": "Full",
+          "positionIdx": 0,
+          "leverage": "52",
+          "createdTime": "1785708026625",
+          "updatedTime": "1785916800014",
+          "unrealisedPnl": "0.2162",
+          "liqPrice": "41047.09602095",
+          "protection_ok": true,
+          "expected_tp_1pct": 64553.645,
+          "expected_sl_2pct": 62636.21,
+          "tp_vs_expected_pct": -0.0001,
+          "sl_vs_expected_pct": 0.9999,
+          "distances_pct": {
+            "mark_vs_entry_pct": 0.33826440009700004,
+            "mark_vs_tp_pct": -0.6616651933442356,
+            "mark_vs_sl_pct": 1.3383504525577048
+          }
+        }
+      ]
+    }
+  ]
+}

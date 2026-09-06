@@ -1,0 +1,306 @@
+{
+  "stamp": "20260812T092157Z",
+  "pi_star": 0.5375,
+  "readiness_max": "RESEARCH_ONLY",
+  "ladder_frozen": true,
+  "default_denser_chart": "p75_atr_band_0.5_2.0x",
+  "no_post_hoc_band_widening": true,
+  "symbols": {
+    "BTCUSDT": {
+      "level_mode": "ret",
+      "arms": [
+        {
+          "tag": "BTCUSDT_p75_ctrl",
+          "n_intent": 5105,
+          "fill_pct": 0.3204701273261508,
+          "fill_stats": {
+            "n_intent": 5105,
+            "n_filled_path": 1636,
+            "n_no_touch": 3469,
+            "n_bad": 0,
+            "fill_rate": 0.3204701273261508,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0
+          },
+          "status": "RAN",
+          "n_trades": 1103,
+          "profit_factor": 1.0227296054663393,
+          "win_rate": 0.5385312783318223,
+          "net_pnl": 4.775673239950265,
+          "entry_bar_exit_rate": 0.10516772438803264
+        },
+        {
+          "tag": "BTCUSDT_tight_band",
+          "n_intent": 55,
+          "fill_pct": 0.4,
+          "fill_stats": {
+            "n_intent": 55,
+            "n_filled_path": 22,
+            "n_no_touch": 33,
+            "n_bad": 0,
+            "fill_rate": 0.4,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0
+          },
+          "status": "RAN",
+          "n_trades": 20,
+          "profit_factor": 3.076046135873111,
+          "win_rate": 0.7,
+          "net_pnl": 5.441728954994687,
+          "entry_bar_exit_rate": 0.25
+        },
+        {
+          "tag": "BTCUSDT_wide_band",
+          "n_intent": 57,
+          "fill_pct": 0.40350877192982454,
+          "fill_stats": {
+            "n_intent": 57,
+            "n_filled_path": 23,
+            "n_no_touch": 34,
+            "n_bad": 0,
+            "fill_rate": 0.40350877192982454,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0
+          },
+          "status": "RAN",
+          "n_trades": 21,
+          "profit_factor": 3.3930261145009792,
+          "win_rate": 0.7142857142857143,
+          "net_pnl": 6.272596389993851,
+          "entry_bar_exit_rate": 0.23809523809523808
+        },
+        {
+          "tag": "BTCUSDT_atr_band",
+          "n_intent": 2735,
+          "fill_pct": 0.4047531992687386,
+          "fill_stats": {
+            "n_intent": 2735,
+            "n_filled_path": 1107,
+            "n_no_touch": 1628,
+            "n_bad": 0,
+            "fill_rate": 0.4047531992687386,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0
+          },
+          "status": "RAN",
+          "n_trades": 814,
+          "profit_factor": 0.9630384224548938,
+          "win_rate": 0.5184275184275184,
+          "net_pnl": -5.891467625020596,
+          "entry_bar_exit_rate": 0.08722358722358722
+        },
+        {
+          "tag": "BTCUSDT_qband_p20p80",
+          "n_intent": 3302,
+          "fill_pct": 0.32041187159297396,
+          "fill_stats": {
+            "n_intent": 3302,
+            "n_filled_path": 1058,
+            "n_no_touch": 2244,
+            "n_bad": 0,
+            "fill_rate": 0.32041187159297396,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0
+          },
+          "status": "RAN",
+          "n_trades": 761,
+          "profit_factor": 0.8981089737296778,
+          "win_rate": 0.5308804204993429,
+          "net_pnl": -16.771879995014388,
+          "entry_bar_exit_rate": 0.06044678055190539
+        },
+        {
+          "tag": "BTCUSDT_atr_band_work6",
+          "n_intent": 2735,
+          "fill_pct": 0.4738574040219378,
+          "fill_stats": {
+            "n_intent": 2735,
+            "n_filled_path": 1296,
+            "n_no_touch": 1439,
+            "n_bad": 0,
+            "fill_rate": 0.4738574040219378,
+            "work_bars_default": 6,
+            "work_bars_mean_used": 6.0
+          },
+          "status": "RAN",
+          "n_trades": 919,
+          "profit_factor": 0.9317077399425373,
+          "win_rate": 0.5136017410228509,
+          "net_pnl": -12.578973295036121,
+          "entry_bar_exit_rate": 0.08487486398258977
+        }
+      ],
+      "promotion": {
+        "default_candidate": "BTCUSDT_atr_band",
+        "n_trades_atr_band": 814,
+        "pf_atr_band": 0.9630384224548938,
+        "pf_sparse_tight": 3.076046135873111,
+        "n_ge_100": true,
+        "pf_near_sparse_85pct": false,
+        "promote_atr_band": false,
+        "rule": "promote P75+ATR band only if trade_N>=100 and fill PF >= 0.85 * tight-band PF"
+      }
+    },
+    "ETHUSDT": {
+      "level_mode": "atr",
+      "arms": [
+        {
+          "tag": "ETHUSDT_p75_ctrl",
+          "n_intent": 2696,
+          "fill_pct": 0.30452522255192876,
+          "fill_stats": {
+            "n_intent": 2696,
+            "n_filled_path": 821,
+            "n_no_touch": 1875,
+            "n_bad": 0,
+            "fill_rate": 0.30452522255192876,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0
+          },
+          "status": "RAN",
+          "n_trades": 674,
+          "profit_factor": 1.779732457614695,
+          "win_rate": 0.6661721068249258,
+          "net_pnl": 39.74895840001591,
+          "entry_bar_exit_rate": 0.271513353115727
+        },
+        {
+          "tag": "ETHUSDT_tight_band",
+          "n_intent": 54,
+          "fill_pct": 0.2037037037037037,
+          "fill_stats": {
+            "n_intent": 54,
+            "n_filled_path": 11,
+            "n_no_touch": 43,
+            "n_bad": 0,
+            "fill_rate": 0.2037037037037037,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0
+          },
+          "status": "TOO_FEW",
+          "n_signals": 11
+        },
+        {
+          "tag": "ETHUSDT_wide_band",
+          "n_intent": 63,
+          "fill_pct": 0.2222222222222222,
+          "fill_stats": {
+            "n_intent": 63,
+            "n_filled_path": 14,
+            "n_no_touch": 49,
+            "n_bad": 0,
+            "fill_rate": 0.2222222222222222,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0
+          },
+          "status": "RAN",
+          "n_trades": 14,
+          "profit_factor": 3.4034548619336906,
+          "win_rate": 0.7857142857142857,
+          "net_pnl": 1.5326995449959213,
+          "entry_bar_exit_rate": 0.5
+        },
+        {
+          "tag": "ETHUSDT_atr_band",
+          "n_intent": 1549,
+          "fill_pct": 0.3776630083925113,
+          "fill_stats": {
+            "n_intent": 1549,
+            "n_filled_path": 585,
+            "n_no_touch": 964,
+            "n_bad": 0,
+            "fill_rate": 0.3776630083925113,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0
+          },
+          "status": "RAN",
+          "n_trades": 495,
+          "profit_factor": 1.6471907362626284,
+          "win_rate": 0.6565656565656566,
+          "net_pnl": 24.683670565014836,
+          "entry_bar_exit_rate": 0.22828282828282828
+        },
+        {
+          "tag": "ETHUSDT_qband_p20p80",
+          "n_intent": 1631,
+          "fill_pct": 0.31759656652360513,
+          "fill_stats": {
+            "n_intent": 1631,
+            "n_filled_path": 518,
+            "n_no_touch": 1113,
+            "n_bad": 0,
+            "fill_rate": 0.31759656652360513,
+            "work_bars_default": 4,
+            "work_bars_mean_used": 4.0
+          },
+          "status": "RAN",
+          "n_trades": 441,
+          "profit_factor": 1.5744620033408225,
+          "win_rate": 0.6530612244897959,
+          "net_pnl": 22.242655815014587,
+          "entry_bar_exit_rate": 0.272108843537415
+        },
+        {
+          "tag": "ETHUSDT_atr_band_work6",
+          "n_intent": 1549,
+          "fill_pct": 0.43834732085216266,
+          "fill_stats": {
+            "n_intent": 1549,
+            "n_filled_path": 679,
+            "n_no_touch": 870,
+            "n_bad": 0,
+            "fill_rate": 0.43834732085216266,
+            "work_bars_default": 6,
+            "work_bars_mean_used": 6.0
+          },
+          "status": "RAN",
+          "n_trades": 568,
+          "profit_factor": 1.513004189650786,
+          "win_rate": 0.6338028169014085,
+          "net_pnl": 23.56853075500112,
+          "entry_bar_exit_rate": 0.20950704225352113
+        }
+      ],
+      "promotion": {
+        "default_candidate": "ETHUSDT_atr_band",
+        "n_trades_atr_band": 495,
+        "pf_atr_band": 1.6471907362626284,
+        "pf_sparse_tight": NaN,
+        "n_ge_100": true,
+        "pf_near_sparse_85pct": "False",
+        "promote_atr_band": false,
+        "rule": "promote P75+ATR band only if trade_N>=100 and fill PF >= 0.85 * tight-band PF"
+      }
+    }
+  },
+  "counts_freeze": {
+    "BTCUSDT": {
+      "n_rows": 99356,
+      "thr_any_median": 0.35,
+      "pi_star": 0.5375,
+      "n_p75": 5105,
+      "n_p75_and_pi": 62,
+      "n_pi_star_level_tight": 55,
+      "n_pi_star_level_wide": 57,
+      "n_p75_atr_band": 2735,
+      "n_p75_qband_p20_p80": 3302,
+      "n_pi_only_no_p75": 62,
+      "qband_lo": 0.002832568885435355,
+      "qband_hi": 0.008834316080603047
+    },
+    "ETHUSDT": {
+      "n_rows": 99356,
+      "thr_any_median": 0.35,
+      "pi_star": 0.5375,
+      "n_p75": 2696,
+      "n_p75_and_pi": 68,
+      "n_pi_star_level_tight": 54,
+      "n_pi_star_level_wide": 63,
+      "n_p75_atr_band": 1549,
+      "n_p75_qband_p20_p80": 1631,
+      "n_pi_only_no_p75": 68,
+      "qband_lo": 0.005043504791927448,
+      "qband_hi": 0.013659892723691525
+    }
+  }
+}

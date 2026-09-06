@@ -1,0 +1,96 @@
+{
+  "created_utc": "2026-08-19T03:21:47.294919+00:00",
+  "units": {
+    "llm2-pivot-sol-geo-p75-w4": "active",
+    "llm2-pivot-eth-p75-ctrl-atr-w4": "active",
+    "botsgeneral-collect": "err:Command '['systemctl', 'is-active', 'botsgeneral-collect']' returned non-zero exit status 3.",
+    "tsm-chandelier-btcusdt": "err:Command '['systemctl', 'is-active', 'tsm-chandelier-btcusdt']' returned non-zero exit status 3.",
+    "tsm-chandelier-ethusdt": "err:Command '['systemctl', 'is-active', 'tsm-chandelier-ethusdt']' returned non-zero exit status 3.",
+    "tsm-chandelier-solusdt": "err:Command '['systemctl', 'is-active', 'tsm-chandelier-solusdt']' returned non-zero exit status 3.",
+    "tsm-vpa": "err:Command '['systemctl', 'is-active', 'tsm-vpa']' returned non-zero exit status 3."
+  },
+  "eth_identity": {
+    "n_decisions": 633,
+    "n_tip_ohlc": 623,
+    "n_enter": 8,
+    "flip_payloads": [
+      {
+        "bar_utc": "2026-08-15T08:30:00+00:00",
+        "action": "ENTER_LIMIT",
+        "p_any": 0.58,
+        "p_any_raw": 0.8301649101891794,
+        "close": 1877.94,
+        "tip_ohlc": {
+          "open": 1880.21,
+          "high": 1880.21,
+          "low": 1877.54,
+          "close": 1877.94,
+          "volume": 15141.247
+        },
+        "n_prefix_bars": null,
+        "feature_sha": null
+      },
+      {
+        "bar_utc": "2026-08-15T12:45:00+00:00",
+        "action": "ENTER_LIMIT",
+        "p_any": 0.4230769230769231,
+        "p_any_raw": 0.8098966854592102,
+        "close": 1883.0,
+        "tip_ohlc": {
+          "open": 1878.03,
+          "high": 1883.2,
+          "low": 1877.23,
+          "close": 1883.0,
+          "volume": 15513.474
+        },
+        "n_prefix_bars": null,
+        "feature_sha": null
+      }
+    ],
+    "pack": "/opt/llm2-pivot-eth-p75-ctrl-atr-w4/pack",
+    "vps_bound_flips": [
+      {
+        "bar_utc": "2026-08-15T08:30:00+00:00",
+        "live_action": "ENTER_LIMIT",
+        "bt_action": "ENTER_LIMIT",
+        "live_p": 0.58,
+        "bt_p": 0.58,
+        "p_match": true,
+        "action_match": true,
+        "n_prefix": 3000
+      },
+      {
+        "bar_utc": "2026-08-15T12:45:00+00:00",
+        "live_action": "ENTER_LIMIT",
+        "bt_action": "ENTER_LIMIT",
+        "live_p": 0.4230769230769231,
+        "bt_p": 0.4230769230769231,
+        "p_match": true,
+        "action_match": true,
+        "n_prefix": 3000
+      }
+    ],
+    "vps_bound_enters": {
+      "ok": 8,
+      "n": 8,
+      "fail_head": []
+    }
+  },
+  "other_bots": {
+    "chandelier": {
+      "path": "/opt/tsm-chandelier/src/chand/live/bot.py",
+      "exists": true,
+      "has_max_hold": true
+    },
+    "vpa": {
+      "path": "/opt/tsm-vpa/src/vpa/bot.py",
+      "exists": false,
+      "has_max_hold": false
+    },
+    "xgb": {
+      "path": "/home/xgb/scripts/vps_run_asset_live.py",
+      "exists": true,
+      "has_max_hold": false
+    }
+  }
+}

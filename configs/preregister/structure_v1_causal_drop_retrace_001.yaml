@@ -1,0 +1,79 @@
+# Fresh hypothesis after CAUS-STRUCT-001 + abandoned orange (oracle_leaky) track.
+# Registered BEFORE any outer-OOS view of this generation.
+# Do NOT rank on lockbox. Do NOT freeze packs carrying pred_leaky / oracle_leaky.
+
+generation_id: structure_v1_causal_drop_retrace_001
+created_utc: "2026-08-08T04:00:00Z"
+status: FROZEN_OOS_VIEWED
+fold_geometry: v2
+invalidates:
+  - never_inherits_orange_leaky_proxy_edge
+  - never_inherits_pre_caus_struct_001_structure_v1_packs
+
+hypothesis: >
+  After removing the last_retrace* family entirely (causal warehouse still
+  supplies true-cyan remaining structure columns), a freshly trained LightGBM
+  structure model on BTCUSDT/ETHUSDT/SOLUSDT 1h has a reproducible post-cost
+  edge under frozen V2.1 gates. This is the post-contamination clean-alpha
+  search: no oracle_leaky imitation, no pred_leaky pack freeze.
+
+economic_rationale: >
+  structure_v1_caus_retrain_001 retained last_retrace_pct under the fixed
+  (cyan) publish rule and still failed V2.1 (Profit Factor ~0.75–0.81). The
+  orange look-ahead series is contamination forensics only (D-058). Dropping
+  the retrace family asks whether residual structure (swings, fib distances,
+  support/resistance geometry, higher-timeframe bias) alone is tradable
+  without any leg-retrace column.
+
+candidate_space:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  timeframes: [1h]
+  targets: [fwd_return, direction]
+  feature_space: [structure_v1_no_retrace]
+  forbidden_features:
+    - last_retrace_pct
+    - last_retrace_pct_4h
+    - last_retrace_pct_1w
+    - any column matching last_retrace*
+    - pred_leaky
+    - oracle_leaky
+  models: [hist_mean, ridge, lgbm_regressor, lgbm_classifier]
+  tp_pct: [0.01]
+  sl_pct: [0.02]
+  max_trials_per_combo: 4
+
+selection:
+  method: nested_hunt_inner_then_one_outer_freeze
+  objective: mean_inner_profit_factor
+  forbidden:
+    - select_or_rank_on_outer_oos
+    - select_or_rank_on_lockbox
+    - reuse_pre_caus_arm_rankings
+    - optimize_or_promote_oracle_leaky_proxy
+  seed_root: 20260808
+
+evaluation:
+  outer: fold_geometry_v2_stitched_oos
+  lockbox: DO_NOT_OPEN_FOR_SELECTION
+  engine: botsgeneral_tradesim
+  costs: research_costs_baseline
+  sizing: min_exchange
+  leverage: leverage_from_stop(0.02)
+  leakage_gate: >
+    require_clean_audit with builder-responsiveness (CAUS-WAREHOUSE-001) and
+    warehouse-recompute structure builder before any train fold.
+
+success_criteria:
+  - leakage_audit_ok
+  - stitched_oos evaluated once per frozen selection
+  - no_leaky_column_in_feature_matrix
+  - quote_no_pre_20260806_number
+  - no_pack_freeze_on_pred_leaky_or_oracle_leaky
+
+live_deploy: FORBIDDEN_without_certificate_and_explicit_user_auth
+promotion: FORBIDDEN_without_new_pack_hash_certificate_and_explicit_user_auth
+
+preregister_sha256_at_run: 876c2028740b8253241ffc6a1c2b341434fcef8f2923f0ea6b1148a90c4efc8a
+run_started_utc: "2026-08-08T04:44:30Z"
+frozen_utc: "2026-08-08T05:31:24Z"
+frozen_reason: outer-OOS of causal_drop_retrace_001 viewed; do not re-search this space.

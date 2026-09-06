@@ -1,0 +1,79 @@
+# ML lab hunt 004 — 30 named ideas (power trend, channel surf, formula mix)
+# RESEARCH_ONLY. Frozen before any hunt-004 result was viewed.
+generation_id: ml_lab_hunt_004_idea_catalog
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-30T16:30:00Z"
+fold_geometry: v2
+failure_is_success: true
+
+hypothesis: >
+  Closed families (retrieval, 15-minute one-bar reversal, funding fade) do not
+  pay Bybit costs. This generation tests thirty NEW named economic stories on
+  the same pre-2022 screen, without retuning those families:
+
+  POWER (follow when the market is moving): Donchian/volume/ATR/efficiency-ratio
+  breakouts, EMA stack (long only), SMA pullback with slope, gap continuation.
+
+  SURF (fade channel extremes while compressed; exit is the frozen channel
+  width at the decision bar — adaptive take-profit/stop, not a searched xx%):
+  Bollinger, Keltner, Donchian, regression channel, inside-bar mother range,
+  typical-price band, prior-day pivot, range box, mid-reversion.
+
+  MIX (classical forecast formulas that switch with a causal regime): AR(1)
+  sign, Holt-style slope, Hurst variance-ratio switch, z-score that flips with
+  efficiency ratio, ROC acceleration, fast-slow EMA, BTC-lagged residual,
+  theta-style drift, turtle/Hurst hybrid, efficiency-ratio blend of trend and fade.
+
+  Protocol (standard 15.2): causal event study of signed H-bar forward return
+  minus a 11 basis-point cost floor FIRST. Tradesim only for at most 12
+  skill-passers on 15-minute / 1-hour / 4-hour, ranking frozen as mean_signed
+  then n_skill. Five-minute and daily stay event-study only in this generation
+  (touch cost). Ride/fade sign is registered per idea, not chosen after seeing
+  profit factor.
+
+do_not:
+  - retune hunt 001–003, bounce_upper, or WaveTheory survivors
+  - nest-settle autonomy inner candidates
+  - search take-profit/stop grids
+  - drop ideas after seeing counts
+  - join warehouse macro spaces
+  - train QLoRA
+  - peep FORWARD_LOCKBOX_START
+  - deploy
+  - promote event-study-only 5-minute/daily rows as live-ready
+
+selection_window: "strictly before 2022-01-01"
+lockbox: do_not_rank_on_or_after_2026-05-01
+
+universe:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  event_study_timeframes: [5m, 15m, 1h, 4h, 1d]
+  tradesim_timeframes: [15m, 1h, 4h]
+
+ideas: 30
+cost_floor: 0.0011
+max_tradesim_arms: 12
+tradesim_rank: [mean_signed, n_skill]
+
+work_bars: {15m: 4, 1h: 3, 4h: 2}
+max_hold_bars: {15m: 24, 1h: 16, 4h: 8}
+k_sl: 1.5
+tp_ratio: 1.5
+sl_cap: 0.030
+
+screen_gates:
+  min_skill_n: 80
+  min_directional_acc: 0.51
+  min_mean_signed: 0.0015
+  min_trades: 80
+  min_trades_per_month: 2.0
+  max_trades_per_month: 90.0
+  min_profit_factor: 1.20
+  max_entry_bar_exit_rate: 0.25
+  min_sharpe_annualised: 0.50
+
+leakage_audit:
+  builder: llm2.ml_lab.idea_catalog.build_features_for_guard
+
+preregister_sha256_at_run: ebca516808e52999f44721a93410c2c9ebe2f2764e7b67b9fbeee74f71131289

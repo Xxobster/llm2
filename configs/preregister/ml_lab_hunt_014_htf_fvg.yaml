@@ -1,0 +1,58 @@
+# ML lab hunt 014 — higher-timeframe Fair Value Gap + new causal formulas
+# RESEARCH_ONLY. Frozen before any hunt-014 result was viewed.
+generation_id: ml_lab_hunt_014_htf_fvg
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-09-04T00:00:00Z"
+fold_geometry: v2
+failure_is_success: true
+
+hypothesis: >
+  Higher-timeframe Fair Value Gap (completed 4x/6x coarser bar only, stamped on
+  the first finer bar after that close): follow; bullish gap plus 20-bar low
+  intact; finer close inside the just-closed coarser gap. Native-gap variants
+  that hunt 012 did not score: continue after the gap is traded through;
+  displacement body plus same-direction gap; stack of two-plus bullish gaps in
+  30 bars. Plus Parkinson range-vol expansion follow, and fade of a large UTC
+  00:00 crypto daily-open gap. Maker 0.02% resting legs. EXEC-021 one-minute
+  fill clock. Inner screen strictly before 2022-01-01.
+
+do_not:
+  - peep FORWARD_LOCKBOX_START
+  - deploy
+  - stamp Shadow-Ready from this inner screen
+  - widen Average-True-Range to hide entry-bar exits
+  - retune hunt 012 native Fair Value Gap thresholds
+  - retune hunt 013 Hilbert / kinematic names after viewing nested profit factor
+  - search Parkinson / displacement / stack constants on profit factor
+
+selection_window: "strictly before 2022-01-01"
+universe:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  event_study_timeframes: [15m, 1h, 4h]
+  tradesim_timeframes: [15m, 1h, 4h]
+
+cost_floor: 0.0011
+max_tradesim_arms: 8
+work_bars: {15m: 4, 1h: 3, 4h: 2}
+max_hold_bars: {15m: 24, 1h: 16, 4h: 8}
+k_sl: 1.5
+tp_ratio: 1.5
+sl_cap: 0.030
+maker_first_costs: true
+
+screen_gates:
+  min_skill_n: 80
+  min_directional_acc: 0.51
+  min_mean_signed: 0.0015
+  min_trades: 80
+  min_trades_per_month: 2.0
+  max_trades_per_month: 90.0
+  min_profit_factor: 1.20
+  max_entry_bar_exit_rate: 0.25
+  min_sharpe_annualised: 0.50
+
+leakage_audit:
+  builder: llm2.ml_lab.idea_catalog_k.build_features_for_guard
+
+preregister_sha256_at_run: 2ee1e9c60109e39673944d3f963468773a8a5baa15290855063e702c09362228

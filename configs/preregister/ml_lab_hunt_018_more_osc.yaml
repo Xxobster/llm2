@@ -1,0 +1,55 @@
+# ML lab hunt 018 — more textbook oscillators
+# RESEARCH_ONLY. Frozen before any hunt-018 result was viewed.
+generation_id: ml_lab_hunt_018_more_osc
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-09-04T03:05:00Z"
+fold_geometry: v2
+failure_is_success: true
+
+hypothesis: >
+  New events after hunt 017 (zero screens), not a Williams/Keltner/Bollinger
+  retune: fade Ultimate Oscillator 70/30; follow TRIX sign flip; follow Elder
+  Force Index sign flip; fade DeMarker 0.70/0.30; fade Chande Momentum ±50;
+  fade Ehlers Fisher Transform ±2; follow Awesome Oscillator sign flip;
+  fade the 9-bar close move when Dorsey Mass Index drops back through 26.5
+  after a 27 bulge. Maker 0.02% resting legs. EXEC-021. Inner screen strictly
+  before 2022-01-01.
+
+do_not:
+  - peep FORWARD_LOCKBOX_START
+  - deploy
+  - stamp Shadow-Ready from this inner screen
+  - widen Average-True-Range to hide entry-bar exits
+  - retune hunt 016 Relative Strength Index or hunt 017 Keltner after viewing
+    nested profit factor
+  - search Ultimate / DeMarker / Chande / Fisher thresholds on profit factor
+
+selection_window: "strictly before 2022-01-01"
+universe:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  event_study_timeframes: [15m, 1h, 4h]
+  tradesim_timeframes: [15m, 1h, 4h]
+
+cost_floor: 0.0011
+max_tradesim_arms: 8
+work_bars: {15m: 4, 1h: 3, 4h: 2}
+max_hold_bars: {15m: 24, 1h: 16, 4h: 8}
+k_sl: 1.5
+tp_ratio: 1.5
+sl_cap: 0.030
+maker_first_costs: true
+
+screen_gates:
+  min_skill_n: 80
+  min_directional_acc: 0.51
+  min_mean_signed: 0.0015
+  min_trades: 80
+  min_trades_per_month: 2.0
+  max_trades_per_month: 90.0
+  min_profit_factor: 1.20
+  max_entry_bar_exit_rate: 0.25
+  min_sharpe_annualised: 0.50
+
+leakage_audit:
+  builder: llm2.ml_lab.idea_catalog_o.build_features_for_guard

@@ -1,0 +1,89 @@
+# Nested transfer settle: on frozen p75 strength geometry, ONE candidate with
+# proportional TP scaled by |pred_mean|. Control = shipped p75 fixed TP 1%.
+# Written before this settle run. No lockbox. No clarity×hold×TP reopen.
+
+generation_id: structure_v1_eth_k5_p75_tp_scale_absmean_001
+created_utc: "2026-08-05T09:00:00Z"
+status: OOS_COMPARE_COMPLETE
+settled_utc: "20260805T084628Z"
+preregister_sha256_at_run: 37ec1e534745726ec836e189f45723df67fab0b2c4218f6c080467e848068bfe
+decision_refs: [D-041, D-045]
+fold_geometry: v2
+parent_pack: structure_v1_ethusdt_k5_double3h_p75_v1
+parent_version_id: eth_k5_double3h_p75_v1
+
+hypothesis: >
+  After the p75 mean_strength gate, scaling take-profit proportionally to
+  |pred_mean| via the frozen formula
+  TP = 0.01 × min(2, max(1, |pred_mean| / 0.5))
+  raises stitched outer-fold expectancy_return_units versus fixed TP=1% on the
+  same p75 entry set, without reopening clarity×hold×TP search.
+
+economic_rationale: >
+  Stronger directional scores should justify a farther target; weak-but-passing
+  p75 scores keep the 1% floor. Cap at 2% avoids "always chase 3%" gymnastics.
+  Stop stays 2%. Hold stays 12. Strength gate stays q=0.75.
+
+control_arm:
+  version_id: eth_k5_double3h_p75_v1
+  clarity: mean_strength
+  clarity_scope: all
+  strength_quantile: 0.75
+  k_per_side: 5
+  hold_bars: 12
+  tp_pct: 0.01
+  sl_pct: 0.02
+  size_double_within_bars: 3
+  size_double_mult: 2.0
+  uniform_books: true
+  tp_scale_by_abs_mean: false
+
+frozen_candidate:
+  same_as_control_except:
+    tp_scale_by_abs_mean: true
+    tp_scale_ref: 0.5
+    tp_scale_factor_min: 1.0
+    tp_scale_factor_max: 2.0
+    formula: "tp = 0.01 * min(2, max(1, abs(pred_mean) / 0.5))"
+
+selection:
+  method: FROZEN_TRANSFER — one candidate; no ranking among alternatives
+  forbidden:
+    - re_search_K_hold_tp_grid
+    - reopen_clarity_hold_tp_after_oos
+    - select_on_lockbox
+    - vol_scale_or_structure_impulse_in_same_generation
+    - promote_without_beating_control_expectancy_return_units
+
+evaluation:
+  symbol: ETHUSDT
+  target: direction
+  min_edge: 0.10
+  outer: fold_geometry_v2_stitched_oos
+  hard_end_exclusive: "2026-05-01"
+  lockbox: DO_NOT_OPEN
+  engine: botsgeneral_tradesim
+  costs: research_costs_baseline
+  sizing: MIN_EXCHANGE
+  leverage: leverage_from_stop(0.02)
+  primary_metric: expectancy_return_units
+  secondary: [profit_factor, win_rate, n_trades, total_fees, mean_tp_pct]
+  evidence_class: OUTER_TRANSFER_COMPARE
+  quote_window: full_outer_stitch_not_last30d_display
+  promotion: FORBIDDEN_without_new_pack_hash_certificate_and_explicit_user_auth
+
+success_criteria:
+  - candidate_expectancy_return_units > control_expectancy_return_units
+  - candidate_stitched_pf >= 1.20
+  - no liquidation
+  - report full outer stitch (not last-30d slice)
+
+failure_is_success: true
+live_deploy: FORBIDDEN_without_certificate_and_explicit_user_auth
+
+deferred_todo_train_window_only:
+  - vol_scaled_tp_atr_or_realized_vol
+  - post_p75_strength_rank_buckets_discrete_tp
+  - structure_impulse_tp_extension
+  - multi_tp_be_after_tp1_parity_check
+  - hold_extend_only_after_tp1_requires_tradesim_engine_work

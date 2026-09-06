@@ -1,0 +1,13 @@
+{
+  "first_bad": null,
+  "max_abs_feature_diff": 0.0,
+  "n_columns_compared": 68,
+  "n_feature_rows_differ": 0,
+  "ok": true,
+  "pred_mean_max_abs_diff": null,
+  "proof": "layer_a_pred_identity",
+  "space": "structure_v1_run_retrace",
+  "symbol": "ETHUSDT",
+  "timeframe": "1h",
+  "tip_bars": 24
+}

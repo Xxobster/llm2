@@ -1,0 +1,114 @@
+# Confluence indicator-regime hunt 003
+# RESEARCH_ONLY. Not live. Frozen before any profit-factor ranking.
+#
+# Closed list of unused public-formula regimes only (Supertrend direction,
+# Ichimoku Tenkan vs Kijun, Commodity Channel Index bands). Not a TradingView
+# scrape. Predicting raw future indicator *levels* remains rejected as a
+# selection target; level mean-squared error is diagnostic only.
+generation_id: confluence_indicator_regime_003
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-21T04:00:00Z"
+rank_by: expectancy_intent_all
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+oracle_arms: never_promote
+lockbox: do_not_rank_on_or_after_2026-05-01
+failure_is_success: true
+min_test_trades_to_quote: 12
+min_test_trades_to_flag: 50
+
+hypothesis: >
+  A single calibrated P(future_regime) head for Supertrend direction,
+  Ichimoku Tenkan-Kijun relation, or Commodity Channel Index oversold /
+  overbought at t+H, used as a one-head filter on the current Ether /
+  Solana / Bitcoin 15-minute Limit 1 percent / 1 percent pivot control,
+  can beat that control on inner test intent expectancy without collapsing
+  profit factor or pushing entry-bar exits above 35 percent. Predicting
+  raw Relative Strength Index / Supertrend / Commodity Channel Index
+  continuous levels is still rejected as tautological reconstruction of
+  future price; level mean-squared error is recorded only as a diagnostic.
+
+economic_rationale: >
+  Hunt 001 AND-packs of classic reversal events were too sparse. Hunt 002
+  one-head filters on Relative Strength Index / Moving Average Convergence
+  Divergence / stochastic / swing events promoted none. Supertrend,
+  Ichimoku Tenkan-Kijun, and Commodity Channel Index regimes are still
+  unused discrete claims. If they also fail, indicator-space forecasts are
+  not a second alpha source on this book — a valid successful research
+  outcome. Do not scrape TradingView or grow the list after the first test peek.
+
+universe:
+  symbols: [ETHUSDT, SOLUSDT, BTCUSDT]
+  timeframes: [15m]
+  source: binance
+  research_proxy: true
+
+horizons_bars: [4, 8]
+work_bars:
+  15m: 4
+max_hold_bars:
+  15m: 6
+
+brackets:
+  - {tp: 0.010, sl: 0.010}
+
+controls_15m:
+  ETHUSDT: { id: ETH_q50_w4, level_mode: q50, gate: p75, work_bars: 4 }
+  SOLUSDT: { id: SOL_atr_clip_w5, level_mode: ret, gate: p75, work_bars: 5, placement: atr_clip_0p8_1p5 }
+  BTCUSDT: { id: BTC_p80_w4, level_mode: ret, gate: p80, work_bars: 4 }
+
+# Closed event list. Do not add after first test ranking.
+events:
+  new_003:
+    - supertrend_up_at_h
+    - supertrend_down_at_h
+    - ichimoku_tk_bull_at_h
+    - ichimoku_tk_bear_at_h
+    - cci_oversold_at_h
+    - cci_overbought_at_h
+
+modes:
+  - control
+  - one_head_filter_pi_star
+
+gates:
+  predicted: p_hat_ge_pi_star_of_that_bracket
+  model: lightgbm_isotonic_on_train_only
+
+entry_style:
+  filter_on_control: limit
+
+diagnostics_not_for_selection:
+  - mse_future_rsi_14_persistence
+  - mse_future_cci_20_persistence
+  - mse_future_rsi_14_lgbm
+  - mse_future_cci_20_lgbm
+
+selection:
+  inner_train_fit_only: true
+  test_window_score_once: true
+  train_test_sqlite_split: true
+  do_not_peep_lockbox: true
+
+costs: >
+  tradesim research_costs_baseline: Bybit non-VIP taker 0.055 percent per fill
+  on market/stop; resting LIMIT entry maker 0.02 percent if it rests.
+  Exit taker until maker-exit evidence is proven. No exit slip on limit
+  Take-Profit / Stop-Loss touch. Funding at historical settlements while open.
+
+do_not:
+  - scrape TradingView or paste third-party Pine Script
+  - predict raw RSI / Supertrend / CCI continuous levels as selection targets
+  - AND several predicted heads
+  - reopen the 0.5 percent / 0.5 percent bracket grid
+  - add events after viewing test profit factor
+  - quote oracle (true future regime bit) profit factor as deployable edge
+  - join warehouse structure_v1 / macro_v1 without FOUR_PROOF_GATE_V1
+  - peep lockbox 2026-05-01+ for ranking
+  - deploy, restart VPS, or swap live packs
+  - retune live 0.5 percent / 0.5 percent packs
+  - restore structure_v1 LightGBM bots
+  - relax Frozen V2.1 after seeing test numbers
+
+preregister_sha256_at_run: 6a61de413fa3e35a0c2bc5815b275705e71ac00b3d86b2841331f0dba0312b42

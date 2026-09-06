@@ -1,0 +1,59 @@
+# ML lab hunt 009 — invented causal formulas (incl. answer A: lag residual + pullback)
+# RESEARCH_ONLY. Frozen before any hunt-009 result was viewed.
+generation_id: ml_lab_hunt_009_formulas
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-09-02T02:20:00Z"
+fold_geometry: v2
+failure_is_success: true
+
+hypothesis: >
+  New named causal formulas, not a retune of hunts 004–008. Twelve ideas:
+  Granger–Joyeux fractional-difference fade of log-price; causal quadratic
+  Savitzky–Golay residual fade and slope follow; rolling real-FFT spectral
+  centroid regime switch; causal Teager energy exhaustion fade; two-lag
+  Yule–Walker one-step return follow; Ornstein–Uhlenbeck half-life switch;
+  three-lag bicoherence-proxy fade; Bandt–Pompe permutation-entropy regime
+  switch; rolling log-log spectral slope (1/f) regime switch; lagged beta
+  residual fade versus Bitcoin/Ether (answer A cross-asset); Kaufman-efficiency
+  pullback to simple moving average 48 (answer A maker pullback, different
+  spans from hunt-004 12/48/192). Event study first (11 basis-point floor).
+  Tradesim at most 8 skill-passers on tradesim 1.1.0 one-minute fill clock.
+  Inner screen before 2022-01-01. Maker 0.02% resting legs.
+
+do_not:
+  - peep FORWARD_LOCKBOX_START
+  - deploy
+  - use non-causal Hilbert / filtfilt
+  - fit a wave period on full history
+  - stamp Shadow-Ready from this inner screen
+  - widen Average-True-Range to hide entry-bar exits
+
+selection_window: "strictly before 2022-01-01"
+universe:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  event_study_timeframes: [15m, 1h, 4h]
+  tradesim_timeframes: [15m, 1h, 4h]
+
+cost_floor: 0.0011
+max_tradesim_arms: 8
+work_bars: {15m: 4, 1h: 3, 4h: 2}
+max_hold_bars: {15m: 24, 1h: 16, 4h: 8}
+k_sl: 1.5
+tp_ratio: 1.5
+sl_cap: 0.030
+maker_first_costs: true
+
+screen_gates:
+  min_skill_n: 80
+  min_directional_acc: 0.51
+  min_mean_signed: 0.0015
+  min_trades: 80
+  min_trades_per_month: 2.0
+  max_trades_per_month: 90.0
+  min_profit_factor: 1.20
+  max_entry_bar_exit_rate: 0.25
+  min_sharpe_annualised: 0.50
+
+leakage_audit:
+  builder: llm2.ml_lab.idea_catalog_f.build_features_for_guard

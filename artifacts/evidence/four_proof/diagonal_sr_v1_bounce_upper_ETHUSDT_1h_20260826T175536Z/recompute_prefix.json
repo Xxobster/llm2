@@ -1,0 +1,10 @@
+{
+  "hard_findings": [],
+  "n_columns": 27,
+  "ok": true,
+  "proof": "recompute_prefix",
+  "space": "diagonal_sr_v1",
+  "summary": "PASS \u2014 27 columns; no hard-fail leakage; LEAKAGE_POTENTIAL=0",
+  "symbol": "ETHUSDT",
+  "timeframe": "1h"
+}

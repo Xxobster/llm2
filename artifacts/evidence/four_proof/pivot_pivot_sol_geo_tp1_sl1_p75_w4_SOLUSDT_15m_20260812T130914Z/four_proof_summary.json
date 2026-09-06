@@ -1,0 +1,23 @@
+{
+  "artifact_dir": "D:\\projects\\LLM2\\artifacts\\evidence\\four_proof\\pivot_pivot_sol_geo_tp1_sl1_p75_w4_SOLUSDT_15m_20260812T130914Z",
+  "artifact_hashes": {
+    "builder_responsiveness": "15e3f97010eccceeb6efbeea83e4cf161eeb63c51b8fbdedfdd0769853a0511e",
+    "layer_a_pred_identity": "45db1639fffc9722fcfadb53035b1efde5108e5bad488cd15da38fbf18114714",
+    "no_live_feature_fill": "ef3948c4d17f9b73312186268226732fd6d6ef0d9e5d6c901696cdab59f7e3a8",
+    "recompute_prefix": "2ac66b3b7c0f88019c659a1bd3168deadfd76e70314ba87dff9e8300e3a7bcdd"
+  },
+  "ok": true,
+  "pack_dir": "D:\\projects\\LLM2\\artifacts\\live_packs\\pivot_sol_geo_tp1_sl1_p75_w4",
+  "proofs_ok": {
+    "builder_responsiveness": true,
+    "layer_a_pred_identity": true,
+    "no_live_feature_fill": true,
+    "recompute_prefix": true
+  },
+  "rule": "PIVOT_FOUR_PROOF_V1",
+  "space": "pivot:level_vsa",
+  "stamp": "20260812T130914Z",
+  "summary_sha256": "1acfb3b880f90132b3b0958ab627d1ec1f6666d853b8e9b659f065a4038f53ee",
+  "symbol": "SOLUSDT",
+  "timeframe": "15m"
+}

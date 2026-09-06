@@ -1,0 +1,45 @@
+# Preregister — structure_v1_eth_k5_size_scale_absmean_001
+# Evidence class: MEASURE_DIAGNOSTIC / OUTER_TRANSFER_COMPARE
+# Max readiness: RESEARCH_ONLY (does not promote live)
+#
+# Hypothesis: stronger |pred_mean| should receive larger qty via
+#   size_mult = clip(|pred_mean|/0.5, 1, 2)
+# overlaid on (or instead of) the live time-based size-double within 3h,
+# improving stitched net capital without changing entry side filter.
+#
+# Control: ETH K=5 double-within-3h, strength median, size_mult ∈ {1,2} time only.
+# Candidate A: control + strength size scale (product).
+# Candidate B: strength size scale only (no time double).
+#
+# Selection: report all three; no outer multi-arm pick for promotion.
+# Hard end: before FORWARD_LOCKBOX_START (2026-05-01).
+
+generation_id: structure_v1_eth_k5_size_scale_absmean_001
+symbol: ETHUSDT
+timeframe: 1h
+space: structure_v1
+target: direction
+geometry: k5_double3h_v1
+arms:
+  control:
+    size_double_within_bars: 3
+    size_scale_by_abs_mean: false
+  candidate_size_scale_on_double:
+    size_double_within_bars: 3
+    size_scale_by_abs_mean: true
+    size_scale_ref: 0.5
+    size_scale_factor_min: 1.0
+    size_scale_factor_max: 2.0
+  candidate_size_scale_only:
+    size_double_within_bars: 0
+    size_scale_by_abs_mean: true
+    size_scale_ref: 0.5
+    size_scale_factor_min: 1.0
+    size_scale_factor_max: 2.0
+primary_metrics:
+  - net_pnl
+  - expectancy_return_units
+  - profit_factor
+  - n_trades
+  - n_liquidations
+promotion_allowed: false

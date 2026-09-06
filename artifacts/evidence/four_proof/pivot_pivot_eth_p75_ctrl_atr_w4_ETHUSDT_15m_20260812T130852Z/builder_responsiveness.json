@@ -1,0 +1,9 @@
+{
+  "conformance": "CAUS-PIVOT-OHLCV-001",
+  "n_rows_moved": 40,
+  "ok": true,
+  "pack": "level_vsa",
+  "proof": "builder_responsiveness",
+  "timeframe": "15m",
+  "tip_bars": 40
+}

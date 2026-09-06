@@ -1,0 +1,89 @@
+# Nested transfer settle: ETH 15m wall_clock p75 + TP∝|pred_mean|.
+# Control = D-047 winner wall_clock_q75 fixed TP 1%. ONE candidate only.
+# Written before this settle run. No lockbox. No 1h grid reopen.
+
+generation_id: structure_v1_eth_15m_wall_clock_p75_tp_scale_absmean_001
+created_utc: "2026-08-05T14:05:00Z"
+status: OOS_COMPARE_COMPLETE
+settled_utc: "20260805T135927Z"
+preregister_sha256_at_run: 77ed2a32e3068c73c5832a3161844e46d8e4ae172922cb9871643522d0de9400
+decision_refs: [D-045, D-047, D-049]
+fold_geometry: v2
+parent_generation: structure_v1_eth_15m_multitrade_geometry_001
+parent_arm: wall_clock_q75
+parent_research_pack: structure_v1_ethusdt_15m_multitrade_wall_clock_p75_v1
+
+hypothesis: >
+  On the frozen ETH 15m wall-clock p75 multitrade geometry, scaling take-profit
+  by |pred_mean| via
+  TP = 0.01 × min(2, max(1, |pred_mean| / 0.5))
+  (applied after fib book TP) raises stitched outer-fold expectancy_return_units
+  versus fixed book TP on the same entry set, without reopening K×hold×TP or
+  the 1h clarity×hold×TP grid.
+
+economic_rationale: >
+  Same nested idea that PASSED on 1h K5 p75 (D-045). Stronger |pred_mean|
+  after the p75 gate justifies a farther target; weak-but-passing scores keep
+  the book floor. Cap at 2× avoids chase gymnastics. Stop stays 2%. Holds and
+  lookback stay wall-clock (24/48/672).
+
+control_arm:
+  arm: wall_clock_q75
+  geometry: wall_clock
+  clarity: mean_strength
+  clarity_scope: all
+  strength_quantile: 0.75
+  k_per_side: 7
+  base_hold: 24
+  hold_addon: 48
+  mean_lookback: 672
+  label_horizon: 24
+  fib_ext: 1.618
+  base_tp: 0.01
+  base_sl: 0.02
+  uniform_books: false
+  tp_scale_by_abs_mean: false
+
+frozen_candidate:
+  same_as_control_except:
+    tp_scale_by_abs_mean: true
+    tp_scale_ref: 0.5
+    tp_scale_factor_min: 1.0
+    tp_scale_factor_max: 2.0
+    formula: "tp = book_tp * min(2, max(1, abs(pred_mean) / 0.5))"
+
+selection:
+  method: FROZEN_TRANSFER — one candidate; no ranking among alternatives
+  forbidden:
+    - re_search_K_hold_tp_grid
+    - reopen_1h_clarity_hold_tp
+    - reopen_15m_geometry_arms
+    - select_on_lockbox
+    - promote_without_beating_control_expectancy_return_units
+
+evaluation:
+  symbol: ETHUSDT
+  timeframe: 15m
+  touch_timeframe: 1m
+  target: direction
+  min_edge: 0.10
+  outer: fold_geometry_v2_stitched_oos
+  hard_end_exclusive: "2026-05-01"
+  lockbox: DO_NOT_OPEN
+  engine: botsgeneral_tradesim
+  costs: research_costs_baseline
+  sizing: MIN_EXCHANGE
+  leverage: leverage_from_stop(0.02)
+  primary_metric: expectancy_return_units
+  secondary: [profit_factor, win_rate, n_trades, mean_tp_pct]
+  evidence_class: OUTER_TRANSFER_COMPARE
+  promotion: FORBIDDEN_without_new_pack_hash_certificate_and_explicit_user_auth
+
+success_criteria:
+  - candidate_expectancy_return_units > control_expectancy_return_units
+  - candidate_stitched_pf >= 1.20
+  - no liquidation
+  - report full outer stitch
+
+failure_is_success: true
+live_deploy: FORBIDDEN_without_certificate_and_explicit_user_auth

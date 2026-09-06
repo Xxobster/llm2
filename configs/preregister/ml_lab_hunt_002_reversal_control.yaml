@@ -1,0 +1,91 @@
+# ML lab hunt 002 — 15-minute sign-reversal control (falsification)
+# RESEARCH_ONLY. Frozen before any hunt-002 result was viewed.
+generation_id: ml_lab_hunt_002_reversal_control
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-28T10:40:00Z"
+fold_geometry: v2
+failure_is_success: true
+
+hypothesis: >
+  The 22 August 2026 short-horizon cryptocurrency reversal result is
+  statistically real on Bybit Bitcoin / Ether 15-minute perpetuals (directional
+  accuracy above 0.51 on pre-2022 data) but is not conventionally tradable once
+  next-open execution, Bybit fees, slippage and funding are charged. Gross edge
+  in the paper was about 1.3 basis points versus a 5 basis-point maker
+  round-trip; our all-taker stress is stricter, so standalone profit factor is
+  expected to fail 1.20. A one-bar hold cannot be maker-maker: max-hold flatten
+  is still taker. Confidence thresholds are frozen absolute values, not fitted
+  on profit factor. This family is a baseline / market-state feature /
+  falsification test, not a strategy candidate.
+
+do_not:
+  - promote a standalone reversal book even if directional accuracy passes
+  - retune Ether 1-hour bounce_upper or hunt-003 WaveTheory survivors
+  - retune hunt-001 information-coefficient or directional-accuracy gates
+  - add reversal as a filter onto KReF after seeing hunt-001 fail, except the
+    frozen diagnostic table below (not used for selection)
+  - expand to 183 Binance spot pairs
+  - join warehouse spaces (structure_v1, macro_v1) in this generation
+  - train QLoRA, TinyLlama, or Adaptive Fourier Neural Operators
+  - ingest Hyperliquid wallet-identity tapes
+  - rank or select on data on/after 2022-01-01
+  - peep FORWARD_LOCKBOX_START
+  - deploy
+  - use entry-bar exit rate as a fail gate (one-bar hold is the design)
+
+selection_window: "strictly before 2022-01-01 (first outer out-of-sample start)"
+lockbox: do_not_rank_on_or_after_2026-05-01
+
+universe:
+  symbols: [BTCUSDT, ETHUSDT]
+  timeframes: [15m]
+
+roll_bars: 96
+conf_min: [0.0, 0.05, 0.10]
+cost_modes: [taker, maker]
+max_hold_bars: 1
+work_bars_maker: 1
+# Wide take-profit / stop so the exit is the one-bar hold, not a 1.5 Average True Range clone.
+tp: 0.20
+sl: 0.20
+
+screen_gates:
+  min_skill_n: 400
+  min_directional_acc: 0.51
+  min_trades: 80
+  min_profit_factor: 1.20
+  min_sharpe_annualised: 0.50
+  note: >
+    Spearman information coefficient is reported, not gated (the paper is a
+    sign-reversal claim). Trades per month and entry-bar exit rate are
+    diagnostics; a one-bar hold on every 15-minute bar is dense by design.
+
+regime_audit:
+  k: 3
+  train_frac: 0.70
+  vol_win: 96
+  note: diagnostic only; labels are not a selection input
+
+kref_feature_diagnostic:
+  enabled: true
+  lookback: 32
+  archive: 512
+  neighbors: 32
+  horizon: 8
+  purge: 1
+  note: >
+    Compare KReF directional accuracy overall versus bars where KReF sign
+    agrees with the one-bar reversal signal. Not used for screen_pass.
+
+leakage_audit:
+  builder: llm2.ml_lab.reversal.build_features_for_guard
+  note: >
+    Signal and confidence from handed Open-High-Low-Close only. Must PASS
+    before any profit factor is written.
+
+papers:
+  reversal: "22 August 2026 short-horizon mean reversion (183 Binance pairs)"
+  regime_audit: "3 August 2026 latent-regime bias auditing for volatility forecasting"
+
+preregister_sha256_at_run: 905f8fc549a6fe8191ccc10201d4ecd5f86cb2684ee723bc0af0ef95d067db04

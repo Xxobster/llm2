@@ -52,6 +52,13 @@ FEATURE_COLS = (
     "close_pos_in_range20",
     "atr_pos_100",
     "ret4",
+    "supertrend_dir",
+    "supertrend_dist",
+    "ichimoku_tk_spread",
+    "ichimoku_tk_bull",
+    "cci_20",
+    "cci_oversold",
+    "cci_overbought",
 )
 
 

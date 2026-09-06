@@ -1,0 +1,37 @@
+strategy_id: btc_1h_quad_slope_follow
+arm_id: BTCUSDT|1h|quad_slope_follow|atr1.5|slcap0.03
+status: AUTHORIZED
+authorized_by_user: true
+authorized_scope: 5% equity stop-risk Post-Only (nearest Bybit qty step; skip if below min)
+authorization_source: >-
+  user chat 2026-09-04: run Bitcoin 1h slope-follow and Solana 1h Fair Value Gap confluence on 212.73.150.178, free Xxobster, 5% equity as risk, Post-Only, adapt bots start date, calculate leverage.
+  user chat 2026-09-04 later: Bitcoin must size 5% of equity at that bar's stop (nearest venue step), not the 0.001 minimum lot; Solana Fair Value Gap stays venue-minimum.
+vps_host: 212.73.150.178
+account_ref: Xxobster11
+pack_path: artifacts/live_packs/btc_1h_quad_slope_follow
+pack_hash: ff0ae48c7ecb345c5b0fa402169f57456756203217310580829f68503f0103f5
+authorized_from_utc: '2026-09-04T00:00:00Z'
+expires_utc: '2026-10-04T00:00:00Z'
+created_utc: '2026-09-03T22:06:02Z'
+symbol: BTCUSDT
+timeframe: 1h
+idea: quad_slope_follow
+leverage: 13.0
+risk_fraction: 0.05
+sizing_mode: RISK_FRACTION
+four_proof_ok: true
+four_proof_hashes:
+  builder_responsiveness: c14adc17ac839eaf8b05dd1b72357937318eeeaf944a295de3586aceea2f2465
+  recompute_prefix: 146c023abc5aefea70dde367e046a759b3cae7d44411ac37ce7a7b69d3e2f310
+  no_live_feature_fill: 7b247ef54afaa2825f21885b4cec1b85d61ab3fd3e0d92f9bacef5095fcb2768
+  layer_a_pred_identity: 9fcd85203f4522684b5531f96b4046664c33341be6dd1e2f874e9bf91cefe85f
+research_readiness: RESEARCH_ONLY (not SHADOW_READY)
+blockers_acknowledged:
+- nested stitched 2022-01-01..2026-05-01 FAIL (Bitcoin profit factor 0.977; Solana profit factor 0.865) — operational fill test only
+- no Gate C all-taker stress on these packs
+- inner screen before 2022-01-01 is not Shadow-Ready
+- unfilled Post-Only cancels and stays flat
+- quantity rounds to the nearest Bybit step around 5% stop-risk (may sit slightly above 5%)
+- skip if the nearest lot is below the venue minimum
+- fill rate ~27% on working limit
+- two-sided: long if bit >= +0.5, short if bit <= -0.5

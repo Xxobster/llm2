@@ -1,0 +1,64 @@
+{
+  "equity": "19.83909538",
+  "wallet": "19.83909538",
+  "arms": {
+    "ETHUSDT": {
+      "unit": "llm2-dsr-eth-bu-1h",
+      "decisions": 9,
+      "entries_signalled": 1,
+      "tip_gate_blocks": 0,
+      "tip_unstable_events": 5,
+      "reconciles": 0,
+      "errors": 1,
+      "resolved_trades": 0,
+      "excluded_operator_closed": 1,
+      "holds_available": 0,
+      "trades_needed_for_verdict": 40,
+      "live": {
+        "n": 0
+      },
+      "live_entry_bar_rate_proxy": NaN,
+      "live_avg_hold_hours": NaN,
+      "frozen": {
+        "profit_factor": 1.352,
+        "win_rate": 0.533,
+        "entry_bar_exit_rate": 0.26,
+        "avg_hold_bars": 3.46
+      },
+      "verdict": "no resolved trades yet"
+    },
+    "SOLUSDT": {
+      "unit": "llm2-dsr-sol-bu-1h",
+      "decisions": 9,
+      "entries_signalled": 1,
+      "tip_gate_blocks": 0,
+      "tip_unstable_events": 8,
+      "reconciles": 0,
+      "errors": 0,
+      "resolved_trades": 1,
+      "excluded_operator_closed": 0,
+      "holds_available": 1,
+      "trades_needed_for_verdict": 40,
+      "live": {
+        "n": 1,
+        "net_pnl": -0.10740275,
+        "profit_factor": 0.0,
+        "win_rate": 0.0,
+        "payoff_ratio": NaN,
+        "avg_pnl": -0.10740275,
+        "gross_win": 0,
+        "gross_loss": 0.10740275
+      },
+      "live_entry_bar_rate_proxy": 1.0,
+      "live_avg_hold_hours": 0.39012305555555554,
+      "frozen": {
+        "profit_factor": 1.965,
+        "win_rate": 0.624,
+        "entry_bar_exit_rate": 0.469,
+        "avg_hold_bars": 1.85
+      },
+      "verdict": "pending (1/40 trades)"
+    }
+  },
+  "alerts": []
+}

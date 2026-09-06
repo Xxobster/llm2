@@ -463,6 +463,95 @@ def match_fills(live_decs: list[dict], bt_trades: list[dict], sl_pct: float) -> 
     }
 
 
+def classify_missed(
+    *,
+    ts_ms: np.ndarray,
+    bt_action: np.ndarray,
+    live_by_ts: dict[int, dict],
+    replay: dict[str, Any],
+    live_counts: dict[str, int],
+    fills: dict[str, Any],
+    since_ms: int,
+    last_live_ms: int | None,
+) -> dict[str, Any]:
+    """Backtest ENTER that live did not take (signals) and ENTER live did not fill (trades).
+
+    Same-bar action uses tip-bound replay flips as the authority. Warehouse score
+    is only used to find bars with no live decision row.
+    """
+    ts = np.asarray(ts_ms, dtype=np.int64)
+    act = np.asarray(bt_action)
+    mask = ts >= int(since_ms)
+    if last_live_ms:
+        mask = mask & (ts <= int(last_live_ms))
+    no_row: list[str] = []
+    for t, a in zip(ts[mask], act[mask]):
+        t_i = int(t)
+        if str(a) != "ENTER_LIMIT":
+            continue
+        if t_i not in live_by_ts:
+            no_row.append(utc(t_i) or str(t_i))
+    replay_missed: list[dict] = []
+    replay_extra_live: list[dict] = []
+    for f in replay.get("flips") or []:
+        live_a = f.get("live_action")
+        bt_a = f.get("bt_action")
+        if live_a == bt_a:
+            continue
+        if bt_a == "ENTER_LIMIT" and live_a != "ENTER_LIMIT":
+            replay_missed.append(f)
+        elif live_a == "ENTER_LIMIT" and bt_a != "ENTER_LIMIT":
+            replay_extra_live.append(f)
+    n_enter = int(live_counts.get("ENTER_LIMIT") or 0)
+    n_filled = int(live_counts.get("filled") or 0)
+    extra_bt = int(fills.get("n_extra_bt") or 0)
+    return {
+        "n_replay_bt_enter_live_not": len(replay_missed),
+        "n_replay_live_enter_bt_not": len(replay_extra_live),
+        "n_bt_enter_no_live_row": len(no_row),
+        "n_live_enter_unfilled": max(0, n_enter - n_filled),
+        "n_extra_bt_trades": extra_bt,
+        "n_missed_signals": len(replay_missed) + len(no_row),
+        "n_missed_trades": max(0, n_enter - n_filled) + extra_bt,
+        "replay_bt_enter_live_not": replay_missed[:12],
+        "replay_live_enter_bt_not": replay_extra_live[:8],
+        "bt_enter_no_live_row": no_row[:12],
+        "unfilled_breakdown": {
+            "cancelled_data_unsafe": int(live_counts.get("cancelled_data_unsafe") or 0),
+            "cancelled": int(live_counts.get("cancelled") or 0),
+            "no_result": int(live_counts.get("no_result") or 0),
+            "place_fail": int(live_counts.get("place_fail") or 0),
+        },
+        "extra_bt_trades": (fills.get("extra_bt_trades") or [])[:8],
+    }
+
+
+def missed_signals_and_trades(
+    ohlcv: pd.DataFrame,
+    strat: dict,
+    blob: dict,
+    live_decs: list[dict],
+    replay: dict[str, Any],
+    live_counts: dict[str, int],
+    fills: dict[str, Any],
+    *,
+    since_ms: int,
+) -> dict[str, Any]:
+    scored = _score_all(ohlcv, strat, blob)
+    live_by = {int(p["bar_ts_ms"]): p for p in live_decs}
+    last_live = max(live_by) if live_by else None
+    return classify_missed(
+        ts_ms=scored["ts_ms"].astype("int64").to_numpy(),
+        bt_action=scored["action"].to_numpy(),
+        live_by_ts=live_by,
+        replay=replay,
+        live_counts=live_counts,
+        fills=fills,
+        since_ms=since_ms,
+        last_live_ms=last_live,
+    )
+
+
 def write_md(report: dict) -> None:
     lines = [
         "# LLM2 pivot live vs backtest",
@@ -485,6 +574,10 @@ def write_md(report: dict) -> None:
             f"- Backtest trades: n={arm['bt'].get('n_trades')} PF={arm['bt'].get('profit_factor')} net={arm['bt'].get('net_pnl')}",
             f"- Fill pairs: live_fills={arm['fills'].get('n_live_fills')} bt={arm['fills'].get('n_bt_trades')} extra_bt={arm['fills'].get('n_extra_bt')}",
             f"- Live fill ledger (pivot_fills): n={arm.get('fill_ledger_n')}",
+            f"- Missed signals (BT ENTER, live not): { (arm.get('missed') or {}).get('n_missed_signals') } "
+            f"(replay { (arm.get('missed') or {}).get('n_replay_bt_enter_live_not') } + no-row { (arm.get('missed') or {}).get('n_bt_enter_no_live_row') })",
+            f"- Missed trades (live ENTER unfilled + extra BT fills): { (arm.get('missed') or {}).get('n_missed_trades') } "
+            f"unfilled={ (arm.get('missed') or {}).get('n_live_enter_unfilled') } extra_bt={ (arm.get('missed') or {}).get('n_extra_bt_trades') }",
             "",
         ]
         if arm["replay"].get("flips"):
@@ -557,6 +650,9 @@ def main(argv: list[str] | None = None) -> int:
             inst=_instrument(strat),
         )
         fills = match_fills(live_decs, bt.get("trades") or [], float(strat["sl_pct"]))
+        missed = missed_signals_and_trades(
+            ohlcv, strat, blob, live_decs, replay, live_counts, fills, since_ms=SINCE_MS
+        )
         fill_ledger = dump.get(spec["name"], {}).get("pivot_fills") or []
         if not candles.get("pass"):
             blockers.append(f"{spec['name']}_candle_mismatch")
@@ -573,6 +669,7 @@ def main(argv: list[str] | None = None) -> int:
                 "materialize": stats,
                 "bt": {k: v for k, v in bt.items() if k != "trades"} | {"trades": bt.get("trades")},
                 "fills": fills,
+                "missed": missed,
                 "fill_ledger_n": len(fill_ledger),
                 "fill_ledger_events": [
                     {

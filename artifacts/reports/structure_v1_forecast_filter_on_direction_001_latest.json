@@ -1,0 +1,1377 @@
+{
+  "generation_id": "structure_v1_forecast_filter_on_direction_001",
+  "stamp": "20260806T213741Z",
+  "preregister_sha256": "d962852a62603ba6b8bb1fe5bced1fd94d6bc09e0e4875d5deb882176ac025c0",
+  "fold_geometry": "v2",
+  "four_proof": {
+    "ok": true,
+    "artifact_dir": "D:\\projects\\LLM2\\artifacts\\evidence\\four_proof\\structure_v1_ETHUSDT_1h_20260806T213741Z",
+    "proofs_ok": {
+      "builder_responsiveness": true,
+      "recompute_prefix": true,
+      "no_live_feature_fill": true,
+      "layer_a_pred_identity": true
+    },
+    "artifact_hashes": {
+      "builder_responsiveness": "ee5d278318054939bfb891bf4b6b06c5f967906d24674205eddd9d176befb185",
+      "recompute_prefix": "8ef856e221d86b8f8d4f66ae565a9ed4e4ad595d801bff3f29bfdc60704bef12",
+      "no_live_feature_fill": "19e467820bb38cf07e322d5f9cd992836b8a33d15db59c56184403b9d6f6c14f",
+      "layer_a_pred_identity": "9df08b0228a62f1c8717c61692871175c6488b84e0ee511a0e0a7749df40bf64"
+    }
+  },
+  "symbols": [
+    {
+      "symbol": "ETHUSDT",
+      "n_bars": 52935,
+      "n_sparse_legs": 12335,
+      "model_picks": [
+        {
+          "fold": 0,
+          "next_retrace_model": "lgbm_regressor",
+          "next_retrace_inner_ic": 0.6740535682053436,
+          "next_vol_model": "ridge",
+          "next_vol_inner_ic": 0.2512243761535872,
+          "vol_train_p75": 0.08593423396968738
+        },
+        {
+          "fold": 1,
+          "next_retrace_model": "ridge",
+          "next_retrace_inner_ic": 0.6785784611571041,
+          "next_vol_model": "ridge",
+          "next_vol_inner_ic": 0.1507656029994122,
+          "vol_train_p75": 0.08320779827922961
+        },
+        {
+          "fold": 2,
+          "next_retrace_model": "ridge",
+          "next_retrace_inner_ic": 0.7012613456841826,
+          "next_vol_model": "lgbm_regressor",
+          "next_vol_inner_ic": 0.28798517577328636,
+          "vol_train_p75": 0.07535160576987918
+        },
+        {
+          "fold": 3,
+          "next_retrace_model": "ridge",
+          "next_retrace_inner_ic": 0.6888043782821299,
+          "next_vol_model": "lgbm_regressor",
+          "next_vol_inner_ic": 0.3080042791710201,
+          "vol_train_p75": 0.07185565575911487
+        },
+        {
+          "fold": 4,
+          "next_retrace_model": "ridge",
+          "next_retrace_inner_ic": 0.6955929234958843,
+          "next_vol_model": "lgbm_regressor",
+          "next_vol_inner_ic": 0.3110624020139655,
+          "vol_train_p75": 0.07006228379433768
+        },
+        {
+          "fold": 5,
+          "next_retrace_model": "ridge",
+          "next_retrace_inner_ic": 0.6972471552235951,
+          "next_vol_model": "lgbm_regressor",
+          "next_vol_inner_ic": 0.22798090575423555,
+          "vol_train_p75": 0.06807717738564875
+        }
+      ],
+      "forecast_skill": {
+        "next_retrace_pct": {
+          "mean_outer_spearman_ic": 0.6857303859049552,
+          "frac_folds_ic_positive": 1.0,
+          "n_folds": 6,
+          "folds": [
+            {
+              "fold": 0,
+              "target": "next_retrace_pct",
+              "model": "lgbm_regressor",
+              "inner_ic": 0.6740535682053436,
+              "outer_ic": 0.6525068663975024,
+              "n_oos": 1490
+            },
+            {
+              "fold": 1,
+              "target": "next_retrace_pct",
+              "model": "ridge",
+              "inner_ic": 0.6785784611571041,
+              "outer_ic": 0.7004528250051982,
+              "n_oos": 1457
+            },
+            {
+              "fold": 2,
+              "target": "next_retrace_pct",
+              "model": "ridge",
+              "inner_ic": 0.7012613456841826,
+              "outer_ic": 0.6901375730130419,
+              "n_oos": 1469
+            },
+            {
+              "fold": 3,
+              "target": "next_retrace_pct",
+              "model": "ridge",
+              "inner_ic": 0.6888043782821299,
+              "outer_ic": 0.6831730006467566,
+              "n_oos": 1451
+            },
+            {
+              "fold": 4,
+              "target": "next_retrace_pct",
+              "model": "ridge",
+              "inner_ic": 0.6955929234958843,
+              "outer_ic": 0.7145763673508769,
+              "n_oos": 1443
+            },
+            {
+              "fold": 5,
+              "target": "next_retrace_pct",
+              "model": "ridge",
+              "inner_ic": 0.6972471552235951,
+              "outer_ic": 0.6735356830163557,
+              "n_oos": 1135
+            }
+          ]
+        },
+        "next_vol": {
+          "mean_outer_spearman_ic": 0.28624017906224447,
+          "frac_folds_ic_positive": 1.0,
+          "n_folds": 6,
+          "folds": [
+            {
+              "fold": 0,
+              "target": "next_vol",
+              "model": "ridge",
+              "inner_ic": 0.2512243761535872,
+              "outer_ic": 0.23520144927975783,
+              "n_oos": 6550,
+              "train_p75": 0.08593423396968738
+            },
+            {
+              "fold": 1,
+              "target": "next_vol",
+              "model": "ridge",
+              "inner_ic": 0.1507656029994122,
+              "outer_ic": 0.25397501642743286,
+              "n_oos": 6535,
+              "train_p75": 0.08320779827922961
+            },
+            {
+              "fold": 2,
+              "target": "next_vol",
+              "model": "lgbm_regressor",
+              "inner_ic": 0.28798517577328636,
+              "outer_ic": 0.4562381072748318,
+              "n_oos": 6581,
+              "train_p75": 0.07535160576987918
+            },
+            {
+              "fold": 3,
+              "target": "next_vol",
+              "model": "lgbm_regressor",
+              "inner_ic": 0.3080042791710201,
+              "outer_ic": 0.248961440668953,
+              "n_oos": 6590,
+              "train_p75": 0.07185565575911487
+            },
+            {
+              "fold": 4,
+              "target": "next_vol",
+              "model": "lgbm_regressor",
+              "inner_ic": 0.3110624020139655,
+              "outer_ic": 0.12129552767895148,
+              "n_oos": 6530,
+              "train_p75": 0.07006228379433768
+            },
+            {
+              "fold": 5,
+              "target": "next_vol",
+              "model": "lgbm_regressor",
+              "inner_ic": 0.22798090575423555,
+              "outer_ic": 0.4017695330435397,
+              "n_oos": 5065,
+              "train_p75": 0.06807717738564875
+            }
+          ]
+        },
+        "fwd_return": {
+          "mean_outer_spearman_ic": 0.017265330222287267,
+          "frac_folds_ic_positive": 0.6666666666666666,
+          "n_folds": 6,
+          "folds": [
+            {
+              "fold": 0,
+              "target": "fwd_return",
+              "model": "lgbm_regressor",
+              "inner_ic": NaN,
+              "outer_ic": 0.030423990272755604,
+              "n_oos": 6550,
+              "note": "reporting_only_not_used_for_filter"
+            },
+            {
+              "fold": 1,
+              "target": "fwd_return",
+              "model": "lgbm_regressor",
+              "inner_ic": NaN,
+              "outer_ic": 0.030001935181023284,
+              "n_oos": 6535,
+              "note": "reporting_only_not_used_for_filter"
+            },
+            {
+              "fold": 2,
+              "target": "fwd_return",
+              "model": "lgbm_regressor",
+              "inner_ic": NaN,
+              "outer_ic": 0.025338095961895686,
+              "n_oos": 6581,
+              "note": "reporting_only_not_used_for_filter"
+            },
+            {
+              "fold": 3,
+              "target": "fwd_return",
+              "model": "lgbm_regressor",
+              "inner_ic": NaN,
+              "outer_ic": -0.039900475077237034,
+              "n_oos": 6590,
+              "note": "reporting_only_not_used_for_filter"
+            },
+            {
+              "fold": 4,
+              "target": "fwd_return",
+              "model": "lgbm_regressor",
+              "inner_ic": NaN,
+              "outer_ic": 0.05929522061586738,
+              "n_oos": 6530,
+              "note": "reporting_only_not_used_for_filter"
+            },
+            {
+              "fold": 5,
+              "target": "fwd_return",
+              "model": "lgbm_regressor",
+              "inner_ic": NaN,
+              "outer_ic": -0.001566785620581318,
+              "n_oos": 5065,
+              "note": "reporting_only_not_used_for_filter"
+            }
+          ]
+        }
+      },
+      "arms": {
+        "control": {
+          "n_folds": 6,
+          "n_signals": 16620,
+          "n_trades": 6038,
+          "sum_net_pnl": -242.31867599995167,
+          "mean_fold_pf": 0.7240178617864234,
+          "frac_folds_pf_gt_1": 0.0,
+          "folds": [
+            {
+              "arm": "control",
+              "fold": 0,
+              "n_signals": 3749.0,
+              "n_trades": 1546.0,
+              "profit_factor": 0.714579816145452,
+              "net_pnl": -63.659712759998,
+              "win_rate": 0.5873221216041398
+            },
+            {
+              "arm": "control",
+              "fold": 1,
+              "n_signals": 3379.0,
+              "n_trades": 1039.0,
+              "profit_factor": 0.7377641071081054,
+              "net_pnl": -21.253665829992315,
+              "win_rate": 0.5168431183830606
+            },
+            {
+              "arm": "control",
+              "fold": 2,
+              "n_signals": 2716.0,
+              "n_trades": 862.0,
+              "profit_factor": 0.7186575940170045,
+              "net_pnl": -28.255690045001757,
+              "win_rate": 0.4965197215777262
+            },
+            {
+              "arm": "control",
+              "fold": 3,
+              "n_signals": 2583.0,
+              "n_trades": 920.0,
+              "profit_factor": 0.6501580561471808,
+              "net_pnl": -59.83806079502392,
+              "win_rate": 0.5173913043478261
+            },
+            {
+              "arm": "control",
+              "fold": 4,
+              "n_signals": 2381.0,
+              "n_trades": 952.0,
+              "profit_factor": 0.7562796956304777,
+              "net_pnl": -40.77253326993923,
+              "win_rate": 0.5798319327731093
+            },
+            {
+              "arm": "control",
+              "fold": 5,
+              "n_signals": 1812.0,
+              "n_trades": 719.0,
+              "profit_factor": 0.7666679016703193,
+              "net_pnl": -28.53901329999644,
+              "win_rate": 0.5785813630041725
+            }
+          ]
+        },
+        "next_retrace_agree_skip": {
+          "n_folds": 6,
+          "n_signals": 6210,
+          "n_trades": 2789,
+          "sum_net_pnl": -107.81524429996898,
+          "mean_fold_pf": 0.7211667593790919,
+          "frac_folds_pf_gt_1": 0.0,
+          "folds": [
+            {
+              "arm": "next_retrace_agree_skip",
+              "fold": 0,
+              "n_signals": 1449.0,
+              "n_trades": 719.0,
+              "profit_factor": 0.7234163952597459,
+              "net_pnl": -27.961841034995814,
+              "win_rate": 0.5716272600834492
+            },
+            {
+              "arm": "next_retrace_agree_skip",
+              "fold": 1,
+              "n_signals": 1465.0,
+              "n_trades": 568.0,
+              "profit_factor": 0.6743798390508636,
+              "net_pnl": -14.9049737199839,
+              "win_rate": 0.4823943661971831
+            },
+            {
+              "arm": "next_retrace_agree_skip",
+              "fold": 2,
+              "n_signals": 1057.0,
+              "n_trades": 439.0,
+              "profit_factor": 0.690739364578238,
+              "net_pnl": -15.738912015016467,
+              "win_rate": 0.4874715261958998
+            },
+            {
+              "arm": "next_retrace_agree_skip",
+              "fold": 3,
+              "n_signals": 867.0,
+              "n_trades": 386.0,
+              "profit_factor": 0.6398193433440598,
+              "net_pnl": -26.248858770008155,
+              "win_rate": 0.5155440414507773
+            },
+            {
+              "arm": "next_retrace_agree_skip",
+              "fold": 4,
+              "n_signals": 716.0,
+              "n_trades": 372.0,
+              "profit_factor": 0.7617237885745904,
+              "net_pnl": -15.321545809963936,
+              "win_rate": 0.5698924731182796
+            },
+            {
+              "arm": "next_retrace_agree_skip",
+              "fold": 5,
+              "n_signals": 656.0,
+              "n_trades": 305.0,
+              "profit_factor": 0.8369218254670543,
+              "net_pnl": -7.639112950000708,
+              "win_rate": 0.5868852459016394
+            }
+          ]
+        },
+        "next_vol_skip_p75": {
+          "n_folds": 6,
+          "n_signals": 14393,
+          "n_trades": 4952,
+          "sum_net_pnl": -203.02847076997568,
+          "mean_fold_pf": 0.7233714388894347,
+          "frac_folds_pf_gt_1": 0.0,
+          "folds": [
+            {
+              "arm": "next_vol_skip_p75",
+              "fold": 0,
+              "n_signals": 3135.0,
+              "n_trades": 1196.0,
+              "profit_factor": 0.6876878638227191,
+              "net_pnl": -57.882676754990825,
+              "win_rate": 0.5719063545150501
+            },
+            {
+              "arm": "next_vol_skip_p75",
+              "fold": 1,
+              "n_signals": 3297.0,
+              "n_trades": 983.0,
+              "profit_factor": 0.7486556446220423,
+              "net_pnl": -18.86769567498959,
+              "win_rate": 0.5127161749745677
+            },
+            {
+              "arm": "next_vol_skip_p75",
+              "fold": 2,
+              "n_signals": 2632.0,
+              "n_trades": 822.0,
+              "profit_factor": 0.6560026591423218,
+              "net_pnl": -33.35083092001332,
+              "win_rate": 0.4829683698296837
+            },
+            {
+              "arm": "next_vol_skip_p75",
+              "fold": 3,
+              "n_signals": 2396.0,
+              "n_trades": 839.0,
+              "profit_factor": 0.653689909016838,
+              "net_pnl": -51.96275650502139,
+              "win_rate": 0.5101311084624554
+            },
+            {
+              "arm": "next_vol_skip_p75",
+              "fold": 4,
+              "n_signals": 1690.0,
+              "n_trades": 645.0,
+              "profit_factor": 0.7566241930682551,
+              "net_pnl": -28.763903524954003,
+              "win_rate": 0.5643410852713179
+            },
+            {
+              "arm": "next_vol_skip_p75",
+              "fold": 5,
+              "n_signals": 1243.0,
+              "n_trades": 467.0,
+              "profit_factor": 0.8375683636644321,
+              "net_pnl": -12.200607390006553,
+              "win_rate": 0.5738758029978587
+            }
+          ]
+        }
+      },
+      "vs_control": {
+        "next_retrace_agree_skip": {
+          "pf_vs_control_mean_fold": -0.0028511024073314406,
+          "pnl_vs_control": 134.50343169998268,
+          "signals_vs_control": -10410,
+          "beats_control_pf": false,
+          "beats_control_pnl": true,
+          "skip_more": true,
+          "methodology_win": false
+        },
+        "next_vol_skip_p75": {
+          "pf_vs_control_mean_fold": -0.0006464228969886854,
+          "pnl_vs_control": 39.29020522997598,
+          "signals_vs_control": -2227,
+          "beats_control_pf": false,
+          "beats_control_pnl": true,
+          "skip_more": true,
+          "methodology_win": false
+        }
+      },
+      "readiness_max": "RESEARCH_ONLY",
+      "note": "Forecast skill and trading Profit Factor are separate. Methodology win \u2260 SHADOW_READY. No live authorization."
+    },
+    {
+      "symbol": "BTCUSDT",
+      "n_bars": 55488,
+      "n_sparse_legs": 12914,
+      "model_picks": [
+        {
+          "fold": 0,
+          "next_retrace_model": "ridge",
+          "next_retrace_inner_ic": 0.6917913497252832,
+          "next_vol_model": "lgbm_regressor",
+          "next_vol_inner_ic": 0.18789986828855484,
+          "vol_train_p75": 0.06565752538798691
+        },
+        {
+          "fold": 1,
+          "next_retrace_model": "ridge",
+          "next_retrace_inner_ic": 0.6885905495477197,
+          "next_vol_model": "lgbm_regressor",
+          "next_vol_inner_ic": 0.18829770075854393,
+          "vol_train_p75": 0.0624707075600273
+        },
+        {
+          "fold": 2,
+          "next_retrace_model": "ridge",
+          "next_retrace_inner_ic": 0.694900046414478,
+          "next_vol_model": "lgbm_regressor",
+          "next_vol_inner_ic": 0.1393873926998617,
+          "vol_train_p75": 0.05882366235096828
+        },
+        {
+          "fold": 3,
+          "next_retrace_model": "ridge",
+          "next_retrace_inner_ic": 0.67312376191166,
+          "next_vol_model": "ridge",
+          "next_vol_inner_ic": 0.2560563928389569,
+          "vol_train_p75": 0.05681547210630133
+        },
+        {
+          "fold": 4,
+          "next_retrace_model": "ridge",
+          "next_retrace_inner_ic": 0.6952808705158721,
+          "next_vol_model": "lgbm_regressor",
+          "next_vol_inner_ic": 0.2669329325127585,
+          "vol_train_p75": 0.05381314075191187
+        },
+        {
+          "fold": 5,
+          "next_retrace_model": "ridge",
+          "next_retrace_inner_ic": 0.6859445256809947,
+          "next_vol_model": "ridge",
+          "next_vol_inner_ic": 0.25778951783640475,
+          "vol_train_p75": 0.05274320917568165
+        }
+      ],
+      "forecast_skill": {
+        "next_retrace_pct": {
+          "mean_outer_spearman_ic": 0.6802928127028368,
+          "frac_folds_ic_positive": 1.0,
+          "n_folds": 6,
+          "folds": [
+            {
+              "fold": 0,
+              "target": "next_retrace_pct",
+              "model": "ridge",
+              "inner_ic": 0.6917913497252832,
+              "outer_ic": 0.675726884071259,
+              "n_oos": 1495
+            },
+            {
+              "fold": 1,
+              "target": "next_retrace_pct",
+              "model": "ridge",
+              "inner_ic": 0.6885905495477197,
+              "outer_ic": 0.6632116980987504,
+              "n_oos": 1470
+            },
+            {
+              "fold": 2,
+              "target": "next_retrace_pct",
+              "model": "ridge",
+              "inner_ic": 0.694900046414478,
+              "outer_ic": 0.6892753059601356,
+              "n_oos": 1461
+            },
+            {
+              "fold": 3,
+              "target": "next_retrace_pct",
+              "model": "ridge",
+              "inner_ic": 0.67312376191166,
+              "outer_ic": 0.7063023002446815,
+              "n_oos": 1451
+            },
+            {
+              "fold": 4,
+              "target": "next_retrace_pct",
+              "model": "ridge",
+              "inner_ic": 0.6952808705158721,
+              "outer_ic": 0.7227607612514954,
+              "n_oos": 1447
+            },
+            {
+              "fold": 5,
+              "target": "next_retrace_pct",
+              "model": "ridge",
+              "inner_ic": 0.6859445256809947,
+              "outer_ic": 0.6244799265906996,
+              "n_oos": 1121
+            }
+          ]
+        },
+        "next_vol": {
+          "mean_outer_spearman_ic": 0.2755365647715123,
+          "frac_folds_ic_positive": 1.0,
+          "n_folds": 6,
+          "folds": [
+            {
+              "fold": 0,
+              "target": "next_vol",
+              "model": "lgbm_regressor",
+              "inner_ic": 0.18789986828855484,
+              "outer_ic": 0.21997913144243425,
+              "n_oos": 6548,
+              "train_p75": 0.06565752538798691
+            },
+            {
+              "fold": 1,
+              "target": "next_vol",
+              "model": "lgbm_regressor",
+              "inner_ic": 0.18829770075854393,
+              "outer_ic": 0.12544225180523644,
+              "n_oos": 6536,
+              "train_p75": 0.0624707075600273
+            },
+            {
+              "fold": 2,
+              "target": "next_vol",
+              "model": "lgbm_regressor",
+              "inner_ic": 0.1393873926998617,
+              "outer_ic": 0.4323776734312414,
+              "n_oos": 6580,
+              "train_p75": 0.05882366235096828
+            },
+            {
+              "fold": 3,
+              "target": "next_vol",
+              "model": "ridge",
+              "inner_ic": 0.2560563928389569,
+              "outer_ic": 0.1681780285648951,
+              "n_oos": 6537,
+              "train_p75": 0.05681547210630133
+            },
+            {
+              "fold": 4,
+              "target": "next_vol",
+              "model": "lgbm_regressor",
+              "inner_ic": 0.2669329325127585,
+              "outer_ic": 0.38473223944542523,
+              "n_oos": 6531,
+              "train_p75": 0.05381314075191187
+            },
+            {
+              "fold": 5,
+              "target": "next_vol",
+              "model": "ridge",
+              "inner_ic": 0.25778951783640475,
+              "outer_ic": 0.3225100639398411,
+              "n_oos": 5077,
+              "train_p75": 0.05274320917568165
+            }
+          ]
+        },
+        "fwd_return": {
+          "mean_outer_spearman_ic": -0.0044316195969879135,
+          "frac_folds_ic_positive": 0.5,
+          "n_folds": 6,
+          "folds": [
+            {
+              "fold": 0,
+              "target": "fwd_return",
+              "model": "lgbm_regressor",
+              "inner_ic": NaN,
+              "outer_ic": 0.020550827302508803,
+              "n_oos": 6548,
+              "note": "reporting_only_not_used_for_filter"
+            },
+            {
+              "fold": 1,
+              "target": "fwd_return",
+              "model": "lgbm_regressor",
+              "inner_ic": NaN,
+              "outer_ic": -0.006982424345924008,
+              "n_oos": 6536,
+              "note": "reporting_only_not_used_for_filter"
+            },
+            {
+              "fold": 2,
+              "target": "fwd_return",
+              "model": "lgbm_regressor",
+              "inner_ic": NaN,
+              "outer_ic": 0.002905568241887066,
+              "n_oos": 6580,
+              "note": "reporting_only_not_used_for_filter"
+            },
+            {
+              "fold": 3,
+              "target": "fwd_return",
+              "model": "lgbm_regressor",
+              "inner_ic": NaN,
+              "outer_ic": 0.025418053470415373,
+              "n_oos": 6537,
+              "note": "reporting_only_not_used_for_filter"
+            },
+            {
+              "fold": 4,
+              "target": "fwd_return",
+              "model": "lgbm_regressor",
+              "inner_ic": NaN,
+              "outer_ic": -0.0268792115433622,
+              "n_oos": 6531,
+              "note": "reporting_only_not_used_for_filter"
+            },
+            {
+              "fold": 5,
+              "target": "fwd_return",
+              "model": "lgbm_regressor",
+              "inner_ic": NaN,
+              "outer_ic": -0.04160253070745252,
+              "n_oos": 5077,
+              "note": "reporting_only_not_used_for_filter"
+            }
+          ]
+        }
+      },
+      "arms": {
+        "control": {
+          "n_folds": 6,
+          "n_signals": 16386,
+          "n_trades": 5042,
+          "sum_net_pnl": -490.7923643249851,
+          "mean_fold_pf": 0.6510772529283649,
+          "frac_folds_pf_gt_1": 0.0,
+          "folds": [
+            {
+              "arm": "control",
+              "fold": 0,
+              "n_signals": 3537.0,
+              "n_trades": 1238.0,
+              "profit_factor": 0.6835898598227117,
+              "net_pnl": -75.05344523998065,
+              "win_rate": 0.5468497576736672
+            },
+            {
+              "arm": "control",
+              "fold": 1,
+              "n_signals": 3048.0,
+              "n_trades": 862.0,
+              "profit_factor": 0.699594183053874,
+              "net_pnl": -26.369597049982985,
+              "win_rate": 0.4779582366589327
+            },
+            {
+              "arm": "control",
+              "fold": 2,
+              "n_signals": 2990.0,
+              "n_trades": 840.0,
+              "profit_factor": 0.6457302681256926,
+              "net_pnl": -62.474454660001356,
+              "win_rate": 0.46190476190476193
+            },
+            {
+              "arm": "control",
+              "fold": 3,
+              "n_signals": 2655.0,
+              "n_trades": 832.0,
+              "profit_factor": 0.684454376403141,
+              "net_pnl": -92.7074518249974,
+              "win_rate": 0.49399038461538464
+            },
+            {
+              "arm": "control",
+              "fold": 4,
+              "n_signals": 2354.0,
+              "n_trades": 712.0,
+              "profit_factor": 0.5928195714793367,
+              "net_pnl": -133.49979242003246,
+              "win_rate": 0.44803370786516855
+            },
+            {
+              "arm": "control",
+              "fold": 5,
+              "n_signals": 1802.0,
+              "n_trades": 558.0,
+              "profit_factor": 0.6002752586854332,
+              "net_pnl": -100.68762312999024,
+              "win_rate": 0.4767025089605735
+            }
+          ]
+        },
+        "next_retrace_agree_skip": {
+          "n_folds": 6,
+          "n_signals": 5845,
+          "n_trades": 2431,
+          "sum_net_pnl": -233.93638652496702,
+          "mean_fold_pf": 0.6619664069489243,
+          "frac_folds_pf_gt_1": 0.0,
+          "folds": [
+            {
+              "arm": "next_retrace_agree_skip",
+              "fold": 0,
+              "n_signals": 1250.0,
+              "n_trades": 568.0,
+              "profit_factor": 0.6945940980506082,
+              "net_pnl": -32.641616854976746,
+              "win_rate": 0.5387323943661971
+            },
+            {
+              "arm": "next_retrace_agree_skip",
+              "fold": 1,
+              "n_signals": 1252.0,
+              "n_trades": 475.0,
+              "profit_factor": 0.7594494409254741,
+              "net_pnl": -10.50468195999565,
+              "win_rate": 0.4884210526315789
+            },
+            {
+              "arm": "next_retrace_agree_skip",
+              "fold": 2,
+              "n_signals": 1175.0,
+              "n_trades": 459.0,
+              "profit_factor": 0.6412367954474326,
+              "net_pnl": -32.88017599000523,
+              "win_rate": 0.42919389978213507
+            },
+            {
+              "arm": "next_retrace_agree_skip",
+              "fold": 3,
+              "n_signals": 956.0,
+              "n_trades": 411.0,
+              "profit_factor": 0.5610539425294335,
+              "net_pnl": -69.25562981499024,
+              "win_rate": 0.45498783454987834
+            },
+            {
+              "arm": "next_retrace_agree_skip",
+              "fold": 4,
+              "n_signals": 692.0,
+              "n_trades": 304.0,
+              "profit_factor": 0.5144351542057685,
+              "net_pnl": -73.10776391500258,
+              "win_rate": 0.4506578947368421
+            },
+            {
+              "arm": "next_retrace_agree_skip",
+              "fold": 5,
+              "n_signals": 520.0,
+              "n_trades": 214.0,
+              "profit_factor": 0.801029010534829,
+              "net_pnl": -15.546517989996573,
+              "win_rate": 0.5046728971962616
+            }
+          ]
+        },
+        "next_vol_skip_p75": {
+          "n_folds": 6,
+          "n_signals": 12775,
+          "n_trades": 3930,
+          "sum_net_pnl": -380.7285783100342,
+          "mean_fold_pf": 0.6427594623505383,
+          "frac_folds_pf_gt_1": 0.0,
+          "folds": [
+            {
+              "arm": "next_vol_skip_p75",
+              "fold": 0,
+              "n_signals": 2157.0,
+              "n_trades": 763.0,
+              "profit_factor": 0.6620980214130475,
+              "net_pnl": -50.85648332503115,
+              "win_rate": 0.5216251638269986
+            },
+            {
+              "arm": "next_vol_skip_p75",
+              "fold": 1,
+              "n_signals": 2760.0,
+              "n_trades": 771.0,
+              "profit_factor": 0.6850742258374771,
+              "net_pnl": -24.383037409985263,
+              "win_rate": 0.4656290531776913
+            },
+            {
+              "arm": "next_vol_skip_p75",
+              "fold": 2,
+              "n_signals": 1929.0,
+              "n_trades": 564.0,
+              "profit_factor": 0.6517767436233336,
+              "net_pnl": -27.18530559501778,
+              "win_rate": 0.4379432624113475
+            },
+            {
+              "arm": "next_vol_skip_p75",
+              "fold": 3,
+              "n_signals": 2467.0,
+              "n_trades": 769.0,
+              "profit_factor": 0.6665905289811035,
+              "net_pnl": -88.50216337498932,
+              "win_rate": 0.4889466840052016
+            },
+            {
+              "arm": "next_vol_skip_p75",
+              "fold": 4,
+              "n_signals": 1804.0,
+              "n_trades": 557.0,
+              "profit_factor": 0.5849436107812024,
+              "net_pnl": -101.78451680501166,
+              "win_rate": 0.43447037701974867
+            },
+            {
+              "arm": "next_vol_skip_p75",
+              "fold": 5,
+              "n_signals": 1658.0,
+              "n_trades": 506.0,
+              "profit_factor": 0.6060736434670658,
+              "net_pnl": -88.01707179999903,
+              "win_rate": 0.47035573122529645
+            }
+          ]
+        }
+      },
+      "vs_control": {
+        "next_retrace_agree_skip": {
+          "pf_vs_control_mean_fold": 0.010889154020559344,
+          "pnl_vs_control": 256.8559778000181,
+          "signals_vs_control": -10541,
+          "beats_control_pf": true,
+          "beats_control_pnl": true,
+          "skip_more": true,
+          "methodology_win": true
+        },
+        "next_vol_skip_p75": {
+          "pf_vs_control_mean_fold": -0.008317790577826667,
+          "pnl_vs_control": 110.06378601495089,
+          "signals_vs_control": -3611,
+          "beats_control_pf": false,
+          "beats_control_pnl": true,
+          "skip_more": true,
+          "methodology_win": false
+        }
+      },
+      "readiness_max": "RESEARCH_ONLY",
+      "note": "Forecast skill and trading Profit Factor are separate. Methodology win \u2260 SHADOW_READY. No live authorization."
+    },
+    {
+      "symbol": "SOLUSDT",
+      "n_bars": 45680,
+      "n_sparse_legs": 10377,
+      "model_picks": [
+        {
+          "fold": 0,
+          "next_retrace_model": "ridge",
+          "next_retrace_inner_ic": 0.699139072847682,
+          "next_vol_model": "lgbm_regressor",
+          "next_vol_inner_ic": 0.20367771450527275,
+          "vol_train_p75": 0.14553940635872842
+        },
+        {
+          "fold": 1,
+          "next_retrace_model": "ridge",
+          "next_retrace_inner_ic": 0.6930169765667289,
+          "next_vol_model": "lgbm_regressor",
+          "next_vol_inner_ic": 0.18443786921089148,
+          "vol_train_p75": 0.12605314088195096
+        },
+        {
+          "fold": 2,
+          "next_retrace_model": "lgbm_regressor",
+          "next_retrace_inner_ic": 0.618932018358604,
+          "next_vol_model": "lgbm_regressor",
+          "next_vol_inner_ic": 0.41402015705860934,
+          "vol_train_p75": 0.11402282515496728
+        },
+        {
+          "fold": 3,
+          "next_retrace_model": "lgbm_regressor",
+          "next_retrace_inner_ic": 0.6588150902814681,
+          "next_vol_model": "ridge",
+          "next_vol_inner_ic": 0.3548637793624865,
+          "vol_train_p75": 0.10958690269646959
+        },
+        {
+          "fold": 4,
+          "next_retrace_model": "lgbm_regressor",
+          "next_retrace_inner_ic": 0.7005874471882191,
+          "next_vol_model": "lgbm_regressor",
+          "next_vol_inner_ic": 0.30873469304512263,
+          "vol_train_p75": 0.10261727334951697
+        },
+        {
+          "fold": 5,
+          "next_retrace_model": "lgbm_regressor",
+          "next_retrace_inner_ic": 0.6931194393344061,
+          "next_vol_model": "lgbm_regressor",
+          "next_vol_inner_ic": 0.20442117363634438,
+          "vol_train_p75": 0.09839297607761807
+        }
+      ],
+      "forecast_skill": {
+        "next_retrace_pct": {
+          "mean_outer_spearman_ic": 0.6710607417214186,
+          "frac_folds_ic_positive": 1.0,
+          "n_folds": 6,
+          "folds": [
+            {
+              "fold": 0,
+              "target": "next_retrace_pct",
+              "model": "ridge",
+              "inner_ic": 0.699139072847682,
+              "outer_ic": 0.6154019434239081,
+              "n_oos": 1354
+            },
+            {
+              "fold": 1,
+              "target": "next_retrace_pct",
+              "model": "ridge",
+              "inner_ic": 0.6930169765667289,
+              "outer_ic": 0.5682722656131559,
+              "n_oos": 1368
+            },
+            {
+              "fold": 2,
+              "target": "next_retrace_pct",
+              "model": "lgbm_regressor",
+              "inner_ic": 0.618932018358604,
+              "outer_ic": 0.687578666803691,
+              "n_oos": 1458
+            },
+            {
+              "fold": 3,
+              "target": "next_retrace_pct",
+              "model": "lgbm_regressor",
+              "inner_ic": 0.6588150902814681,
+              "outer_ic": 0.7145709558318811,
+              "n_oos": 1446
+            },
+            {
+              "fold": 4,
+              "target": "next_retrace_pct",
+              "model": "lgbm_regressor",
+              "inner_ic": 0.7005874471882191,
+              "outer_ic": 0.7323728441609629,
+              "n_oos": 1374
+            },
+            {
+              "fold": 5,
+              "target": "next_retrace_pct",
+              "model": "lgbm_regressor",
+              "inner_ic": 0.6931194393344061,
+              "outer_ic": 0.7081677744949125,
+              "n_oos": 1050
+            }
+          ]
+        },
+        "next_vol": {
+          "mean_outer_spearman_ic": 0.2940468694136697,
+          "frac_folds_ic_positive": 1.0,
+          "n_folds": 6,
+          "folds": [
+            {
+              "fold": 0,
+              "target": "next_vol",
+              "model": "lgbm_regressor",
+              "inner_ic": 0.20367771450527275,
+              "outer_ic": 0.3738624720598039,
+              "n_oos": 6455,
+              "train_p75": 0.14553940635872842
+            },
+            {
+              "fold": 1,
+              "target": "next_vol",
+              "model": "lgbm_regressor",
+              "inner_ic": 0.18443786921089148,
+              "outer_ic": 0.27988280823825284,
+              "n_oos": 6424,
+              "train_p75": 0.12605314088195096
+            },
+            {
+              "fold": 2,
+              "target": "next_vol",
+              "model": "lgbm_regressor",
+              "inner_ic": 0.41402015705860934,
+              "outer_ic": 0.3006558363746946,
+              "n_oos": 6567,
+              "train_p75": 0.11402282515496728
+            },
+            {
+              "fold": 3,
+              "target": "next_vol",
+              "model": "ridge",
+              "inner_ic": 0.3548637793624865,
+              "outer_ic": 0.2154297191245745,
+              "n_oos": 6589,
+              "train_p75": 0.10958690269646959
+            },
+            {
+              "fold": 4,
+              "target": "next_vol",
+              "model": "lgbm_regressor",
+              "inner_ic": 0.30873469304512263,
+              "outer_ic": 0.27667971550628717,
+              "n_oos": 6461,
+              "train_p75": 0.10261727334951697
+            },
+            {
+              "fold": 5,
+              "target": "next_vol",
+              "model": "lgbm_regressor",
+              "inner_ic": 0.20442117363634438,
+              "outer_ic": 0.3177706651784048,
+              "n_oos": 4939,
+              "train_p75": 0.09839297607761807
+            }
+          ]
+        },
+        "fwd_return": {
+          "mean_outer_spearman_ic": 0.005862054515932792,
+          "frac_folds_ic_positive": 0.6666666666666666,
+          "n_folds": 6,
+          "folds": [
+            {
+              "fold": 0,
+              "target": "fwd_return",
+              "model": "lgbm_regressor",
+              "inner_ic": NaN,
+              "outer_ic": 0.009280488772646022,
+              "n_oos": 6455,
+              "note": "reporting_only_not_used_for_filter"
+            },
+            {
+              "fold": 1,
+              "target": "fwd_return",
+              "model": "lgbm_regressor",
+              "inner_ic": NaN,
+              "outer_ic": 0.02029336245894448,
+              "n_oos": 6424,
+              "note": "reporting_only_not_used_for_filter"
+            },
+            {
+              "fold": 2,
+              "target": "fwd_return",
+              "model": "lgbm_regressor",
+              "inner_ic": NaN,
+              "outer_ic": 0.019226598164650513,
+              "n_oos": 6567,
+              "note": "reporting_only_not_used_for_filter"
+            },
+            {
+              "fold": 3,
+              "target": "fwd_return",
+              "model": "lgbm_regressor",
+              "inner_ic": NaN,
+              "outer_ic": -0.008470242060891205,
+              "n_oos": 6589,
+              "note": "reporting_only_not_used_for_filter"
+            },
+            {
+              "fold": 4,
+              "target": "fwd_return",
+              "model": "lgbm_regressor",
+              "inner_ic": NaN,
+              "outer_ic": 0.014795569890660212,
+              "n_oos": 6461,
+              "note": "reporting_only_not_used_for_filter"
+            },
+            {
+              "fold": 5,
+              "target": "fwd_return",
+              "model": "lgbm_regressor",
+              "inner_ic": NaN,
+              "outer_ic": -0.019953450130413265,
+              "n_oos": 4939,
+              "note": "reporting_only_not_used_for_filter"
+            }
+          ]
+        }
+      },
+      "arms": {
+        "control": {
+          "n_folds": 6,
+          "n_signals": 16188,
+          "n_trades": 7700,
+          "sum_net_pnl": -118.70566614995369,
+          "mean_fold_pf": 0.7903661177422769,
+          "frac_folds_pf_gt_1": 0.0,
+          "folds": [
+            {
+              "arm": "control",
+              "fold": 0,
+              "n_signals": 3753.0,
+              "n_trades": 2147.0,
+              "profit_factor": 0.8310968194391704,
+              "net_pnl": -21.571291199996267,
+              "win_rate": 0.648346530041919
+            },
+            {
+              "arm": "control",
+              "fold": 1,
+              "n_signals": 3148.0,
+              "n_trades": 1390.0,
+              "profit_factor": 0.7600786264311218,
+              "net_pnl": -13.411911449975378,
+              "win_rate": 0.5928057553956835
+            },
+            {
+              "arm": "control",
+              "fold": 2,
+              "n_signals": 2795.0,
+              "n_trades": 1434.0,
+              "profit_factor": 0.8295745650569707,
+              "net_pnl": -14.491206350012362,
+              "win_rate": 0.6199442119944212
+            },
+            {
+              "arm": "control",
+              "fold": 3,
+              "n_signals": 2345.0,
+              "n_trades": 1062.0,
+              "profit_factor": 0.7294261998934906,
+              "net_pnl": -33.5769678499928,
+              "win_rate": 0.5866290018832392
+            },
+            {
+              "arm": "control",
+              "fold": 4,
+              "n_signals": 2371.0,
+              "n_trades": 1009.0,
+              "profit_factor": 0.7531184585273375,
+              "net_pnl": -28.409387499985314,
+              "win_rate": 0.5986124876114965
+            },
+            {
+              "arm": "control",
+              "fold": 5,
+              "n_signals": 1776.0,
+              "n_trades": 658.0,
+              "profit_factor": 0.8389020371055713,
+              "net_pnl": -7.244901799991567,
+              "win_rate": 0.5942249240121581
+            }
+          ]
+        },
+        "next_retrace_agree_skip": {
+          "n_folds": 6,
+          "n_signals": 7006,
+          "n_trades": 3838,
+          "sum_net_pnl": -74.87609294999311,
+          "mean_fold_pf": 0.7433609917034815,
+          "frac_folds_pf_gt_1": 0.0,
+          "folds": [
+            {
+              "arm": "next_retrace_agree_skip",
+              "fold": 0,
+              "n_signals": 1628.0,
+              "n_trades": 1031.0,
+              "profit_factor": 0.7866673336458522,
+              "net_pnl": -13.4777997500114,
+              "win_rate": 0.6314258001939864
+            },
+            {
+              "arm": "next_retrace_agree_skip",
+              "fold": 1,
+              "n_signals": 1373.0,
+              "n_trades": 712.0,
+              "profit_factor": 0.751007466056106,
+              "net_pnl": -7.201743099987652,
+              "win_rate": 0.5828651685393258
+            },
+            {
+              "arm": "next_retrace_agree_skip",
+              "fold": 2,
+              "n_signals": 1299.0,
+              "n_trades": 759.0,
+              "profit_factor": 0.8049027675822005,
+              "net_pnl": -8.900029450021975,
+              "win_rate": 0.6073781291172595
+            },
+            {
+              "arm": "next_retrace_agree_skip",
+              "fold": 3,
+              "n_signals": 979.0,
+              "n_trades": 512.0,
+              "profit_factor": 0.659093728727205,
+              "net_pnl": -21.478244200005065,
+              "win_rate": 0.5625
+            },
+            {
+              "arm": "next_retrace_agree_skip",
+              "fold": 4,
+              "n_signals": 945.0,
+              "n_trades": 460.0,
+              "profit_factor": 0.6547655350365901,
+              "net_pnl": -18.908794899969507,
+              "win_rate": 0.5673913043478261
+            },
+            {
+              "arm": "next_retrace_agree_skip",
+              "fold": 5,
+              "n_signals": 782.0,
+              "n_trades": 364.0,
+              "profit_factor": 0.8037291191729349,
+              "net_pnl": -4.909481549997508,
+              "win_rate": 0.5934065934065934
+            }
+          ]
+        },
+        "next_vol_skip_p75": {
+          "n_folds": 6,
+          "n_signals": 14048,
+          "n_trades": 6338,
+          "sum_net_pnl": -103.32225409992316,
+          "mean_fold_pf": 0.7864399715999749,
+          "frac_folds_pf_gt_1": 0.0,
+          "folds": [
+            {
+              "arm": "next_vol_skip_p75",
+              "fold": 0,
+              "n_signals": 3097.0,
+              "n_trades": 1700.0,
+              "profit_factor": 0.8220713517875613,
+              "net_pnl": -18.5022106499855,
+              "win_rate": 0.6411764705882353
+            },
+            {
+              "arm": "next_vol_skip_p75",
+              "fold": 1,
+              "n_signals": 2694.0,
+              "n_trades": 1126.0,
+              "profit_factor": 0.7514612040986554,
+              "net_pnl": -11.044016299978466,
+              "win_rate": 0.58348134991119
+            },
+            {
+              "arm": "next_vol_skip_p75",
+              "fold": 2,
+              "n_signals": 2214.0,
+              "n_trades": 1078.0,
+              "profit_factor": 0.8246569440006525,
+              "net_pnl": -10.804233699978795,
+              "win_rate": 0.6076066790352505
+            },
+            {
+              "arm": "next_vol_skip_p75",
+              "fold": 3,
+              "n_signals": 2208.0,
+              "n_trades": 962.0,
+              "profit_factor": 0.7192657170445191,
+              "net_pnl": -31.635781849989144,
+              "win_rate": 0.5769230769230769
+            },
+            {
+              "arm": "next_vol_skip_p75",
+              "fold": 4,
+              "n_signals": 2151.0,
+              "n_trades": 867.0,
+              "profit_factor": 0.7351945460941532,
+              "net_pnl": -26.04009529999712,
+              "win_rate": 0.5882352941176471
+            },
+            {
+              "arm": "next_vol_skip_p75",
+              "fold": 5,
+              "n_signals": 1684.0,
+              "n_trades": 605.0,
+              "profit_factor": 0.8659900665743083,
+              "net_pnl": -5.295916299994133,
+              "win_rate": 0.5950413223140496
+            }
+          ]
+        }
+      },
+      "vs_control": {
+        "next_retrace_agree_skip": {
+          "pf_vs_control_mean_fold": -0.047005126038795475,
+          "pnl_vs_control": 43.82957319996058,
+          "signals_vs_control": -9182,
+          "beats_control_pf": false,
+          "beats_control_pnl": true,
+          "skip_more": true,
+          "methodology_win": false
+        },
+        "next_vol_skip_p75": {
+          "pf_vs_control_mean_fold": -0.003926146142302023,
+          "pnl_vs_control": 15.383412050030529,
+          "signals_vs_control": -2140,
+          "beats_control_pf": false,
+          "beats_control_pnl": true,
+          "skip_more": true,
+          "methodology_win": false
+        }
+      },
+      "readiness_max": "RESEARCH_ONLY",
+      "note": "Forecast skill and trading Profit Factor are separate. Methodology win \u2260 SHADOW_READY. No live authorization."
+    }
+  ],
+  "any_methodology_win_vs_control": true,
+  "readiness_max": "RESEARCH_ONLY",
+  "note": "Nested filters on causal direction baseline (pack geometry only). Forecast IC \u2260 trading PF. No pre-CAUS model.joblib. No live deploy."
+}

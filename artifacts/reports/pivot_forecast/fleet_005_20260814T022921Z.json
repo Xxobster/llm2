@@ -1,0 +1,2175 @@
+{
+  "generation_id": "pivot_confirm_fromto_005",
+  "stamp": "20260814T022921Z",
+  "readiness_max": "RESEARCH_ONLY",
+  "not_live": true,
+  "freeze_path": "D:\\projects\\LLM2\\artifacts\\reports\\pivot_forecast\\fleet_005_freeze_20260814T022921Z.json",
+  "preregister": "configs/preregister/pivot_confirm_fromto_005.yaml",
+  "leakage": [
+    {
+      "symbol": "ETHUSDT",
+      "tf": "15m",
+      "pack": "level_vsa",
+      "status": "PASS"
+    },
+    {
+      "symbol": "SOLUSDT",
+      "tf": "15m",
+      "pack": "level_vsa",
+      "status": "PASS"
+    },
+    {
+      "symbol": "BTCUSDT",
+      "tf": "15m",
+      "pack": "level_vsa",
+      "status": "PASS"
+    }
+  ],
+  "btc_p80_thr": 0.46153846153846156,
+  "eth": {
+    "control": {
+      "tag": "ETH_q50_ctrl",
+      "n_intent": 2696,
+      "fill_pct": 0.3698071216617211,
+      "fill_stats": {
+        "n_intent": 2696,
+        "n_filled_path": 997,
+        "n_no_touch": 1699,
+        "n_adverse_cancel": 0,
+        "n_bad": 0,
+        "fill_rate": 0.3698071216617211,
+        "work_bars_default": 4,
+        "work_bars_mean_used": 4.0,
+        "adverse_mode": null,
+        "adverse_pct": 0.005,
+        "adverse_atr_mult": 1.0
+      },
+      "addon_stats": null,
+      "n_skip_geom": 0,
+      "n_gated": 2696,
+      "status": "RAN",
+      "n_trades": 812,
+      "profit_factor": 1.6194070885035619,
+      "win_rate": 0.646551724137931,
+      "net_pnl": 40.88669681500869,
+      "expectancy": 0.05035307489532017,
+      "entry_bar_exit_rate": 0.27586206896551724,
+      "skip_counts": {
+        "SKIP_POSITION_LIMIT": 185
+      },
+      "n_skip_position_limit": 185,
+      "size_mult_sum_filled": 812.0,
+      "trades_per_month": 19.77398878323986,
+      "expectancy_intent_all": 0.01516568872960263,
+      "expectancy_per_size": 0.0503530748953309
+    },
+    "arms": [
+      {
+        "tag": "ETH_q50_ctrl",
+        "n_intent": 2696,
+        "fill_pct": 0.3698071216617211,
+        "fill_stats": {
+          "n_intent": 2696,
+          "n_filled_path": 997,
+          "n_no_touch": 1699,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.3698071216617211,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "n_skip_geom": 0,
+        "n_gated": 2696,
+        "status": "RAN",
+        "n_trades": 812,
+        "profit_factor": 1.6194070885035619,
+        "win_rate": 0.646551724137931,
+        "net_pnl": 40.88669681500869,
+        "expectancy": 0.05035307489532017,
+        "entry_bar_exit_rate": 0.27586206896551724,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 185
+        },
+        "n_skip_position_limit": 185,
+        "size_mult_sum_filled": 812.0,
+        "trades_per_month": 19.77398878323986,
+        "expectancy_intent_all": 0.01516568872960263,
+        "expectancy_per_size": 0.0503530748953309
+      },
+      {
+        "tag": "ETH_q50_size_linear",
+        "n_intent": 2696,
+        "fill_pct": 0.3698071216617211,
+        "fill_stats": {
+          "n_intent": 2696,
+          "n_filled_path": 997,
+          "n_no_touch": 1699,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.3698071216617211,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "n_skip_geom": 0,
+        "n_gated": 2696,
+        "status": "RAN",
+        "n_trades": 812,
+        "profit_factor": 1.6389887864590265,
+        "win_rate": 0.646551724137931,
+        "net_pnl": 42.17927315501038,
+        "expectancy": 0.0519449176785714,
+        "entry_bar_exit_rate": 0.27586206896551724,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 185
+        },
+        "n_skip_position_limit": 185,
+        "size_mult_sum_filled": 902.8908918142389,
+        "trades_per_month": 19.77398878323986,
+        "expectancy_intent_all": 0.015645130992214533,
+        "expectancy_per_size": 0.046715803135699764
+      },
+      {
+        "tag": "ETH_q50_size_tertile",
+        "n_intent": 2696,
+        "fill_pct": 0.3698071216617211,
+        "fill_stats": {
+          "n_intent": 2696,
+          "n_filled_path": 997,
+          "n_no_touch": 1699,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.3698071216617211,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "tertile": {
+          "status": "OK",
+          "edges": [
+            0.35074626865671643,
+            0.39058171745152354
+          ],
+          "levels": [
+            0.5,
+            1.0,
+            1.5
+          ]
+        },
+        "n_skip_geom": 0,
+        "n_gated": 2696,
+        "status": "RAN",
+        "n_trades": 812,
+        "profit_factor": 1.6194070885035619,
+        "win_rate": 0.646551724137931,
+        "net_pnl": 40.88669681500869,
+        "expectancy": 0.05035307489532017,
+        "entry_bar_exit_rate": 0.27586206896551724,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 185
+        },
+        "n_skip_position_limit": 185,
+        "size_mult_sum_filled": 994.5,
+        "trades_per_month": 19.77398878323986,
+        "expectancy_intent_all": 0.01516568872960263,
+        "expectancy_per_size": 0.04111281731021487
+      },
+      {
+        "tag": "ETH_q50_confirm_enter_k1",
+        "n_intent": 2696,
+        "fill_pct": 0.18813131313131312,
+        "fill_stats": {
+          "n_intent": 1584,
+          "n_filled_path": 298,
+          "n_no_touch": 1286,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.18813131313131312,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "confirm_stats": {
+          "n_intent_in": 2696,
+          "n_confirmed": 1584,
+          "n_dropped": 1112,
+          "n_bad": 0,
+          "confirm_rate": 0.5875370919881305,
+          "confirm_k": 1
+        },
+        "n_confirmed": 1584,
+        "status": "RAN",
+        "n_trades": 282,
+        "profit_factor": 1.3108733556489764,
+        "win_rate": 0.6205673758865248,
+        "net_pnl": 8.463624284990146,
+        "expectancy": 0.030012852074468077,
+        "entry_bar_exit_rate": 0.2801418439716312,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 16
+        },
+        "n_skip_position_limit": 16,
+        "size_mult_sum_filled": 282.0,
+        "trades_per_month": 6.867321227676897,
+        "expectancy_intent_all": 0.0031393265152040604,
+        "expectancy_per_size": 0.030012852074433143
+      },
+      {
+        "tag": "ETH_q50_confirm_addon_k1",
+        "n_intent": 2696,
+        "fill_pct": 0.3698071216617211,
+        "fill_stats": {
+          "n_intent": 2696,
+          "n_filled_path": 997,
+          "n_no_touch": 1699,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.3698071216617211,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": {
+          "n_parent_fills": 997,
+          "n_addon": 596,
+          "n_stopped": 140,
+          "n_dropped": 261,
+          "n_bad": 0,
+          "addon_rate": 0.5977933801404213,
+          "confirm_k": 1
+        },
+        "status": "RAN",
+        "n_trades": 1451,
+        "profit_factor": 1.1798576173862343,
+        "win_rate": 0.5644383184011027,
+        "net_pnl": 23.894733199989787,
+        "expectancy": 0.016467769262577515,
+        "entry_bar_exit_rate": 0.19297036526533426,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 142
+        },
+        "n_skip_position_limit": 142,
+        "size_mult_sum_filled": 572.0833195975165,
+        "trades_per_month": 35.33504645872049,
+        "expectancy_intent_all": 0.008863031602370099,
+        "expectancy_per_size": 0.04176792502323034
+      },
+      {
+        "tag": "ETH_q50_confirm_enter_k2",
+        "n_intent": 2696,
+        "fill_pct": 0.23367117117117117,
+        "fill_stats": {
+          "n_intent": 1776,
+          "n_filled_path": 415,
+          "n_no_touch": 1361,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.23367117117117117,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "confirm_stats": {
+          "n_intent_in": 2696,
+          "n_confirmed": 1776,
+          "n_dropped": 920,
+          "n_bad": 0,
+          "confirm_rate": 0.658753709198813,
+          "confirm_k": 2
+        },
+        "n_confirmed": 1776,
+        "status": "RAN",
+        "n_trades": 339,
+        "profit_factor": 1.0109146752273301,
+        "win_rate": 0.551622418879056,
+        "net_pnl": 0.3808052899912582,
+        "expectancy": 0.0011233194395280598,
+        "entry_bar_exit_rate": 0.17404129793510326,
+        "skip_counts": {
+          "SKIP_LIMIT_WOULD_CROSS": 44,
+          "SKIP_POSITION_LIMIT": 32
+        },
+        "n_skip_position_limit": 32,
+        "size_mult_sum_filled": 339.0,
+        "trades_per_month": 8.255396794973292,
+        "expectancy_intent_all": 0.00014124825296411655,
+        "expectancy_per_size": 0.0011233194395022365
+      },
+      {
+        "tag": "ETH_q50_confirm_addon_k2",
+        "n_intent": 2696,
+        "fill_pct": 0.3698071216617211,
+        "fill_stats": {
+          "n_intent": 2696,
+          "n_filled_path": 997,
+          "n_no_touch": 1699,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.3698071216617211,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": {
+          "n_parent_fills": 997,
+          "n_addon": 585,
+          "n_stopped": 198,
+          "n_dropped": 214,
+          "n_bad": 0,
+          "addon_rate": 0.5867602808425276,
+          "confirm_k": 2
+        },
+        "status": "RAN",
+        "n_trades": 1460,
+        "profit_factor": 1.1548838923166589,
+        "win_rate": 0.5541095890410959,
+        "net_pnl": 21.206568635026997,
+        "expectancy": 0.014525047010273927,
+        "entry_bar_exit_rate": 0.19315068493150686,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 122
+        },
+        "n_skip_position_limit": 122,
+        "size_mult_sum_filled": 573.1775747319949,
+        "trades_per_month": 35.55421628513571,
+        "expectancy_intent_all": 0.007865937921004078,
+        "expectancy_per_size": 0.03699825249608329
+      },
+      {
+        "tag": "ETH_q50_confirm_enter_k3",
+        "n_intent": 2696,
+        "fill_pct": 0.24512256128064033,
+        "fill_stats": {
+          "n_intent": 1999,
+          "n_filled_path": 490,
+          "n_no_touch": 1509,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.24512256128064033,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "confirm_stats": {
+          "n_intent_in": 2696,
+          "n_confirmed": 1999,
+          "n_dropped": 697,
+          "n_bad": 0,
+          "confirm_rate": 0.7414688427299704,
+          "confirm_k": 3
+        },
+        "n_confirmed": 1999,
+        "status": "RAN",
+        "n_trades": 365,
+        "profit_factor": 1.003529392904736,
+        "win_rate": 0.5424657534246575,
+        "net_pnl": 0.12699097502991208,
+        "expectancy": 0.0003479204794520779,
+        "entry_bar_exit_rate": 0.13150684931506848,
+        "skip_counts": {
+          "SKIP_LIMIT_WOULD_CROSS": 86,
+          "SKIP_POSITION_LIMIT": 39
+        },
+        "n_skip_position_limit": 39,
+        "size_mult_sum_filled": 365.0,
+        "trades_per_month": 8.888554071283927,
+        "expectancy_intent_all": 4.7103477384982225e-05,
+        "expectancy_per_size": 0.0003479204795340057
+      },
+      {
+        "tag": "ETH_q50_confirm_addon_k3",
+        "n_intent": 2696,
+        "fill_pct": 0.3698071216617211,
+        "fill_stats": {
+          "n_intent": 2696,
+          "n_filled_path": 997,
+          "n_no_touch": 1699,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.3698071216617211,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": {
+          "n_parent_fills": 997,
+          "n_addon": 589,
+          "n_stopped": 235,
+          "n_dropped": 173,
+          "n_bad": 0,
+          "addon_rate": 0.5907723169508525,
+          "confirm_k": 3
+        },
+        "status": "RAN",
+        "n_trades": 1471,
+        "profit_factor": 1.1311414120313115,
+        "win_rate": 0.5499660095173351,
+        "net_pnl": 18.24812704503165,
+        "expectancy": 0.01240525291978247,
+        "entry_bar_exit_rate": 0.18898708361658736,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 115
+        },
+        "n_skip_position_limit": 115,
+        "size_mult_sum_filled": 581.9322785935876,
+        "trades_per_month": 35.82209051742098,
+        "expectancy_intent_all": 0.006768593117593343,
+        "expectancy_per_size": 0.031357818970162085
+      },
+      {
+        "tag": "ETH_q50_fromto_abs_level",
+        "n_intent": 2696,
+        "fill_pct": 0.3698071216617211,
+        "fill_stats": {
+          "n_intent": 2696,
+          "n_filled_path": 997,
+          "n_no_touch": 1699,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.3698071216617211,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "n_skip_geom": 0,
+        "n_gated": 2696,
+        "tp_mode": "abs_level",
+        "promote_blocked": false,
+        "status": "RAN",
+        "n_trades": 857,
+        "profit_factor": 3.1053702121616524,
+        "win_rate": 0.7887981330221704,
+        "net_pnl": 86.48877764000281,
+        "expectancy": 0.10092039397899655,
+        "entry_bar_exit_rate": 0.5495915985997666,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 140
+        },
+        "n_skip_position_limit": 140,
+        "size_mult_sum_filled": 857.0,
+        "trades_per_month": 20.869837915315962,
+        "expectancy_intent_all": 0.03208040713649956,
+        "expectancy_per_size": 0.10092039397899978
+      },
+      {
+        "tag": "ETH_q50_fromto_2x_level",
+        "n_intent": 2696,
+        "fill_pct": 0.3698071216617211,
+        "fill_stats": {
+          "n_intent": 2696,
+          "n_filled_path": 997,
+          "n_no_touch": 1699,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.3698071216617211,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "n_skip_geom": 0,
+        "n_gated": 2696,
+        "tp_mode": "2x_level",
+        "promote_blocked": false,
+        "status": "RAN",
+        "n_trades": 815,
+        "profit_factor": 0.9930226734017508,
+        "win_rate": 0.49570552147239266,
+        "net_pnl": -0.6033145600049465,
+        "expectancy": -0.0007402632638036944,
+        "entry_bar_exit_rate": 0.14846625766871166,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 182
+        },
+        "n_skip_position_limit": 182,
+        "size_mult_sum_filled": 815.0,
+        "trades_per_month": 19.847045392044933,
+        "expectancy_intent_all": -0.00022378136498699797,
+        "expectancy_per_size": -0.0007402632638097503
+      },
+      {
+        "tag": "ETH_q50_fromto_pred_next",
+        "n_intent": 2601,
+        "fill_pct": 0.36985774702037677,
+        "fill_stats": {
+          "n_intent": 2601,
+          "n_filled_path": 962,
+          "n_no_touch": 1639,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.36985774702037677,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "n_skip_geom": 95,
+        "n_gated": 2696,
+        "tp_mode": "pred_next",
+        "promote_blocked": false,
+        "status": "RAN",
+        "n_trades": 771,
+        "profit_factor": 1.0388961896778504,
+        "win_rate": 0.5395590142671854,
+        "net_pnl": 3.3979068649769033,
+        "expectancy": 0.004407142496757456,
+        "entry_bar_exit_rate": 0.14137483787289234,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 191
+        },
+        "n_skip_position_limit": 191,
+        "size_mult_sum_filled": 771.0,
+        "trades_per_month": 18.77554846290386,
+        "expectancy_intent_all": 0.0013063848000680136,
+        "expectancy_per_size": 0.004407142496727501
+      },
+      {
+        "tag": "ETH_q50_fromto_oracle_next",
+        "n_intent": 261,
+        "fill_pct": 0.4482758620689655,
+        "fill_stats": {
+          "n_intent": 261,
+          "n_filled_path": 117,
+          "n_no_touch": 144,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.4482758620689655,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "n_skip_geom": 2435,
+        "n_gated": 2696,
+        "tp_mode": "oracle_next",
+        "promote_blocked": true,
+        "status": "RAN",
+        "n_trades": 96,
+        "profit_factor": 4.139828843647578,
+        "win_rate": 0.7395833333333334,
+        "net_pnl": 21.301853754997865,
+        "expectancy": 0.22189430994791637,
+        "entry_bar_exit_rate": 0.14583333333333334,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 21
+        },
+        "n_skip_position_limit": 21,
+        "size_mult_sum_filled": 96.0,
+        "trades_per_month": 2.337811481762348,
+        "expectancy_intent_all": 0.08161629791186921,
+        "expectancy_per_size": 0.2218943099478944
+      }
+    ],
+    "promotions": {
+      "ETH_q50_size_linear": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": true,
+        "pf_not_collapsed": true,
+        "size_not_fake": false,
+        "promote": false,
+        "entry_bar_exit_rate": 0.27586206896551724
+      },
+      "ETH_q50_size_tertile": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": true,
+        "size_not_fake": false,
+        "promote": false,
+        "entry_bar_exit_rate": 0.27586206896551724
+      },
+      "ETH_q50_confirm_enter_k1": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": false,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.2801418439716312
+      },
+      "ETH_q50_confirm_addon_k1": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": false,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.19297036526533426
+      },
+      "ETH_q50_confirm_enter_k2": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": false,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.17404129793510326
+      },
+      "ETH_q50_confirm_addon_k2": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": false,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.19315068493150686
+      },
+      "ETH_q50_confirm_enter_k3": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": false,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.13150684931506848
+      },
+      "ETH_q50_confirm_addon_k3": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": false,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.18898708361658736
+      },
+      "ETH_q50_fromto_abs_level": {
+        "entry_bar_ok": false,
+        "intent_exp_improved": true,
+        "pf_not_collapsed": true,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.5495915985997666
+      },
+      "ETH_q50_fromto_2x_level": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": false,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.14846625766871166
+      },
+      "ETH_q50_fromto_pred_next": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": false,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.14137483787289234
+      },
+      "ETH_q50_fromto_oracle_next": {
+        "promote": false,
+        "reason": "oracle_or_blocked"
+      }
+    }
+  },
+  "sol": {
+    "control": {
+      "tag": "SOL_atrclip_ctrl",
+      "n_intent": 2512,
+      "fill_pct": 0.4263535031847134,
+      "fill_stats": {
+        "n_intent": 2512,
+        "n_filled_path": 1071,
+        "n_no_touch": 1441,
+        "n_adverse_cancel": 0,
+        "n_bad": 0,
+        "fill_rate": 0.4263535031847134,
+        "work_bars_default": 5,
+        "work_bars_mean_used": 5.0,
+        "adverse_mode": null,
+        "adverse_pct": 0.005,
+        "adverse_atr_mult": 1.0
+      },
+      "addon_stats": null,
+      "n_skip_geom": 0,
+      "n_gated": 2512,
+      "status": "RAN",
+      "n_trades": 859,
+      "profit_factor": 1.927755726147096,
+      "win_rate": 0.6647264260768335,
+      "net_pnl": 29.04073225000684,
+      "expectancy": 0.033807604481955786,
+      "entry_bar_exit_rate": 0.4121071012805588,
+      "skip_counts": {
+        "SKIP_POSITION_LIMIT": 205,
+        "SKIP_LIMIT_NOT_FILLED": 7
+      },
+      "n_skip_position_limit": 205,
+      "size_mult_sum_filled": 859.0,
+      "trades_per_month": 20.91854232118601,
+      "expectancy_intent_all": 0.011560801054939028,
+      "expectancy_per_size": 0.033807604481963724
+    },
+    "arms": [
+      {
+        "tag": "SOL_atrclip_ctrl",
+        "n_intent": 2512,
+        "fill_pct": 0.4263535031847134,
+        "fill_stats": {
+          "n_intent": 2512,
+          "n_filled_path": 1071,
+          "n_no_touch": 1441,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.4263535031847134,
+          "work_bars_default": 5,
+          "work_bars_mean_used": 5.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "n_skip_geom": 0,
+        "n_gated": 2512,
+        "status": "RAN",
+        "n_trades": 859,
+        "profit_factor": 1.927755726147096,
+        "win_rate": 0.6647264260768335,
+        "net_pnl": 29.04073225000684,
+        "expectancy": 0.033807604481955786,
+        "entry_bar_exit_rate": 0.4121071012805588,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 205,
+          "SKIP_LIMIT_NOT_FILLED": 7
+        },
+        "n_skip_position_limit": 205,
+        "size_mult_sum_filled": 859.0,
+        "trades_per_month": 20.91854232118601,
+        "expectancy_intent_all": 0.011560801054939028,
+        "expectancy_per_size": 0.033807604481963724
+      },
+      {
+        "tag": "SOL_atrclip_size_linear",
+        "n_intent": 2512,
+        "fill_pct": 0.4263535031847134,
+        "fill_stats": {
+          "n_intent": 2512,
+          "n_filled_path": 1071,
+          "n_no_touch": 1441,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.4263535031847134,
+          "work_bars_default": 5,
+          "work_bars_mean_used": 5.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "n_skip_geom": 0,
+        "n_gated": 2512,
+        "status": "RAN",
+        "n_trades": 859,
+        "profit_factor": 1.9328480395215166,
+        "win_rate": 0.6647264260768335,
+        "net_pnl": 29.498224200007826,
+        "expectancy": 0.03434019115250294,
+        "entry_bar_exit_rate": 0.4121071012805588,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 205,
+          "SKIP_LIMIT_NOT_FILLED": 7
+        },
+        "n_skip_position_limit": 205,
+        "size_mult_sum_filled": 1058.5135516382024,
+        "trades_per_month": 20.91854232118601,
+        "expectancy_intent_all": 0.01174292364649993,
+        "expectancy_per_size": 0.027867592393460688
+      },
+      {
+        "tag": "SOL_atrclip_size_tertile",
+        "n_intent": 2512,
+        "fill_pct": 0.4263535031847134,
+        "fill_stats": {
+          "n_intent": 2512,
+          "n_filled_path": 1071,
+          "n_no_touch": 1441,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.4263535031847134,
+          "work_bars_default": 5,
+          "work_bars_mean_used": 5.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "tertile": {
+          "status": "OK",
+          "edges": [
+            0.4246575342465753,
+            0.43529411764705883
+          ],
+          "levels": [
+            0.5,
+            1.0,
+            1.5
+          ]
+        },
+        "n_skip_geom": 0,
+        "n_gated": 2512,
+        "status": "RAN",
+        "n_trades": 590,
+        "profit_factor": 1.9912550015642039,
+        "win_rate": 0.6728813559322034,
+        "net_pnl": 20.943436650024523,
+        "expectancy": 0.03549735025423735,
+        "entry_bar_exit_rate": 0.4576271186440678,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 144,
+          "SKIP_LIMIT_NOT_FILLED": 7,
+          "SKIP_QTY_ROUNDS_TO_ZERO": 330
+        },
+        "n_skip_position_limit": 144,
+        "size_mult_sum_filled": 777.5,
+        "trades_per_month": 14.367799731664432,
+        "expectancy_intent_all": 0.008337355354309125,
+        "expectancy_per_size": 0.02693689601289328
+      },
+      {
+        "tag": "SOL_atrclip_confirm_enter_k1",
+        "n_intent": 2512,
+        "fill_pct": 0.25305535585909417,
+        "fill_stats": {
+          "n_intent": 1391,
+          "n_filled_path": 352,
+          "n_no_touch": 1039,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.25305535585909417,
+          "work_bars_default": 5,
+          "work_bars_mean_used": 5.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "confirm_stats": {
+          "n_intent_in": 2512,
+          "n_confirmed": 1391,
+          "n_dropped": 1121,
+          "n_bad": 0,
+          "confirm_rate": 0.5537420382165605,
+          "confirm_k": 1
+        },
+        "n_confirmed": 1391,
+        "status": "RAN",
+        "n_trades": 326,
+        "profit_factor": 1.5764191636327038,
+        "win_rate": 0.6349693251533742,
+        "net_pnl": 7.752682550022655,
+        "expectancy": 0.02378123481595106,
+        "entry_bar_exit_rate": 0.34662576687116564,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 23,
+          "SKIP_LIMIT_NOT_FILLED": 3
+        },
+        "n_skip_position_limit": 23,
+        "size_mult_sum_filled": 326.0,
+        "trades_per_month": 7.938818156817974,
+        "expectancy_intent_all": 0.003086258976919847,
+        "expectancy_per_size": 0.023781234816020413
+      },
+      {
+        "tag": "SOL_atrclip_confirm_addon_k1",
+        "n_intent": 2512,
+        "fill_pct": 0.4263535031847134,
+        "fill_stats": {
+          "n_intent": 2512,
+          "n_filled_path": 1071,
+          "n_no_touch": 1441,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.4263535031847134,
+          "work_bars_default": 5,
+          "work_bars_mean_used": 5.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": {
+          "n_parent_fills": 1071,
+          "n_addon": 602,
+          "n_stopped": 178,
+          "n_dropped": 291,
+          "n_bad": 0,
+          "addon_rate": 0.5620915032679739,
+          "confirm_k": 1
+        },
+        "status": "RAN",
+        "n_trades": 1521,
+        "profit_factor": 1.2374403492505799,
+        "win_rate": 0.576594345825115,
+        "net_pnl": 17.27766085004805,
+        "expectancy": 0.01135940884286657,
+        "entry_bar_exit_rate": 0.31229454306377386,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 144,
+          "SKIP_LIMIT_NOT_FILLED": 8
+        },
+        "n_skip_position_limit": 144,
+        "size_mult_sum_filled": 634.3751666480846,
+        "trades_per_month": 37.0397006641722,
+        "expectancy_intent_all": 0.006878049701452249,
+        "expectancy_per_size": 0.02723571438229504
+      },
+      {
+        "tag": "SOL_atrclip_confirm_enter_k2",
+        "n_intent": 2512,
+        "fill_pct": 0.2782051282051282,
+        "fill_stats": {
+          "n_intent": 1560,
+          "n_filled_path": 434,
+          "n_no_touch": 1126,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.2782051282051282,
+          "work_bars_default": 5,
+          "work_bars_mean_used": 5.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "confirm_stats": {
+          "n_intent_in": 2512,
+          "n_confirmed": 1560,
+          "n_dropped": 952,
+          "n_bad": 0,
+          "confirm_rate": 0.6210191082802548,
+          "confirm_k": 2
+        },
+        "n_confirmed": 1560,
+        "status": "RAN",
+        "n_trades": 372,
+        "profit_factor": 1.4616615271887201,
+        "win_rate": 0.6290322580645161,
+        "net_pnl": 7.276870550003878,
+        "expectancy": 0.019561479973118367,
+        "entry_bar_exit_rate": 0.2903225806451613,
+        "skip_counts": {
+          "SKIP_LIMIT_NOT_FILLED": 3,
+          "SKIP_LIMIT_WOULD_CROSS": 41,
+          "SKIP_POSITION_LIMIT": 18
+        },
+        "n_skip_position_limit": 18,
+        "size_mult_sum_filled": 372.0,
+        "trades_per_month": 9.0590194918291,
+        "expectancy_intent_all": 0.0028968433718168304,
+        "expectancy_per_size": 0.019561479973128702
+      },
+      {
+        "tag": "SOL_atrclip_confirm_addon_k2",
+        "n_intent": 2512,
+        "fill_pct": 0.4263535031847134,
+        "fill_stats": {
+          "n_intent": 2512,
+          "n_filled_path": 1071,
+          "n_no_touch": 1441,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.4263535031847134,
+          "work_bars_default": 5,
+          "work_bars_mean_used": 5.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": {
+          "n_parent_fills": 1071,
+          "n_addon": 596,
+          "n_stopped": 252,
+          "n_dropped": 223,
+          "n_bad": 0,
+          "addon_rate": 0.5564892623716153,
+          "confirm_k": 2
+        },
+        "status": "RAN",
+        "n_trades": 1521,
+        "profit_factor": 1.2724464269890885,
+        "win_rate": 0.5779092702169625,
+        "net_pnl": 19.143877350015828,
+        "expectancy": 0.012586375641025707,
+        "entry_bar_exit_rate": 0.31229454306377386,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 138,
+          "SKIP_LIMIT_NOT_FILLED": 8
+        },
+        "n_skip_position_limit": 138,
+        "size_mult_sum_filled": 631.8046902476596,
+        "trades_per_month": 37.0397006641722,
+        "expectancy_intent_all": 0.007620970282649613,
+        "expectancy_per_size": 0.030300309012444442
+      },
+      {
+        "tag": "SOL_atrclip_confirm_enter_k3",
+        "n_intent": 2512,
+        "fill_pct": 0.30674157303370786,
+        "fill_stats": {
+          "n_intent": 1780,
+          "n_filled_path": 546,
+          "n_no_touch": 1234,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.30674157303370786,
+          "work_bars_default": 5,
+          "work_bars_mean_used": 5.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "confirm_stats": {
+          "n_intent_in": 2512,
+          "n_confirmed": 1780,
+          "n_dropped": 732,
+          "n_bad": 0,
+          "confirm_rate": 0.7085987261146497,
+          "confirm_k": 3
+        },
+        "n_confirmed": 1780,
+        "status": "RAN",
+        "n_trades": 406,
+        "profit_factor": 1.1553184657592437,
+        "win_rate": 0.5886699507389163,
+        "net_pnl": 3.0033794500013755,
+        "expectancy": 0.00739748633004937,
+        "entry_bar_exit_rate": 0.24630541871921183,
+        "skip_counts": {
+          "SKIP_LIMIT_NOT_FILLED": 4,
+          "SKIP_LIMIT_WOULD_CROSS": 91,
+          "SKIP_POSITION_LIMIT": 45
+        },
+        "n_skip_position_limit": 45,
+        "size_mult_sum_filled": 406.0,
+        "trades_per_month": 9.88699439161993,
+        "expectancy_intent_all": 0.0011956128383763438,
+        "expectancy_per_size": 0.007397486330052649
+      },
+      {
+        "tag": "SOL_atrclip_confirm_addon_k3",
+        "n_intent": 2512,
+        "fill_pct": 0.4263535031847134,
+        "fill_stats": {
+          "n_intent": 2512,
+          "n_filled_path": 1071,
+          "n_no_touch": 1441,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.4263535031847134,
+          "work_bars_default": 5,
+          "work_bars_mean_used": 5.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": {
+          "n_parent_fills": 1071,
+          "n_addon": 585,
+          "n_stopped": 296,
+          "n_dropped": 190,
+          "n_bad": 0,
+          "addon_rate": 0.5462184873949579,
+          "confirm_k": 3
+        },
+        "status": "RAN",
+        "n_trades": 1529,
+        "profit_factor": 1.2594082333014518,
+        "win_rate": 0.5807717462393721,
+        "net_pnl": 18.677999800025646,
+        "expectancy": 0.012215827207325078,
+        "entry_bar_exit_rate": 0.30477436232831917,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 119,
+          "SKIP_LIMIT_NOT_FILLED": 8
+        },
+        "n_skip_position_limit": 119,
+        "size_mult_sum_filled": 632.2162479111765,
+        "trades_per_month": 37.2345182876524,
+        "expectancy_intent_all": 0.007435509474532503,
+        "expectancy_per_size": 0.029543688353055136
+      },
+      {
+        "tag": "SOL_atrclip_fromto_abs_level",
+        "n_intent": 2512,
+        "fill_pct": 0.4263535031847134,
+        "fill_stats": {
+          "n_intent": 2512,
+          "n_filled_path": 1071,
+          "n_no_touch": 1441,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.4263535031847134,
+          "work_bars_default": 5,
+          "work_bars_mean_used": 5.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "n_skip_geom": 0,
+        "n_gated": 2512,
+        "tp_mode": "abs_level",
+        "promote_blocked": false,
+        "status": "RAN",
+        "n_trades": 855,
+        "profit_factor": 1.6891670144989517,
+        "win_rate": 0.6432748538011696,
+        "net_pnl": 23.788469249990158,
+        "expectancy": 0.027822771052631604,
+        "entry_bar_exit_rate": 0.3883040935672515,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 209,
+          "SKIP_LIMIT_NOT_FILLED": 7
+        },
+        "n_skip_position_limit": 209,
+        "size_mult_sum_filled": 855.0,
+        "trades_per_month": 20.821133509445914,
+        "expectancy_intent_all": 0.009469932026269967,
+        "expectancy_per_size": 0.027822771052620068
+      },
+      {
+        "tag": "SOL_atrclip_fromto_2x_level",
+        "n_intent": 2512,
+        "fill_pct": 0.4263535031847134,
+        "fill_stats": {
+          "n_intent": 2512,
+          "n_filled_path": 1071,
+          "n_no_touch": 1441,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.4263535031847134,
+          "work_bars_default": 5,
+          "work_bars_mean_used": 5.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "n_skip_geom": 0,
+        "n_gated": 2512,
+        "tp_mode": "2x_level",
+        "promote_blocked": false,
+        "status": "RAN",
+        "n_trades": 816,
+        "profit_factor": 0.9243984945202541,
+        "win_rate": 0.47181372549019607,
+        "net_pnl": -3.8985933499952807,
+        "expectancy": -0.004777687928921596,
+        "entry_bar_exit_rate": 0.12990196078431374,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 249,
+          "SKIP_LIMIT_NOT_FILLED": 6
+        },
+        "n_skip_position_limit": 249,
+        "size_mult_sum_filled": 816.0,
+        "trades_per_month": 19.87139759497996,
+        "expectancy_intent_all": -0.0015519877985650003,
+        "expectancy_per_size": -0.0047776879289157855
+      },
+      {
+        "tag": "SOL_atrclip_fromto_pred_next",
+        "n_intent": 2349,
+        "fill_pct": 0.43039591315453385,
+        "fill_stats": {
+          "n_intent": 2349,
+          "n_filled_path": 1011,
+          "n_no_touch": 1338,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.43039591315453385,
+          "work_bars_default": 5,
+          "work_bars_mean_used": 5.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "n_skip_geom": 163,
+        "n_gated": 2512,
+        "tp_mode": "pred_next",
+        "promote_blocked": false,
+        "status": "RAN",
+        "n_trades": 794,
+        "profit_factor": 1.0796225364352583,
+        "win_rate": 0.5025188916876574,
+        "net_pnl": 3.7916464999834716,
+        "expectancy": 0.004775373425692706,
+        "entry_bar_exit_rate": 0.18261964735516373,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 210,
+          "SKIP_LIMIT_NOT_FILLED": 7
+        },
+        "n_skip_position_limit": 210,
+        "size_mult_sum_filled": 794.0,
+        "trades_per_month": 19.335649130409422,
+        "expectancy_intent_all": 0.0016141534695544792,
+        "expectancy_per_size": 0.004775373425671878
+      },
+      {
+        "tag": "SOL_atrclip_fromto_oracle_next",
+        "n_intent": 231,
+        "fill_pct": 0.4675324675324675,
+        "fill_stats": {
+          "n_intent": 231,
+          "n_filled_path": 108,
+          "n_no_touch": 123,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.4675324675324675,
+          "work_bars_default": 5,
+          "work_bars_mean_used": 5.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "n_skip_geom": 2281,
+        "n_gated": 2512,
+        "tp_mode": "oracle_next",
+        "promote_blocked": true,
+        "status": "RAN",
+        "n_trades": 92,
+        "profit_factor": 11.727796822644004,
+        "win_rate": 0.8586956521739131,
+        "net_pnl": 17.973512250002386,
+        "expectancy": 0.19536426358695635,
+        "entry_bar_exit_rate": 0.09782608695652174,
+        "skip_counts": {
+          "SKIP_LIMIT_NOT_FILLED": 1,
+          "SKIP_POSITION_LIMIT": 15
+        },
+        "n_skip_position_limit": 15,
+        "size_mult_sum_filled": 92.0,
+        "trades_per_month": 2.24040267002225,
+        "expectancy_intent_all": 0.07780741233767267,
+        "expectancy_per_size": 0.19536426358698247
+      }
+    ],
+    "promotions": {
+      "SOL_atrclip_size_linear": {
+        "entry_bar_ok": false,
+        "intent_exp_improved": true,
+        "pf_not_collapsed": true,
+        "size_not_fake": false,
+        "promote": false,
+        "entry_bar_exit_rate": 0.4121071012805588
+      },
+      "SOL_atrclip_size_tertile": {
+        "entry_bar_ok": false,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": true,
+        "size_not_fake": false,
+        "promote": false,
+        "entry_bar_exit_rate": 0.4576271186440678
+      },
+      "SOL_atrclip_confirm_enter_k1": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": false,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.34662576687116564
+      },
+      "SOL_atrclip_confirm_addon_k1": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": false,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.31229454306377386
+      },
+      "SOL_atrclip_confirm_enter_k2": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": false,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.2903225806451613
+      },
+      "SOL_atrclip_confirm_addon_k2": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": false,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.31229454306377386
+      },
+      "SOL_atrclip_confirm_enter_k3": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": false,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.24630541871921183
+      },
+      "SOL_atrclip_confirm_addon_k3": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": false,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.30477436232831917
+      },
+      "SOL_atrclip_fromto_abs_level": {
+        "entry_bar_ok": false,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": true,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.3883040935672515
+      },
+      "SOL_atrclip_fromto_2x_level": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": false,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.12990196078431374
+      },
+      "SOL_atrclip_fromto_pred_next": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": false,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.18261964735516373
+      },
+      "SOL_atrclip_fromto_oracle_next": {
+        "promote": false,
+        "reason": "oracle_or_blocked"
+      }
+    }
+  },
+  "btc": {
+    "control": {
+      "tag": "BTC_p80_ctrl",
+      "n_intent": 814,
+      "fill_pct": 0.3415233415233415,
+      "fill_stats": {
+        "n_intent": 814,
+        "n_filled_path": 278,
+        "n_no_touch": 536,
+        "n_adverse_cancel": 0,
+        "n_bad": 0,
+        "fill_rate": 0.3415233415233415,
+        "work_bars_default": 4,
+        "work_bars_mean_used": 4.0,
+        "adverse_mode": null,
+        "adverse_pct": 0.005,
+        "adverse_atr_mult": 1.0
+      },
+      "addon_stats": null,
+      "n_skip_geom": 0,
+      "n_gated": 814,
+      "status": "RAN",
+      "n_trades": 234,
+      "profit_factor": 1.2409694105427507,
+      "win_rate": 0.5598290598290598,
+      "net_pnl": 8.656281959996704,
+      "expectancy": 0.036992657948717644,
+      "entry_bar_exit_rate": 0.14957264957264957,
+      "skip_counts": {
+        "SKIP_POSITION_LIMIT": 44
+      },
+      "n_skip_position_limit": 44,
+      "size_mult_sum_filled": 234.0,
+      "trades_per_month": 5.6984154867957235,
+      "expectancy_intent_all": 0.010634253022108974,
+      "expectancy_per_size": 0.036992657948703864
+    },
+    "arms": [
+      {
+        "tag": "BTC_p80_ctrl",
+        "n_intent": 814,
+        "fill_pct": 0.3415233415233415,
+        "fill_stats": {
+          "n_intent": 814,
+          "n_filled_path": 278,
+          "n_no_touch": 536,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.3415233415233415,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "n_skip_geom": 0,
+        "n_gated": 814,
+        "status": "RAN",
+        "n_trades": 234,
+        "profit_factor": 1.2409694105427507,
+        "win_rate": 0.5598290598290598,
+        "net_pnl": 8.656281959996704,
+        "expectancy": 0.036992657948717644,
+        "entry_bar_exit_rate": 0.14957264957264957,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 44
+        },
+        "n_skip_position_limit": 44,
+        "size_mult_sum_filled": 234.0,
+        "trades_per_month": 5.6984154867957235,
+        "expectancy_intent_all": 0.010634253022108974,
+        "expectancy_per_size": 0.036992657948703864
+      },
+      {
+        "tag": "BTC_p80_size_linear",
+        "n_intent": 814,
+        "fill_pct": 0.3415233415233415,
+        "fill_stats": {
+          "n_intent": 814,
+          "n_filled_path": 278,
+          "n_no_touch": 536,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.3415233415233415,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "n_skip_geom": 0,
+        "n_gated": 814,
+        "status": "RAN",
+        "n_trades": 234,
+        "profit_factor": 1.2100495728134095,
+        "win_rate": 0.5598290598290598,
+        "net_pnl": 8.089240634999442,
+        "expectancy": 0.03456940442307662,
+        "entry_bar_exit_rate": 0.14957264957264957,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 44
+        },
+        "n_skip_position_limit": 44,
+        "size_mult_sum_filled": 337.5065456923685,
+        "trades_per_month": 5.6984154867957235,
+        "expectancy_intent_all": 0.009937642057738871,
+        "expectancy_per_size": 0.023967655555850013
+      },
+      {
+        "tag": "BTC_p80_size_tertile",
+        "n_intent": 814,
+        "fill_pct": 0.3415233415233415,
+        "fill_stats": {
+          "n_intent": 814,
+          "n_filled_path": 278,
+          "n_no_touch": 536,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.3415233415233415,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "tertile": {
+          "status": "OK",
+          "edges": [
+            0.4897959183673469,
+            0.4897959183673469
+          ],
+          "levels": [
+            0.5,
+            1.0,
+            1.5
+          ]
+        },
+        "n_skip_geom": 0,
+        "n_gated": 814,
+        "status": "RAN",
+        "n_trades": 209,
+        "profit_factor": 1.352197471639271,
+        "win_rate": 0.5741626794258373,
+        "net_pnl": 10.476237659990147,
+        "expectancy": 0.05012553904306182,
+        "entry_bar_exit_rate": 0.16267942583732056,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 39,
+          "SKIP_QTY_ROUNDS_TO_ZERO": 30
+        },
+        "n_skip_position_limit": 39,
+        "size_mult_sum_filled": 313.5,
+        "trades_per_month": 5.089610413420112,
+        "expectancy_intent_all": 0.012870070835368732,
+        "expectancy_per_size": 0.0334170260286767
+      },
+      {
+        "tag": "BTC_p80_confirm_enter_k1",
+        "n_intent": 814,
+        "fill_pct": 0.1683991683991684,
+        "fill_stats": {
+          "n_intent": 481,
+          "n_filled_path": 81,
+          "n_no_touch": 400,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.1683991683991684,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "confirm_stats": {
+          "n_intent_in": 814,
+          "n_confirmed": 481,
+          "n_dropped": 333,
+          "n_bad": 0,
+          "confirm_rate": 0.5909090909090909,
+          "confirm_k": 1
+        },
+        "n_confirmed": 481,
+        "status": "RAN",
+        "n_trades": 76,
+        "profit_factor": 1.5490723771892283,
+        "win_rate": 0.5394736842105263,
+        "net_pnl": 4.732491809993007,
+        "expectancy": 0.06226962907894753,
+        "entry_bar_exit_rate": 0.19736842105263158,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 5
+        },
+        "n_skip_position_limit": 5,
+        "size_mult_sum_filled": 76.0,
+        "trades_per_month": 1.850767423061859,
+        "expectancy_intent_all": 0.005813872002448412,
+        "expectancy_per_size": 0.06226962907885536
+      },
+      {
+        "tag": "BTC_p80_confirm_addon_k1",
+        "n_intent": 814,
+        "fill_pct": 0.3415233415233415,
+        "fill_stats": {
+          "n_intent": 814,
+          "n_filled_path": 278,
+          "n_no_touch": 536,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.3415233415233415,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": {
+          "n_parent_fills": 278,
+          "n_addon": 155,
+          "n_stopped": 25,
+          "n_dropped": 98,
+          "n_bad": 0,
+          "addon_rate": 0.5575539568345323,
+          "confirm_k": 1
+        },
+        "status": "RAN",
+        "n_trades": 401,
+        "profit_factor": 0.885410416992692,
+        "win_rate": 0.47880299251870323,
+        "net_pnl": -7.984919359998457,
+        "expectancy": -0.019912517107232103,
+        "entry_bar_exit_rate": 0.11970074812967581,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 32
+        },
+        "n_skip_position_limit": 32,
+        "size_mult_sum_filled": 193.2077681963817,
+        "trades_per_month": 9.765233376944808,
+        "expectancy_intent_all": -0.009809483243241348,
+        "expectancy_per_size": -0.04132814862745252
+      },
+      {
+        "tag": "BTC_p80_confirm_enter_k2",
+        "n_intent": 814,
+        "fill_pct": 0.20411985018726592,
+        "fill_stats": {
+          "n_intent": 534,
+          "n_filled_path": 109,
+          "n_no_touch": 425,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.20411985018726592,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "confirm_stats": {
+          "n_intent_in": 814,
+          "n_confirmed": 534,
+          "n_dropped": 280,
+          "n_bad": 0,
+          "confirm_rate": 0.6560196560196561,
+          "confirm_k": 2
+        },
+        "n_confirmed": 534,
+        "status": "RAN",
+        "n_trades": 88,
+        "profit_factor": 0.7764115958151409,
+        "win_rate": 0.48863636363636365,
+        "net_pnl": -3.481320124999911,
+        "expectancy": -0.03956045596590947,
+        "entry_bar_exit_rate": 0.09090909090909091,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 9,
+          "SKIP_LIMIT_WOULD_CROSS": 12
+        },
+        "n_skip_position_limit": 9,
+        "size_mult_sum_filled": 88.0,
+        "trades_per_month": 2.1429938582821526,
+        "expectancy_intent_all": -0.004276806050368441,
+        "expectancy_per_size": -0.03956045596590808
+      },
+      {
+        "tag": "BTC_p80_confirm_addon_k2",
+        "n_intent": 814,
+        "fill_pct": 0.3415233415233415,
+        "fill_stats": {
+          "n_intent": 814,
+          "n_filled_path": 278,
+          "n_no_touch": 536,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.3415233415233415,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": {
+          "n_parent_fills": 278,
+          "n_addon": 156,
+          "n_stopped": 48,
+          "n_dropped": 74,
+          "n_bad": 0,
+          "addon_rate": 0.5611510791366906,
+          "confirm_k": 2
+        },
+        "status": "RAN",
+        "n_trades": 405,
+        "profit_factor": 0.819564007790858,
+        "win_rate": 0.4740740740740741,
+        "net_pnl": -13.388380659986069,
+        "expectancy": -0.033057730024691735,
+        "entry_bar_exit_rate": 0.1111111111111111,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 29
+        },
+        "n_skip_position_limit": 29,
+        "size_mult_sum_filled": 196.70570825726614,
+        "trades_per_month": 9.862642188684907,
+        "expectancy_intent_all": -0.016447642088434973,
+        "expectancy_per_size": -0.06806300019761381
+      },
+      {
+        "tag": "BTC_p80_confirm_enter_k3",
+        "n_intent": 814,
+        "fill_pct": 0.22596964586846544,
+        "fill_stats": {
+          "n_intent": 593,
+          "n_filled_path": 134,
+          "n_no_touch": 459,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.22596964586846544,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "confirm_stats": {
+          "n_intent_in": 814,
+          "n_confirmed": 593,
+          "n_dropped": 221,
+          "n_bad": 0,
+          "confirm_rate": 0.7285012285012284,
+          "confirm_k": 3
+        },
+        "n_confirmed": 593,
+        "status": "RAN",
+        "n_trades": 99,
+        "profit_factor": 0.7999253430967741,
+        "win_rate": 0.494949494949495,
+        "net_pnl": -3.198800130005111,
+        "expectancy": -0.03231111242424222,
+        "entry_bar_exit_rate": 0.1111111111111111,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 7,
+          "SKIP_LIMIT_WOULD_CROSS": 28
+        },
+        "n_skip_position_limit": 7,
+        "size_mult_sum_filled": 99.0,
+        "trades_per_month": 2.4108680905674214,
+        "expectancy_intent_all": -0.003929729889441168,
+        "expectancy_per_size": -0.03231111242429405
+      },
+      {
+        "tag": "BTC_p80_confirm_addon_k3",
+        "n_intent": 814,
+        "fill_pct": 0.3415233415233415,
+        "fill_stats": {
+          "n_intent": 814,
+          "n_filled_path": 278,
+          "n_no_touch": 536,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.3415233415233415,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": {
+          "n_parent_fills": 278,
+          "n_addon": 150,
+          "n_stopped": 59,
+          "n_dropped": 69,
+          "n_bad": 0,
+          "addon_rate": 0.539568345323741,
+          "confirm_k": 3
+        },
+        "status": "RAN",
+        "n_trades": 401,
+        "profit_factor": 0.8285081889685918,
+        "win_rate": 0.47880299251870323,
+        "net_pnl": -12.51245008999831,
+        "expectancy": -0.031203117431421797,
+        "entry_bar_exit_rate": 0.11471321695760599,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 27
+        },
+        "n_skip_position_limit": 27,
+        "size_mult_sum_filled": 190.586148464237,
+        "trades_per_month": 9.765233376944808,
+        "expectancy_intent_all": -0.01537156030712323,
+        "expectancy_per_size": -0.06565246315550702
+      },
+      {
+        "tag": "BTC_p80_fromto_abs_level",
+        "n_intent": 814,
+        "fill_pct": 0.3415233415233415,
+        "fill_stats": {
+          "n_intent": 814,
+          "n_filled_path": 278,
+          "n_no_touch": 536,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.3415233415233415,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "n_skip_geom": 0,
+        "n_gated": 814,
+        "tp_mode": "abs_level",
+        "promote_blocked": false,
+        "status": "RAN",
+        "n_trades": 242,
+        "profit_factor": 2.2296883025198717,
+        "win_rate": 0.6942148760330579,
+        "net_pnl": 29.03770198500206,
+        "expectancy": 0.11999050407024758,
+        "entry_bar_exit_rate": 0.3884297520661157,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 36
+        },
+        "n_skip_position_limit": 36,
+        "size_mult_sum_filled": 242.0,
+        "trades_per_month": 5.8932331102759195,
+        "expectancy_intent_all": 0.03567285256142759,
+        "expectancy_per_size": 0.11999050407025644
+      },
+      {
+        "tag": "BTC_p80_fromto_2x_level",
+        "n_intent": 814,
+        "fill_pct": 0.3415233415233415,
+        "fill_stats": {
+          "n_intent": 814,
+          "n_filled_path": 278,
+          "n_no_touch": 536,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.3415233415233415,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "n_skip_geom": 0,
+        "n_gated": 814,
+        "tp_mode": "2x_level",
+        "promote_blocked": false,
+        "status": "RAN",
+        "n_trades": 241,
+        "profit_factor": 0.9981777597987994,
+        "win_rate": 0.46887966804979253,
+        "net_pnl": -0.07835324000188848,
+        "expectancy": -0.0003251171784234548,
+        "entry_bar_exit_rate": 0.12448132780082988,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 37
+        },
+        "n_skip_position_limit": 37,
+        "size_mult_sum_filled": 241.0,
+        "trades_per_month": 5.868880907340895,
+        "expectancy_intent_all": -9.62570515993716e-05,
+        "expectancy_per_size": -0.00032511717843107253
+      },
+      {
+        "tag": "BTC_p80_fromto_pred_next",
+        "n_intent": 732,
+        "fill_pct": 0.33879781420765026,
+        "fill_stats": {
+          "n_intent": 732,
+          "n_filled_path": 248,
+          "n_no_touch": 484,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.33879781420765026,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "n_skip_geom": 82,
+        "n_gated": 814,
+        "tp_mode": "pred_next",
+        "promote_blocked": false,
+        "status": "RAN",
+        "n_trades": 208,
+        "profit_factor": 1.0035661384973065,
+        "win_rate": 0.49038461538461536,
+        "net_pnl": 0.1498764750031114,
+        "expectancy": 0.000720559975961253,
+        "entry_bar_exit_rate": 0.0673076923076923,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 40
+        },
+        "n_skip_position_limit": 40,
+        "size_mult_sum_filled": 208.0,
+        "trades_per_month": 5.065258210485087,
+        "expectancy_intent_all": 0.0002047492827911358,
+        "expectancy_per_size": 0.0007205599759764972
+      },
+      {
+        "tag": "BTC_p80_fromto_oracle_next",
+        "n_intent": 95,
+        "fill_pct": 0.35789473684210527,
+        "fill_stats": {
+          "n_intent": 95,
+          "n_filled_path": 34,
+          "n_no_touch": 61,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.35789473684210527,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "n_skip_geom": 719,
+        "n_gated": 814,
+        "tp_mode": "oracle_next",
+        "promote_blocked": true,
+        "status": "RAN",
+        "n_trades": 33,
+        "profit_factor": 11.567060269389172,
+        "win_rate": 0.8484848484848485,
+        "net_pnl": 21.198420625005383,
+        "expectancy": 0.6423763825757566,
+        "entry_bar_exit_rate": 0.12121212121212122,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 1
+        },
+        "n_skip_position_limit": 1,
+        "size_mult_sum_filled": 33.0,
+        "trades_per_month": 0.8036226968558071,
+        "expectancy_intent_all": 0.22314126973689877,
+        "expectancy_per_size": 0.6423763825759207
+      }
+    ],
+    "promotions": {
+      "BTC_p80_size_linear": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": true,
+        "size_not_fake": false,
+        "promote": false,
+        "entry_bar_exit_rate": 0.14957264957264957
+      },
+      "BTC_p80_size_tertile": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": true,
+        "pf_not_collapsed": true,
+        "size_not_fake": false,
+        "promote": false,
+        "entry_bar_exit_rate": 0.16267942583732056
+      },
+      "BTC_p80_confirm_enter_k1": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": true,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.19736842105263158
+      },
+      "BTC_p80_confirm_addon_k1": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": false,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.11970074812967581
+      },
+      "BTC_p80_confirm_enter_k2": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": false,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.09090909090909091
+      },
+      "BTC_p80_confirm_addon_k2": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": false,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.1111111111111111
+      },
+      "BTC_p80_confirm_enter_k3": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": false,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.1111111111111111
+      },
+      "BTC_p80_confirm_addon_k3": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": false,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.11471321695760599
+      },
+      "BTC_p80_fromto_abs_level": {
+        "entry_bar_ok": false,
+        "intent_exp_improved": true,
+        "pf_not_collapsed": true,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.3884297520661157
+      },
+      "BTC_p80_fromto_2x_level": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": false,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.12448132780082988
+      },
+      "BTC_p80_fromto_pred_next": {
+        "entry_bar_ok": true,
+        "intent_exp_improved": false,
+        "pf_not_collapsed": false,
+        "size_not_fake": true,
+        "promote": false,
+        "entry_bar_exit_rate": 0.0673076923076923
+      },
+      "BTC_p80_fromto_oracle_next": {
+        "promote": false,
+        "reason": "oracle_or_blocked"
+      }
+    }
+  },
+  "eth_label_confirm": {
+    "confirm_3": {
+      "diag": {
+        "confirm_bars": 3,
+        "frac_any": 0.15784692065979314,
+        "frac_next": 0.04242479808629988,
+        "level_p90_mean": 0.018720079402096117,
+        "next_level_p90_mean": 0.008954871807719337,
+        "n_rows": 99356
+      },
+      "arm": {
+        "tag": "ETH_q50_ctrl",
+        "n_intent": 2696,
+        "fill_pct": 0.3698071216617211,
+        "fill_stats": {
+          "n_intent": 2696,
+          "n_filled_path": 997,
+          "n_no_touch": 1699,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.3698071216617211,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "n_skip_geom": 0,
+        "n_gated": 2696,
+        "status": "RAN",
+        "n_trades": 812,
+        "profit_factor": 1.6194070885035619,
+        "win_rate": 0.646551724137931,
+        "net_pnl": 40.88669681500869,
+        "expectancy": 0.05035307489532017,
+        "entry_bar_exit_rate": 0.27586206896551724,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 185
+        },
+        "n_skip_position_limit": 185,
+        "size_mult_sum_filled": 812.0,
+        "trades_per_month": 19.77398878323986,
+        "expectancy_intent_all": 0.01516568872960263,
+        "expectancy_per_size": 0.0503530748953309
+      }
+    },
+    "confirm_4": {
+      "diag": {
+        "confirm_bars": 4,
+        "frac_any": 0.15784692065979314,
+        "frac_next": 0.04242479808629988,
+        "level_p90_mean": 0.018720079402096117,
+        "next_level_p90_mean": NaN,
+        "n_rows": 99356
+      },
+      "arm": {
+        "tag": "ETH_q50_label_confirm_4",
+        "n_intent": 2696,
+        "fill_pct": 0.3698071216617211,
+        "fill_stats": {
+          "n_intent": 2696,
+          "n_filled_path": 997,
+          "n_no_touch": 1699,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.3698071216617211,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "n_skip_geom": 0,
+        "n_gated": 2696,
+        "status": "RAN",
+        "n_trades": 812,
+        "profit_factor": 1.6194070885035619,
+        "win_rate": 0.646551724137931,
+        "net_pnl": 40.88669681500869,
+        "expectancy": 0.05035307489532017,
+        "entry_bar_exit_rate": 0.27586206896551724,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 185
+        },
+        "n_skip_position_limit": 185,
+        "size_mult_sum_filled": 812.0,
+        "trades_per_month": 19.77398878323986,
+        "expectancy_intent_all": 0.01516568872960263,
+        "expectancy_per_size": 0.0503530748953309
+      }
+    },
+    "confirm_5": {
+      "diag": {
+        "confirm_bars": 5,
+        "frac_any": 0.15784692065979314,
+        "frac_next": 0.04242479808629988,
+        "level_p90_mean": 0.018720079402096117,
+        "next_level_p90_mean": NaN,
+        "n_rows": 99356
+      },
+      "arm": {
+        "tag": "ETH_q50_label_confirm_5",
+        "n_intent": 2696,
+        "fill_pct": 0.3698071216617211,
+        "fill_stats": {
+          "n_intent": 2696,
+          "n_filled_path": 997,
+          "n_no_touch": 1699,
+          "n_adverse_cancel": 0,
+          "n_bad": 0,
+          "fill_rate": 0.3698071216617211,
+          "work_bars_default": 4,
+          "work_bars_mean_used": 4.0,
+          "adverse_mode": null,
+          "adverse_pct": 0.005,
+          "adverse_atr_mult": 1.0
+        },
+        "addon_stats": null,
+        "n_skip_geom": 0,
+        "n_gated": 2696,
+        "status": "RAN",
+        "n_trades": 812,
+        "profit_factor": 1.6194070885035619,
+        "win_rate": 0.646551724137931,
+        "net_pnl": 40.88669681500869,
+        "expectancy": 0.05035307489532017,
+        "entry_bar_exit_rate": 0.27586206896551724,
+        "skip_counts": {
+          "SKIP_POSITION_LIMIT": 185
+        },
+        "n_skip_position_limit": 185,
+        "size_mult_sum_filled": 812.0,
+        "trades_per_month": 19.77398878323986,
+        "expectancy_intent_all": 0.01516568872960263,
+        "expectancy_per_size": 0.0503530748953309
+      }
+    }
+  },
+  "promoted": []
+}

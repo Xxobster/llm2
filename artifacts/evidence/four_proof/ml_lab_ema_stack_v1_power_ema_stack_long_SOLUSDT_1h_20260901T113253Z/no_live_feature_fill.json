@@ -1,0 +1,18 @@
+{
+  "hits": [],
+  "ok": true,
+  "proof": "no_live_feature_fill",
+  "required_guards": {
+    "no_taker_fallback": true,
+    "pack_fail_loud": true,
+    "risk_fraction_sizing": true,
+    "runner_nan_refuse": true,
+    "signal_isfinite_check": true,
+    "signal_nan_cols": true
+  },
+  "sources_sha256": {
+    "llm2\\live\\ema_stack_runner.py": "2bb11afbd606abf21372b0ea1655d3cd78ae1b884463a061076af8f6d6ca4888",
+    "llm2\\ml_lab\\live_signal.py": "3bc840fd5d39993df08f50f33263d56894d5aea376f60847809e62557691f427"
+  },
+  "space": "ml_lab_ema_stack_v1"
+}

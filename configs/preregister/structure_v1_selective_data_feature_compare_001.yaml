@@ -1,0 +1,65 @@
+# Frozen compare: structure_v1 control vs structure+OI / structure+news.
+# Outer folds only; lockbox unused. Primary: expectancy_return_units.
+# Single-book geometry isolates feature-space effect (not live K5/multitrade).
+
+generation_id: structure_v1_selective_data_feature_compare_001
+created_utc: "2026-08-05T08:15:00Z"
+status: OOS_COMPARE_COMPLETE
+settled_utc: "20260805T080903Z"
+preregister_sha256_at_run: 71550ebce7359f6eba5acc42ad94d9316a5d00b152fb8801e54407889cfe6e69
+decision_refs: [D-041]
+fold_geometry: v2
+
+hypothesis: >
+  Adding causally lagged open-interest (oi_v1) or news-density (news_v1)
+  features to structure_v1 improves stitched outer-fold expectancy_return_units
+  versus structure_v1 alone on ETHUSDT 1h direction under single-book CostHurdle
+  (min_edge=0.10, TP1%/SL2%/hold6).
+
+economic_rationale: >
+  OI captures positioning not in swing structure; news density captures
+  attention shocks. Both must be known by bar close only. Neither vault
+  trade-history nor cryptodb timing-unpinned series are in scope.
+
+control_arm:
+  feature_space: structure_v1
+  symbol: ETHUSDT
+  target: direction
+  geometry: single_book_cost_hurdle
+  tp_pct: 0.01
+  sl_pct: 0.02
+  hold_bars: 6
+  min_edge: 0.10
+
+candidates:
+  - feature_space: structure_oi_v1
+  - feature_space: structure_news_v1
+
+selection:
+  method: FROZEN_COMPARE — each candidate vs control independently; no multi-arm ranking
+  forbidden:
+    - select_on_lockbox
+    - rank candidates against each other for promotion
+    - use cryptodb D-028
+    - use orderbook short window as promotion evidence
+
+evaluation:
+  outer: fold_geometry_v2_stitched_oos
+  hard_end_exclusive: "2026-05-01"
+  lockbox: DO_NOT_OPEN
+  engine: botsgeneral_tradesim
+  costs: research_costs_baseline
+  sizing: MIN_EXCHANGE
+  primary_metric: expectancy_return_units
+  secondary: [profit_factor, win_rate, n_trades, net_pnl]
+  evidence_class: OUTER_TRANSFER_COMPARE
+  promotion: FORBIDDEN_without_new_pack_hash_certificate_and_explicit_user_auth
+
+success_criteria_per_candidate:
+  - candidate_expectancy_return_units > control_expectancy_return_units
+  - candidate_stitched_pf >= 1.20
+  - no liquidation
+  - leakage audit PASS for the candidate space
+
+failure_is_success: true
+live_deploy: FORBIDDEN

@@ -1,0 +1,119 @@
+# Confluence autonomous hunt 002
+# RESEARCH_ONLY. Not live. Frozen before any profit-factor ranking.
+#
+# New generation (not an add-on to confluence_event_pack_001).
+# 001 AND-pack of predicted heads was too sparse. This hunt tests
+# ONE predicted head at a time, plus a 3-way regime (reverse /
+# continue / range), across a closed Take-Profit / Stop-Loss grid.
+generation_id: confluence_autonomous_hunt_002
+status: OPEN
+readiness_max: RESEARCH_ONLY
+frozen_at_utc: "2026-08-19T05:00:00Z"
+rank_by: expectancy_intent_all
+rank_window: chronological_test_30pct_pre_lockbox
+entry_bar_exit_rate_cap: 0.35
+oracle_arms: never_promote
+lockbox: do_not_rank_on_or_after_2026-05-01
+failure_is_success: true
+min_test_trades_to_quote: 12
+min_test_trades_to_flag: 50
+
+hypothesis: >
+  A single calibrated P(future_event) head, used either as a filter on the
+  current pivot control or as a standalone entry, can beat that control on
+  inner test intent expectancy without collapsing profit factor. A 3-way
+  regime head (reverse / continue / range-hold) is allowed to beat
+  single-event heads. Predicting raw indicator levels is still rejected.
+
+economic_rationale: >
+  Strict AND of several predicted heads almost never fires. One event at a
+  time keeps trade count. Consolidation (range-hold) is a distinct claim
+  from reversal or continuation and must earn its own seat. Changing the
+  Take-Profit / Stop-Loss geometry changes pi-star and trade count; the
+  grid is frozen here, not searched after seeing test profit factor.
+
+universe:
+  symbols: [ETHUSDT, SOLUSDT, BTCUSDT]
+  timeframes: [15m, 1h]
+  source: binance
+  research_proxy: true
+
+horizons_bars: [4, 8, 16]
+work_bars:
+  15m: 4
+  1h: 3
+max_hold_bars:
+  15m: 6
+  1h: 8
+
+brackets:
+  - {tp: 0.005, sl: 0.005}
+  - {tp: 0.010, sl: 0.010}
+  - {tp: 0.015, sl: 0.010}
+  - {tp: 0.020, sl: 0.010}
+  - {tp: 0.010, sl: 0.015}
+
+controls_15m:
+  ETHUSDT: { id: ETH_q50_w4, level_mode: q50, gate: p75, work_bars: 4 }
+  SOLUSDT: { id: SOL_atr_clip_w5, level_mode: ret, gate: p75, work_bars: 5, placement: atr_clip_0p8_1p5 }
+  BTCUSDT: { id: BTC_p80_w4, level_mode: ret, gate: p80, work_bars: 4 }
+
+# Closed event list for this generation. Do not add after first test ranking.
+events:
+  from_001:
+    - rsi_cross_up_30
+    - rsi_cross_down_70
+    - macd_hist_flip_up
+    - macd_hist_flip_down
+    - adx_fade
+    - vsa_dryup_expand
+    - failed_swing_ll
+    - failed_swing_hh
+    - stoch_cross_up_20
+    - stoch_cross_down_80
+    - pulse_extend
+    - structure_break_hold
+  new_002:
+    - range_hold
+    - range_break_up
+    - range_break_down
+    - atr_squeeze_expand
+
+modes:
+  - control
+  - one_head_filter_pi_star
+  - one_head_standalone_pi_star
+  - regime_argmax
+
+gates:
+  predicted: p_hat_ge_pi_star_of_that_bracket
+  model: lightgbm_isotonic_on_train_only
+
+entry_style:
+  reversal_or_range_hold: limit
+  continuation_or_range_break_or_squeeze: market
+
+selection:
+  inner_train_fit_only: true
+  test_window_score_once: true
+  train_test_sqlite_split: true
+  do_not_peep_lockbox: true
+
+costs: >
+  tradesim research_costs_baseline: Bybit non-VIP taker 0.055 percent per fill
+  on market/stop; resting LIMIT entry maker 0.02 percent if it rests.
+  Exit taker until maker-exit evidence is proven. No exit slip on limit
+  Take-Profit / Stop-Loss touch. Funding at historical settlements while open.
+
+do_not:
+  - predict raw RSI / MACD / stochastic / HH-LL levels as targets
+  - AND several predicted heads (001 already failed that)
+  - add events after viewing test profit factor
+  - quote oracle (true future event bit) profit factor as deployable edge
+  - join warehouse structure_v1 / macro_v1 without FOUR_PROOF_GATE_V1
+  - peep lockbox 2026-05-01+ for ranking
+  - deploy, restart VPS, or swap live packs
+  - restore structure_v1 LightGBM bots
+  - relax Frozen V2.1 after seeing test numbers
+
+preregister_sha256_at_run: 8f48ba407fafd1e7b6e2e881ab0b354956f8796cbe971ed205e32996bfe1d54e

@@ -1,0 +1,463 @@
+{
+  "generation_id": "structure_v1_eth_k5_ev_calibrated_pi_star_001",
+  "created_utc": "20260805T065413Z",
+  "preregister_path": "configs/preregister/structure_v1_eth_k5_ev_calibrated_pi_star_001.yaml",
+  "preregister_sha256": "96e896c599808735fa77a53bd49c89f7379e64930a64a6cdc493697ae6c7638b",
+  "evidence_class": "OUTER_TRANSFER_COMPARE",
+  "max_readiness": "RESEARCH_ONLY",
+  "promotion_allowed": false,
+  "live_deploy": "FORBIDDEN",
+  "primary_metric": "expectancy_return_units",
+  "hard_end_exclusive": "2026-05-01",
+  "lockbox_used": false,
+  "fold_geometry": "v2",
+  "outer_fold_ranges": [
+    [
+      "2022-01-01",
+      "2022-10-01"
+    ],
+    [
+      "2022-10-01",
+      "2023-07-01"
+    ],
+    [
+      "2023-07-01",
+      "2024-04-01"
+    ],
+    [
+      "2024-04-01",
+      "2025-01-01"
+    ],
+    [
+      "2025-01-01",
+      "2025-10-01"
+    ],
+    [
+      "2025-10-01",
+      "2026-05-01"
+    ]
+  ],
+  "conformance_passed": true,
+  "control": {
+    "label": "structure_v1_eth_k5_ev_calibrated_pi_star_001_control",
+    "use_calibration": false,
+    "pi_star": 0.72,
+    "hurdle": {
+      "mu_plus": 0.0084,
+      "mu_minus": 0.021599999999999998,
+      "pi_star": 0.72
+    },
+    "folds": [
+      {
+        "fold_index": 0,
+        "n_trades": 1882,
+        "net_pnl": 374.79363013497823,
+        "profit_factor": 3.5339917039879243,
+        "win_rate": 0.8639744952178533,
+        "expectancy": 0.19914645596971298,
+        "expectancy_return_units": 0.005277335011810571,
+        "total_fees": 75.328469865,
+        "n_liquidations": 0,
+        "pi_star_stats": {
+          "n_before": 4788,
+          "n_skipped_pi_star": 0,
+          "n_after": 4788
+        },
+        "calib": {
+          "fold": 0,
+          "fitted": false,
+          "n_fit": 0,
+          "ece": null
+        }
+      },
+      {
+        "fold_index": 1,
+        "n_trades": 1885,
+        "net_pnl": 206.399809969962,
+        "profit_factor": 3.0026967918718697,
+        "win_rate": 0.76657824933687,
+        "expectancy": 0.10949592040848805,
+        "expectancy_return_units": 0.004080361870668453,
+        "total_fees": 52.616990030000004,
+        "n_liquidations": 0,
+        "pi_star_stats": {
+          "n_before": 4597,
+          "n_skipped_pi_star": 0,
+          "n_after": 4597
+        },
+        "calib": {
+          "fold": 1,
+          "fitted": false,
+          "n_fit": 0,
+          "ece": null
+        }
+      },
+      {
+        "fold_index": 2,
+        "n_trades": 1823,
+        "net_pnl": 312.85963895500936,
+        "profit_factor": 3.719299383168078,
+        "win_rate": 0.7986834887547998,
+        "expectancy": 0.17161801368897417,
+        "expectancy_return_units": 0.004524146497827729,
+        "total_fees": 71.203661045,
+        "n_liquidations": 0,
+        "pi_star_stats": {
+          "n_before": 4562,
+          "n_skipped_pi_star": 0,
+          "n_after": 4562
+        },
+        "calib": {
+          "fold": 2,
+          "fitted": false,
+          "n_fit": 0,
+          "ece": null
+        }
+      },
+      {
+        "fold_index": 3,
+        "n_trades": 1924,
+        "net_pnl": 556.3060584950181,
+        "profit_factor": 4.3296146802095725,
+        "win_rate": 0.8633056133056133,
+        "expectancy": 0.2891403630431393,
+        "expectancy_return_units": 0.005711220481069459,
+        "total_fees": 105.734441505,
+        "n_liquidations": 0,
+        "pi_star_stats": {
+          "n_before": 4679,
+          "n_skipped_pi_star": 0,
+          "n_after": 4679
+        },
+        "calib": {
+          "fold": 3,
+          "fitted": false,
+          "n_fit": 0,
+          "ece": null
+        }
+      },
+      {
+        "fold_index": 4,
+        "n_trades": 1917,
+        "net_pnl": 545.1198443650246,
+        "profit_factor": 4.899181523650629,
+        "win_rate": 0.872717788210746,
+        "expectancy": 0.28436089951225874,
+        "expectancy_return_units": 0.005863803255878608,
+        "total_fees": 98.73685563500001,
+        "n_liquidations": 0,
+        "pi_star_stats": {
+          "n_before": 4706,
+          "n_skipped_pi_star": 0,
+          "n_after": 4706
+        },
+        "calib": {
+          "fold": 4,
+          "fitted": false,
+          "n_fit": 0,
+          "ece": null
+        }
+      },
+      {
+        "fold_index": 5,
+        "n_trades": 1440,
+        "net_pnl": 402.4500229100122,
+        "profit_factor": 5.2134182435595795,
+        "win_rate": 0.8736111111111111,
+        "expectancy": 0.279479182576389,
+        "expectancy_return_units": 0.0058430511588878084,
+        "total_fees": 72.12397709000001,
+        "n_liquidations": 0,
+        "pi_star_stats": {
+          "n_before": 3512,
+          "n_skipped_pi_star": 0,
+          "n_after": 3512
+        },
+        "calib": {
+          "fold": 5,
+          "fitted": false,
+          "n_fit": 0,
+          "ece": null
+        }
+      }
+    ],
+    "stitched": {
+      "n_trades": 10871,
+      "net_pnl": 2397.9290048299995,
+      "profit_factor": 4.1206087557058195,
+      "win_rate": 0.8388372734799007,
+      "expectancy_return_units": 0.005198623714457994,
+      "n_liquidations": 0
+    },
+    "pi_stats_total": {
+      "n_before": 26844,
+      "n_skipped_pi_star": 0,
+      "n_after": 26844
+    },
+    "signal_stats_total": {
+      "n_emitted": 10940,
+      "n_skipped_clarity": 13366,
+      "n_skipped_cap": 2538,
+      "n_size_1x": 4267,
+      "n_size_2x": 6673
+    },
+    "calib_notes": [
+      {
+        "fold": 0,
+        "fitted": false,
+        "n_fit": 0,
+        "ece": null
+      },
+      {
+        "fold": 1,
+        "fitted": false,
+        "n_fit": 0,
+        "ece": null
+      },
+      {
+        "fold": 2,
+        "fitted": false,
+        "n_fit": 0,
+        "ece": null
+      },
+      {
+        "fold": 3,
+        "fitted": false,
+        "n_fit": 0,
+        "ece": null
+      },
+      {
+        "fold": 4,
+        "fitted": false,
+        "n_fit": 0,
+        "ece": null
+      },
+      {
+        "fold": 5,
+        "fitted": false,
+        "n_fit": 0,
+        "ece": null
+      }
+    ],
+    "leverage": 18.0
+  },
+  "candidate": {
+    "label": "structure_v1_eth_k5_ev_calibrated_pi_star_001_candidate",
+    "use_calibration": true,
+    "pi_star": 0.72,
+    "hurdle": {
+      "mu_plus": 0.0084,
+      "mu_minus": 0.021599999999999998,
+      "pi_star": 0.72
+    },
+    "folds": [
+      {
+        "fold_index": 0,
+        "n_trades": 1882,
+        "net_pnl": 374.79363013497823,
+        "profit_factor": 3.5339917039879243,
+        "win_rate": 0.8639744952178533,
+        "expectancy": 0.19914645596971298,
+        "expectancy_return_units": 0.005277335011810571,
+        "total_fees": 75.328469865,
+        "n_liquidations": 0,
+        "pi_star_stats": {
+          "n_before": 4788,
+          "n_skipped_pi_star": 0,
+          "n_after": 4788
+        },
+        "calib": {
+          "fold": 0,
+          "fitted": false,
+          "n_fit": 0,
+          "ece": null
+        }
+      },
+      {
+        "fold_index": 1,
+        "n_trades": 1885,
+        "net_pnl": 206.399809969962,
+        "profit_factor": 3.0026967918718697,
+        "win_rate": 0.76657824933687,
+        "expectancy": 0.10949592040848805,
+        "expectancy_return_units": 0.004080361870668453,
+        "total_fees": 52.616990030000004,
+        "n_liquidations": 0,
+        "pi_star_stats": {
+          "n_before": 4597,
+          "n_skipped_pi_star": 0,
+          "n_after": 4597
+        },
+        "calib": {
+          "fold": 1,
+          "fitted": false,
+          "n_fit": 0,
+          "ece": null
+        }
+      },
+      {
+        "fold_index": 2,
+        "n_trades": 1823,
+        "net_pnl": 312.85963895500936,
+        "profit_factor": 3.719299383168078,
+        "win_rate": 0.7986834887547998,
+        "expectancy": 0.17161801368897417,
+        "expectancy_return_units": 0.004524146497827729,
+        "total_fees": 71.203661045,
+        "n_liquidations": 0,
+        "pi_star_stats": {
+          "n_before": 4562,
+          "n_skipped_pi_star": 0,
+          "n_after": 4562
+        },
+        "calib": {
+          "fold": 2,
+          "fitted": false,
+          "n_fit": 0,
+          "ece": null
+        }
+      },
+      {
+        "fold_index": 3,
+        "n_trades": 1924,
+        "net_pnl": 556.3060584950181,
+        "profit_factor": 4.3296146802095725,
+        "win_rate": 0.8633056133056133,
+        "expectancy": 0.2891403630431393,
+        "expectancy_return_units": 0.005711220481069459,
+        "total_fees": 105.734441505,
+        "n_liquidations": 0,
+        "pi_star_stats": {
+          "n_before": 4679,
+          "n_skipped_pi_star": 0,
+          "n_after": 4679
+        },
+        "calib": {
+          "fold": 3,
+          "fitted": false,
+          "n_fit": 0,
+          "ece": null
+        }
+      },
+      {
+        "fold_index": 4,
+        "n_trades": 1917,
+        "net_pnl": 545.1198443650246,
+        "profit_factor": 4.899181523650629,
+        "win_rate": 0.872717788210746,
+        "expectancy": 0.28436089951225874,
+        "expectancy_return_units": 0.005863803255878608,
+        "total_fees": 98.73685563500001,
+        "n_liquidations": 0,
+        "pi_star_stats": {
+          "n_before": 4706,
+          "n_skipped_pi_star": 0,
+          "n_after": 4706
+        },
+        "calib": {
+          "fold": 4,
+          "fitted": false,
+          "n_fit": 0,
+          "ece": null
+        }
+      },
+      {
+        "fold_index": 5,
+        "n_trades": 1440,
+        "net_pnl": 402.4500229100122,
+        "profit_factor": 5.2134182435595795,
+        "win_rate": 0.8736111111111111,
+        "expectancy": 0.279479182576389,
+        "expectancy_return_units": 0.0058430511588878084,
+        "total_fees": 72.12397709000001,
+        "n_liquidations": 0,
+        "pi_star_stats": {
+          "n_before": 3512,
+          "n_skipped_pi_star": 0,
+          "n_after": 3512
+        },
+        "calib": {
+          "fold": 5,
+          "fitted": false,
+          "n_fit": 0,
+          "ece": null
+        }
+      }
+    ],
+    "stitched": {
+      "n_trades": 10871,
+      "net_pnl": 2397.9290048299995,
+      "profit_factor": 4.1206087557058195,
+      "win_rate": 0.8388372734799007,
+      "expectancy_return_units": 0.005198623714457994,
+      "n_liquidations": 0
+    },
+    "pi_stats_total": {
+      "n_before": 26844,
+      "n_skipped_pi_star": 0,
+      "n_after": 26844
+    },
+    "signal_stats_total": {
+      "n_emitted": 10940,
+      "n_skipped_clarity": 13366,
+      "n_skipped_cap": 2538,
+      "n_size_1x": 4267,
+      "n_size_2x": 6673
+    },
+    "calib_notes": [
+      {
+        "fold": 0,
+        "fitted": false,
+        "n_fit": 0,
+        "ece": null
+      },
+      {
+        "fold": 1,
+        "fitted": false,
+        "n_fit": 0,
+        "ece": null
+      },
+      {
+        "fold": 2,
+        "fitted": false,
+        "n_fit": 0,
+        "ece": null
+      },
+      {
+        "fold": 3,
+        "fitted": false,
+        "n_fit": 0,
+        "ece": null
+      },
+      {
+        "fold": 4,
+        "fitted": false,
+        "n_fit": 0,
+        "ece": null
+      },
+      {
+        "fold": 5,
+        "fitted": false,
+        "n_fit": 0,
+        "ece": null
+      }
+    ],
+    "leverage": 18.0
+  },
+  "compare": {
+    "control_expectancy_return_units": 0.005198623714457994,
+    "candidate_expectancy_return_units": 0.005198623714457994,
+    "exp_ru_delta": 0.0,
+    "control_pf": 4.1206087557058195,
+    "candidate_pf": 4.1206087557058195,
+    "candidate_beats_control_exp_ru": false,
+    "candidate_pf_ge_1_20": true,
+    "candidate_no_liquidation": true,
+    "passed_success_criteria": false
+  },
+  "elapsed_sec": 69.7,
+  "min_size_equity_caveat": "Wallet equity / maximum drawdown under research_sizing MIN_EXCHANGE (minimum exchange size) on a large wallet is not tradable-edge evidence. Smooth curves are expected at dust size; do not treat them as deployable sizing.",
+  "equity_leverage_sizing_note": "Research/display only: EQUITY_LEVERAGE_NOTIONAL notional = equity \u00d7 equity_fraction \u00d7 leverage (compound when enabled). wallet_return is valid under that mode. Live micro bots always use MIN_EXCHANGE (venue min qty per pair); never size live from wallet %. Peak concurrent margin utilisation is multi-book research stress. Never scale live size from a min-size research wallet % or equity-leverage study.",
+  "default_equity_fraction": 0.01,
+  "equity_is_tradable_edge": false
+}

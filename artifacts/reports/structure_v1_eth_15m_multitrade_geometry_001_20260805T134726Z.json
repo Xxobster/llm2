@@ -1,0 +1,584 @@
+{
+  "generation_id": "structure_v1_eth_15m_multitrade_geometry_001",
+  "created_utc": "20260805T134726Z",
+  "preregister_path": "configs/preregister/structure_v1_eth_15m_multitrade_geometry_001.yaml",
+  "preregister_sha256": "5eb7359ae4f76df8803b87a1e085a271668328b7d78fa02c93164cfc55140888",
+  "warehouse_audit": "artifacts/reports/structure_v1_eth_15m_warehouse_audit_latest.json",
+  "evidence_class": "OUTER_TRANSFER_COMPARE",
+  "max_readiness": "RESEARCH_ONLY",
+  "promotion_allowed": false,
+  "live_deploy": "FORBIDDEN",
+  "primary_metric": "expectancy_return_units",
+  "hard_end_exclusive": "2026-05-01",
+  "lockbox_used": false,
+  "fold_geometry": "v2",
+  "outer_fold_ranges": [
+    [
+      "2022-01-01",
+      "2022-10-01"
+    ],
+    [
+      "2022-10-01",
+      "2023-07-01"
+    ],
+    [
+      "2023-07-01",
+      "2024-04-01"
+    ],
+    [
+      "2024-04-01",
+      "2025-01-01"
+    ],
+    [
+      "2025-01-01",
+      "2025-10-01"
+    ],
+    [
+      "2025-10-01",
+      "2026-05-01"
+    ]
+  ],
+  "conformance_passed": true,
+  "timeframe": "15m",
+  "touch_timeframe": "1m",
+  "symbol": "ETHUSDT",
+  "phase": "ETH_FIRST",
+  "btc_phase2": "DEFERRED",
+  "arms": {
+    "wall_clock_q50": {
+      "label": "structure_v1_eth_15m_multitrade_geometry_001_wall_clock_q50",
+      "timeframe": "15m",
+      "symbol": "ETHUSDT",
+      "label_horizon": 24,
+      "touch_timeframe": "1m",
+      "cfg": {
+        "clarity": "mean_strength",
+        "clarity_scope": "all",
+        "max_positions_per_side": 7,
+        "fib_ext": 1.618,
+        "hold_addon": 48,
+        "base_hold": 24,
+        "base_tp": 0.01,
+        "base_sl": 0.02,
+        "mean_lookback": 672,
+        "bar_ms": 900000,
+        "cooloff_after_consecutive_losses": 0,
+        "strength_quantile": 0.5,
+        "skip_weak_short_book1": false,
+        "geometry": "wall_clock"
+      },
+      "folds": [
+        {
+          "fold_index": 0,
+          "n_trades": 3606,
+          "net_pnl": 725.931166404971,
+          "profit_factor": 3.130435089112671,
+          "win_rate": 0.7146422628951747,
+          "expectancy_return_units": 0.008973771216984243,
+          "signal_stats": {
+            "n_emitted": 3660,
+            "n_skipped_clarity": 9034,
+            "n_skipped_cap": 5271,
+            "n_skipped_loss_cooloff": 0,
+            "n_skipped_weak_short_book1": 0,
+            "n_primary": 311,
+            "n_addon": 3349
+          },
+          "n_liquidations": 0
+        },
+        {
+          "fold_index": 1,
+          "n_trades": 3679,
+          "net_pnl": 361.9339356850269,
+          "profit_factor": 3.0313398023480294,
+          "win_rate": 0.6792606686599619,
+          "expectancy_return_units": 0.006158175002665082,
+          "signal_stats": {
+            "n_emitted": 3780,
+            "n_skipped_clarity": 8373,
+            "n_skipped_cap": 4556,
+            "n_skipped_loss_cooloff": 0,
+            "n_skipped_weak_short_book1": 0,
+            "n_primary": 334,
+            "n_addon": 3446
+          },
+          "n_liquidations": 0
+        },
+        {
+          "fold_index": 2,
+          "n_trades": 3562,
+          "net_pnl": 549.2108009749863,
+          "profit_factor": 3.722700581501643,
+          "win_rate": 0.7071869736103312,
+          "expectancy_return_units": 0.006142344084234109,
+          "signal_stats": {
+            "n_emitted": 3686,
+            "n_skipped_clarity": 8447,
+            "n_skipped_cap": 4665,
+            "n_skipped_loss_cooloff": 0,
+            "n_skipped_weak_short_book1": 0,
+            "n_primary": 358,
+            "n_addon": 3328
+          },
+          "n_liquidations": 0
+        },
+        {
+          "fold_index": 3,
+          "n_trades": 3902,
+          "net_pnl": 989.8735782099247,
+          "profit_factor": 3.7620031776588405,
+          "win_rate": 0.7270630445925167,
+          "expectancy_return_units": 0.008318711024732056,
+          "signal_stats": {
+            "n_emitted": 3986,
+            "n_skipped_clarity": 8523,
+            "n_skipped_cap": 4550,
+            "n_skipped_loss_cooloff": 0,
+            "n_skipped_weak_short_book1": 0,
+            "n_primary": 373,
+            "n_addon": 3613
+          },
+          "n_liquidations": 0
+        },
+        {
+          "fold_index": 4,
+          "n_trades": 3996,
+          "net_pnl": 1139.9702128100253,
+          "profit_factor": 4.377115862424044,
+          "win_rate": 0.7685185185185185,
+          "expectancy_return_units": 0.009853312573971871,
+          "signal_stats": {
+            "n_emitted": 4063,
+            "n_skipped_clarity": 8636,
+            "n_skipped_cap": 4449,
+            "n_skipped_loss_cooloff": 0,
+            "n_skipped_weak_short_book1": 0,
+            "n_primary": 342,
+            "n_addon": 3721
+          },
+          "n_liquidations": 0
+        },
+        {
+          "fold_index": 5,
+          "n_trades": 3002,
+          "net_pnl": 782.1165949799688,
+          "profit_factor": 4.100666023662097,
+          "win_rate": 0.7468354430379747,
+          "expectancy_return_units": 0.009090361085839204,
+          "signal_stats": {
+            "n_emitted": 3062,
+            "n_skipped_clarity": 6581,
+            "n_skipped_cap": 3606,
+            "n_skipped_loss_cooloff": 0,
+            "n_skipped_weak_short_book1": 0,
+            "n_primary": 260,
+            "n_addon": 2802
+          },
+          "n_liquidations": 0
+        }
+      ],
+      "stitched": {
+        "n_trades": 21747,
+        "net_pnl": 4549.036289064999,
+        "profit_factor": 3.72589641601175,
+        "win_rate": 0.7240079091368924,
+        "expectancy_return_units": 0.00809385597623016,
+        "expectancy_return_units_trade_mean": 0.008093855976230161,
+        "sharpe_annualised_fold_mean": 18.52762921500738,
+        "n_liquidations": 0,
+        "frac_folds_pf_gt_1": 1.0
+      },
+      "signal_stats_total": {
+        "n_emitted": 22237,
+        "n_skipped_clarity": 49594,
+        "n_skipped_cap": 27097,
+        "n_skipped_loss_cooloff": 0,
+        "n_skipped_weak_short_book1": 0,
+        "n_primary": 1978,
+        "n_addon": 20259
+      },
+      "exit_reasons": {
+        "target": 9614,
+        "max_hold": 9490,
+        "stop": 2366,
+        "target_entry_bar": 197,
+        "stop_entry_bar": 55,
+        "end_of_data": 24,
+        "end_of_data_entry_bar": 1
+      },
+      "book1_wrong_way_next_bar": 0.3685540950455005,
+      "leverage": 18.0
+    },
+    "wall_clock_q75": {
+      "label": "structure_v1_eth_15m_multitrade_geometry_001_wall_clock_q75",
+      "timeframe": "15m",
+      "symbol": "ETHUSDT",
+      "label_horizon": 24,
+      "touch_timeframe": "1m",
+      "cfg": {
+        "clarity": "mean_strength",
+        "clarity_scope": "all",
+        "max_positions_per_side": 7,
+        "fib_ext": 1.618,
+        "hold_addon": 48,
+        "base_hold": 24,
+        "base_tp": 0.01,
+        "base_sl": 0.02,
+        "mean_lookback": 672,
+        "bar_ms": 900000,
+        "cooloff_after_consecutive_losses": 0,
+        "strength_quantile": 0.75,
+        "skip_weak_short_book1": false,
+        "geometry": "wall_clock"
+      },
+      "folds": [
+        {
+          "fold_index": 0,
+          "n_trades": 2235,
+          "net_pnl": 567.4237526549441,
+          "profit_factor": 4.933188075128263,
+          "win_rate": 0.7914988814317674,
+          "expectancy_return_units": 0.011066665366367657,
+          "signal_stats": {
+            "n_emitted": 2257,
+            "n_skipped_clarity": 13351,
+            "n_skipped_cap": 2357,
+            "n_skipped_loss_cooloff": 0,
+            "n_skipped_weak_short_book1": 0,
+            "n_primary": 326,
+            "n_addon": 1931
+          },
+          "n_liquidations": 0
+        },
+        {
+          "fold_index": 1,
+          "n_trades": 2248,
+          "net_pnl": 314.04690175499127,
+          "profit_factor": 5.021974215022607,
+          "win_rate": 0.7695729537366548,
+          "expectancy_return_units": 0.008833955169104813,
+          "signal_stats": {
+            "n_emitted": 2285,
+            "n_skipped_clarity": 12480,
+            "n_skipped_cap": 1944,
+            "n_skipped_loss_cooloff": 0,
+            "n_skipped_weak_short_book1": 0,
+            "n_primary": 336,
+            "n_addon": 1949
+          },
+          "n_liquidations": 0
+        },
+        {
+          "fold_index": 2,
+          "n_trades": 2236,
+          "net_pnl": 452.7785914700198,
+          "profit_factor": 6.539599331804034,
+          "win_rate": 0.7737030411449016,
+          "expectancy_return_units": 0.008207954110427367,
+          "signal_stats": {
+            "n_emitted": 2285,
+            "n_skipped_clarity": 12497,
+            "n_skipped_cap": 2016,
+            "n_skipped_loss_cooloff": 0,
+            "n_skipped_weak_short_book1": 0,
+            "n_primary": 351,
+            "n_addon": 1934
+          },
+          "n_liquidations": 0
+        },
+        {
+          "fold_index": 3,
+          "n_trades": 2467,
+          "net_pnl": 798.1638818699612,
+          "profit_factor": 6.6106421189637254,
+          "win_rate": 0.8192136197811106,
+          "expectancy_return_units": 0.010515010352924455,
+          "signal_stats": {
+            "n_emitted": 2498,
+            "n_skipped_clarity": 12767,
+            "n_skipped_cap": 1794,
+            "n_skipped_loss_cooloff": 0,
+            "n_skipped_weak_short_book1": 0,
+            "n_primary": 376,
+            "n_addon": 2122
+          },
+          "n_liquidations": 0
+        },
+        {
+          "fold_index": 4,
+          "n_trades": 2460,
+          "net_pnl": 869.0562039449287,
+          "profit_factor": 8.225712907969463,
+          "win_rate": 0.8524390243902439,
+          "expectancy_return_units": 0.012100381949178937,
+          "signal_stats": {
+            "n_emitted": 2483,
+            "n_skipped_clarity": 12878,
+            "n_skipped_cap": 1787,
+            "n_skipped_loss_cooloff": 0,
+            "n_skipped_weak_short_book1": 0,
+            "n_primary": 388,
+            "n_addon": 2095
+          },
+          "n_liquidations": 0
+        },
+        {
+          "fold_index": 5,
+          "n_trades": 1862,
+          "net_pnl": 617.185000315023,
+          "profit_factor": 7.630753434326765,
+          "win_rate": 0.8254564983888292,
+          "expectancy_return_units": 0.011699756964389454,
+          "signal_stats": {
+            "n_emitted": 1888,
+            "n_skipped_clarity": 9924,
+            "n_skipped_cap": 1437,
+            "n_skipped_loss_cooloff": 0,
+            "n_skipped_weak_short_book1": 0,
+            "n_primary": 283,
+            "n_addon": 1605
+          },
+          "n_liquidations": 0
+        }
+      ],
+      "stitched": {
+        "n_trades": 13508,
+        "net_pnl": 3618.65433201,
+        "profit_factor": 6.485352060119762,
+        "win_rate": 0.805744743855493,
+        "expectancy_return_units": 0.010396663555539894,
+        "expectancy_return_units_trade_mean": 0.010396663555539898,
+        "sharpe_annualised_fold_mean": 18.245023046350273,
+        "n_liquidations": 0,
+        "frac_folds_pf_gt_1": 1.0
+      },
+      "signal_stats_total": {
+        "n_emitted": 13696,
+        "n_skipped_clarity": 73897,
+        "n_skipped_cap": 11335,
+        "n_skipped_loss_cooloff": 0,
+        "n_skipped_weak_short_book1": 0,
+        "n_primary": 2060,
+        "n_addon": 11636
+      },
+      "exit_reasons": {
+        "target": 7509,
+        "max_hold": 4767,
+        "stop": 974,
+        "target_entry_bar": 219,
+        "stop_entry_bar": 27,
+        "end_of_data": 12
+      },
+      "book1_wrong_way_next_bar": 0.32524271844660196,
+      "leverage": 18.0
+    },
+    "bar_count_q75": {
+      "label": "structure_v1_eth_15m_multitrade_geometry_001_bar_count_q75",
+      "timeframe": "15m",
+      "symbol": "ETHUSDT",
+      "label_horizon": 6,
+      "touch_timeframe": "1m",
+      "cfg": {
+        "clarity": "mean_strength",
+        "clarity_scope": "all",
+        "max_positions_per_side": 7,
+        "fib_ext": 1.618,
+        "hold_addon": 12,
+        "base_hold": 6,
+        "base_tp": 0.01,
+        "base_sl": 0.02,
+        "mean_lookback": 168,
+        "bar_ms": 900000,
+        "cooloff_after_consecutive_losses": 0,
+        "strength_quantile": 0.75,
+        "skip_weak_short_book1": false,
+        "geometry": "bar_count"
+      },
+      "folds": [
+        {
+          "fold_index": 0,
+          "n_trades": 4544,
+          "net_pnl": 845.8744721699659,
+          "profit_factor": 9.266469719823437,
+          "win_rate": 0.8413292253521126,
+          "expectancy_return_units": 0.008727356350599406,
+          "signal_stats": {
+            "n_emitted": 4576,
+            "n_skipped_clarity": 13962,
+            "n_skipped_cap": 200,
+            "n_skipped_loss_cooloff": 0,
+            "n_skipped_weak_short_book1": 0,
+            "n_primary": 1251,
+            "n_addon": 3325
+          },
+          "n_liquidations": 0
+        },
+        {
+          "fold_index": 1,
+          "n_trades": 4490,
+          "net_pnl": 370.092139275077,
+          "profit_factor": 8.559363008619886,
+          "win_rate": 0.7603563474387528,
+          "expectancy_return_units": 0.005256821915740423,
+          "signal_stats": {
+            "n_emitted": 4525,
+            "n_skipped_clarity": 13826,
+            "n_skipped_cap": 184,
+            "n_skipped_loss_cooloff": 0,
+            "n_skipped_weak_short_book1": 0,
+            "n_primary": 1320,
+            "n_addon": 3205
+          },
+          "n_liquidations": 0
+        },
+        {
+          "fold_index": 2,
+          "n_trades": 4614,
+          "net_pnl": 494.6903879450092,
+          "profit_factor": 7.487464629806733,
+          "win_rate": 0.7397052449068053,
+          "expectancy_return_units": 0.004295860621713987,
+          "signal_stats": {
+            "n_emitted": 4647,
+            "n_skipped_clarity": 13950,
+            "n_skipped_cap": 146,
+            "n_skipped_loss_cooloff": 0,
+            "n_skipped_weak_short_book1": 0,
+            "n_primary": 1378,
+            "n_addon": 3269
+          },
+          "n_liquidations": 0
+        },
+        {
+          "fold_index": 3,
+          "n_trades": 4610,
+          "net_pnl": 851.3835666899959,
+          "profit_factor": 8.216541077276133,
+          "win_rate": 0.7997830802603036,
+          "expectancy_return_units": 0.006006191990578394,
+          "signal_stats": {
+            "n_emitted": 4642,
+            "n_skipped_clarity": 14004,
+            "n_skipped_cap": 156,
+            "n_skipped_loss_cooloff": 0,
+            "n_skipped_weak_short_book1": 0,
+            "n_primary": 1324,
+            "n_addon": 3318
+          },
+          "n_liquidations": 0
+        },
+        {
+          "fold_index": 4,
+          "n_trades": 4595,
+          "net_pnl": 950.7824010749464,
+          "profit_factor": 10.457331250166844,
+          "win_rate": 0.8295973884657236,
+          "expectancy_return_units": 0.007099024958799665,
+          "signal_stats": {
+            "n_emitted": 4623,
+            "n_skipped_clarity": 13789,
+            "n_skipped_cap": 111,
+            "n_skipped_loss_cooloff": 0,
+            "n_skipped_weak_short_book1": 0,
+            "n_primary": 1300,
+            "n_addon": 3323
+          },
+          "n_liquidations": 0
+        },
+        {
+          "fold_index": 5,
+          "n_trades": 3504,
+          "net_pnl": 652.4353159300099,
+          "profit_factor": 8.342613849130826,
+          "win_rate": 0.8170662100456622,
+          "expectancy_return_units": 0.006687669610896198,
+          "signal_stats": {
+            "n_emitted": 3527,
+            "n_skipped_clarity": 10718,
+            "n_skipped_cap": 111,
+            "n_skipped_loss_cooloff": 0,
+            "n_skipped_weak_short_book1": 0,
+            "n_primary": 990,
+            "n_addon": 2537
+          },
+          "n_liquidations": 0
+        }
+      ],
+      "stitched": {
+        "n_trades": 26357,
+        "net_pnl": 4165.258283085001,
+        "profit_factor": 8.78692782126373,
+        "win_rate": 0.7972075729407747,
+        "expectancy_return_units": 0.006329381099754056,
+        "expectancy_return_units_trade_mean": 0.006329381099754057,
+        "sharpe_annualised_fold_mean": 22.032203204992342,
+        "n_liquidations": 0,
+        "frac_folds_pf_gt_1": 1.0
+      },
+      "signal_stats_total": {
+        "n_emitted": 26540,
+        "n_skipped_clarity": 80249,
+        "n_skipped_cap": 908,
+        "n_skipped_loss_cooloff": 0,
+        "n_skipped_weak_short_book1": 0,
+        "n_primary": 7563,
+        "n_addon": 18977
+      },
+      "exit_reasons": {
+        "target": 7288,
+        "max_hold": 18014,
+        "target_entry_bar": 724,
+        "stop": 302,
+        "stop_entry_bar": 21,
+        "end_of_data": 6,
+        "end_of_data_entry_bar": 2
+      },
+      "book1_wrong_way_next_bar": 0.31380587146257605,
+      "leverage": 18.0
+    }
+  },
+  "compare": {
+    "ranking_by_exp_ru": [
+      {
+        "arm": "wall_clock_q75",
+        "expectancy_return_units": 0.010396663555539894
+      },
+      {
+        "arm": "wall_clock_q50",
+        "expectancy_return_units": 0.00809385597623016
+      },
+      {
+        "arm": "bar_count_q75",
+        "expectancy_return_units": 0.006329381099754056
+      }
+    ],
+    "best_arm": "wall_clock_q75",
+    "best_expectancy_return_units": 0.010396663555539894,
+    "best_pf": 6.485352060119762,
+    "best_sharpe_fold_mean": 18.245023046350273,
+    "wall_clock_q75_beats_q50": true,
+    "bar_count_q75_beats_wall_clock_q75": false,
+    "best_eru_positive": true,
+    "best_pf_ge_1_20": true,
+    "best_no_liquidation": true,
+    "passed_success_criteria": true,
+    "control_arm": "wall_clock_q50",
+    "control_stitched": {
+      "n_trades": 21747,
+      "net_pnl": 4549.036289064999,
+      "profit_factor": 3.72589641601175,
+      "win_rate": 0.7240079091368924,
+      "expectancy_return_units": 0.00809385597623016,
+      "expectancy_return_units_trade_mean": 0.008093855976230161,
+      "sharpe_annualised_fold_mean": 18.52762921500738,
+      "n_liquidations": 0,
+      "frac_folds_pf_gt_1": 1.0
+    }
+  },
+  "elapsed_sec": 192.3,
+  "note": "All three arms preregistered before OOS. MIN_EXCHANGE dust caveat. Do not reopen 1h clarity\u00d7hold\u00d7TP. BTC Phase 2 needs new prereg.",
+  "min_size_equity_caveat": "Wallet equity / maximum drawdown under research_sizing MIN_EXCHANGE (minimum exchange size) on a large wallet is not tradable-edge evidence. Smooth curves are expected at dust size; do not treat them as deployable sizing.",
+  "equity_leverage_sizing_note": "Research/display only: EQUITY_LEVERAGE_NOTIONAL notional = equity \u00d7 equity_fraction \u00d7 leverage (compound when enabled). wallet_return is valid under that mode. Live micro bots always use MIN_EXCHANGE (venue min qty per pair); never size live from wallet %. Peak concurrent margin utilisation is multi-book research stress. Never scale live size from a min-size research wallet % or equity-leverage study.",
+  "default_equity_fraction": 0.01,
+  "equity_is_tradable_edge": false
+}

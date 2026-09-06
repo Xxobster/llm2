@@ -40,6 +40,8 @@ def test_evaluate_v21_gates_smoke():
         pooled_pf=1.25,
         pooled_trades=72,
         daily_returns=np.random.default_rng(1).normal(0.001, 0.01, 300),
+        n_bootstrap=200,
     )
     assert "overall" in gates
     assert gates["hac_sharpe"] in ("PASS", "FAIL", "UNKNOWN")
+    assert int(gates.get("n_bootstrap") or 0) == 200

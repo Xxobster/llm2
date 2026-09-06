@@ -1,0 +1,73 @@
+# Fresh hypothesis after CAUS-STRUCT-001. Registered BEFORE any outer-OOS view.
+# The corrected last_retrace_pct feature is a material signal change; nothing from
+# pre-2026-08-06 searches (feature selection, thresholds, gate tuning) may carry over.
+
+generation_id: structure_v1_caus_retrain_001
+created_utc: "2026-08-06T09:00:00Z"
+status: FROZEN_OOS_VIEWED
+fold_geometry: v2
+invalidates:
+  - CAUS-STRUCT-001
+  - all structure_v1 packs frozen before 2026-08-06
+  - LIVE_BT_SIGNAL_PARITY_REPORT_20260806
+
+hypothesis: >
+  After publishing last_retrace_pct only once the successor leg confirms
+  (causal structure features), a freshly trained LightGBM structure_v1 model
+  on BTCUSDT/ETHUSDT/SOLUSDT 1h still has a reproducible post-cost edge under
+  frozen V2.1 gates. This is a new search, not a re-fit of arms chosen against
+  the leaked column.
+
+economic_rationale: >
+  The leaked retracement column moved ETH tip scores by ~0.8 and flipped roughly
+  half of live decision sides. Any edge measured on that column is not an edge on
+  the knowable feature. Retraining on the causal warehouse asks whether structure
+  still predicts forward returns/direction once look-ahead is removed.
+
+candidate_space:
+  symbols: [BTCUSDT, ETHUSDT, SOLUSDT]
+  timeframes: [1h]
+  targets: [fwd_return, direction]
+  feature_space: [structure_v1]
+  models: [hist_mean, ridge, lgbm_regressor, lgbm_classifier]
+  tp_pct: [0.01]
+  sl_pct: [0.02]
+  max_trials_per_combo: 4
+  note: >
+    Multitrade / k5 / clarity / hold overlays are SEPARATE generations that may
+    open only after a single-book parent on the causal feature earns at least
+    SHADOW_READY. Do not inherit their prior arm rankings.
+
+selection:
+  method: nested_hunt_inner_then_one_outer_freeze
+  objective: mean_inner_profit_factor
+  forbidden:
+    - select_or_rank_on_outer_oos
+    - select_or_rank_on_lockbox
+    - reuse_pre_caus_arm_rankings
+  seed_root: 20260806
+
+evaluation:
+  outer: fold_geometry_v2_stitched_oos
+  lockbox: DO_NOT_OPEN_FOR_SELECTION
+  engine: botsgeneral_tradesim
+  costs: research_costs_baseline
+  sizing: min_exchange
+  leverage: leverage_from_stop(0.02)
+  leakage_gate: >
+    require_clean_audit with builder-responsiveness (CAUS-WAREHOUSE-001) and
+    warehouse-recompute structure builder before any train fold.
+
+success_criteria:
+  - leakage_audit_ok
+  - stitched_oos evaluated once per frozen selection
+  - quote_no_pre_20260806_number
+  - Layer_A_parity_n_bars_pred_differ_eq_0_on_forward_bars_before_readiness
+
+live_deploy: FORBIDDEN_without_certificate_and_explicit_user_auth
+promotion: FORBIDDEN_without_new_pack_hash_certificate_and_explicit_user_auth
+
+preregister_sha256_at_run: 93d76d2e5d9f31a27657bcd2871d4ba86be874e94e6ddf0b543a77829392e575
+run_started_utc: "2026-08-06T08:55:54Z"
+frozen_utc: "2026-08-06T09:08:10Z"
+frozen_reason: outer-OOS of caus_retrain_001 viewed; do not re-search this space.
